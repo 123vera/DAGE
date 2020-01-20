@@ -11,6 +11,7 @@
     "axios": "^0.19.1",
     "dva-loading": "^3.0.20",
     "dva-model-creator": "^0.4.3",
+    "history": "^4.10.1",
     "http2": "^3.3.7",
     "js-cookie": "^2.2.1",
     "react": "^16.8.6",

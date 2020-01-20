@@ -2,9 +2,53 @@ html,
 body,
 #root {
   height: 100%;
-  font-size: 20px;
+  margin: 0;
+  padding: 0;
 }
 
 body {
   margin: 0;
+}
+
+* {
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  font-weight: 400;
+}
+
+li {
+  list-style: none;
+}
+
+ul,
+ol {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:focus,
+a:active,
+a:visited {
+  text-decoration: none;
+}
+
+button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }

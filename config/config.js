@@ -18,7 +18,7 @@ const config = {
         },
         hd: true,
         title: {
-          defaultTitle: 'DEG',
+          defaultTitle: 'DAGE',
         },
         locale: {
           default: 'zh-CN',

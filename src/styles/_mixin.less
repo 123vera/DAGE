@@ -29,7 +29,12 @@
 .background-gradient(@color-from, @color-to) {
   background: @color-from;
   background: -moz-linear-gradient(left, @color-from 0%, @color-to 100%);
-  background: -webkit-gradient(left top, right top, color-stop(0%, @color-from), color-stop(100%, @color-to));
+  background: -webkit-gradient(
+    left top,
+    right top,
+    color-stop(0%, @color-from),
+    color-stop(100%, @color-to)
+  );
   background: -webkit-linear-gradient(left, @color-from 0%, @color-to 100%);
   background: -o-linear-gradient(left, @color-from 0%, @color-to 100%);
   background: -ms-linear-gradient(left, @color-from 0%, @color-to 100%);
@@ -39,7 +44,12 @@
 .background-gradient-vertical (@color-from, @color-to) {
   background: @color-from;
   background: -moz-linear-gradient(top, @color-from 0%, @color-to 100%);
-  background: -webkit-gradient(left top, left bottom, color-stop(0%, @color-from), color-stop(100%, @color-to));
+  background: -webkit-gradient(
+    left top,
+    left bottom,
+    color-stop(0%, @color-from),
+    color-stop(100%, @color-to)
+  );
   background: -webkit-linear-gradient(top, @color-from 0%, @color-to 100%);
   background: -o-linear-gradient(top, @color-from 0%, @color-to 100%);
   background: -ms-linear-gradient(top, @color-from 0%, @color-to 100%);
