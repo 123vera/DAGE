@@ -13,7 +13,7 @@ export default {
       const res = yield call(HomeService.getUserInfoStatus, payload);
       console.log(res);
     },
-    *Test2({ payload }, { call, put }) {
+    *Test2(_, { put }) {
       yield put({ type: 'Test' });
     },
   },

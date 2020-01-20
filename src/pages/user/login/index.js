@@ -1,6 +1,6 @@
 import styles from './index.less';
 import React, { Component } from 'react';
-import { formatMessage, setLocale, getLocale } from 'umi-plugin-locale';
+import { formatMessage } from 'umi-plugin-locale';
 import { connect } from 'dva';
 
 @connect(({ pageHome }) => ({ pageHome }))
