@@ -22,7 +22,8 @@ h3,
 h4,
 h5,
 h6,
-p {
+p,
+section {
   margin: 0;
   font-weight: 400;
 }

@@ -1,8 +1,8 @@
 export default [
   {
     path: '/',
-    redirect: './home',
-    component: './home',
+    redirect: './user/login',
+    component: './user/login',
     title: '主页',
   },
   {
@@ -10,7 +10,8 @@ export default [
     component: '../layouts/LoginLayout',
     routes: [
       { path: '/user/login', title: '登录', component: './user/login' },
-      // { path: '/register', title: '注册', component: './user/register' },
+      { path: '/user/register', title: '注册', component: './user/register' },
+      { path: '/user/account', title: '选择登录账号', component: './user/account' },
     ],
   },
 ];

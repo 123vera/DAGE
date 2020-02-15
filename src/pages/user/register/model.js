@@ -1,7 +1,7 @@
 import * as HomeService from '@/services/api/home';
 
 export default {
-  namespace: 'login',
+  namespace: 'register',
   state: {
     prefix: '',
   },
@@ -14,9 +14,6 @@ export default {
     *Test({ payload }, { call }) {
       const res = yield call(HomeService.getUserInfoStatus, payload);
       console.log(res);
-    },
-    *Test2({ payload }, { call, put }) {
-      yield put({ type: 'Test' });
     },
   },
   subscriptions: {
