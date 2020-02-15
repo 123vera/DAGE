@@ -32,6 +32,10 @@ const config = {
   targets: {
     ie: 11,
   },
+  theme: {
+    // 'primary-color': '#3385ff',
+    'font-size-base': '10px',
+  },
   routes: pageRoutes,
   lessLoaderOptions: {
     javascriptEnabled: true,

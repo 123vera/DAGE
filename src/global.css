@@ -1,14 +1,17 @@
-html,
-body,
-#root {
+html, body, #root {
   height: 100%;
-  margin: 0;
-  padding: 0;
+  background: #fff;
+}
+
+html {
+  font-size: 10px;
 }
 
 body {
   margin: 0;
+  font-size: 1.4rem;
 }
+
 
 * {
   -webkit-overflow-scrolling: touch;
