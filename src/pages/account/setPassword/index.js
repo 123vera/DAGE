@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import { formatMessage } from 'umi-plugin-locale';
 import { connect } from 'dva';
-import { Picker, List } from 'antd-mobile';
 import PageHeader from '@/components/common/PageHeader';
 import NEXT_STEP from '@/assets/dark/next-step.png';
 import { REG } from '@/utils/constants';
 import styles from './index.less';
 
-@connect(({ register }) => ({ register }))
+@connect(({ setPassword }) => ({ setPassword }))
 class Home extends Component {
   state = {
     password: '',
@@ -18,14 +17,6 @@ class Home extends Component {
     },
   };
 
-  onPickerChange = val => {
-    const { dispatch } = this.props;
-    dispatch({
-      type: 'register/UpdateState',
-      payload: { prefix: val },
-    });
-  };
-
   regInput = (type, e) => {
     const {
       target: { value },
@@ -34,10 +25,6 @@ class Home extends Component {
 
     setTimeout(() => {
       if (!value) return;
-      if (type === 'phone' && !REG.MOBILE.test(value)) {
-        this.setState({ errMsg: { type, value: '手机号格式错误' } });
-        return;
-      }
 
       if (type === 'password' && !REG.PASSWORD.test(value)) {
         this.setState({ errMsg: { type, value: '密码格式错误' } });
@@ -49,55 +36,19 @@ class Home extends Component {
         return;
       }
 
-      if (type === 'code' && value.length !== 6) {
-        this.setState({ errMsg: { type, value: '验证码格式错误' } });
-        return;
-      }
-
       this.setState({ errMsg: { type: '', value: '' } });
     }, 100);
   };
 
   render() {
-    const {
-      register: { prefix },
-    } = this.props;
     const { errMsg } = this.state;
 
     return (
       <div id={styles.userRegister}>
         <PageHeader />
         <section>
-          <p>{formatMessage({ id: `REGISTER_TITLE` })}</p>
+          <p>{formatMessage({ id: `LOGIN_SET_PASSWORD` })}</p>
           <div className={styles.mainWrapper}>
-            <label htmlFor="phone">
-              <span>{formatMessage({ id: `COMMON_LABEL_PHONE` })}</span>
-              <div
-                className={`${styles.pickerWrapper} ${errMsg.type === 'phone' && styles.inputErr}`}
-              >
-                <Picker
-                  data={[
-                    { label: '+86', value: '+86' },
-                    { label: '+33', value: '+33' },
-                  ]}
-                  cols={1}
-                  extra={prefix || '+86'}
-                  value={prefix}
-                  onOk={v => this.onPickerChange(v)}
-                >
-                  <List.Item arrow="down" />
-                </Picker>
-                <input
-                  id="phone"
-                  type="text"
-                  autoComplete="off"
-                  placeholder={formatMessage({ id: `COMMON_PLACEHOLDER_PHONE` })}
-                  onBlur={e => this.regInput('phone', e)}
-                  onChange={e => this.setState({ phone: e.target.value })}
-                />
-              </div>
-            </label>
-
             <label htmlFor="password">
               <span>{formatMessage({ id: `COMMON_LABEL_PASSWORD` })}</span>
               <input
@@ -122,23 +73,6 @@ class Home extends Component {
                 onBlur={e => this.regInput('repassword', e)}
                 onChange={e => this.setState({ repassword: e.target.value })}
               />
-            </label>
-
-            <label htmlFor="code">
-              <span>{formatMessage({ id: `COMMON_LABEL_VERFICATION_CODE` })}</span>
-              <div className={`${styles.codeWrapper} ${errMsg.type === 'code' && styles.inputErr}`}>
-                <input
-                  id="code"
-                  type="text"
-                  autoComplete="off"
-                  placeholder={formatMessage({ id: `COMMON_PLACEHOLDER_CODE` })}
-                  onBlur={e => this.regInput('code', e)}
-                  onChange={e => this.setState({ code: e.target.value })}
-                />
-                <span className={styles.codeNumber}>
-                  {formatMessage({ id: `REGISTER_GET_CODE` })}
-                </span>
-              </div>
               <h4>{errMsg.value || ''}</h4>
             </label>
 

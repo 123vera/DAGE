@@ -1,7 +1,7 @@
 import * as HomeService from '@/services/api/home';
 
 export default {
-  namespace: 'setAccount',
+  namespace: 'setPassword',
   state: {},
   reducers: {
     UpdateState(state, { payload }) {

@@ -10,12 +10,7 @@ import styles from './index.less';
 @connect(({ register }) => ({ register }))
 class Home extends Component {
   state = {
-    password: '',
-    repassword: '',
-    errMsg: {
-      type: '',
-      value: '',
-    },
+    errMessage: null,
   };
 
   onPickerChange = val => {
@@ -30,31 +25,24 @@ class Home extends Component {
     const {
       target: { value },
     } = e;
-    const { password, repassword } = this.state;
-
     setTimeout(() => {
-      if (!value) return;
-      if (type === 'phone' && !REG.MOBILE.test(value)) {
-        this.setState({ errMsg: { type, value: '手机号格式错误' } });
+      console.log('4343');
+
+      console.log(type, value);
+      if (type === 'phone' && REG.MOBILE.test(value)) {
+        this.setState({ errMessage: '手机号格式错误' });
         return;
       }
 
-      if (type === 'password' && !REG.PASSWORD.test(value)) {
-        this.setState({ errMsg: { type, value: '密码格式错误' } });
+      if (type === 'password' && REG.PASSWORD.test(value)) {
+        this.setState({ errMessage: '密码格式错误' });
         return;
       }
 
-      if (type === 'repassword' && !!password && password !== repassword) {
-        this.setState({ errMsg: { type, value: '两次密码不一致' } });
+      if (type === 'repassword' && this.state.password !== this.state.repassword) {
+        this.setState({ errMessage: '两次密码不一致' });
         return;
       }
-
-      if (type === 'code' && value.length !== 6) {
-        this.setState({ errMsg: { type, value: '验证码格式错误' } });
-        return;
-      }
-
-      this.setState({ errMsg: { type: '', value: '' } });
     }, 100);
   };
 
@@ -62,8 +50,8 @@ class Home extends Component {
     const {
       register: { prefix },
     } = this.props;
-    const { errMsg } = this.state;
-
+    const { errMessage } = this.state;
+    console.log('errMessage', this.state);
     return (
       <div id={styles.userRegister}>
         <PageHeader />
@@ -72,9 +60,7 @@ class Home extends Component {
           <div className={styles.mainWrapper}>
             <label htmlFor="phone">
               <span>{formatMessage({ id: `COMMON_LABEL_PHONE` })}</span>
-              <div
-                className={`${styles.pickerWrapper} ${errMsg.type === 'phone' && styles.inputErr}`}
-              >
+              <div className={styles.pickerWrapper}>
                 <Picker
                   data={[
                     { label: '+86', value: '+86' },
@@ -90,10 +76,8 @@ class Home extends Component {
                 <input
                   id="phone"
                   type="text"
-                  autoComplete="off"
                   placeholder={formatMessage({ id: `COMMON_PLACEHOLDER_PHONE` })}
                   onBlur={e => this.regInput('phone', e)}
-                  onChange={e => this.setState({ phone: e.target.value })}
                 />
               </div>
             </label>
@@ -103,11 +87,8 @@ class Home extends Component {
               <input
                 id="password"
                 type="text"
-                className={errMsg.type === 'password' ? styles.inputErr : ''}
-                autoComplete="off"
                 placeholder={formatMessage({ id: `COMMON_PLACEHOLDER_PASSWORD` })}
                 onBlur={e => this.regInput('password', e)}
-                onChange={e => this.setState({ password: e.target.value })}
               />
             </label>
 
@@ -116,31 +97,27 @@ class Home extends Component {
               <input
                 id="repassword"
                 type="text"
-                autoComplete="off"
-                className={errMsg.type === 'repassword' ? styles.inputErr : ''}
                 placeholder={formatMessage({ id: `COMMON_PLACEHOLDER_REPASSWORD` })}
                 onBlur={e => this.regInput('repassword', e)}
-                onChange={e => this.setState({ repassword: e.target.value })}
               />
             </label>
 
             <label htmlFor="code">
               <span>{formatMessage({ id: `COMMON_LABEL_VERFICATION_CODE` })}</span>
-              <div className={`${styles.codeWrapper} ${errMsg.type === 'code' && styles.inputErr}`}>
+              <div className={styles.codeWrapper}>
                 <input
                   id="code"
                   type="text"
-                  autoComplete="off"
                   placeholder={formatMessage({ id: `COMMON_PLACEHOLDER_CODE` })}
                   onBlur={e => this.regInput('code', e)}
-                  onChange={e => this.setState({ code: e.target.value })}
                 />
                 <span className={styles.codeNumber}>
                   {formatMessage({ id: `REGISTER_GET_CODE` })}
                 </span>
               </div>
-              <h4>{errMsg.value || ''}</h4>
             </label>
+
+            {errMessage && <span>{errMessage}</span>}
 
             <img className={styles.nextStep} src={NEXT_STEP} alt="" />
           </div>

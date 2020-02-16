@@ -33,8 +33,8 @@ const config = {
     ie: 11,
   },
   theme: {
-    // 'primary-color': '#3385ff',
-    'font-size-base': '10px',
+    // 'primary-color': 'red',
+    'font-size-base': '28px',
   },
   routes: pageRoutes,
   lessLoaderOptions: {

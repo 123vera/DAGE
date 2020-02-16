@@ -1,7 +1,7 @@
 import * as HomeService from '@/services/api/home';
 
 export default {
-  namespace: 'setAccount',
+  namespace: 'selectAccount',
   state: {},
   reducers: {
     UpdateState(state, { payload }) {
@@ -14,5 +14,12 @@ export default {
       console.log(res);
     },
   },
-  subscriptions: {},
+  subscriptions: {
+    SetupHistory({ dispatch, history }) {
+      history.listen(location => {
+        // 这里可以获取当前变化的history路径以及参数，hash所有值，这样就可以在路由地址变化后做处理
+        // dispatch({ type: 'Test' });
+      });
+    },
+  },
 };
