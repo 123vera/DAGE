@@ -1,17 +1,16 @@
+
 html, body, #root {
   height: 100%;
   background: #fff;
 }
 
-html {
-  font-size: 10px;
-}
-
 body {
   margin: 0;
-  font-size: 1.4rem;
+  font-size: 14px;
+  min-height: 100vh;
+  background: #111622;;
+  color: #fff;
 }
-
 
 * {
   -webkit-overflow-scrolling: touch;
