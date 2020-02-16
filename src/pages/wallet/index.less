@@ -1,9 +1,23 @@
 @import '../../styles/mixin.less';
 
 .home {
-  padding-top: 20px;
+  padding-top: 54px;
   background: @theme-color-bg;
-  min-height: 100vh;
+
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding-top: 10px;
+    background: @theme-color-bg;
+
+    .menus {
+      position: absolute;
+      top: 54px;
+      right: 30px;
+    }
+  }
 
   .banner {
     margin: 24px;

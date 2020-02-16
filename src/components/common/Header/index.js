@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {withRouter} from 'umi'
+import { withRouter } from 'umi';
 import styles from './index.less';
 
 const Icon = function(props = {}) {
@@ -7,13 +7,13 @@ const Icon = function(props = {}) {
     className={props.class}
     src={props.src}
     style={{ width: props.width || '18px', height: props.height }}
-    onClick={props.onClick}
+    onClick={(e) => props.onClick && props.onClick(e)}
     alt=""
   />;
 };
 
 const Action = function(props = {}) {
-  return <aside onClick={props.onClick}>
+  return <aside onClick={(e) => props.onClick && props.onClick(e)}>
     {props.icon && <Icon {...props.icon}/>}
     {props.text}
   </aside>;

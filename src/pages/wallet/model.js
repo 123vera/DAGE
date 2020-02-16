@@ -1,7 +1,7 @@
 import * as HomeService from '@/services/api/home';
 
 export default {
-  namespace: 'pageHome',
+  namespace: 'wallet',
   state: [],
   reducers: {
     UpdateState(state, { payload }) {
