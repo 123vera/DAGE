@@ -5,13 +5,12 @@ body,
   background: #fff;
 }
 
-html {
-  /* font-size: 10px; */
-}
-
 body {
   margin: 0;
   /* font-size: 14px; */
+  /* min-height: 100vh; */
+  /* background: #111622; */
+  color: #fff;
 }
 
 * {

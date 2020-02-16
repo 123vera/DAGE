@@ -1,5 +1,6 @@
 import path from 'path';
 import pageRoutes from './router.config';
+
 // import createLoading from 'dva-loading';
 
 const config = {
@@ -16,7 +17,7 @@ const config = {
           // loadingComponent: createLoading(),
           webpackChunkName: true,
         },
-        hd: true,
+        // hd: true,
         title: {
           defaultTitle: 'DAGE',
         },
@@ -33,6 +34,8 @@ const config = {
     ie: 11,
   },
   theme: {
+    'primary-color': '#FFFFFF',
+    hd: '2px',
     // 'primary-color': 'red',
     'font-size-base': '28px',
   },

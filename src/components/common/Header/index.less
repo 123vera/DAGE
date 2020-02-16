@@ -1,0 +1,29 @@
+@import '../../../styles/mixin.less';
+
+.header {
+  position: relative;
+  height: @header-height;
+  line-height: @header-height;
+  text-align: center;
+
+  .icon {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 30px;
+    margin: auto;
+  }
+
+  aside {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 30px;
+    margin: auto;
+    line-height: 44px;
+
+    img {
+      vertical-align: middle;
+    }
+  }
+}
