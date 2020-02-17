@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { formatMessage } from 'umi-plugin-locale';
 import { connect } from 'dva';
-import PageHeader from '@/components/common/PageHeader';
+import Header from '@/components/common/Header';
 import NEXT_STEP from '@/assets/dark/next-step.png';
 import { REG } from '@/utils/constants';
 import styles from './index.less';
@@ -45,7 +45,7 @@ class Home extends Component {
 
     return (
       <div id={styles.userRegister}>
-        <PageHeader />
+        <Header />
         <section>
           <p>{formatMessage({ id: `LOGIN_SET_PASSWORD` })}</p>
           <div className={styles.mainWrapper}>

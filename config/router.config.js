@@ -1,10 +1,11 @@
 export default [
   {
     path: '/',
-    redirect: './account/login',
-    component: './account/login',
+    redirect: './home',
+    component: './home',
     title: '主页',
-  },{
+  },
+  {
     path: '/home',
     component: './home',
     title: '首页',

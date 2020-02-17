@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { formatMessage } from 'umi-plugin-locale';
-import PageHeader from '@/components/common/PageHeader';
+import Header from '@/components/common/Header';
 import NEXT_STEP from '@/assets/dark/next-step.png';
 import styles from './index.less';
 
@@ -10,7 +10,7 @@ class Index extends Component {
   render() {
     return (
       <div id={styles.setAccount}>
-        <PageHeader />
+        <Header />
         <div className={styles.mainContent}>
           <p>{formatMessage({ id: `SELECT_NEW_ACCOUNT` })}</p>
 

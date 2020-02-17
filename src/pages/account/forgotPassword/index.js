@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { formatMessage } from 'umi-plugin-locale';
 import { connect } from 'dva';
-import PageHeader from '@/components/common/PageHeader';
+import Header from '@/components/common/Header';
 import { Picker, List } from 'antd-mobile';
 import styles from './index.less';
 import NEXT_STEP from '@/assets/dark/next-step.png';
@@ -20,7 +20,7 @@ class Home extends Component {
     const { prefix } = this.state;
     return (
       <div id={styles.forgotPassword}>
-        <PageHeader />
+        <Header />
         <section>
           <p>{formatMessage({ id: `LOGIN_FIND_PASSWORD` })}</p>
           <div className={styles.mainWrapper}>

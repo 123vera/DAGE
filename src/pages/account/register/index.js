@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { formatMessage } from 'umi-plugin-locale';
 import { connect } from 'dva';
 import { Picker, List } from 'antd-mobile';
-import PageHeader from '@/components/common/PageHeader';
+import Header from '@/components/common/Header';
 import NEXT_STEP from '@/assets/dark/next-step.png';
 import { REG } from '@/utils/constants';
 import styles from './index.less';
@@ -66,7 +66,7 @@ class Home extends Component {
 
     return (
       <div id={styles.userRegister}>
-        <PageHeader />
+        <Header />
         <section>
           <p>{formatMessage({ id: `REGISTER_TITLE` })}</p>
           <div className={styles.mainWrapper}>

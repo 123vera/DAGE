@@ -1,17 +1,23 @@
 @import '../../../styles/mixin.less';
 
 .header {
-  position: relative;
+  position: absolute;
+  top: 0;
+  width: 100%;
   height: @header-height;
   line-height: @header-height;
+  box-sizing: border-box;
   text-align: center;
+  padding: 54px 0;
 
   .icon {
     position: absolute;
     top: 0;
     bottom: 0;
-    left: 30px;
+    left: 60px;
     margin: auto;
+    width: 34px;
+    height: 34px;
   }
 
   aside {

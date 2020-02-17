@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { formatMessage } from 'umi-plugin-locale';
-import PageHeader from '@/components/common/PageHeader';
+import Header from '@/components/common/Header';
 import UNCHECKED_IMG from '@/assets/dark/unchecked.png';
 import CHECKED_IMG from '@/assets/dark/checked.png';
 import ADD_IMG from '@/assets/dark/add.png';
@@ -22,7 +22,7 @@ class Index extends Component {
     const accountList = [2323, 32323, 5454];
     return (
       <div id={styles.selectAccount}>
-        <PageHeader />
+        <Header />
         <div className={styles.mainContent}>
           <p>{formatMessage({ id: `SELECT_ACCOUNT_TITLE` })}</p>
 

@@ -17,7 +17,7 @@ const config = {
           // loadingComponent: createLoading(),
           webpackChunkName: true,
         },
-        // hd: true,
+        hd: true,
         title: {
           defaultTitle: 'DAGE',
         },
@@ -35,8 +35,6 @@ const config = {
   },
   theme: {
     'primary-color': '#FFFFFF',
-    hd: '2px',
-    // 'primary-color': 'red',
     'font-size-base': '28px',
   },
   routes: pageRoutes,
