@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { formatMessage } from 'umi-plugin-locale';
-import Header from '@/components/common/Header';
+import PageHeader from '@/components/common/PageHeader';
 import NEXT_STEP from '@/assets/dark/next-step.png';
+import ARROW_LEFT from '@/assets/dark/arrow-left.png';
 import styles from './index.less';
 
 class Index extends Component {
@@ -10,7 +11,8 @@ class Index extends Component {
   render() {
     return (
       <div id={styles.setAccount}>
-        <Header />
+        <PageHeader leftContent={{ icon: ARROW_LEFT }} />
+
         <div className={styles.mainContent}>
           <p>{formatMessage({ id: `SELECT_NEW_ACCOUNT` })}</p>
 

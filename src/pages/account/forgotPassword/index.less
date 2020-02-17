@@ -2,35 +2,43 @@
 
 #forgotPassword {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100%;
   color: #fff;
 
   section {
+    position: relative;
+    right: 0;
+    left: 60px;
     width: 100%;
-    margin-left: 60px;
 
     p {
       font-size: @font-size-super-xl;
     }
 
     .mainWrapper {
-      position: relative;
-      box-sizing: border-box;
-      margin-top: 40px;
-      padding: 82px 106px 82px 44px;
-      background-color: @theme-color-bg-content;
+      background: @theme-color-bg-content;
 
-      &::before {
-        position: absolute;
-        top: 0;
-        left: 0;
-        content: '';
-        display: inline-block;
+      .content {
+        position: relative;
+        box-sizing: border-box;
+        margin-top: 40px;
         width: 100%;
-        height: 2px;
-        .background-gradient-horizontal(@theme-border-gradient-from, @theme-border-gradient-to);
+
+        padding: 82px 106px 82px 44px;
+        background-color: @theme-color-bg-content;
+
+        &::before {
+          position: absolute;
+          top: 0;
+          left: 0;
+          content: '';
+          display: inline-block;
+          width: 100%;
+          height: 2px;
+          .background-gradient-horizontal(@theme-border-gradient-from, @theme-border-gradient-to);
+        }
       }
 
       label {

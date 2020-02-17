@@ -2,44 +2,41 @@
 
 #selectAccount {
   display: flex;
-  justify-content: center;
   flex-direction: column;
-  align-items: center;
-  height: 100vh;
-  color: #fff;
 
   .mainContent {
     width: 100%;
 
     p {
-      position: absolute;
-      top: 150px;
       font-size: @font-size-super-xl;
       margin-left: 60px;
     }
 
-    section {
-      position: relative;
-      right: 0;
-      left: 60px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 92%;
-      box-sizing: border-box;
-      margin-top: 40px;
-      padding: 35px 60px 35px 35px;
-      background-color: @theme-color-bg-content;
+    .sectionWrap {
+      margin-top: 25%;
 
-      &::before {
-        position: absolute;
-        top: 0;
-        left: 0;
-        content: '';
-        display: inline-block;
-        width: 100%;
-        height: 2px;
-        .background-gradient-horizontal(@theme-border-gradient-from, @theme-border-gradient-to);
+      section {
+        position: relative;
+        right: 0;
+        left: 60px;
+        display: flex;
+        justify-content: space-between;
+        width: 92%;
+        box-sizing: border-box;
+        margin-top: 40px;
+        padding: 35px 60px 35px 35px;
+        background-color: @theme-color-bg-content;
+
+        &::before {
+          position: absolute;
+          top: 0;
+          left: 0;
+          content: '';
+          display: inline-block;
+          width: 100%;
+          height: 2px;
+          .background-gradient-horizontal(@theme-border-gradient-from, @theme-border-gradient-to);
+        }
       }
     }
   }

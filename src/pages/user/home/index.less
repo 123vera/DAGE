@@ -1,0 +1,42 @@
+@import '../../../styles/mixin.less';
+
+#userCenter {
+  .banner {
+    position: relative;
+    text-align: center;
+
+    .center {
+      position: absolute;
+      top: 70px;
+      left: 50%;
+      transform: translateX(-50%);
+      line-height: 2;
+
+      p {
+        font-size: @font-size-large-1;
+      }
+
+      span {
+        color: #99a7c2;
+        font-size: @font-size-small;
+      }
+    }
+
+    img {
+      &.bg {
+        width: 83.73%;
+      }
+
+      &.bg1 {
+        position: absolute;
+        top: 40px;
+        right: 110px;
+        width: 190px;
+      }
+
+      &.icon {
+        width: 90px;
+      }
+    }
+  }
+}

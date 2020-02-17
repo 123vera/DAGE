@@ -4,6 +4,7 @@ import ARROW_LEFT from '@/assets/dark/arrow-left.png';
 import styles from './index.less';
 
 const Icon = function(props) {
+  console.log('props.src', props.src);
   return (
     <img
       className={props.class}
@@ -31,9 +32,19 @@ class Header extends Component {
     icon.class = styles.icon || '';
 
     onAction && (action.onClick = onAction);
+    console.log(icon);
     return (
       <header className={styles.header}>
-        <Icon {...icon} />
+        {icon.src ? <Icon {...icon} /> : <span>&nbsp;</span>}
+        {/* <img
+          className={icon.class}
+          src={icon.src}
+          // src={icon.src || ARROW_LEFT}
+          style={{ width: icon.width, height: icon.height }}
+          onClick={e => icon.onClick && icon.onClick(e)}
+          alt=""
+        /> */}
+
         <span>{title}</span>
         {action && <Action {...action} />}
       </header>

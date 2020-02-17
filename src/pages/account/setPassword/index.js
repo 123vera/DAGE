@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { formatMessage } from 'umi-plugin-locale';
 import { connect } from 'dva';
-import Header from '@/components/common/Header';
+import PageHeader from '@/components/common/PageHeader';
 import NEXT_STEP from '@/assets/dark/next-step.png';
+import ARROW_LEFT from '@/assets/dark/arrow-left.png';
 import { REG } from '@/utils/constants';
 import styles from './index.less';
 
@@ -45,7 +46,8 @@ class Home extends Component {
 
     return (
       <div id={styles.userRegister}>
-        <Header />
+        <PageHeader leftContent={{ icon: ARROW_LEFT }} />
+
         <section>
           <p>{formatMessage({ id: `LOGIN_SET_PASSWORD` })}</p>
           <div className={styles.mainWrapper}>

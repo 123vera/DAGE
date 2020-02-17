@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { formatMessage } from 'umi-plugin-locale';
 import { connect } from 'dva';
 import { Picker, List } from 'antd-mobile';
-import Header from '@/components/common/Header';
+import PageHeader from '@/components/common/PageHeader';
 import NEXT_STEP from '@/assets/dark/next-step.png';
+import ARROW_LEFT from '@/assets/dark/arrow-left.png';
 import { REG } from '@/utils/constants';
 import styles from './index.less';
 
@@ -66,83 +67,88 @@ class Home extends Component {
 
     return (
       <div id={styles.userRegister}>
-        <Header />
+        <PageHeader leftContent={{ icon: ARROW_LEFT }} />
         <section>
           <p>{formatMessage({ id: `REGISTER_TITLE` })}</p>
           <div className={styles.mainWrapper}>
-            <label htmlFor="phone">
-              <span>{formatMessage({ id: `COMMON_LABEL_PHONE` })}</span>
-              <div
-                className={`${styles.pickerWrapper} ${errMsg.type === 'phone' && styles.inputErr}`}
-              >
-                <Picker
-                  data={[
-                    { label: '+86', value: '+86' },
-                    { label: '+33', value: '+33' },
-                  ]}
-                  cols={1}
-                  extra={prefix || '+86'}
-                  value={prefix}
-                  onOk={v => this.onPickerChange(v)}
+            <div className={styles.content}>
+              <label htmlFor="phone">
+                <span>{formatMessage({ id: `COMMON_LABEL_PHONE` })}</span>
+                <div
+                  className={`${styles.pickerWrapper} ${errMsg.type === 'phone' &&
+                    styles.inputErr}`}
                 >
-                  <List.Item arrow="down" />
-                </Picker>
+                  <Picker
+                    data={[
+                      { label: '+86', value: '+86' },
+                      { label: '+33', value: '+33' },
+                    ]}
+                    cols={1}
+                    extra={prefix || '+86'}
+                    value={prefix}
+                    onOk={v => this.onPickerChange(v)}
+                  >
+                    <List.Item arrow="down" />
+                  </Picker>
+                  <input
+                    id="phone"
+                    type="text"
+                    autoComplete="off"
+                    placeholder={formatMessage({ id: `COMMON_PLACEHOLDER_PHONE` })}
+                    onBlur={e => this.regInput('phone', e)}
+                    onChange={e => this.setState({ phone: e.target.value })}
+                  />
+                </div>
+              </label>
+
+              <label htmlFor="password">
+                <span>{formatMessage({ id: `COMMON_LABEL_PASSWORD` })}</span>
                 <input
-                  id="phone"
+                  id="password"
+                  type="text"
+                  className={errMsg.type === 'password' ? styles.inputErr : ''}
+                  autoComplete="off"
+                  placeholder={formatMessage({ id: `COMMON_PLACEHOLDER_PASSWORD` })}
+                  onBlur={e => this.regInput('password', e)}
+                  onChange={e => this.setState({ password: e.target.value })}
+                />
+              </label>
+
+              <label htmlFor="repassword">
+                <span>{formatMessage({ id: `COMMON_LABEL_REPASSWORD` })}</span>
+                <input
+                  id="repassword"
                   type="text"
                   autoComplete="off"
-                  placeholder={formatMessage({ id: `COMMON_PLACEHOLDER_PHONE` })}
-                  onBlur={e => this.regInput('phone', e)}
-                  onChange={e => this.setState({ phone: e.target.value })}
+                  className={errMsg.type === 'repassword' ? styles.inputErr : ''}
+                  placeholder={formatMessage({ id: `COMMON_PLACEHOLDER_REPASSWORD` })}
+                  onBlur={e => this.regInput('repassword', e)}
+                  onChange={e => this.setState({ repassword: e.target.value })}
                 />
-              </div>
-            </label>
+              </label>
 
-            <label htmlFor="password">
-              <span>{formatMessage({ id: `COMMON_LABEL_PASSWORD` })}</span>
-              <input
-                id="password"
-                type="text"
-                className={errMsg.type === 'password' ? styles.inputErr : ''}
-                autoComplete="off"
-                placeholder={formatMessage({ id: `COMMON_PLACEHOLDER_PASSWORD` })}
-                onBlur={e => this.regInput('password', e)}
-                onChange={e => this.setState({ password: e.target.value })}
-              />
-            </label>
+              <label htmlFor="code">
+                <span>{formatMessage({ id: `COMMON_LABEL_VERFICATION_CODE` })}</span>
+                <div
+                  className={`${styles.codeWrapper} ${errMsg.type === 'code' && styles.inputErr}`}
+                >
+                  <input
+                    id="code"
+                    type="text"
+                    autoComplete="off"
+                    placeholder={formatMessage({ id: `COMMON_PLACEHOLDER_CODE` })}
+                    onBlur={e => this.regInput('code', e)}
+                    onChange={e => this.setState({ code: e.target.value })}
+                  />
+                  <span className={styles.codeNumber}>
+                    {formatMessage({ id: `REGISTER_GET_CODE` })}
+                  </span>
+                </div>
+                <h4>{errMsg.value || ''}</h4>
+              </label>
 
-            <label htmlFor="repassword">
-              <span>{formatMessage({ id: `COMMON_LABEL_REPASSWORD` })}</span>
-              <input
-                id="repassword"
-                type="text"
-                autoComplete="off"
-                className={errMsg.type === 'repassword' ? styles.inputErr : ''}
-                placeholder={formatMessage({ id: `COMMON_PLACEHOLDER_REPASSWORD` })}
-                onBlur={e => this.regInput('repassword', e)}
-                onChange={e => this.setState({ repassword: e.target.value })}
-              />
-            </label>
-
-            <label htmlFor="code">
-              <span>{formatMessage({ id: `COMMON_LABEL_VERFICATION_CODE` })}</span>
-              <div className={`${styles.codeWrapper} ${errMsg.type === 'code' && styles.inputErr}`}>
-                <input
-                  id="code"
-                  type="text"
-                  autoComplete="off"
-                  placeholder={formatMessage({ id: `COMMON_PLACEHOLDER_CODE` })}
-                  onBlur={e => this.regInput('code', e)}
-                  onChange={e => this.setState({ code: e.target.value })}
-                />
-                <span className={styles.codeNumber}>
-                  {formatMessage({ id: `REGISTER_GET_CODE` })}
-                </span>
-              </div>
-              <h4>{errMsg.value || ''}</h4>
-            </label>
-
-            <img className={styles.nextStep} src={NEXT_STEP} alt="" />
+              <img className={styles.nextStep} src={NEXT_STEP} alt="" />
+            </div>
           </div>
         </section>
       </div>
