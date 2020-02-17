@@ -7,9 +7,22 @@ export default [
   },
   {
     path: '/home',
-    component: './home',
-    title: '首页',
+    component: '../layouts/MainLayout',
+    routes: [
+      { path: '/home/wallet', title: '钱包', exact: true, component: './wallet' },
+      // { path: '/account/register', title: '注册', component: './account/register' },
+      // { path: '/account/account', title: '选择登录账号', component: './account/account' },
+    ],
   },
+
+  {
+    path: '',
+    component: '../layouts/index',
+    routes: [
+      { path: '/wallet/flow', title: '资金流水', component: './wallet/flow' },
+    ],
+  },
+
   {
     path: '/',
     component: '../layouts/BasicLayout',
