@@ -1,27 +1,19 @@
 export default [
   {
     path: '/',
-    redirect: './home',
-    component: './home',
+    redirect: './wallet/flow',
+    component: './wallet/flow',
     title: '主页',
   },
-  {
-    path: '/home',
-    component: '../layouts/MainLayout',
-    routes: [
-      { path: '/home/wallet', title: '钱包', exact: true, component: './wallet' },
-      // { path: '/account/register', title: '注册', component: './account/register' },
-      // { path: '/account/account', title: '选择登录账号', component: './account/account' },
-    ],
-  },
-
-  {
-    path: '',
-    component: '../layouts/index',
-    routes: [
-      { path: '/wallet/flow', title: '资金流水', component: './wallet/flow' },
-    ],
-  },
+  // {
+  //   path: '/home',
+  //   component: '../layouts/MainLayout',
+  //   routes: [
+  //     { path: '/home/wallet', title: '钱包', exact: true, component: './wallet/flow' },
+  //     // { path: '/account/register', title: '注册', component: './account/register' },
+  //     // { path: '/account/account', title: '选择登录账号', component: './account/account' },
+  //   ],
+  // },
 
   {
     path: '/',
@@ -33,6 +25,8 @@ export default [
       { path: '/set_account', title: '创建新账号', component: './account/setAccount' },
       { path: '/set_password', title: '设置新密码', component: './account/setPassword' },
       { path: '/forgot_password', title: '忘记密码', component: './account/forgotPassword' },
+
+      { path: '/wallet/flow', title: '资金流水', component: './wallet/flow' },
     ],
   },
 ];
