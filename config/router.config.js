@@ -21,7 +21,7 @@ export default [
         path: '/home',
         component: '../layouts/MainLayout',
         routes: [
-          { path: '/home/wallet', title: '钱包', component: './wallet/flow' },
+          { path: '/home/wallet', title: '钱包', component: './wallet' },
           { path: '/home/user', title: '个人中心', component: './user/home' },
           // { path: '/account/account', title: '选择登录账号', component: './account/account' },
         ],

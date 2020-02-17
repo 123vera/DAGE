@@ -4,7 +4,6 @@ import ARROW_LEFT from '@/assets/dark/arrow-left.png';
 import styles from './index.less';
 
 const Icon = function(props) {
-  console.log('props.src', props.src);
   return (
     <img
       className={props.class}
