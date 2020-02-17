@@ -6,19 +6,23 @@ export default [
     title: '主页',
   },
   {
-    path: '',
+    path: '/home',
     component: '../layouts/MainLayout',
     routes: [
-      { path: '/wallet', title: '钱包', component: './wallet' },
+      { path: '/home/wallet', title: '钱包', exact: true, component: './wallet' },
       // { path: '/account/register', title: '注册', component: './account/register' },
       // { path: '/account/account', title: '选择登录账号', component: './account/account' },
     ],
   },
+
   {
-    path: '/wallet/flow',
-    component: './wallet/flow',
-    title: '资金流水',
+    path: '',
+    component: '../layouts/index',
+    routes: [
+      { path: '/wallet/flow', title: '资金流水', component: './wallet/flow' },
+    ],
   },
+
   {
     path: '/account',
     component: '../layouts/LoginLayout',

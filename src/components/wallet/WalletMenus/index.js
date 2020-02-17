@@ -1,7 +1,7 @@
 import { Icons } from '../../../assets';
 import styles from './index.less';
 import React, { Component } from 'react';
-import {withRouter} from 'umi';
+import { withRouter } from 'umi';
 
 const menus = [
   {

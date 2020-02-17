@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import styles from './index.less';
 import Header from '../../../components/common/Header';
 import { Icons } from '../../../assets';
+import { connect } from 'dva';
 
+@connect(({ walletFlow }) => ({ walletFlow }))
 class WalletFlow extends Component {
   render() {
     return (
@@ -15,7 +17,6 @@ class WalletFlow extends Component {
             onAction={(e) => this.onShowMenus(e)}
           />
         </section>
-
       </div>
     );
   }
