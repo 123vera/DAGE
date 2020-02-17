@@ -8,10 +8,16 @@ export default {
   COMMON_PLACEHOLDER_PASSWORD: `请输入密码`,
   COMMON_PLACEHOLDER_REPASSWORD: `请确认密码`,
   COMMON_PLACEHOLDER_CODE: `请输入验证码`,
+  COMMON_PLACEHOLDER_ACCOUNT: `请输入您想创建的用户名`,
 
   LOGIN_TITLE: `登录DAGE`,
   LOGIN_FORGET_PASSWORD: `忘记密码？`,
+  LOGIN_FIND_PASSWORD: `找回登录密码`,
+  LOGIN_SET_PASSWORD: `设置新密码`,
 
   REGISTER_TITLE: `注册`,
   REGISTER_GET_CODE: `获取验证码`,
+
+  SELECT_ACCOUNT_TITLE: `选择登录账号`,
+  SELECT_NEW_ACCOUNT: `创建新账号`,
 };

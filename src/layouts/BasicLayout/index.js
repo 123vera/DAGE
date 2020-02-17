@@ -6,7 +6,7 @@ import styles from './index.less';
 class Index extends Component {
   render() {
     const { children } = this.props;
-    return <div className={styles.loginLayout}>{children}</div>;
+    return <div className={styles.basicLayout}>{children}</div>;
   }
 }
 

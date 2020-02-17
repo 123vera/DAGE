@@ -4,7 +4,6 @@ import pageRoutes from './router.config';
 // import createLoading from 'dva-loading';
 
 const config = {
-
   treeShaking: true,
   plugins: [
     [
@@ -36,8 +35,9 @@ const config = {
   },
   theme: {
     'primary-color': '#FFFFFF',
-    'hd': '2px',
-    'font-size-base': '14px',
+    hd: '2px',
+    // 'primary-color': 'red',
+    'font-size-base': '28px',
   },
   routes: pageRoutes,
   lessLoaderOptions: {

@@ -1,29 +1,28 @@
 import React, { Component } from 'react';
 import { formatMessage } from 'umi-plugin-locale';
 import { connect } from 'dva';
-import router from 'umi/router';
+import PageHeader from '@/components/common/PageHeader';
 import { Picker, List } from 'antd-mobile';
 import styles from './index.less';
 import NEXT_STEP from '@/assets/dark/next-step.png';
 
-@connect(({ login }) => ({ login }))
+@connect(({ forgotPassword }) => ({ forgotPassword }))
 class Home extends Component {
+  state = {
+    prefix: '',
+  };
+
   onPickerChange = val => {
-    const { dispatch } = this.props;
-    dispatch({
-      type: 'login/UpdateState',
-      payload: { prefix: val },
-    });
+    this.setState({ prefix: val });
   };
 
   render() {
-    const {
-      login: { prefix },
-    } = this.props;
+    const { prefix } = this.state;
     return (
-      <div id={styles.userLogin}>
+      <div id={styles.forgotPassword}>
+        <PageHeader />
         <section>
-          <p>{formatMessage({ id: `LOGIN_TITLE` })}</p>
+          <p>{formatMessage({ id: `LOGIN_FIND_PASSWORD` })}</p>
           <div className={styles.mainWrapper}>
             <label htmlFor="phone">
               <span>{formatMessage({ id: `COMMON_LABEL_PHONE` })}</span>
@@ -48,21 +47,22 @@ class Home extends Component {
               </div>
             </label>
 
-            <label htmlFor="password">
-              <span>{formatMessage({ id: `COMMON_LABEL_PASSWORD` })}</span>
-              <input
-                id="password"
-                type="text"
-                placeholder={formatMessage({ id: `COMMON_PLACEHOLDER_PASSWORD` })}
-              />
+            <label htmlFor="code">
+              <span>{formatMessage({ id: `COMMON_LABEL_VERFICATION_CODE` })}</span>
+              <div className={`${styles.codeWrapper} `}>
+                <input
+                  id="code"
+                  type="text"
+                  autoComplete="off"
+                  placeholder={formatMessage({ id: `COMMON_PLACEHOLDER_CODE` })}
+                  onBlur={e => this.regInput('code', e)}
+                  onChange={e => this.setState({ code: e.target.value })}
+                />
+                <span className={styles.codeNumber}>
+                  {formatMessage({ id: `REGISTER_GET_CODE` })}
+                </span>
+              </div>
             </label>
-
-            <div className={styles.tipsInput}>
-              <span onClick={() => router.push(`/register`)}>
-                {formatMessage({ id: `REGISTER_TITLE` })}
-              </span>
-              <span>{formatMessage({ id: `LOGIN_FORGET_PASSWORD` })}</span>
-            </div>
 
             <img className={styles.nextStep} src={NEXT_STEP} alt="" />
           </div>
