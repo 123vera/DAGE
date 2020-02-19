@@ -1,0 +1,81 @@
+@import '../../../styles/mixin.less';
+
+#promotion {
+  section {
+    box-sizing: border-box;
+    padding: 0 60px;
+    margin-bottom: 50px;
+
+    h4 {
+      color: @font-sub-color;
+    }
+
+    &.banner {
+      margin-top: 16px;
+      line-height: 2.6;
+
+      .income {
+        font-size: @font-size-smaller - 2px;
+        color: @font-sub-color;
+        background-color: #3e475a;
+        border-radius: 30px;
+        padding: 15px;
+      }
+
+      h2 {
+        font-size: 75px;
+      }
+
+      a {
+        font-size: @font-size-common;
+        color: @font-color-primary;
+        border: none;
+        border-radius: 52px;
+        .background-gradient(@theme-border-gradient-from, @theme-border-gradient-to);
+      }
+
+      img {
+        position: absolute;
+        top: 55px;
+        right: 60px;
+        width: 230px;
+      }
+    }
+
+    &.explain {
+      .explainList {
+        li {
+          position: relative;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          box-sizing: border-box;
+          margin-top: 40px;
+          padding: 30px;
+          text-indent: 100px;
+          background-color: @theme-color-bg-content;
+
+          &::before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            content: '';
+            display: inline-block;
+            width: 100%;
+            height: 2px;
+            .background-gradient-horizontal(@theme-border-gradient-from, @theme-border-gradient-to);
+          }
+
+          p {
+            font-size: 40px;
+          }
+        }
+      }
+    }
+
+    &.group {
+      .chartGroup {
+      }
+    }
+  }
+}
