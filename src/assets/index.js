@@ -1,5 +1,7 @@
 export const Icons = {
   arrowLeft: require('./icons/arrow-left.png'),
+  arrowUpDown: require('./icons/arrow-up-down.png'),
+  arrowDown: require('./icons/arrow-down.png'),
   list: require('./icons/list.png'),
   more: require('./icons/more.png'),
   dIcon: require('./icons/d-icon.png'),

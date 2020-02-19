@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styles from './index.less';
 import { formatMessage, setLocale, getLocale } from 'umi-plugin-locale';
 import { connect } from 'dva';
-import PageHeader from '../../components/common/PageHeader';
+import Header from '../../components/common/Header';
 import WalletMenus from '../../components/wallet/WalletMenus';
 import { Icons, Images } from '../../assets';
 
@@ -32,16 +32,17 @@ class Home extends Component {
     return (
       <div className={styles.home} onClick={() => this.setState({ showMenus: false })}>
         <section className={styles.header}>
-          <PageHeader
+          <Header
             title="钱包"
-            leftContent={{ icon: Icons.list }}
-            rightContent={{ icon: Icons.more, onHandle: e => this.onShowMenus(e) }}
+            icon={Icons.list}
+            rightContent={{
+              icon: Icons.more,
+              onHandle: (e) => this.onShowMenus(e),
+            }}
           />
-          {showMenus && (
-            <div className={styles.menus} onClick={e => e.stopPropagation()}>
-              <WalletMenus />
-            </div>
-          )}
+          {showMenus && <div className={styles.menus} onClick={(e) => e.stopPropagation()}>
+            <WalletMenus/>
+          </div>}
         </section>
         <section>
           <div className={styles.banner} style={{ backgroundImage: `url(${Images.homeBg})` }}>
@@ -57,11 +58,11 @@ class Home extends Component {
         <section>
           <form>
             <h3>
-              <img src={Icons.dIcon} alt="" />
+              <img src={Icons.dIcon} alt=""/>
               激活ID
             </h3>
             <p>激活DID后您才可进行购买矿机，赚取收益，邀请好友等操作。</p>
-            <input type="text" placeholder="请输入DID邀请码" />
+            <input type="text" placeholder="请输入DID邀请码"/>
             <p className={styles.hint}>需支付 10 DGT</p>
             <button>确认激活</button>
           </form>

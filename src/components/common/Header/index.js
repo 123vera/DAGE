@@ -1,51 +1,60 @@
 import React, { Component } from 'react';
 import router from 'umi/router';
-import ARROW_LEFT from '@/assets/dark/arrow-left.png';
+import { Icons } from '../../../assets';
+
 import styles from './index.less';
 
-const Icon = function(props) {
+const HeaderItem = function(props) {
+  const {
+    icon,
+    iconStyle,
+    iconWidth,
+    iconHeight,
+    text,
+    textStyle,
+    textSize,
+    onHandle,
+    reverse,
+  } = props;
   return (
-    <img
-      className={props.class}
-      src={props.src || ARROW_LEFT}
-      style={{ width: props.width, height: props.height }}
-      onClick={e => props.onClick && props.onClick(e)}
-      alt=""
-    />
+    <div
+      className={`${styles.headerItem} ${reverse ? styles.reverse : ''}`}
+      onClick={e => onHandle && onHandle(e)}
+    >
+      {icon && <i>
+        <img
+          src={icon || Icons.arrowLeft}
+          style={{ ...iconStyle, width: iconWidth, height: iconHeight }}
+          alt="ICON"
+        />
+      </i>}
+      <span
+        style={{ ...textStyle, fontSize: textSize }}
+      >
+        {text}
+      </span>
+    </div>
   );
 };
 
-const Action = function(props = {}) {
-  return (
-    <aside onClick={e => props.onClick && props.onClick(e)}>
-      {props.icon && <Icon {...props.icon} />}
-      {props.text}
-    </aside>
-  );
-};
 
 class Header extends Component {
   render() {
-    const { title = '', icon = {}, action, onClick, onAction } = this.props;
-    icon.onClick = onClick || (() => router.goBack());
-    icon.class = styles.icon || '';
-
-    onAction && (action.onClick = onAction);
-    console.log(icon);
+    let { leftContent, centerContent, rightContent, icon, title, onHandle } = this.props;
+    title && (centerContent = centerContent ? centerContent.text = title : { text: title });
+    icon && (leftContent = leftContent ? leftContent.icon = icon : { icon: icon });
+    leftContent && (leftContent.onHandle = onHandle || leftContent.onHandle || (() => router.goBack()));
     return (
       <header className={styles.header}>
-        {icon.src ? <Icon {...icon} /> : <span>&nbsp;</span>}
-        {/* <img
-          className={icon.class}
-          src={icon.src}
-          // src={icon.src || ARROW_LEFT}
-          style={{ width: icon.width, height: icon.height }}
-          onClick={e => icon.onClick && icon.onClick(e)}
-          alt=""
-        /> */}
-
-        <span>{title}</span>
-        {action && <Action {...action} />}
+        {leftContent && <div className={styles.leftContent}>
+          <HeaderItem {...leftContent}/>
+        </div>}
+        {centerContent && <div className={styles.centerContent}>
+          <HeaderItem {...centerContent}/>
+        </div>}
+        {rightContent && <div className={styles.rightContent}>
+          <HeaderItem {...rightContent}/>
+        </div>}
       </header>
     );
   }

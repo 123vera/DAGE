@@ -8,17 +8,17 @@ const menus = [
     path: '/wallet/recharge',
     icon: Icons.menuRecharge,
     label: '充值',
-    width: '17px',
+    width: '34px',
   }, {
     path: '/wallet/withdraw',
     icon: Icons.menuWithdraw,
     label: '提现',
-    width: '17px',
+    width: '34px',
   }, {
     path: '/wallet/flow',
     icon: Icons.menuFlow,
     label: '资金流水',
-    width: '13px',
+    width: '26px',
   },
 ];
 

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { withRouter } from 'umi';
-import router from 'umi/router';
+import { withRouter, router } from 'umi';
 import { Icons } from '../../../assets';
 import styles from './index.less';
 
@@ -13,7 +12,7 @@ const tabs = [
     width: '46px',
   },
   {
-    path: '/zoology',
+    path: '/home/zoology',
     icon: Icons.zoology,
     iconActive: Icons.zoologyActive,
     label: '生态',
@@ -30,7 +29,7 @@ const tabs = [
 
 class Footer extends Component {
   render() {
-    const { location, history } = this.props;
+    const { location } = this.props;
 
     return (
       <footer className={styles.footer}>
@@ -41,7 +40,11 @@ class Footer extends Component {
               className={location.pathname === tab.path ? styles.active : ''}
               onClick={() => router.push(tab.path)}
             >
-              <img src={tab.icon} style={{ width: tab.width }} alt="" />
+              <img
+                src={location.pathname === tab.path ? tab.iconActive : tab.icon}
+                style={{ width: tab.width }}
+                alt=""
+              />
             </li>
           ))}
         </ul>

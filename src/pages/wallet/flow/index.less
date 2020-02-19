@@ -1,8 +1,58 @@
+@import '../../../styles/mixin.less';
+
 .walletFlow {
   min-height: 100vh;
+  font-weight: 600;
 
-  .header {
+  .summary {
+    padding: 50px 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 
+    .select {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      width: 306px;
+      height: 70px;
+      padding: 0 40px 0 20px;
+      background: rgba(46, 53, 70, 1);
+      border-radius: 20px;
+    }
   }
 
+  ul {
+    .clearUl;
+    padding: 50px 60px;
+
+    li {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      height: 140px;
+      border-bottom: 2px solid rgba(26, 32, 46, 1);
+
+      .label {
+        display: flex;
+        flex-direction: column;
+        line-height: 44px;
+
+        small {
+          margin-top: 4px;
+          color: rgba(109, 119, 139, 1);
+          line-height: 32px;
+        }
+      }
+
+      .value {
+        color: rgba(0, 200, 115, 1);
+        line-height: 44px;
+      }
+    }
+  }
 }

@@ -26,6 +26,9 @@ export default [
           // { path: '/account/account', title: '选择登录账号', component: './account/account' },
         ],
       },
+
+      { path: '/wallet/flow', title: '资金流水', component: './wallet/flow' },
+      { path: '/wallet/recharge', title: '充值', component: './wallet/recharge' },
     ],
   },
 ];
