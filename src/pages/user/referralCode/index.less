@@ -1,0 +1,37 @@
+@import '../../../styles/mixin.less';
+
+#referralCode {
+  width: 100%;
+  min-height: 100vh;
+  .background-image;
+
+  .mainContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 80px;
+
+    svg {
+      width: 400px;
+    }
+
+    span {
+      margin-top: 56px;
+
+      &.copyText {
+        text-decoration: underline;
+        margin-bottom: 112px;
+      }
+    }
+
+    .download {
+      text-align: center;
+      min-width: 400px;
+      padding: 20px 80px;
+      border-radius: 52px;
+      border: none;
+      color: @font-color-primary;
+      .background-gradient(@theme-border-gradient-from, @theme-border-gradient-to);
+    }
+  }
+}

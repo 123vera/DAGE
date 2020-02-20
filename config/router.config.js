@@ -17,6 +17,10 @@ export default [
       { path: '/set_password', title: '设置新密码', component: './account/setPassword' },
       { path: '/forgot_password', title: '忘记密码', component: './account/forgotPassword' },
 
+      { path: '/referral_code', title: '推荐码', component: './user/referralCode' },
+      { path: '/notices', title: '公告列表', component: './user/notices' },
+      { path: '/promotion', title: '我的推广', component: './user/promotion' },
+
       {
         path: '/home',
         component: '../layouts/MainLayout',
