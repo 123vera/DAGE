@@ -4,10 +4,15 @@
   section {
     box-sizing: border-box;
     padding: 0 60px;
-    margin-bottom: 50px;
+    padding-bottom: 50px;
 
     h4 {
       color: @font-sub-color;
+
+      img {
+        margin-left: 10px;
+        vertical-align: -3px;
+      }
     }
 
     &.banner {
@@ -75,6 +80,51 @@
 
     &.group {
       .chartGroup {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 40px;
+
+        li {
+          width: 136px;
+          height: 136px;
+          text-align: center;
+          background-image: url('@/assets/icons/circle.png');
+          .background-image();
+
+          span {
+            display: inline-block;
+
+            &:first-child {
+              margin-top: 40%;
+            }
+
+            &:last-child {
+              margin-top: 45%;
+            }
+          }
+        }
+      }
+    }
+
+    &.firstRecommend {
+      margin-top: 80px;
+
+      table {
+        width: 100%;
+        text-align: center;
+        margin: 30px auto;
+        font-size: @font-size-smaller;
+
+        tr {
+          &:nth-child(odd) {
+            background-color: #1a202e;
+          }
+
+          td {
+            box-sizing: border-box;
+            padding: 12px 0;
+          }
+        }
       }
     }
   }

@@ -27,6 +27,16 @@ class Home extends Component {
     });
   };
 
+  onChangePhone = e => {
+    if (!/^[0-9]*$/.test(e.target.value)) return; // 数字
+    this.setState({ phone: e.target.value });
+  };
+
+  onChangePassword = e => {
+    if (!/^[0-9A-Za-z]*$/.test(e.target.value)) return; // 数字或大小写字母
+    this.setState({ password: e.target.value });
+  };
+
   regInput = (type, e) => {
     const {
       target: { value },
@@ -60,9 +70,10 @@ class Home extends Component {
   };
 
   render() {
-    const {
-      register: { prefix },
-    } = this.props;
+    const { prefix } = this.state;
+    // const {
+    //   register: { prefix },
+    // } = this.props;
     const { errMsg } = this.state;
 
     return (
@@ -96,7 +107,7 @@ class Home extends Component {
                     autoComplete="off"
                     placeholder={formatMessage({ id: `COMMON_PLACEHOLDER_PHONE` })}
                     onBlur={e => this.regInput('phone', e)}
-                    onChange={e => this.setState({ phone: e.target.value })}
+                    onChange={this.onChangePhone}
                   />
                 </div>
               </label>
@@ -110,7 +121,7 @@ class Home extends Component {
                   autoComplete="off"
                   placeholder={formatMessage({ id: `COMMON_PLACEHOLDER_PASSWORD` })}
                   onBlur={e => this.regInput('password', e)}
-                  onChange={e => this.setState({ password: e.target.value })}
+                  onChange={this.onChangePassword}
                 />
               </label>
 
@@ -134,7 +145,7 @@ class Home extends Component {
                 >
                   <input
                     id="code"
-                    type="text"
+                    type="number"
                     autoComplete="off"
                     placeholder={formatMessage({ id: `COMMON_PLACEHOLDER_CODE` })}
                     onBlur={e => this.regInput('code', e)}
