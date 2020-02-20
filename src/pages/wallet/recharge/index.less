@@ -1,0 +1,51 @@
+.recharge {
+  font-weight: bold;
+
+  .content {
+    padding: 112px 60px;
+    text-align: center;
+
+    img {
+      width: 250px;
+      height: 250px;
+      margin-bottom: 76px;
+    }
+
+    p {
+      margin-bottom: 56px;
+      line-height: 44px;
+    }
+
+    span {
+      text-decoration: underline;
+    }
+  }
+
+  aside {
+    padding: 0 60px 60px;
+    font-size: 24px;
+    color: #6D778B;
+    line-height: 44px;
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+      li {
+        position: relative;
+        padding-left: 40px;
+        line-height: 60px;
+
+        &::before {
+          position: absolute;
+          left: 0;
+          top: 0;
+          bottom: 0;
+          margin: auto;
+          content: '•';
+        }
+      }
+    }
+  }
+}
