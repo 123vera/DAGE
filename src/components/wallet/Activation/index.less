@@ -1,0 +1,56 @@
+@import '../../../styles/mixin.less';
+
+.activation {
+  margin: 80px 60px;
+
+  h3 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+    color: #1663F7;
+    font-size: 32px;
+
+    img {
+      width: 40px;
+      height: 40px;
+      margin-right: 20px;
+    }
+  }
+
+  p {
+    .clearBox;
+    margin-bottom: 60px;
+    color: @font-sub-color;
+    line-height: 44px;
+  }
+
+  input {
+    height: 90px;
+    box-sizing: border-box;
+    padding: 10px 30px;
+    width: 100%;
+    background: rgba(26, 32, 46, 1);
+    border-radius: 8px;
+    border: none;
+    caret-color: @font-sub-color;
+
+    &::placeholder {
+      color: @font-sub-color;
+    }
+  }
+
+  .hint {
+    margin-top: 20px;
+    text-align: right;
+  }
+
+  button {
+    width: 100%;
+    height: 80px;
+    background: linear-gradient(315deg, rgba(126, 0, 255, 1) 0%, rgba(0, 120, 255, 1) 100%);
+    border-radius: 52px;
+    border: none;
+    color: @font-color-primary;
+  }
+}

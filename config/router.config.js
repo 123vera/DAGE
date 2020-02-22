@@ -34,6 +34,7 @@ export default [
       { path: '/wallet/flow', title: '资金流水', component: './wallet/flow' },
       { path: '/wallet/recharge', title: '充值', component: './wallet/recharge' },
       { path: '/wallet/withdraw', title: '提币', component: './wallet/withdraw' },
+      { path: '/wallet/mining-detail', title: '挖矿详情', component: './wallet/mining-detail' },
     ],
   },
 ];
