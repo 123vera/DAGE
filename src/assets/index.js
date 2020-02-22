@@ -5,6 +5,7 @@ export const Icons = {
   list: require('./icons/list.png'),
   more: require('./icons/more.png'),
   dIcon: require('./icons/d-icon.png'),
+  record: require('./icons/record.png'),
 
   wallet: require('./icons/wallet.png'),
   walletActive: require('./icons/wallet-active.png'),

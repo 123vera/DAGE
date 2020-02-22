@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Icons } from '../../../assets';
 import Header from '../../../components/common/Header';
 import styles from './index.less';
+import QRcode from 'qrcode.react';
 
 class Recharge extends Component {
   render() {
@@ -16,7 +17,13 @@ class Recharge extends Component {
           }}
         />
         <div className={styles.content}>
-          <img src="" alt=""/>
+          <div className={styles.qrCode}>
+            <QRcode
+              size={250}
+              value={'12OlPju8xoWi380askpoqlSLx2a012kkn'}
+              renderAs="canvas"
+            />
+          </div>
           <p>12OlPju8xoWi380askpoqlSLx2a012kkn</p>
           <span>复制地址</span>
         </div>
