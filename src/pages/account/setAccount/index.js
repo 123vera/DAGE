@@ -6,7 +6,7 @@ import ARROW_LEFT from '@/assets/dark/arrow-left.png';
 import styles from './index.less';
 import { REG, TOAST_DURATION } from '../../../utils/constants';
 import { Toast } from 'antd-mobile';
-import { router } from 'umi';
+import router from 'umi/router';
 
 class Index extends Component {
   state = {

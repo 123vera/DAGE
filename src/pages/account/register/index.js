@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { formatMessage } from 'umi-plugin-locale';
-import { connect, router } from 'dva';
+import { connect } from 'dva';
+import router from 'umi/router';
 import TelPrefix from '@/components/partials/TelPrefix';
 import Captcha from '@/components/common/Captcha';
 import PageHeader from '@/components/common/PageHeader';

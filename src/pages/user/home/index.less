@@ -4,13 +4,14 @@
   .banner {
     position: relative;
     text-align: center;
+    min-height: 320px;
 
     .center {
       position: absolute;
-      top: 70px;
+      top: 20%;
       left: 50%;
       transform: translateX(-50%);
-      line-height: 2;
+      line-height: 1.6;
 
       p {
         font-size: @font-size-large-1;
@@ -34,6 +35,12 @@
         width: 190px;
       }
 
+      &.status {
+        position: absolute;
+        bottom: -30px;
+        right: 70px;
+        width: 98px;
+      }
       &.icon {
         width: 90px;
       }
@@ -52,6 +59,10 @@
       box-sizing: border-box;
       padding: 36px 0;
       border-bottom: 2px solid @theme-border-gray;
+
+      .icon {
+        width: 40px;
+      }
 
       span {
         margin-left: 30px;

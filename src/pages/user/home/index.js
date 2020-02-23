@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { formatMessage } from 'umi-plugin-locale';
 import { connect } from 'dva';
+import router from 'umi/router';
+import { Modal, Toast } from 'antd-mobile';
+import CopyToClipboard from 'react-copy-to-clipboard';
 import PageHeader from '@/components/common/PageHeader';
 import LOGIN_OUT from '@/assets/dark/login-out.png';
 import BG_ICON from '@/assets/dark/bg-icon.png';
@@ -13,13 +16,22 @@ import ICON_SWITCH from '@/assets/icons/switch-lang.png';
 import ICON_CUSTOMER from '@/assets/icons/customer.png';
 import HOME_BG from '@/assets/imgs/home-bg.png';
 import DAGE_LOGO from '@/assets/dark/dage-logo.png';
+import ACTIVITY from '@/assets/dark/activitied.png';
+import UNACTIVITY from '@/assets/dark/unactivitied.png';
 import styles from './index.less';
 
 @connect(({ userCenter }) => ({ userCenter }))
 class Home extends Component {
-  state = {};
+  state = {
+    isEnabled: false,
+  };
+
+  onCopyLink = (text, result) => {
+    Toast.info('已复制');
+  };
 
   render() {
+    const { isEnabled } = this.state;
     const listContent = [
       {
         icon: ICON_QRCODE,
@@ -29,7 +41,7 @@ class Home extends Component {
       {
         icon: ICON_SPREAD,
         text: '我的推广',
-        url: '',
+        url: '/promotion',
       },
       {
         icon: ICON_RESET,
@@ -54,7 +66,23 @@ class Home extends Component {
     ];
     return (
       <div id={styles.userCenter}>
-        <PageHeader title="个人中心" rightContent={{ icon: LOGIN_OUT, onHandle: () => {} }} />
+        <PageHeader
+          title="个人中心"
+          rightContent={{
+            icon: LOGIN_OUT,
+            onHandle: () => {
+              Modal.alert('确认退出登录？', '', [
+                {
+                  text: '确认',
+                  onHandle: () => {
+                    // 退出登录
+                  },
+                },
+                { text: '取消' },
+              ]);
+            },
+          }}
+        />
 
         <div className={styles.banner}>
           <img className={styles.bg} src={HOME_BG} alt="" />
@@ -62,13 +90,16 @@ class Home extends Component {
           <div className={styles.center}>
             <img className={styles.icon} src={BG_ICON} alt="" />
             <p>DID:213232</p>
-            <span>推荐吗：GXs</span>
+            <CopyToClipboard key={new Date().toString()} text="GXs" onCopy={this.onCopyLink}>
+              <span>推荐码：GXs</span>
+            </CopyToClipboard>
           </div>
+          <img className={styles.status} src={isEnabled ? UNACTIVITY : ACTIVITY} alt="" />
         </div>
         <ul className={styles.list}>
-          {listContent.map(item => (
-            <li>
-              <img src={item.icon} alt="" />
+          {listContent.map((item, key) => (
+            <li key={key} onClick={() => router.push(item.url)}>
+              <img className={styles.icon} src={item.icon} alt="" />
               <span>{item.text}</span>
               <img className={styles.right} src={ARROW_RIGHT} alt="" />
             </li>
