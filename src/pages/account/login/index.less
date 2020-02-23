@@ -1,95 +1,113 @@
 @import '../../../styles/mixin.less';
 
 #userLogin {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
   color: #fff;
 
-  section {
-    width: 100%;
-    margin-left: 60px;
+  .contentWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 
-    p {
-      font-size: @font-size-super-xl;
-    }
+    section {
+      width: 100%;
+      margin-left: 60px;
 
-    .mainWrapper {
-      position: relative;
-      box-sizing: border-box;
-      margin-top: 40px;
-      padding: 82px 106px 82px 44px;
-      background-color: @theme-color-bg-content;
-
-      &::before {
-        position: absolute;
-        top: 0;
-        left: 0;
-        content: '';
-        display: inline-block;
-        width: 100%;
-        height: 2px;
-        .background-gradient-horizontal(@theme-border-gradient-from, @theme-border-gradient-to);
+      p {
+        font-size: @font-size-super-xl;
       }
 
-      label {
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 26px;
-        font-size: @font-size-common;
+      .mainWrapper {
+        position: relative;
+        box-sizing: border-box;
+        margin-top: 40px;
+        padding: 82px 106px 82px 44px;
+        background-color: @theme-color-bg-content;
 
-        span {
-          color: @theme-color-blue;
-          line-height: 1.9;
+        &::before {
+          position: absolute;
+          top: 0;
+          left: 0;
+          content: '';
+          display: inline-block;
+          width: 100%;
+          height: 2px;
+          .background-gradient-horizontal(@theme-border-gradient-from, @theme-border-gradient-to);
         }
 
-        input {
-          color: @font-color-primary;
-          padding: 20px 0;
-          .clearInput();
-          border-bottom: 2px solid @theme-border-gray;
-
-          &::placeholder {
-            color: #6d778b;
-          }
-        }
-
-        .pickerWrapper {
+        label {
           display: flex;
-          border-bottom: 2px solid @theme-border-gray;
+          flex-direction: column;
+          margin-bottom: 26px;
+          font-size: @font-size-common;
+
+          span.label {
+            color: @theme-color-blue;
+            line-height: 1.9;
+          }
+
+          h4 {
+            margin-top: 32px;
+            color: #ff3750;
+          }
 
           input {
-            border-bottom: none;
+            color: @font-color-primary;
+            padding: 20px 0;
+            .clearInput();
+            border-bottom: 2px solid @theme-border-gray;
+
+            &.inputErr {
+              border-bottom: 2px solid @theme-color-red;
+            }
+
+            &::placeholder {
+              color: #6d778b;
+            }
           }
 
-          & :global {
-            .am-list-item {
-              background: none;
-              padding: 0;
+          .pickerWrapper {
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid @theme-border-gray;
 
-              .am-list-extra {
-                min-width: 65px;
+            &.inputErr {
+              border-bottom: 2px solid @theme-color-red;
+            }
+
+            span {
+              img {
+                margin: 0 10px;
               }
+            }
+            input {
+              border-bottom: none;
+            }
 
-              // .am-list-line {
-              //   padding-right: 0;
-              // }
+            & :global {
+              .am-list-item {
+                background: none;
+                padding: 0;
+
+                .am-list-extra {
+                  min-width: 65px;
+                }
+              }
             }
           }
         }
-      }
 
-      .tipsInput {
-        display: flex;
-        justify-content: space-between;
-      }
+        .tipsInput {
+          display: flex;
+          justify-content: space-between;
+        }
 
-      .nextStep {
-        position: relative;
-        top: 48px;
-        right: -80%;
-        margin-bottom: 20px;
+        .nextStep {
+          position: relative;
+          top: 48px;
+          right: -80%;
+          margin-bottom: 20px;
+        }
       }
     }
   }

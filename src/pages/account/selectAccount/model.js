@@ -2,7 +2,9 @@ import * as HomeService from '@/services/api/home';
 
 export default {
   namespace: 'selectAccount',
-  state: {},
+  state: {
+    accountNum: '',
+  },
   reducers: {
     UpdateState(state, { payload }) {
       return { ...state, ...payload };

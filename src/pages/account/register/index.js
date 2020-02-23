@@ -1,22 +1,33 @@
 import React, { Component } from 'react';
 import { formatMessage } from 'umi-plugin-locale';
-import { connect } from 'dva';
-import { Picker, List } from 'antd-mobile';
+import { connect, router } from 'dva';
+import TelPrefix from '@/components/partials/TelPrefix';
+import Captcha from '@/components/common/Captcha';
 import PageHeader from '@/components/common/PageHeader';
 import NEXT_STEP from '@/assets/dark/next-step.png';
 import ARROW_LEFT from '@/assets/dark/arrow-left.png';
-import { REG } from '@/utils/constants';
+import ARROW_DOWN from '@/assets/icons/arrow-down.png';
+import { REG, COUNT_DOWN } from '@/utils/constants';
 import styles from './index.less';
+import { Toast } from 'antd-mobile';
+import { TOAST_DURATION } from '../../../utils/constants';
 
 @connect(({ register }) => ({ register }))
 class Home extends Component {
   state = {
+    imgSrc: 'http://47.75.138.157/api/captchapng/png',
+    captcha: '',
+    captchaKey: +new Date(),
+    count: COUNT_DOWN,
+    prefix: '86',
     password: '',
     repassword: '',
     errMsg: {
       type: '',
       value: '',
     },
+    showPrefix: false,
+    isGetSms: false,
   };
 
   onPickerChange = val => {
@@ -28,7 +39,7 @@ class Home extends Component {
   };
 
   onChangePhone = e => {
-    if (!/^[0-9]*$/.test(e.target.value)) return; // 数字
+    if (!REG.NUMBER.test(e.target.value)) return; // 数字
     this.setState({ phone: e.target.value });
   };
 
@@ -37,45 +48,95 @@ class Home extends Component {
     this.setState({ password: e.target.value });
   };
 
-  regInput = (type, e) => {
-    const {
-      target: { value },
-    } = e;
-    const { password, repassword } = this.state;
+  onChangeCode = e => {
+    this.setState({ code: e.target.value });
+  };
 
-    setTimeout(() => {
-      if (!value) return;
-      if (type === 'phone' && !REG.MOBILE.test(value)) {
-        this.setState({ errMsg: { type, value: '手机号格式错误' } });
-        return;
-      }
+  onConfirmPrefix = prefix => {
+    this.setState({ prefix });
+  };
 
-      if (type === 'password' && !REG.PASSWORD.test(value)) {
-        this.setState({ errMsg: { type, value: '密码格式错误' } });
-        return;
-      }
+  onCancelPrefix = () => {
+    this.setState({ showPrefix: false });
+  };
 
-      if (type === 'repassword' && !!password && password !== repassword) {
-        this.setState({ errMsg: { type, value: '两次密码不一致' } });
-        return;
-      }
+  onInputChange = (e, key) => {
+    const { value } = e.target;
+    this.setState({ [key]: value });
+  };
 
-      if (type === 'code' && value.length !== 6) {
-        this.setState({ errMsg: { type, value: '验证码格式错误' } });
-        return;
-      }
+  onOpenPrefix = e => {
+    e.preventDefault();
+    this.setState({ showPrefix: true });
+  };
 
+  toNext = () => {
+    const { phone, password, repassword, code } = this.state;
+    if (!phone) {
+      this.setState({ errMsg: { type: 'phone', value: '请输入手机号码' } });
+      return;
+    }
+
+    if (phone && !REG.MOBILE.test(phone)) {
+      this.setState({ errMsg: { type: 'phone', value: '手机号格式错误' } });
+      return;
+    }
+
+    if (!password) {
+      this.setState({ errMsg: { type: 'password', value: '请输入密码' } });
+      return;
+    }
+
+    if (password && !REG.PASSWORD.test(password)) {
+      this.setState({ errMsg: { type: 'password', value: '密码格式错误' } });
+      return;
+    }
+
+    if (!repassword) {
+      this.setState({ errMsg: { type: 'repassword', value: '请确认密码' } });
+      return;
+    }
+
+    if (repassword && !!password && password !== repassword) {
+      this.setState({ errMsg: { type: 'repassword', value: '两次密码不一致' } });
+      return;
+    }
+
+    if (!code) {
+      this.setState({ errMsg: { type: 'code', value: '请输入验证码' } });
+      return;
+    }
+
+    if (code && code.length !== 6) {
+      this.setState({ errMsg: { type: 'code', value: '验证码格式错误' } });
+      return;
+    }
+
+    Toast.info('注册成功', TOAST_DURATION, () => {
+      router.goBack();
       this.setState({ errMsg: { type: '', value: '' } });
-    }, 100);
+    });
+  };
+
+  getSmsCode = () => {
+    const { timer } = this.state;
+    clearInterval(Number(timer));
+
+    this.setState({
+      count: COUNT_DOWN,
+      timer: setInterval(() => {
+        let { count } = this.state;
+        if (count && count >= 1) {
+          this.setState({ count: count - 1 });
+        } else {
+          clearInterval(Number(timer));
+        }
+      }, 1000),
+    });
   };
 
   render() {
-    const { prefix } = this.state;
-    // const {
-    //   register: { prefix },
-    // } = this.props;
-    const { errMsg } = this.state;
-
+    const { count, imgSrc, captcha, prefix, errMsg, showPrefix } = this.state;
     return (
       <div id={styles.userRegister}>
         <PageHeader leftContent={{ icon: ARROW_LEFT }} />
@@ -89,24 +150,16 @@ class Home extends Component {
                   className={`${styles.pickerWrapper} ${errMsg.type === 'phone' &&
                     styles.inputErr}`}
                 >
-                  <Picker
-                    data={[
-                      { label: '+86', value: '+86' },
-                      { label: '+33', value: '+33' },
-                    ]}
-                    cols={1}
-                    extra={prefix || '+86'}
-                    value={prefix}
-                    onOk={v => this.onPickerChange(v)}
-                  >
-                    <List.Item arrow="down" />
-                  </Picker>
+                  <span onClick={this.onOpenPrefix}>
+                    +{prefix}
+                    <img src={ARROW_DOWN} alt="" />
+                  </span>
+
                   <input
                     id="phone"
                     type="text"
                     autoComplete="off"
                     placeholder={formatMessage({ id: `COMMON_PLACEHOLDER_PHONE` })}
-                    onBlur={e => this.regInput('phone', e)}
                     onChange={this.onChangePhone}
                   />
                 </div>
@@ -120,7 +173,6 @@ class Home extends Component {
                   className={errMsg.type === 'password' ? styles.inputErr : ''}
                   autoComplete="off"
                   placeholder={formatMessage({ id: `COMMON_PLACEHOLDER_PASSWORD` })}
-                  onBlur={e => this.regInput('password', e)}
                   onChange={this.onChangePassword}
                 />
               </label>
@@ -133,10 +185,16 @@ class Home extends Component {
                   autoComplete="off"
                   className={errMsg.type === 'repassword' ? styles.inputErr : ''}
                   placeholder={formatMessage({ id: `COMMON_PLACEHOLDER_REPASSWORD` })}
-                  onBlur={e => this.regInput('repassword', e)}
                   onChange={e => this.setState({ repassword: e.target.value })}
                 />
               </label>
+
+              <Captcha
+                imgSrc={imgSrc}
+                value={captcha}
+                onChange={e => this.onInputChange(e, 'captcha')}
+                getCaptchaPng={this.getCaptchaPng}
+              />
 
               <label htmlFor="code">
                 <span>{formatMessage({ id: `COMMON_LABEL_VERFICATION_CODE` })}</span>
@@ -148,20 +206,31 @@ class Home extends Component {
                     type="number"
                     autoComplete="off"
                     placeholder={formatMessage({ id: `COMMON_PLACEHOLDER_CODE` })}
-                    onBlur={e => this.regInput('code', e)}
-                    onChange={e => this.setState({ code: e.target.value })}
+                    onChange={this.onChangeCode}
                   />
-                  <span className={styles.codeNumber}>
-                    {formatMessage({ id: `REGISTER_GET_CODE` })}
-                  </span>
+                  <button
+                    disabled={count > 0 && count < COUNT_DOWN}
+                    className={styles.codeNumber}
+                    onClick={this.getSmsCode}
+                  >
+                    {count > 0 && count < COUNT_DOWN
+                      ? count + 's'
+                      : formatMessage({ id: `REGISTER_GET_CODE` })}
+                  </button>
                 </div>
                 <h4>{errMsg.value || ''}</h4>
               </label>
 
-              <img className={styles.nextStep} src={NEXT_STEP} alt="" />
+              <img onClick={this.toNext} className={styles.nextStep} src={NEXT_STEP} alt="" />
             </div>
           </div>
         </section>
+        <TelPrefix
+          show={showPrefix}
+          prefix={prefix}
+          confirm={this.onConfirmPrefix}
+          cancel={this.onCancelPrefix}
+        />
       </div>
     );
   }

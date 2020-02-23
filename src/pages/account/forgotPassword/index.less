@@ -63,12 +63,22 @@
           }
         }
 
+        h4 {
+          margin-top: 32px;
+          color: #ff3750;
+        }
+
         .pickerWrapper,
         .codeWrapper {
           display: flex;
           border-bottom: 2px solid @theme-border-gray;
 
+          &.inputErr {
+            border-bottom: 2px solid @theme-color-red;
+          }
+
           input {
+            width: 100%;
             border-bottom: none;
           }
 
@@ -85,13 +95,23 @@
         }
 
         .codeWrapper {
-          position: relative;
-
           .codeNumber {
-            position: absolute;
-            right: 0;
-            bottom: 0;
+            width: 210px;
             color: @font-color-primary;
+          }
+        }
+
+        .pickerWrapper {
+          display: flex;
+          align-items: center;
+
+          span {
+            display: contents;
+            color: #fff;
+
+            img {
+              margin: 0 10px;
+            }
           }
         }
       }

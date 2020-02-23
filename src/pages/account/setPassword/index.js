@@ -6,6 +6,9 @@ import NEXT_STEP from '@/assets/dark/next-step.png';
 import ARROW_LEFT from '@/assets/dark/arrow-left.png';
 import { REG } from '@/utils/constants';
 import styles from './index.less';
+import { router } from 'umi';
+import { Toast } from 'antd-mobile';
+import { TOAST_DURATION } from '../../../utils/constants';
 
 @connect(({ setPassword }) => ({ setPassword }))
 class Home extends Component {
@@ -18,31 +21,38 @@ class Home extends Component {
     },
   };
 
-  regInput = (type, e) => {
-    const {
-      target: { value },
-    } = e;
+  onChangePassword = (type, e) => {
+    const { value } = e.target;
+    if (value && !REG.INPUT_GROUP.test(value)) return; // 数字
+    this.setState({ [type]: value });
+  };
+
+  toNext = () => {
     const { password, repassword } = this.state;
+    if (!password) {
+      this.setState({ errMsg: { type: 'password', value: '请设置密码' } });
+      return;
+    }
+    if (password && !REG.PASSWORD.test(password)) {
+      this.setState({ errMsg: { type: 'password', value: '请设置包含数字及字母的8~16位密码' } });
+      return;
+    }
 
-    setTimeout(() => {
-      if (!value) return;
-
-      if (type === 'password' && !REG.PASSWORD.test(value)) {
-        this.setState({ errMsg: { type, value: '密码格式错误' } });
-        return;
-      }
-
-      if (type === 'repassword' && !!password && password !== repassword) {
-        this.setState({ errMsg: { type, value: '两次密码不一致' } });
-        return;
-      }
-
-      this.setState({ errMsg: { type: '', value: '' } });
-    }, 100);
+    if (!repassword) {
+      this.setState({ errMsg: { type: 'repassword', value: '请确认密码' } });
+      return;
+    }
+    if (repassword && !!password && password !== repassword) {
+      this.setState({ errMsg: { type: 'repassword', value: '两次密码不一致' } });
+      return;
+    }
+    this.setState({ errMsg: { type: '', value: '' } }, () => {
+      Toast.info('设置成功', TOAST_DURATION, () => router.goBack());
+    });
   };
 
   render() {
-    const { errMsg } = this.state;
+    const { repassword, password, errMsg } = this.state;
 
     return (
       <div id={styles.userRegister}>
@@ -55,12 +65,12 @@ class Home extends Component {
               <span>{formatMessage({ id: `COMMON_LABEL_PASSWORD` })}</span>
               <input
                 id="password"
-                type="text"
+                type="password"
                 className={errMsg.type === 'password' ? styles.inputErr : ''}
                 autoComplete="off"
+                value={password}
                 placeholder={formatMessage({ id: `COMMON_PLACEHOLDER_PASSWORD` })}
-                onBlur={e => this.regInput('password', e)}
-                onChange={e => this.setState({ password: e.target.value })}
+                onChange={e => this.onChangePassword('password', e)}
               />
             </label>
 
@@ -68,17 +78,17 @@ class Home extends Component {
               <span>{formatMessage({ id: `COMMON_LABEL_REPASSWORD` })}</span>
               <input
                 id="repassword"
-                type="text"
+                type="password"
                 autoComplete="off"
+                value={repassword}
                 className={errMsg.type === 'repassword' ? styles.inputErr : ''}
                 placeholder={formatMessage({ id: `COMMON_PLACEHOLDER_REPASSWORD` })}
-                onBlur={e => this.regInput('repassword', e)}
-                onChange={e => this.setState({ repassword: e.target.value })}
+                onChange={e => this.onChangePassword('repassword', e)}
               />
               <h4>{errMsg.value || ''}</h4>
             </label>
 
-            <img className={styles.nextStep} src={NEXT_STEP} alt="" />
+            <img className={styles.nextStep} src={NEXT_STEP} onClick={this.toNext} alt="" />
           </div>
         </section>
       </div>

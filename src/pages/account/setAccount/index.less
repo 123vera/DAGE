@@ -2,18 +2,14 @@
 
 #setAccount {
   display: flex;
-  // justify-content: center;
   flex-direction: column;
-  // align-items: center;
-  // height: 100vh;
-  // color: #fff;
 
   .mainContent {
     width: 100%;
 
     p {
       font-size: @font-size-super-xl;
-      margin-left: 60px;
+      margin: 30px 60px 0;
     }
 
     section {
@@ -43,6 +39,11 @@
         margin-bottom: 26px;
         font-size: @font-size-common;
 
+        h4 {
+          margin-top: 32px;
+          color: #ff3750;
+        }
+
         span {
           color: @theme-color-blue;
           line-height: 1.9;
@@ -57,6 +58,7 @@
           &::placeholder {
             color: #6d778b;
           }
+
           &.inputErr {
             border-bottom: 2px solid @theme-color-red;
           }

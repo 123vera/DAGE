@@ -26,6 +26,7 @@
         margin-top: 40px;
         padding: 35px 60px 35px 35px;
         background-color: @theme-color-bg-content;
+        // color: @font-sub-color;
 
         &::before {
           position: absolute;
@@ -37,7 +38,18 @@
           height: 2px;
           .background-gradient-horizontal(@theme-border-gradient-from, @theme-border-gradient-to);
         }
+
+        .unChecked {
+          color: @font-sub-color;
+        }
       }
+    }
+
+    .nextStep {
+      position: relative;
+      top: 0.48rem;
+      right: -80%;
+      margin-bottom: 0.2rem;
     }
   }
 }
