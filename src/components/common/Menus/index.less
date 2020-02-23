@@ -1,0 +1,64 @@
+@import '../../../styles/mixin.less';
+
+.menus {
+  position: relative;
+  width: 198px;
+  padding-top: 20px;
+
+  &::before, &::after {
+    position: absolute;
+    top: 2px;
+    right: 40px;
+    z-index: 2;
+    content: '';
+    border-right: 20px solid transparent;
+    border-left: 20px solid transparent;
+    border-bottom: 20px solid rgba(26, 32, 46, 1);
+  }
+
+  &.hasBorder {
+    &::after {
+      top: 0;
+      z-index: 1;
+      border-bottom: 20px solid rgba(46, 53, 70, 1);
+    }
+
+    ul {
+      border: 2px solid rgba(46, 53, 70, 1);
+    }
+  }
+
+  ul {
+    .clearUl;
+    background: rgba(26, 32, 46, 1);
+    padding: 0 18px;
+    border-radius: 8px;
+
+    li {
+      height: 72px;
+      line-height: 72px;
+      border-bottom: 2px solid #2E3546;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      i {
+        display: inline-block;
+        width: 48px;
+        line-height: 72px;
+        text-align: center;
+
+        img {
+          vertical-align: middle;
+        }
+      }
+
+      span {
+        margin-left: 6px;
+        vertical-align: middle;
+        font-size: 26px;
+      }
+    }
+  }
+}

@@ -4,6 +4,8 @@ import { formatMessage, setLocale, getLocale } from 'umi-plugin-locale';
 import { connect } from 'dva';
 import Header from '../../components/common/Header';
 import WalletMenus from '../../components/wallet/WalletMenus';
+// import Activation from '../../components/wallet/Activation';
+import Mining from '../../components/wallet/Mining';
 import { Icons, Images } from '../../assets';
 
 @connect(({ wallet }) => ({ wallet }))
@@ -55,18 +57,8 @@ class Home extends Component {
             <p>公告：即日起激活DID奖励活动开启</p>
           </div>
         </section>
-        <section>
-          <form>
-            <h3>
-              <img src={Icons.dIcon} alt=""/>
-              激活ID
-            </h3>
-            <p>激活DID后您才可进行购买矿机，赚取收益，邀请好友等操作。</p>
-            <input type="text" placeholder="请输入DID邀请码"/>
-            <p className={styles.hint}>需支付 10 DGT</p>
-            <button>确认激活</button>
-          </form>
-        </section>
+        {/*<Activation/>*/}
+        <Mining/>
       </div>
     );
   }
