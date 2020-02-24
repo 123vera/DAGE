@@ -3,17 +3,24 @@ import { Icons } from '../../../assets';
 import Header from '../../../components/common/Header';
 import styles from './index.less';
 import Menus from '../../../components/common/Menus';
+import { withdrawInit } from '../../../services/api/wallet';
 
 class Recharge extends Component {
   state = {
     showMenus: true,
     coin: 'USDT',
   };
+
+  componentDidMount() {
+    withdrawInit('usdt').then();
+  }
+
   toggleShowMenus = (e) => {
     const { showMenus } = this.state;
     this.setState({ showMenus: !showMenus });
     e.stopPropagation();
   };
+
   changeCoin = (value) => {
     this.setState({ coin: value, showMenus: false });
   };

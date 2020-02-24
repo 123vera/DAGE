@@ -33,7 +33,7 @@ class Index extends Component {
               onClick={() => this.onSelect(i, key)}
             >
               <label>{i.en + i.name}</label>
-              {activeKey === key && <img src={CHECKED} alt="" />}
+              {activeKey === key && <img src={CHECKED} alt=""/>}
             </li>
           ))}
         </ul>

@@ -3,11 +3,11 @@ import styles from './index.less';
 
 class Index extends Component {
   render() {
-    const { imgSrc, value, onChange, getCaptchaPng, localeStore } = this.props;
+    const { captchaSrc, value, onChange, getCaptcha } = this.props;
 
     return (
-      <label id={styles.captchaBox}>
-        <span className={styles.label}>图形验证码</span>
+      <label className={styles.captchaBox}>
+        <span>图形验证码</span>
         <input
           type="text"
           maxLength={4}
@@ -15,7 +15,7 @@ class Index extends Component {
           value={value}
           onChange={onChange}
         />
-        <img id={styles.captcha} src={imgSrc} onClick={getCaptchaPng} alt="图形验证码" />
+        <img src={captchaSrc} onClick={getCaptcha} alt="图形验证码"/>
       </label>
     );
   }

@@ -49,7 +49,8 @@ const config = {
   },
   proxy: {
     '/api': {
-      target: 'http://greencourtdevweb:5005',
+      target: 'http://47.75.3.2:82',
+      pathRewrite: { '^/api': '/api' },
       changeOrigin: true,
     },
   },

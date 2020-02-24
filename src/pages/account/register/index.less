@@ -1,6 +1,6 @@
 @import '../../../styles/mixin.less';
 
-#userRegister {
+.userRegister {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -49,11 +49,6 @@
         span {
           color: @theme-color-blue;
           line-height: 1.9;
-        }
-
-        h4 {
-          margin-top: 32px;
-          color: #ff3750;
         }
 
         input {
@@ -118,6 +113,11 @@
             }
           }
         }
+      }
+
+      .errMsg {
+        margin-top: 32px;
+        color: #ff3750;
       }
 
       .tipsInput {

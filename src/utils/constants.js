@@ -272,6 +272,6 @@ export const COUNTRIES_LIST = [
   'Zimbabwe津巴布韦',
 ];
 
-export const COUNT_DOWN = 5;
+export const COUNT_DOWN = 10;
 
 export const TOAST_DURATION = 0.9;
