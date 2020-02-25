@@ -7,6 +7,7 @@ export const Icons = {
   more: require('./icons/more.png'),
   dIcon: require('./icons/d-icon.png'),
   record: require('./icons/record.png'),
+  add: require('./icons/add.png'),
 
   wallet: require('./icons/wallet.png'),
   walletActive: require('./icons/wallet-active.png'),

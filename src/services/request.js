@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { Toast } from 'antd-mobile';
 import { getCookie } from '@/utils/utils';
-import { getApiBaseUrl, optionsToLine, optionsToHump } from './utils';
+import { getApiBaseUrl, optionsToLine, optionsToHump,getHumpData } from './utils';
 import qs from 'qs';
 
 const Request = axios.create({
@@ -58,7 +58,7 @@ Request.interceptors.response.use(
         data.data = data.data.map(i => optionsToHump(i));
         return data;
       }
-      data.data = optionsToHump(data.data);
+      data.data = getHumpData(data.data);
     }
 
     return data;
