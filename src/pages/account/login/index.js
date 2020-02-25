@@ -1,19 +1,17 @@
 import React, { Component } from 'react';
+import { Toast } from 'antd-mobile';
 import { formatMessage } from 'umi-plugin-locale';
 import { connect } from 'dva';
 import router from 'umi/router';
-import { REG } from '@/utils/constants';
+import Cookies from 'js-cookie';
+import { REG } from '../../../utils/constants';
 import styles from './index.less';
-import TelPrefix from '@/components/partials/TelPrefix';
-import NEXT_STEP from '@/assets/dark/next-step.png';
-import ARROW_DOWN from '@/assets/icons/arrow-down.png';
+import TelPrefix from '../../../components/partials/TelPrefix';
+import { Icons, Images } from '../../../assets';
 
 @connect(({ login }) => ({ login }))
 class Home extends Component {
   state = {
-    phone: '',
-    prefix: '86',
-    password: '',
     showPrefix: false,
     errMsg: {
       type: '',
@@ -26,90 +24,88 @@ class Home extends Component {
     this.setState({ showPrefix: true });
   };
 
+  onInputChange = (value, key) => {
+    const { dispatch } = this.props;
+    dispatch({
+      type: 'login/UpdateState',
+      payload: { [key]: value },
+    });
+  };
+
+  onChangePassword = e => {
+    const { value } = e.target;
+    if (!/^[0-9A-Za-z]*$/.test(value)) return; // 数字或大小写字母
+    this.onInputChange(value, 'password');
+  };
+
   toNext = () => {
-    const { phone, password } = this.state;
+    const { phone, password } = this.props.login;
+    console.log(phone, password);
     if (!phone) {
       this.setState({ errMsg: { type: 'phone', value: '请输入手机号码' } });
       return;
     }
-
-    if (phone && !REG.MOBILE.test(phone)) {
+    if (!REG.MOBILE.test(phone)) {
       this.setState({ errMsg: { type: 'phone', value: '手机号格式错误' } });
       return;
     }
-
     if (!password) {
       this.setState({ errMsg: { type: 'password', value: '请输入密码' } });
       return;
     }
-
     if (password && !REG.PASSWORD.test(password)) {
       this.setState({ errMsg: { type: 'password', value: '密码格式错误' } });
       return;
     }
 
-    this.setState({ errMsg: { type: '', value: '' } }, () => {
-      router.push('/select_account');
-    });
-  };
+    this.props.dispatch({ type: 'login/Login' })
+      .then(res => {
+        if (res.status !== 1) {
+          Toast.fail(res.msg);
+          return;
+        }
 
-  onChangePhone = e => {
-    if (!/^[0-9]*$/.test(e.target.value)) return; // 数字
-    this.setState({ phone: e.target.value });
-  };
-
-  onChangePassword = e => {
-    if (!/^[0-9A-Za-z]*$/.test(e.target.value)) return; // 数字或大小写字母
-    this.setState({ password: e.target.value });
-  };
-
-  onConfirmPrefix = prefix => {
-    this.setState({ prefix });
-  };
-
-  onCancelPrefix = () => {
-    this.setState({ showPrefix: false });
+        Cookies.set('ACCOUNT_TOKEN', res.data.accountToken);
+        this.setState({ errMsg: { type: '', value: '' } }, () => {
+          router.push('/select_account');
+        });
+      });
   };
 
   render() {
-    const { errMsg, phone, prefix, password, showPrefix } = this.state;
+    const { prefix } = this.props.login;
+    const { errMsg, showPrefix } = this.state;
+
     return (
       <div id={styles.userLogin}>
         <div className={styles.contentWrapper}>
           <section>
             <p>{formatMessage({ id: `LOGIN_TITLE` })}</p>
             <div className={styles.mainWrapper}>
-              <label htmlFor="phone">
+              <label>
                 <span className={styles.label}>{formatMessage({ id: `COMMON_LABEL_PHONE` })}</span>
                 <div
                   className={`${styles.pickerWrapper} ${errMsg.type === 'phone' &&
-                    styles.inputErr}`}
+                  styles.inputErr}`}
                 >
                   <span onClick={this.onOpenPrefix}>
                     +{prefix}
-                    <img src={ARROW_DOWN} alt="" />
+                    <img src={Icons.arrowDown} alt=""/>
                   </span>
-
                   <input
-                    id="phone"
-                    type="text"
-                    value={phone}
-                    maxLength={11}
-                    onChange={this.onChangePhone}
+                    type="number"
+                    onChange={e => this.onInputChange(e.target.value, 'phone')}
                     placeholder={formatMessage({ id: `COMMON_PLACEHOLDER_PHONE` })}
                   />
                 </div>
               </label>
 
-              <label htmlFor="password">
+              <label>
                 <span className={styles.label}>
                   {formatMessage({ id: `COMMON_LABEL_PASSWORD` })}
                 </span>
                 <input
-                  id="password"
                   type="password"
-                  value={password}
-                  maxLength={20}
                   className={errMsg.type === 'password' ? styles.inputErr : ''}
                   onChange={this.onChangePassword}
                   placeholder={formatMessage({ id: `COMMON_PLACEHOLDER_PASSWORD` })}
@@ -126,18 +122,19 @@ class Home extends Component {
                 </span>
               </div>
 
-              <img className={styles.nextStep} src={NEXT_STEP} onClick={this.toNext} alt="" />
+              <img className={styles.nextStep} src={Images.nextStep} onClick={this.toNext} alt=""/>
             </div>
           </section>
         </div>
         <TelPrefix
           show={showPrefix}
           prefix={prefix}
-          confirm={this.onConfirmPrefix}
-          cancel={this.onCancelPrefix}
+          confirm={(prefix) => this.onInputChange(prefix, 'prefix')}
+          cancel={() => this.setState({ showPrefix: false })}
         />
       </div>
     );
   }
 }
+
 export default Home;

@@ -23,6 +23,7 @@ export const Icons = {
 export const Images = {
   homeBg: require('./imgs/home-bg.png'),
   cardBg: require('./imgs/card-bg.png'),
+  nextStep: require('./imgs/next-step.png'),
 
 };
 

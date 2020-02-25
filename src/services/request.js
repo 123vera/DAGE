@@ -1,12 +1,28 @@
 import axios from 'axios';
 import { Toast } from 'antd-mobile';
 import { getCookie } from '@/utils/utils';
-import { getApiBaseUrl } from './utils';
+import { getApiBaseUrl, optionsToLine, optionsToHump } from './utils';
+import qs from 'qs';
 
 const Request = axios.create({
-  timeout: 10 * 1000,
+  timeout: 9000,
   baseURL: getApiBaseUrl(),
+  headers: {
+    Accept: 'application/json, text/plain, */*',
+    'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+    // 'Content-Type': 'application/json;charset=UTF-8',
+  },
+  // baseURL: '/api',
+  withCredentials: true,
+  transformRequest: [
+    data => {
+      if (!data) return data;
+      return qs.stringify(optionsToLine(data));
+      // return optionsToLine(data);
+    },
+  ], // 对data进行转换处理
 });
+
 
 // 拦截请求
 Request.interceptors.request.use(
@@ -34,6 +50,16 @@ Request.interceptors.response.use(
     // if (data.status === -2 && api !== '/api/sign_out') {
     //   Toast.error(data.msg);
     // }
+
+    // 对下划线转驼峰进行处理
+    if (data.data) {
+      const isArr = data.data instanceof Array;
+      if (isArr) {
+        data.data = data.data.map(i => optionsToHump(i));
+        return data;
+      }
+      data.data = optionsToHump(data.data);
+    }
 
     return data;
   },

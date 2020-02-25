@@ -47,13 +47,13 @@ const config = {
   alias: {
     '@': path.resolve(__dirname, 'src'),
   },
-  proxy: {
-    '/api': {
-      target: 'http://47.75.3.2:82',
-      pathRewrite: { '^/api': '/api' },
-      changeOrigin: true,
-    },
-  },
+  // proxy: {
+  //   '/api': {
+  //     target: 'http://47.75.3.2:82/',
+  //     pathRewrite: { '^/api': '/api' },
+  //     changeOrigin: true,
+  //   },
+  // },
 };
 
 export default config;

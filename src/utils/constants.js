@@ -274,4 +274,4 @@ export const COUNTRIES_LIST = [
 
 export const COUNT_DOWN = 10;
 
-export const TOAST_DURATION = 0.9;
+export const TOAST_DURATION = 2;

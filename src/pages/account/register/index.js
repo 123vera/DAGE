@@ -2,11 +2,10 @@ import React, { Component } from 'react';
 import { formatMessage } from 'umi-plugin-locale';
 import { connect } from 'dva';
 import router from 'umi/router';
-import { Icons } from '../../../assets';
+import { Icons, Images } from '../../../assets';
 import TelPrefix from '../../../components/partials/TelPrefix';
 import Captcha from '../../../components/common/Captcha';
 import PageHeader from '../../../components/common/PageHeader';
-import NEXT_STEP from '@/assets/dark/next-step.png';
 import { REG, COUNT_DOWN } from '../../../utils/constants';
 import styles from './index.less';
 import { Toast } from 'antd-mobile';
@@ -89,53 +88,54 @@ class Register extends Component {
         Toast.info('获取验证码成功');
         return;
       }
-      Toast.info(res.msg);
+      Toast.info(res.msg || '获取验证码失败');
     });
   };
 
   toNext = () => {
-    const { phone, password, repassword, code } = this.state;
+    const { phone, password, passwordConfirm, code } = this.props.register;
     if (!phone) {
       this.setState({ errMsg: { type: 'phone', value: '请输入手机号码' } });
       return;
     }
-
-    if (phone && !REG.MOBILE.test(phone)) {
+    if (!REG.MOBILE.test(phone)) {
       this.setState({ errMsg: { type: 'phone', value: '手机号格式错误' } });
       return;
     }
-
-    if (!password) {
-      this.setState({ errMsg: { type: 'password', value: '请输入密码' } });
-      return;
-    }
-
-    if (password && !REG.PASSWORD.test(password)) {
-      this.setState({ errMsg: { type: 'password', value: '密码格式错误' } });
-      return;
-    }
-
-    if (repassword && !!password && password !== repassword) {
-      this.setState({ errMsg: { type: 'passwordConfirm', value: '两次密码不一致' } });
-      return;
-    }
-
     if (!code) {
       this.setState({ errMsg: { type: 'code', value: '请输入验证码' } });
       return;
     }
-
-    if (code && code.length !== 6) {
+    if (code && code.length !== 4) {
       this.setState({ errMsg: { type: 'code', value: '验证码格式错误' } });
       return;
     }
+    if (!password) {
+      this.setState({ errMsg: { type: 'password', value: '请输入密码' } });
+      return;
+    }
+    if (password && !REG.PASSWORD.test(password)) {
+      this.setState({ errMsg: { type: 'password', value: '密码格式错误' } });
+      return;
+    }
+    if (password !== passwordConfirm) {
+      this.setState({ errMsg: { type: 'passwordConfirm', value: '两次密码不一致' } });
+      return;
+    }
 
-    Toast.info('注册成功', TOAST_DURATION, () => {
-      router.goBack();
-      this.setState({ errMsg: { type: '', value: '' } });
-    });
+    this.props.dispatch({ type: 'register/Register' })
+      .then(res => {
+        if (res.status !== 1) {
+          Toast.fail(res.msg);
+          return;
+        }
+
+        Toast.info('注册成功', TOAST_DURATION, () => {
+          router.push('/login');
+          this.setState({ errMsg: { type: '', value: '' } });
+        });
+      });
   };
-
 
   render() {
     const { count, errMsg, showPrefix } = this.state;
@@ -178,11 +178,11 @@ class Register extends Component {
                   className={`${styles.codeWrapper} ${errMsg.type === 'code' && styles.inputErr}`}
                 >
                   <input
+                    value={code}
                     type="number"
                     autoComplete="off"
-                    value={code}
                     placeholder={formatMessage({ id: `COMMON_PLACEHOLDER_CODE` })}
-                    onChange={(e) => this.onInputChange(e, 'code')}
+                    onChange={(e) => this.onInputChange(e.target.value, 'code')}
                   />
                   <button
                     disabled={count > 0 && count < COUNT_DOWN}
@@ -198,6 +198,7 @@ class Register extends Component {
               <label>
                 <span>{formatMessage({ id: `COMMON_LABEL_PASSWORD` })}</span>
                 <input
+                  value={password}
                   type="text"
                   className={errMsg.type === 'password' ? styles.inputErr : ''}
                   autoComplete="off"
@@ -208,6 +209,7 @@ class Register extends Component {
               <label>
                 <span>{formatMessage({ id: `COMMON_LABEL_REPASSWORD` })}</span>
                 <input
+                  value={passwordConfirm}
                   type="text"
                   autoComplete="off"
                   className={errMsg.type === 'passwordConfirm' ? styles.inputErr : ''}
@@ -216,7 +218,7 @@ class Register extends Component {
                 />
               </label>
               <h4 className={styles.errMsg}>{errMsg.value || ''}</h4>
-              <img onClick={this.toNext} className={styles.nextStep} src={NEXT_STEP} alt=""/>
+              <img onClick={this.toNext} className={styles.nextStep} src={Images.nextStep} alt=""/>
             </div>
           </div>
         </section>

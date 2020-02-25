@@ -19,7 +19,8 @@
     "js-cookie": "^2.2.1",
     "react": "^16.8.6",
     "react-copy-to-clipboard": "^5.0.2",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "qs": "latest"
   },
   "devDependencies": {
     "babel-eslint": "^9.0.0",

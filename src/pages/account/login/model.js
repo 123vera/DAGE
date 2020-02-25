@@ -1,9 +1,11 @@
-import * as HomeService from '@/services/api/home';
+import { AccountApi } from '../../../services/api';
 
 export default {
   namespace: 'login',
   state: {
-    prefix: '',
+    prefix: 86,
+    phone: undefined,
+    password: '',
   },
   reducers: {
     UpdateState(state, { payload }) {
@@ -11,12 +13,13 @@ export default {
     },
   },
   effects: {
-    *Test({ payload }, { call }) {
-      const res = yield call(HomeService.getUserInfoStatus, payload);
-      console.log(res);
-    },
-    *Test2({ payload }, { call, put }) {
-      yield put({ type: 'Test' });
+    * Login({ payload }, { call, select }) {
+      const login = yield select(state => state.login);
+      return yield call(AccountApi.login, {
+        prefix: login.prefix,
+        phone: login.phone,
+        password: login.password,
+      });
     },
   },
   subscriptions: {

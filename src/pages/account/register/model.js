@@ -1,11 +1,10 @@
-import * as HomeService from '@/services/api/home';
 import { AccountApi } from '../../../services/api';
 
 export default {
   namespace: 'register',
   state: {
     prefix: 86,
-    phone: 18368095040 || undefined,
+    phone: undefined,
     code: undefined,
     password: '',
     passwordConfirm: '',
@@ -19,11 +18,6 @@ export default {
     },
   },
   effects: {
-    * Test({ payload }, { call }) {
-      const res = yield call(HomeService.getUserInfoStatus, payload);
-      console.log(res);
-    },
-
     * GetCaptcha({ payload }, { call, put }) {
       const captchaKey = payload;
       const captchaSrc = yield call(AccountApi.getCaptcha, captchaKey);
@@ -33,6 +27,22 @@ export default {
     * GetSmsCode({ payload }, { call, select }) {
       const captchaKey = yield select(state => state.register.captchaKey);
       return yield call(AccountApi.sendSmsCode, payload, captchaKey);
+    },
+
+    * Register({ payload }, { call, select }) {
+      const register = yield select(state => state.register);
+      const res = yield call(AccountApi.existPhone, {
+        prefix: register.prefix,
+        phone: register.phone,
+      });
+      if (res.status !== 1) return res;
+      return yield call(AccountApi.register, {
+        prefix: register.prefix,
+        phone: register.phone,
+        code: register.code,
+        password: register.password,
+        passwordConfirm: register.passwordConfirm,
+      });
     },
   },
   subscriptions: {

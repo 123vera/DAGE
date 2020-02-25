@@ -1,6 +1,8 @@
 import request from '../request';
 import { getApiBaseUrl, onlineGet } from '../utils';
 
+const SID = '12c68f99664da7bc';
+
 class AccountApi {
   /**
    * 获取图形验证码图片
@@ -8,7 +10,7 @@ class AccountApi {
    * @required key number 唯一健值，一般为时间戳的毫秒数
    **/
   static getCaptcha(key) {
-    return Promise.resolve(`${getApiBaseUrl()}/captchapng/png?key=${key}`);
+    return Promise.resolve(`${getApiBaseUrl()}/captchapng/png?sid=${SID}&key=${key}`);
   }
 
   /**
@@ -29,8 +31,8 @@ class AccountApi {
    * @required phone number 手机号
    * @required type string 验证码类型，reg（注册）,exchange(币种兑换),cash(提现)
    **/
-  static sendSmsCode(options,key) {
-    return request.post('/user/sendsmscode?key='+key, options);
+  static sendSmsCode(options, key) {
+    return request.post('/user/sendsmscode?key=' + key, { ...options, sid: SID });
   }
 
   /**
