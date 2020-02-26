@@ -1,4 +1,4 @@
-import * as HomeService from '@/services/api/home';
+import { AsideApi } from '../../../services/api';
 
 export default {
   namespace: 'walletFlow',
@@ -9,11 +9,11 @@ export default {
     },
   },
   effects: {
-    *Test({ payload }, { call }) {
-      const res = yield call(HomeService.getUserInfoStatus, payload);
+    * Test({ payload }, { call }) {
+      const res = yield call(AsideApi.getNoticeList, payload);
       console.log(res);
     },
-    *Test2(_, { put }) {
+    * Test2(_, { put }) {
       yield put({ type: 'Test' });
     },
   },

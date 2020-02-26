@@ -1,5 +1,4 @@
-import * as HomeService from '@/services/api/home';
-import { COUNT_DOWN } from '../../../utils/constants';
+// import * as HomeService from '@/services/api/home';
 
 export default {
   namespace: 'exchange',
@@ -14,14 +13,14 @@ export default {
   },
   effects: {
     *GetUser({ payload }, { call, put }) {
-      const res = yield call(HomeService.GetUser, payload);
-      yield put({
-        type: '',
-        payload: {
-          DID: res.data.DID,
-          referralCode: res.data.referralCode,
-        },
-      });
+      // const res = yield call(HomeService.GetUser, payload);
+      // yield put({
+      //   type: '',
+      //   payload: {
+      //     DID: res.data.DID,
+      //     referralCode: res.data.referralCode,
+      //   },
+      // });
     },
   },
   subscriptions: {},

@@ -1,4 +1,4 @@
-import * as HomeService from '../../../services/api/home';
+import { AsideApi } from '../../../services/api';
 import { PAGE_SIZE } from '../../../utils/constants';
 
 export default {
@@ -16,8 +16,8 @@ export default {
     },
   },
   effects: {
-    *GetNoticelist({ payload }, { call, put, select }) {
-      const res = yield call(HomeService.getNoticelist, {
+    * GetNoticelist({ payload }, { call, put }) {
+      const res = yield call(AsideApi.getNoticeList, {
         page: payload.pageIndex,
         row: PAGE_SIZE,
       });
