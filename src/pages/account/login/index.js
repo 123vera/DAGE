@@ -60,12 +60,17 @@ class Home extends Component {
 
     this.props.dispatch({ type: 'login/Login' })
       .then(res => {
+        console.log(res);
         if (res.status !== 1) {
           Toast.fail(res.msg);
           return;
         }
-
-        Cookies.set('ACCOUNT_TOKEN', res.data.accountToken);
+        const { accountToken, userList } = res.data;
+        this.props.dispatch({
+          type: 'login/UpdateState',
+          payload: { accountToken, userList },
+        });
+        Cookies.set('ACCOUNT_TOKEN', accountToken);
         this.setState({ errMsg: { type: '', value: '' } }, () => {
           router.push('/select_account');
         });

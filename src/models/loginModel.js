@@ -1,4 +1,5 @@
-import { AccountApi } from '../../../services/api';
+import Cookies from 'js-cookie';
+import { AccountApi } from '../services/api';
 
 export default {
   namespace: 'login',
@@ -6,6 +7,13 @@ export default {
     prefix: 86,
     phone: undefined,
     password: '',
+
+    userName: '',
+    recommendCode: '',
+
+    accountToken: '',
+    userId: undefined,
+    userList: null,
   },
   reducers: {
     UpdateState(state, { payload }) {
@@ -19,6 +27,23 @@ export default {
         prefix: login.prefix,
         phone: login.phone,
         password: login.password,
+      });
+    },
+
+    * SelectUser({ payload }, { call, select }) {
+      const login = yield select(state => state.login);
+      return yield call(AccountApi.selectUser, {
+        accountToken: login.accountToken || Cookies.get('ACCOUNT_TOKEN'),
+        userId: login.userId,
+      });
+    },
+
+    * AddUser({ payload }, { call, select }) {
+      const login = yield select(state => state.login);
+      return yield call(AccountApi.addRole, {
+        accountToken: login.accountToken || Cookies.get('ACCOUNT_TOKEN'),
+        userName: login.userName,
+        recommendCode: login.recommendCode,
       });
     },
   },

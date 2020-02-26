@@ -66,8 +66,8 @@ class AccountApi {
    * @required userName string 昵称
    * @required recommendCode string 邀请码
    **/
-  static addRole(params) {
-    return request.get('/user/adduser', params);
+  static addRole(options) {
+    return request.post('/user/adduser', options);
   }
 
   /**
@@ -100,8 +100,8 @@ class AccountApi {
    * @required accountToken string 账号token
    * @required userId string 用户角色id
    **/
-  static selectUser(params) {
-    return request.get('/user/selectuser', params);
+  static selectUser(options) {
+    return request.post('/user/selectuser', options);
   }
 
   /**
