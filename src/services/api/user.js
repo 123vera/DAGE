@@ -1,14 +1,14 @@
-import request from '../request';
-import { getApiBaseUrl, onlineGet } from '../utils';
+// import request from '../request';
+import { onlinePost } from '../utils';
 
 class UserApi {
   /**
    * 获取个人详细信息
    *
-   * @required open_id string
+   * @required openId string
    **/
   static getMyInfo(options) {
-    return request.post('/user/myinfo', options);
+    return onlinePost('/user/myinfo', options);
   }
 }
 
