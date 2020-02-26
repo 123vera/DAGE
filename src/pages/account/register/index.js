@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { formatMessage } from 'umi-plugin-locale';
+import { formatMessage } from 'umi/locale';
 import { connect } from 'dva';
 import router from 'umi/router';
 import { Icons, Images } from '../../../assets';
@@ -80,16 +80,18 @@ class Register extends Component {
       this.setState({ errMsg: { type: 'captcha', value: '请输入图形验证码' } });
       return;
     }
-    this.props.dispatch({
-      type: 'register/GetSmsCode',
-      payload: { prefix, phone, imgcode: captcha, type: 'reg' },
-    }).then(res => {
-      if (res.status === 1) {
-        Toast.info('获取验证码成功');
-        return;
-      }
-      Toast.info(res.msg || '获取验证码失败');
-    });
+    this.props
+      .dispatch({
+        type: 'register/GetSmsCode',
+        payload: { prefix, phone, imgcode: captcha, type: 'reg' },
+      })
+      .then(res => {
+        if (res.status === 1) {
+          Toast.info('获取验证码成功');
+          return;
+        }
+        Toast.info(res.msg || '获取验证码失败');
+      });
   };
 
   toNext = () => {
@@ -123,26 +125,35 @@ class Register extends Component {
       return;
     }
 
-    this.props.dispatch({ type: 'register/Register' })
-      .then(res => {
-        if (res.status !== 1) {
-          Toast.fail(res.msg);
-          return;
-        }
+    this.props.dispatch({ type: 'register/Register' }).then(res => {
+      if (res.status !== 1) {
+        Toast.fail(res.msg);
+        return;
+      }
 
-        Toast.info('注册成功', TOAST_DURATION, () => {
-          router.push('/login');
-          this.setState({ errMsg: { type: '', value: '' } });
-        });
+      Toast.info('注册成功', TOAST_DURATION, () => {
+        router.push('/login');
+        this.setState({ errMsg: { type: '', value: '' } });
       });
+    });
   };
 
   render() {
     const { count, errMsg, showPrefix } = this.state;
-    const { prefix, phone, code, password, passwordConfirm, captchaSrc, captcha } = this.props.register;
+    const {
+      prefix,
+      phone,
+      code,
+      password,
+      passwordConfirm,
+      captchaSrc,
+      captcha,
+    } = this.props.register;
     return (
       <div className={styles.userRegister}>
-        <PageHeader leftContent={{ icon: Icons.arrowLeft, onHandle: () => router.push('/login') }}/>
+        <PageHeader
+          leftContent={{ icon: Icons.arrowLeft, onHandle: () => router.push('/login') }}
+        />
         <section>
           <p>{formatMessage({ id: `REGISTER_TITLE` })}</p>
           <div className={styles.mainWrapper}>
@@ -151,18 +162,18 @@ class Register extends Component {
                 <span>{formatMessage({ id: `COMMON_LABEL_PHONE` })}</span>
                 <div
                   className={`${styles.pickerWrapper} ${errMsg.type === 'phone' &&
-                  styles.inputErr}`}
+                    styles.inputErr}`}
                 >
                   <span onClick={this.onOpenPrefix}>
                     +{prefix}
-                    <img src={Icons.arrowDown} alt=""/>
+                    <img src={Icons.arrowDown} alt="" />
                   </span>
                   <input
                     value={phone}
                     type="number"
                     autoComplete="off"
                     placeholder={formatMessage({ id: `COMMON_PLACEHOLDER_PHONE` })}
-                    onChange={(e) => this.onInputChange(e.target.value, 'phone')}
+                    onChange={e => this.onInputChange(e.target.value, 'phone')}
                   />
                 </div>
               </label>
@@ -182,7 +193,7 @@ class Register extends Component {
                     type="number"
                     autoComplete="off"
                     placeholder={formatMessage({ id: `COMMON_PLACEHOLDER_CODE` })}
-                    onChange={(e) => this.onInputChange(e.target.value, 'code')}
+                    onChange={e => this.onInputChange(e.target.value, 'code')}
                   />
                   <button
                     disabled={count > 0 && count < COUNT_DOWN}
@@ -203,7 +214,7 @@ class Register extends Component {
                   className={errMsg.type === 'password' ? styles.inputErr : ''}
                   autoComplete="off"
                   placeholder={formatMessage({ id: `COMMON_PLACEHOLDER_PASSWORD` })}
-                  onChange={(e) => this.onChangePassword(e, 'password')}
+                  onChange={e => this.onChangePassword(e, 'password')}
                 />
               </label>
               <label>
@@ -218,14 +229,14 @@ class Register extends Component {
                 />
               </label>
               <h4 className={styles.errMsg}>{errMsg.value || ''}</h4>
-              <img onClick={this.toNext} className={styles.nextStep} src={Images.nextStep} alt=""/>
+              <img onClick={this.toNext} className={styles.nextStep} src={Images.nextStep} alt="" />
             </div>
           </div>
         </section>
         <TelPrefix
           show={showPrefix}
           prefix={prefix}
-          confirm={(prefix) => this.onInputChange(prefix, 'prefix')}
+          confirm={prefix => this.onInputChange(prefix, 'prefix')}
           cancel={() => this.setState({ showPrefix: false })}
         />
       </div>

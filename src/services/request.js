@@ -50,6 +50,12 @@ Request.interceptors.response.use(
     //   Toast.error(data.msg);
     // }
 
+    // 处理未登录
+    if (data.status === -101) {
+      Toast.fail(data.msg);
+      return;
+    }
+
     // 对下划线转驼峰进行处理
     if (data.data) {
       const isArr = data.data instanceof Array;

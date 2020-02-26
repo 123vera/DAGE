@@ -58,23 +58,22 @@ class Home extends Component {
       return;
     }
 
-    this.props.dispatch({ type: 'login/Login' })
-      .then(res => {
-        console.log(res);
-        if (res.status !== 1) {
-          Toast.fail(res.msg);
-          return;
-        }
-        const { accountToken, userList } = res.data;
-        this.props.dispatch({
-          type: 'login/UpdateState',
-          payload: { accountToken, userList },
-        });
-        Cookies.set('ACCOUNT_TOKEN', accountToken);
-        this.setState({ errMsg: { type: '', value: '' } }, () => {
-          router.push('/select_account');
-        });
+    this.props.dispatch({ type: 'login/Login' }).then(res => {
+      console.log(res);
+      if (res.status !== 1) {
+        Toast.fail(res.msg);
+        return;
+      }
+      const { accountToken, userList } = res.data;
+      this.props.dispatch({
+        type: 'login/UpdateState',
+        payload: { accountToken, userList },
       });
+      Cookies.set('ACCOUNT_TOKEN', accountToken);
+      this.setState({ errMsg: { type: '', value: '' } }, () => {
+        router.push('/select_account');
+      });
+    });
   };
 
   render() {
@@ -91,11 +90,11 @@ class Home extends Component {
                 <span className={styles.label}>{formatMessage({ id: `COMMON_LABEL_PHONE` })}</span>
                 <div
                   className={`${styles.pickerWrapper} ${errMsg.type === 'phone' &&
-                  styles.inputErr}`}
+                    styles.inputErr}`}
                 >
                   <span onClick={this.onOpenPrefix}>
                     +{prefix}
-                    <img src={Icons.arrowDown} alt=""/>
+                    <img src={Icons.arrowDown} alt="" />
                   </span>
                   <input
                     type="number"
@@ -127,14 +126,14 @@ class Home extends Component {
                 </span>
               </div>
 
-              <img className={styles.nextStep} src={Images.nextStep} onClick={this.toNext} alt=""/>
+              <img className={styles.nextStep} src={Images.nextStep} onClick={this.toNext} alt="" />
             </div>
           </section>
         </div>
         <TelPrefix
           show={showPrefix}
           prefix={prefix}
-          confirm={(prefix) => this.onInputChange(prefix, 'prefix')}
+          confirm={prefix => this.onInputChange(prefix, 'prefix')}
           cancel={() => this.setState({ showPrefix: false })}
         />
       </div>

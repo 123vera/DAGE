@@ -21,7 +21,7 @@ export default {
     },
   },
   effects: {
-    * Login({ payload }, { call, select }) {
+    *Login(_, { call, select }) {
       const login = yield select(state => state.login);
       return yield call(AccountApi.login, {
         prefix: login.prefix,
@@ -30,7 +30,7 @@ export default {
       });
     },
 
-    * SelectUser({ payload }, { call, select }) {
+    *SelectUser(_, { call, select }) {
       const login = yield select(state => state.login);
       return yield call(AccountApi.selectUser, {
         accountToken: login.accountToken || Cookies.get('ACCOUNT_TOKEN'),
@@ -38,7 +38,7 @@ export default {
       });
     },
 
-    * AddUser({ payload }, { call, select }) {
+    *AddUser({ payload }, { call, select }) {
       const login = yield select(state => state.login);
       return yield call(AccountApi.addRole, {
         accountToken: login.accountToken || Cookies.get('ACCOUNT_TOKEN'),

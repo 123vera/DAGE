@@ -1,0 +1,52 @@
+@import '../../../styles/mixin.less';
+
+#ecological {
+  .contents {
+    margin-left: 60px;
+
+    li {
+      position: relative;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      background-color: @theme-color-bg-content;
+      box-sizing: border-box;
+      margin-bottom: 20px;
+      padding: 50px 42px;
+
+      &::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        content: '';
+        display: inline-block;
+        width: 100%;
+        height: 2px;
+        .background-gradient-horizontal(@theme-border-gradient-from, @theme-border-gradient-to);
+      }
+
+      .arrowRight {
+        position: absolute;
+        right: 40px;
+      }
+
+      .text {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.5;
+        margin: 0 50px;
+
+        span {
+          &:first-child {
+            font-size: @font-size-common;
+          }
+
+          &:last-child {
+            font-size: @font-size-smaller - 2;
+            color: @font-sub-color;
+          }
+        }
+      }
+    }
+  }
+}

@@ -12,7 +12,7 @@ const tabs = [
     width: '46px',
   },
   {
-    path: '/home/zoology',
+    path: '/home/ecological',
     icon: Icons.zoology,
     iconActive: Icons.zoologyActive,
     label: '生态',

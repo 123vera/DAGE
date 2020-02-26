@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { formatMessage } from 'umi-plugin-locale';
+// import { formatMessage } from 'umi-plugin-locale';
 import { connect } from 'dva';
 import router from 'umi/router';
 import { Modal, Toast } from 'antd-mobile';
@@ -8,11 +8,11 @@ import PageHeader from '@/components/common/PageHeader';
 import LOGIN_OUT from '@/assets/dark/login-out.png';
 import BG_ICON from '@/assets/dark/bg-icon.png';
 import ARROW_RIGHT from '@/assets/icons/arrow-right.png';
-import ICON_QRCODE from '@/assets/icons/qrcode.png';
-import ICON_SPREAD from '@/assets/icons/spread.png';
+// import ICON_QRCODE from '@/assets/icons/qrcode.png';
+// import ICON_SPREAD from '@/assets/icons/spread.png';
+// import ICON_SWITCH from '@/assets/icons/switch-lang.png';
 import ICON_RESET from '@/assets/icons/reset-password.png';
 import ICON_NOTICES from '@/assets/icons/notices.png';
-import ICON_SWITCH from '@/assets/icons/switch-lang.png';
 import ICON_CUSTOMER from '@/assets/icons/customer.png';
 import HOME_BG from '@/assets/imgs/home-bg.png';
 import DAGE_LOGO from '@/assets/dark/dage-logo.png';
@@ -20,7 +20,7 @@ import ACTIVITY from '@/assets/dark/activitied.png';
 import UNACTIVITY from '@/assets/dark/unactivitied.png';
 import styles from './index.less';
 
-@connect(({ userCenter }) => ({ userCenter }))
+@connect(({ globalModel, userCenter }) => ({ globalModel, userCenter }))
 class Home extends Component {
   state = {
     isEnabled: false,
@@ -31,6 +31,9 @@ class Home extends Component {
   };
 
   render() {
+    const {
+      globalModel: { myInfo },
+    } = this.props;
     const { isEnabled } = this.state;
     const listContent = [
       // {
@@ -91,10 +94,14 @@ class Home extends Component {
             <img className={styles.icon} src={BG_ICON} alt="" />
             <p>DID:213232</p>
             <CopyToClipboard key={new Date().toString()} text="GXs" onCopy={this.onCopyLink}>
-              <span>推荐码：GXs</span>
+              <span>推荐码：{(myInfo && myInfo.recommendCode) || '--'}</span>
             </CopyToClipboard>
           </div>
-          <img className={styles.status} src={isEnabled ? UNACTIVITY : ACTIVITY} alt="" />
+          <img
+            className={styles.status}
+            src={myInfo && myInfo.activate === 1 ? ACTIVITY : UNACTIVITY}
+            alt=""
+          />
         </div>
         <ul className={styles.list}>
           {listContent.map((item, key) => (

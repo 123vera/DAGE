@@ -27,7 +27,7 @@ export default [
         routes: [
           { path: '/home/wallet', title: '钱包', component: './wallet' },
           { path: '/home/user', title: '个人中心', component: './user/home' },
-          // { path: '/account/account', title: '选择登录账号', component: './account/account' },
+          { path: '/home/ecological', title: '生态', component: './ecological/home' },
         ],
       },
 
@@ -35,6 +35,17 @@ export default [
       { path: '/wallet/recharge', title: '充值', component: './wallet/recharge' },
       { path: '/wallet/withdraw', title: '提币', component: './wallet/withdraw' },
       { path: '/wallet/mining-detail', title: '挖矿详情', component: './wallet/mining-detail' },
+
+      {
+        path: '/exchange',
+        title: '去中心化交易中心',
+        component: './ecological/exchange',
+      },
+      {
+        path: '/choose',
+        title: '选择币种',
+        component: './ecological/choose',
+      },
     ],
   },
 ];
