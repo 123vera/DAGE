@@ -33,31 +33,31 @@ class Home extends Component {
   render() {
     const { isEnabled } = this.state;
     const listContent = [
-      {
-        icon: ICON_QRCODE,
-        text: '上传支付宝信息',
-        url: '',
-      },
-      {
-        icon: ICON_SPREAD,
-        text: '我的推广',
-        url: '/promotion',
-      },
+      // {
+      //   icon: ICON_QRCODE,
+      //   text: '上传支付宝信息',
+      //   url: '',
+      // },
+      // {
+      //   icon: ICON_SPREAD,
+      //   text: '我的推广',
+      //   url: '/promotion',
+      // },
       {
         icon: ICON_RESET,
         text: '重置登录密码',
-        url: '',
+        url: `/forgot_password?name=重置登录密码`,
       },
       {
         icon: ICON_NOTICES,
         text: '公告列表',
         url: '/notices',
       },
-      {
-        icon: ICON_SWITCH,
-        text: '语言切换',
-        url: '',
-      },
+      // {
+      //   icon: ICON_SWITCH,
+      //   text: '语言切换',
+      //   url: '',
+      // },
       {
         icon: ICON_CUSTOMER,
         text: '联系客服',

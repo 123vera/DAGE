@@ -272,6 +272,11 @@ export const COUNTRIES_LIST = [
   'Zimbabwe津巴布韦',
 ];
 
-export const COUNT_DOWN = 10;
+/* 验证码倒计时 */
+export const COUNT_DOWN = 60;
 
+/* Toast 出现时间 */
 export const TOAST_DURATION = 2;
+
+/* 每页条数 */
+export const PAGE_SIZE = 3;

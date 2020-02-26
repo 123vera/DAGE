@@ -2,6 +2,20 @@ import Cookies from 'js-cookie';
 import { REG } from './constants';
 
 /**
+ * @description query传参获取对应参数
+ * @returns {key} 要查找的字段名
+ * @returns {string} 返回值
+ */
+export const getQueryParam = key => {
+  const reg = new RegExp('(^|&| )' + key + '=([^&]*)(&|$)', 'i');
+  const r = window.location.search.substr(1).match(reg);
+  if (r !== null) {
+    return decodeURI(r[2]);
+  }
+  return null;
+};
+
+/**
  * @description 验证 IP 地址
  * @param {string} str 待验证的字符串
  * @returns {boolean} true 为真，false 为假

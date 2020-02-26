@@ -9,8 +9,9 @@ import Captcha from '@/components/common/Captcha';
 import NEXT_STEP from '@/assets/dark/next-step.png';
 import ARROW_DOWN from '@/assets/icons/arrow-down.png';
 import ARROW_LEFT from '@/assets/dark/arrow-left.png';
-import styles from './index.less';
 import { REG } from '../../../utils/constants';
+import { getQueryParam } from '../../../utils/utils';
+import styles from './index.less';
 
 @connect(({ forgotPassword }) => ({ forgotPassword }))
 class Home extends Component {
@@ -108,7 +109,7 @@ class Home extends Component {
       <div id={styles.forgotPassword}>
         <PageHeader leftContent={{ icon: ARROW_LEFT }} />
         <section>
-          <p>{formatMessage({ id: `LOGIN_FIND_PASSWORD` })}</p>
+          <p>{getQueryParam('name') || formatMessage({ id: `LOGIN_FIND_PASSWORD` })}</p>
           <div className={styles.mainWrapper}>
             <div className={styles.content}>
               <label htmlFor="phone">

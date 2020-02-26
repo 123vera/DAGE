@@ -36,7 +36,7 @@ const config = {
   theme: {
     'primary-color': '#FFFFFF',
     'font-size-base': '28px',
-    'hd': '2px',
+    hd: '2px',
   },
   routes: pageRoutes,
   lessLoaderOptions: {
@@ -51,7 +51,7 @@ const config = {
   //   '/api': {
   //     target: 'http://47.75.3.2:82/',
   //     pathRewrite: { '^/api': '/api' },
-  //     changeOrigin: true,
+  //     // changeOrigin: true,
   //   },
   // },
 };

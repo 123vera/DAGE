@@ -1,6 +1,4 @@
 import axios from 'axios';
-import { Toast } from 'antd-mobile';
-import { getCookie } from '@/utils/utils';
 import { getApiBaseUrl, optionsToLine, optionsToHump } from './utils';
 import qs from 'qs';
 
@@ -9,7 +7,7 @@ const Request = axios.create({
   baseURL: getApiBaseUrl(),
   headers: {
     Accept: 'application/json, text/plain, */*',
-    'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8'
+    'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
     // 'Content-Type': 'application/json;charset=UTF-8',
   },
   // baseURL: '/api',
@@ -22,7 +20,6 @@ const Request = axios.create({
     },
   ], // 对data进行转换处理
 });
-
 
 // 拦截请求
 Request.interceptors.request.use(

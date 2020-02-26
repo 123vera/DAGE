@@ -18,18 +18,18 @@ export default {
     },
   },
   effects: {
-    * GetCaptcha({ payload }, { call, put }) {
+    *GetCaptcha({ payload }, { call, put }) {
       const captchaKey = payload;
       const captchaSrc = yield call(AccountApi.getCaptcha, captchaKey);
       yield put({ type: 'UpdateState', payload: { captchaSrc, captchaKey } });
     },
 
-    * GetSmsCode({ payload }, { call, select }) {
+    *GetSmsCode({ payload }, { call, select }) {
       const captchaKey = yield select(state => state.register.captchaKey);
       return yield call(AccountApi.sendSmsCode, payload, captchaKey);
     },
 
-    * Register({ payload }, { call, select }) {
+    *Register({ payload }, { call, select }) {
       const register = yield select(state => state.register);
       const res = yield call(AccountApi.existPhone, {
         prefix: register.prefix,
