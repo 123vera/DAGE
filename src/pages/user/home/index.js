@@ -92,7 +92,7 @@ class Home extends Component {
           <img className={styles.bg1} src={DAGE_LOGO} alt="" />
           <div className={styles.center}>
             <img className={styles.icon} src={BG_ICON} alt="" />
-            <p>DID:213232</p>
+            <p>DID:{(myInfo && myInfo.did) || '--'}</p>
             <CopyToClipboard key={new Date().toString()} text="GXs" onCopy={this.onCopyLink}>
               <span>推荐码：{(myInfo && myInfo.recommendCode) || '--'}</span>
             </CopyToClipboard>

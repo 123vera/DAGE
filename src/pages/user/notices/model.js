@@ -4,11 +4,10 @@ import { PAGE_SIZE } from '../../../utils/constants';
 export default {
   namespace: 'notices',
   state: {
-    noticesList: {
-      items: [],
-      pages: 0,
-      pageIndex: 1,
-    },
+    hasMore: true,
+    noticesList: [],
+    pageSize: PAGE_SIZE,
+    pageIndex: 1,
   },
   reducers: {
     UpdateState(state, { payload }) {
@@ -17,22 +16,9 @@ export default {
   },
   effects: {
     *GetNoticelist({ payload }, { call, put, select }) {
-      const res = yield call(HomeService.getNoticelist, {
+      return yield call(HomeService.getNoticelist, {
         page: payload.pageIndex,
         row: PAGE_SIZE,
-      });
-      // let noticesList = yield select(state => state.notices.noticesList);
-      // if (res && res.data.length > 0) {
-      //   noticesList.items = res && res.data;
-      // }
-      let list = {
-        items: res && res.data,
-        pageIndex: payload.pageIndex + 1,
-      };
-
-      yield put({
-        type: 'UpdateState',
-        payload: { noticesList: list },
       });
     },
   },
@@ -40,13 +26,13 @@ export default {
     SetupHistory({ dispatch, history }) {
       history.listen(location => {
         // 这里可以获取当前变化的history路径以及参数，hash所有值，这样就可以在路由地址变化后做处理
-        dispatch({
-          type: 'GetNoticelist',
-          payload: {
-            pageIndex: 1,
-            row: PAGE_SIZE,
-          },
-        });
+        // dispatch({
+        //   type: 'GetNoticelist',
+        //   payload: {
+        //     pageIndex: 1,
+        //     row: PAGE_SIZE,
+        //   },
+        // });
       });
     },
   },
