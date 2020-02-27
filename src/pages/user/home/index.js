@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 // import { formatMessage } from 'umi-plugin-locale';
 import { connect } from 'dva';
 import router from 'umi/router';
+import { removeCookie } from '../../../utils/utils';
 import { Modal, Toast } from 'antd-mobile';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import PageHeader from '@/components/common/PageHeader';
@@ -34,7 +35,6 @@ class Home extends Component {
     const {
       globalModel: { myInfo },
     } = this.props;
-    const { isEnabled } = this.state;
     const listContent = [
       // {
       //   icon: ICON_QRCODE,
@@ -77,8 +77,11 @@ class Home extends Component {
               Modal.alert('确认退出登录？', '', [
                 {
                   text: '确认',
-                  onHandle: () => {
+                  onPress: () => {
                     // 退出登录
+                    router.push('/login');
+                    removeCookie('ACCOUNT_TOKEN');
+                    removeCookie('OPENID');
                   },
                 },
                 { text: '取消' },
@@ -92,7 +95,7 @@ class Home extends Component {
           <img className={styles.bg1} src={DAGE_LOGO} alt="" />
           <div className={styles.center}>
             <img className={styles.icon} src={BG_ICON} alt="" />
-            <p>DID:{(myInfo && myInfo.did) || '--'}</p>
+            <p>DID：{(myInfo && myInfo.did) || '--'}</p>
             <CopyToClipboard key={new Date().toString()} text="GXs" onCopy={this.onCopyLink}>
               <span>推荐码：{(myInfo && myInfo.recommendCode) || '--'}</span>
             </CopyToClipboard>

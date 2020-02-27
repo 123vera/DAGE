@@ -18,6 +18,8 @@ export function getApiBaseUrl() {
 }
 
 export function onlinePost(path, options = {}) {
+  console.log(options);
+
   return request.post(path, { ...options, openId: getOpenId() });
 }
 
@@ -63,26 +65,26 @@ export function getHumpData(data) {
 }
 
 getHumpData({
-  'status': 1,
-  'msg': '登录成功',
-  'data': {
-    'account_token': 'AC_21f45023d884fc0015cec8b0e38e2dc0',
-    'user_list': [
+  status: 1,
+  msg: '登录成功',
+  data: {
+    account_token: 'AC_21f45023d884fc0015cec8b0e38e2dc0',
+    user_list: [
       {
-        'user_id': 5,
-        'user_name': 'test1234',
+        user_id: 5,
+        user_name: 'test1234',
       },
       {
-        'user_id': 6,
-        'user_name': 'test12345',
+        user_id: 6,
+        user_name: 'test12345',
       },
       {
-        'user_id': 7,
-        'user_name': 'test123456',
+        user_id: 7,
+        user_name: 'test123456',
       },
       {
-        'user_id': 8,
-        'user_name': '18368095040',
+        user_id: 8,
+        user_name: '18368095040',
       },
     ],
   },

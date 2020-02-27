@@ -76,8 +76,8 @@ class AssetApi {
   /**
    * 提交币种兑换
    *
-   * @required currency1 string 币种1
-   * @required currency2 string 币种2
+   * @required currency1 string 币种1, 非必填
+   * @required currency2 string 币种2，非必填
    * @required amount string 兑换数量
    * @required code string 手机验证码
    * @required openId string 用户openid

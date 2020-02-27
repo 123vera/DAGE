@@ -40,17 +40,10 @@ export default [
       { path: '/wallet/withdraw', title: '提币', component: './wallet/withdraw' },
       { path: '/wallet/mining-detail', title: '挖矿详情', component: './wallet/mining-detail' },
 
-      { path: '/user', title: '', component: './user' },
-
       {
         path: '/exchange',
         title: '去中心化交易中心',
         component: './ecological/exchange',
-      },
-      {
-        path: '/choose',
-        title: '选择币种',
-        component: './ecological/choose',
       },
     ],
   },

@@ -2,10 +2,12 @@
 
 #exchange {
   .wrapper {
-    margin: 0 60px 60px;
+    padding-bottom: 60px;
+    margin: 0 60px;
   }
 
   .mainContent {
+    position: relative;
     box-sizing: border-box;
     padding: 44px;
     background-color: @theme-color-bg-content;
@@ -84,7 +86,58 @@
       border-bottom: 2px solid @theme-border-gray;
 
       span {
-        margin: 0 70px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+
+        img {
+          margin: 0 20px;
+        }
+      }
+
+      .popover {
+        position: absolute;
+        top: 155px;
+        display: none;
+        width: 238px;
+        text-align: center;
+        box-sizing: border-box;
+        padding: 15px 35px 0;
+        border: 2px solid @theme-border-gray;
+        border-radius: 8px;
+        background-color: @theme-color-bg-content;
+
+        &::before {
+          position: absolute;
+          left: 50%;
+          top: -20px;
+          z-index: 1;
+          content: '';
+          transform: translateX(-50%);
+          border-top: 0 solid transparent;
+          border-left: 20px solid transparent;
+          border-right: 20px solid transparent;
+          border-bottom: 20px solid @theme-border-gray;
+        }
+
+        &::after {
+          position: absolute;
+          left: calc(50% + 1px);
+          top: -17px;
+          z-index: 1;
+          content: '';
+          transform: translateX(-53%);
+          border-top: 0 solid transparent;
+          border-left: 15px solid transparent;
+          border-right: 15px solid transparent;
+          border-bottom: 17px solid @theme-color-bg-content;
+        }
+
+        .checkItem {
+          display: block;
+          padding: 15px 0;
+          border-bottom: 2px solid @theme-border-gray;
+        }
       }
     }
   }

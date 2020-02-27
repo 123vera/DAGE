@@ -1,5 +1,5 @@
 import request from '../request';
-import { getApiBaseUrl, onlineGet, getAccountToken, getOpenId } from '../utils';
+import { getApiBaseUrl, onlineGet, getAccountToken, getOpenId,onlinePost } from '../utils';
 
 const SID = '12c68f99664da7bc';
 
@@ -122,7 +122,7 @@ class UserApi {
    * @required openId string
    **/
   static getMyInfo(options) {
-    return request.post('/user/myinfo', options);
+    return onlinePost('/user/myinfo', options);
   }
 }
 

@@ -9,7 +9,7 @@ import styles from './index.less';
 import TelPrefix from '../../../components/partials/TelPrefix';
 import { Icons, Images } from '../../../assets';
 
-@connect(({ login }) => ({ login }))
+@connect(({ globalModel, login }) => ({ globalModel, login }))
 class Home extends Component {
   state = {
     showPrefix: false,

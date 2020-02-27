@@ -29,8 +29,8 @@ class Index extends Component {
         <PageHeader title="生态" />
 
         <ul className={styles.contents}>
-          {list.map(item => (
-            <li onClick={() => router.push(item.link)}>
+          {list.map((item, key) => (
+            <li onClick={() => router.push(item.link)} key={key}>
               <img src={item.img} alt="" />
               <div className={styles.text}>
                 <span>{item.title}</span>
