@@ -1,34 +1,44 @@
-@import '../../../styles/mixin.less';
+@import '../../../../styles/mixin.less';
 
-#userRegister {
+.findPassword {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
 
   section {
     position: relative;
     right: 0;
     left: 60px;
+    width: 100%;
 
     p {
       font-size: @font-size-super-xl;
     }
 
     .mainWrapper {
-      position: relative;
-      box-sizing: border-box;
-      margin-top: 40px;
-      padding: 82px 106px 82px 44px;
-      background-color: @theme-color-bg-content;
+      background: @theme-color-bg-content;
 
-      &::before {
-        position: absolute;
-        top: 0;
-        left: 0;
-        content: '';
-        display: inline-block;
+      .content {
+        position: relative;
+        box-sizing: border-box;
+        margin-top: 40px;
         width: 100%;
-        height: 2px;
-        .background-gradient-horizontal(@theme-border-gradient-from, @theme-border-gradient-to);
+
+        padding: 82px 106px 82px 44px;
+        background-color: @theme-color-bg-content;
+
+        &::before {
+          position: absolute;
+          top: 0;
+          left: 0;
+          content: '';
+          display: inline-block;
+          width: 100%;
+          height: 2px;
+          .background-gradient-horizontal(@theme-border-gradient-from, @theme-border-gradient-to);
+        }
       }
 
       label {
@@ -42,23 +52,20 @@
           line-height: 1.9;
         }
 
-        h4 {
-          margin-top: 32px;
-          color: #ff3750;
-        }
-
         input {
-          .clearInput();
           color: @font-color-primary;
           padding: 20px 0;
+          .clearInput();
           border-bottom: 2px solid @theme-border-gray;
 
           &::placeholder {
             color: #6d778b;
           }
-          &.inputErr {
-            border-bottom: 2px solid @theme-color-red;
-          }
+        }
+
+        h4 {
+          margin-top: 32px;
+          color: #ff3750;
         }
 
         .pickerWrapper,
@@ -71,6 +78,7 @@
           }
 
           input {
+            width: 100%;
             border-bottom: none;
           }
 
@@ -87,13 +95,25 @@
         }
 
         .codeWrapper {
-          position: relative;
-
           .codeNumber {
-            position: absolute;
-            right: 0;
-            bottom: 0;
+            width: 210px;
             color: @font-color-primary;
+            background: transparent;
+            border: none;
+          }
+        }
+
+        .pickerWrapper {
+          display: flex;
+          align-items: center;
+
+          span {
+            display: contents;
+            color: #fff;
+
+            img {
+              margin: 0 10px;
+            }
           }
         }
       }

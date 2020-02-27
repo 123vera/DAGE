@@ -14,8 +14,20 @@ export default [
       { path: '/register', title: '注册', component: './account/register' },
       { path: '/select_account', title: '选择登录账号', component: './account/selectAccount' },
       { path: '/set_account', title: '创建新账号', component: './account/setAccount' },
-      { path: '/set_password', title: '设置新密码', component: './account/setPassword' },
-      { path: '/forgot_password', title: '忘记密码', component: './account/forgotPassword' },
+
+      { path: '/reset_password/code', title: '重置密码', component: './account/password/setPassword' },
+      {
+        path: '/reset_password/password',
+        title: '设置新密码',
+        component: './account/password/setPassword',
+      },
+
+      { path: '/find_password/code', title: '找回密码', component: './account/password/getCode' },
+      {
+        path: '/find_password/password',
+        title: '设置新密码',
+        component: './account/password/setPassword',
+      },
 
       { path: '/referral_code', title: '推荐码', component: './user/referralCode' },
       { path: '/notices', title: '公告列表', component: './user/notices' },

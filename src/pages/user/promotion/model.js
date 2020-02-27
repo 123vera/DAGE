@@ -1,4 +1,3 @@
-import * as HomeService from '@/services/api/home';
 
 export default {
   namespace: 'promotion',
@@ -10,8 +9,8 @@ export default {
   },
   effects: {
     *Test({ payload }, { call }) {
-      const res = yield call(HomeService.getUserInfoStatus, payload);
-      console.log(res);
+      // const res = yield call(HomeService.getUserInfoStatus, payload);
+      // console.log(res);
     },
   },
   subscriptions: {},

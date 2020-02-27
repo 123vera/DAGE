@@ -51,10 +51,10 @@ Request.interceptors.response.use(
     // }
 
     // 处理未登录
-    if (data.status === -101) {
-      Toast.fail(data.msg);
-      return;
-    }
+    // if (data.status === -101) {
+    //   Toast.fail(data.msg);
+    //   return;
+    // }
 
     // 对下划线转驼峰进行处理
     if (data.data) {

@@ -1,19 +1,25 @@
-import * as HomeService from '@/services/api/home';
+import { UserApi } from '../../services/api';
+
 
 export default {
   namespace: 'wallet',
-  state: [],
+  state: {
+    userInfo: {},
+  },
   reducers: {
     UpdateState(state, { payload }) {
       return { ...state, ...payload };
     },
   },
   effects: {
-    *Test({ payload }, { call }) {
-      const res = yield call(HomeService.getUserInfoStatus, payload);
-      console.log(res);
+    * GetUserInfo(_, { call, put }) {
+      const res = yield call(UserApi.getMyInfo);
+      if (res.status === 1) {
+        yield put({ type: 'UpdateState', payload: { userInfo: res.data } });
+      }
+      return res;
     },
-    *Test2(_, { put }) {
+    * Test2(_, { put }) {
       yield put({ type: 'Test' });
     },
   },

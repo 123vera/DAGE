@@ -79,8 +79,8 @@ class AccountApi {
    * @required password string 密码
    * @required passwordConfirm string 确认密码
    **/
-  static findPassword(params) {
-    return request.get('/user/findpasswordforsms', params);
+  static findPassword(options) {
+    return request.post('/user/findpasswordforsms', options);
   }
 
   /**

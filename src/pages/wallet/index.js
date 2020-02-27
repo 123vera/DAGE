@@ -7,28 +7,31 @@ import WalletMenus from '../../components/wallet/WalletMenus';
 // import Activation from '../../components/wallet/Activation';
 import Mining from '../../components/wallet/Mining';
 import { Icons, Images } from '../../assets';
+import { Toast } from 'antd-mobile';
 
 @connect(({ wallet }) => ({ wallet }))
 class Home extends Component {
-  // changeLang = () => {
-  //   if (getLocale() === 'en-US') {
-  //     setLocale('ch-CN');
-  //   } else {
-  //     setLocale('en-US');
-  //   }
-  // };
-
   state = {
     showMenus: false,
   };
 
+  componentDidMount() {
+    this.props.dispatch({
+      type: 'wallet/GetUserInfo',
+    }).then(res => {
+      if (res.status !== 1) {
+        Toast.fail(res.msg);
+      }
+    });
+  }
+
   onShowMenus = e => {
-    const { showMenus } = this.state;
-    this.setState({ showMenus: !showMenus });
+    this.setState({ showMenus: !this.state.showMenus });
     e.stopPropagation();
   };
 
   render() {
+    const { userInfo } = this.props.wallet;
     const { showMenus } = this.state;
     console.log(showMenus);
     return (
@@ -49,7 +52,7 @@ class Home extends Component {
         <section>
           <div className={styles.banner} style={{ backgroundImage: `url(${Images.homeBg})` }}>
             <label>DAGE WALLENT</label>
-            <h1>0.00</h1>
+            <h1>{userInfo.dgt}</h1>
           </div>
         </section>
         <section>
