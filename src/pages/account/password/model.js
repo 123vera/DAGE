@@ -1,4 +1,4 @@
-import AccountApi from '../../../services/api/account';
+import UserApi from '../../../services/api/user';
 
 export default {
   namespace: 'password',
@@ -18,15 +18,15 @@ export default {
     },
   },
   effects: {
-    * GetCaptcha(_, { call, put }) {
-      const captchaSrc = yield call(AccountApi.getCaptcha, +new Date());
+    *GetCaptcha(_, { call, put }) {
+      const captchaSrc = yield call(UserApi.getCaptcha, +new Date());
       yield put({ type: 'UpdateState', payload: { captchaSrc } });
     },
 
-    * GetSmsCode({ payload }, { call, select }) {
+    *GetSmsCode({ payload }, { call, select }) {
       const state = yield select(state => state.password);
       const { prefix, phone, captcha } = state;
-      return yield call(AccountApi.sendSmsCode, {
+      return yield call(UserApi.sendSmsCode, {
         prefix,
         phone,
         imgcode: captcha,
@@ -34,9 +34,9 @@ export default {
       });
     },
 
-    * FindPassword(_, { call, select }) {
+    *FindPassword(_, { call, select }) {
       const state = yield select(state => state.password);
-      return yield call(AccountApi.findPassword, {
+      return yield call(UserApi.findPassword, {
         prefix: state.prefix,
         phone: state.phone,
         code: state.code,

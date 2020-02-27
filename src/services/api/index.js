@@ -1,5 +1,5 @@
-import AccountApi from './account';
 import UserApi from './user';
+import AssetApi from './asset';
 import OtherApi from './other';
 
-export { AccountApi, UserApi, OtherApi };
+export { UserApi, AssetApi, OtherApi };

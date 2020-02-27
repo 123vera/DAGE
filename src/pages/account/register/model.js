@@ -1,4 +1,4 @@
-import { AccountApi } from '../../../services/api';
+import { UserApi } from '../../../services/api';
 
 export default {
   namespace: 'register',
@@ -20,23 +20,23 @@ export default {
   effects: {
     *GetCaptcha({ payload }, { call, put }) {
       const captchaKey = payload;
-      const captchaSrc = yield call(AccountApi.getCaptcha, captchaKey);
+      const captchaSrc = yield call(UserApi.getCaptcha, captchaKey);
       yield put({ type: 'UpdateState', payload: { captchaSrc, captchaKey } });
     },
 
     *GetSmsCode({ payload }, { call, select }) {
       const captchaKey = yield select(state => state.register.captchaKey);
-      return yield call(AccountApi.sendSmsCode, payload, captchaKey);
+      return yield call(UserApi.sendSmsCode, payload, captchaKey);
     },
 
     *Register({ payload }, { call, select }) {
       const register = yield select(state => state.register);
-      const res = yield call(AccountApi.existPhone, {
+      const res = yield call(UserApi.existPhone, {
         prefix: register.prefix,
         phone: register.phone,
       });
       if (res.status !== 1) return res;
-      return yield call(AccountApi.register, {
+      return yield call(UserApi.register, {
         prefix: register.prefix,
         phone: register.phone,
         code: register.code,

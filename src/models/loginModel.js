@@ -1,5 +1,5 @@
 import Cookies from 'js-cookie';
-import { AccountApi } from '../services/api';
+import { UserApi } from '../services/api';
 
 export default {
   namespace: 'login',
@@ -23,7 +23,7 @@ export default {
   effects: {
     *Login(_, { call, select }) {
       const login = yield select(state => state.login);
-      return yield call(AccountApi.login, {
+      return yield call(UserApi.login, {
         prefix: login.prefix,
         phone: login.phone,
         password: login.password,
@@ -32,7 +32,7 @@ export default {
 
     *SelectUser(_, { call, select }) {
       const login = yield select(state => state.login);
-      return yield call(AccountApi.selectUser, {
+      return yield call(UserApi.selectUser, {
         accountToken: login.accountToken || Cookies.get('ACCOUNT_TOKEN'),
         userId: login.userId,
       });
@@ -40,7 +40,7 @@ export default {
 
     *AddUser({ payload }, { call, select }) {
       const login = yield select(state => state.login);
-      return yield call(AccountApi.addRole, {
+      return yield call(UserApi.addRole, {
         accountToken: login.accountToken || Cookies.get('ACCOUNT_TOKEN'),
         userName: login.userName,
         recommendCode: login.recommendCode,

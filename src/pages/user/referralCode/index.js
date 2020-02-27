@@ -26,7 +26,7 @@ class Index extends Component {
       <div id={styles.referralCode} style={{ backgroundImage: `url(${REFERRAL_CODE})` }}>
         <PageHeader title="推荐码" leftContent={{ icon: ARROW_LEFT }} />
         <div className={styles.mainContent}>
-          <QRcode id="qrid" width="250px" height="250px" value={'33'} renderAs="canvas" />
+          <QRcode id="qrid" width="2.5rem" height="2.5rem" value={'33'} renderAs="canvas" />
           <span>No GKDHEK</span>
           <CopyToClipboard key={new Date().toString()} text="No GKDHEK" onCopy={this.onCopyLink}>
             <span className={styles.copyText}>复制邀请码</span>
