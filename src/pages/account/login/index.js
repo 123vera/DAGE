@@ -90,11 +90,11 @@ class Home extends Component {
                 <span className={styles.label}>{formatMessage({ id: `COMMON_LABEL_PHONE` })}</span>
                 <div
                   className={`${styles.pickerWrapper} ${errMsg.type === 'phone' &&
-                    styles.inputErr}`}
+                  styles.inputErr}`}
                 >
                   <span onClick={this.onOpenPrefix}>
                     +{prefix}
-                    <img src={Icons.arrowDown} alt="" />
+                    <img src={Icons.arrowDown} alt=""/>
                   </span>
                   <input
                     type="number"
@@ -121,12 +121,12 @@ class Home extends Component {
                 <span onClick={() => router.push(`/register`)}>
                   {formatMessage({ id: `REGISTER_TITLE` })}
                 </span>
-                <span onClick={() => router.push(`/forgot_password`)}>
+                <span onClick={() => router.push(`/find_password/verify`)}>
                   {formatMessage({ id: `LOGIN_FORGET_PASSWORD` })}
                 </span>
               </div>
 
-              <img className={styles.nextStep} src={Images.nextStep} onClick={this.toNext} alt="" />
+              <img className={styles.nextStep} src={Images.nextStep} onClick={this.toNext} alt=""/>
             </div>
           </section>
         </div>

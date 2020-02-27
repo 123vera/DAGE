@@ -5,8 +5,8 @@ export function getOpenId() {
   return Cookies.get('OPENID');
 }
 
-export function getToken() {
-  return Cookies.get('TOKEN');
+export function getAccountToken() {
+  return Cookies.get('ACCOUNT_TOKEN');
 }
 
 export function getApiBaseUrl() {

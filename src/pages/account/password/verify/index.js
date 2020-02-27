@@ -6,9 +6,10 @@ import { Icons, Images } from '../../../../assets';
 import PageHeader from '@/components/common/PageHeader';
 import TelPrefix from '../../../../components/partials/TelPrefix';
 import Captcha from '../../../../components/common/Captcha';
-import { REG, COUNT_DOWN } from '../../../../utils/constants';
+import { REG, COUNT_DOWN, TOAST_DURATION } from '../../../../utils/constants';
 import styles from './index.less';
 import { Toast } from 'antd-mobile';
+import Cookies from 'js-cookie';
 
 @connect(({ password }) => ({ password }))
 class Home extends Component {
@@ -94,7 +95,7 @@ class Home extends Component {
   };
 
   toNext = () => {
-    const { phone, code } = this.props.password;
+    const { phone, code, type } = this.props.password;
     if (!phone) {
       this.setState({ errMsg: { type: 'phone', value: '请输入手机号码' } });
       return;
@@ -112,7 +113,15 @@ class Home extends Component {
       return;
     }
 
-    router.push('/find_password/password');
+    this.props.dispatch({ type: 'password/FindPassword' })
+      .then(res => {
+        if (res.status !== 1) {
+          Toast.fail(res.msg);
+          return;
+        }
+        Cookies.set('ACCOUNT_TOKEN', res.data.accountToken);
+        router.push(type === 'find_password' ? '/find_password/edit' : '/reset_password/edit');
+      });
   };
 
   render() {

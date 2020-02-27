@@ -4,7 +4,7 @@ export default {
   namespace: 'password',
   state: {
     prefix: 86,
-    phone: 18368095040 || undefined,
+    phone: undefined,
     code: undefined,
     password: '',
     passwordConfirm: '',
@@ -18,12 +18,12 @@ export default {
     },
   },
   effects: {
-    *GetCaptcha(_, { call, put }) {
+    * GetCaptcha(_, { call, put }) {
       const captchaSrc = yield call(UserApi.getCaptcha, +new Date());
       yield put({ type: 'UpdateState', payload: { captchaSrc } });
     },
 
-    *GetSmsCode({ payload }, { call, select }) {
+    * GetSmsCode({ payload }, { call, select }) {
       const state = yield select(state => state.password);
       const { prefix, phone, captcha } = state;
       return yield call(UserApi.sendSmsCode, {
@@ -34,22 +34,20 @@ export default {
       });
     },
 
-    *FindPassword(_, { call, select }) {
+    * FindPassword(_, { call, select }) {
       const state = yield select(state => state.password);
       return yield call(UserApi.findPassword, {
         prefix: state.prefix,
         phone: state.phone,
         code: state.code,
-        password: state.password,
-        passwordConfirm: state.passwordConfirm,
       });
     },
-  },
-  subscriptions: {
-    SetupHistory({ dispatch, history }) {
-      history.listen(location => {
-        // 这里可以获取当前变化的history路径以及参数，hash所有值，这样就可以在路由地址变化后做处理
-        // dispatch({ type: 'Test' });
+
+    * EditPassword(_, { call, select }) {
+      const state = yield select(state => state.password);
+      return yield call(UserApi.editPassword, {
+        password: state.password,
+        passwordConfirm: state.passwordConfirm,
       });
     },
   },

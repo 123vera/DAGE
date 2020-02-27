@@ -48,7 +48,7 @@ class Index extends Component {
       return;
     }
 
-    this.props.dispatch({ type: 'password/FindPassword' })
+    this.props.dispatch({ type: 'password/EditPassword' })
       .then(res => {
         if (res.status !== 1) {
           Toast.fail(res.msg);

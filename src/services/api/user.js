@@ -1,5 +1,5 @@
 import request from '../request';
-import { getApiBaseUrl, onlineGet } from '../utils';
+import { getApiBaseUrl, onlineGet, getAccountToken, getOpenId } from '../utils';
 
 const SID = '12c68f99664da7bc';
 
@@ -76,22 +76,25 @@ class UserApi {
    * @required prefix number 手机号国家码
    * @required phone number 手机号
    * @required code number 验证码
-   * @required password string 密码
-   * @required passwordConfirm string 确认密码
    **/
   static findPassword(options) {
     return request.post('/user/findpasswordforsms', options);
   }
 
   /**
-   * 用户修改密码
+   * 用户修改密码 accountToken 与 openId必须存在一个
    *
-   * @required openId string 用户的openid
+   * accountToken string 用户的accountToken
+   * openId string 用户的openid
    * @required password string 新密码
    * @required passwordConfirm string 确认密码
    **/
-  static editPassword(params) {
-    return onlineGet('/user/editpassword', params);
+  static editPassword(options) {
+    return onlineGet('/user/editpassword', {
+      ...options,
+      accountToken: getAccountToken(),
+      openId: getOpenId(),
+    });
   }
 
   /**

@@ -33,7 +33,7 @@ class Home extends Component {
   render() {
     const { userInfo } = this.props.wallet;
     const { showMenus } = this.state;
-    console.log(showMenus);
+
     return (
       <div className={styles.home} onClick={() => this.setState({ showMenus: false })}>
         <section className={styles.header}>
@@ -52,7 +52,7 @@ class Home extends Component {
         <section>
           <div className={styles.banner} style={{ backgroundImage: `url(${Images.homeBg})` }}>
             <label>DAGE WALLENT</label>
-            <h1>{userInfo.dgt}</h1>
+            <h1>{userInfo.did} <small>DID</small></h1>
           </div>
         </section>
         <section>
