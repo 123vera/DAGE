@@ -15,16 +15,6 @@ class Home extends Component {
     showMenus: false,
   };
 
-  componentDidMount() {
-    this.props.dispatch({
-      type: 'wallet/GetUserInfo',
-    }).then(res => {
-      if (res.status !== 1) {
-        Toast.fail(res.msg);
-      }
-    });
-  }
-
   onShowMenus = e => {
     this.setState({ showMenus: !this.state.showMenus });
     e.stopPropagation();
@@ -42,12 +32,14 @@ class Home extends Component {
             icon={Icons.list}
             rightContent={{
               icon: Icons.more,
-              onHandle: (e) => this.onShowMenus(e),
+              onHandle: e => this.onShowMenus(e),
             }}
           />
-          {showMenus && <div className={styles.menus} onClick={(e) => e.stopPropagation()}>
-            <WalletMenus/>
-          </div>}
+          {showMenus && (
+            <div className={styles.menus} onClick={e => e.stopPropagation()}>
+              <WalletMenus />
+            </div>
+          )}
         </section>
         <section>
           <div className={styles.banner} style={{ backgroundImage: `url(${Images.homeBg})` }}>
@@ -61,7 +53,7 @@ class Home extends Component {
           </div>
         </section>
         {/*<Activation/>*/}
-        <Mining/>
+        <Mining />
       </div>
     );
   }

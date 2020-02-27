@@ -21,40 +21,44 @@ const HeaderItem = function(props) {
       className={`${styles.headerItem} ${reverse ? styles.reverse : ''}`}
       onClick={e => onHandle && onHandle(e)}
     >
-      {icon && <i>
-        <img
-          src={icon || Icons.arrowLeft}
-          style={{ ...iconStyle, width: iconWidth, height: iconHeight }}
-          alt="ICON"
-        />
-      </i>}
-      <span
-        style={{ ...textStyle, fontSize: textSize }}
-      >
-        {text}
-      </span>
+      {icon && (
+        <i>
+          <img
+            src={icon || Icons.arrowLeft}
+            style={{ ...iconStyle, width: iconWidth, height: iconHeight }}
+            alt="ICON"
+          />
+        </i>
+      )}
+      <span style={{ ...textStyle, fontSize: textSize }}>{text}</span>
     </div>
   );
 };
 
-
 class Header extends Component {
   render() {
     let { leftContent, centerContent, rightContent, icon, title, onHandle } = this.props;
-    title && (centerContent = centerContent ? centerContent.text = title : { text: title });
-    icon && (leftContent = leftContent ? leftContent.icon = icon : { icon: icon });
-    leftContent && (leftContent.onHandle = onHandle || leftContent.onHandle || (() => router.goBack()));
+    title && (centerContent = centerContent ? (centerContent.text = title) : { text: title });
+    icon && (leftContent = leftContent ? (leftContent.icon = icon) : { icon: icon });
+    leftContent &&
+      (leftContent.onHandle = onHandle || leftContent.onHandle || (() => router.goBack()));
     return (
       <header className={styles.header}>
-        {leftContent && <div className={styles.leftContent}>
-          <HeaderItem {...leftContent}/>
-        </div>}
-        {centerContent && <div className={styles.centerContent}>
-          <HeaderItem {...centerContent}/>
-        </div>}
-        {rightContent && <div className={styles.rightContent}>
-          <HeaderItem {...rightContent}/>
-        </div>}
+        {leftContent && (
+          <div className={styles.leftContent}>
+            <HeaderItem {...leftContent} />
+          </div>
+        )}
+        {centerContent && (
+          <div className={styles.centerContent}>
+            <HeaderItem {...centerContent} />
+          </div>
+        )}
+        {rightContent && (
+          <div className={styles.rightContent}>
+            <HeaderItem {...rightContent} />
+          </div>
+        )}
       </header>
     );
   }

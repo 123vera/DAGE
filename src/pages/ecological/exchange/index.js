@@ -14,9 +14,15 @@ class Index extends Component {
   state = {
     count: COUNT_DOWN,
     timer: null,
+    position: null,
   };
-  selectCurrency = () => {
-    router.push('/choose');
+
+  checkAside = type => {
+    if (type === 'left') {
+      this.setState({ position: { left: '10%', display: 'block' } });
+    } else {
+      this.setState({ position: { right: '10%', display: 'block' } });
+    }
   };
 
   countDown = () => {
@@ -67,23 +73,41 @@ class Index extends Component {
     const {
       exchange: { amount, smsCode },
     } = this.props;
-    const { count } = this.state;
+    const { count, position } = this.state;
 
     return (
       <div id={styles.exchange}>
         <PageHeader title="生态" leftContent={{ icon: ARROW_LEFT }} />
 
-        <div className={styles.wrapper}>
+        <div
+          className={styles.wrapper}
+          onClick={e => {
+            this.setState({ position: null });
+          }}
+        >
           <div className={styles.mainContent}>
             <div className={styles.selectCurrency}>
-              <span onClick={this.selectCurrency}>
+              <span onClick={() => this.checkAside('left')}>
                 USDT <img src={ARROW_DOWN} alt="" />
               </span>
-              <img style={{ transform: 'rotate(180deg)' }} src={ARROW_LEFT} alt="" />
-              <span>
+              <img
+                style={{ transform: 'rotate(180deg)', margin: ' 0 60px' }}
+                src={ARROW_LEFT}
+                alt=""
+              />
+              <span onClick={() => this.checkAside('right')}>
                 DGT <img src={ARROW_DOWN} alt="" />
               </span>
+              <div
+                className={styles.popover}
+                style={{ ...position }}
+                onClick={e => e.preventDefault()}
+              >
+                <span className={styles.checkItem}>DGC</span>
+                <span className={styles.checkItem}>USDT</span>
+              </div>
             </div>
+
             <small className={styles.notice}>当前兑换比例：1 USDT = 1 DGT</small>
             <label>
               <span className={styles.label}>兑换数量</span>

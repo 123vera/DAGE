@@ -9,7 +9,7 @@ import styles from './index.less';
 import TelPrefix from '../../../components/partials/TelPrefix';
 import { Icons, Images } from '../../../assets';
 
-@connect(({ login }) => ({ login }))
+@connect(({ globalModel, login }) => ({ globalModel, login }))
 class Home extends Component {
   state = {
     showPrefix: false,
@@ -40,7 +40,6 @@ class Home extends Component {
 
   toNext = () => {
     const { phone, password } = this.props.login;
-    console.log(phone, password);
     if (!phone) {
       this.setState({ errMsg: { type: 'phone', value: '请输入手机号码' } });
       return;
@@ -59,7 +58,6 @@ class Home extends Component {
     }
 
     this.props.dispatch({ type: 'login/Login' }).then(res => {
-      console.log(res);
       if (res.status !== 1) {
         Toast.fail(res.msg);
         return;
@@ -121,7 +119,7 @@ class Home extends Component {
                 <span onClick={() => router.push(`/register`)}>
                   {formatMessage({ id: `REGISTER_TITLE` })}
                 </span>
-                <span onClick={() => router.push(`/forgot_password`)}>
+                <span onClick={() => router.push(`/reset_password/code`)}>
                   {formatMessage({ id: `LOGIN_FORGET_PASSWORD` })}
                 </span>
               </div>

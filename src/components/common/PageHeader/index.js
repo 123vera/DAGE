@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-// import ARROW_LEFT from '@/assets/dark/arrow-left.png';
 import styles from './index.less';
-import { router } from 'umi';
+import router from 'umi/router';
 
 class PageHeader extends Component {
   clickLeft = () => {

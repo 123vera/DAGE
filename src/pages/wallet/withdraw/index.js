@@ -3,7 +3,7 @@ import { Icons } from '../../../assets';
 import Header from '../../../components/common/Header';
 import styles from './index.less';
 import Menus from '../../../components/common/Menus';
-import { withdrawInit } from '../../../services/api/asset';
+import AssetApi from '../../../services/api/asset';
 
 class Recharge extends Component {
   state = {
@@ -12,7 +12,7 @@ class Recharge extends Component {
   };
 
   componentDidMount() {
-    withdrawInit('usdt').then();
+    AssetApi.withdrawInit('usdt').then();
   }
 
   toggleShowMenus = e => {

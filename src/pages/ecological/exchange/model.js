@@ -1,10 +1,13 @@
-// import * as HomeService from '@/services/api/home';
+import AssetApi from '../../../services/api/asset';
 
 export default {
   namespace: 'exchange',
   state: {
     amount: '',
     smsCode: '',
+    balance: '',
+    team: [],
+    exini: {},
   },
   reducers: {
     UpdateState(state, { payload }) {
@@ -12,16 +15,25 @@ export default {
     },
   },
   effects: {
-    *GetUser({ payload }, { call, put }) {
-      // const res = yield call(HomeService.GetUser, payload);
-      // yield put({
-      //   type: '',
-      //   payload: {
-      //     DID: res.data.DID,
-      //     referralCode: res.data.referralCode,
-      //   },
-      // });
+    *SetExchangeInit({ payload }, { call, put }) {
+      const res = yield call(AssetApi.setExchangeInit, payload);
+      console.log(res);
+      yield put({
+        type: '',
+        payload: {
+          balance: res.data.balance,
+          exini: res.data.exini,
+          team: res.data.team,
+        },
+      });
     },
   },
-  subscriptions: {},
+  subscriptions: {
+    SetupHistory({ dispatch, history }) {
+      history.listen(() => {
+        // 这里可以获取当前变化的history路径以及参数，hash所有值，这样就可以在路由地址变化后做处理
+        dispatch({ type: 'SetExchangeInit' });
+      });
+    },
+  },
 };

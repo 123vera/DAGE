@@ -15,7 +15,11 @@ export default [
       { path: '/select_account', title: '选择登录账号', component: './account/selectAccount' },
       { path: '/set_account', title: '创建新账号', component: './account/setAccount' },
 
-      { path: '/reset_password/code', title: '重置密码', component: './account/password/setPassword' },
+      {
+        path: '/reset_password/code',
+        title: '重置密码',
+        component: './account/password/setPassword',
+      },
       {
         path: '/reset_password/password',
         title: '设置新密码',
@@ -48,17 +52,10 @@ export default [
       { path: '/wallet/withdraw', title: '提币', component: './wallet/withdraw' },
       { path: '/wallet/mining-detail', title: '挖矿详情', component: './wallet/mining-detail' },
 
-      { path: '/user', title: '', component: './user' },
-
       {
         path: '/exchange',
         title: '去中心化交易中心',
         component: './ecological/exchange',
-      },
-      {
-        path: '/choose',
-        title: '选择币种',
-        component: './ecological/choose',
       },
     ],
   },
