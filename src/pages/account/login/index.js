@@ -39,7 +39,7 @@ class Home extends Component {
   };
 
   toNext = () => {
-    const { phone, password } = this.props.login;
+    const { prefix, phone, password } = this.props.login;
     if (!phone) {
       this.setState({ errMsg: { type: 'phone', value: '请输入手机号码' } });
       return;
@@ -68,6 +68,8 @@ class Home extends Component {
         payload: { accountToken, userList },
       });
       Cookies.set('ACCOUNT_TOKEN', accountToken);
+      Cookies.set('USER_PHONE', phone);
+      Cookies.set('USER_PREFIX', prefix);
       this.setState({ errMsg: { type: '', value: '' } }, () => {
         router.push('/select_account');
       });

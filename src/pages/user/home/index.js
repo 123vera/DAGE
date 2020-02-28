@@ -64,7 +64,7 @@ class Home extends Component {
       {
         icon: ICON_CUSTOMER,
         text: '联系客服',
-        url: '',
+        url: '/zendesk',
       },
     ];
     return (
@@ -82,6 +82,8 @@ class Home extends Component {
                     router.push('/login');
                     removeCookie('ACCOUNT_TOKEN');
                     removeCookie('OPENID');
+                    removeCookie('USER_PHONE');
+                    removeCookie('USER_PREFIX');
                   },
                 },
                 { text: '取消' },

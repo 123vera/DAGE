@@ -11,6 +11,12 @@ export default {
     },
   },
   effects: {
+    *GetCaptcha({ payload }, { call, put }) {
+      const captchaKey = payload;
+      const captchaSrc = yield call(UserApi.getCaptcha, captchaKey);
+      yield put({ type: 'UpdateState', payload: { captchaSrc, captchaKey } });
+    },
+
     *GetMyInfo({ payload }, { call, put }) {
       const res = yield call(UserApi.getMyInfo, payload);
       if (res && res.status !== 1) return;
@@ -24,7 +30,6 @@ export default {
   subscriptions: {
     SetupHistory({ dispatch, history }) {
       history.listen(location => {
-        console.log(location);
         const list = ['/home/user'];
         list.forEach(i => {
           if (location.pathname === i) {

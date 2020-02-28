@@ -1,4 +1,5 @@
 import request from '../request';
+import { onlinePost } from '../utils';
 
 class AssetApi {
   /**
@@ -70,7 +71,7 @@ class AssetApi {
    *
    **/
   static setExchangeInit(options) {
-    return request.post('/userasset/exini', options);
+    return onlinePost('/userasset/exini', options);
   }
 
   /**
@@ -84,7 +85,7 @@ class AssetApi {
    *
    **/
   static submitExchange(options) {
-    return request.post('/userasset/exchange', options);
+    return onlinePost('/userasset/exchange', options);
   }
 }
 

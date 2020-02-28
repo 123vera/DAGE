@@ -23,7 +23,6 @@ class Home extends Component {
   render() {
     const { userInfo } = this.props.wallet;
     const { showMenus } = this.state;
-    console.log(showMenus);
     return (
       <div className={styles.home} onClick={() => this.setState({ showMenus: false })}>
         <section className={styles.header}>
