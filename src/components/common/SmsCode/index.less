@@ -1,26 +1,37 @@
 @import '../../../styles/mixin';
 
-.captchaBox {
-  position: relative;
-  margin-bottom: 20px;
+.smsCode {
+  color: @font-sub-color;
 
-  .label {
-    color: @theme-color-blue;
+  label {
+    color: #0078FF;
+    line-height: 44px;
+    margin-bottom: 4px;
   }
 
-  img {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    width: 40%;
-    // height: 74px;
-  }
+  .inputBox {
+    position: relative;
 
-  input {
-    width: 100%;
-    height: 84px;
-    border: none;
-    border-bottom: 2px solid #2E3546;
-    background: transparent;
+    input {
+      width: 100%;
+      height: 84px;
+      border: none;
+      border-bottom: 2px solid #2E3546;
+      background: transparent;
+      color: @font-sub-color;
+
+      &::placeholder {
+        color: @font-sub-color;
+      }
+    }
+
+    button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      color: #fff;
+    }
   }
 }

@@ -1,13 +1,32 @@
 import React, { Component } from 'react';
 import styles from './index.less';
-import { formatMessage, setLocale, getLocale } from 'umi-plugin-locale';
+// import { formatMessage, setLocale, getLocale } from 'umi-plugin-locale';
 import { connect } from 'dva';
+import { router } from 'umi';
 import Header from '../../components/common/Header';
-import WalletMenus from '../../components/wallet/WalletMenus';
+import Menus from '../../components/common/Menus';
 // import Activation from '../../components/wallet/Activation';
 import Mining from '../../components/wallet/Mining';
 import { Icons, Images } from '../../assets';
-import { Toast } from 'antd-mobile';
+
+const menus = [
+  {
+    value: '/wallet/recharge',
+    icon: Icons.menuRecharge,
+    label: '充值',
+    width: '34px',
+  }, {
+    value: '/wallet/withdraw',
+    icon: Icons.menuWithdraw,
+    label: '提现',
+    width: '34px',
+  }, {
+    value: '/wallet/flow',
+    icon: Icons.menuFlow,
+    label: '资金流水',
+    width: '26px',
+  },
+];
 
 @connect(({ wallet }) => ({ wallet }))
 class Home extends Component {
@@ -18,6 +37,10 @@ class Home extends Component {
   onShowMenus = e => {
     this.setState({ showMenus: !this.state.showMenus });
     e.stopPropagation();
+  };
+
+  onMenuHandle = menu => {
+    router.push(menu.value);
   };
 
   render() {
@@ -37,14 +60,16 @@ class Home extends Component {
           />
           {showMenus && (
             <div className={styles.menus} onClick={e => e.stopPropagation()}>
-              <WalletMenus />
+              <Menus menus={menus} onHandle={this.onMenuHandle}/>
             </div>
           )}
         </section>
         <section>
           <div className={styles.banner} style={{ backgroundImage: `url(${Images.homeBg})` }}>
             <label>DAGE WALLENT</label>
-            <h1>{userInfo.did} <small>DID</small></h1>
+            <h1>{userInfo.did}
+              <small>DID</small>
+            </h1>
           </div>
         </section>
         <section>
@@ -53,7 +78,7 @@ class Home extends Component {
           </div>
         </section>
         {/*<Activation/>*/}
-        <Mining />
+        <Mining/>
       </div>
     );
   }

@@ -6,7 +6,7 @@ import { Icons, Images } from '../../../../assets';
 import PageHeader from '@/components/common/PageHeader';
 import TelPrefix from '../../../../components/partials/TelPrefix';
 import Captcha from '../../../../components/common/Captcha';
-import { REG, COUNT_DOWN, TOAST_DURATION } from '../../../../utils/constants';
+import { REG, COUNT_DOWN } from '../../../../utils/constants';
 import styles from './index.less';
 import { Toast } from 'antd-mobile';
 import Cookies from 'js-cookie';

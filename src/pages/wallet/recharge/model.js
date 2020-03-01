@@ -1,4 +1,4 @@
-import { AssetApi } from '../../../services/api';
+import { AssetApi, UserApi } from '../../../services/api';
 
 export default {
   namespace: 'recharge',
@@ -12,7 +12,11 @@ export default {
   },
   effects: {
     * GetAssetFlow({ payload }, { call }) {
-      const res = yield call(AssetApi.getAssetFlow, payload);
+      return yield call(AssetApi.getAssetFlow, payload);
+    },
+
+    * GetMyWallet({ payload }, { call }) {
+      const res = yield call(UserApi.getMyWallet, payload);
       console.log(res);
       return res;
     },

@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { formatMessage } from 'umi-plugin-locale';
 import Header from '../../../components/common/Header';
-import UNCHECKED_IMG from '@/assets/dark/unchecked.png';
-import CHECKED_IMG from '@/assets/dark/checked.png';
 import styles from './index.less';
 import router from 'umi/router';
 import { connect } from 'dva';
@@ -54,7 +52,7 @@ class Index extends Component {
 
     return (
       <div className={styles.selectAccount}>
-        <Header icon={Icons.arrowLeft} />
+        <Header icon={Icons.arrowLeft}/>
         <div className={styles.mainContent}>
           <p>{formatMessage({ id: `SELECT_ACCOUNT_TITLE` })}</p>
           <div className={styles.sectionWrap}>
@@ -63,18 +61,18 @@ class Index extends Component {
                 <span className={userId === user.userId ? '' : styles.unChecked}>
                   {user.userName}
                 </span>
-                <img src={userId === user.userId ? CHECKED_IMG : UNCHECKED_IMG} alt="" />
+                <img src={userId === user.userId ? Icons.checked : Icons.unChecked} alt=""/>
               </section>
             ))}
 
             {userList.length < 5 && (
               <section className={styles.setNew} onClick={() => router.push('/set_account')}>
                 {formatMessage({ id: `SELECT_NEW_ACCOUNT` })}
-                <img src={Icons.add} onClick={this.addAccount} alt="ADD_IMG" />
+                <img src={Icons.add} onClick={this.addAccount} alt="ADD_IMG"/>
               </section>
             )}
           </div>
-          <img onClick={this.toNext} className={styles.nextStep} src={Images.nextStep} alt="" />
+          <img onClick={this.toNext} className={styles.nextStep} src={Images.nextStep} alt=""/>
         </div>
       </div>
     );

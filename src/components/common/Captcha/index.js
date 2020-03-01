@@ -6,17 +6,17 @@ class Index extends Component {
     const { captchaSrc, value, onChange, getCaptcha } = this.props;
 
     return (
-      <label className={styles.captchaBox}>
-        <span>图形验证码</span>
+      <div className={styles.captchaBox}>
+        <span className={styles.label}>图形验证码</span>
         <input
           type="text"
           maxLength={4}
           placeholder={'请输入图形验证码'}
           value={value}
-          onChange={onChange}
+          onChange={onChange || null}
         />
         <img src={captchaSrc} onClick={getCaptcha} alt="图形验证码"/>
-      </label>
+      </div>
     );
   }
 }

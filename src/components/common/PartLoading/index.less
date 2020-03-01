@@ -1,0 +1,23 @@
+.partLoading {
+  padding: 10px 0;
+  text-align: center;
+
+  img {
+    width: 48px;
+    height: 48px;
+    animation: loading 1s infinite linear;
+    -webkit-animation: loading 1s infinite linear;
+  }
+}
+
+@keyframes loading {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(90deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}

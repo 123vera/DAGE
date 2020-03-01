@@ -1,4 +1,5 @@
 export const Icons = {
+  loading: require('./icons/loading.png'),
   arrowLeft: require('./icons/arrow-left.png'),
   arrowUpDown: require('./icons/arrow-up-down.png'),
   arrowDown: require('./icons/arrow-down.png'),
@@ -8,6 +9,8 @@ export const Icons = {
   dIcon: require('./icons/d-icon.png'),
   record: require('./icons/record.png'),
   add: require('./icons/add.png'),
+  unChecked: require('./icons/un-checked.png'),
+  checked: require('./icons/checked.png'),
 
   wallet: require('./icons/wallet.png'),
   walletActive: require('./icons/wallet-active.png'),

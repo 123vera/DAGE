@@ -1,21 +1,67 @@
 import React, { Component } from 'react';
 import { Icons } from '../../../assets';
+import { router } from 'umi';
 import Header from '../../../components/common/Header';
 import styles from './index.less';
 import QRcode from 'qrcode.react';
+import { connect } from 'dva';
+import Menus from '../../../components/common/Menus';
 
+const menus = [
+  {
+    value: 'dgt',
+    label: 'DGT',
+  }, {
+    value: 'usdt',
+    label: 'USDT',
+  },
+];
+
+@connect(({ recharge }) => ({ recharge }))
 class Recharge extends Component {
+  state = {
+    showMenus: false,
+  };
+
+  componentDidMount() {
+    this.changeCoin(menus[0]);
+  }
+
+  changeCoin = (coin) => {
+    this.props.dispatch({
+      type: 'recharge/UpdateState',
+      payload: { coin },
+    });
+    this.setState({ showMenus: false });
+  };
+
   render() {
+    const { showMenus } = this.state;
+    const { coin } = this.props.recharge;
+
     return (
       <div className={styles.recharge}>
-        <Header
-          icon={Icons.arrowLeft}
-          centerContent={{
-            text: 'USDT',
-            icon: Icons.arrowDown,
-            reverse: true,
-          }}
-        />
+        <div className={styles.header}>
+          <Header
+            icon={Icons.arrowLeft}
+            centerContent={{
+              text: coin.label,
+              icon: Icons.arrowDown,
+              reverse: true,
+              onHandle: () => this.setState({ showMenus: !showMenus }),
+            }}
+            onHandle={() => router.push('/home/wallet')}
+          />
+          {showMenus && <div className={styles.menus}>
+            <Menus
+              menus={menus}
+              textAlign="center"
+              hasBorder
+              onHandle={this.changeCoin}
+            />
+          </div>}
+        </div>
+
         <div className={styles.content}>
           <div className={styles.qrCode}>
             <QRcode

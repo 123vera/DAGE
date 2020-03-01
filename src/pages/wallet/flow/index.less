@@ -1,7 +1,9 @@
 @import '../../../styles/mixin.less';
 
 .walletFlow {
+  box-sizing: border-box;
   min-height: 100vh;
+  padding-bottom: 30px;
   font-weight: 600;
 
   .summary {
@@ -10,6 +12,16 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+
+    .coin {
+      position: relative;
+
+      .options {
+        position: absolute;
+        top: 75px;
+        left: 50px;
+      }
+    }
 
     .select {
       display: flex;
@@ -26,7 +38,7 @@
 
   ul {
     .clearUl;
-    padding: 50px 60px;
+    padding: 50px 60px 20px;
 
     li {
       display: flex;

@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { Toast } from 'antd-mobile';
-import { getCookie } from '@/utils/utils';
+// import { Toast } from 'antd-mobile';
+// import { getCookie } from '@/utils/utils';
 import { getApiBaseUrl, optionsToLine, optionsToHump, getHumpData } from './utils';
 import qs from 'qs';
 

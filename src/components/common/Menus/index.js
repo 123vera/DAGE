@@ -23,16 +23,17 @@ import React, { Component } from 'react';
 
 class Menus extends Component {
   render() {
-    const { menus, onHandle, hasBorder } = this.props;
+    const { menus, onHandle, hasBorder, textAlign } = this.props;
     return <div className={`${styles.menus} ${hasBorder ? styles.hasBorder : ''}`}>
-      <ul>
+      <ul className={styles.menuList}>
         {
           menus.map(menu => (
-            <li key={menu.value} onClick={() => onHandle && onHandle(menu)}>
-              <i>
+            <li style={{ textAlign: textAlign }} key={menu.value}
+                onClick={() => onHandle && onHandle(menu)}>
+              {menu.icon && <i>
                 <img src={menu.icon} style={{ width: menu.width }} alt=""/>
-              </i>
-              <span>{menu.label}</span>
+              </i>}
+              {menu.label && <span>{menu.label}</span>}
             </li>
           ))
         }

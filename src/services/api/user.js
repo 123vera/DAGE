@@ -1,5 +1,5 @@
 import request from '../request';
-import { getApiBaseUrl, onlineGet, getAccountToken, getOpenId,onlinePost } from '../utils';
+import { getApiBaseUrl, onlineGet, getAccountToken, getOpenId, onlinePost } from '../utils';
 
 const SID = '12c68f99664da7bc';
 
@@ -117,12 +117,32 @@ class UserApi {
   }
 
   /**
+   * 获取角色列表
+   *
+   * @required accountToken string 账号token
+   * @required userId string 用户角色id
+   **/
+  static getUserList(options) {
+    return request.post('/user/getuserlist', options);
+  }
+
+  /**
    * 获取个人详细信息
    *
    * @required openId string
    **/
   static getMyInfo(options) {
     return onlinePost('/user/myinfo', options);
+  }
+
+  /**
+   * 获取我的钱包地址
+   *
+   * @required openId string
+   * @required type string 钱包类型，默认usdt
+   **/
+  static getMyWallet(options) {
+    return onlinePost('/user/mywallet', options);
   }
 }
 
