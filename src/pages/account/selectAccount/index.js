@@ -11,12 +11,11 @@ import Cookies from 'js-cookie';
 @connect(({ globalModel, login }) => ({ globalModel, login }))
 class Index extends Component {
   componentDidMount() {
-    const { userList } = this.props.login;
-    if (userList === null) {
-      router.push('/login');
-      return;
-    }
-    userList && userList[0] && this.selectUser(userList[0].userId);
+    this.props.dispatch({
+      type: 'login/GetUserList',
+    }).then(res => {
+      if (res.status !== 1) Toast.info(res.msg);
+    });
   }
 
   selectUser = userId => {
@@ -40,15 +39,13 @@ class Index extends Component {
           Toast.fail(res.msg);
           return;
         }
-
         Cookies.set('OPENID', res.data.openId);
         router.push('/');
       });
   };
 
   render() {
-    let { userList, userId } = this.props.login;
-    userList = userList || [];
+    let { userList = [], userId } = this.props.login;
 
     return (
       <div className={styles.selectAccount}>

@@ -1,9 +1,10 @@
-import { AssetApi, UserApi } from '../../../services/api';
+import { UserApi } from '../../../services/api';
 
 export default {
   namespace: 'recharge',
   state: {
     coin: {},
+    wallet: '',
   },
   reducers: {
     UpdateState(state, { payload }) {
@@ -11,13 +12,11 @@ export default {
     },
   },
   effects: {
-    * GetAssetFlow({ payload }, { call }) {
-      return yield call(AssetApi.getAssetFlow, payload);
-    },
-
-    * GetMyWallet({ payload }, { call }) {
+    * GetMyWallet({ payload }, { call, put }) {
       const res = yield call(UserApi.getMyWallet, payload);
-      console.log(res);
+      if (res.status === 1) {
+        yield put({ type: 'UpdateState', payload: { wallet: res.data.wallet } });
+      }
       return res;
     },
   },
