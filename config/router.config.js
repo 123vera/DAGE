@@ -24,7 +24,11 @@ export default [
       { path: '/referral_code', title: '推荐码', component: './user/referralCode' },
       { path: '/notices', title: '公告列表', component: './user/notices' },
       { path: '/promotion', title: '我的推广', component: './user/promotion' },
-
+      {
+        path: '/zendesk',
+        title: '联系客服',
+        component: './user/zendesk',
+      },
       {
         path: '/home',
         component: '../layouts/MainLayout',
@@ -38,6 +42,7 @@ export default [
       { path: '/wallet/flow', title: '资金流水', component: './wallet/flow' },
       { path: '/wallet/recharge', title: '充值', component: './wallet/recharge' },
       { path: '/wallet/withdraw', title: '提币', component: './wallet/withdraw' },
+      { path: '/wallet/withdraw-record', title: '提币记录', component: './wallet/withdraw-record' },
       { path: '/wallet/mining-detail', title: '挖矿详情', component: './wallet/mining-detail' },
 
       {

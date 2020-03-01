@@ -40,7 +40,6 @@ class Home extends Component {
 
   toNext = () => {
     const { phone, password } = this.props.login;
-    console.log(phone, password);
     if (!phone) {
       this.setState({ errMsg: { type: 'phone', value: '请输入手机号码' } });
       return;
@@ -59,17 +58,18 @@ class Home extends Component {
     }
 
     this.props.dispatch({ type: 'login/Login' }).then(res => {
-      console.log(res);
       if (res.status !== 1) {
         Toast.fail(res.msg);
         return;
       }
-      const { accountToken, userList } = res.data;
+      const { prefix, accountToken, userList } = res.data;
       this.props.dispatch({
         type: 'login/UpdateState',
         payload: { accountToken, userList },
       });
       Cookies.set('ACCOUNT_TOKEN', accountToken);
+      Cookies.set('USER_PHONE', phone);
+      Cookies.set('USER_PREFIX', prefix);
       this.setState({ errMsg: { type: '', value: '' } }, () => {
         router.push('/select_account');
       });

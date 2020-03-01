@@ -1,4 +1,5 @@
 import request from '../request';
+import { onlinePost } from '../utils';
 
 class AssetApi {
   /**
@@ -18,7 +19,7 @@ class AssetApi {
    * @required openId string 用户openid
    **/
   static withdrawInit(options) {
-    return request.post('/userasset/cashini', options);
+    return onlinePost('/userasset/cashini', options);
   }
 
   /**
@@ -44,8 +45,27 @@ class AssetApi {
    * @required openId string 用户openid
    *
    **/
-  static getAssetFlow(params) {
-    return request.get('/userasset/stream', { params });
+  static async getAssetFlow(options) {
+    // return onlinePost('/userasset/stream', options);
+    const data = {
+      balance: 300.0000,
+      list: [],
+    };
+    console.log('options', options);
+
+    const order = (options.page - 1) * options.row;
+    for (let i = order; i < options.row + order; i++) {
+      data.list.push({
+        addTime: +new Date(),
+        remark: '充值',
+        type: options.type,
+        amount: 300,
+        userId: '32424232',
+        id: i,
+      });
+    }
+    await setTimeout(null, 500);
+    return Promise.resolve({ status: 1, data });
   }
 
   /**
@@ -70,7 +90,7 @@ class AssetApi {
    *
    **/
   static setExchangeInit(options) {
-    return request.post('/userasset/exini', options);
+    return onlinePost('/userasset/exini', options);
   }
 
   /**
@@ -84,7 +104,7 @@ class AssetApi {
    *
    **/
   static submitExchange(options) {
-    return request.post('/userasset/exchange', options);
+    return onlinePost('/userasset/exchange', options);
   }
 }
 

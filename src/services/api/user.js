@@ -7,7 +7,7 @@ class UserApi {
   /**
    * 获取图形验证码图片
    *
-   * @required key number 唯一健值，一般为时间戳的毫秒数
+   * @required key number 唯一键值，一般为时间戳的毫秒数
    **/
   static getCaptcha(key) {
     return Promise.resolve(`${getApiBaseUrl()}/captchapng/png?sid=${SID}&key=${key}`);
