@@ -7,12 +7,14 @@ import { Icons } from '../../../assets';
 import Menus from '../../../components/common/Menus';
 import dayjs from 'dayjs';
 import ListView from '../../../components/common/ListView';
+import { formatMessage } from 'umi-plugin-locale';
 
 const menus = [
   {
     value: 'dgt',
     label: 'DGT',
-  }, {
+  },
+  {
     value: 'usdt',
     label: 'USDT',
   },
@@ -32,7 +34,7 @@ class WalletFlow extends Component {
     this.getFlow();
   }
 
-  changeCoin = (coin) => {
+  changeCoin = coin => {
     this.props.dispatch({
       type: 'walletFlow/UpdateState',
       payload: { coin },
@@ -40,8 +42,11 @@ class WalletFlow extends Component {
     this.getFlow();
   };
 
-  getFlow = (callback) => {
-    const { dispatch, walletFlow: { coin, page, row, list } } = this.props;
+  getFlow = callback => {
+    const {
+      dispatch,
+      walletFlow: { coin, page, row, list },
+    } = this.props;
     dispatch({
       type: 'walletFlow/GetAssetFlow',
       payload: {
@@ -78,47 +83,44 @@ class WalletFlow extends Component {
         <section className={styles.header}>
           <Header
             icon={Icons.arrowLeft}
-            title="资金流水"
+            title={formatMessage({ id: `FLOW_TITLE` })}
             onHandle={() => router.push('/home/wallet')}
           />
         </section>
         <section>
           <div className={styles.summary}>
             <div className={styles.coin}>
-              <div className={styles.select}
-                   onClick={() => this.setState({ showMenus: !showMenus })}>
+              <div
+                className={styles.select}
+                onClick={() => this.setState({ showMenus: !showMenus })}
+              >
                 {coin.label}
-                <img src={Icons.arrowUpDown} alt=""/>
+                <img src={Icons.arrowUpDown} alt="" />
               </div>
-              {showMenus && <div className={styles.options}>
-                <Menus
-                  menus={menus}
-                  textAlign="center"
-                  hasBorder
-                  onHandle={this.changeCoin}
-                />
-              </div>}
+              {showMenus && (
+                <div className={styles.options}>
+                  <Menus menus={menus} textAlign="center" hasBorder onHandle={this.changeCoin} />
+                </div>
+              )}
             </div>
-            <div>余额：{balance || 0}</div>
+            <div>
+              {formatMessage({ id: `FLOW_BALANCE` })}
+              {balance || 0}
+            </div>
           </div>
         </section>
         <section>
-          <ListView
-            hasMore={hasMore}
-            onLoadMore={this.getFlow}
-          >
+          <ListView hasMore={hasMore} onLoadMore={this.getFlow}>
             <ul>
-              {list.map((item) =>
+              {list.map(item => (
                 <li key={item.id}>
                   <div className={styles.label}>
                     {item.remark}
                     <small>{dayjs(item.addTime).format('YYYY-MM-DD')}</small>
                   </div>
-                  <div className={styles.value}>
-                    {item.amount}
-                  </div>
-                </li>)
-              }
+                  <div className={styles.value}>{item.amount}</div>
+                </li>
+              ))}
             </ul>
           </ListView>
         </section>

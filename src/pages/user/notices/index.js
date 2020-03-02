@@ -3,6 +3,7 @@ import PageHeader from '../../../components/common/PageHeader';
 import dayjs from 'dayjs';
 import { connect } from 'dva';
 import styles from './index.less';
+import { formatMessage } from 'umi/locale';
 import { Toast } from 'antd-mobile';
 import { Icons } from '../../../assets';
 import ListView from '../../../components/common/ListView';
@@ -25,7 +26,7 @@ class Index extends Component {
     const { list, hasMore } = this.props.notices;
     return (
       <div className={styles.notices}>
-        <PageHeader title="公告列表" leftContent={{ icon: Icons.arrowLeft }}/>
+        <PageHeader title={formatMessage({ id: `NOTICES_TITLE` })} leftContent={{ icon: Icons.arrowLeft }}/>
         <div className={styles.list}>
           <ListView
             hasMore={hasMore}

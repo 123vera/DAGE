@@ -4,6 +4,7 @@ import ARROW_LEFT from '@/assets/icons/arrow-left.png';
 import ZENDESK from '@/assets/imgs/zendesk.png';
 import { hideChatButton } from '../../../services/utils';
 import styles from './index.less';
+import { formatMessage } from 'umi/locale';
 
 class Index extends Component {
   componentDidMount() {
@@ -26,17 +27,20 @@ class Index extends Component {
   render() {
     return (
       <div id={styles.zendesk}>
-        <PageHeader title="客服" leftContent={{ icon: ARROW_LEFT }} />
+        <PageHeader
+          title={formatMessage({ id: `ZENDESK_TITLE` })}
+          leftContent={{ icon: ARROW_LEFT }}
+        />
         <div className={styles.content}>
           <img src={ZENDESK} alt="" />
           <br />
           <br />
           <p>
-            点击下方的联系客服
+            {formatMessage({ id: `ZENDESK_P_01` })}
             <br />
-            即可开始与客服沟通
+            {formatMessage({ id: `ZENDESK_P_02` })}
             <br />
-            若未出现联系客服，请耐心等待3-5秒
+            {formatMessage({ id: `ZENDESK_P_03` })}
           </p>
         </div>
       </div>

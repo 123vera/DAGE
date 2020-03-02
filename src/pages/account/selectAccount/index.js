@@ -11,11 +11,13 @@ import Cookies from 'js-cookie';
 @connect(({ globalModel, login }) => ({ globalModel, login }))
 class Index extends Component {
   componentDidMount() {
-    this.props.dispatch({
-      type: 'login/GetUserList',
-    }).then(res => {
-      if (res.status !== 1) Toast.info(res.msg);
-    });
+    this.props
+      .dispatch({
+        type: 'login/GetUserList',
+      })
+      .then(res => {
+        if (res.status !== 1) Toast.info(res.msg);
+      });
   }
 
   selectUser = userId => {
@@ -49,7 +51,7 @@ class Index extends Component {
 
     return (
       <div className={styles.selectAccount}>
-        <Header icon={Icons.arrowLeft}/>
+        <Header icon={Icons.arrowLeft} />
         <div className={styles.mainContent}>
           <p>{formatMessage({ id: `SELECT_ACCOUNT_TITLE` })}</p>
           <div className={styles.sectionWrap}>
@@ -58,18 +60,18 @@ class Index extends Component {
                 <span className={userId === user.userId ? '' : styles.unChecked}>
                   {user.userName}
                 </span>
-                <img src={userId === user.userId ? Icons.checked : Icons.unChecked} alt=""/>
+                <img src={userId === user.userId ? Icons.checked : Icons.unChecked} alt="" />
               </section>
             ))}
 
             {userList.length < 5 && (
               <section className={styles.setNew} onClick={() => router.push('/set_account')}>
-                {formatMessage({ id: `SELECT_NEW_ACCOUNT` })}
-                <img src={Icons.add} onClick={this.addAccount} alt="ADD_IMG"/>
+                {formatMessage({ id: `SELECT_SET_ACCOUNT` })}
+                <img src={Icons.add} onClick={this.addAccount} alt="ADD_IMG" />
               </section>
             )}
           </div>
-          <img onClick={this.toNext} className={styles.nextStep} src={Images.nextStep} alt=""/>
+          <img onClick={this.toNext} className={styles.nextStep} src={Images.nextStep} alt="" />
         </div>
       </div>
     );

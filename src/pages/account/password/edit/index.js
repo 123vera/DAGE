@@ -9,7 +9,6 @@ import { Toast } from 'antd-mobile';
 import { TOAST_DURATION } from '../../../../utils/constants';
 import { Icons, Images } from '../../../../assets';
 
-
 @connect(({ password }) => ({ password }))
 class Index extends Component {
   state = {
@@ -36,28 +35,36 @@ class Index extends Component {
   toNext = () => {
     const { password, passwordConfirm, type } = this.props.password;
     if (!password) {
-      this.setState({ errMsg: { type: 'password', value: '请设置密码' } });
+      this.setState({
+        errMsg: { type: 'password', value: formatMessage({ id: `LOGIN_EDIT_PASSWORD` }) },
+      });
       return;
     }
     if (password && !REG.PASSWORD.test(password)) {
-      this.setState({ errMsg: { type: 'password', value: '请设置包含数字及字母的8~16位密码' } });
+      this.setState({
+        errMsg: {
+          type: 'password',
+          value: formatMessage({ id: `COMMON_PLACEHOLDER_PASSWORD_REG` }),
+        },
+      });
       return;
     }
     if (password !== passwordConfirm) {
-      this.setState({ errMsg: { type: 'passwordConfirm', value: '两次密码不一致' } });
+      this.setState({
+        errMsg: { type: 'passwordConfirm', value: formatMessage({ id: `LOGIN_REPASSWORD` }) },
+      });
       return;
     }
 
-    this.props.dispatch({ type: 'password/EditPassword' })
-      .then(res => {
-        if (res.status !== 1) {
-          Toast.fail(res.msg);
-          return;
-        }
-        Toast.info('密码设置成功', TOAST_DURATION, () => {
-          router.push(type === 'find_password' ? '/login' : '/home/user');
-        });
+    this.props.dispatch({ type: 'password/EditPassword' }).then(res => {
+      if (res.status !== 1) {
+        Toast.fail(res.msg);
+        return;
+      }
+      Toast.info(formatMessage({ id: `TOAST_SET_PASSWORD_SUCCESS` }), TOAST_DURATION, () => {
+        router.push(type === 'find_password' ? '/login' : '/home/user');
       });
+    });
   };
 
   render() {
@@ -66,7 +73,7 @@ class Index extends Component {
 
     return (
       <div className={styles.setPassword}>
-        <PageHeader leftContent={{ icon: Icons.arrowLeft }}/>
+        <PageHeader leftContent={{ icon: Icons.arrowLeft }} />
         <section>
           <p>{formatMessage({ id: `LOGIN_SET_PASSWORD` })}</p>
           <div className={styles.mainWrapper}>
@@ -94,7 +101,7 @@ class Index extends Component {
               />
               <h4>{errMsg.value || ''}</h4>
             </label>
-            <img className={styles.nextStep} src={Images.nextStep} onClick={this.toNext} alt=""/>
+            <img className={styles.nextStep} src={Images.nextStep} onClick={this.toNext} alt="" />
           </div>
         </section>
       </div>

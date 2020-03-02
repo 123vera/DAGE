@@ -72,15 +72,21 @@ class Home extends Component {
   getSmsCode = () => {
     const { phone, captcha } = this.props.password;
     if (!phone) {
-      this.setState({ errMsg: { type: 'phone', value: '请输入手机号码' } });
+      this.setState({
+        errMsg: { type: 'phone', value: formatMessage({ id: `COMMON_PLACEHOLDER_PHONE` }) },
+      });
       return;
     }
     if (!REG.MOBILE.test(phone)) {
-      this.setState({ errMsg: { type: 'phone', value: '请输入正确的手机号码' } });
+      this.setState({
+        errMsg: { type: 'phone', value: formatMessage({ id: `COMMON_PLACEHOLDER_PHONE_AGAIN` }) },
+      });
       return;
     }
     if (!captcha) {
-      this.setState({ errMsg: { type: 'captcha', value: '请输入图形验证码' } });
+      this.setState({
+        errMsg: { type: 'captcha', value: formatMessage({ id: `COMMON_PLACEHOLDER_CAPTCHA` }) },
+      });
       return;
     }
     this.props
@@ -90,29 +96,35 @@ class Home extends Component {
       .then(res => {
         this.setState({ getSmsSuccess: res.status === 1 });
         if (res.status === 1) {
-          Toast.info('获取验证码成功');
+          Toast.info(formatMessage({ id: `TOAST_GET_CODE_SUCCESS` }));
           return;
         }
-        Toast.info(res.msg || '获取验证码失败');
+        Toast.info(res.msg || formatMessage({ id: `TOAST_GET_CODE_FAIL` }));
       });
   };
 
   toNext = () => {
     const { phone, code, type } = this.props.password;
     if (!phone) {
-      this.setState({ errMsg: { type: 'phone', value: '请输入手机号码' } });
+      this.setState({
+        errMsg: { type: 'phone', value: formatMessage({ id: `COMMON_PLACEHOLDER_PHONE` }) },
+      });
       return;
     }
     if (!REG.MOBILE.test(phone)) {
-      this.setState({ errMsg: { type: 'phone', value: '手机号格式错误' } });
+      this.setState({ errMsg: { type: 'phone', value: formatMessage({ id: `TOAST_ERR_PHONE` }) } });
       return;
     }
     if (!code) {
-      this.setState({ errMsg: { type: 'code', value: '请输入验证码' } });
+      this.setState({
+        errMsg: { type: 'code', value: formatMessage({ id: `COMMON_PLACEHOLDER_CODE` }) },
+      });
       return;
     }
     if (code && code.length !== 4) {
-      this.setState({ errMsg: { type: 'code', value: '验证码格式错误' } });
+      this.setState({
+        errMsg: { type: 'code', value: formatMessage({ id: `TOAST_ERR_SMSCODE` }) },
+      });
       return;
     }
 

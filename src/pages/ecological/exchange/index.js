@@ -4,21 +4,27 @@ import { connect } from 'dva';
 import { Toast, Button } from 'antd-mobile';
 import PageHeader from '../../../components/common/PageHeader';
 import Captcha from '../../../components/partials/Captcha';
+import ARROW_LEFT from '@/assets/icons/arrow-left.png';
+// import ARROW_DOWN from '@/assets/icons/arrow-down.png';
 import { COUNT_DOWN, REG } from '../../../utils/constants';
 import styles from './index.less';
 import { Icons } from '../../../assets';
 import Menus from '../../../components/common/Menus';
 import { downFixed } from '../../../utils/utils';
 
-const beforeCoins = [{
-  value: 'usdt',
-  label: 'USDT',
-}];
+const beforeCoins = [
+  {
+    value: 'usdt',
+    label: 'USDT',
+  },
+];
 
-const afterCoins = [{
-  value: 'did',
-  label: 'DID',
-}];
+const afterCoins = [
+  {
+    value: 'did',
+    label: 'DID',
+  },
+];
 
 @connect(({ globalModel, exchange }) => ({ globalModel, exchange }))
 class Index extends Component {
@@ -31,26 +37,28 @@ class Index extends Component {
 
   componentDidMount() {
     this.getCaptcha();
-    this.props.dispatch({
-      type: 'exchange/ExchangeInit',
-    }).then(res => {
-      if (res.status !== 1) Toast.info(res.msg);
-    });
+    this.props
+      .dispatch({
+        type: 'exchange/ExchangeInit',
+      })
+      .then(res => {
+        if (res.status !== 1) Toast.info(res.msg);
+      });
   }
 
   getCaptcha = () => {
     this.props.dispatch({ type: 'globalModel/GetCaptcha' });
   };
 
-  changeBeforeCoin = (coin) => {
+  changeBeforeCoin = coin => {
     this.props.dispatch({ type: 'exchange/UpdateState', payload: { beforeCoin: coin } });
   };
 
-  changeAfterCoin = (coin) => {
+  changeAfterCoin = coin => {
     this.props.dispatch({ type: 'exchange/UpdateState', payload: { afterCoin: coin } });
   };
 
-  onAmountChange = (value) => {
+  onAmountChange = value => {
     if (value && !/^[0-9.]+$/.test(value)) {
       return;
     }
@@ -60,7 +68,7 @@ class Index extends Component {
     });
   };
 
-  onCaptchaChange = (value) => {
+  onCaptchaChange = value => {
     this.props.dispatch({
       type: 'globalModel/UpdateState',
       payload: { captcha: value },
@@ -91,18 +99,17 @@ class Index extends Component {
       return;
     }
     this.countDown();
-    dispatch({ type: 'globalModel/GetSmsCode', payload: { type: 'exchange' } })
-      .then(res => {
-        if (res.status === 1) {
-          Toast.info('获取验证码成功');
-          return;
-        }
-        clearInterval(Number(this.state.timer));
-        Toast.info(res.msg || '获取验证码失败');
-      });
+    dispatch({ type: 'globalModel/GetSmsCode', payload: { type: 'exchange' } }).then(res => {
+      if (res.status === 1) {
+        Toast.info('获取验证码成功');
+        return;
+      }
+      clearInterval(Number(this.state.timer));
+      Toast.info(res.msg || '获取验证码失败');
+    });
   };
 
-  onCodeChange = (value) => {
+  onCodeChange = value => {
     if (value && !REG.NUMBER.test(value)) return;
     this.props.dispatch({
       type: 'exchange/UpdateState',
@@ -113,16 +120,22 @@ class Index extends Component {
   onSubmit = () => {
     const { dispatch, exchange } = this.props;
     const { amount, balance, code } = exchange;
-    if (!amount) return Toast.info('请输入兑换数量');
-    if (amount > balance) return Toast.info('余额不足');
-    if (!code) {
-      return Toast.info('请输入手机验证码');
+    if (!amount) {
+      Toast.info(formatMessage({ id: `EXCHANGE_PLACEHOLDER_AMOUNT` }));
+      return;
     }
-    dispatch({ type: 'exchange/SubmitExchange' })
-      .then(res => {
-        if (res.status !== 1) return Toast.info(res.msg);
-        Toast.info('兑换成功', 2, () => window.location.reload());
-      });
+    if (amount > balance) {
+      Toast.info(formatMessage({ id: `EXCHANGE_BALANCE_NOT_ENOUGH` }));
+      return;
+    }
+    if (!code) {
+      Toast.info(formatMessage({ id: `COMMON_PLACEHOLDER_CODE` }));
+      return;
+    }
+    dispatch({ type: 'exchange/SubmitExchange' }).then(res => {
+      if (res.status !== 1) return Toast.info(res.msg);
+      Toast.info(formatMessage({ id: `EXCHANGE_SUCCESS` }), 2, () => window.location.reload());
+    });
   };
 
   render() {
@@ -131,14 +144,17 @@ class Index extends Component {
     const { showBeforeMenus, showAfterMenus, count } = this.state;
 
     return (
-      <div className={styles.exchange}>
-        <PageHeader title="兑换" leftContent={{ icon: Icons.arrowLeft }}/>
+      <div id={styles.exchange}>
+        <PageHeader
+          title={formatMessage({ id: `EXCHANGE_TITLE` })}
+          leftContent={{ icon: ARROW_LEFT }}
+        />
 
         <div className={styles.wrapper} onClick={() => this.setState({ position: null })}>
           <div className={styles.mainContent}>
             <div className={styles.selectCurrency}>
               <span onClick={() => this.setState({ showBeforeMenus: !showBeforeMenus })}>
-                {beforeCoin.label} <img src={Icons.arrowDown} alt=""/>
+                {beforeCoin.label} <img src={Icons.arrowDown} alt="" />
                 {showBeforeMenus && (
                   <div className={styles.menus}>
                     <Menus
@@ -157,7 +173,7 @@ class Index extends Component {
                 alt=""
               />
               <span onClick={() => this.setState({ showAfterMenus: !showAfterMenus })}>
-                {afterCoin.label} <img src={Icons.arrowDown} alt=""/>
+                {afterCoin.label} <img src={Icons.arrowDown} alt="" />
                 {showAfterMenus && (
                   <div className={styles.menus}>
                     <Menus
@@ -172,20 +188,26 @@ class Index extends Component {
               </span>
             </div>
             <small className={styles.notice}>
-              当前兑换比例：1 {beforeCoin.label} = {initInfo.RATIO || '--'} {afterCoin.label}
+              {formatMessage({ id: `EXCHANGE_RATE` })}1 {beforeCoin.label} ={' '}
+              {initInfo.RATIO || '--'} {afterCoin.label}
             </small>
             <label>
-              <span className={styles.label}>兑换数量</span>
+              <span className={styles.label}>{formatMessage({ id: `EXCHANGE_AMOUNT` })}</span>
               <input
                 type="text"
                 autoComplete="off"
                 value={amount}
                 onChange={e => this.onAmountChange(e.target.value)}
-                placeholder={`最小兑换数量${initInfo.MIN || '--'}`}
+                placeholder={`${formatMessage({ id: `EXCHANGE_MIN_AMOUNT` })}${initInfo.MIN ||
+                  '--'}`}
               />
               <p className={styles.tips}>
-                可用{beforeCoin.label}：{balance}
-                <small>手续费率：{initInfo.CHARGE * 100 || '--'}%</small>
+                {formatMessage({ id: `EXCHANGE_CAN_USE` })}
+                {beforeCoin.label}：{balance}
+                <small>
+                  {formatMessage({ id: `EXCHANGE_FEE_RATE` })}
+                  {initInfo.CHARGE * 100 || '--'}%
+                </small>
               </p>
             </label>
             <Captcha
@@ -195,7 +217,7 @@ class Index extends Component {
               getCaptcha={this.getCaptcha}
             />
             <label>
-              <span className={styles.label}>手机验证码</span>
+              <span className={styles.label}>{formatMessage({ id: `EXCHANGE_LABEL_PHONE` })}</span>
               <div className={styles.codeWrapper}>
                 <input
                   type="number"
@@ -218,10 +240,11 @@ class Index extends Component {
             </label>
 
             <p className={`${styles.labelTag} ${styles.small}`}>
-              手续费 <small>{downFixed(amount * initInfo.CHARGE) || '--'}</small>
+              {formatMessage({ id: `EXCHANGE_FEE` })}{' '}
+              <small>{downFixed(amount * initInfo.CHARGE) || '--'}</small>
             </p>
             <p className={styles.labelTag}>
-              到账数量
+              {formatMessage({ id: `EXCHANGE_PAIDIN_AMOUNT` })}
               <small>
                 {amount > initInfo.CHARGE * 100
                   ? downFixed(amount - amount * initInfo.CHARGE)
@@ -229,9 +252,10 @@ class Index extends Component {
               </small>
             </p>
           </div>
-          <p className={styles.reminder}>温馨提示：推广期间兑换手续费减免</p>
-          <Button className={styles.btn} onClick={this.onSubmit}>
-            确认
+          <p className={styles.reminder}>{formatMessage({ id: `EXCHANGE_TIPS` })}</p>
+
+          <Button className={styles.btn} onClick={this.ensureExchange}>
+            {formatMessage({ id: `COMMON_CONFIRM` })}
           </Button>
         </div>
       </div>

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import { formatMessage } from 'umi-plugin-locale';
 import { connect } from 'dva';
 import router from 'umi/router';
 import { removeCookie } from '../../../utils/utils';
@@ -17,6 +16,7 @@ import DAGE_LOGO from '@/assets/dark/dage-logo.png';
 import ACTIVITY from '@/assets/dark/activitied.png';
 import UNACTIVITY from '@/assets/dark/unactivitied.png';
 import styles from './index.less';
+import { formatMessage } from 'umi/locale';
 
 @connect(({ globalModel, userCenter }) => ({ globalModel, userCenter }))
 class Home extends Component {
@@ -24,8 +24,8 @@ class Home extends Component {
     isEnabled: false,
   };
 
-  onCopyLink = () => {
-    Toast.info('已复制');
+  onCopyLink = (text, result) => {
+    Toast.info(formatMessage({ id: `USER_COPIED` }));
   };
 
   render() {
@@ -35,68 +35,69 @@ class Home extends Component {
     const listContent = [
       // {
       //   icon: ICON_QRCODE,
-      //   text: '上传支付宝信息',
+      //   text: formatMessage({ id: `USER_SECTION_01` }),
       //   url: '',
       // },
       // {
       //   icon: ICON_SPREAD,
-      //   text: '我的推广',
+      //   text: formatMessage({ id: `USER_SECTION_02` }),
       //   url: '/promotion',
       // },
       {
         icon: ICON_RESET,
-        text: '重置登录密码',
+        text: formatMessage({ id: `USER_SECTION_03` }),
         url: `/reset_password/verify`,
       },
       {
         icon: ICON_NOTICES,
-        text: '公告列表',
+        text: formatMessage({ id: `USER_SECTION_04` }),
         url: '/notices',
       },
       // {
       //   icon: ICON_SWITCH,
-      //   text: '语言切换',
+      //   text: formatMessage({ id: `USER_SECTION_05` }),
       //   url: '',
       // },
       {
         icon: ICON_CUSTOMER,
-        text: '联系客服',
+        text: formatMessage({ id: `USER_SECTION_06` }),
         url: '/zendesk',
       },
     ];
     return (
       <div className={styles.userCenter}>
         <PageHeader
-          title="个人中心"
+          title={formatMessage({ id: `USER_TITLE` })}
           rightContent={{
             icon: LOGIN_OUT,
             onHandle: () => {
-              Modal.alert('确认退出登录？', '', [
+              Modal.alert(formatMessage({ id: `USER_LOGOUT` }), '', [
                 {
-                  text: '确认',
+                  text: formatMessage({ id: `COMMON_CONFIRM` }),
                   onPress: () => {
                     // 退出登录
                     router.push('/login');
                     removeCookie('ACCOUNT_TOKEN');
                     removeCookie('OPENID');
-                    removeCookie('USER_PHONE');
-                    removeCookie('USER_PREFIX');
                   },
                 },
-                { text: '取消' },
+                { text: formatMessage({ id: `COMMON_CANCEL` }) },
               ]);
             },
           }}
         />
 
         <div className={styles.banner}>
-          <img className={styles.bg} src={HOME_BG} alt=""/>
-          <img className={styles.bg1} src={DAGE_LOGO} alt=""/>
+          <img className={styles.bg} src={HOME_BG} alt="" />
+          <img className={styles.bg1} src={DAGE_LOGO} alt="" />
           <div className={styles.center}>
-            <img className={styles.icon} src={BG_ICON} alt=""/>
+            <img className={styles.icon} src={BG_ICON} alt="" />
             <p>DID：{(myInfo && myInfo.did) || '--'}</p>
             <CopyToClipboard key={new Date().toString()} text="GXs" onCopy={this.onCopyLink}>
-              <span>推荐码：{(myInfo && myInfo.recommendCode) || '--'}</span>
+              <span>
+                {formatMessage({ id: `USER_RECOMMEND_CODE` })}
+                {(myInfo && myInfo.recommendCode) || '--'}
+              </span>
             </CopyToClipboard>
           </div>
           <img
@@ -108,9 +109,9 @@ class Home extends Component {
         <ul className={styles.list}>
           {listContent.map((item, key) => (
             <li key={key} onClick={() => router.push(item.url)}>
-              <img className={styles.icon} src={item.icon} alt=""/>
+              <img className={styles.icon} src={item.icon} alt="" />
               <span>{item.text}</span>
-              <img className={styles.right} src={ARROW_RIGHT} alt=""/>
+              <img className={styles.right} src={ARROW_RIGHT} alt="" />
             </li>
           ))}
         </ul>

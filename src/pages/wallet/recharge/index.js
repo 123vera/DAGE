@@ -8,13 +8,14 @@ import { connect } from 'dva';
 import Menus from '../../../components/common/Menus';
 import { Toast } from 'antd-mobile';
 import CopyToClipboard from 'react-copy-to-clipboard';
-
+import { formatMessage } from 'umi/locale';
 
 const menus = [
   {
     value: 'dgt',
     label: 'DGT',
-  }, {
+  },
+  {
     value: 'usdt',
     label: 'USDT',
   },
@@ -30,7 +31,7 @@ class Recharge extends Component {
     this.changeCoin(menus[0]);
   }
 
-  changeCoin = (coin) => {
+  changeCoin = coin => {
     const { dispatch } = this.props;
     dispatch({
       type: 'recharge/UpdateState',
@@ -64,39 +65,32 @@ class Recharge extends Component {
             }}
             onHandle={() => router.push('/home/wallet')}
           />
-          {showMenus && <div className={styles.menus}>
-            <Menus
-              menus={menus}
-              textAlign="center"
-              hasBorder
-              onHandle={this.changeCoin}
-            />
-          </div>}
+          {showMenus && (
+            <div className={styles.menus}>
+              <Menus menus={menus} textAlign="center" hasBorder onHandle={this.changeCoin} />
+            </div>
+          )}
         </div>
 
         <div className={styles.content}>
           <div className={styles.qrCode}>
-            <QRcode
-              size={360}
-              value={wallet}
-              renderAs="canvas"
-            />
+            <QRcode size={360} value={wallet} renderAs="canvas" />
           </div>
           <p>{wallet}</p>
           <CopyToClipboard
             // key={new Date().toString()}
             text={wallet}
-            onCopy={() => Toast.info('已复制')}
+            onCopy={() => Toast.info(formatMessage({ id: `USER_COPIED` }))}
           >
-            <span>复制地址</span>
+            <span>{formatMessage({ id: `RECHARGE_ADDRESS` })}</span>
           </CopyToClipboard>
         </div>
         <aside>
-          <label>转入说明</label>
+          <label>{formatMessage({ id: `RECHARGE_TIPS` })}</label>
           <ul>
-            <li>转入是自动的，IPT 转账需要整个 ETH 网络进行确认，您的 IPT 会自动充值到您的账户中。</li>
-            <li>此地址是你唯一且独自使用的转入地址，你可以同时进行多次充值。</li>
-            <li>本地址禁止充值除 IPT 之外的其它资产，任何其它资产充值将不可找回。</li>
+            <li>{formatMessage({ id: `RECHARGE_TIP_01` })}</li>
+            <li>{formatMessage({ id: `RECHARGE_TIP_02` })}</li>
+            <li>{formatMessage({ id: `RECHARGE_TIP_03` })}</li>
           </ul>
         </aside>
       </div>
