@@ -5,9 +5,9 @@ export default {
   namespace: 'notices',
   state: {
     hasMore: true,
-    noticesList: [],
-    pageSize: PAGE_SIZE,
-    pageIndex: 1,
+    list: [],
+    page: 1,
+    row: PAGE_SIZE,
   },
   reducers: {
     UpdateState(state, { payload }) {
@@ -15,25 +15,18 @@ export default {
     },
   },
   effects: {
-    *GetNoticelist({ payload }, { call }) {
-      return yield call(OtherApi.getNoticelist, {
-        page: payload.pageIndex,
-        row: PAGE_SIZE,
-      });
-    },
-  },
-  subscriptions: {
-    SetupHistory({ dispatch, history }) {
-      history.listen(location => {
-        // 这里可以获取当前变化的history路径以及参数，hash所有值，这样就可以在路由地址变化后做处理
-        // dispatch({
-        //   type: 'GetNoticelist',
-        //   payload: {
-        //     pageIndex: 1,
-        //     row: PAGE_SIZE,
-        //   },
-        // });
-      });
+    * GetNoticelist({ payload }, { call, select, put }) {
+      const { page, row, list } = yield select(state => state.notices);
+      const res = yield call(OtherApi.getNoticeList, { page, row });
+      if (res.status === 1) {
+        list.push(...res.data);
+        yield put({
+          type: 'UpdateState',
+          payload: { list, page: page + 1, hasMore: row === res.data.length },
+        });
+      }
+      console.log(res);
+      return res;
     },
   },
 };
