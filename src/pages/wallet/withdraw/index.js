@@ -25,12 +25,12 @@ const menus = [
 class Recharge extends Component {
   state = {
     showMenus: true,
+    getSmsSuccess: false,
   };
 
   componentDidMount() {
     this.changeCoin(menus[1]);
     this.getCaptcha();
-    // this.props.dispatch({ type: 'withdraw/GetServiceCharge' });
   }
 
   toggleShowMenus = e => {
@@ -93,16 +93,19 @@ class Recharge extends Component {
       Toast.info('请输入图形验证码');
       return;
     }
-    this.props.dispatch({
-      type: 'globalModel/GetSmsCode',
-      payload: { type: 'cash' },
-    }).then(res => {
-      if (res.status === 1) {
-        Toast.info('获取验证码成功');
-        return;
-      }
-      Toast.info(res.msg || '获取验证码失败');
-    });
+    this.props
+      .dispatch({
+        type: 'globalModel/GetSmsCode',
+        payload: { type: 'cash' },
+      })
+      .then(res => {
+        this.setState({ getSmsSuccess: res.status === 1 });
+        if (res.status === 1) {
+          Toast.info('获取验证码成功');
+          return;
+        }
+        Toast.info(res.msg || '获取验证码失败');
+      });
   };
 
   onSubmit = () => {
@@ -119,7 +122,7 @@ class Recharge extends Component {
   };
 
   render() {
-    const { showMenus } = this.state;
+    const { showMenus, getSmsSuccess } = this.state;
     const { captchaSrc, captcha } = this.props.globalModel;
     const { coin, initInfo, walletTo, amount, code } = this.props.withdraw;
     const fee = amount * initInfo.serviceCharge;
@@ -185,6 +188,7 @@ class Recharge extends Component {
           <div className={styles.row}>
             <SmsCode
               value={code}
+              getSmsSuccess={getSmsSuccess}
               getSmsCode={this.getSmsCode}
               onChange={this.onCodeChange}
             />

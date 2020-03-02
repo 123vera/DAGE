@@ -19,6 +19,7 @@ class Register extends Component {
       type: '',
       value: '',
     },
+    getSmsSuccess: false,
     showPrefix: false,
     isGetSms: false,
   };
@@ -53,17 +54,18 @@ class Register extends Component {
     const { timer } = this.state;
     clearInterval(Number(timer));
     this.getSmsCode();
-    this.setState({
-      count: COUNT_DOWN,
-      timer: setInterval(() => {
-        let { count } = this.state;
-        if (count && count >= 1) {
-          this.setState({ count: count - 1 });
-        } else {
-          clearInterval(Number(timer));
-        }
-      }, 1000),
-    });
+    this.state.getSmsSuccess &&
+      this.setState({
+        count: COUNT_DOWN,
+        timer: setInterval(() => {
+          let { count } = this.state;
+          if (count && count >= 1) {
+            this.setState({ count: count - 1 });
+          } else {
+            clearInterval(Number(timer));
+          }
+        }, 1000),
+      });
   };
 
   getSmsCode = () => {
@@ -86,6 +88,7 @@ class Register extends Component {
         payload: { prefix, phone, imgcode: captcha, type: 'reg' },
       })
       .then(res => {
+        this.setState({ getSmsSuccess: res.status === 1 });
         if (res.status === 1) {
           Toast.info('获取验证码成功');
           return;
