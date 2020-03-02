@@ -113,12 +113,16 @@ class Recharge extends Component {
   onSubmit = () => {
     const { initInfo, walletTo, amount, code } = this.props.withdraw;
     if (!walletTo) return Toast.info(formatMessage({ id: `COMMON_PLACEHOLDER_WALLET_ADDRESS` }));
+
     if (!REG.WALLET_ADDRESS.test(walletTo))
       return Toast.info(formatMessage({ id: `TOAST_ERR_WALLET_ADDRESS` }));
+
     if (!amount) return Toast.info(formatMessage({ id: `COMMON_PLACEHOLDER_WITHDRAW_AMOUNT` }));
     if (initInfo.balance < amount)
       return Toast.info(formatMessage({ id: `TOAST_ERR_BALANCE_NOT_ENOUGH` }));
+
     if (!code) return Toast.info(formatMessage({ id: `COMMON_PLACEHOLDER_CODE` }));
+
     this.props.dispatch({ type: 'withdraw/Withdraw' }).then(res => {
       if (res.status !== 1) return Toast.info(res.msg);
       Toast.info(formatMessage({ id: `TOAST_SET_WITHDRAW_SUCCESS` }), 2, () =>
@@ -161,7 +165,7 @@ class Recharge extends Component {
         <div className={styles.content}>
           <div className={styles.row}>
             <small>
-              {formatMessage({ id: `EXCHANGE_CAN_USE` })}：{initInfo.balance}
+              {formatMessage({ id: `EXCHANGE_CAN_USE` })}：{initInfo.balance || '--'}
             </small>
           </div>
           <div className={styles.row}>
@@ -187,7 +191,7 @@ class Recharge extends Component {
             </div>
             <aside>
               {formatMessage({ id: `WITHDRAW_FEE` })}
-              {initInfo.serviceCharge * 100 || 0}%
+              {initInfo.serviceCharge * 100 || '--'}%
             </aside>
           </div>
           <Captcha
@@ -221,8 +225,8 @@ class Recharge extends Component {
           <ul>
             <li>
               {formatMessage({ id: `WITHDRAW_TIPS_CONTENT_01` })} {initInfo.dayMax}
-              IPT，{formatMessage({ id: `WITHDRAW_TIPS_CONTENT_02` })} {initInfo.amountMin || 0}-
-              {initInfo.amountMax || 0} IPT，{formatMessage({ id: `WITHDRAW_TIPS_CONTENT_03` })}
+              IPT，{formatMessage({ id: `WITHDRAW_TIPS_CONTENT_02` })} {initInfo.amountMin || '--'}-
+              {initInfo.amountMax || '--'} IPT，{formatMessage({ id: `WITHDRAW_TIPS_CONTENT_03` })}
               {initInfo.serviceCharge} IPT
             </li>
             <li>{formatMessage({ id: `WITHDRAW_TIPS_CONTENT_04` })}</li>
