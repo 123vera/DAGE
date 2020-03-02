@@ -1,6 +1,7 @@
-import React, { Component, PureComponent } from 'react';
+import React, { Component } from 'react';
 import ReactPullLoad, { STATS } from 'react-pullload';
 import 'react-pullload/dist/ReactPullLoad.css';
+import './index.less';
 
 class ListView extends Component {
   state = {

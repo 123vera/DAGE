@@ -6,6 +6,7 @@ import { router } from 'umi';
 import { Icons } from '../../../assets';
 import dayjs from 'dayjs';
 import ListView from '../../../components/common/ListView';
+import { Toast } from 'antd-mobile';
 
 const withdrawStatus = [
   {
@@ -36,8 +37,8 @@ class WalletFlow extends Component {
   getWithdrawRecord = (callback) => {
     this.props.dispatch({ type: 'withdrawRecord/GetWithdrawRecord' })
       .then(res => {
-        console.log(res);
         callback && callback();
+        if (res.status !== 1) Toast.info(res.msg);
       });
   };
 

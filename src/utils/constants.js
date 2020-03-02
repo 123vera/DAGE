@@ -279,4 +279,4 @@ export const COUNT_DOWN = 10;
 export const TOAST_DURATION = 2;
 
 /* 每页条数 */
-export const PAGE_SIZE = 3;
+export const PAGE_SIZE = 10;

@@ -47,12 +47,11 @@ class AssetApi {
    **/
   static async getAssetFlow(options) {
     // return onlinePost('/userasset/stream', options);
+
     const data = {
       balance: 300.0000,
       list: [],
     };
-    console.log('options', options);
-
     const order = (options.page - 1) * options.row;
     for (let i = order; i < options.row + order; i++) {
       data.list.push({
@@ -82,8 +81,6 @@ class AssetApi {
     // return onlinePost('/userasset/stream', options);
 
     const data = [];
-    console.log('options', options);
-
     const order = (options.page - 1) * options.row;
     for (let i = order; i < options.row + order; i++) {
       data.push({
@@ -97,8 +94,7 @@ class AssetApi {
         status: Math.floor(Math.random() * 4),
       });
     }
-
-    return new Promise(resolve => setTimeout(() => resolve({ status: 1, data }), 1000));
+    return new Promise(resolve => setTimeout(() => resolve({ status: 1, data }), 500));
   }
 
   /**
