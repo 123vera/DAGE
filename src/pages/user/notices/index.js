@@ -6,6 +6,7 @@ import { PAGE_SIZE } from '../../../utils/constants';
 import dayjs from 'dayjs';
 import { connect } from 'dva';
 import styles from './index.less';
+import { formatMessage } from 'umi/locale';
 
 const list = [
   {
@@ -109,8 +110,6 @@ class Index extends Component {
         row: PAGE_SIZE,
       },
     }).then(res => {
-      // console.log(list.length === 0 ? list : noticesList.concat(list));
-
       dispatch({
         type: 'notices/UpdateState',
         payload: {
@@ -129,7 +128,10 @@ class Index extends Component {
     } = this.props;
     return (
       <div id={styles.notices}>
-        <PageHeader title="公告列表" leftContent={{ icon: ARROW_LEFT }} />
+        <PageHeader
+          title={formatMessage({ id: `NOTICES_TITLE` })}
+          leftContent={{ icon: ARROW_LEFT }}
+        />
         <div className={styles.list}>
           <InfiniteScroll
             dataLength={noticesList.length}

@@ -5,58 +5,62 @@ import ARROW_LEFT from '@/assets/dark/arrow-left.png';
 import DAGE_LOGO from '@/assets/dark/dage-logo.png';
 import TIPS from '@/assets/icons/tips.png';
 import styles from './index.less';
+import { formatMessage } from 'umi/locale';
 
 class Index extends Component {
   render() {
     return (
       <div id={styles.promotion}>
-        <PageHeader title="我的推广" leftContent={{ icon: ARROW_LEFT }} />
+        <PageHeader
+          title={formatMessage({ id: `PROMOTION_TITLE` })}
+          leftContent={{ icon: ARROW_LEFT }}
+        />
 
         <section className={styles.banner}>
-          <span className={styles.income}>昨日挖矿动态收益</span>
+          <span className={styles.income}>{formatMessage({ id: `PROMOTION_INCOME` })}</span>
           <h2>3000</h2>
-          <Button>立即推广</Button>
+          <Button>{formatMessage({ id: `PROMOTION_IMMEDIATE` })}</Button>
           <img src={DAGE_LOGO} alt="DAGE_LOGO" />
         </section>
 
         <section className={styles.explain}>
           <h4>
-            推荐说明
+            {formatMessage({ id: `PROMOTION_RECOMMENDATION` })}
             <img src={TIPS} alt="TIPS" />
           </h4>
           <ul className={styles.explainList}>
             <li>
-              <span>一代推荐人数</span>
+              <span>{formatMessage({ id: `PROMOTION_GENERATION` })}</span>
               <p>8</p>
             </li>
             <li>
-              <span>二代推荐人数</span>
+              <span>{formatMessage({ id: `PROMOTION_SECONDARY` })}</span>
               <p>10</p>
             </li>
           </ul>
         </section>
 
         <section className={styles.group}>
-          <h4>推荐团队</h4>
+          <h4>{formatMessage({ id: `PROMOTION_RECOMMENDATION_TEAM` })}</h4>
 
           <ul className={styles.chartGroup}>
             <li className={styles.item}>
               <span>SPOOT</span>
-              <span>勋章等级</span>
+              <span>{formatMessage({ id: `PROMOTION_MEDAL_GRADE` })}</span>
             </li>
             <li className={styles.item}>
               <span>SPOOT</span>
-              <span>返利比例</span>
+              <span>{formatMessage({ id: `PROMOTION_REBATE_RATIO` })}</span>
             </li>
           </ul>
         </section>
 
         <section className={styles.firstRecommend}>
-          <h4>我的一代推荐人员</h4>
+          <h4>{formatMessage({ id: `PROMOTION_MY_GENERATION` })}</h4>
           <table>
             <tr>
-              <td>用户</td>
-              <td>推广时间</td>
+              <td>{formatMessage({ id: `PROMOTION_USER` })}</td>
+              <td>{formatMessage({ id: `PROMOTION_TIME` })}</td>
             </tr>
             <tr>
               <td>111232@163.com</td>

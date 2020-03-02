@@ -6,23 +6,27 @@ import { router } from 'umi';
 import { Icons } from '../../../assets';
 import dayjs from 'dayjs';
 import ListView from '../../../components/common/ListView';
+import { formatMessage } from 'umi/locale';
 
 const withdrawStatus = [
   {
     value: 0,
-    label: '待审核',
+    label: formatMessage({ id: `RECORD_AUDIT` }),
     color: '#6D778B',
-  }, {
+  },
+  {
     value: 1,
-    label: '提币中',
+    label: formatMessage({ id: `RECORD_WITHDRAW` }),
     color: '#6D778B',
-  }, {
+  },
+  {
     value: 2,
-    label: '提币成功',
+    label: formatMessage({ id: `RECORD_MENTION` }),
     color: '#00C873',
-  }, {
+  },
+  {
     value: 3,
-    label: '审核拒绝',
+    label: formatMessage({ id: `RECORD_AUDIT_REJECT` }),
     color: '#FF3750',
   },
 ];
@@ -33,15 +37,14 @@ class WalletFlow extends Component {
     this.getWithdrawRecord();
   }
 
-  getWithdrawRecord = (callback) => {
-    this.props.dispatch({ type: 'withdrawRecord/GetWithdrawRecord' })
-      .then(res => {
-        console.log(res);
-        callback && callback();
-      });
+  getWithdrawRecord = callback => {
+    this.props.dispatch({ type: 'withdrawRecord/GetWithdrawRecord' }).then(res => {
+      console.log(res);
+      callback && callback();
+    });
   };
 
-  getStatus = (value) => {
+  getStatus = value => {
     return withdrawStatus.find(i => i.value === value) || {};
   };
 
@@ -53,41 +56,38 @@ class WalletFlow extends Component {
         <section className={styles.header}>
           <Header
             icon={Icons.arrowLeft}
-            title="提币记录"
+            title={formatMessage({ id: `RECORD_TITLE` })}
             onHandle={() => router.push('/wallet/withdraw')}
           />
         </section>
-        <ListView
-          hasMore={hasMore}
-          onLoadMore={this.getWithdrawRecord}
-        >
+        <ListView hasMore={hasMore} onLoadMore={this.getWithdrawRecord}>
           <ul>
-            {list.map((item) =>
+            {list.map(item => (
               <li key={item.id}>
                 <div className={styles.row}>
-                  <label>地址</label>
+                  <label>{formatMessage({ id: `RECORD_LI_ADDRESS` })}</label>
                   <p>{item.walletTo}</p>
                 </div>
                 <div className={styles.row}>
-                  <label>时间</label>
+                  <label>{formatMessage({ id: `RECORD_LI_TIME` })}</label>
                   <p>{dayjs(item.addTime).format('YYYY-MM-DD')}</p>
                 </div>
                 <div className={styles.row}>
-                  <label>数量</label>
+                  <label>{formatMessage({ id: `RECORD_LI_AMOUNT` })}</label>
                   <p>{item.amount}</p>
                 </div>
                 <div className={styles.row}>
-                  <label>编号</label>
+                  <label>{formatMessage({ id: `RECORD_LI_NO` })}</label>
                   <p>{item.id}</p>
                 </div>
                 <div className={styles.row}>
-                  <label>状态</label>
+                  <label>{formatMessage({ id: `RECORD_LI_STATUS` })}</label>
                   <p style={{ color: this.getStatus(item.status).color }}>
                     {this.getStatus(item.status).label}
                   </p>
                 </div>
-              </li>)
-            }
+              </li>
+            ))}
           </ul>
         </ListView>
       </div>

@@ -6,18 +6,19 @@ import CURRENCY from '@/assets/icons/currency.png';
 import styles from './index.less';
 import { router } from 'umi';
 import { Icons } from '../../../assets';
+import { formatMessage } from 'umi/locale';
 
 const list = [
   {
     img: CURRENCY,
-    title: '去中心化交易所',
-    subTitle: '基于智能合约的币币兑换交易所',
+    title: formatMessage({ id: `ECOLOGICAL_CURRENCY_TITLE_01` }),
+    subTitle: formatMessage({ id: `ECOLOGICAL_CURRENCY_SUBTITLE_01` }),
     link: '/exchange',
   },
   // {
   //   img: GAME,
-  //   title: '游戏平台',
-  //   subTitle: '基于去中心化游戏',
+  //   title: formatMessage({ id: `ECOLOGICAL_CURRENCY_TITLE_02` }),
+  //   subTitle: formatMessage({ id: `ECOLOGICAL_CURRENCY_SUBTITLE_02` }),
   //   link: '',
   // },
 ];
@@ -26,7 +27,7 @@ class Index extends Component {
   render() {
     return (
       <div id={styles.ecological}>
-        <PageHeader title="生态" />
+        <PageHeader title={formatMessage({ id: `ECOLOGICAL_TITLE` })} />
 
         <ul className={styles.contents}>
           {list.map((item, key) => (

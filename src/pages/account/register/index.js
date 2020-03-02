@@ -71,15 +71,21 @@ class Register extends Component {
   getSmsCode = () => {
     const { prefix, phone, captcha } = this.props.register;
     if (!phone) {
-      this.setState({ errMsg: { type: 'phone', value: '请输入手机号码' } });
+      this.setState({
+        errMsg: { type: 'phone', value: formatMessage({ id: `COMMON_PLACEHOLDER_PHONE` }) },
+      });
       return;
     }
     if (!REG.MOBILE.test(phone)) {
-      this.setState({ errMsg: { type: 'phone', value: '请输入正确的手机号码' } });
+      this.setState({
+        errMsg: { type: 'phone', value: formatMessage({ id: `COMMON_PLACEHOLDER_PHONE_AGAIN` }) },
+      });
       return;
     }
     if (!captcha) {
-      this.setState({ errMsg: { type: 'captcha', value: '请输入图形验证码' } });
+      this.setState({
+        errMsg: { type: 'captcha', value: formatMessage({ id: `COMMON_PLACEHOLDER_CAPTCHA` }) },
+      });
       return;
     }
     this.props
@@ -90,41 +96,53 @@ class Register extends Component {
       .then(res => {
         this.setState({ getSmsSuccess: res.status === 1 });
         if (res.status === 1) {
-          Toast.info('获取验证码成功');
+          Toast.info(formatMessage({ id: `TOAST_GET_CODE_SUCCESS` }));
           return;
         }
-        Toast.info(res.msg || '获取验证码失败');
+        Toast.info(res.msg || formatMessage({ id: `TOAST_GET_CODE_FAIL` }));
       });
   };
 
   toNext = () => {
     const { phone, password, passwordConfirm, code } = this.props.register;
     if (!phone) {
-      this.setState({ errMsg: { type: 'phone', value: '请输入手机号码' } });
+      this.setState({
+        errMsg: { type: 'phone', value: formatMessage({ id: `COMMON_PLACEHOLDER_PHONE` }) },
+      });
       return;
     }
     if (!REG.MOBILE.test(phone)) {
-      this.setState({ errMsg: { type: 'phone', value: '手机号格式错误' } });
+      this.setState({ errMsg: { type: 'phone', value: formatMessage({ id: `TOAST_ERR_PHONE` }) } });
       return;
     }
     if (!code) {
-      this.setState({ errMsg: { type: 'code', value: '请输入验证码' } });
+      this.setState({
+        errMsg: { type: 'code', value: formatMessage({ id: `COMMON_PLACEHOLDER_CODE` }) },
+      });
       return;
     }
     if (code && code.length !== 4) {
-      this.setState({ errMsg: { type: 'code', value: '验证码格式错误' } });
+      this.setState({
+        errMsg: { type: 'code', value: formatMessage({ id: `TOAST_ERR_SMSCODE` }) },
+      });
       return;
     }
     if (!password) {
-      this.setState({ errMsg: { type: 'password', value: '请输入密码' } });
+      this.setState({
+        errMsg: { type: 'password', value: formatMessage({ id: `COMMON_PLACEHOLDER_PASSWORD` }) },
+      });
       return;
     }
     if (password && !REG.PASSWORD.test(password)) {
-      this.setState({ errMsg: { type: 'password', value: '密码格式错误' } });
+      this.setState({
+        errMsg: { type: 'password', value: formatMessage({ id: `LOGIN_ERR_PASSWORD` }) },
+      });
       return;
     }
     if (password !== passwordConfirm) {
-      this.setState({ errMsg: { type: 'passwordConfirm', value: '两次密码不一致' } });
+      this.setState({
+        errMsg: { type: 'passwordConfirm', value: formatMessage({ id: `LOGIN_REPASSWORD` }) },
+      });
       return;
     }
 
@@ -134,7 +152,7 @@ class Register extends Component {
         return;
       }
 
-      Toast.info('注册成功', TOAST_DURATION, () => {
+      Toast.info(formatMessage({ id: `TOAST_REGISTER_SUCCESS` }), TOAST_DURATION, () => {
         router.push('/login');
         this.setState({ errMsg: { type: '', value: '' } });
       });

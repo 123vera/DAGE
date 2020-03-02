@@ -6,15 +6,7 @@ export default {
       return { ...state, ...payload };
     },
   },
-  effects: {
-    // *GetMyInfo({ payload }, { call, put }) {
-    //   const res = yield call(UserApi.getMyInfo, payload);
-    //   yield put({
-    //     type: 'UpdateState',
-    //     payload: { myInfo: res && res.data },
-    //   });
-    // },
-  },
+  effects: {},
   subscriptions: {
     SetupHistory({ dispatch, history }) {
       history.listen(() => {
