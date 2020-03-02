@@ -123,7 +123,7 @@ class UserApi {
    * @required userId string 用户角色id
    **/
   static getUserList(options) {
-    return request.post('/user/getuserlist', options);
+    return onlinePost('/user/getuserlist', options);
   }
 
   /**
@@ -142,7 +142,7 @@ class UserApi {
    * @required type string 钱包类型，默认usdt
    **/
   static getMyWallet(options) {
-    return onlinePost('/user/mywallet', options);
+    return onlinePost('/userasset/mywallet', options);
   }
 }
 

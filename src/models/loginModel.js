@@ -13,7 +13,7 @@ export default {
 
     accountToken: '',
     userId: undefined,
-    userList: null,
+    userList: [],
   },
   reducers: {
     UpdateState(state, { payload }) {
@@ -21,7 +21,7 @@ export default {
     },
   },
   effects: {
-    *Login(_, { call, select }) {
+    * Login(_, { call, select }) {
       const login = yield select(state => state.login);
       return yield call(UserApi.login, {
         prefix: login.prefix,
@@ -30,7 +30,18 @@ export default {
       });
     },
 
-    *SelectUser(_, { call, select }) {
+    * GetUserList(_, { call, select, put }) {
+      const login = yield select(state => state.login);
+      const res = yield call(UserApi.getUserList, {
+        accountToken: login.accountToken || Cookies.get('ACCOUNT_TOKEN'),
+      });
+      if (res.status === 1) {
+        yield put({ type: 'UpdateState', payload: { userList: res.data } });
+      }
+      return res;
+    },
+
+    * SelectUser(_, { call, select }) {
       const login = yield select(state => state.login);
       return yield call(UserApi.selectUser, {
         accountToken: login.accountToken || Cookies.get('ACCOUNT_TOKEN'),
@@ -38,7 +49,7 @@ export default {
       });
     },
 
-    *AddUser({ payload }, { call, select }) {
+    * AddUser({ payload }, { call, select }) {
       const login = yield select(state => state.login);
       return yield call(UserApi.addRole, {
         accountToken: login.accountToken || Cookies.get('ACCOUNT_TOKEN'),

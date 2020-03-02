@@ -6,6 +6,9 @@ import styles from './index.less';
 import QRcode from 'qrcode.react';
 import { connect } from 'dva';
 import Menus from '../../../components/common/Menus';
+import { Toast } from 'antd-mobile';
+import CopyToClipboard from 'react-copy-to-clipboard';
+
 
 const menus = [
   {
@@ -28,16 +31,25 @@ class Recharge extends Component {
   }
 
   changeCoin = (coin) => {
-    this.props.dispatch({
+    const { dispatch } = this.props;
+    dispatch({
       type: 'recharge/UpdateState',
       payload: { coin },
+    });
+    dispatch({
+      type: 'recharge/GetMyWallet',
+      payload: { type: coin.value },
+    }).then(res => {
+      if (res.status !== 1) {
+        Toast.info(res.msg);
+      }
     });
     this.setState({ showMenus: false });
   };
 
   render() {
     const { showMenus } = this.state;
-    const { coin } = this.props.recharge;
+    const { coin, wallet } = this.props.recharge;
 
     return (
       <div className={styles.recharge}>
@@ -65,13 +77,19 @@ class Recharge extends Component {
         <div className={styles.content}>
           <div className={styles.qrCode}>
             <QRcode
-              size={250}
-              value={'12OlPju8xoWi380askpoqlSLx2a012kkn'}
+              size={360}
+              value={wallet}
               renderAs="canvas"
             />
           </div>
-          <p>12OlPju8xoWi380askpoqlSLx2a012kkn</p>
-          <span>复制地址</span>
+          <p>{wallet}</p>
+          <CopyToClipboard
+            // key={new Date().toString()}
+            text={wallet}
+            onCopy={() => Toast.info('已复制')}
+          >
+            <span>复制地址</span>
+          </CopyToClipboard>
         </div>
         <aside>
           <label>转入说明</label>
