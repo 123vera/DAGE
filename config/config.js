@@ -36,7 +36,7 @@ const config = {
   theme: {
     'primary-color': '#FFFFFF',
     'font-size-base': '28px',
-    hd: '2px',
+    hd: '1px',
   },
   routes: pageRoutes,
   lessLoaderOptions: {

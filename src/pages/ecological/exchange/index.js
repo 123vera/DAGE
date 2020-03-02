@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import { formatMessage } from 'umi/locale';
 import { connect } from 'dva';
-import Cookies from 'js-cookie';
 import { Toast, Button } from 'antd-mobile';
 import PageHeader from '@/components/common/PageHeader';
+// import SmsCode from '@/components/common/SmsCode';
 import Captcha from '@/components/common/Captcha';
 import ARROW_LEFT from '@/assets/icons/arrow-left.png';
 import ARROW_DOWN from '@/assets/icons/arrow-down.png';
 import { COUNT_DOWN, REG } from '../../../utils/constants';
 import styles from './index.less';
 
-@connect(({ login, exchange }) => ({ login, exchange }))
+@connect(({ globalModel, login, exchange }) => ({ globalModel, login, exchange }))
 class Index extends Component {
   state = {
     count: COUNT_DOWN,
@@ -18,6 +18,7 @@ class Index extends Component {
     position: null,
     currency1: 'USDT',
     currency2: 'DID',
+    getSmsSuccess: false,
   };
 
   checkAside = (e, type) => {
@@ -37,34 +38,42 @@ class Index extends Component {
     const { timer } = this.state;
     clearInterval(Number(timer));
     this.getSmsCode();
-    this.setState({
-      count: COUNT_DOWN,
-      timer: setInterval(() => {
-        let { count } = this.state;
-        if (count && count >= 1) {
-          this.setState({ count: count - 1 });
-        } else {
-          clearInterval(Number(timer));
-        }
-      }, 1000),
-    });
+    this.state.getSmsSuccess &&
+      this.setState({
+        count: COUNT_DOWN,
+        timer: setInterval(() => {
+          let { count } = this.state;
+          if (count && count >= 1) {
+            this.setState({ count: count - 1 });
+          } else {
+            clearInterval(Number(timer));
+          }
+        }, 1000),
+      });
   };
 
   getSmsCode = () => {
     const {
       dispatch,
+      globalModel: { myInfo },
       exchange: { captcha },
     } = this.props;
+
+    if (!captcha) {
+      Toast.info('请输入图形验证码');
+      return;
+    }
 
     dispatch({
       type: 'exchange/GetSmsCode',
       payload: {
-        prefix: Cookies.get('USER_PREFIX'),
-        phone: Cookies.get('USER_PHONE'),
+        prefix: myInfo.phonePrefix,
+        phone: myInfo.phoneNo,
         imgcode: captcha,
         type: 'exchange',
       },
     }).then(res => {
+      this.setState({ getSmsSuccess: res.status === 1 });
       if (res.status === 1) {
         Toast.info('获取验证码成功');
         return;
@@ -190,6 +199,7 @@ class Index extends Component {
               onChange={e => this.onInputChange(e.target.value, 'captcha')}
               getCaptcha={this.getCaptcha}
             />
+
             <label>
               <span className={styles.label}>手机验证码</span>
               <div className={styles.codeWrapper}>

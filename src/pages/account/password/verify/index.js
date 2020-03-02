@@ -21,6 +21,7 @@ class Home extends Component {
     },
     showPrefix: false,
     isGetSms: false,
+    getSmsSuccess: false,
   };
 
   componentDidMount() {
@@ -54,17 +55,18 @@ class Home extends Component {
     const { timer } = this.state;
     clearInterval(Number(timer));
     this.getSmsCode();
-    this.setState({
-      count: COUNT_DOWN,
-      timer: setInterval(() => {
-        let { count } = this.state;
-        if (count && count >= 1) {
-          this.setState({ count: count - 1 });
-        } else {
-          clearInterval(Number(timer));
-        }
-      }, 1000),
-    });
+    this.state.getSmsSuccess &&
+      this.setState({
+        count: COUNT_DOWN,
+        timer: setInterval(() => {
+          let { count } = this.state;
+          if (count && count >= 1) {
+            this.setState({ count: count - 1 });
+          } else {
+            clearInterval(Number(timer));
+          }
+        }, 1000),
+      });
   };
 
   getSmsCode = () => {
@@ -86,6 +88,7 @@ class Home extends Component {
         type: 'password/GetSmsCode',
       })
       .then(res => {
+        this.setState({ getSmsSuccess: res.status === 1 });
         if (res.status === 1) {
           Toast.info('获取验证码成功');
           return;
@@ -113,33 +116,29 @@ class Home extends Component {
       return;
     }
 
-    this.props.dispatch({ type: 'password/FindPassword' })
-      .then(res => {
-        if (res.status !== 1) {
-          Toast.fail(res.msg);
-          return;
-        }
-        Cookies.set('ACCOUNT_TOKEN', res.data.accountToken);
-        router.push(type === 'find_password' ? '/find_password/edit' : '/reset_password/edit');
-      });
+    this.props.dispatch({ type: 'password/FindPassword' }).then(res => {
+      if (res.status !== 1) {
+        Toast.fail(res.msg);
+        return;
+      }
+      Cookies.set('ACCOUNT_TOKEN', res.data.accountToken);
+      router.push(type === 'find_password' ? '/find_password/edit' : '/reset_password/edit');
+    });
   };
 
   render() {
-    const {
-      prefix,
-      phone,
-      code,
-      captchaSrc,
-      captcha,
-      type,
-    } = this.props.password;
+    const { prefix, phone, code, captchaSrc, captcha, type } = this.props.password;
     const { errMsg, count, showPrefix } = this.state;
 
     return (
       <div className={styles.findPassword}>
-        <PageHeader leftContent={{ icon: Icons.arrowLeft }}/>
+        <PageHeader leftContent={{ icon: Icons.arrowLeft }} />
         <section>
-          <p>{formatMessage({ id: type === 'find_password' ? `LOGIN_FIND_PASSWORD` : 'LOGIN_SET_PASSWORD' })}</p>
+          <p>
+            {formatMessage({
+              id: type === 'find_password' ? `LOGIN_FIND_PASSWORD` : 'LOGIN_SET_PASSWORD',
+            })}
+          </p>
           <div className={styles.mainWrapper}>
             <div className={styles.content}>
               <label>
@@ -147,11 +146,11 @@ class Home extends Component {
                 <div
                   className={`${styles.pickerWrapper} ${
                     errMsg.type === 'phone' ? styles.inputErr : ''
-                    }`}
+                  }`}
                 >
                   <span onClick={this.onOpenPrefix}>
                     +{prefix}
-                    <img src={Icons.arrowDown} alt=""/>
+                    <img src={Icons.arrowDown} alt="" />
                   </span>
                   <input
                     type="number"
@@ -175,7 +174,7 @@ class Home extends Component {
                 <div
                   className={`${styles.codeWrapper} ${
                     errMsg.type === 'smsCode' ? styles.inputErr : ''
-                    }`}
+                  }`}
                 >
                   <input
                     type="number"
@@ -196,7 +195,7 @@ class Home extends Component {
                 </div>
                 <h4>{errMsg.value || ''}</h4>
               </label>
-              <img className={styles.nextStep} src={Images.nextStep} onClick={this.toNext} alt=""/>
+              <img className={styles.nextStep} src={Images.nextStep} onClick={this.toNext} alt="" />
             </div>
           </div>
         </section>

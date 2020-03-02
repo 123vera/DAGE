@@ -8,20 +8,21 @@ class Index extends Component {
   };
 
   countDown = () => {
-    const { getSmsCode } = this.props;
+    const { getSmsCode, getSmsSuccess = false } = this.props;
     const { count } = this.state;
     if (count === COUNT_DOWN) getSmsCode && getSmsCode();
-    this.setState({ count: count - 1 }, () => {
-      const { count } = this.state;
-      const timer = setTimeout(() => {
-        if (count >= 0 && count < COUNT_DOWN) {
-          this.countDown();
-        } else {
-          this.setState({ count: COUNT_DOWN });
-          clearTimeout(timer);
-        }
-      }, 1000);
-    });
+    getSmsSuccess &&
+      this.setState({ count: count - 1 }, () => {
+        const { count } = this.state;
+        const timer = setTimeout(() => {
+          if (count >= 0 && count < COUNT_DOWN) {
+            this.countDown();
+          } else {
+            this.setState({ count: COUNT_DOWN });
+            clearTimeout(timer);
+          }
+        }, 1000);
+      });
   };
 
   render() {
@@ -40,7 +41,9 @@ class Index extends Component {
             onChange={onChange || null}
             placeholder="请输入手机验证码"
           />
-          <button disabled={isCountDown} onClick={this.countDown}>{btnLabel}</button>
+          <button disabled={isCountDown} onClick={this.countDown}>
+            {btnLabel}
+          </button>
         </div>
       </div>
     );
