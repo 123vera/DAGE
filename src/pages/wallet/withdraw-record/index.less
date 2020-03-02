@@ -1,69 +1,46 @@
 @import '../../../styles/mixin.less';
 
-.walletFlow {
+.withdrawRecord {
   box-sizing: border-box;
   min-height: 100vh;
+  padding-top: @header-height;
   padding-bottom: 30px;
   font-weight: 600;
 
-  .summary {
-    padding: 50px 60px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-
-    .coin {
-      position: relative;
-
-      .options {
-        position: absolute;
-        top: 75px;
-        left: 50px;
-      }
-    }
-
-    .select {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-      width: 306px;
-      height: 70px;
-      padding: 0 40px 0 20px;
-      background: rgba(46, 53, 70, 1);
-      border-radius: 20px;
-    }
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: @theme-color-bg;
+    z-index: 10;
   }
 
   ul {
     .clearUl;
-    padding: 50px 60px 20px;
+    padding: 50px 0 20px 60px;
 
     li {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-
-      height: 140px;
+      padding: 12px 60px 12px 0;
       border-bottom: 2px solid rgba(26, 32, 46, 1);
 
-      .label {
+      .row {
         display: flex;
-        flex-direction: column;
-        line-height: 44px;
-
-        small {
-          margin-top: 4px;
-          color: rgba(109, 119, 139, 1);
-          line-height: 32px;
-        }
+        flex-direction: row;
+        align-items: center;
+        line-height: 34px;
+        padding: 12px 0;
       }
 
-      .value {
-        color: rgba(0, 200, 115, 1);
-        line-height: 44px;
+      label {
+        width: 20%;
+      }
+
+      p {
+        width: 80%;
+        word-break: keep-all;
+        word-wrap: break-word;
+        white-space: pre-wrap;
       }
     }
   }

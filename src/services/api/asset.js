@@ -8,8 +8,8 @@ class AssetApi {
    * @required address string 钱包地址
    * @required currency string 币种
    **/
-  static getServiceCharge(option) {
-    return request.post('/userasset/walletforaddress', option);
+  static getServiceCharge(options) {
+    return request.post('/userasset/walletforaddress', options);
   }
 
   /**
@@ -33,7 +33,7 @@ class AssetApi {
    *
    **/
   static submitWithdrawal(options) {
-    return request.post('/userasset/cash', options);
+    return onlinePost('/userasset/cash', options);
   }
 
   /**
@@ -64,8 +64,9 @@ class AssetApi {
         id: i,
       });
     }
-    await setTimeout(null, 500);
-    return Promise.resolve({ status: 1, data });
+
+    return new Promise(resolve => setTimeout(() => resolve({ status: 1, data }), 1000));
+    // return Promise.resolve({ status: 1, data });
   }
 
   /**
@@ -78,7 +79,26 @@ class AssetApi {
    *
    **/
   static getWithdrawRecord(options) {
-    return request.post('/userasset/stream', options);
+    // return onlinePost('/userasset/stream', options);
+
+    const data = [];
+    console.log('options', options);
+
+    const order = (options.page - 1) * options.row;
+    for (let i = order; i < options.row + order; i++) {
+      data.push({
+        addTime: +new Date(),
+        walletTo: '78sdjhsdsnjd7878ksdj',
+        serviceCharge: '0.20',
+        type: options.type,
+        amount: 300 + i,
+        userId: '32424232',
+        id: i,
+        status: Math.floor(Math.random() * 4),
+      });
+    }
+
+    return new Promise(resolve => setTimeout(() => resolve({ status: 1, data }), 1000));
   }
 
   /**

@@ -5,9 +5,11 @@ import { connect } from 'dva';
 import Header from '../../../components/common/Header';
 import styles from './index.less';
 import Menus from '../../../components/common/Menus';
-import Captcha from '../../../components/common/Captcha';
-import SmsCode from '../../../components/common/SmsCode';
+import Captcha from '../../../components/partials/Captcha';
+import SmsCode from '../../../components/partials/SmsCode';
 import { Toast } from 'antd-mobile';
+import { REG } from '../../../utils/constants';
+import { downFixed } from '../../../utils/utils';
 
 const menus = [
   {
@@ -28,6 +30,7 @@ class Recharge extends Component {
   componentDidMount() {
     this.changeCoin(menus[1]);
     this.getCaptcha();
+    // this.props.dispatch({ type: 'withdraw/GetServiceCharge' });
   }
 
   toggleShowMenus = e => {
@@ -48,6 +51,33 @@ class Recharge extends Component {
 
   getCaptcha = () => {
     this.props.dispatch({ type: 'globalModel/GetCaptcha' });
+  };
+
+  onWalletChange = (value) => {
+    if (!REG.WALLET_ADDRESS.test(value)) {
+      return;
+    }
+    this.props.dispatch({
+      type: 'withdraw/UpdateState',
+      payload: { walletTo: value },
+    });
+  };
+
+  onAmountChange = (value) => {
+    if (value && !/^[0-9.]+$/.test(value)) {
+      return;
+    }
+    this.props.dispatch({
+      type: 'withdraw/UpdateState',
+      payload: { amount: value },
+    });
+  };
+
+  onCodeChange = (value) => {
+    this.props.dispatch({
+      type: 'withdraw/UpdateState',
+      payload: { code: value },
+    });
   };
 
   onCaptchaChange = (value) => {
@@ -75,10 +105,25 @@ class Recharge extends Component {
     });
   };
 
+  onSubmit = () => {
+    const { initInfo, walletTo, amount, code } = this.props.withdraw;
+    if (!walletTo) return Toast.info('请填写钱包地址');
+    if (!REG.WALLET_ADDRESS.test(walletTo)) return Toast.info('钱包地址格式错误');
+    if (!amount) return Toast.info('请填写提币数量');
+    if (initInfo.balance < amount) return Toast.info('余额不足');
+    if (!code) return Toast.info('请填写手机验证码');
+    this.props.dispatch({ type: 'withdraw/Withdraw' }).then(res => {
+      if (res.status !== 1) return Toast.info(res.msg);
+      Toast.info('提币成功', 2, () => window.location.reload());
+    });
+  };
+
   render() {
     const { showMenus } = this.state;
-    const { coin, initInfo } = this.props.withdraw;
-    const { captchaSrc, captcha, code } = this.props.globalModel;
+    const { captchaSrc, captcha } = this.props.globalModel;
+    const { coin, initInfo, walletTo, amount, code } = this.props.withdraw;
+    const fee = amount * initInfo.serviceCharge;
+    const realIncome = amount - fee;
 
     return (
       <div className={styles.withdraw} onClick={() => this.setState({ showMenus: false })}>
@@ -111,15 +156,25 @@ class Recharge extends Component {
           <div className={styles.row}>
             <label>提币地址</label>
             <div className={styles.inputBox}>
-              <input type="text" placeholder="输入或长按粘贴地址"/>
+              <input
+                type="text"
+                value={walletTo}
+                placeholder="输入或长按粘贴地址"
+                onChange={e => this.onWalletChange(e.target.value)}
+              />
             </div>
           </div>
           <div className={styles.row}>
             <label>数量（USDT）</label>
             <div className={styles.inputBox}>
-              <input type="text" placeholder="最小提币量0.01"/>
+              <input
+                type="text"
+                value={amount}
+                placeholder="最小提币量0.01"
+                onChange={e => this.onAmountChange(e.target.value)}
+              />
             </div>
-            <aside>手续费率0.2%</aside>
+            <aside>手续费率{initInfo.serviceCharge * 100 || 0}%</aside>
           </div>
           <Captcha
             captchaSrc={captchaSrc}
@@ -131,22 +186,28 @@ class Recharge extends Component {
             <SmsCode
               value={code}
               getSmsCode={this.getSmsCode}
+              onChange={this.onCodeChange}
             />
           </div>
           <div className={styles.group}>
             <small>手续费</small>
-            <small>--</small>
+            <small>{fee ? downFixed(fee) : '--'}</small>
           </div>
           <div className={styles.group}>
             <span>到账数量</span>
-            <span>--</span>
+            <span>{realIncome ? downFixed(realIncome) : '--'}</span>
           </div>
+        </div>
+        <div className={styles.submit}>
+          <button onClick={this.onSubmit}>提交</button>
         </div>
         <aside className={styles.aside}>
           <label>友情提示</label>
           <ul>
             <li>
-              当前，每人每日最高可提现 500000 IPT，单笔转出限额为0.01 -200000 IPT，手续费 0.001 IPT
+              当前，每人每日最高可提现 {initInfo.dayMax}
+              IPT，单笔转出限额为 {initInfo.amountMin || 0}-{initInfo.amountMax || 0} IPT，手续费
+              {initInfo.serviceCharge} IPT
             </li>
             <li>为了保障资金安全，我们会对提币进行人工审核，请耐心等待。</li>
           </ul>

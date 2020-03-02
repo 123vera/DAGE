@@ -6,7 +6,7 @@ import { router } from 'umi';
 import Header from '../../components/common/Header';
 import Menus from '../../components/common/Menus';
 // import Activation from '../../components/wallet/Activation';
-import Mining from '../../components/wallet/Mining';
+// import Mining from '../../components/wallet/Mining';
 import { Icons, Images } from '../../assets';
 
 const menus = [
@@ -73,12 +73,12 @@ class Home extends Component {
           </div>
         </section>
         <section>
-          <div className={styles.notice}>
+          <div className={styles.notice} onClick={()=>router.push('/notices')}>
             <p>公告：即日起激活DID奖励活动开启</p>
           </div>
         </section>
         {/*<Activation/>*/}
-        <Mining/>
+        {/*<Mining/>*/}
       </div>
     );
   }

@@ -21,7 +21,9 @@
     "react": "^16.8.6",
     "react-copy-to-clipboard": "^5.0.2",
     "react-dom": "^16.8.6",
-    "react-infinite-scroll-component": "^5.0.4"
+    "react-infinite-scroll-component": "^5.0.4",
+    "react-pullload": "^1.2.0",
+    "prop-types": "latest"
   },
   "devDependencies": {
     "babel-eslint": "^9.0.0",

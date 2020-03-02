@@ -43,9 +43,9 @@ export const setCookie = (key = '', value = '', config = {}) => {
   let domain = isIP(hostname)
     ? hostname
     : hostname
-        .split('.')
-        .slice(-2)
-        .join('.');
+      .split('.')
+      .slice(-2)
+      .join('.');
   Cookies.set(key, value, { path: '/', domain: domain, ...config });
   Cookies.set(key, value, { path: '/', domain: '.' + domain, ...config });
 };
@@ -61,9 +61,9 @@ export const removeCookie = (key = '', config = {}) => {
   let domain = isIP(hostname)
     ? hostname
     : hostname
-        .split('.')
-        .slice(-2)
-        .join('.');
+      .split('.')
+      .slice(-2)
+      .join('.');
 
   let keyArr = [];
   if (Array.isArray(key)) {
@@ -87,12 +87,32 @@ export const clearCookie = (config = {}) => {
   let domain = isIP(hostname)
     ? hostname
     : hostname
-        .split('.')
-        .slice(-2)
-        .join('.');
+      .split('.')
+      .slice(-2)
+      .join('.');
 
   Object.keys(Cookies.get()).forEach(key => {
     Cookies.remove(key, { path: '/', domain: domain, ...config });
     Cookies.remove(key, { path: '/', domain: '.' + domain, ...config });
   });
 };
+
+
+export function downFixed(num = 0, fix = 4) {
+  // num为原数字，fix是保留的小数位数
+  let result = '0';
+  if (Number(num) && fix > 0) { // 简单的做个判断
+    fix = +fix || 2;
+    num = num + '';
+    if (/e/.test(num)) { // 如果是包含e字符的数字直接返回
+      result = num;
+    } else if (!/\./.test(num)) { // 如果没有小数点
+      result = num + `.${Array(fix + 1).join('0')}`;
+    } else { // 如果有小数点
+      num = num + `${Array(fix + 1).join('0')}`;
+      let reg = new RegExp(`-?\\d*.\\d{0,${fix}}`);
+      result = reg.exec(num)[0];
+    }
+  }
+  return result;
+}

@@ -17,9 +17,7 @@ export default {
   },
   effects: {
     * GetAssetFlow({ payload }, { call }) {
-      const res = yield call(AssetApi.getAssetFlow, payload);
-      console.log(res);
-      return res;
+      return yield call(AssetApi.getAssetFlow, payload);
     },
   },
 };

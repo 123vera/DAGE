@@ -5,7 +5,7 @@ import router from 'umi/router';
 import { Icons, Images } from '../../../../assets';
 import PageHeader from '@/components/common/PageHeader';
 import TelPrefix from '../../../../components/partials/TelPrefix';
-import Captcha from '../../../../components/common/Captcha';
+import Captcha from '../../../../components/partials/Captcha';
 import { REG, COUNT_DOWN } from '../../../../utils/constants';
 import styles from './index.less';
 import { Toast } from 'antd-mobile';

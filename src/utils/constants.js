@@ -7,7 +7,7 @@ export const REG = {
   // PASSWORD: /^(?!\d+$)(?![A-Za-z]+$)(?![A-Z0-9]+$)(?![a-z0-9]+$)[a-zA-Z0-9]{8,16}$/,  // 8-16 位英文和数字（英文数字都要有，且必须包含大小写）
   // PASSWORD: /^[a-zA-Z0-9]{8,16}$/,  // 8-16 位英文和数字（只验证位数）
   // WALLET_REMARK: /^[a-zA-Z0-9]{3,42}$/,  // 3-42 位英文和数字（只验证位数）
-  // WALLET_ADDRESS: /^(?=[0-9a-z\-.]*$)/, // 3-42位小写字母、数字、中划线(-)、点(.) 4种类型
+  WALLET_ADDRESS: /^(?=[0-9a-z\-.]*$)/, // 3-42位小写字母、数字、中划线(-)、点(.) 4种类型
   // WALLET_REMARK: /^(?=[0-9a-zA-Z]*$)/, // 3-42 位英文和数字（只验证位数）
   NUMBER: /^-?\d+(.\d+)?$/,
   INPUT_GROUP: /^[a-z0-9A-Z]+$/, // 数字字母大小写
@@ -69,7 +69,7 @@ export const COUNTRIES_LIST = [
   'Central African Republic中非',
   'Republic of the Congo刚果（布）',
   'Switzerland瑞士',
-  "Cote d'Ivoire科特迪瓦",
+  'Cote d\'Ivoire科特迪瓦',
   'Cook Islands库克群岛',
   'Chile智利',
   'Cameroon喀麦隆',

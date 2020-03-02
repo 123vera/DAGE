@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import styles from './index.less';
 import Header from '../../../components/common/Header';
-import PartLoading from '../../../components/common/PartLoading';
 import { connect } from 'dva';
 import { router } from 'umi';
 import { Icons } from '../../../assets';
 import Menus from '../../../components/common/Menus';
 import dayjs from 'dayjs';
-import InfiniteScroll from 'react-infinite-scroll-component';
+import ListView from '../../../components/common/ListView';
 
 const menus = [
   {
@@ -41,10 +40,8 @@ class WalletFlow extends Component {
     this.getFlow();
   };
 
-  getFlow = () => {
-    console.log('getFlow');
+  getFlow = (callback) => {
     const { dispatch, walletFlow: { coin, page, row, list } } = this.props;
-    console.log(list);
     dispatch({
       type: 'walletFlow/GetAssetFlow',
       payload: {
@@ -67,6 +64,7 @@ class WalletFlow extends Component {
           list,
         },
       });
+      callback && callback();
     });
     this.setState({ showMenus: false });
   };
@@ -105,12 +103,9 @@ class WalletFlow extends Component {
           </div>
         </section>
         <section>
-          <InfiniteScroll
-            dataLength={list.length}
+          <ListView
             hasMore={hasMore}
-            next={() => this.getFlow()}
-            loader={<PartLoading/>}
-            endMessage={<p>已经到底了</p>}
+            onLoadMore={this.getFlow}
           >
             <ul>
               {list.map((item) =>
@@ -125,7 +120,7 @@ class WalletFlow extends Component {
                 </li>)
               }
             </ul>
-          </InfiniteScroll>
+          </ListView>
         </section>
       </div>
     );

@@ -4,7 +4,7 @@ import { connect } from 'dva';
 import Cookies from 'js-cookie';
 import { Toast, Button } from 'antd-mobile';
 import PageHeader from '@/components/common/PageHeader';
-import Captcha from '@/components/common/Captcha';
+import Captcha from '../../../components/partials/Captcha';
 import ARROW_LEFT from '@/assets/icons/arrow-left.png';
 import ARROW_DOWN from '@/assets/icons/arrow-down.png';
 import { COUNT_DOWN, REG } from '../../../utils/constants';
