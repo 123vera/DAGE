@@ -1,18 +1,21 @@
 import AssetApi from '../../../services/api/asset';
-import UserApi from '../../../services/api/user';
-import { Toast } from 'antd-mobile';
 
 export default {
   namespace: 'exchange',
   state: {
-    amount: '',
-    smsCode: '',
+    beforeCoin: {
+      value: 'usdt',
+      label: 'USDT',
+    },
+    afterCoin: {
+      value: 'did',
+      label: 'DID',
+    },
     balance: '',
-    team: [],
-    exini: {},
-    captcha: '',
-    captchaKey: +new Date(),
-    captchaSrc: '',
+    teams: [],
+    initInfo: {},
+    amount: '',
+    code: '',
   },
   reducers: {
     UpdateState(state, { payload }) {
@@ -20,43 +23,31 @@ export default {
     },
   },
   effects: {
-    *GetCaptcha({ payload }, { call, put }) {
-      const captchaKey = payload;
-      const captchaSrc = yield call(UserApi.getCaptcha, captchaKey);
-      yield put({ type: 'UpdateState', payload: { captchaSrc, captchaKey } });
-    },
-    *GetSmsCode({ payload }, { call, select }) {
-      const captchaKey = yield select(state => state.exchange.captchaKey);
-      return yield call(UserApi.sendSmsCode, payload, captchaKey);
-    },
-    *SetExchangeInit({ payload }, { call, put }) {
-      const res = yield call(AssetApi.setExchangeInit, payload);
-      if (res.status !== 1) {
-        Toast.info(res.msg);
-        return;
-      }
-      yield put({
-        type: 'UpdateState',
-        payload: {
-          balance: res.data && res.data.balance,
-          exini: res.data && res.data.exini,
-          team: res.data && res.data.team,
-          amount: '',
-          smsCode: '',
-          captcha: '',
-        },
+    * ExchangeInit({ payload }, { call, put, select }) {
+      const { beforeCoin, afterCoin } = yield select(state => state.exchange);
+      const res = yield call(AssetApi.exchangeInit, {
+        currency1: beforeCoin.value,
+        currency2: afterCoin.value,
       });
+      if (res.status === 1) {
+        yield put({
+          type: 'UpdateState',
+          payload: {
+            balance: res.data.balance,
+            teams: res.data.team,
+            initInfo: res.data.exini,
+          },
+        });
+      }
+      return res;
     },
-    *SubmitExchange({ payload }, { call }) {
-      yield call(AssetApi.submitExchange, payload);
-    },
-  },
-  subscriptions: {
-    SetupHistory({ dispatch, history }) {
-      history.listen(() => {
-        // 这里可以获取当前变化的history路径以及参数，hash所有值，这样就可以在路由地址变化后做处理
-        dispatch({ type: 'SetExchangeInit' });
-        dispatch({ type: 'GetCaptcha' });
+    * SubmitExchange({ payload }, { call, select }) {
+      const { beforeCoin, afterCoin, amount, code } = yield select(state => state.exchange);
+      return yield call(AssetApi.submitExchange, {
+        currency1: beforeCoin.value,
+        currency2: afterCoin.value,
+        amount,
+        code,
       });
     },
   },

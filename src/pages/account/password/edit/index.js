@@ -55,7 +55,7 @@ class Index extends Component {
           return;
         }
         Toast.info('密码设置成功', TOAST_DURATION, () => {
-          router.push(type === 'find_password' ? '/login' : '/user_center');
+          router.push(type === 'find_password' ? '/login' : '/home/user');
         });
       });
   };

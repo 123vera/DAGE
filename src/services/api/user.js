@@ -90,7 +90,7 @@ class UserApi {
    * @required passwordConfirm string 确认密码
    **/
   static editPassword(options) {
-    return onlineGet('/user/editpassword', {
+    return onlinePost('/user/editpassword', {
       ...options,
       accountToken: getAccountToken(),
       openId: getOpenId(),

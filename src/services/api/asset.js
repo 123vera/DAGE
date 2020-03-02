@@ -109,7 +109,7 @@ class AssetApi {
    * @required openId string 用户openid
    *
    **/
-  static setExchangeInit(options) {
+  static exchangeInit(options) {
     return onlinePost('/userasset/exini', options);
   }
 

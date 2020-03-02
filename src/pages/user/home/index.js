@@ -9,9 +9,6 @@ import PageHeader from '@/components/common/PageHeader';
 import LOGIN_OUT from '@/assets/dark/login-out.png';
 import BG_ICON from '@/assets/dark/bg-icon.png';
 import ARROW_RIGHT from '@/assets/icons/arrow-right.png';
-// import ICON_QRCODE from '@/assets/icons/qrcode.png';
-// import ICON_SPREAD from '@/assets/icons/spread.png';
-// import ICON_SWITCH from '@/assets/icons/switch-lang.png';
 import ICON_RESET from '@/assets/icons/reset-password.png';
 import ICON_NOTICES from '@/assets/icons/notices.png';
 import ICON_CUSTOMER from '@/assets/icons/customer.png';
@@ -27,7 +24,7 @@ class Home extends Component {
     isEnabled: false,
   };
 
-  onCopyLink = (text, result) => {
+  onCopyLink = () => {
     Toast.info('已复制');
   };
 
@@ -49,7 +46,7 @@ class Home extends Component {
       {
         icon: ICON_RESET,
         text: '重置登录密码',
-        url: `/forgot_password?name=重置登录密码`,
+        url: `/reset_password/verify`,
       },
       {
         icon: ICON_NOTICES,
@@ -68,7 +65,7 @@ class Home extends Component {
       },
     ];
     return (
-      <div id={styles.userCenter}>
+      <div className={styles.userCenter}>
         <PageHeader
           title="个人中心"
           rightContent={{
@@ -93,10 +90,10 @@ class Home extends Component {
         />
 
         <div className={styles.banner}>
-          <img className={styles.bg} src={HOME_BG} alt="" />
-          <img className={styles.bg1} src={DAGE_LOGO} alt="" />
+          <img className={styles.bg} src={HOME_BG} alt=""/>
+          <img className={styles.bg1} src={DAGE_LOGO} alt=""/>
           <div className={styles.center}>
-            <img className={styles.icon} src={BG_ICON} alt="" />
+            <img className={styles.icon} src={BG_ICON} alt=""/>
             <p>DID：{(myInfo && myInfo.did) || '--'}</p>
             <CopyToClipboard key={new Date().toString()} text="GXs" onCopy={this.onCopyLink}>
               <span>推荐码：{(myInfo && myInfo.recommendCode) || '--'}</span>
@@ -111,9 +108,9 @@ class Home extends Component {
         <ul className={styles.list}>
           {listContent.map((item, key) => (
             <li key={key} onClick={() => router.push(item.url)}>
-              <img className={styles.icon} src={item.icon} alt="" />
+              <img className={styles.icon} src={item.icon} alt=""/>
               <span>{item.text}</span>
-              <img className={styles.right} src={ARROW_RIGHT} alt="" />
+              <img className={styles.right} src={ARROW_RIGHT} alt=""/>
             </li>
           ))}
         </ul>
@@ -121,4 +118,5 @@ class Home extends Component {
     );
   }
 }
+
 export default Home;

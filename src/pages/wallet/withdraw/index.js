@@ -39,7 +39,7 @@ class Recharge extends Component {
     e.stopPropagation();
   };
 
-  changeCoin = (coin) => {
+  changeCoin = coin => {
     const { dispatch } = this.props;
     dispatch({
       type: 'withdraw/UpdateState',

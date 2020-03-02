@@ -23,13 +23,16 @@ import React, { Component } from 'react';
 
 class Menus extends Component {
   render() {
-    const { menus, onHandle, hasBorder, textAlign } = this.props;
+    const { menus, onHandle, active, hasBorder, textAlign } = this.props;
     return <div className={`${styles.menus} ${hasBorder ? styles.hasBorder : ''}`}>
       <ul className={styles.menuList}>
         {
           menus.map(menu => (
-            <li style={{ textAlign: textAlign }} key={menu.value}
-                onClick={() => onHandle && onHandle(menu)}>
+            <li
+              className={menu.value === active ? styles.active : ''}
+              style={{ textAlign: textAlign }}
+              key={menu.value}
+              onClick={() => onHandle && onHandle(menu)}>
               {menu.icon && <i>
                 <img src={menu.icon} style={{ width: menu.width }} alt=""/>
               </i>}
