@@ -1,8 +1,9 @@
 import axios from 'axios';
-// import { Toast } from 'antd-mobile';
 // import { getCookie } from '@/utils/utils';
 import { getApiBaseUrl, optionsToLine, optionsToHump, getHumpData } from './utils';
 import qs from 'qs';
+import { Toast } from 'antd-mobile';
+import { router } from 'umi';
 
 const Request = axios.create({
   timeout: 9000,
@@ -51,10 +52,10 @@ Request.interceptors.response.use(
     // }
 
     // 处理未登录
-    // if (data.status === -101) {
-    //   Toast.fail(data.msg);
-    //   return;
-    // }
+    if (data.status === -101) {
+      Toast.fail('请先登录', 2, () => router.push('/login'));
+      return Promise.reject(data);
+    }
 
     // 对下划线转驼峰进行处理
     if (data.data) {
@@ -68,7 +69,10 @@ Request.interceptors.response.use(
 
     return data;
   },
-  err => Promise.reject(err),
+  err => {
+    console.log(err);
+    return Promise.reject(err);
+  },
 );
 
 export default Request;

@@ -41,7 +41,7 @@ export default {
   subscriptions: {
     SetupHistory({ dispatch, history }) {
       history.listen(location => {
-        const list = ['/home/user', '/wallet/recharge', '/wallet/withdraw', '/exchange'];
+        const list = ['/home/wallet', '/home/user', '/wallet/recharge', '/wallet/withdraw', '/exchange'];
         list.forEach(i => {
           if (location.pathname === i) {
             // 这里可以获取当前变化的history路径以及参数，hash所有值，这样就可以在路由地址变化后做处理

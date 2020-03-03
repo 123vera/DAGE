@@ -1,5 +1,5 @@
 import request from '../request';
-import { getApiBaseUrl, onlineGet, getAccountToken, getOpenId, onlinePost } from '../utils';
+import { getApiBaseUrl, getAccountToken, getOpenId, onlinePost } from '../utils';
 
 const SID = '12c68f99664da7bc';
 
@@ -113,7 +113,7 @@ class UserApi {
    * @required openId string 用户open_id
    **/
   static activateRole() {
-    return onlineGet('/user/useractivate');
+    return onlinePost('/user/useractivate');
   }
 
   /**

@@ -5,7 +5,7 @@ import { connect } from 'dva';
 import { router } from 'umi';
 import Header from '../../components/common/Header';
 import Menus from '../../components/common/Menus';
-// import Activation from '../../components/wallet/Activation';
+import Activation from '../../components/wallet/Activation';
 // import Mining from '../../components/wallet/Mining';
 import { Icons, Images } from '../../assets';
 import { formatMessage } from 'umi/locale';
@@ -31,7 +31,7 @@ const menus = [
   },
 ];
 
-@connect(({ wallet }) => ({ wallet }))
+@connect(({ wallet, globalModel }) => ({ wallet, globalModel }))
 class Home extends Component {
   state = {
     showMenus: false,
@@ -47,7 +47,7 @@ class Home extends Component {
   };
 
   render() {
-    const { userInfo } = this.props.wallet;
+    const { myInfo } = this.props.globalModel;
     const { showMenus } = this.state;
 
     return (
@@ -63,7 +63,7 @@ class Home extends Component {
           />
           {showMenus && (
             <div className={styles.menus} onClick={e => e.stopPropagation()}>
-              <Menus menus={menus} onHandle={this.onMenuHandle} />
+              <Menus menus={menus} onHandle={this.onMenuHandle}/>
             </div>
           )}
         </section>
@@ -71,7 +71,7 @@ class Home extends Component {
           <div className={styles.banner} style={{ backgroundImage: `url(${Images.homeBg})` }}>
             <label>DAGE WALLENT</label>
             <h1>
-              {userInfo.did}
+              {myInfo.did}
               <small>DID</small>
             </h1>
           </div>
@@ -81,7 +81,7 @@ class Home extends Component {
             <p>公告：即日起激活DID奖励活动开启</p>
           </div>
         </section>
-        {/*<Activation/>*/}
+        {myInfo.activate === 0 && <Activation/>}
         {/*<Mining/>*/}
       </div>
     );
