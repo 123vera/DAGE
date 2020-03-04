@@ -69,7 +69,7 @@ export default {
   ECOLOGICAL_CURRENCY_TITLE_03: `OTC Trade`,
   ECOLOGICAL_CURRENCY_SUBTITLE_03: `Simple and fast, earn with one click`,
 
-  OTC_QUANTITY_SOLD: `Amount to sell（DGT）`,
+  OTC_QUANTITY_SOLD: `Amount to sell（DID）`,
   OTC_SALE_CONDITIONS: `Selling amount in each transaction must be between 100-1000`,
   OTC_SALE_TIPS_01: `1. For the first withdrawal, you need to upload the Alipay account and QR code, and wait for the platform to authenticate. The authentication result will be notified by SMS.`,
   OTC_SALE_TIPS_02: `2.After authentication complete, the user needs to download the POG hashing plug-in and log in with the DAGE account to keep the miner online (close the plug-in may cause mining failures and therefore revenue cannot be issued). In addition, when opening the miner, it is necessary to ensure that the Alipay payment is kept login on the same Android phone. OTC transaction status can be viewed in real time in the POG hashing plug-in`,

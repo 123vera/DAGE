@@ -69,7 +69,7 @@ export default {
   ECOLOGICAL_CURRENCY_TITLE_03: `OTC场外交易`,
   ECOLOGICAL_CURRENCY_SUBTITLE_03: `简单快捷，一键出金`,
 
-  OTC_QUANTITY_SOLD: `出售数量（DGT）`,
+  OTC_QUANTITY_SOLD: `出售数量（DID）`,
   OTC_SALE_CONDITIONS: `单笔出售数量需在100-1000之间`,
   OTC_SALE_TIPS_01: `1.第一次出金前需要上传支付宝账号与二维码，等待平台认证，认证结果将以短信形式进行通知 `,
   OTC_SALE_TIPS_02: `2.认证成功后，用户需要下载POG算力矿机插件并使用DAGE账号登录后保持矿机在线状态（关闭插件将可能导致挖矿失败无法发放收益），另外，开启矿机时需要保证收款支付宝在同一个安卓手机上保持登录状态，OTC交易情况可在POG算力矿机插件中实时查看 `,
@@ -117,6 +117,7 @@ export default {
   REFERRAL_CODE_TITLE: `推荐码`,
   REFERRAL_CODE_COPY: `复制邀请码`,
 
+  ZENDESK_TITLE: `联系客服`,
   ZENDESK_P_01: `点击下方的联系客服`,
   ZENDESK_P_02: `即可开始与客服沟通`,
   ZENDESK_P_03: `若未出现联系客服，请耐心等待3-5秒`,

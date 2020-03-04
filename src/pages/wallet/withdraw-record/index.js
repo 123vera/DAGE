@@ -39,7 +39,6 @@ class WalletFlow extends Component {
 
   getWithdrawRecord = callback => {
     this.props.dispatch({ type: 'withdrawRecord/GetWithdrawRecord' }).then(res => {
-      console.log(res);
       callback && callback();
     });
   };
