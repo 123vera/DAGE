@@ -31,6 +31,7 @@ export default {
   LOGIN_TITLE: `Login to DAGE`,
   LOGIN_FORGET_PASSWORD: `Forget Password？`,
   LOGIN_FIND_PASSWORD: `Recover login password`,
+  LOGIN_RESET_PASSWORD: `Reset login password`,
   LOGIN_SET_PASSWORD: `Set new password`,
   LOGIN_REPASSWORD: `You enter the different passwords`,
   LOGIN_ERR_PASSWORD: `Password format wrong`,

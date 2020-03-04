@@ -148,7 +148,7 @@ class Home extends Component {
         <section>
           <p>
             {formatMessage({
-              id: type === 'find_password' ? `LOGIN_FIND_PASSWORD` : 'LOGIN_SET_PASSWORD',
+              id: type === 'find_password' ? `LOGIN_FIND_PASSWORD` : 'LOGIN_RESET_PASSWORD',
             })}
           </p>
           <div className={styles.mainWrapper}>

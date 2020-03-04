@@ -1,6 +1,6 @@
 @import '../../../styles/mixin.less';
 
-#exchange {
+.exchange {
   .wrapper {
     padding-bottom: 60px;
     margin: 0 60px;
@@ -57,6 +57,8 @@
         .codeNumber {
           width: 230px;
           color: @font-color-primary;
+          background: transparent;
+          border: none;
         }
 
         input {
@@ -85,7 +87,7 @@
       padding: 40px 0;
       border-bottom: 2px solid @theme-border-gray;
 
-      span {
+      .coinSelect {
         position: relative;
         display: flex;
         align-items: center;

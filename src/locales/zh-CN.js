@@ -31,6 +31,7 @@ export default {
   LOGIN_TITLE: `登录DAGE`,
   LOGIN_FORGET_PASSWORD: `忘记密码？`,
   LOGIN_FIND_PASSWORD: `找回登录密码`,
+  LOGIN_RESET_PASSWORD: `重置登录密码`,
   LOGIN_SET_PASSWORD: `设置新密码`,
   LOGIN_REPASSWORD: `两次密码不一致`,
   LOGIN_ERR_PASSWORD: `密码格式错误`,

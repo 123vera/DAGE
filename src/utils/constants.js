@@ -273,7 +273,7 @@ export const COUNTRIES_LIST = [
 ];
 
 /* 验证码倒计时 */
-export const COUNT_DOWN = 10;
+export const COUNT_DOWN = 60;
 
 /* Toast 出现时间 */
 export const TOAST_DURATION = 2;

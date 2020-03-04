@@ -5,7 +5,6 @@ import { Toast, Button } from 'antd-mobile';
 import PageHeader from '../../../components/common/PageHeader';
 import Captcha from '../../../components/partials/Captcha';
 import ARROW_LEFT from '@/assets/icons/arrow-left.png';
-// import ARROW_DOWN from '@/assets/icons/arrow-down.png';
 import { COUNT_DOWN, REG } from '../../../utils/constants';
 import styles from './index.less';
 import { Icons } from '../../../assets';
@@ -36,12 +35,24 @@ class Index extends Component {
     this.props.dispatch({ type: 'globalModel/GetCaptcha' });
   };
 
+  onShowMenus = (e, type, value) => {
+    this.setState({ [type]: value });
+    e.stopPropagation();
+  };
+
+  onHideMenus = (e) => {
+    this.setState({ showBeforeMenus: false, showAfterMenus: false });
+    e.stopPropagation();
+  };
+
   changeBeforeCoin = coin => {
     this.props.dispatch({ type: 'exchange/UpdateState', payload: { beforeCoin: coin } });
+    this.setState({ showBeforeMenus: false });
   };
 
   changeAfterCoin = coin => {
     this.props.dispatch({ type: 'exchange/UpdateState', payload: { afterCoin: coin } });
+    this.setState({ showAfterMenus: false });
   };
 
   onAmountChange = value => {
@@ -142,17 +153,18 @@ class Index extends Component {
     });
 
     return (
-      <div id={styles.exchange}>
+      <div className={styles.exchange} onClick={this.onHideMenus}>
         <PageHeader
           title={formatMessage({ id: `EXCHANGE_TITLE` })}
           leftContent={{ icon: ARROW_LEFT }}
         />
 
-        <div className={styles.wrapper} onClick={() => this.setState({ position: null })}>
+        <div className={styles.wrapper}>
           <div className={styles.mainContent}>
             <div className={styles.selectCurrency}>
-              <span onClick={() => this.setState({ showBeforeMenus: !showBeforeMenus })}>
-                {beforeCoin.label} <img src={Icons.arrowDown} alt="" />
+              <span className={styles.coinSelect}
+                    onClick={(e) => this.onShowMenus(e, 'showBeforeMenus', !showBeforeMenus)}>
+                {beforeCoin.label} <img src={Icons.arrowDown} alt=""/>
                 {showBeforeMenus && (
                   <div className={styles.menus}>
                     <Menus
@@ -170,8 +182,9 @@ class Index extends Component {
                 src={Icons.arrowLeft}
                 alt=""
               />
-              <span onClick={() => this.setState({ showAfterMenus: !showAfterMenus })}>
-                {afterCoin.label} <img src={Icons.arrowDown} alt="" />
+              <span className={styles.coinSelect}
+                    onClick={(e) => this.onShowMenu(e, 'showAfterMenus', !showAfterMenus)}>
+                {afterCoin.label} <img src={Icons.arrowDown} alt=""/>
                 {showAfterMenus && (
                   <div className={styles.menus}>
                     <Menus
@@ -197,7 +210,7 @@ class Index extends Component {
                 value={amount}
                 onChange={e => this.onAmountChange(e.target.value)}
                 placeholder={`${formatMessage({ id: `EXCHANGE_MIN_AMOUNT` })}${initInfo.MIN ||
-                  '--'}`}
+                '--'}`}
               />
               <p className={styles.tips}>
                 {formatMessage({ id: `EXCHANGE_CAN_USE` })}
@@ -252,7 +265,7 @@ class Index extends Component {
           </div>
           <p className={styles.reminder}>{formatMessage({ id: `EXCHANGE_TIPS` })}</p>
 
-          <Button className={styles.btn} onClick={this.ensureExchange}>
+          <Button className={styles.btn} onClick={this.onSubmit}>
             {formatMessage({ id: `COMMON_CONFIRM` })}
           </Button>
         </div>

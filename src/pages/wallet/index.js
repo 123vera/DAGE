@@ -9,6 +9,7 @@ import Activation from '../../components/wallet/Activation';
 // import Mining from '../../components/wallet/Mining';
 import { Icons, Images } from '../../assets';
 import { formatMessage } from 'umi/locale';
+import { downFixed } from '../../utils/utils';
 
 const menus = [
   {
@@ -71,7 +72,7 @@ class Home extends Component {
           <div className={styles.banner} style={{ backgroundImage: `url(${Images.homeBg})` }}>
             <label>DAGE WALLENT</label>
             <h1>
-              {myInfo.did}
+              {downFixed(myInfo.did)}
               <small>DID</small>
             </h1>
           </div>

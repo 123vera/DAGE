@@ -204,7 +204,7 @@ class Recharge extends Component {
           />
           {showMenus && (
             <div className={styles.menus}>
-              <Menus menus={menus} hasBorder onHandle={this.changeCoin} />
+              <Menus menus={menus} hasBorder textAlign="center" onHandle={this.changeCoin} />
             </div>
           )}
         </div>

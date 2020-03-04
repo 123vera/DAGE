@@ -100,7 +100,7 @@ export const clearCookie = (config = {}) => {
 
 export function downFixed(num = 0, fix = 4) {
   // num为原数字，fix是保留的小数位数
-  let result = '0';
+  let result = '0.0000';
   if (Number(num) && fix > 0) { // 简单的做个判断
     fix = +fix || 2;
     num = num + '';
