@@ -9,32 +9,58 @@ import dayjs from 'dayjs';
 import ListView from '../../../components/common/ListView';
 import { formatMessage } from 'umi-plugin-locale';
 
-const menus = [
-  {
-    value: 'dgt',
-    label: 'DGT',
-  },
-  {
-    value: 'usdt',
-    label: 'USDT',
-  },
-];
+// const menus = [
+//   {
+//     value: 'dgt',
+//     label: 'DGT',
+//   },
+//   {
+//     value: 'usdt',
+//     label: 'USDT',
+//   },
+// ];
 
-@connect(({ walletFlow }) => ({ walletFlow }))
+@connect(({ walletFlow, globalModel }) => ({ walletFlow, globalModel }))
 class WalletFlow extends Component {
   state = {
     showMenus: false,
   };
 
   componentDidMount() {
-    this.props.dispatch({
+    // this.props.dispatch({
+    //   type: 'walletFlow/UpdateState',
+    //   payload: { coin: menus[0] },
+    // });
+    this.getFlow();
+    this.getInitCoins();
+  }
+
+  getInitCoins = async () => {
+    const { dispatch } = this.props;
+    await dispatch({
+      type: 'globalModel/ExchangeInit',
+    });
+    let menus = [];
+    let iArr = [];
+    this.props.globalModel.coinTeams.forEach(team => {
+      team.split('_').map(i => iArr.push(i));
+    });
+
+    [...new Set(iArr)].forEach(value => {
+      menus.push({
+        label: value.toUpperCase(),
+        value: value.toLowerCase(),
+      });
+    });
+
+    await dispatch({
       type: 'walletFlow/UpdateState',
       payload: { coin: menus[0] },
     });
-    this.getFlow();
-  }
+  };
 
   changeCoin = coin => {
+    console.log(coin);
     this.props.dispatch({
       type: 'walletFlow/UpdateState',
       payload: { coin },
@@ -77,6 +103,20 @@ class WalletFlow extends Component {
   render() {
     const { coin, balance, list, hasMore } = this.props.walletFlow;
     const { showMenus } = this.state;
+    const { coinTeams } = this.props.globalModel;
+
+    let menus = [];
+    let iArr = [];
+    coinTeams.forEach(team => {
+      team.split('_').map(i => iArr.push(i));
+    });
+
+    [...new Set(iArr)].forEach(value => {
+      menus.push({
+        label: value.toUpperCase(),
+        value: value.toLowerCase(),
+      });
+    });
 
     return (
       <div className={styles.walletFlow}>

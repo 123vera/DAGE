@@ -41,19 +41,25 @@ class Home extends Component {
   toNext = () => {
     const { phone, password } = this.props.login;
     if (!phone) {
-      this.setState({ errMsg: { type: 'phone', value: '请输入手机号码' } });
+      this.setState({
+        errMsg: { type: 'phone', value: formatMessage({ id: `COMMON_PLACEHOLDER_PHONE` }) },
+      });
       return;
     }
     if (!REG.MOBILE.test(phone)) {
-      this.setState({ errMsg: { type: 'phone', value: '手机号格式错误' } });
+      this.setState({ errMsg: { type: 'phone', value: formatMessage({ id: `TOAST_ERR_PHONE` }) } });
       return;
     }
     if (!password) {
-      this.setState({ errMsg: { type: 'password', value: '请输入密码' } });
+      this.setState({
+        errMsg: { type: 'password', value: formatMessage({ id: `COMMON_PLACEHOLDER_PASSWORD` }) },
+      });
       return;
     }
     if (password && !REG.PASSWORD.test(password)) {
-      this.setState({ errMsg: { type: 'password', value: '密码格式错误' } });
+      this.setState({
+        errMsg: { type: 'password', value: formatMessage({ id: `LOGIN_ERR_PASSWORD` }) },
+      });
       return;
     }
 
@@ -90,11 +96,11 @@ class Home extends Component {
                 <span className={styles.label}>{formatMessage({ id: `COMMON_LABEL_PHONE` })}</span>
                 <div
                   className={`${styles.pickerWrapper} ${errMsg.type === 'phone' &&
-                  styles.inputErr}`}
+                    styles.inputErr}`}
                 >
                   <span onClick={this.onOpenPrefix}>
                     +{prefix}
-                    <img src={Icons.arrowDown} alt=""/>
+                    <img src={Icons.arrowDown} alt="" />
                   </span>
                   <input
                     type="number"
@@ -126,7 +132,7 @@ class Home extends Component {
                 </span>
               </div>
 
-              <img className={styles.nextStep} src={Images.nextStep} onClick={this.toNext} alt=""/>
+              <img className={styles.nextStep} src={Images.nextStep} onClick={this.toNext} alt="" />
             </div>
           </section>
         </div>

@@ -1,10 +1,17 @@
 export default [
   {
     path: '/',
-    redirect: './home/wallet',
-    component: './wallet/flow',
-    title: '主页',
+    redirect: './login',
+    component: './account/login',
+    title: '登录',
   },
+
+  // {
+  //   path: '/',
+  //   redirect: './home/wallet',
+  //   component: './wallet/flow',
+  //   title: '主页',
+  // },
 
   {
     path: '/',

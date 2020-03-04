@@ -12,16 +12,16 @@ import { REG } from '../../../utils/constants';
 import { downFixed } from '../../../utils/utils';
 import { formatMessage } from 'umi/locale';
 
-const menus = [
-  {
-    value: 'dgt',
-    label: 'DGT',
-  },
-  {
-    value: 'usdt',
-    label: 'USDT',
-  },
-];
+// const menus = [
+//   {
+//     value: 'dgt',
+//     label: 'DGT',
+//   },
+//   {
+//     value: 'usdt',
+//     label: 'USDT',
+//   },
+// ];
 
 @connect(({ withdraw, globalModel }) => ({ withdraw, globalModel }))
 class Recharge extends Component {
@@ -31,9 +31,39 @@ class Recharge extends Component {
   };
 
   componentDidMount() {
-    this.changeCoin(menus[1]);
     this.getCaptcha();
+    this.getInitCoins();
   }
+
+  getInitCoins = async () => {
+    const { dispatch } = this.props;
+    await dispatch({
+      type: 'globalModel/ExchangeInit',
+    });
+    const {
+      globalModel: { coinTeams },
+    } = this.props;
+
+    let menus = [];
+    let iArr = [];
+    coinTeams.forEach(team => {
+      team.split('_').map(i => iArr.push(i));
+    });
+
+    [...new Set(iArr)].forEach(value => {
+      menus.push({
+        label: value.toUpperCase(),
+        value: value.toLowerCase(),
+      });
+    });
+    setTimeout(() => {
+      dispatch({
+        type: 'withdraw/UpdateState',
+        payload: { coin: menus[0] },
+      });
+    }, 100);
+    this.changeCoin(menus[0]);
+  };
 
   toggleShowMenus = e => {
     const { showMenus } = this.state;
@@ -91,10 +121,12 @@ class Recharge extends Component {
 
   getSmsCode = () => {
     const { captcha } = this.props.globalModel;
+
     if (!captcha) {
       Toast.info(formatMessage({ id: `COMMON_PLACEHOLDER_CAPTCHA` }));
       return;
     }
+
     this.props
       .dispatch({
         type: 'globalModel/GetSmsCode',
@@ -112,12 +144,14 @@ class Recharge extends Component {
 
   onSubmit = () => {
     const { initInfo, walletTo, amount, code } = this.props.withdraw;
+
     if (!walletTo) return Toast.info(formatMessage({ id: `COMMON_PLACEHOLDER_WALLET_ADDRESS` }));
 
     if (!REG.WALLET_ADDRESS.test(walletTo))
       return Toast.info(formatMessage({ id: `TOAST_ERR_WALLET_ADDRESS` }));
 
     if (!amount) return Toast.info(formatMessage({ id: `COMMON_PLACEHOLDER_WITHDRAW_AMOUNT` }));
+
     if (initInfo.balance < amount)
       return Toast.info(formatMessage({ id: `TOAST_ERR_BALANCE_NOT_ENOUGH` }));
 
@@ -133,10 +167,23 @@ class Recharge extends Component {
 
   render() {
     const { showMenus, getSmsSuccess } = this.state;
-    const { captchaSrc, captcha } = this.props.globalModel;
+    const { captchaSrc, captcha, coinTeams } = this.props.globalModel;
     const { coin, initInfo, walletTo, amount, code } = this.props.withdraw;
     const fee = amount * initInfo.serviceCharge;
     const realIncome = amount - fee;
+
+    let menus = [];
+    let iArr = [];
+    coinTeams.forEach(team => {
+      team.split('_').map(i => iArr.push(i));
+    });
+
+    [...new Set(iArr)].forEach(value => {
+      menus.push({
+        label: value.toUpperCase(),
+        value: value.toLowerCase(),
+      });
+    });
 
     return (
       <div className={styles.withdraw} onClick={() => this.setState({ showMenus: false })}>
@@ -145,7 +192,7 @@ class Recharge extends Component {
             icon={Icons.arrowLeft}
             onHandle={() => router.push('/home/wallet')}
             centerContent={{
-              text: coin.label,
+              text: coin.label || '--',
               icon: Icons.arrowDown,
               reverse: true,
               onHandle: e => this.toggleShowMenus(e),
@@ -180,7 +227,7 @@ class Recharge extends Component {
             </div>
           </div>
           <div className={styles.row}>
-            <label>数量（USDT）</label>
+            <label>数量（{coin.label}）</label>
             <div className={styles.inputBox}>
               <input
                 type="text"

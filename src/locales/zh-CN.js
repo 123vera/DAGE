@@ -1,5 +1,4 @@
 export default {
-  HOME: '简体',
   COMMON_CONFIRM: `确认`,
   COMMON_CANCEL: `取消`,
   COMMON_SUBMIT: `提交`,
@@ -65,7 +64,16 @@ export default {
   ECOLOGICAL_CURRENCY_TITLE_01: `去中心化交易所`,
   ECOLOGICAL_CURRENCY_SUBTITLE_01: `基于智能合约的币币兑换交易所`,
   ECOLOGICAL_CURRENCY_TITLE_02: `游戏平台`,
-  ECOLOGICAL_CURRENCY_SUBTITLE_02: `游戏平台`,
+  ECOLOGICAL_CURRENCY_SUBTITLE_02: `基于去中心化游戏`,
+  ECOLOGICAL_CURRENCY_TITLE_03: `OTC场外交易`,
+  ECOLOGICAL_CURRENCY_SUBTITLE_03: `简单快捷，一键出金`,
+
+  OTC_QUANTITY_SOLD: `出售数量（DGT）`,
+  OTC_SALE_CONDITIONS: `单笔出售数量需在100-1000之间`,
+  OTC_SALE_TIPS_01: `1.第一次出金前需要上传支付宝账号与二维码，等待平台认证，认证结果将以短信形式进行通知 `,
+  OTC_SALE_TIPS_02: `2.认证成功后，用户需要下载POG算力矿机插件并使用DAGE账号登录后保持矿机在线状态（关闭插件将可能导致挖矿失败无法发放收益），另外，开启矿机时需要保证收款支付宝在同一个安卓手机上保持登录状态，OTC交易情况可在POG算力矿机插件中实时查看 `,
+  OTC_SALE_TIPS_03: `3.出金一般在1天内到账，如果超过1天，每天增加0.1%的利息,`,
+  OTC_CONFIRM_SALE: `确认出售`,
 
   USER_TITLE: `个人中心`,
   USER_COPIED: `已复制`,
@@ -77,6 +85,18 @@ export default {
   USER_SECTION_06: `联系客服`,
   USER_LOGOUT: `确认退出登录？`,
   USER_RECOMMEND_CODE: `推荐码：`,
+
+  PAY_DESC: `请上传您的支付宝收款二维码，且需要您在安卓设备上下载自由侠App并登录与上传的二维码一致的支付宝账号，保持自由侠始终在打开状态，如果您没有打开自由侠，发现后客服将在后台扣除当日的挖矿奖励`,
+  PAY_PLACEHOLDER: `请输入支付宝账号`,
+  PAY_SUBMIT: `提交审核`,
+  PAY_SUCCESS: `您的支付宝信息 已审核通过`,
+  PAY_FAIL_01: `审核未通过！`,
+  PAY_FAIL_02: `未通过原因：支付宝账户与二维码不符`,
+  PAY_WAITING_01: `提交成功，等待审核…`,
+  PAY_WAITING_02: `审核结果将会显示在个人中心`,
+
+  INCOME_TITLE: `收益详情`,
+  INCOME_TOTAL: `返点总收益`,
 
   NOTICES_TITLE: `公告列表`,
 
@@ -140,4 +160,14 @@ export default {
   WALLET_RECHARGE: `充值`,
   WALLET_WITHDRAW: `提现`,
   WALLET_FLOW: `资金流水`,
+  WALLET_SECTION_TITLE: `推广获得超高返利`,
+  WALLET_SECTION_SUBTITLE: `昨日获得返点收益`,
+  WALLET_POG_TITLE: `POG挖矿`,
+  WALLET_POG_DESC: `使用矿机需要您在安卓设备上下载自由侠APP并登录与上传的二维码一样的支付宝账号，保持自由侠始终在打开状态，如果您没有打开自由侠，发现后客服将在后台扣除当日的挖矿奖励`,
+  WALLET_POG_APP_DOWNLOAD: `自由侠APP下载地址：`,
+  WALLET_POG_LEVEL: `当前矿机等级`,
+  WALLET_POG_DISCOUNT_RATE: `当前折损率`,
+  WALLET_POG_TOTAL_MINING_REVENUE: `昨日挖矿总收益`,
+  WALLET_POG_MEDAL_LEVEL: `当前勋章等级`,
+  WALLET_POG_MINE_GRADE: `请选择购买的矿机等级`,
 };

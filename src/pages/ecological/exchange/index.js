@@ -12,20 +12,6 @@ import { Icons } from '../../../assets';
 import Menus from '../../../components/common/Menus';
 import { downFixed } from '../../../utils/utils';
 
-const beforeCoins = [
-  {
-    value: 'usdt',
-    label: 'USDT',
-  },
-];
-
-const afterCoins = [
-  {
-    value: 'did',
-    label: 'DID',
-  },
-];
-
 @connect(({ globalModel, exchange }) => ({ globalModel, exchange }))
 class Index extends Component {
   state = {
@@ -95,17 +81,17 @@ class Index extends Component {
     const { dispatch } = this.props;
     const { captcha } = this.props.globalModel;
     if (!captcha) {
-      Toast.info('请输入图形验证码');
+      Toast.info(formatMessage({ id: `COMMON_PLACEHOLDER_CAPTCHA` }));
       return;
     }
     this.countDown();
     dispatch({ type: 'globalModel/GetSmsCode', payload: { type: 'exchange' } }).then(res => {
       if (res.status === 1) {
-        Toast.info('获取验证码成功');
+        Toast.info(formatMessage({ id: `TOAST_GET_CODE_SUCCESS` }));
         return;
       }
       clearInterval(Number(this.state.timer));
-      Toast.info(res.msg || '获取验证码失败');
+      Toast.info(res.msg || formatMessage({ id: `TOAST_GET_CODE_FAIL` }));
     });
   };
 
@@ -140,8 +126,20 @@ class Index extends Component {
 
   render() {
     const { captchaSrc, captcha } = this.props.globalModel;
-    const { beforeCoin, afterCoin, initInfo, balance, amount, code } = this.props.exchange;
+    const { beforeCoin, afterCoin, initInfo, balance, amount, code, teams } = this.props.exchange;
     const { showBeforeMenus, showAfterMenus, count } = this.state;
+    let beforeCoins = [];
+    let afterCoins = [];
+    teams.forEach(team => {
+      beforeCoins.push({
+        label: team.split('_')[0].toUpperCase(),
+        value: team.split('_')[0].toLowerCase(),
+      });
+      afterCoins.push({
+        label: team.split('_')[1].toUpperCase(),
+        value: team.split('_')[1].toLowerCase(),
+      });
+    });
 
     return (
       <div id={styles.exchange}>

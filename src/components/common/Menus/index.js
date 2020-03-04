@@ -1,7 +1,7 @@
 import styles from './index.less';
 import React, { Component } from 'react';
 
-// menus 事例
+// menus 示例
 // const menus = [
 //   {
 //     value: '/wallet/recharge',
@@ -24,24 +24,27 @@ import React, { Component } from 'react';
 class Menus extends Component {
   render() {
     const { menus, onHandle, active, hasBorder, textAlign } = this.props;
-    return <div className={`${styles.menus} ${hasBorder ? styles.hasBorder : ''}`}>
-      <ul className={styles.menuList}>
-        {
-          menus.map(menu => (
+    return (
+      <div className={`${styles.menus} ${hasBorder ? styles.hasBorder : ''}`}>
+        <ul className={styles.menuList} onClick={e => e.stopPropagation()}>
+          {menus.map(menu => (
             <li
               className={menu.value === active ? styles.active : ''}
               style={{ textAlign: textAlign }}
               key={menu.value}
-              onClick={() => onHandle && onHandle(menu)}>
-              {menu.icon && <i>
-                <img src={menu.icon} style={{ width: menu.width }} alt=""/>
-              </i>}
+              onClick={() => onHandle && onHandle(menu)}
+            >
+              {menu.icon && (
+                <i>
+                  <img src={menu.icon} style={{ width: menu.width }} alt="" />
+                </i>
+              )}
               {menu.label && <span>{menu.label}</span>}
             </li>
-          ))
-        }
-      </ul>
-    </div>;
+          ))}
+        </ul>
+      </div>
+    );
   }
 }
 

@@ -1,4 +1,5 @@
 import UserApi from '../services/api/user';
+import AssetApi from '../services/api/asset';
 
 export default {
   namespace: 'globalModel',
@@ -6,6 +7,7 @@ export default {
     myInfo: {},
     captcha: '',
     captchaSrc: '',
+    coinTeams: [],
   },
   reducers: {
     UpdateState(state, { payload }) {
@@ -13,12 +15,12 @@ export default {
     },
   },
   effects: {
-    * GetCaptcha({ payload }, { call, put }) {
+    *GetCaptcha({ _ }, { call, put }) {
       const captchaSrc = yield call(UserApi.getCaptcha, +new Date());
       yield put({ type: 'UpdateState', payload: { captchaSrc } });
     },
 
-    * GetSmsCode({ payload = {} }, { call, select }) {
+    *GetSmsCode({ payload = {} }, { call, select }) {
       const { myInfo, captcha } = yield select(state => state.globalModel);
       return yield call(UserApi.sendSmsCode, {
         prefix: payload.prefix || myInfo.phonePrefix,
@@ -28,7 +30,7 @@ export default {
       });
     },
 
-    * GetMyInfo({ payload }, { call, put }) {
+    *GetMyInfo({ payload }, { call, put }) {
       const res = yield call(UserApi.getMyInfo, payload);
       if (res && res.status !== 1) return;
       yield put({
@@ -36,12 +38,31 @@ export default {
         payload: { myInfo: res && res.data },
       });
     },
+
+    *ExchangeInit({ _ }, { call, put }) {
+      const res = yield call(AssetApi.exchangeInit);
+      if (res.status === 1) {
+        yield put({
+          type: 'UpdateState',
+          payload: {
+            coinTeams: res.data.team,
+          },
+        });
+      }
+      return res;
+    },
   },
 
   subscriptions: {
     SetupHistory({ dispatch, history }) {
       history.listen(location => {
-        const list = ['/home/wallet', '/home/user', '/wallet/recharge', '/wallet/withdraw', '/exchange'];
+        const list = [
+          '/home/wallet',
+          '/home/user',
+          '/wallet/recharge',
+          '/wallet/withdraw',
+          '/exchange',
+        ];
         list.forEach(i => {
           if (location.pathname === i) {
             // 这里可以获取当前变化的history路径以及参数，hash所有值，这样就可以在路由地址变化后做处理

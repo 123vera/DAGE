@@ -42,7 +42,7 @@ class Index extends Component {
           return;
         }
         Cookies.set('OPENID', res.data.openId);
-        router.push('/');
+        router.push('/home/wallet');
       });
   };
 

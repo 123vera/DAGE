@@ -23,7 +23,7 @@ export default {
     },
   },
   effects: {
-    * ExchangeInit({ payload }, { call, put, select }) {
+    *ExchangeInit({ _ }, { call, put, select }) {
       const { beforeCoin, afterCoin } = yield select(state => state.exchange);
       const res = yield call(AssetApi.exchangeInit, {
         currency1: beforeCoin.value,
@@ -41,7 +41,7 @@ export default {
       }
       return res;
     },
-    * SubmitExchange({ payload }, { call, select }) {
+    *SubmitExchange({ payload }, { call, select }) {
       const { beforeCoin, afterCoin, amount, code } = yield select(state => state.exchange);
       return yield call(AssetApi.submitExchange, {
         currency1: beforeCoin.value,
