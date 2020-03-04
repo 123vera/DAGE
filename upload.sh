@@ -9,7 +9,7 @@ ls | grep -v -E ".git|.gitignore" | xargs rm -rf
 
 cd ../../
 yarn build
-cp -r dist/* deploy/xhs-front
+cp -r dist/* deploy/dgc-front
 
 cd  deploy/xhs-front
 git remote -v
@@ -18,4 +18,3 @@ git commit -m $1
 git push
 
 cd ../../
-shsh
