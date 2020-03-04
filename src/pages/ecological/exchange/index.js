@@ -183,7 +183,7 @@ class Index extends Component {
                 alt=""
               />
               <span className={styles.coinSelect}
-                    onClick={(e) => this.onShowMenu(e, 'showAfterMenus', !showAfterMenus)}>
+                    onClick={(e) => this.onShowMenus(e, 'showAfterMenus', !showAfterMenus)}>
                 {afterCoin.label} <img src={Icons.arrowDown} alt=""/>
                 {showAfterMenus && (
                   <div className={styles.menus}>
