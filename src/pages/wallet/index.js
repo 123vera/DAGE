@@ -60,7 +60,6 @@ class Home extends Component {
         <section className={styles.header}>
           <Header
             title={formatMessage({ id: `WALLET_TITLE` })}
-            // icon={Icons.list}
             rightContent={{
               icon: Icons.more,
               onHandle: e => this.onShowMenus(e),
@@ -72,7 +71,7 @@ class Home extends Component {
           />
           {showMenus && (
             <div className={styles.menus} onClick={e => e.stopPropagation()}>
-              <Menus menus={menus} onHandle={this.onMenuHandle}/>
+              <Menus menus={menus} onHandle={this.onMenuHandle} />
             </div>
           )}
         </section>
@@ -87,11 +86,13 @@ class Home extends Component {
         </section>
         <section>
           <div className={styles.notice} onClick={() => router.push('/notices')}>
-            <p>{formatMessage({ id: `NOTICE` })}：{notice.title}</p>
+            <p>
+              {formatMessage({ id: `NOTICE` })}：{notice.title}
+            </p>
           </div>
         </section>
-        {myInfo.activate === 0 && <Activation/>}
-        {myInfo.activate === 1 && <Mining/>}
+        {myInfo.activate === 0 && <Activation />}
+        {myInfo.activate === 1 && <Mining />}
       </div>
     );
   }
