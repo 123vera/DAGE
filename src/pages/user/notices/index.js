@@ -15,7 +15,7 @@ class Index extends Component {
   }
 
   getNotices = (callback) => {
-    this.props.dispatch({ type: 'notices/GetNoticelist' })
+    this.props.dispatch({ type: 'notices/GetNoticeList' })
       .then(res => {
         callback && callback();
         if (res.status !== 1) Toast.info(res.msg);

@@ -99,6 +99,7 @@ export default {
   INCOME_TITLE: `Revenue details`,
   INCOME_TOTAL: `Rebate Revenue`,
 
+  NOTICE: `Notice`,
   NOTICES_TITLE: `Official Announcement`,
 
   PROMOTION_TITLE: `My promotion`,
