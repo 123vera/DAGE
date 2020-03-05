@@ -11,7 +11,7 @@ cd ../../
 yarn build
 cp -r dist/* deploy/dgc-front
 
-cd  deploy/xhs-front
+cd  deploy/dgc-front
 git remote -v
 git add .
 git commit -m $1

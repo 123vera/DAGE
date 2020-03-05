@@ -60,10 +60,14 @@ class Home extends Component {
         <section className={styles.header}>
           <Header
             title={formatMessage({ id: `WALLET_TITLE` })}
-            icon={Icons.list}
+            // icon={Icons.list}
             rightContent={{
               icon: Icons.more,
               onHandle: e => this.onShowMenus(e),
+            }}
+            leftContent={{
+              icon: Icons.list,
+              onHandle: () => router.push('/select_account'),
             }}
           />
           {showMenus && (
@@ -74,7 +78,7 @@ class Home extends Component {
         </section>
         <section>
           <div className={styles.banner} style={{ backgroundImage: `url(${Images.homeBg})` }}>
-            <label>DAGE WALLENT</label>
+            <label>DAGE WALLET</label>
             <h1>
               {downFixed(myInfo.did)}
               <small>DID</small>

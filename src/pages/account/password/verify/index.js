@@ -192,6 +192,7 @@ class Home extends Component {
                     type="number"
                     autoComplete="off"
                     value={code}
+                    maxLength={4}
                     placeholder={formatMessage({ id: `COMMON_PLACEHOLDER_CODE` })}
                     onChange={e => this.onInputChange(e.target.value, 'code')}
                   />

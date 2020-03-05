@@ -31,7 +31,6 @@ class WalletFlow extends Component {
     //   type: 'walletFlow/UpdateState',
     //   payload: { coin: menus[0] },
     // });
-    this.getFlow();
     this.getInitCoins();
   }
 
@@ -57,10 +56,10 @@ class WalletFlow extends Component {
       type: 'walletFlow/UpdateState',
       payload: { coin: menus[0] },
     });
+    this.getFlow();
   };
 
   changeCoin = coin => {
-    console.log(coin);
     this.props.dispatch({
       type: 'walletFlow/UpdateState',
       payload: { coin },

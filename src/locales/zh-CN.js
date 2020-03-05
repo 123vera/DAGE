@@ -13,7 +13,7 @@ export default {
   COMMON_PLACEHOLDER_REPASSWORD: `请确认密码`,
   COMMON_PLACEHOLDER_CODE: `请输入验证码`,
   COMMON_PLACEHOLDER_CAPTCHA: `请输入图形验证码`,
-  COMMON_PLACEHOLDER_PASSWORD_REG: `请输入您想创建的用户名`,
+  COMMON_PLACEHOLDER_ACCOUNT: `请输入您想创建的用户名`,
   COMMON_PLACEHOLDER_WALLET_ADDRESS: `请填写提币地址`,
   COMMON_PLACEHOLDER_WITHDRAW_AMOUNT: `请填写提币数量`,
 
@@ -69,7 +69,7 @@ export default {
   ECOLOGICAL_CURRENCY_TITLE_03: `OTC场外交易`,
   ECOLOGICAL_CURRENCY_SUBTITLE_03: `简单快捷，一键出金`,
 
-  OTC_QUANTITY_SOLD: `出售数量（DGT）`,
+  OTC_QUANTITY_SOLD: `出售数量（DID）`,
   OTC_SALE_CONDITIONS: `单笔出售数量需在100-1000之间`,
   OTC_SALE_TIPS_01: `1.第一次出金前需要上传支付宝账号与二维码，等待平台认证，认证结果将以短信形式进行通知 `,
   OTC_SALE_TIPS_02: `2.认证成功后，用户需要下载POG算力矿机插件并使用DAGE账号登录后保持矿机在线状态（关闭插件将可能导致挖矿失败无法发放收益），另外，开启矿机时需要保证收款支付宝在同一个安卓手机上保持登录状态，OTC交易情况可在POG算力矿机插件中实时查看 `,
@@ -118,6 +118,7 @@ export default {
   REFERRAL_CODE_TITLE: `推荐码`,
   REFERRAL_CODE_COPY: `复制邀请码`,
 
+  ZENDESK_TITLE: `联系客服`,
   ZENDESK_P_01: `点击下方的联系客服`,
   ZENDESK_P_02: `即可开始与客服沟通`,
   ZENDESK_P_03: `若未出现联系客服，请耐心等待3-5秒`,
@@ -133,9 +134,12 @@ export default {
 
   RECHARGE_ADDRESS: `复制地址`,
   RECHARGE_TIPS: `转入说明`,
-  RECHARGE_TIP_01: `转入是自动的，IPT 转账需要整个 ETH 网络进行确认，您的 IPT 会自动充值到您的账户中。`,
-  RECHARGE_TIP_02: `此地址是你唯一且独自使用的转入地址，你可以同时进行多次充值。`,
-  RECHARGE_TIP_03: `本地址禁止充值除 IPT 之外的其它资产，任何其它资产充值将不可找回。`,
+  RECHARGE_TIP_01: `转入是自动的，`,
+  RECHARGE_TIP_02: `转账需要整个 ETH 网络进行确认，您的`,
+  RECHARGE_TIP_03: `会自动充值到您的账户中。`,
+  RECHARGE_TIP_04: `此地址是你唯一且独自使用的转入地址，你可以同时进行多次充值。`,
+  RECHARGE_TIP_05: `本地址禁止充值除`,
+  RECHARGE_TIP_06: `之外的其它资产，任何其它资产充值将不可找回。`,
 
   WITHDRAW_ADDRESS: `提币地址`,
   WITHDRAW_PLACEHOLDER: `输入或长按粘贴地址`,

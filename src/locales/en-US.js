@@ -13,7 +13,7 @@ export default {
   COMMON_PLACEHOLDER_REPASSWORD: `Please confirm password`,
   COMMON_PLACEHOLDER_CODE: `Please enter verification code`,
   COMMON_PLACEHOLDER_CAPTCHA: `Please enter the graphic verification code`,
-  COMMON_PLACEHOLDER_PASSWORD_REG: `Please enter the username you want to create`,
+  COMMON_PLACEHOLDER_ACCOUNT: `Please enter the username you want to create`,
   COMMON_PLACEHOLDER_WALLET_ADDRESS: `Please enter wallet withdrawal address`,
   COMMON_PLACEHOLDER_WITHDRAW_AMOUNT: `Please enter withdrawal amount`,
 
@@ -69,7 +69,7 @@ export default {
   ECOLOGICAL_CURRENCY_TITLE_03: `OTC Trade`,
   ECOLOGICAL_CURRENCY_SUBTITLE_03: `Simple and fast, earn with one click`,
 
-  OTC_QUANTITY_SOLD: `Amount to sell（DGT）`,
+  OTC_QUANTITY_SOLD: `Amount to sell（DID）`,
   OTC_SALE_CONDITIONS: `Selling amount in each transaction must be between 100-1000`,
   OTC_SALE_TIPS_01: `1. For the first withdrawal, you need to upload the Alipay account and QR code, and wait for the platform to authenticate. The authentication result will be notified by SMS.`,
   OTC_SALE_TIPS_02: `2.After authentication complete, the user needs to download the POG hashing plug-in and log in with the DAGE account to keep the miner online (close the plug-in may cause mining failures and therefore revenue cannot be issued). In addition, when opening the miner, it is necessary to ensure that the Alipay payment is kept login on the same Android phone. OTC transaction status can be viewed in real time in the POG hashing plug-in`,
@@ -133,9 +133,12 @@ export default {
 
   RECHARGE_ADDRESS: `Copy address`,
   RECHARGE_TIPS: `Transfer Instructions`,
-  RECHARGE_TIP_01: `Transfer process is automatic. The IPT transfer requires confirmation from the entire ETH network. Your IPT will be automatically topped up into your account.`,
-  RECHARGE_TIP_02: `This address is your only and unique forwarding address. You can make multiple top-ups at the same time. `,
-  RECHARGE_TIP_03: `Top-up of assets other than IPT is prohibited at this address, and top-up of any other assets cannot be recovered.`,
+  RECHARGE_TIP_01: `Transfer process is automatic. The `,
+  RECHARGE_TIP_02: `transfer requires confirmation from the entire ETH network. Your `,
+  RECHARGE_TIP_03: `will be automatically topped up into your account.`,
+  RECHARGE_TIP_04: `This address is your only and unique forwarding address. You can make multiple top-ups at the same time. `,
+  RECHARGE_TIP_05: `Top-up of assets other than `,
+  RECHARGE_TIP_06: ` is prohibited at this address, and top-up of any other assets cannot be recovered.`,
 
   WITHDRAW_ADDRESS: `Withdrawal address`,
   WITHDRAW_PLACEHOLDER: `Enter or long-press to paste address `,

@@ -35,6 +35,7 @@ class Register extends Component {
 
   onInputChange = (value, key) => {
     const { dispatch } = this.props;
+    if (key === 'code' && value.length > 4) return;
     dispatch({
       type: 'register/UpdateState',
       payload: { [key]: value },
@@ -135,7 +136,7 @@ class Register extends Component {
     }
     if (password && !REG.PASSWORD.test(password)) {
       this.setState({
-        errMsg: { type: 'password', value: formatMessage({ id: `LOGIN_ERR_PASSWORD` }) },
+        errMsg: { type: 'password', value: formatMessage({ id: `LOGIN_PLACEHOLDER_PASSWORD` }) },
       });
       return;
     }
@@ -231,7 +232,7 @@ class Register extends Component {
                 <span>{formatMessage({ id: `COMMON_LABEL_PASSWORD` })}</span>
                 <input
                   value={password}
-                  type="text"
+                  type="password"
                   className={errMsg.type === 'password' ? styles.inputErr : ''}
                   autoComplete="off"
                   placeholder={formatMessage({ id: `COMMON_PLACEHOLDER_PASSWORD` })}
@@ -242,7 +243,7 @@ class Register extends Component {
                 <span>{formatMessage({ id: `COMMON_LABEL_REPASSWORD` })}</span>
                 <input
                   value={passwordConfirm}
-                  type="text"
+                  type="password"
                   autoComplete="off"
                   className={errMsg.type === 'passwordConfirm' ? styles.inputErr : ''}
                   placeholder={formatMessage({ id: `COMMON_PLACEHOLDER_REPASSWORD` })}

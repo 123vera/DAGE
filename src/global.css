@@ -2,8 +2,8 @@ html,
 body,
 #root {
   /*height: 100%;*/
-  /* background: #fff; */
-  height: auto
+  background: #111622;
+  height: auto;
 }
 
 body {
