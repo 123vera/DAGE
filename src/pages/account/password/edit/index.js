@@ -36,7 +36,7 @@ class Index extends Component {
     const { password, passwordConfirm, type } = this.props.password;
     if (!password) {
       this.setState({
-        errMsg: { type: 'password', value: formatMessage({ id: `LOGIN_EDIT_PASSWORD` }) },
+        errMsg: { type: 'password', value: formatMessage({ id: `COMMON_PLACEHOLDER_PASSWORD` }) },
       });
       return;
     }
@@ -44,7 +44,7 @@ class Index extends Component {
       this.setState({
         errMsg: {
           type: 'password',
-          value: formatMessage({ id: `COMMON_PLACEHOLDER_PASSWORD_REG` }),
+          value: formatMessage({ id: `LOGIN_PLACEHOLDER_PASSWORD` }),
         },
       });
       return;

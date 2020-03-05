@@ -41,6 +41,7 @@ class Home extends Component {
 
   onInputChange = (value, key) => {
     const { dispatch } = this.props;
+    if (key === 'code' && value.length > 4) return;
     dispatch({
       type: 'password/UpdateState',
       payload: { [key]: value },
@@ -192,7 +193,6 @@ class Home extends Component {
                     type="number"
                     autoComplete="off"
                     value={code}
-                    maxLength={4}
                     placeholder={formatMessage({ id: `COMMON_PLACEHOLDER_CODE` })}
                     onChange={e => this.onInputChange(e.target.value, 'code')}
                   />
