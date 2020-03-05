@@ -99,6 +99,7 @@ export default {
   INCOME_TITLE: `收益详情`,
   INCOME_TOTAL: `返点总收益`,
 
+  NOTICE: `公告`,
   NOTICES_TITLE: `公告列表`,
 
   PROMOTION_TITLE: `我的推广`,

@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import styles from './index.less';
-// import { formatMessage, setLocale, getLocale } from 'umi-plugin-locale';
 import { connect } from 'dva';
 import { router } from 'umi';
 import Header from '../../components/common/Header';
 import Menus from '../../components/common/Menus';
 import Activation from '../../components/wallet/Activation';
-// import Mining from '../../components/wallet/Mining';
+import Mining from '../../components/wallet/Mining';
 import { Icons, Images } from '../../assets';
 import { formatMessage } from 'umi/locale';
 import { downFixed } from '../../utils/utils';
@@ -38,6 +37,10 @@ class Home extends Component {
     showMenus: false,
   };
 
+  componentDidMount() {
+    this.props.dispatch({ type: 'wallet/GetNotice' });
+  }
+
   onShowMenus = e => {
     this.setState({ showMenus: !this.state.showMenus });
     e.stopPropagation();
@@ -49,6 +52,7 @@ class Home extends Component {
 
   render() {
     const { myInfo } = this.props.globalModel;
+    const { notice } = this.props.wallet;
     const { showMenus } = this.state;
 
     return (
@@ -68,7 +72,7 @@ class Home extends Component {
           />
           {showMenus && (
             <div className={styles.menus} onClick={e => e.stopPropagation()}>
-              <Menus menus={menus} onHandle={this.onMenuHandle} />
+              <Menus menus={menus} onHandle={this.onMenuHandle}/>
             </div>
           )}
         </section>
@@ -83,11 +87,11 @@ class Home extends Component {
         </section>
         <section>
           <div className={styles.notice} onClick={() => router.push('/notices')}>
-            <p>公告：即日起激活DID奖励活动开启</p>
+            <p>{formatMessage({ id: `NOTICE` })}：{notice.title}</p>
           </div>
         </section>
-        {myInfo.activate === 0 && <Activation />}
-        {/*<Mining/>*/}
+        {myInfo.activate === 0 && <Activation/>}
+        {myInfo.activate === 1 && <Mining/>}
       </div>
     );
   }
