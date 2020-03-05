@@ -17,6 +17,7 @@ class Index extends Component {
   getNotices = (callback) => {
     this.props.dispatch({ type: 'notices/GetNoticeList' })
       .then(res => {
+        console.log(res);
         callback && callback();
         if (res.status !== 1) Toast.info(res.msg);
       });
@@ -26,7 +27,8 @@ class Index extends Component {
     const { list, hasMore } = this.props.notices;
     return (
       <div className={styles.notices}>
-        <PageHeader title={formatMessage({ id: `NOTICES_TITLE` })} leftContent={{ icon: Icons.arrowLeft }}/>
+        <PageHeader title={formatMessage({ id: `NOTICES_TITLE` })}
+                    leftContent={{ icon: Icons.arrowLeft }}/>
         <div className={styles.list}>
           <ListView
             hasMore={hasMore}
@@ -34,7 +36,7 @@ class Index extends Component {
           >
             {list.map((item) => (
               <div key={item.id} className={styles.item}>
-                <p>{item.title}</p>
+                <p onClick={() => window.location.href = item.linkUrl}>{item.title}</p>
                 <small>{dayjs(item.addTime).format('YYYY-MM-DD')}</small>
               </div>
             ))}
