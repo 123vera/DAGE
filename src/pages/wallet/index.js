@@ -90,8 +90,8 @@ class Home extends Component {
             <p>{formatMessage({ id: `NOTICE` })}：{notice.title}</p>
           </div>
         </section>
-        {myInfo.activate === 0 && <Activation/>}
-        {myInfo.activate === 1 && <Mining/>}
+        {myInfo.activate === 1 && <Activation/>}
+        {myInfo.activate === 0 && <Mining/>}
       </div>
     );
   }
