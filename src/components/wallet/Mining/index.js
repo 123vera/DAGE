@@ -32,12 +32,12 @@ class Mining extends Component {
           <p>
             使用矿机需要您在安卓设备上下载自由侠APP并登录与上传的二维码一样的支付宝账号，保持自由侠始终在打开状态，如果您没有打开自由侠，发现后客服将在后台扣除当日的挖矿奖励。
           </p>
-          <p>
-            自由侠APP下载地址：
-            <a href="www.ziyouxia.com">www.ziyouxia.com</a>
-          </p>
+          {/*<p>*/}
+            {/*自由侠APP下载地址：*/}
+            {/*<a href="www.ziyouxia.com">www.ziyouxia.com</a>*/}
+          {/*</p>*/}
         </section>
-        <section className={styles.buy}>
+        <section className={styles.buy} style={{display: 'none'}}>
           <p>请选择购买的矿机等级</p>
           <ul className={styles.levels}>
             <li className={styles.active}>1级</li>
@@ -49,7 +49,7 @@ class Mining extends Component {
           </aside>
           <button>购买</button>
         </section>
-        <section className={styles.detail}>
+        <section className={styles.detail} style={{display: 'none'}}>
           <div className={styles.row}>
             <label>当前矿机等级</label>
             <span className={styles.level}>1级</span>
