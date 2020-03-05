@@ -40,7 +40,7 @@ class Index extends Component {
     e.stopPropagation();
   };
 
-  onHideMenus = (e) => {
+  onHideMenus = e => {
     this.setState({ showBeforeMenus: false, showAfterMenus: false });
     e.stopPropagation();
   };
@@ -139,18 +139,21 @@ class Index extends Component {
     const { captchaSrc, captcha } = this.props.globalModel;
     const { beforeCoin, afterCoin, initInfo, balance, amount, code, teams } = this.props.exchange;
     const { showBeforeMenus, showAfterMenus, count } = this.state;
-    let beforeCoins = [];
-    let afterCoins = [];
-    teams.forEach(team => {
-      beforeCoins.push({
-        label: team.split('_')[0].toUpperCase(),
-        value: team.split('_')[0].toLowerCase(),
-      });
-      afterCoins.push({
-        label: team.split('_')[1].toUpperCase(),
-        value: team.split('_')[1].toLowerCase(),
-      });
-    });
+    // let beforeCoins = [];
+    // let afterCoins = [];
+    // teams.forEach(team => {
+    //   beforeCoins.push({
+    //     label: team.split('_')[0].toUpperCase(),
+    //     value: team.split('_')[0].toLowerCase(),
+    //   });
+    //   afterCoins.push({
+    //     label: team.split('_')[1].toUpperCase(),
+    //     value: team.split('_')[1].toLowerCase(),
+    //   });
+    // });
+
+    let beforeCoins = [beforeCoin];
+    let afterCoins = [afterCoin];
 
     return (
       <div className={styles.exchange} onClick={this.onHideMenus}>
@@ -162,9 +165,12 @@ class Index extends Component {
         <div className={styles.wrapper}>
           <div className={styles.mainContent}>
             <div className={styles.selectCurrency}>
-              <span className={styles.coinSelect}
-                    onClick={(e) => this.onShowMenus(e, 'showBeforeMenus', !showBeforeMenus)}>
-                {beforeCoin.label} <img src={Icons.arrowDown} alt=""/>
+              <span
+                className={styles.coinSelect}
+                onClick={e => this.onShowMenus(e, 'showBeforeMenus', !showBeforeMenus)}
+              >
+                {beforeCoin.label}
+                <img src={Icons.arrowDown} alt="" />
                 {showBeforeMenus && (
                   <div className={styles.menus}>
                     <Menus
@@ -182,9 +188,12 @@ class Index extends Component {
                 src={Icons.arrowLeft}
                 alt=""
               />
-              <span className={styles.coinSelect}
-                    onClick={(e) => this.onShowMenus(e, 'showAfterMenus', !showAfterMenus)}>
-                {afterCoin.label} <img src={Icons.arrowDown} alt=""/>
+              <span
+                className={styles.coinSelect}
+                onClick={e => this.onShowMenus(e, 'showAfterMenus', !showAfterMenus)}
+              >
+                {afterCoin.label}
+                <img src={Icons.arrowDown} alt="" />
                 {showAfterMenus && (
                   <div className={styles.menus}>
                     <Menus
@@ -210,7 +219,7 @@ class Index extends Component {
                 value={amount}
                 onChange={e => this.onAmountChange(e.target.value)}
                 placeholder={`${formatMessage({ id: `EXCHANGE_MIN_AMOUNT` })}${initInfo.MIN ||
-                '--'}`}
+                  '--'}`}
               />
               <p className={styles.tips}>
                 {formatMessage({ id: `EXCHANGE_CAN_USE` })}

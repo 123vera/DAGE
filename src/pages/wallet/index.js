@@ -56,21 +56,25 @@ class Home extends Component {
         <section className={styles.header}>
           <Header
             title={formatMessage({ id: `WALLET_TITLE` })}
-            icon={Icons.list}
+            // icon={Icons.list}
             rightContent={{
               icon: Icons.more,
               onHandle: e => this.onShowMenus(e),
             }}
+            leftContent={{
+              icon: Icons.list,
+              onHandle: () => router.push('/select_account'),
+            }}
           />
           {showMenus && (
             <div className={styles.menus} onClick={e => e.stopPropagation()}>
-              <Menus menus={menus} onHandle={this.onMenuHandle}/>
+              <Menus menus={menus} onHandle={this.onMenuHandle} />
             </div>
           )}
         </section>
         <section>
           <div className={styles.banner} style={{ backgroundImage: `url(${Images.homeBg})` }}>
-            <label>DAGE WALLENT</label>
+            <label>DAGE WALLET</label>
             <h1>
               {downFixed(myInfo.did)}
               <small>DID</small>
@@ -82,7 +86,7 @@ class Home extends Component {
             <p>公告：即日起激活DID奖励活动开启</p>
           </div>
         </section>
-        {myInfo.activate === 0 && <Activation/>}
+        {myInfo.activate === 0 && <Activation />}
         {/*<Mining/>*/}
       </div>
     );

@@ -132,9 +132,19 @@ class Recharge extends Component {
         <aside>
           <label>{formatMessage({ id: `RECHARGE_TIPS` })}</label>
           <ul>
-            <li>{formatMessage({ id: `RECHARGE_TIP_01` })}</li>
-            <li>{formatMessage({ id: `RECHARGE_TIP_02` })}</li>
-            <li>{formatMessage({ id: `RECHARGE_TIP_03` })}</li>
+            <li>
+              {formatMessage({ id: `RECHARGE_TIP_01` })}
+              {coin.label}
+              {formatMessage({ id: `RECHARGE_TIP_02` })}
+              {coin.label}
+              {formatMessage({ id: `RECHARGE_TIP_03` })}
+            </li>
+            <li>{formatMessage({ id: `RECHARGE_TIP_04` })}</li>
+            <li>
+              {formatMessage({ id: `RECHARGE_TIP_05` })}
+              {coin.label}
+              {formatMessage({ id: `RECHARGE_TIP_05` })}
+            </li>
           </ul>
         </aside>
       </div>

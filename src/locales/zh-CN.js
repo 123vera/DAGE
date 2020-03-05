@@ -13,7 +13,7 @@ export default {
   COMMON_PLACEHOLDER_REPASSWORD: `请确认密码`,
   COMMON_PLACEHOLDER_CODE: `请输入验证码`,
   COMMON_PLACEHOLDER_CAPTCHA: `请输入图形验证码`,
-  COMMON_PLACEHOLDER_PASSWORD_REG: `请输入您想创建的用户名`,
+  COMMON_PLACEHOLDER_ACCOUNT: `请输入您想创建的用户名`,
   COMMON_PLACEHOLDER_WALLET_ADDRESS: `请填写提币地址`,
   COMMON_PLACEHOLDER_WITHDRAW_AMOUNT: `请填写提币数量`,
 
@@ -133,9 +133,12 @@ export default {
 
   RECHARGE_ADDRESS: `复制地址`,
   RECHARGE_TIPS: `转入说明`,
-  RECHARGE_TIP_01: `转入是自动的，IPT 转账需要整个 ETH 网络进行确认，您的 IPT 会自动充值到您的账户中。`,
-  RECHARGE_TIP_02: `此地址是你唯一且独自使用的转入地址，你可以同时进行多次充值。`,
-  RECHARGE_TIP_03: `本地址禁止充值除 IPT 之外的其它资产，任何其它资产充值将不可找回。`,
+  RECHARGE_TIP_01: `转入是自动的，`,
+  RECHARGE_TIP_02: `转账需要整个 ETH 网络进行确认，您的`,
+  RECHARGE_TIP_03: `会自动充值到您的账户中。`,
+  RECHARGE_TIP_04: `此地址是你唯一且独自使用的转入地址，你可以同时进行多次充值。`,
+  RECHARGE_TIP_05: `本地址禁止充值除`,
+  RECHARGE_TIP_06: `之外的其它资产，任何其它资产充值将不可找回。`,
 
   WITHDRAW_ADDRESS: `提币地址`,
   WITHDRAW_PLACEHOLDER: `输入或长按粘贴地址`,
