@@ -101,6 +101,7 @@ export default {
 
   NOTICE: `公告`,
   NOTICES_TITLE: `公告列表`,
+  NOTICE_DETAIL_TITLE: `公告详情`,
 
   PROMOTION_TITLE: `我的推广`,
   PROMOTION_INCOME: `昨日挖矿动态收益`,
@@ -169,7 +170,7 @@ export default {
   WALLET_SECTION_TITLE: `推广获得超高返利`,
   WALLET_SECTION_SUBTITLE: `昨日获得返点收益`,
   WALLET_POG_TITLE: `POG挖矿`,
-  WALLET_POG_DESC: `使用矿机需要您在安卓设备上下载挖矿插件并登录与上传的二维码一样的支付宝账号，保持挖矿插件始终在打开状态，如果您没有打开挖矿插件，发现后客服将在后台扣除当日的挖矿奖励`,
+  WALLET_POG_DESC: `挖矿投资本金将在1天后返还到账户，且将5%的DID释放至DGT账户。奖励部分70%进入DGC账户，30%进入DGT账户，如矿机未启动则不发放奖励。`,
   WALLET_POG_APP_DOWNLOAD: `自由侠APP下载地址：`,
   WALLET_POG_LEVEL: `当前矿机等级`,
   WALLET_POG_DISCOUNT_RATE: `当前折损率`,

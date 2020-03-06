@@ -101,6 +101,7 @@ export default {
 
   NOTICE: `Notice`,
   NOTICES_TITLE: `Official Announcement`,
+  NOTICE_DETAIL_TITLE: `Announcement details`,
 
   PROMOTION_TITLE: `My promotion`,
   PROMOTION_INCOME: `Dynamic mining gains yesterday`,
@@ -168,7 +169,7 @@ export default {
   WALLET_SECTION_TITLE: `Promote to get extremely high rebates`,
   WALLET_SECTION_SUBTITLE: `Rebates earned yesterday`,
   WALLET_POG_TITLE: `POG Mining`,
-  WALLET_POG_DESC: `Please upload your Alipay payment QR code, and you need to download the 自由侠App on your Android device and log in your Alipay account that is consistent with the uploaded QR code. Keep your 自由侠app open，or otherwise found out, the customer service will deduct the mining reward of the day in the back end`,
+  WALLET_POG_DESC: `挖矿投资本金将在1天后返还到账户，且将5%的DID释放至DGT账户。奖励部分70%进入DGC账户，30%进入DGT账户，如矿机未启动则不发放奖励。`,
   WALLET_POG_APP_DOWNLOAD: `自由侠APP下载地址：自由侠APP download address`,
   WALLET_POG_LEVEL: `Current miner level`,
   WALLET_POG_DISCOUNT_RATE: `Current discount rate`,

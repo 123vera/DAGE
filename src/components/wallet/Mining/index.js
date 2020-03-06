@@ -37,7 +37,7 @@ class Mining extends Component {
           {/*</p>*/}
         </section>
         <section className={styles.openingSoon}>
-          <p>即将开放</p>
+          <h4>即将开放</h4>
         </section>
         <section className={styles.buy} style={{ display: 'none' }}>
           <p>{formatMessage({ id: `WALLET_POG_MINE_GRADE` })}</p>

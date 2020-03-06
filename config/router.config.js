@@ -30,6 +30,7 @@ export default [
 
       { path: '/referral_code', title: '推荐码', component: './user/referralCode' },
       { path: '/notices', title: '公告列表', component: './user/notices' },
+      { path: '/notice', title: '公告详情', component: './user/notice' },
       { path: '/promotion', title: '我的推广', component: './user/promotion' },
       {
         path: '/zendesk',

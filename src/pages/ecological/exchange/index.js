@@ -155,6 +155,8 @@ class Index extends Component {
     let beforeCoins = [beforeCoin];
     let afterCoins = [afterCoin];
 
+    console.log(amount * initInfo.RATIO * initInfo.CHARGE);
+
     return (
       <div className={styles.exchange} onClick={this.onHideMenus}>
         <PageHeader
@@ -212,7 +214,9 @@ class Index extends Component {
               {initInfo.RATIO || '--'} {afterCoin.label}
             </small>
             <label>
-              <span className={styles.label}>{formatMessage({ id: `EXCHANGE_AMOUNT` })}</span>
+              <span className={styles.label}>
+                {formatMessage({ id: `EXCHANGE_AMOUNT` })} ({beforeCoin.label})
+              </span>
               <input
                 type="text"
                 autoComplete="off"
@@ -261,14 +265,19 @@ class Index extends Component {
 
             <p className={`${styles.labelTag} ${styles.small}`}>
               {formatMessage({ id: `EXCHANGE_FEE` })}{' '}
-              <small>{downFixed(amount * initInfo.CHARGE) || '--'}</small>
+              <small>
+                {downFixed(amount * initInfo.RATIO * initInfo.CHARGE)}
+                {/* {downFixed(amount  * initInfo.CHARGE) || '--'} */}
+                &nbsp;({afterCoin.label})
+              </small>
             </p>
             <p className={styles.labelTag}>
               {formatMessage({ id: `EXCHANGE_PAIDIN_AMOUNT` })}
               <small>
                 {amount > initInfo.CHARGE * 100
-                  ? downFixed(amount - amount * initInfo.CHARGE)
+                  ? downFixed(amount * initInfo.RATIO - amount * initInfo.RATIO * initInfo.CHARGE)
                   : '--'}
+                &nbsp;({afterCoin.label})
               </small>
             </p>
           </div>

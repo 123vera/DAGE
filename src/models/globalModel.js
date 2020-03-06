@@ -62,6 +62,7 @@ export default {
           '/wallet/recharge',
           '/wallet/withdraw',
           '/exchange',
+          '/reset_password/verify',
         ];
         list.forEach(i => {
           if (location.pathname === i) {

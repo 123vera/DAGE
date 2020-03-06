@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PageHeader from '../../../components/common/PageHeader';
 import dayjs from 'dayjs';
 import { connect } from 'dva';
+import { router } from 'umi';
 import styles from './index.less';
 import { formatMessage } from 'umi/locale';
 import { Toast } from 'antd-mobile';
@@ -14,30 +15,33 @@ class Index extends Component {
     this.getNotices();
   }
 
-  getNotices = (callback) => {
-    this.props.dispatch({ type: 'notices/GetNoticeList' })
-      .then(res => {
-        console.log(res);
-        callback && callback();
-        if (res.status !== 1) Toast.info(res.msg);
-      });
+  getNotices = callback => {
+    this.props.dispatch({ type: 'notices/GetNoticeList' }).then(res => {
+      callback && callback();
+      if (res.status !== 1) Toast.info(res.msg);
+    });
   };
 
   render() {
     const { list, hasMore } = this.props.notices;
     return (
       <div className={styles.notices}>
-        <PageHeader title={formatMessage({ id: `NOTICES_TITLE` })}
-                    leftContent={{ icon: Icons.arrowLeft }}/>
+        <PageHeader
+          title={formatMessage({ id: `NOTICES_TITLE` })}
+          leftContent={{ icon: Icons.arrowLeft }}
+        />
         <div className={styles.list}>
-          <ListView
-            hasMore={hasMore}
-            onLoadMore={this.getNotices}
-          >
-            {list.map((item) => (
+          <ListView hasMore={hasMore} onLoadMore={this.getNotices}>
+            {list.map(item => (
               <div key={item.id} className={styles.item}>
-                <p onClick={() => window.location.href = item.linkUrl}>{item.title}</p>
-                <small>{dayjs(item.addTime).format('YYYY-MM-DD')}</small>
+                <p onClick={() => router.push(`/notice?url=${encodeURIComponent(item.linkUrl)}`)}>
+                  {item.title}
+                </p>
+                <small>
+                  {dayjs()
+                    .millisecond(item.addTime)
+                    .format('YYYY-MM-DD')}
+                </small>
               </div>
             ))}
           </ListView>
