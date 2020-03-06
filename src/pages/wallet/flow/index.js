@@ -27,10 +27,6 @@ class WalletFlow extends Component {
   };
 
   componentDidMount() {
-    // this.props.dispatch({
-    //   type: 'walletFlow/UpdateState',
-    //   payload: { coin: menus[0] },
-    // });
     this.getInitCoins();
   }
 

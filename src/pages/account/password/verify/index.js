@@ -11,7 +11,7 @@ import styles from './index.less';
 import { Toast } from 'antd-mobile';
 import Cookies from 'js-cookie';
 
-@connect(({ password }) => ({ password }))
+@connect(({ password, globalModel }) => ({ password, globalModel }))
 class Home extends Component {
   state = {
     count: COUNT_DOWN,
@@ -140,6 +140,7 @@ class Home extends Component {
   };
 
   render() {
+    const { myInfo } = this.props.globalModel;
     const { prefix, phone, code, captchaSrc, captcha, type } = this.props.password;
     const { errMsg, count, showPrefix } = this.state;
 
@@ -162,7 +163,7 @@ class Home extends Component {
                   }`}
                 >
                   <span onClick={this.onOpenPrefix}>
-                    +{prefix}
+                    +{myInfo.phonePrefix}
                     <img src={Icons.arrowDown} alt="" />
                   </span>
                   <input

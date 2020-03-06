@@ -93,7 +93,7 @@ class Home extends Component {
           <div className={styles.center}>
             <img className={styles.icon} src={BG_ICON} alt="" />
             <p>DID：{(myInfo && myInfo.did) || '--'}</p>
-            <CopyToClipboard key={new Date().toString()} text="GXs" onCopy={this.onCopyLink}>
+            <CopyToClipboard key={new Date().toString()} text={myInfo.did} onCopy={this.onCopyLink}>
               <span>
                 {formatMessage({ id: `USER_RECOMMEND_CODE` })}
                 {(myInfo && myInfo.recommendCode) || '--'}

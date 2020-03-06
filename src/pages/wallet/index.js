@@ -79,7 +79,7 @@ class Home extends Component {
           <div className={styles.banner} style={{ backgroundImage: `url(${Images.homeBg})` }}>
             <label>DAGE WALLET</label>
             <h1>
-              {downFixed(myInfo.did)}
+              {myInfo && downFixed(myInfo.did)}
               <small>DID</small>
             </h1>
           </div>
@@ -91,8 +91,9 @@ class Home extends Component {
             </p>
           </div>
         </section>
-        {myInfo.activate === 0 && <Activation />}
-        {myInfo.activate === 1 && <Mining />}
+        <Mining />
+        {/* {myInfo.activate === 0 && <Activation />}
+        {myInfo.activate === 1 && <Mining />} */}
       </div>
     );
   }
