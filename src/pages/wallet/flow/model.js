@@ -16,8 +16,26 @@ export default {
     },
   },
   effects: {
-    * GetAssetFlow({ payload }, { call }) {
-      return yield call(AssetApi.getAssetFlow, payload);
+    * GetAssetFlow(_, { call, select, put }) {
+      const { coin, page, row, list } = yield select(state => state.walletFlow);
+      const res = yield call(AssetApi.getAssetFlow, {
+        type: coin.value,
+        page,
+        row,
+      });
+      if (res.status === 1) {
+        list.push(...res.data.list);
+        yield put({
+          type: 'UpdateState',
+          payload: {
+            balance: res.data.balance,
+            list,
+            page: page + 1,
+            hasMore: row === res.data.length,
+          },
+        });
+      }
+      return res;
     },
   },
 };

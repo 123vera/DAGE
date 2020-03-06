@@ -4,7 +4,6 @@ import { connect } from 'dva';
 import { Toast, Button } from 'antd-mobile';
 import PageHeader from '../../../components/common/PageHeader';
 import Captcha from '../../../components/partials/Captcha';
-import ARROW_LEFT from '@/assets/icons/arrow-left.png';
 import { COUNT_DOWN, REG } from '../../../utils/constants';
 import styles from './index.less';
 import { Icons } from '../../../assets';
@@ -137,20 +136,8 @@ class Index extends Component {
 
   render() {
     const { captchaSrc, captcha } = this.props.globalModel;
-    const { beforeCoin, afterCoin, initInfo, balance, amount, code, teams } = this.props.exchange;
+    const { beforeCoin, afterCoin, initInfo, balance, amount, code } = this.props.exchange;
     const { showBeforeMenus, showAfterMenus, count } = this.state;
-    // let beforeCoins = [];
-    // let afterCoins = [];
-    // teams.forEach(team => {
-    //   beforeCoins.push({
-    //     label: team.split('_')[0].toUpperCase(),
-    //     value: team.split('_')[0].toLowerCase(),
-    //   });
-    //   afterCoins.push({
-    //     label: team.split('_')[1].toUpperCase(),
-    //     value: team.split('_')[1].toLowerCase(),
-    //   });
-    // });
 
     let beforeCoins = [beforeCoin];
     let afterCoins = [afterCoin];
@@ -159,7 +146,7 @@ class Index extends Component {
       <div className={styles.exchange} onClick={this.onHideMenus}>
         <PageHeader
           title={formatMessage({ id: `EXCHANGE_TITLE` })}
-          leftContent={{ icon: ARROW_LEFT }}
+          leftContent={{ icon: Icons.arrowLeft }}
         />
 
         <div className={styles.wrapper}>
@@ -170,7 +157,7 @@ class Index extends Component {
                 onClick={e => this.onShowMenus(e, 'showBeforeMenus', !showBeforeMenus)}
               >
                 {beforeCoin.label}
-                <img src={Icons.arrowDown} alt="" />
+                <img src={Icons.arrowDown} alt=""/>
                 {showBeforeMenus && (
                   <div className={styles.menus}>
                     <Menus
@@ -193,7 +180,7 @@ class Index extends Component {
                 onClick={e => this.onShowMenus(e, 'showAfterMenus', !showAfterMenus)}
               >
                 {afterCoin.label}
-                <img src={Icons.arrowDown} alt="" />
+                <img src={Icons.arrowDown} alt=""/>
                 {showAfterMenus && (
                   <div className={styles.menus}>
                     <Menus
@@ -219,7 +206,7 @@ class Index extends Component {
                 value={amount}
                 onChange={e => this.onAmountChange(e.target.value)}
                 placeholder={`${formatMessage({ id: `EXCHANGE_MIN_AMOUNT` })}${initInfo.MIN ||
-                  '--'}`}
+                '--'}`}
               />
               <p className={styles.tips}>
                 {formatMessage({ id: `EXCHANGE_CAN_USE` })}

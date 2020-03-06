@@ -10,7 +10,7 @@ class Activation extends Component {
   onSubmit = () => {
     const { dispatch, globalModel } = this.props;
     const { myInfo } = globalModel;
-    if (myInfo.dgt < 10) {
+    if (myInfo.did < 10) {
       return Toast.info('DID余额不足，请前往去中心化交易所购买');
     }
     dispatch({ type: 'wallet/ActivateRole' }).then(res => {

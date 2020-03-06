@@ -59,44 +59,24 @@ class WalletFlow extends Component {
     this.getFlow();
   };
 
-  changeCoin = coin => {
-    this.props.dispatch({
+  changeCoin = async coin => {
+    await this.props.dispatch({
       type: 'walletFlow/UpdateState',
-      payload: { coin },
+      payload: { coin, list: [], page: 1 },
     });
     this.getFlow();
+    this.setState({ showMenus: false });
   };
 
   getFlow = callback => {
-    const {
-      dispatch,
-      walletFlow: { coin, page, row, list },
-    } = this.props;
-    dispatch({
-      type: 'walletFlow/GetAssetFlow',
-      payload: {
-        type: coin.value,
-        page,
-        row,
-      },
-    }).then(res => {
-      if (res.status !== 1) {
-        return;
-      }
-      const { list: newList, balance } = res.data;
-      list.push(...newList);
-      dispatch({
-        type: 'walletFlow/UpdateState',
-        payload: {
-          page: page + 1,
-          hasMore: row === newList.length,
-          balance,
-          list,
-        },
+    const { dispatch } = this.props;
+    dispatch({ type: 'walletFlow/GetAssetFlow' })
+      .then(res => {
+        if (res.status !== 1) {
+          return;
+        }
+        callback && callback();
       });
-      callback && callback();
-    });
-    this.setState({ showMenus: false });
   };
 
   render() {
@@ -134,11 +114,11 @@ class WalletFlow extends Component {
                 onClick={() => this.setState({ showMenus: !showMenus })}
               >
                 {coin.label}
-                <img src={Icons.arrowUpDown} alt="" />
+                <img src={Icons.arrowUpDown} alt=""/>
               </div>
               {showMenus && (
                 <div className={styles.options}>
-                  <Menus menus={menus} textAlign="center" hasBorder onHandle={this.changeCoin} />
+                  <Menus menus={menus} textAlign="center" hasBorder onHandle={this.changeCoin}/>
                 </div>
               )}
             </div>
