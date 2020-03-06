@@ -169,7 +169,7 @@ export default {
   WALLET_SECTION_TITLE: `推广获得超高返利`,
   WALLET_SECTION_SUBTITLE: `昨日获得返点收益`,
   WALLET_POG_TITLE: `POG挖矿`,
-  WALLET_POG_DESC: `使用矿机需要您在安卓设备上下载自由侠APP并登录与上传的二维码一样的支付宝账号，保持自由侠始终在打开状态，如果您没有打开自由侠，发现后客服将在后台扣除当日的挖矿奖励`,
+  WALLET_POG_DESC: `使用矿机需要您在安卓设备上下载挖矿插件并登录与上传的二维码一样的支付宝账号，保持挖矿插件始终在打开状态，如果您没有打开挖矿插件，发现后客服将在后台扣除当日的挖矿奖励`,
   WALLET_POG_APP_DOWNLOAD: `自由侠APP下载地址：`,
   WALLET_POG_LEVEL: `当前矿机等级`,
   WALLET_POG_DISCOUNT_RATE: `当前折损率`,
