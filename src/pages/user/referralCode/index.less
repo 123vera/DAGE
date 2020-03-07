@@ -1,6 +1,6 @@
 @import '../../../styles/mixin.less';
 
-#referralCode {
+.referralCode {
   width: 100%;
   min-height: 100vh;
   .background-image;
@@ -11,8 +11,15 @@
     align-items: center;
     margin-top: 80px;
 
-    svg {
-      width: 400px;
+    .qrCode {
+      display: inline-block;
+      background: #fff;
+      font-size: 0;
+      padding: 10px;
+
+      canvas {
+        width: 500px;
+      }
     }
 
     span {

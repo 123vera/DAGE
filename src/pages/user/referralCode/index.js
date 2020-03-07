@@ -6,13 +6,14 @@ import CopyToClipboard from 'react-copy-to-clipboard';
 import PageHeader from '@/components/common/PageHeader';
 import REFERRAL_CODE from '@/assets/imgs/referral-code.png';
 import DOWNLOAD from '@/assets/icons/download.png';
-import ARROW_LEFT from '@/assets/dark/arrow-left.png';
 import styles from './index.less';
 import { formatMessage } from 'umi/locale';
+import { Icons } from '../../../assets';
 
 @connect(({ globalModel }) => ({ globalModel }))
 class Index extends Component {
-  onCopyLink = (text, result) => {
+  onCopyLink = (text) => {
+    console.log(text);
     text && Toast.info(formatMessage({ id: `USER_COPIED` }));
   };
 
@@ -30,14 +31,17 @@ class Index extends Component {
         myInfo: { recommendCode },
       },
     } = this.props;
+    console.log(recommendCode);
     return (
-      <div id={styles.referralCode} style={{ backgroundImage: `url(${REFERRAL_CODE})` }}>
+      <div className={styles.referralCode} style={{ backgroundImage: `url(${REFERRAL_CODE})` }}>
         <PageHeader
           title={formatMessage({ id: `REFERRAL_CODE_TITLE` })}
-          leftContent={{ icon: ARROW_LEFT }}
+          leftContent={{ icon: Icons.arrowLeft }}
         />
         <div className={styles.mainContent}>
-          <QRcode id="qrid" width="2.5rem" height="2.5rem" value={'334434'} renderAs="canvas" />
+          <div className={styles.qrCode}>
+            <QRcode id="qrid" size={250} value={'https://www.baidu.com'} renderAs="canvas"/>
+          </div>
           <span>{recommendCode || '--'}</span>
           <CopyToClipboard
             key={new Date().toString()}
@@ -47,7 +51,7 @@ class Index extends Component {
             <span className={styles.copyText}>{formatMessage({ id: `REFERRAL_CODE_COPY` })}</span>
           </CopyToClipboard>
           <a download href=" " id="aId" className={styles.download} onClick={this.downloadSvg}>
-            <img src={DOWNLOAD} alt="download" />
+            <img src={DOWNLOAD} alt="download"/>
           </a>
         </div>
       </div>

@@ -18,6 +18,14 @@ class Index extends Component {
     },
   };
 
+  componentDidMount() {
+    this.props.dispatch({
+      type: 'login/UpdateState',
+      payload: { userName: '', recommendCode: '' },
+    });
+  }
+
+
   onChangeAccount = e => {
     const { value } = e.target;
     if (value && !REG.INPUT_GROUP.test(value)) return;
@@ -40,11 +48,12 @@ class Index extends Component {
 
   toNext = () => {
     const { userName, recommendCode } = this.props.login;
+    console.log(userName, recommendCode);
     if (!userName) {
       this.setState({
         errMsg: {
           type: 'userName',
-          value: formatMessage({ id: `COMMON_PLACEHOLDER_PASSWORD_REG` }),
+          value: formatMessage({ id: `COMMON_PLACEHOLDER_ACCOUNT` }),
         },
       });
       return;
@@ -85,7 +94,7 @@ class Index extends Component {
 
     return (
       <div className={styles.setAccount}>
-        <PageHeader leftContent={{ icon: Icons.arrowLeft }} />
+        <PageHeader leftContent={{ icon: Icons.arrowLeft }}/>
 
         <div className={styles.mainContent}>
           <p>{formatMessage({ id: `SELECT_SET_ACCOUNT` })}</p>
@@ -113,7 +122,7 @@ class Index extends Component {
               />
               <h4>{errMsg.value || ''}</h4>
             </label>
-            <img className={styles.nextStep} onClick={this.toNext} src={Images.nextStep} alt="" />
+            <img className={styles.nextStep} onClick={this.toNext} src={Images.nextStep} alt=""/>
           </section>
         </div>
       </div>
