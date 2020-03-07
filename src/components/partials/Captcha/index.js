@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styles from './index.less';
+import { formatMessage } from 'umi-plugin-locale';
 
 class Index extends Component {
   render() {
@@ -7,15 +8,19 @@ class Index extends Component {
 
     return (
       <div className={styles.captchaBox}>
-        <span className={styles.label}>图形验证码</span>
+        <span className={styles.label}>{formatMessage({ id: `REGISTER_GET_CAPTCHA` })}</span>
         <input
           type="text"
           maxLength={4}
-          placeholder={'请输入图形验证码'}
+          placeholder={formatMessage({ id: `COMMON_PLACEHOLDER_CAPTCHA` })}
           value={value}
           onChange={onChange || null}
         />
-        <img src={captchaSrc} onClick={getCaptcha} alt="图形验证码"/>
+        <img
+          src={captchaSrc}
+          onClick={getCaptcha}
+          alt={formatMessage({ id: `REGISTER_GET_CAPTCHA` })}
+        />
       </div>
     );
   }

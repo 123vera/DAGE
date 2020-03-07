@@ -39,6 +39,7 @@ export default {
 
   REGISTER_TITLE: `Register`,
   REGISTER_GET_CODE: `Get verification code`,
+  REGISTER_GET_CAPTCHA: `图形验证码`,
 
   SELECT_ACCOUNT_TITLE: `Choose an account to log in`,
   SELECT_SET_ACCOUNT: `Create new account`,
