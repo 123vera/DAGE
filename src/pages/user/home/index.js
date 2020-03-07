@@ -29,9 +29,7 @@ class Home extends Component {
   };
 
   render() {
-    const {
-      globalModel: { myInfo },
-    } = this.props;
+    const { myInfo } = this.props.globalModel;
     const listContent = [
       // {
       //   icon: ICON_QRCODE,
@@ -46,7 +44,7 @@ class Home extends Component {
       {
         icon: ICON_RESET,
         text: formatMessage({ id: `USER_SECTION_03` }),
-        url: `/reset_password/verify`,
+        url: `/reset_password/verify?phone=${myInfo.phoneNo}&prefix=${myInfo.phonePrefix}`,
       },
       {
         icon: ICON_NOTICES,
@@ -88,10 +86,10 @@ class Home extends Component {
         />
 
         <div className={styles.banner}>
-          <img className={styles.bg} src={HOME_BG} alt="" />
-          <img className={styles.bg1} src={DAGE_LOGO} alt="" />
+          <img className={styles.bg} src={HOME_BG} alt=""/>
+          <img className={styles.bg1} src={DAGE_LOGO} alt=""/>
           <div className={styles.center}>
-            <img className={styles.icon} src={BG_ICON} alt="" />
+            <img className={styles.icon} src={BG_ICON} alt=""/>
             <p>DID：{(myInfo && myInfo.did) || '--'}</p>
             <CopyToClipboard key={new Date().toString()} text={myInfo.did} onCopy={this.onCopyLink}>
               <span>
@@ -109,9 +107,9 @@ class Home extends Component {
         <ul className={styles.list}>
           {listContent.map((item, key) => (
             <li key={key} onClick={() => router.push(item.url)}>
-              <img className={styles.icon} src={item.icon} alt="" />
+              <img className={styles.icon} src={item.icon} alt=""/>
               <span>{item.text}</span>
-              <img className={styles.right} src={ARROW_RIGHT} alt="" />
+              <img className={styles.right} src={ARROW_RIGHT} alt=""/>
             </li>
           ))}
         </ul>

@@ -28,7 +28,11 @@ class Home extends Component {
     this.props.dispatch({ type: 'password/ClearInput' });
     this.props.dispatch({
       type: 'password/UpdateState',
-      payload: { type },
+      payload: {
+        type,
+        phone: location.query && location.query.phone || '',
+        prefix: location.query && location.query.prefix || '86',
+      },
     });
     this.getCaptcha();
   }
@@ -124,7 +128,6 @@ class Home extends Component {
   };
 
   render() {
-    const { myInfo } = this.props.globalModel;
     const { prefix, phone, code, captchaSrc, captcha, type } = this.props.password;
     const { errMsg, showPrefix } = this.state;
 
@@ -142,13 +145,10 @@ class Home extends Component {
               <label className={styles.label}>
                 <span>{formatMessage({ id: `COMMON_LABEL_PHONE` })}</span>
                 <div
-                  className={`${styles.pickerWrapper} ${
-                    errMsg.type === 'phone' ? styles.inputErr : ''
-                    }`}
-                >
+                  className={styles.pickerWrapper + '' + (errMsg.type === 'phone' ? styles.inputErr : '')}>
                   <span onClick={this.onOpenPrefix}>
-                    +{myInfo.phonePrefix || prefix}
-                    <img src={Icons.arrowDown} alt="" />
+                    +{prefix}
+                    <img src={Icons.arrowDown} alt=""/>
                   </span>
                   <input
                     type="text"

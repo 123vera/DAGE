@@ -4,7 +4,7 @@ export default {
   namespace: 'password',
   state: {
     prefix: 86,
-    phone: undefined,
+    phone: '',
     code: '',
     password: '',
     passwordConfirm: '',
