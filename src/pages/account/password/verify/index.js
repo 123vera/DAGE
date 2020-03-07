@@ -130,12 +130,13 @@ class Home extends Component {
   };
 
   render() {
+    const { globalModel } = this.props;
     const { prefix, phone, code, captchaSrc, captcha, type } = this.props.password;
     const { errMsg, showPrefix } = this.state;
 
     return (
       <div className={styles.findPassword}>
-        <PageHeader leftContent={{ icon: Icons.arrowLeft }}/>
+        <PageHeader leftContent={{ icon: Icons.arrowLeft }} />
         <section>
           <p>
             {formatMessage({
@@ -147,15 +148,18 @@ class Home extends Component {
               <label className={styles.label}>
                 <span>{formatMessage({ id: `COMMON_LABEL_PHONE` })}</span>
                 <div
-                  className={`${styles.pickerWrapper} ${errMsg.type === 'phone' ? styles.inputErr : ''}`}>
+                  className={`${styles.pickerWrapper} ${
+                    errMsg.type === 'phone' ? styles.inputErr : ''
+                  }`}
+                >
                   <span onClick={this.onOpenPrefix}>
-                    +{prefix}
-                    <img src={Icons.arrowDown} alt=""/>
+                    +{type !== 'find_password' ? globalModel.myInfo.phonePrefix : prefix}
+                    <img src={Icons.arrowDown} alt="" />
                   </span>
                   <input
                     type="text"
                     autoComplete="off"
-                    value={phone}
+                    value={type !== 'find_password' ? globalModel.myInfo.phoneNo : phone}
                     placeholder={formatMessage({ id: `COMMON_PLACEHOLDER_PHONE` })}
                     onChange={e => this.onInputChange(e.target.value, 'phone')}
                   />
@@ -173,7 +177,7 @@ class Home extends Component {
                 onChange={value => this.onInputChange(value, 'code')}
               />
               <h4>{errMsg.value || ''}</h4>
-              <img className={styles.nextStep} src={Images.nextStep} onClick={this.toNext} alt=""/>
+              <img className={styles.nextStep} src={Images.nextStep} onClick={this.toNext} alt="" />
             </div>
           </div>
         </section>

@@ -86,12 +86,16 @@ class Home extends Component {
         />
 
         <div className={styles.banner}>
-          <img className={styles.bg} src={HOME_BG} alt=""/>
-          <img className={styles.bg1} src={DAGE_LOGO} alt=""/>
+          <img className={styles.bg} src={HOME_BG} alt="" />
+          <img className={styles.bg1} src={DAGE_LOGO} alt="" />
           <div className={styles.center}>
-            <img className={styles.icon} src={BG_ICON} alt=""/>
-            <p>DID：{(myInfo && myInfo.did) || '--'}</p>
-            <CopyToClipboard key={new Date().toString()} text={myInfo.did} onCopy={this.onCopyLink}>
+            <img className={styles.icon} src={BG_ICON} alt="" />
+            <p>DID：{(myInfo && myInfo.userName) || '--'}</p>
+            <CopyToClipboard
+              key={new Date().toString()}
+              text={myInfo.recommendCode}
+              onCopy={this.onCopyLink}
+            >
               <span>
                 {formatMessage({ id: `USER_RECOMMEND_CODE` })}
                 {(myInfo && myInfo.recommendCode) || '--'}
@@ -107,9 +111,9 @@ class Home extends Component {
         <ul className={styles.list}>
           {listContent.map((item, key) => (
             <li key={key} onClick={() => router.push(item.url)}>
-              <img className={styles.icon} src={item.icon} alt=""/>
+              <img className={styles.icon} src={item.icon} alt="" />
               <span>{item.text}</span>
-              <img className={styles.right} src={ARROW_RIGHT} alt=""/>
+              <img className={styles.right} src={ARROW_RIGHT} alt="" />
             </li>
           ))}
         </ul>

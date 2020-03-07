@@ -10,6 +10,7 @@
       position: absolute;
       top: 20%;
       left: 50%;
+      z-index: 2;
       transform: translateX(-50%);
       line-height: 1.6;
 
@@ -25,14 +26,17 @@
 
     img {
       &.bg {
+        position: relative;
         width: 83.73%;
+        z-index: 1;
       }
 
       &.bg1 {
         position: absolute;
         top: 40px;
-        right: 110px;
+        right: 100px;
         width: 190px;
+        z-index: 0;
       }
 
       &.status {
@@ -40,6 +44,7 @@
         bottom: -30px;
         right: 70px;
         width: 98px;
+        z-index: 1;
       }
       &.icon {
         width: 90px;
@@ -71,6 +76,7 @@
       .right {
         position: absolute;
         right: 0;
+        max-width: 25px;
       }
     }
   }

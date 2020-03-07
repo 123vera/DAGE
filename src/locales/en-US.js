@@ -177,4 +177,6 @@ export default {
   WALLET_POG_TOTAL_MINING_REVENUE: `Aggregate mining revenue yesterday`,
   WALLET_POG_MEDAL_LEVEL: `Current medal level`,
   WALLET_POG_MINE_GRADE: `Please select the miner level to purchase`,
+
+  PAGE_NO_FOUND: `页面找不到了`,
 };

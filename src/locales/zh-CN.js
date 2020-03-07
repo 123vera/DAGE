@@ -178,4 +178,6 @@ export default {
   WALLET_POG_TOTAL_MINING_REVENUE: `昨日挖矿总收益`,
   WALLET_POG_MEDAL_LEVEL: `当前勋章等级`,
   WALLET_POG_MINE_GRADE: `请选择购买的矿机等级`,
+
+  PAGE_NO_FOUND: `页面找不到了`,
 };
