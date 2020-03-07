@@ -4,9 +4,14 @@ import styles from './index.less';
 import React from 'react';
 import { Icons, Images } from '../../../assets';
 import { formatMessage } from 'umi-plugin-locale';
+import { connect } from 'dva';
+import { downFixed } from '../../../utils/utils';
 
+@connect(({ wallet }) => ({ wallet }))
 class Mining extends Component {
   render() {
+    const { reward } = this.props.wallet;
+
     return (
       <div className={styles.mining}>
         <section>
@@ -16,18 +21,18 @@ class Mining extends Component {
               <small>{formatMessage({ id: `WALLET_SECTION_SUBTITLE` })}</small>
             </p>
             <div className={styles.earnings}>
-              <span>--</span>
+              <span>{downFixed(reward.amount) || '--'}</span>
               <small>DID</small>
             </div>
             <aside>
-              <span>{formatMessage({ id: `INCOME_TITLE` })}</span>
-              <img width="34" src={Icons.arrowWhiteRight} alt="" />
+              <Link to="/wallet/reward-detail"><span>{formatMessage({ id: `INCOME_TITLE` })}</span></Link>
+              <Link to="/referral_code"><img width="34" src={Icons.arrowWhiteRight} alt=""/></Link>
             </aside>
           </div>
         </section>
         <section>
           <h3>
-            <img src={Icons.dIcon} alt="" />
+            <img src={Icons.dIcon} alt=""/>
             {formatMessage({ id: `WALLET_POG_TITLE` })}
           </h3>
           <p>{formatMessage({ id: `WALLET_POG_DESC` })}</p>

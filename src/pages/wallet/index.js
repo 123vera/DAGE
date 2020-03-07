@@ -39,6 +39,7 @@ class Home extends Component {
 
   componentDidMount() {
     this.props.dispatch({ type: 'wallet/GetNotice' });
+    this.props.dispatch({ type: 'wallet/GetReward' });
   }
 
   onShowMenus = e => {

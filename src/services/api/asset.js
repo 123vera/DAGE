@@ -130,8 +130,8 @@ class AssetApi {
    * @required openId string 用户openid
    *
    **/
-  static getYestodayEarnings(options) {
-    // return onlinePost('/userasset/exchange', options);
+  static getRewarList(options) {
+    return onlinePost('/userasset/rewardlist', options);
   }
 }
 

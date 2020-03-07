@@ -51,6 +51,7 @@ export default [
       { path: '/wallet/recharge', title: '充值', component: './wallet/recharge' },
       { path: '/wallet/withdraw', title: '提币', component: './wallet/withdraw' },
       { path: '/wallet/withdraw-record', title: '提币记录', component: './wallet/withdraw-record' },
+      { path: '/wallet/reward-detail', title: '收益详情', component: './wallet/reward-detail' },
       { path: '/wallet/mining-detail', title: '挖矿详情', component: './wallet/mining-detail' },
 
       {

@@ -58,7 +58,7 @@ class Home extends Component {
     this.props.dispatch({ type: 'password/GetCaptcha', payload: +new Date() });
   };
 
-  getSmsCode = () => {
+  getSmsCode = async () => {
     const { phone, captcha } = this.props.password;
     if (!phone) {
       this.setState({
@@ -73,6 +73,8 @@ class Home extends Component {
       return;
     }
     if (!captcha) {
+      console.log(captcha);
+
       this.setState({
         errMsg: { type: 'captcha', value: formatMessage({ id: `COMMON_PLACEHOLDER_CAPTCHA` }) },
       });
@@ -133,7 +135,7 @@ class Home extends Component {
 
     return (
       <div className={styles.findPassword}>
-        <PageHeader leftContent={{ icon: Icons.arrowLeft }} />
+        <PageHeader leftContent={{ icon: Icons.arrowLeft }}/>
         <section>
           <p>
             {formatMessage({
@@ -145,13 +147,10 @@ class Home extends Component {
               <label className={styles.label}>
                 <span>{formatMessage({ id: `COMMON_LABEL_PHONE` })}</span>
                 <div
-                  className={
-                    styles.pickerWrapper + '' + (errMsg.type === 'phone' ? styles.inputErr : '')
-                  }
-                >
+                  className={`${styles.pickerWrapper} ${errMsg.type === 'phone' ? styles.inputErr : ''}`}>
                   <span onClick={this.onOpenPrefix}>
                     +{prefix}
-                    <img src={Icons.arrowDown} alt="" />
+                    <img src={Icons.arrowDown} alt=""/>
                   </span>
                   <input
                     type="text"
@@ -173,7 +172,8 @@ class Home extends Component {
                 getSmsCode={this.getSmsCode}
                 onChange={value => this.onInputChange(value, 'code')}
               />
-              <img className={styles.nextStep} src={Images.nextStep} onClick={this.toNext} alt="" />
+              <h4>{errMsg.value || ''}</h4>
+              <img className={styles.nextStep} src={Images.nextStep} onClick={this.toNext} alt=""/>
             </div>
           </div>
         </section>

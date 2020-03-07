@@ -18,11 +18,11 @@ class SmsCode extends Component {
   };
 
   countDown = () => {
-    const { getSmsCode } = this.props;
+    // const { getSmsCode } = this.props;
     const { count } = this.state;
-    if (count === COUNT_DOWN) {
-      getSmsCode && getSmsCode().then(success => !success && this.reset());
-    }
+    // if (count === COUNT_DOWN) {
+    //   getSmsCode && getSmsCode().then(success => !success && this.reset());
+    // }
 
     this.setState({ count: count - 1 }, () => {
       const { count } = this.state;
@@ -31,6 +31,14 @@ class SmsCode extends Component {
           ? this.countDown()
           : this.reset();
       }, 1000);
+    });
+  };
+
+  getCode = async () => {
+    const { getSmsCode } = this.props;
+    return getSmsCode().then(isTrue => {
+      if (!isTrue) return;
+      this.countDown();
     });
   };
 
@@ -57,7 +65,7 @@ class SmsCode extends Component {
             onChange={e => this.onChange(e.target.value)}
             placeholder={formatMessage({ id: `COMMON_PLACEHOLDER_CODE` })}
           />
-          <button disabled={isCountDown} onClick={this.countDown}>
+          <button disabled={isCountDown} onClick={this.getCode}>
             {btnLabel}
           </button>
         </div>
