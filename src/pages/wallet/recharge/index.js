@@ -118,7 +118,7 @@ class Recharge extends Component {
 
         <div className={styles.content}>
           <div className={styles.qrCode}>
-            <QRcode size={360} value={wallet} renderAs="canvas" />
+            <QRcode value={wallet} renderAs="canvas" />
           </div>
           <p>{wallet}</p>
           <CopyToClipboard

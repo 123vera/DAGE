@@ -22,12 +22,12 @@
         left: 60px;
         display: flex;
         justify-content: space-between;
+        align-items: center;
         width: 92%;
         box-sizing: border-box;
         margin-top: 40px;
         padding: 35px 60px 35px 35px;
         background-color: @theme-color-bg-content;
-        // color: @font-sub-color;
 
         &::before {
           position: absolute;
@@ -43,6 +43,11 @@
         .unChecked {
           color: @font-sub-color;
         }
+
+        img {
+          max-width: 50px;
+          max-height: 50px;
+        }
       }
     }
 
@@ -50,6 +55,7 @@
       position: relative;
       top: 0.48rem;
       right: -80%;
+      max-width: 140px;
       margin-bottom: 0.2rem;
     }
   }

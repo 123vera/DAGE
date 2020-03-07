@@ -8,6 +8,7 @@ import Menus from '../../../components/common/Menus';
 import dayjs from 'dayjs';
 import ListView from '../../../components/common/ListView';
 import { formatMessage } from 'umi-plugin-locale';
+import { downFixed } from '../../../utils/utils';
 
 // const menus = [
 //   {
@@ -119,7 +120,7 @@ class WalletFlow extends Component {
             </div>
             <div>
               {formatMessage({ id: `FLOW_BALANCE` })}
-              {balance || 0}
+              {downFixed(balance) || 0}
             </div>
           </div>
         </section>
@@ -136,7 +137,7 @@ class WalletFlow extends Component {
                         .format('YYYY-MM-DD')}
                     </small>
                   </div>
-                  <div className={styles.value}>{item.amount}</div>
+                  <div className={styles.value}>{downFixed(item.amount)}</div>
                 </li>
               ))}
             </ul>

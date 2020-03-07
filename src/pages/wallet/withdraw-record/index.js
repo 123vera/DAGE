@@ -7,6 +7,7 @@ import { Icons } from '../../../assets';
 import dayjs from 'dayjs';
 import ListView from '../../../components/common/ListView';
 import { formatMessage } from 'umi/locale';
+import { downFixed } from '../../../utils/utils';
 
 const withdrawStatus = [
   {
@@ -69,11 +70,15 @@ class WalletFlow extends Component {
                 </div>
                 <div className={styles.row}>
                   <label>{formatMessage({ id: `RECORD_LI_TIME` })}</label>
-                  <p>{dayjs(item.addTime).format('YYYY-MM-DD')}</p>
+                  <p>
+                    {dayjs()
+                      .millisecond(item.addTime)
+                      .format('YYYY-MM-DD')}
+                  </p>
                 </div>
                 <div className={styles.row}>
                   <label>{formatMessage({ id: `RECORD_LI_AMOUNT` })}</label>
-                  <p>{item.amount}</p>
+                  <p>{downFixed(item.amount)}</p>
                 </div>
                 <div className={styles.row}>
                   <label>{formatMessage({ id: `RECORD_LI_NO` })}</label>

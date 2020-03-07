@@ -9,21 +9,21 @@ const tabs = [
     icon: Icons.wallet,
     iconActive: Icons.walletActive,
     label: '钱包',
-    width: '46px',
+    width: '50px',
   },
   {
     path: '/home/ecological',
     icon: Icons.zoology,
     iconActive: Icons.zoologyActive,
     label: '生态',
-    width: '38px',
+    width: '40px',
   },
   {
     path: '/home/user',
     icon: Icons.user,
     iconActive: Icons.userActive,
     label: '我的',
-    width: '36px',
+    width: '40px',
   },
 ];
 
