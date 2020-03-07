@@ -27,6 +27,7 @@ class Home extends Component {
   componentDidMount() {
     const { location } = this.props;
     const type = location.pathname.includes('find_password') ? 'find_password' : 'reset_password';
+    this.props.dispatch({ type: 'password/ClearInput' });
     this.props.dispatch({
       type: 'password/UpdateState',
       payload: { type },
