@@ -26,6 +26,10 @@ class Home extends Component {
 
   onInputChange = (value, key) => {
     const { dispatch } = this.props;
+
+    if (key === 'phone') {
+      if (!/^[0-9]*$/.test(value)) return; // 数字
+    }
     dispatch({
       type: 'login/UpdateState',
       payload: { [key]: value },
