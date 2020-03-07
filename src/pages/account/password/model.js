@@ -18,6 +18,17 @@ export default {
     },
   },
   effects: {
+    * ClearInput(_, { put }) {
+      yield put({
+        type: 'UpdateState', payload: {
+          phone: undefined,
+          code: undefined,
+          password: '',
+          passwordConfirm: '',
+          captcha: '',
+        },
+      });
+    },
     * GetCaptcha(_, { call, put }) {
       const captchaSrc = yield call(UserApi.getCaptcha, +new Date());
       yield put({ type: 'UpdateState', payload: { captchaSrc } });

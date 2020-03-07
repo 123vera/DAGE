@@ -62,6 +62,7 @@ class Index extends Component {
         return;
       }
       Toast.info(formatMessage({ id: `TOAST_SET_PASSWORD_SUCCESS` }), TOAST_DURATION, () => {
+        this.props.dispatch({ type: 'password/ClearInput' });
         router.push(type === 'find_password' ? '/login' : '/home/user');
       });
     });
@@ -73,7 +74,7 @@ class Index extends Component {
 
     return (
       <div className={styles.setPassword}>
-        <PageHeader leftContent={{ icon: Icons.arrowLeft }} />
+        <PageHeader leftContent={{ icon: Icons.arrowLeft }}/>
         <section>
           <p>{formatMessage({ id: `LOGIN_SET_PASSWORD` })}</p>
           <div className={styles.mainWrapper}>
@@ -101,7 +102,7 @@ class Index extends Component {
               />
               <h4>{errMsg.value || ''}</h4>
             </label>
-            <img className={styles.nextStep} src={Images.nextStep} onClick={this.toNext} alt="" />
+            <img className={styles.nextStep} src={Images.nextStep} onClick={this.toNext} alt=""/>
           </div>
         </section>
       </div>

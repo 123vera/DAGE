@@ -122,6 +122,17 @@ class AssetApi {
   static submitExchange(options) {
     return onlinePost('/userasset/exchange', options);
   }
+
+  /**
+   * 昨日收益详情、明细
+   *
+   * @required page string 页码
+   * @required openId string 用户openid
+   *
+   **/
+  static getYestodayEarnings(options) {
+    // return onlinePost('/userasset/exchange', options);
+  }
 }
 
 export default AssetApi;
