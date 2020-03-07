@@ -42,6 +42,9 @@ class Home extends Component {
   onInputChange = (value, key) => {
     const { dispatch } = this.props;
     if (key === 'code' && value.length > 4) return;
+    if (key === 'phone' || key === 'code') {
+      if (!/^[0-9]*$/.test(value)) return; // 数字
+    }
     dispatch({
       type: 'password/UpdateState',
       payload: { [key]: value },
@@ -163,11 +166,11 @@ class Home extends Component {
                   }`}
                 >
                   <span onClick={this.onOpenPrefix}>
-                    +{myInfo.phonePrefix}
+                    +{myInfo.phonePrefix || prefix}
                     <img src={Icons.arrowDown} alt="" />
                   </span>
                   <input
-                    type="number"
+                    type="text"
                     autoComplete="off"
                     value={phone}
                     placeholder={formatMessage({ id: `COMMON_PLACEHOLDER_PHONE` })}
@@ -191,9 +194,10 @@ class Home extends Component {
                   }`}
                 >
                   <input
-                    type="number"
+                    type="text"
                     autoComplete="off"
                     value={code}
+                    maxLength={4}
                     placeholder={formatMessage({ id: `COMMON_PLACEHOLDER_CODE` })}
                     onChange={e => this.onInputChange(e.target.value, 'code')}
                   />

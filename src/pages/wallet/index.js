@@ -91,9 +91,8 @@ class Home extends Component {
             </p>
           </div>
         </section>
-        <Mining />
-        {/* {myInfo.activate === 0 && <Activation />}
-        {myInfo.activate === 1 && <Mining />} */}
+        {myInfo.activate === 0 && <Activation />}
+        {myInfo.activate === 1 && <Mining />}
       </div>
     );
   }
