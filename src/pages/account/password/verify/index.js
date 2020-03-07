@@ -3,25 +3,23 @@ import { formatMessage } from 'umi-plugin-locale';
 import { connect } from 'dva';
 import router from 'umi/router';
 import { Icons, Images } from '../../../../assets';
-import PageHeader from '@/components/common/PageHeader';
+import PageHeader from '../../../../components/common/PageHeader';
 import TelPrefix from '../../../../components/partials/TelPrefix';
 import Captcha from '../../../../components/partials/Captcha';
-import { REG, COUNT_DOWN } from '../../../../utils/constants';
+import { REG } from '../../../../utils/constants';
 import styles from './index.less';
 import { Toast } from 'antd-mobile';
 import Cookies from 'js-cookie';
+import SmsCode from '../../../../components/partials/SmsCode';
 
 @connect(({ password, globalModel }) => ({ password, globalModel }))
 class Home extends Component {
   state = {
-    count: COUNT_DOWN,
     errMsg: {
       type: '',
       value: '',
     },
     showPrefix: false,
-    isGetSms: false,
-    getSmsSuccess: false,
   };
 
   componentDidMount() {
@@ -56,24 +54,6 @@ class Home extends Component {
     this.props.dispatch({ type: 'password/GetCaptcha', payload: +new Date() });
   };
 
-  countDown = () => {
-    const { timer } = this.state;
-    clearInterval(Number(timer));
-    this.getSmsCode();
-    this.state.getSmsSuccess &&
-      this.setState({
-        count: COUNT_DOWN,
-        timer: setInterval(() => {
-          let { count } = this.state;
-          if (count && count >= 1) {
-            this.setState({ count: count - 1 });
-          } else {
-            clearInterval(Number(timer));
-          }
-        }, 1000),
-      });
-  };
-
   getSmsCode = () => {
     const { phone, captcha } = this.props.password;
     if (!phone) {
@@ -94,17 +74,17 @@ class Home extends Component {
       });
       return;
     }
-    this.props
+    return this.props
       .dispatch({
         type: 'password/GetSmsCode',
       })
       .then(res => {
-        this.setState({ getSmsSuccess: res.status === 1 });
         if (res.status === 1) {
           Toast.info(formatMessage({ id: `TOAST_GET_CODE_SUCCESS` }));
-          return;
+          return true;
         }
         Toast.info(res.msg || formatMessage({ id: `TOAST_GET_CODE_FAIL` }));
+        return false;
       });
   };
 
@@ -146,11 +126,11 @@ class Home extends Component {
   render() {
     const { myInfo } = this.props.globalModel;
     const { prefix, phone, code, captchaSrc, captcha, type } = this.props.password;
-    const { errMsg, count, showPrefix } = this.state;
+    const { errMsg, showPrefix } = this.state;
 
     return (
       <div className={styles.findPassword}>
-        <PageHeader leftContent={{ icon: Icons.arrowLeft }} />
+        <PageHeader leftContent={{ icon: Icons.arrowLeft }}/>
         <section>
           <p>
             {formatMessage({
@@ -159,12 +139,12 @@ class Home extends Component {
           </p>
           <div className={styles.mainWrapper}>
             <div className={styles.content}>
-              <label>
-                <span className={styles.label}>{formatMessage({ id: `COMMON_LABEL_PHONE` })}</span>
+              <label className={styles.label}>
+                <span>{formatMessage({ id: `COMMON_LABEL_PHONE` })}</span>
                 <div
                   className={`${styles.pickerWrapper} ${
                     errMsg.type === 'phone' ? styles.inputErr : ''
-                  }`}
+                    }`}
                 >
                   <span onClick={this.onOpenPrefix}>
                     +{myInfo.phonePrefix || prefix}
@@ -185,36 +165,12 @@ class Home extends Component {
                 onChange={e => this.onInputChange(e.target.value, 'captcha')}
                 getCaptcha={this.getCaptcha}
               />
-              <label>
-                <span className={styles.label}>
-                  {formatMessage({ id: `COMMON_LABEL_VERFICATION_CODE` })}
-                </span>
-                <div
-                  className={`${styles.codeWrapper} ${
-                    errMsg.type === 'smsCode' ? styles.inputErr : ''
-                  }`}
-                >
-                  <input
-                    type="text"
-                    autoComplete="off"
-                    value={code}
-                    maxLength={4}
-                    placeholder={formatMessage({ id: `COMMON_PLACEHOLDER_CODE` })}
-                    onChange={e => this.onInputChange(e.target.value, 'code')}
-                  />
-                  <button
-                    disabled={count > 0 && count < COUNT_DOWN}
-                    className={styles.codeNumber}
-                    onClick={this.countDown}
-                  >
-                    {count > 0 && count < COUNT_DOWN
-                      ? count + 's'
-                      : formatMessage({ id: `REGISTER_GET_CODE` })}
-                  </button>
-                </div>
-                <h4>{errMsg.value || ''}</h4>
-              </label>
-              <img className={styles.nextStep} src={Images.nextStep} onClick={this.toNext} alt="" />
+              <SmsCode
+                value={code}
+                getSmsCode={this.getSmsCode}
+                onChange={value => this.onInputChange(value, 'code')}
+              />
+              <img className={styles.nextStep} src={Images.nextStep} onClick={this.toNext} alt=""/>
             </div>
           </div>
         </section>

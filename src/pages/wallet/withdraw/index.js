@@ -119,7 +119,7 @@ class Recharge extends Component {
     });
   };
 
-  getSmsCode = () => {
+  getSmsCode = async () => {
     const { captcha } = this.props.globalModel;
 
     if (!captcha) {
@@ -127,7 +127,7 @@ class Recharge extends Component {
       return;
     }
 
-    this.props
+    return this.props
       .dispatch({
         type: 'globalModel/GetSmsCode',
         payload: { type: 'cash' },
@@ -136,9 +136,10 @@ class Recharge extends Component {
         this.setState({ getSmsSuccess: res.status === 1 });
         if (res.status === 1) {
           Toast.info(formatMessage({ id: `TOAST_GET_CODE_SUCCESS` }));
-          return;
+          return true;
         }
         Toast.info(res.msg || formatMessage({ id: `TOAST_GET_CODE_FAIL` }));
+        return false;
       });
   };
 
@@ -166,7 +167,7 @@ class Recharge extends Component {
   };
 
   render() {
-    const { showMenus, getSmsSuccess } = this.state;
+    const { showMenus } = this.state;
     const { captchaSrc, captcha, coinTeams } = this.props.globalModel;
     const { coin, initInfo, walletTo, amount, code } = this.props.withdraw;
     const fee = amount * initInfo.serviceCharge;
@@ -204,7 +205,7 @@ class Recharge extends Component {
           />
           {showMenus && (
             <div className={styles.menus}>
-              <Menus menus={menus} hasBorder textAlign="center" onHandle={this.changeCoin} />
+              <Menus menus={menus} hasBorder textAlign="center" onHandle={this.changeCoin}/>
             </div>
           )}
         </div>
@@ -260,7 +261,6 @@ class Recharge extends Component {
           <div className={styles.row}>
             <SmsCode
               value={code}
-              getSmsSuccess={getSmsSuccess}
               getSmsCode={this.getSmsCode}
               onChange={this.onCodeChange}
             />
