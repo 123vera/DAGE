@@ -173,7 +173,7 @@ class Index extends Component {
                 )}
               </span>
               <img
-                style={{ transform: 'rotate(180deg)', margin: ' 0 60px' }}
+                className={styles.splitImg}
                 src={Icons.arrowLeft}
                 alt=""
               />

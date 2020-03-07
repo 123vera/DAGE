@@ -4,13 +4,11 @@ import styles from './index.less';
 import React from 'react';
 import { Icons, Images } from '../../../assets';
 import { formatMessage } from 'umi-plugin-locale';
-import { connect } from 'dva';
 import { downFixed } from '../../../utils/utils';
 
-@connect(({ wallet }) => ({ wallet }))
 class Mining extends Component {
   render() {
-    const { reward } = this.props.wallet;
+    const { myInfo } = this.props;
 
     return (
       <div className={styles.mining}>
@@ -21,7 +19,7 @@ class Mining extends Component {
               <small>{formatMessage({ id: `WALLET_SECTION_SUBTITLE` })}</small>
             </p>
             <div className={styles.earnings}>
-              <span>{downFixed(reward.amount) || '--'}</span>
+              <span>{downFixed(myInfo.yestodayReward) || '--'}</span>
               <small>DID</small>
             </div>
             <aside>

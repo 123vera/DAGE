@@ -6,22 +6,20 @@ import { Icons, Images } from '../../../assets';
 import TelPrefix from '../../../components/partials/TelPrefix';
 import Captcha from '../../../components/partials/Captcha';
 import PageHeader from '../../../components/common/PageHeader';
-import { REG, COUNT_DOWN } from '../../../utils/constants';
+import { REG } from '../../../utils/constants';
 import styles from './index.less';
 import { Toast } from 'antd-mobile';
 import { TOAST_DURATION } from '../../../utils/constants';
+import SmsCode from '../../../components/partials/SmsCode';
 
 @connect(({ register }) => ({ register }))
 class Register extends Component {
   state = {
-    count: COUNT_DOWN,
     errMsg: {
       type: '',
       value: '',
     },
-    getSmsSuccess: false,
     showPrefix: false,
-    isGetSms: false,
   };
 
   componentDidMount() {
@@ -54,25 +52,7 @@ class Register extends Component {
     this.props.dispatch({ type: 'register/GetCaptcha', payload: +new Date() });
   };
 
-  countDown = () => {
-    const { timer } = this.state;
-    clearInterval(Number(timer));
-    this.getSmsCode();
-    this.state.getSmsSuccess &&
-      this.setState({
-        count: COUNT_DOWN,
-        timer: setInterval(() => {
-          let { count } = this.state;
-          if (count && count >= 1) {
-            this.setState({ count: count - 1 });
-          } else {
-            clearInterval(Number(timer));
-          }
-        }, 1000),
-      });
-  };
-
-  getSmsCode = () => {
+  getSmsCode = async () => {
     const { prefix, phone, captcha } = this.props.register;
     if (!phone) {
       this.setState({
@@ -92,7 +72,7 @@ class Register extends Component {
       });
       return;
     }
-    this.props
+    return this.props
       .dispatch({
         type: 'register/GetSmsCode',
         payload: { prefix, phone, imgcode: captcha, type: 'reg' },
@@ -101,9 +81,10 @@ class Register extends Component {
         this.setState({ getSmsSuccess: res.status === 1 });
         if (res.status === 1) {
           Toast.info(formatMessage({ id: `TOAST_GET_CODE_SUCCESS` }));
-          return;
+          return true;
         }
         Toast.info(res.msg || formatMessage({ id: `TOAST_GET_CODE_FAIL` }));
+        return false;
       });
   };
 
@@ -164,7 +145,7 @@ class Register extends Component {
   };
 
   render() {
-    const { count, errMsg, showPrefix } = this.state;
+    const { errMsg, showPrefix } = this.state;
     const {
       prefix,
       phone,
@@ -187,11 +168,11 @@ class Register extends Component {
                 <span>{formatMessage({ id: `COMMON_LABEL_PHONE` })}</span>
                 <div
                   className={`${styles.pickerWrapper} ${errMsg.type === 'phone' &&
-                    styles.inputErr}`}
+                  styles.inputErr}`}
                 >
                   <span onClick={this.onOpenPrefix}>
                     +{prefix}
-                    <img src={Icons.arrowDown} alt="" />
+                    <img src={Icons.arrowDown} alt=""/>
                   </span>
                   <input
                     value={phone}
@@ -208,29 +189,12 @@ class Register extends Component {
                 onChange={e => this.onInputChange(e.target.value, 'captcha')}
                 getCaptcha={this.getCaptcha}
               />
-              <label>
-                <span>{formatMessage({ id: `COMMON_LABEL_VERFICATION_CODE` })}</span>
-                <div
-                  className={`${styles.codeWrapper} ${errMsg.type === 'code' && styles.inputErr}`}
-                >
-                  <input
-                    value={code}
-                    type="text"
-                    autoComplete="off"
-                    placeholder={formatMessage({ id: `COMMON_PLACEHOLDER_CODE` })}
-                    onChange={e => this.onInputChange(e.target.value, 'code')}
-                  />
-                  <button
-                    disabled={count > 0 && count < COUNT_DOWN}
-                    className={styles.codeNumber}
-                    onClick={this.countDown}
-                  >
-                    {count > 0 && count < COUNT_DOWN
-                      ? count + 's'
-                      : formatMessage({ id: `REGISTER_GET_CODE` })}
-                  </button>
-                </div>
-              </label>
+              <SmsCode
+                isErrInput={errMsg.type === 'code'}
+                value={code}
+                onChange={value => this.onInputChange(value, 'code')}
+                getSmsCode={this.getSmsCode}
+              />
               <label>
                 <span>{formatMessage({ id: `COMMON_LABEL_PASSWORD` })}</span>
                 <input
@@ -254,7 +218,7 @@ class Register extends Component {
                 />
               </label>
               <h4 className={styles.errMsg}>{errMsg.value || ''}</h4>
-              <img onClick={this.toNext} className={styles.nextStep} src={Images.nextStep} alt="" />
+              <img onClick={this.toNext} className={styles.nextStep} src={Images.nextStep} alt=""/>
             </div>
           </div>
         </section>

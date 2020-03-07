@@ -93,7 +93,7 @@ class Home extends Component {
           </div>
         </section>
         {myInfo.activate === 0 && <Activation />}
-        {myInfo.activate === 1 && <Mining />}
+        {myInfo.activate === 1 && <Mining myInfo={myInfo}/>}
       </div>
     );
   }

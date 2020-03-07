@@ -3,9 +3,9 @@ import { UserApi } from '../../../services/api';
 export default {
   namespace: 'register',
   state: {
-    prefix: 86,
-    phone: undefined,
-    code: undefined,
+    prefix: '86',
+    phone: '',
+    code: '',
     password: '',
     passwordConfirm: '',
     captcha: '',

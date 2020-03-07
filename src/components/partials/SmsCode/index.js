@@ -18,11 +18,7 @@ class SmsCode extends Component {
   };
 
   countDown = () => {
-    // const { getSmsCode } = this.props;
     const { count } = this.state;
-    // if (count === COUNT_DOWN) {
-    //   getSmsCode && getSmsCode().then(success => !success && this.reset());
-    // }
 
     this.setState({ count: count - 1 }, () => {
       const { count } = this.state;
