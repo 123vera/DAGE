@@ -8,7 +8,7 @@ class MiningDetail extends Component {
   render() {
     return (
       <div className={styles.miningDetail}>
-        <Header icon={Icons.arrowLeft} title={formatMessage({ id: `MINING_DETAIL_TITLE` })} />
+        <Header icon={Icons.arrowLeft} title={formatMessage({ id: `REWARD_DETAIL_TITLE` })} />
         <section>
           <div className={styles.summary}>
             <span>

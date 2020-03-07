@@ -126,6 +126,7 @@ export default {
   FLOW_TITLE: `Cash flow`,
   FLOW_BALANCE: `Balance：`,
 
+  REWARD_DETAIL_TITLE: `Reward details`,
   MINING_DETAIL_TITLE: `Mining details`,
   MINING_DETAIL_TOTAL_INCOME: `Mining Revenue`,
   MINING_DETAIL_MONOMER: `Single mining`,
