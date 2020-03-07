@@ -59,6 +59,7 @@ export default [
         title: '去中心化交易中心',
         component: './ecological/exchange',
       },
+      { component: './404' },
     ],
   },
 ];

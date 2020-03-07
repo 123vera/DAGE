@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="85fa9ab6-0589-4a2d-9a7e-858b39c025c1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/pages/404.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/partials/SmsCode/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/partials/SmsCode/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/wallet/Mining/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/wallet/Mining/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/account/register/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/account/register/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/account/register/model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/account/register/model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/ecological/exchange/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ecological/exchange/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/ecological/exchange/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ecological/exchange/index.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/wallet/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/wallet/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/router.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/router.config.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -42,7 +37,7 @@
           <entry key="css" value="10" />
           <entry key="ejs" value="1" />
           <entry key="gitignore" value="2" />
-          <entry key="js" value="472" />
+          <entry key="js" value="474" />
           <entry key="json" value="4" />
           <entry key="jsx" value="2" />
           <entry key="less" value="123" />
@@ -64,7 +59,7 @@
           <entry key="Image" value="31" />
           <entry key="JSON" value="4" />
           <entry key="JSX Harmony" value="2" />
-          <entry key="JavaScript" value="472" />
+          <entry key="JavaScript" value="474" />
           <entry key="Less" value="123" />
           <entry key="Markdown" value="25" />
           <entry key="PLAIN_TEXT" value="3" />
@@ -84,7 +79,7 @@
         <counts>
           <entry key="css" value="12" />
           <entry key="gitignore" value="5" />
-          <entry key="js" value="19994" />
+          <entry key="js" value="20001" />
           <entry key="json" value="2" />
           <entry key="less" value="4000" />
           <entry key="md" value="136" />
@@ -97,7 +92,7 @@
           <entry key="Bash" value="14" />
           <entry key="CSS" value="12" />
           <entry key="JSON" value="2" />
-          <entry key="JavaScript" value="19994" />
+          <entry key="JavaScript" value="20001" />
           <entry key="Less" value="4000" />
           <entry key="Markdown" value="136" />
           <entry key="PLAIN_TEXT" value="186" />
@@ -124,7 +119,7 @@
         <entry file="file://$PROJECT_DIR$/src/pages/ecological/exchange/index.less">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="266">
-              <caret line="109" column="17" lean-forward="true" selection-start-line="109" selection-start-column="17" selection-end-line="109" selection-end-column="17" />
+              <caret line="109" column="17" selection-start-line="109" selection-start-column="17" selection-end-line="109" selection-end-column="17" />
               <folding>
                 <element signature="e#1794#2133#0" />
               </folding>
@@ -132,11 +127,33 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/partials/SmsCode/index.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="344">
-              <caret line="20" column="18" lean-forward="true" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
+            <state>
+              <caret column="32" selection-start-column="32" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/404.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="22" lean-forward="true" selection-start-column="22" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/config/router.config.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="354">
+              <caret line="61" column="29" selection-start-line="61" selection-start-column="29" selection-end-line="61" selection-end-column="29" />
+              <folding>
+                <element signature="e#1321#1416#0" expanded="true" />
+                <element signature="e#2291#2398#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -188,7 +205,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/pages/wallet/withdraw-record/index.less" />
         <option value="$PROJECT_DIR$/src/assets/index.js" />
         <option value="$PROJECT_DIR$/src/pages/ecological/home/index.js" />
         <option value="$PROJECT_DIR$/src/components/common/Menus/index.less" />
@@ -225,7 +241,6 @@
         <option value="$PROJECT_DIR$/src/pages/account/password/model.js" />
         <option value="$PROJECT_DIR$/src/services/api/asset.js" />
         <option value="$PROJECT_DIR$/src/pages/wallet/model.js" />
-        <option value="$PROJECT_DIR$/config/router.config.js" />
         <option value="$PROJECT_DIR$/src/pages/account/password/verify/index.js" />
         <option value="$PROJECT_DIR$/src/pages/account/password/verify/index.less" />
         <option value="$PROJECT_DIR$/src/locales/en-US.js" />
@@ -239,6 +254,8 @@
         <option value="$PROJECT_DIR$/src/pages/ecological/exchange/index.js" />
         <option value="$PROJECT_DIR$/src/pages/ecological/exchange/index.less" />
         <option value="$PROJECT_DIR$/src/components/partials/SmsCode/index.less" />
+        <option value="$PROJECT_DIR$/src/pages/404.js" />
+        <option value="$PROJECT_DIR$/config/router.config.js" />
       </list>
     </option>
   </component>
@@ -285,33 +302,6 @@
               <item name="dage" type="b2602c69:ProjectViewProjectNode" />
               <item name="dage" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dage" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dage" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="partials" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dage" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="partials" type="462c0819:PsiDirectoryNode" />
-              <item name="SmsCode" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dage" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="locales" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="dage" type="b2602c69:ProjectViewProjectNode" />
@@ -572,7 +562,7 @@
       <workItem from="1583329830798" duration="5172000" />
       <workItem from="1583416664888" duration="4211000" />
       <workItem from="1583504271935" duration="11217000" />
-      <workItem from="1583558236048" duration="5533000" />
+      <workItem from="1583558236048" duration="6512000" />
     </task>
     <task id="LOCAL-00001" summary="更新项目配置">
       <created>1581763195178</created>
@@ -847,11 +837,18 @@
       <option name="project" value="LOCAL" />
       <updated>1583561343806</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="update smsCode">
+      <created>1583564821914</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1583564821914</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="215115000" />
+    <option name="totallyTimeSpent" value="216094000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="454" y="26" width="1161" height="990" extended-state="0" />
@@ -941,13 +938,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="update smsCode" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/services/request.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="49" column="59" lean-forward="true" selection-start-line="49" selection-start-column="59" selection-end-line="49" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/wallet/withdraw/index.less">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1452">
@@ -1218,16 +1208,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/router.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="38" column="8" lean-forward="true" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
-          <folding>
-            <element signature="e#1321#1416#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/wallet/model.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="112">
@@ -1369,7 +1349,7 @@
     <entry file="file://$PROJECT_DIR$/src/pages/ecological/exchange/index.less">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
-          <caret line="109" column="17" lean-forward="true" selection-start-line="109" selection-start-column="17" selection-end-line="109" selection-end-column="17" />
+          <caret line="109" column="17" selection-start-line="109" selection-start-column="17" selection-end-line="109" selection-end-column="17" />
           <folding>
             <element signature="e#1794#2133#0" />
           </folding>
@@ -1378,8 +1358,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/partials/SmsCode/index.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="20" column="18" lean-forward="true" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
+        <state>
+          <caret column="32" selection-start-column="32" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/404.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="22" lean-forward="true" selection-start-column="22" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/router.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="61" column="29" selection-start-line="61" selection-start-column="29" selection-end-line="61" selection-end-column="29" />
+          <folding>
+            <element signature="e#1321#1416#0" expanded="true" />
+            <element signature="e#2291#2398#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
