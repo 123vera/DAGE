@@ -66,13 +66,12 @@ class WalletFlow extends Component {
 
   getFlow = callback => {
     const { dispatch } = this.props;
-    dispatch({ type: 'walletFlow/GetAssetFlow' })
-      .then(res => {
-        if (res.status !== 1) {
-          return;
-        }
-        callback && callback();
-      });
+    dispatch({ type: 'walletFlow/GetAssetFlow' }).then(res => {
+      if (res.status !== 1) {
+        return;
+      }
+      callback && callback();
+    });
   };
 
   render() {
@@ -110,11 +109,11 @@ class WalletFlow extends Component {
                 onClick={() => this.setState({ showMenus: !showMenus })}
               >
                 {coin.label}
-                <img src={Icons.arrowUpDown} alt=""/>
+                <img src={Icons.arrowUpDown} alt="" />
               </div>
               {showMenus && (
                 <div className={styles.options}>
-                  <Menus menus={menus} textAlign="center" hasBorder onHandle={this.changeCoin}/>
+                  <Menus menus={menus} textAlign="center" hasBorder onHandle={this.changeCoin} />
                 </div>
               )}
             </div>
@@ -131,7 +130,11 @@ class WalletFlow extends Component {
                 <li key={item.id}>
                   <div className={styles.label}>
                     {item.remark}
-                    <small>{dayjs(item.addTime).format('YYYY-MM-DD')}</small>
+                    <small>
+                      {dayjs()
+                        .millisecond(item.addTime)
+                        .format('YYYY-MM-DD')}
+                    </small>
                   </div>
                   <div className={styles.value}>{item.amount}</div>
                 </li>

@@ -143,7 +143,7 @@ class Recharge extends Component {
             <li>
               {formatMessage({ id: `RECHARGE_TIP_05` })}
               {coin.label}
-              {formatMessage({ id: `RECHARGE_TIP_05` })}
+              {formatMessage({ id: `RECHARGE_TIP_06` })}
             </li>
           </ul>
         </aside>

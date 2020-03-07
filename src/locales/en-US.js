@@ -169,7 +169,7 @@ export default {
   WALLET_SECTION_TITLE: `Promote to get extremely high rebates`,
   WALLET_SECTION_SUBTITLE: `Rebates earned yesterday`,
   WALLET_POG_TITLE: `POG Mining`,
-  WALLET_POG_DESC: `挖矿投资本金将在1天后返还到账户，且将5%的DID释放至DGT账户。奖励部分70%进入DGC账户，30%进入DID账户，如矿机未启动则不发放奖励。`,
+  WALLET_POG_DESC: `挖矿投资本金将在1天后返还到账户，且将投资额中5%的DID释放至DGT账户。奖励部分70%进入DGC账户，30%进入DID账户。`,
   WALLET_POG_APP_DOWNLOAD: `自由侠APP下载地址：自由侠APP download address`,
   WALLET_POG_LEVEL: `Current miner level`,
   WALLET_POG_DISCOUNT_RATE: `Current discount rate`,

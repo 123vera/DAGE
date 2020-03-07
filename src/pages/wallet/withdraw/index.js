@@ -212,7 +212,7 @@ class Recharge extends Component {
         <div className={styles.content}>
           <div className={styles.row}>
             <small>
-              {formatMessage({ id: `EXCHANGE_CAN_USE` })}：{initInfo.balance || '--'}
+              {formatMessage({ id: `EXCHANGE_CAN_USE` })}：{downFixed(initInfo.balance) || '--'}
             </small>
           </div>
           <div className={styles.row}>
@@ -227,11 +227,21 @@ class Recharge extends Component {
             </div>
           </div>
           <div className={styles.row}>
-            <label>数量（{coin.label}）</label>
+            <label>
+              {formatMessage({ id: `RECORD_LI_AMOUNT` })}（{coin.label}）
+            </label>
             <div className={styles.inputBox}>
               <input
                 type="text"
                 value={amount}
+                onBlur={() =>
+                  amount &&
+                  this.props.dispatch({
+                    type: 'withdraw/UpdateState',
+                    payload: { amount: downFixed(amount) },
+                  })
+                }
+                autoComplete="off"
                 placeholder={`${formatMessage({ id: `WITHDRAW_MIN` })}0.01`}
                 onChange={e => this.onAmountChange(e.target.value)}
               />
@@ -272,9 +282,10 @@ class Recharge extends Component {
           <ul>
             <li>
               {formatMessage({ id: `WITHDRAW_TIPS_CONTENT_01` })} {initInfo.dayMax}
-              IPT，{formatMessage({ id: `WITHDRAW_TIPS_CONTENT_02` })} {initInfo.amountMin || '--'}-
-              {initInfo.amountMax || '--'} IPT，{formatMessage({ id: `WITHDRAW_TIPS_CONTENT_03` })}
-              {initInfo.serviceCharge} IPT
+              {coin.label}，{formatMessage({ id: `WITHDRAW_TIPS_CONTENT_02` })}{' '}
+              {initInfo.amountMin || '--'}-{initInfo.amountMax || '--'} {coin.label}，
+              {formatMessage({ id: `WITHDRAW_TIPS_CONTENT_03` })}
+              {initInfo.serviceCharge} {coin.label}
             </li>
             <li>{formatMessage({ id: `WITHDRAW_TIPS_CONTENT_04` })}</li>
           </ul>

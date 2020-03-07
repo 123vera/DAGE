@@ -159,7 +159,7 @@ class Index extends Component {
                 onClick={e => this.onShowMenus(e, 'showBeforeMenus', !showBeforeMenus)}
               >
                 {beforeCoin.label}
-                <img src={Icons.arrowDown} alt=""/>
+                <img src={Icons.arrowDown} alt="" />
                 {showBeforeMenus && (
                   <div className={styles.menus}>
                     <Menus
@@ -182,7 +182,7 @@ class Index extends Component {
                 onClick={e => this.onShowMenus(e, 'showAfterMenus', !showAfterMenus)}
               >
                 {afterCoin.label}
-                <img src={Icons.arrowDown} alt=""/>
+                <img src={Icons.arrowDown} alt="" />
                 {showAfterMenus && (
                   <div className={styles.menus}>
                     <Menus
@@ -198,7 +198,7 @@ class Index extends Component {
             </div>
             <small className={styles.notice}>
               {formatMessage({ id: `EXCHANGE_RATE` })}1 {beforeCoin.label} ={' '}
-              {initInfo.RATIO || '--'} {afterCoin.label}
+              {downFixed(initInfo.RATIO) || '--'} {afterCoin.label}
             </small>
             <label>
               <span className={styles.label}>
@@ -208,13 +208,20 @@ class Index extends Component {
                 type="text"
                 autoComplete="off"
                 value={amount}
+                onBlur={() =>
+                  amount &&
+                  this.props.dispatch({
+                    type: 'exchange/UpdateState',
+                    payload: { amount: downFixed(amount) },
+                  })
+                }
                 onChange={e => this.onAmountChange(e.target.value)}
                 placeholder={`${formatMessage({ id: `EXCHANGE_MIN_AMOUNT` })}${initInfo.MIN ||
-                '--'}`}
+                  '--'}`}
               />
               <p className={styles.tips}>
                 {formatMessage({ id: `EXCHANGE_CAN_USE` })}
-                {beforeCoin.label}：{balance}
+                {beforeCoin.label}：{downFixed(balance)}
                 <small>
                   {formatMessage({ id: `EXCHANGE_FEE_RATE` })}
                   {initInfo.CHARGE * 100 || '--'}%
@@ -254,7 +261,6 @@ class Index extends Component {
               {formatMessage({ id: `EXCHANGE_FEE` })}{' '}
               <small>
                 {downFixed(amount * initInfo.RATIO * initInfo.CHARGE)}
-                {/* {downFixed(amount  * initInfo.CHARGE) || '--'} */}
                 &nbsp;({afterCoin.label})
               </small>
             </p>
