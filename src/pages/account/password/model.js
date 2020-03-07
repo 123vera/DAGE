@@ -5,7 +5,7 @@ export default {
   state: {
     prefix: 86,
     phone: undefined,
-    code: undefined,
+    code: '',
     password: '',
     passwordConfirm: '',
     captcha: '',
@@ -22,13 +22,14 @@ export default {
       yield put({
         type: 'UpdateState', payload: {
           phone: undefined,
-          code: undefined,
+          code: '',
           password: '',
           passwordConfirm: '',
           captcha: '',
         },
       });
     },
+
     * GetCaptcha(_, { call, put }) {
       const captchaSrc = yield call(UserApi.getCaptcha, +new Date());
       yield put({ type: 'UpdateState', payload: { captchaSrc } });

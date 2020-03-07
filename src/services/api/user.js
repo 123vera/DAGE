@@ -31,8 +31,8 @@ class UserApi {
    * @required phone number 手机号
    * @required type string 验证码类型，reg（注册）,exchange(币种兑换),cash(提现)
    **/
-  static sendSmsCode(options, key) {
-    return request.post('/user/sendsmscode?key=' + key, { ...options, sid: SID });
+  static sendSmsCode(options) {
+    return request.post('/user/sendsmscode', { ...options, sid: SID });
   }
 
   /**

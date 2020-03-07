@@ -3,27 +3,31 @@ import styles from './index.less';
 import { COUNT_DOWN, REG } from '../../../utils/constants';
 import { formatMessage } from 'umi/locale';
 
-class Index extends Component {
+class SmsCode extends Component {
   state = {
     count: COUNT_DOWN,
   };
 
+  reset = () => {
+    this.setState({ count: COUNT_DOWN });
+    clearTimeout(this.timer);
+  };
+
   countDown = () => {
-    const { getSmsCode, getSmsSuccess = false } = this.props;
+    const { getSmsCode } = this.props;
     const { count } = this.state;
-    if (count === COUNT_DOWN) getSmsCode && getSmsCode();
-    getSmsSuccess &&
-      this.setState({ count: count - 1 }, () => {
-        const { count } = this.state;
-        const timer = setTimeout(() => {
-          if (count >= 0 && count < COUNT_DOWN) {
-            this.countDown();
-          } else {
-            this.setState({ count: COUNT_DOWN });
-            clearTimeout(timer);
-          }
-        }, 1000);
-      });
+    if (count === COUNT_DOWN) {
+      getSmsCode && getSmsCode().then(success => !success && this.reset());
+    }
+
+    this.setState({ count: count - 1 }, () => {
+      const { count } = this.state;
+      this.timer = setTimeout(() => {
+        (count >= 0 && count < COUNT_DOWN)
+          ? this.countDown()
+          : this.reset();
+      }, 1000);
+    });
   };
 
   onChange = value => {
@@ -45,7 +49,7 @@ class Index extends Component {
             type="text"
             value={value}
             maxLength={4}
-            autoComplete={false}
+            autoComplete="off"
             onChange={e => this.onChange(e.target.value)}
             placeholder={formatMessage({ id: `COMMON_PLACEHOLDER_CODE` })}
           />
@@ -58,4 +62,4 @@ class Index extends Component {
   }
 }
 
-export default Index;
+export default SmsCode;
