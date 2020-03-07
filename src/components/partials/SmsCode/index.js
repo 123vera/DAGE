@@ -8,6 +8,10 @@ class SmsCode extends Component {
     count: COUNT_DOWN,
   };
 
+  componentWillUnmount() {
+    this.reset();
+  }
+
   reset = () => {
     this.setState({ count: COUNT_DOWN });
     clearTimeout(this.timer);
