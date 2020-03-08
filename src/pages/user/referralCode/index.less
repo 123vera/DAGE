@@ -11,17 +11,6 @@
     align-items: center;
     margin-top: 80px;
 
-    .qrCode {
-      display: inline-block;
-      background: #fff;
-      font-size: 0;
-      padding: 10px;
-
-      canvas {
-        width: 500px;
-      }
-    }
-
     span {
       margin-top: 56px;
 
@@ -42,3 +31,20 @@
     }
   }
 }
+
+.qrCodeBox {
+  display: inline-block;
+  background: #fff;
+  font-size: 0;
+  padding: 10px;
+
+  .qrCode {
+    display: none;
+  }
+
+  img {
+    width: 250px;
+    height: 250px;
+  }
+}
+

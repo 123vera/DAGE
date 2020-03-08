@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import QRcode from 'qrcode.react';
+import QRCode from 'qrcode.react';
 import { connect } from 'dva';
 import { Toast } from 'antd-mobile';
 import CopyToClipboard from 'react-copy-to-clipboard';
@@ -13,7 +13,6 @@ import { Icons } from '../../../assets';
 @connect(({ globalModel }) => ({ globalModel }))
 class Index extends Component {
   onCopyLink = (text) => {
-    console.log(text);
     text && Toast.info(formatMessage({ id: `USER_COPIED` }));
   };
 
@@ -31,7 +30,7 @@ class Index extends Component {
         myInfo: { recommendCode },
       },
     } = this.props;
-    console.log(recommendCode);
+
     return (
       <div className={styles.referralCode} style={{ backgroundImage: `url(${REFERRAL_CODE})` }}>
         <PageHeader
@@ -40,7 +39,7 @@ class Index extends Component {
         />
         <div className={styles.mainContent}>
           <div className={styles.qrCode}>
-            <QRcode id="qrid" size={250} value='http://wallet.thedage.com/' renderAs="canvas"/>
+            <QrCodeBox key='https://wallet.thedage.com' value='https://wallet.thedage.com'/>
           </div>
           <span>{recommendCode || '--'}</span>
           <CopyToClipboard
@@ -60,3 +59,28 @@ class Index extends Component {
 }
 
 export default Index;
+
+class QrCodeBox extends Component {
+  state = {
+    url: '',
+  };
+
+  componentDidMount() {
+    const canvas = document.querySelector(`.${styles.qrCodeBox} canvas`);
+    const url = canvas && canvas.toDataURL('image/png') || '';
+    this.setState({ url });
+  }
+
+  render() {
+    const { value } = this.props;
+    const { url } = this.state;
+
+    return (
+      <div className={styles.qrCodeBox}>
+        <QRCode className={styles.qrCode} size={250} value={value || ''}/>
+        <br/>
+        <img src={url} alt=""/>
+      </div>
+    );
+  }
+}
