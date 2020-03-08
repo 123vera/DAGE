@@ -1,9 +1,13 @@
 import axios from 'axios';
+// import { getLocale } from 'umi/locale';
 // import { getCookie } from '@/utils/utils';
 import { getApiBaseUrl, optionsToLine, optionsToHump, getHumpData } from './utils';
 import qs from 'qs';
 import { Toast } from 'antd-mobile';
 import { router } from 'umi';
+
+// 对所有 axios 请求做处理
+// axios.defaults.withCredentials = true;
 
 const Request = axios.create({
   timeout: 9000,
@@ -12,6 +16,7 @@ const Request = axios.create({
     Accept: 'application/json, text/plain, */*',
     'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
     // 'Content-Type': 'application/json;charset=UTF-8',
+    // lang: getLocale() || 'ZH_CN',
   },
   // baseURL: '/api',
   withCredentials: true,
@@ -26,9 +31,9 @@ const Request = axios.create({
 
 // 拦截请求
 Request.interceptors.request.use(
-  config => {
+  async config => {
     // 设置请求头
-    // config.headers.lang = config.headers.lang || getCookie('DGC.language') || '';
+    // config.headers.lang = getLocale() || 'ZH_CN';
     return config;
   },
   err => Promise.reject(err),
