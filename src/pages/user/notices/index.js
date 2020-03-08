@@ -34,12 +34,9 @@ class Index extends Component {
           <ListView hasMore={hasMore} onLoadMore={this.getNotices}>
             {list.map(item => (
               <div key={item.id} className={styles.item}>
-                <p onClick={() => router.push(`/notice?url=${encodeURIComponent(item.linkUrl)}`)}>
-                  {item.title}
-                </p>
-                <small>
-                  {dayjs(item.addTime * 1000).format('YYYY-MM-DD HH:mm')}
-                </small>
+                {/* <p onClick={() => router.push(`/notice?url=${encodeURIComponent(item.linkUrl)}`)}> */}
+                <p onClick={() => (window.location.href = item.linkUrl)}>{item.title}</p>
+                <small>{dayjs(item.addTime * 1000).format('YYYY-MM-DD HH:mm')}</small>
               </div>
             ))}
           </ListView>
