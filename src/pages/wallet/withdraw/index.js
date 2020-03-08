@@ -51,10 +51,15 @@ class Recharge extends Component {
     const { dispatch } = this.props;
     dispatch({
       type: 'withdraw/UpdateState',
-      payload: { coin },
+      payload: { coin, walletTo: '', amount: '', code: '' },
+    });
+    dispatch({
+      type: 'globalModel/UpdateState',
+      payload: { captcha: '' },
     });
     dispatch({ type: 'withdraw/WithdrawInit' });
     this.setState({ showMenus: false });
+    router.replace(`/wallet/withdraw?type=${coin.value}`);
   };
 
   getCaptcha = () => {
@@ -128,7 +133,7 @@ class Recharge extends Component {
 
     if (!amount) return Toast.info(formatMessage({ id: `COMMON_PLACEHOLDER_WITHDRAW_AMOUNT` }));
 
-    if (initInfo.balance < amount)
+    if (initInfo.balance < Number(amount))
       return Toast.info(formatMessage({ id: `TOAST_ERR_BALANCE_NOT_ENOUGH` }));
 
     if (!code) return Toast.info(formatMessage({ id: `COMMON_PLACEHOLDER_CODE` }));

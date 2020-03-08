@@ -75,10 +75,6 @@ class WalletFlow extends Component {
             {list.map(item => (
               <li key={item.id}>
                 <div className={styles.row}>
-                  <label>{formatMessage({ id: `RECORD_LI_REMARK` })}</label>
-                  <p>{item.remark}</p>
-                </div>
-                <div className={styles.row}>
                   <label>{formatMessage({ id: `RECORD_LI_ADDRESS` })}</label>
                   <p>{item.walletTo}</p>
                 </div>

@@ -40,7 +40,7 @@ class Index extends Component {
         />
         <div className={styles.mainContent}>
           <div className={styles.qrCode}>
-            <QRcode id="qrid" size={250} value={'https://www.baidu.com'} renderAs="canvas"/>
+            <QRcode id="qrid" size={250} value='http://wallet.thedage.com/' renderAs="canvas"/>
           </div>
           <span>{recommendCode || '--'}</span>
           <CopyToClipboard

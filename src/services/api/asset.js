@@ -78,8 +78,7 @@ class AssetApi {
    *
    **/
   static getWithdrawRecord(options) {
-    return onlinePost('/userasset/stream', options);
-
+    return onlinePost('/userasset/cashlist', options);
   }
 
   /**

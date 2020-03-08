@@ -160,7 +160,6 @@ export default {
   RECORD_WITHDRAW: `提币中`,
   RECORD_MENTION: `提币成功`,
   RECORD_AUDIT_REJECT: `审核拒绝`,
-  RECORD_LI_REMARK: `描述`,
   RECORD_LI_ADDRESS: `地址`,
   RECORD_LI_TIME: `时间`,
   RECORD_LI_AMOUNT: `数量`,

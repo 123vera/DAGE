@@ -159,7 +159,6 @@ export default {
   RECORD_WITHDRAW: `Withdrawing`,
   RECORD_MENTION: `Withdrawal successful`,
   RECORD_AUDIT_REJECT: `Not approved`,
-  RECORD_LI_REMARK: `Description`,
   RECORD_LI_ADDRESS: `Address`,
   RECORD_LI_TIME: `Time`,
   RECORD_LI_AMOUNT: `Amount`,
