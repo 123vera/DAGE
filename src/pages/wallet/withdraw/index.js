@@ -93,8 +93,9 @@ class Recharge extends Component {
   };
 
   onAmountChange = value => {
-    if (value && !/^[0-9.]+$/.test(value)) {
-      return;
+    const reg = /^\d+(\.)?\d{0,2}?$/
+    if (value && !reg.test(value)) {
+      return
     }
     this.props.dispatch({
       type: 'withdraw/UpdateState',
