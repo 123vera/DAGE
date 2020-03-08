@@ -154,7 +154,7 @@ export default {
   WITHDRAW_TIPS_TITLE: `友情提示`,
   WITHDRAW_TIPS_CONTENT_01: `当前，每人每日最高可提现`,
   WITHDRAW_TIPS_CONTENT_02: `单笔转出限额为`,
-  WITHDRAW_TIPS_CONTENT_03: `手续费`,
+  WITHDRAW_TIPS_CONTENT_03: `手续费率`,
   WITHDRAW_TIPS_CONTENT_04: `为了保障资金安全，我们会对提币进行人工审核，请耐心等待。`,
 
   RECORD_TITLE: `提币记录`,

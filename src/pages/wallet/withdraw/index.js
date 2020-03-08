@@ -47,6 +47,7 @@ class Recharge extends Component {
         type: 'withdraw/UpdateState',
         payload: { coin },
       });
+      this.changeCoin(coin);
     });
   };
 
@@ -93,9 +94,9 @@ class Recharge extends Component {
   };
 
   onAmountChange = value => {
-    const reg = /^\d+(\.)?\d{0,2}?$/
+    const reg = /^\d+(\.)?\d{0,2}?$/;
     if (value && !reg.test(value)) {
-      return
+      return;
     }
     this.props.dispatch({
       type: 'withdraw/UpdateState',
@@ -238,7 +239,7 @@ class Recharge extends Component {
             </div>
             <aside>
               {formatMessage({ id: `WITHDRAW_FEE` })}
-              {downFixed(serviceCharge * 100)}%
+              {amount ? downFixed(serviceCharge * 100) : '--'}%
             </aside>
           </div>
           <Captcha
@@ -252,7 +253,7 @@ class Recharge extends Component {
           </div>
           <div className={styles.group}>
             <small>{formatMessage({ id: `EXCHANGE_FEE` })}</small>
-            <small>{downFixed(fee)}</small>
+            <small>{amount ? downFixed(fee) : '--'}</small>
           </div>
           <div className={styles.group}>
             <span>{formatMessage({ id: `EXCHANGE_PAIDIN_AMOUNT` })}</span>
@@ -272,8 +273,7 @@ class Recharge extends Component {
               {downFixed(initInfo.amountMin) || '--'}-{downFixed(initInfo.amountMax) || '--'}
               {coin.label}，
               {formatMessage({ id: `WITHDRAW_TIPS_CONTENT_03` })}
-              {downFixed(fee)}
-              {coin.label}
+              {amount ? downFixed(serviceCharge): '--'}%
             </li>
             <li>{formatMessage({ id: `WITHDRAW_TIPS_CONTENT_04` })}</li>
           </ul>

@@ -152,7 +152,7 @@ export default {
   WITHDRAW_TIPS_TITLE: `Reminder`,
   WITHDRAW_TIPS_CONTENT_01: `Currently, the maximum daily withdrawal per person is`,
   WITHDRAW_TIPS_CONTENT_02: `Single transfer limit`,
-  WITHDRAW_TIPS_CONTENT_03: `Handling fee`,
+  WITHDRAW_TIPS_CONTENT_03: `Handling fee rate`,
   WITHDRAW_TIPS_CONTENT_04: `In order to ensure the safety of funds, we will manually review the withdrawal, please be patient.`,
 
   RECORD_TITLE: `Withdrawal Records`,

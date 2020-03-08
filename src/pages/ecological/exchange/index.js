@@ -204,7 +204,8 @@ class Index extends Component {
               </span>
             </div>
             <small className={styles.notice}>
-              {formatMessage({ id: `EXCHANGE_RATE` })}1 {beforeCoin.label} ={' '}
+              {formatMessage({ id: `EXCHANGE_RATE` })}
+              {downFixed(1)} {beforeCoin.label} ={' '}
               {downFixed(initInfo.RATIO) || '--'} {afterCoin.label}
             </small>
             <label>
@@ -231,7 +232,7 @@ class Index extends Component {
                 {beforeCoin.label}：{downFixed(balance)}
                 <small>
                   {formatMessage({ id: `EXCHANGE_FEE_RATE` })}
-                  {initInfo.CHARGE * 100 || '--'}%
+                  {amount ? downFixed(initInfo.CHARGE * 100) : '--'}%
                 </small>
               </p>
             </label>
@@ -267,7 +268,7 @@ class Index extends Component {
             <p className={`${styles.labelTag} ${styles.small}`}>
               {formatMessage({ id: `EXCHANGE_FEE` })}{' '}
               <small>
-                {downFixed(amount * initInfo.RATIO * initInfo.CHARGE)}
+                {amount  ? downFixed(amount * initInfo.RATIO * initInfo.CHARGE) : '--'}
                 &nbsp;({afterCoin.label})
               </small>
             </p>
