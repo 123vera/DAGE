@@ -54,7 +54,7 @@ export default {
       const res = yield call(AssetApi.getServiceCharge, {
         address: walletTo,
         // currency:'USDT' , // coin.value
-        type: coin.value,
+        currency: coin.value,
       });
       if (res.status === 1) {
         yield put({

@@ -8,8 +8,8 @@ class AssetApi {
    * @required address string 钱包地址
    * @required currency string 币种
    **/
-  static getServiceCharge(options) {
-    return request.post('/userasset/walletforaddress', options);
+  static getServiceCharge(params) {
+    return request.get('/userasset/walletforaddress', { params });
   }
 
   /**

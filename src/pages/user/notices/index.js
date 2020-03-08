@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PageHeader from '../../../components/common/PageHeader';
 import dayjs from 'dayjs';
 import { connect } from 'dva';
-import { router } from 'umi';
 import styles from './index.less';
 import { formatMessage } from 'umi/locale';
 import { Toast } from 'antd-mobile';

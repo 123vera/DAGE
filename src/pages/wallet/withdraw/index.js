@@ -166,7 +166,11 @@ class Recharge extends Component {
     const { showMenus } = this.state;
     const { captchaSrc, captcha } = this.props.globalModel;
     const { coin, initInfo, walletTo, amount, code, coinList } = this.props.withdraw;
-    const fee = amount * initInfo.serviceCharge;
+
+    // 计算收入和手续费
+    let { serviceCharge } = this.props.withdraw;
+    serviceCharge = (walletTo && serviceCharge !== undefined) ? serviceCharge : initInfo.serviceCharge;
+    const fee = serviceCharge ? Number(amount) * serviceCharge : 0.00;
     const realIncome = amount - fee;
 
     return (
@@ -233,7 +237,7 @@ class Recharge extends Component {
             </div>
             <aside>
               {formatMessage({ id: `WITHDRAW_FEE` })}
-              {initInfo.serviceCharge * 100 || '--'}%
+              {downFixed(serviceCharge * 100)}%
             </aside>
           </div>
           <Captcha
@@ -247,7 +251,7 @@ class Recharge extends Component {
           </div>
           <div className={styles.group}>
             <small>{formatMessage({ id: `EXCHANGE_FEE` })}</small>
-            <small>{fee ? downFixed(fee) : '--'}</small>
+            <small>{downFixed(fee)}</small>
           </div>
           <div className={styles.group}>
             <span>{formatMessage({ id: `EXCHANGE_PAIDIN_AMOUNT` })}</span>
@@ -261,11 +265,14 @@ class Recharge extends Component {
           <label>{formatMessage({ id: `WITHDRAW_TIPS_TITLE` })}</label>
           <ul>
             <li>
-              {formatMessage({ id: `WITHDRAW_TIPS_CONTENT_01` })} {initInfo.dayMax}
-              {coin.label}，{formatMessage({ id: `WITHDRAW_TIPS_CONTENT_02` })}{' '}
-              {initInfo.amountMin || '--'}-{initInfo.amountMax || '--'} {coin.label}，
+              {formatMessage({ id: `WITHDRAW_TIPS_CONTENT_01` })}
+              {downFixed(initInfo.dayMax)}
+              {coin.label}，{formatMessage({ id: `WITHDRAW_TIPS_CONTENT_02` })}
+              {downFixed(initInfo.amountMin) || '--'}-{downFixed(initInfo.amountMax) || '--'}
+              {coin.label}，
               {formatMessage({ id: `WITHDRAW_TIPS_CONTENT_03` })}
-              {initInfo.serviceCharge} {coin.label}
+              {downFixed(fee)}
+              {coin.label}
             </li>
             <li>{formatMessage({ id: `WITHDRAW_TIPS_CONTENT_04` })}</li>
           </ul>

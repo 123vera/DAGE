@@ -22,7 +22,7 @@ class Index extends Component {
             src={url}
             id="iframe1"
             scrolling="no"
-          ></iframe>
+          />
         </div>
       </div>
     );
