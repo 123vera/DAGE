@@ -14,29 +14,30 @@ class Index extends Component {
     this.props.confirm(i.tel);
   };
 
+  arraySort = field => {
+    return (a, b) => {
+      return a[field.toLowerCase()] - b[field.toLowerCase()];
+    };
+  };
+
   render() {
     const { activeKey } = this.state;
     const { show, cancel } = this.props;
-    // const arr = [
-    //   { short: 'AF', name: '阿富汗', en: 'Afghanistan', tel: '93' },
-    //   {
-    //     short: 'VG',
-    //     name: '安提瓜和巴布达',
-    //     en: 'CntiguaandBarbuda',
-    //     tel: '1268',
-    //   },
-    //   { short: 'AI', name: '安圭拉岛', en: 'Bnguilla', tel: '1264' },
-    // ];
-    // Object.keys(arr).sort(key => {
-    // console.log(arr[key]); // 获取到属性对应的值，做一些处理
-    // });
-    // console.log(arr.filter(i => i.en));
-    // Object.values(arr.filter(i => i.en)),
-    // .reverse(),
-    // console.log(
-    //   Object.values(TEL_PREFIX_DATA).sort(TEL_PREFIX_DATA.en),
-    //   // .reverse(),
-    // );
+    var compare = function(property) {
+      return function(a, b) {
+        var value1 = a[property];
+        var value2 = b[property];
+        return value1 - value2;
+      };
+    };
+    const arr = [
+      { id: 2, short: 'AF', name: '阿富汗', en: 'Afghanistan', tel: '93' },
+      { id: 3, short: 'VG', name: '安提瓜和巴布达', en: 'CntiguaandBarbuda', tel: '1268' },
+      { id: 0, short: 'AI', name: '安圭拉岛', en: 'Bnguilla', tel: '1264' },
+    ];
+    arr.sort(compare('en'));
+    console.log(arr);
+
     return (
       <div className={`${styles.telPopup} ${show ? styles.show : ''}`}>
         <PageHeader
