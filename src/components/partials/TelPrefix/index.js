@@ -6,6 +6,7 @@ import TEL_PREFIX_DATA from '@/utils/tel-prefix';
 import styles from './index.less';
 import { formatMessage } from 'umi-plugin-locale';
 
+// 排序
 TEL_PREFIX_DATA.sort(function(a, b) {
   return a.en.charCodeAt(0) - b.en.charCodeAt(0);
 });
@@ -41,7 +42,7 @@ class Index extends Component {
               onClick={() => this.onSelect(i, key)}
             >
               <label>{i.en + i.name}</label>
-              {activeKey === key && <img src={CHECKED} alt=""/>}
+              {activeKey === key && <img src={CHECKED} alt="" />}
             </li>
           ))}
         </ul>
