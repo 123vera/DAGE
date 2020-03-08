@@ -31,36 +31,37 @@ class WalletFlow extends Component {
     this.getInitCoins().then();
   }
 
+  initData = (coin) => {
+    this.props.dispatch({
+      type: 'walletFlow/UpdateState',
+      payload: { coin, list: [], page: 1 },
+    });
+  };
+
   getInitCoins = async () => {
     const { dispatch } = this.props;
     await dispatch({
       type: 'globalModel/ExchangeInit',
     });
-    let menus = [];
-    let iArr = [];
-    this.props.globalModel.coinTeams.forEach(team => {
-      team.split('_').map(i => iArr.push(i));
-    });
 
-    [...new Set(iArr)].forEach(value => {
-      menus.push({
+    const { coinTeams } = this.props.globalModel;
+    let arr = [];
+    coinTeams.forEach(team => {
+      team.split('_').map(i => arr.push(i));
+    });
+    const menus = [...new Set(arr)].map(value => {
+      return {
         label: value.toUpperCase(),
         value: value.toLowerCase(),
-      });
+      };
     });
-
-    await dispatch({
-      type: 'walletFlow/UpdateState',
-      payload: { coin: menus[0] },
-    });
+    this.setState({ menus });
+    this.initData(menus[0]);
     this.getFlow();
   };
 
   changeCoin = async coin => {
-    await this.props.dispatch({
-      type: 'walletFlow/UpdateState',
-      payload: { coin, list: [], page: 1 },
-    });
+    this.initData(coin);
     this.getFlow();
     this.setState({ showMenus: false });
   };
@@ -77,21 +78,7 @@ class WalletFlow extends Component {
 
   render() {
     const { coin, balance, list, hasMore } = this.props.walletFlow;
-    const { showMenus } = this.state;
-    const { coinTeams } = this.props.globalModel;
-
-    let menus = [];
-    let iArr = [];
-    coinTeams.forEach(team => {
-      team.split('_').map(i => iArr.push(i));
-    });
-
-    [...new Set(iArr)].forEach(value => {
-      menus.push({
-        label: value.toUpperCase(),
-        value: value.toLowerCase(),
-      });
-    });
+    const { showMenus, menus } = this.state;
 
     return (
       <div className={styles.walletFlow}>

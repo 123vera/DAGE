@@ -48,7 +48,6 @@ class Index extends Component {
 
   toNext = () => {
     const { userName, recommendCode } = this.props.login;
-    console.log(userName, recommendCode);
     if (!userName) {
       this.setState({
         errMsg: {

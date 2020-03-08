@@ -72,19 +72,21 @@ class Home extends Component {
         Toast.fail(res.msg);
         return;
       }
-      const { prefix, accountToken, userList } = res.data;
+      const { accountToken, userList } = res.data;
       this.props.dispatch({
         type: 'login/UpdateState',
         payload: { accountToken, userList },
       });
+      Cookies.remove('ACCOUNT_TOKEN');
       Cookies.set('ACCOUNT_TOKEN', accountToken);
-      Cookies.set('USER_PHONE', phone);
-      Cookies.set('USER_PREFIX', prefix);
       this.setState({ errMsg: { type: '', value: '' } }, () => {
         router.push('/select_account');
       });
     });
   };
+
+  // OP_8333aa05839f989f922b35421a070464
+  // OP_8333aa05839f989f922b35421a070464
 
   render() {
     const { prefix } = this.props.login;
@@ -100,11 +102,11 @@ class Home extends Component {
                 <span className={styles.label}>{formatMessage({ id: `COMMON_LABEL_PHONE` })}</span>
                 <div
                   className={`${styles.pickerWrapper} ${errMsg.type === 'phone' &&
-                    styles.inputErr}`}
+                  styles.inputErr}`}
                 >
                   <span onClick={this.onOpenPrefix}>
                     +{prefix}
-                    <img src={Icons.arrowDown} alt="" />
+                    <img src={Icons.arrowDown} alt=""/>
                   </span>
                   <input
                     type="number"
@@ -136,7 +138,7 @@ class Home extends Component {
                 </span>
               </div>
 
-              <img className={styles.nextStep} src={Images.nextStep} onClick={this.toNext} alt="" />
+              <img className={styles.nextStep} src={Images.nextStep} onClick={this.toNext} alt=""/>
             </div>
           </section>
         </div>

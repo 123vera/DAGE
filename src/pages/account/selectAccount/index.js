@@ -44,6 +44,7 @@ class Index extends Component {
           Toast.fail(res.msg);
           return;
         }
+        Cookies.remove('OPENID');
         Cookies.set('OPENID', res.data.openId);
         router.push('/home/wallet');
       });
