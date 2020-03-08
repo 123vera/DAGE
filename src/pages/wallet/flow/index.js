@@ -28,7 +28,7 @@ class WalletFlow extends Component {
   };
 
   componentDidMount() {
-    this.getInitCoins();
+    this.getInitCoins().then();
   }
 
   getInitCoins = async () => {
@@ -110,11 +110,11 @@ class WalletFlow extends Component {
                 onClick={() => this.setState({ showMenus: !showMenus })}
               >
                 {coin.label}
-                <img src={Icons.arrowUpDown} alt="" />
+                <img src={Icons.arrowUpDown} alt=""/>
               </div>
               {showMenus && (
                 <div className={styles.options}>
-                  <Menus menus={menus} textAlign="center" hasBorder onHandle={this.changeCoin} />
+                  <Menus menus={menus} textAlign="center" hasBorder onHandle={this.changeCoin}/>
                 </div>
               )}
             </div>
@@ -132,9 +132,7 @@ class WalletFlow extends Component {
                   <div className={styles.label}>
                     {item.remark}
                     <small>
-                      {dayjs()
-                        .millisecond(item.addTime)
-                        .format('YYYY-MM-DD')}
+                      {dayjs(item.addTime * 1000).format('YYYY-MM-DD HH:mm')}
                     </small>
                   </div>
                   <div className={styles.value}>{downFixed(item.amount)}</div>

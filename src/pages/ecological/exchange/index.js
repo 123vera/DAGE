@@ -116,11 +116,12 @@ class Index extends Component {
   onSubmit = () => {
     const { dispatch, exchange } = this.props;
     const { amount, balance, code } = exchange;
+
     if (!amount) {
       Toast.info(formatMessage({ id: `EXCHANGE_PLACEHOLDER_AMOUNT` }));
       return;
     }
-    if (amount > balance) {
+    if (Number(amount) > Number(balance)) {
       Toast.info(formatMessage({ id: `EXCHANGE_BALANCE_NOT_ENOUGH` }));
       return;
     }
@@ -142,8 +143,6 @@ class Index extends Component {
     let beforeCoins = [beforeCoin];
     let afterCoins = [afterCoin];
 
-    console.log(amount * initInfo.RATIO * initInfo.CHARGE);
-
     return (
       <div className={styles.exchange} onClick={this.onHideMenus}>
         <PageHeader
@@ -159,7 +158,7 @@ class Index extends Component {
                 onClick={e => this.onShowMenus(e, 'showBeforeMenus', !showBeforeMenus)}
               >
                 {beforeCoin.label}
-                <img src={Icons.arrowDown} alt="" />
+                <img src={Icons.arrowDown} alt=""/>
                 {showBeforeMenus && (
                   <div className={styles.menus}>
                     <Menus
@@ -182,7 +181,7 @@ class Index extends Component {
                 onClick={e => this.onShowMenus(e, 'showAfterMenus', !showAfterMenus)}
               >
                 {afterCoin.label}
-                <img src={Icons.arrowDown} alt="" />
+                <img src={Icons.arrowDown} alt=""/>
                 {showAfterMenus && (
                   <div className={styles.menus}>
                     <Menus
@@ -217,7 +216,7 @@ class Index extends Component {
                 }
                 onChange={e => this.onAmountChange(e.target.value)}
                 placeholder={`${formatMessage({ id: `EXCHANGE_MIN_AMOUNT` })}${initInfo.MIN ||
-                  '--'}`}
+                '--'}`}
               />
               <p className={styles.tips}>
                 {formatMessage({ id: `EXCHANGE_CAN_USE` })}

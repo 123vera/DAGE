@@ -1,4 +1,4 @@
-import { UserApi, OtherApi, AssetApi } from '../../services/api';
+import { UserApi, OtherApi } from '../../services/api';
 
 export default {
   namespace: 'wallet',
@@ -33,15 +33,6 @@ export default {
       }
       return res;
     },
-    * GetReward({ payload }, { call, select, put }) {
-      const res = yield call(AssetApi.getRewarList, { page: 1, row: 1 });
-      if (res.status === 1) {
-        yield put({
-          type: 'UpdateState',
-          payload: { reward: res.data[0] || {} },
-        });
-      }
-      return res;
-    },
+
   },
 };

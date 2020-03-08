@@ -3,6 +3,16 @@
 .miningDetail {
   min-height: 100vh;
   font-weight: 600;
+  padding-top: @header-height;
+
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: @theme-color-bg;
+    z-index: 10;
+  }
 
   .summary {
     padding: 50px 60px;

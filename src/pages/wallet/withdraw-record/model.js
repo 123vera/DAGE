@@ -26,7 +26,7 @@ export default {
             balance: res.data.balance,
             list,
             page: page + 1,
-            hasMore: row === res.data.length,
+            hasMore: row === res.data.list.length,
           },
         });
       }

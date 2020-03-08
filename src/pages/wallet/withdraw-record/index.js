@@ -71,9 +71,7 @@ class WalletFlow extends Component {
                 <div className={styles.row}>
                   <label>{formatMessage({ id: `RECORD_LI_TIME` })}</label>
                   <p>
-                    {dayjs()
-                      .millisecond(item.addTime)
-                      .format('YYYY-MM-DD')}
+                    {dayjs(item.addTime * 1000).format('YYYY-MM-DD HH:mm')}
                   </p>
                 </div>
                 <div className={styles.row}>

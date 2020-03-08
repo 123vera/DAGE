@@ -129,6 +129,7 @@ export default {
   FLOW_BALANCE: `余额：`,
 
   REWARD_DETAIL_TITLE: `收益详情`,
+  REWARD_DETAIL_TOTAL_INCOME: `返点总收益`,
   MINING_DETAIL_TITLE: `挖矿详情`,
   MINING_DETAIL_TOTAL_INCOME: `挖矿总收益`,
   MINING_DETAIL_MONOMER: `单体挖矿`,

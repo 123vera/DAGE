@@ -1,13 +1,11 @@
 import { AssetApi } from '../../../services/api';
 
 export default {
-  namespace: 'walletFlow',
+  namespace: 'rewardDetail',
   state: {
-    coin: {},
     hasMore: true,
     page: 1,
     row: 10,
-    balance: '',
     list: [],
   },
   reducers: {
@@ -16,19 +14,14 @@ export default {
     },
   },
   effects: {
-    * GetAssetFlow(_, { call, select, put }) {
-      const { coin, page, row, list } = yield select(state => state.walletFlow);
-      const res = yield call(AssetApi.getAssetFlow, {
-        type: coin.value,
-        page,
-        row,
-      });
+    * GetReward({ payload }, { call, select, put }) {
+      const { page, row, list } = yield select(state => state.rewardDetail);
+      const res = yield call(AssetApi.getRewardList, { page, row });
       if (res.status === 1) {
         list.push(...res.data.list);
         yield put({
           type: 'UpdateState',
           payload: {
-            balance: res.data.balance,
             list,
             page: page + 1,
             hasMore: row === res.data.list.length,

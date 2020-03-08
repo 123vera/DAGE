@@ -3,45 +3,58 @@ import styles from './index.less';
 import Header from '../../../components/common/Header';
 import { Icons } from '../../../assets';
 import { formatMessage } from 'umi/locale';
+import ListView from '../../../components/common/ListView';
+import dayjs from 'dayjs';
+import { connect } from 'dva';
+import { downFixed } from '../../../utils/utils';
 
+@connect(({ rewardDetail, globalModel }) => ({ rewardDetail, globalModel }))
 class MiningDetail extends Component {
+
+  componentDidMount() {
+    this.getReward();
+  }
+
+  getReward = callback => {
+    this.props.dispatch({ type: 'rewardDetail/GetReward' }).then(res => {
+      callback && callback();
+    });
+  };
+
   render() {
+    const { myInfo } = this.props.globalModel;
+    let { list = [], hasMore = true } = this.props.rewardDetail;
+
     return (
       <div className={styles.miningDetail}>
-        <Header icon={Icons.arrowLeft} title={formatMessage({ id: `REWARD_DETAIL_TITLE` })} />
+        <div className={styles.header}>
+          <Header icon={Icons.arrowLeft} title={formatMessage({ id: `REWARD_DETAIL_TITLE` })}/>
+        </div>
         <section>
           <div className={styles.summary}>
             <span>
-              1460<i>DGC</i>
+              {downFixed(myInfo.yestodayReward) || '--'}<i>DID</i>
             </span>
-            <br />
-            <small>{formatMessage({ id: `MINING_DETAIL_TOTAL_INCOME` })}</small>
+            <br/>
+            <small>{formatMessage({ id: `REWARD_DETAIL_TOTAL_INCOME` })}</small>
           </div>
         </section>
         <section>
-          <ul>
-            <li>
-              <div className={styles.label}>
-                {formatMessage({ id: `MINING_DETAIL_MONOMER` })}
-                <small>02-14 14:43</small>
-              </div>
-              <div className={styles.value}>+ 300</div>
-            </li>
-            <li>
-              <div className={styles.label}>
-                {formatMessage({ id: `MINING_DETAIL_JOINT` })}
-                <small>02-14 14:43</small>
-              </div>
-              <div className={styles.value}>+ 300</div>
-            </li>
-            <li>
-              <div className={styles.label}>
-                {formatMessage({ id: `MINING_DETAIL_COLLECTIVE` })}
-                <small>02-14 14:43</small>
-              </div>
-              <div className={styles.value}>+ 300</div>
-            </li>
-          </ul>
+          <ListView hasMore={hasMore} onLoadMore={this.getReward}>
+            <ul>
+              {list.map((item, key) => (
+                <li key={key}>
+                  <div className={styles.label}>
+                    {'暂无描述信息'}
+                    <small>
+                      {dayjs(item.addTime * 1000).format('YYYY-MM-DD HH:mm')}
+                    </small>
+                  </div>
+                  <div className={styles.value}>{item.amount}</div>
+                </li>
+              ))}
+            </ul>
+          </ListView>
         </section>
       </div>
     );

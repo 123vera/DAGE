@@ -80,21 +80,6 @@ class AssetApi {
   static getWithdrawRecord(options) {
     return onlinePost('/userasset/stream', options);
 
-    // const data = [];
-    // const order = (options.page - 1) * options.row;
-    // for (let i = order; i < options.row + order; i++) {
-    //   data.push({
-    //     addTime: +new Date(),
-    //     walletTo: '78sdjhsdsnjd7878ksdj',
-    //     serviceCharge: '0.20',
-    //     type: options.type,
-    //     amount: 300 + i,
-    //     userId: '32424232',
-    //     id: i,
-    //     status: Math.floor(Math.random() * 4),
-    //   });
-    // }
-    // return new Promise(resolve => setTimeout(() => resolve({ status: 1, data }), 500));
   }
 
   /**
@@ -130,8 +115,22 @@ class AssetApi {
    * @required openId string 用户openid
    *
    **/
-  static getRewarList(options) {
+  static getRewardList(options) {
     return onlinePost('/userasset/rewardlist', options);
+
+    // const list = [];
+    // const order = (options.page - 1) * options.row;
+    // for (let i = order; i < options.row + order; i++) {
+    //   list.push({
+    //     addTime: +Math.floor(new Date() / 1000),
+    //     type: options.type,
+    //     amount: 300 + i,
+    //   });
+    // }
+    // return new Promise(resolve => setTimeout(() => resolve({
+    //   status: 1,
+    //   data: { list, pageCount: 30 },
+    // }), 500));
   }
 }
 

@@ -38,9 +38,7 @@ class Index extends Component {
                   {item.title}
                 </p>
                 <small>
-                  {dayjs()
-                    .millisecond(item.addTime)
-                    .format('YYYY-MM-DD')}
+                  {dayjs(item.addTime * 1000).format('YYYY-MM-DD HH:mm')}
                 </small>
               </div>
             ))}

@@ -128,6 +128,7 @@ export default {
   FLOW_BALANCE: `Balance：`,
 
   REWARD_DETAIL_TITLE: `Reward details`,
+  REWARD_DETAIL_TOTAL_INCOME: `返点总收益`,
   MINING_DETAIL_TITLE: `Mining details`,
   MINING_DETAIL_TOTAL_INCOME: `Mining Revenue`,
   MINING_DETAIL_MONOMER: `Single mining`,
