@@ -205,7 +205,7 @@ class Recharge extends Component {
           />
           {showMenus && (
             <div className={styles.menus}>
-              <Menus menus={menus} hasBorder textAlign="center" onHandle={this.changeCoin}/>
+              <Menus menus={menus} hasBorder textAlign="center" onHandle={this.changeCoin} />
             </div>
           )}
         </div>
@@ -243,7 +243,8 @@ class Recharge extends Component {
                   })
                 }
                 autoComplete="off"
-                placeholder={`${formatMessage({ id: `WITHDRAW_MIN` })}0.01`}
+                placeholder={`${formatMessage({ id: `WITHDRAW_MIN` })}${initInfo.amountMin ||
+                  '--'}`}
                 onChange={e => this.onAmountChange(e.target.value)}
               />
             </div>
@@ -259,11 +260,7 @@ class Recharge extends Component {
             getCaptcha={this.getCaptcha}
           />
           <div className={styles.row}>
-            <SmsCode
-              value={code}
-              getSmsCode={this.getSmsCode}
-              onChange={this.onCodeChange}
-            />
+            <SmsCode value={code} getSmsCode={this.getSmsCode} onChange={this.onCodeChange} />
           </div>
           <div className={styles.group}>
             <small>{formatMessage({ id: `EXCHANGE_FEE` })}</small>

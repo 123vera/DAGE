@@ -38,6 +38,8 @@ class Home extends Component {
   }
 
   onOpenPrefix = e => {
+    const { type } = this.props.password;
+    if (type !== 'find_password') return;
     e.preventDefault();
     this.setState({ showPrefix: true });
   };
