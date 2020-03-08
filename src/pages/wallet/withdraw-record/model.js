@@ -3,7 +3,7 @@ import { AssetApi } from '../../../services/api';
 export default {
   namespace: 'withdrawRecord',
   state: {
-    type: 'dgt',
+    type: 'usdt',
     hasMore: true,
     page: 1,
     row: 10,

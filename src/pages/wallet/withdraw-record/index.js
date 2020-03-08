@@ -35,6 +35,9 @@ const withdrawStatus = [
 @connect(({ withdrawRecord }) => ({ withdrawRecord }))
 class WalletFlow extends Component {
   componentDidMount() {
+    const { location, dispatch } = this.props;
+    const { type } = location.query;
+    dispatch({ type: 'withdrawRecord/UpdateState', payload: { type } });
     this.getWithdrawRecord();
   }
 

@@ -200,7 +200,7 @@ class Recharge extends Component {
             }}
             rightContent={{
               icon: Icons.record,
-              onHandle: () => router.push('/wallet/withdraw-record'),
+              onHandle: () => router.push(`/wallet/withdraw-record?type=${coin.value}`),
             }}
           />
           {showMenus && (
