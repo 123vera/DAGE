@@ -36,7 +36,10 @@ export default {
         accountToken: login.accountToken || Cookies.get('ACCOUNT_TOKEN'),
       });
       if (res.status === 1) {
-        yield put({ type: 'UpdateState', payload: { userList: res.data } });
+        const userId = Number(Cookies.get('USER_ID'));
+        const user = res.data.find(i => i.userId === userId) || res.data[0] || {};
+        yield put({ type: 'UpdateState', payload: { userList: res.data, userId: user.userId } });
+        Cookies.set('USER_ID', user.userId);
       }
       return res;
     },

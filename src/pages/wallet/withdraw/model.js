@@ -3,7 +3,11 @@ import { AssetApi } from '../../../services/api';
 export default {
   namespace: 'withdraw',
   state: {
-    coin: {},
+    coinList: [],
+    coin: {
+      value: 'usdt',
+      label: 'USDT',
+    },
     initInfo: {},
     walletTo: '',
     // walletTo: '0x17e3e0189447416d412a3d92a240a06178a98c3d',
@@ -17,14 +21,22 @@ export default {
     },
   },
   effects: {
-    *WithdrawInit(_, { call, select, put }) {
+    * WithdrawInit(_, { call, select, put }) {
       const { coin } = yield select(state => state.withdraw);
       const res = yield call(AssetApi.withdrawInit, { type: coin.value });
       if (res.status === 1) {
-        yield put({ type: 'UpdateState', payload: { initInfo: res.data } });
+        const { typeList } = res.data;
+        const coinList = typeList.map(i => {
+          return {
+            label: i.toUpperCase(),
+            value: i.toLowerCase(),
+          };
+        }) || [];
+        yield put({ type: 'UpdateState', payload: { initInfo: res.data, coinList } });
       }
+      return res;
     },
-    *Withdraw(_, { call, select }) {
+    * Withdraw(_, { call, select }) {
       const { coin, walletTo, amount, code } = yield select(state => state.withdraw);
       console.log(coin);
       return yield call(AssetApi.submitWithdrawal, {

@@ -10,7 +10,7 @@ import TelPrefix from '../../../components/partials/TelPrefix';
 import { Icons, Images } from '../../../assets';
 
 @connect(({ globalModel, login }) => ({ globalModel, login }))
-class Home extends Component {
+class Login extends Component {
   state = {
     showPrefix: false,
     errMsg: {
@@ -18,6 +18,12 @@ class Home extends Component {
       value: '',
     },
   };
+
+  componentDidMount() {
+    Cookies.remove('ACCOUNT_TOKEN');
+    Cookies.remove('USER_ID');
+    Cookies.remove('OPENID');
+  }
 
   onOpenPrefix = e => {
     e.preventDefault();
@@ -77,16 +83,12 @@ class Home extends Component {
         type: 'login/UpdateState',
         payload: { accountToken, userList },
       });
-      Cookies.remove('ACCOUNT_TOKEN');
       Cookies.set('ACCOUNT_TOKEN', accountToken);
       this.setState({ errMsg: { type: '', value: '' } }, () => {
         router.push('/select_account');
       });
     });
   };
-
-  // OP_8333aa05839f989f922b35421a070464
-  // OP_8333aa05839f989f922b35421a070464
 
   render() {
     const { prefix } = this.props.login;
@@ -153,4 +155,7 @@ class Home extends Component {
   }
 }
 
-export default Home;
+export default Login;
+
+// OP_8333aa05839f989f922b35421a070464
+// OP_8333aa05839f989f922b35421a070464

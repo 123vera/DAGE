@@ -12,22 +12,10 @@ import { REG } from '../../../utils/constants';
 import { downFixed } from '../../../utils/utils';
 import { formatMessage } from 'umi/locale';
 
-// const menus = [
-//   {
-//     value: 'dgt',
-//     label: 'DGT',
-//   },
-//   {
-//     value: 'usdt',
-//     label: 'USDT',
-//   },
-// ];
-
 @connect(({ withdraw, globalModel }) => ({ withdraw, globalModel }))
 class Recharge extends Component {
   state = {
     showMenus: true,
-    menus: [],
   };
 
   componentDidMount() {
@@ -37,29 +25,20 @@ class Recharge extends Component {
 
   getInitCoins = async () => {
     const { dispatch, location } = this.props;
-    await dispatch({ type: 'globalModel/ExchangeInit' });
-    const { coinTeams } = this.props.globalModel;
     const { type } = location.query;
 
-    let arr = [];
-    coinTeams.forEach(team => {
-      team.split('_').map(i => arr.push(i));
-    });
-    const menus = [...new Set(arr)].map(value => {
-      return {
-        label: value.toUpperCase(),
-        value: value.toLowerCase(),
-      };
-    });
-    this.setState({ menus });
-    const coin = menus.find(menu => menu.value === type) || menus[0];
-    setTimeout(() => {
+    dispatch({ type: 'withdraw/WithdrawInit' }).then(res => {
+      if (res.status !== 1) {
+        return Toast.info(res.msg);
+      }
+      const { coinList } = this.props.withdraw;
+      const coin = coinList.find(i => i.value === type) || coinList[0];
       dispatch({
         type: 'withdraw/UpdateState',
         payload: { coin },
       });
-    }, 100);
-    this.changeCoin(coin);
+      this.changeCoin(coin);
+    });
   };
 
   toggleShowMenus = e => {
@@ -163,9 +142,9 @@ class Recharge extends Component {
   };
 
   render() {
-    const { showMenus, menus } = this.state;
+    const { showMenus } = this.state;
     const { captchaSrc, captcha } = this.props.globalModel;
-    const { coin, initInfo, walletTo, amount, code } = this.props.withdraw;
+    const { coin, initInfo, walletTo, amount, code, coinList } = this.props.withdraw;
     const fee = amount * initInfo.serviceCharge;
     const realIncome = amount - fee;
 
@@ -188,7 +167,7 @@ class Recharge extends Component {
           />
           {showMenus && (
             <div className={styles.menus}>
-              <Menus menus={menus} hasBorder textAlign="center" onHandle={this.changeCoin}/>
+              <Menus menus={coinList} hasBorder textAlign="center" onHandle={this.changeCoin}/>
             </div>
           )}
         </div>

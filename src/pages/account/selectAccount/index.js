@@ -35,16 +35,15 @@ class Index extends Component {
   };
 
   toNext = () => {
-    this.props
-      .dispatch({
-        type: 'login/SelectUser',
-      })
+    const { login, dispatch } = this.props;
+    dispatch({ type: 'login/SelectUser' })
       .then(res => {
         if (res.status !== 1) {
           Toast.fail(res.msg);
           return;
         }
         Cookies.remove('OPENID');
+        Cookies.set('USER_ID', login.userId);
         Cookies.set('OPENID', res.data.openId);
         router.push('/home/wallet');
       });
