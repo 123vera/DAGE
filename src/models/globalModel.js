@@ -64,7 +64,7 @@ export default {
           '/exchange',
           '/reset_password/verify',
           '/referral_code',
-          '/wallet/reward-detail',
+          // '/wallet/reward-detail',
         ];
         list.forEach(i => {
           if (location.pathname === i) {

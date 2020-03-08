@@ -7,6 +7,7 @@ export default {
     page: 1,
     row: 10,
     list: [],
+    rewardSum: 0.00,
   },
   reducers: {
     UpdateState(state, { payload }) {
@@ -22,6 +23,7 @@ export default {
         yield put({
           type: 'UpdateState',
           payload: {
+            rewardSum: res.data.rewardSum,
             list,
             page: page + 1,
             hasMore: row === res.data.list.length,

@@ -22,8 +22,7 @@ class MiningDetail extends Component {
   };
 
   render() {
-    const { myInfo } = this.props.globalModel;
-    let { list = [], hasMore = true } = this.props.rewardDetail;
+    let { list = [], rewardSum, hasMore = true } = this.props.rewardDetail;
 
     return (
       <div className={styles.miningDetail}>
@@ -33,7 +32,7 @@ class MiningDetail extends Component {
         <section>
           <div className={styles.summary}>
             <span>
-              {downFixed(myInfo.yestodayReward) || '--'}<i>DID</i>
+              {downFixed(rewardSum) || '--'}<i>DID</i>
             </span>
             <br/>
             <small>{formatMessage({ id: `REWARD_DETAIL_TOTAL_INCOME` })}</small>
@@ -45,7 +44,7 @@ class MiningDetail extends Component {
               {list.map((item, key) => (
                 <li key={key}>
                   <div className={styles.label}>
-                    {'暂无描述信息'}
+                    {item.type || '--'}
                     <small>
                       {dayjs(item.addTime * 1000).format('YYYY-MM-DD HH:mm')}
                     </small>
