@@ -20,11 +20,18 @@ class Index extends Component {
   };
 
   componentDidMount() {
+    const { dispatch } = this.props;
+    dispatch({
+      type: 'globalModel/UpdateState',
+      payload: { captcha: '' },
+    });
+    dispatch({
+      type: 'exchange/UpdateState',
+      payload: { amount: '', code: '' },
+    });
+
     this.getCaptcha();
-    this.props
-      .dispatch({
-        type: 'exchange/ExchangeInit',
-      })
+    dispatch({ type: 'exchange/ExchangeInit' })
       .then(res => {
         if (res.status !== 1) Toast.info(res.msg);
       });

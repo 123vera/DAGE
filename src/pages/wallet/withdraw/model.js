@@ -13,7 +13,8 @@ export default {
     // walletTo: '0x17e3e0189447416d412a3d92a240a06178a98c3d',
     amount: '',
     code: '',
-    serviceCharge: '',
+    walletType: undefined,
+    serviceCharge: undefined,
   },
   reducers: {
     UpdateState(state, { payload }) {
@@ -36,6 +37,7 @@ export default {
       }
       return res;
     },
+
     * Withdraw(_, { call, select }) {
       const { coin, walletTo, amount, code } = yield select(state => state.withdraw);
       console.log(coin);
@@ -46,15 +48,23 @@ export default {
         code,
       });
     },
-    // * GetServiceCharge(_, { call, select, put }) {
-    //   const { coin, walletTo } = yield select(state => state.withdraw);
-    //   const res = yield call(AssetApi.getServiceCharge, {
-    //     address: walletTo,
-    //     currency: 'dgt' || coin.value,
-    //   });
-    //   if (res.status === 1) {
-    //     yield put({ type: 'UpdateState', payload: { serviceCharge: res.data.serviceCharge } });
-    //   }
-    // },
+
+    * GetServiceCharge(_, { call, select, put }) {
+      const { coin, walletTo } = yield select(state => state.withdraw);
+      const res = yield call(AssetApi.getServiceCharge, {
+        address: walletTo,
+        // currency:'USDT' , // coin.value
+        type: coin.value,
+      });
+      if (res.status === 1) {
+        yield put({
+          type: 'UpdateState',
+          payload: {
+            walletType: res.data.type,
+            serviceCharge: res.data.serviceCharge,
+          },
+        });
+      }
+    },
   },
 };

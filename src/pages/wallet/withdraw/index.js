@@ -15,10 +15,20 @@ import { formatMessage } from 'umi/locale';
 @connect(({ withdraw, globalModel }) => ({ withdraw, globalModel }))
 class Recharge extends Component {
   state = {
-    showMenus: true,
+    showMenus: false,
   };
 
   componentDidMount() {
+    const { dispatch } = this.props;
+    dispatch({
+      type: 'globalModel/UpdateState',
+      payload: { captcha: '' },
+    });
+    dispatch({
+      type: 'withdraw/UpdateState',
+      payload: { walletTo: '', amount: '', code: '' },
+    });
+
     this.getCaptcha();
     this.getInitCoins().then();
   }
@@ -37,7 +47,6 @@ class Recharge extends Component {
         type: 'withdraw/UpdateState',
         payload: { coin },
       });
-      this.changeCoin(coin);
     });
   };
 
@@ -70,10 +79,17 @@ class Recharge extends Component {
     if (!REG.WALLET_ADDRESS.test(value)) {
       return;
     }
-    this.props.dispatch({
+    const { dispatch } = this.props;
+    dispatch({
       type: 'withdraw/UpdateState',
       payload: { walletTo: value },
     });
+
+    setTimeout(() => {
+      const { walletTo } = this.props.withdraw;
+      if (value !== walletTo) return;
+      dispatch({ type: 'withdraw/GetServiceCharge' });
+    }, 500);
   };
 
   onAmountChange = value => {
