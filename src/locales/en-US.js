@@ -3,6 +3,7 @@ export default {
   COMMON_CANCEL: `Cancel`,
   COMMON_SUBMIT: `Submit`,
   COMMON_LABEL_PHONE: `Mobile Number`,
+  COMMON_SELECT_AREA: `选择国家`,
   COMMON_LABEL_PASSWORD: `Password`,
   COMMON_LABEL_REPASSWORD: `Confirm your password`,
   COMMON_EDIT_PASSWORD: `Set password`,
