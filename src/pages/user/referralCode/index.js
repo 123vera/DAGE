@@ -5,7 +5,7 @@ import { Toast } from 'antd-mobile';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import PageHeader from '@/components/common/PageHeader';
 import REFERRAL_CODE from '@/assets/imgs/referral-code.png';
-import DOWNLOAD from '@/assets/icons/download.png';
+// import DOWNLOAD from '@/assets/icons/download.png';
 import styles from './index.less';
 import { formatMessage } from 'umi/locale';
 import { Icons } from '../../../assets';
@@ -14,14 +14,6 @@ import { Icons } from '../../../assets';
 class Index extends Component {
   onCopyLink = (text) => {
     text && Toast.info(formatMessage({ id: `USER_COPIED` }));
-  };
-
-  downloadSvg = () => {
-    const qr = document.querySelector('canvas');
-    let image = new Image();
-    image.src = qr && qr.toDataURL('image/png');
-    let a_link = document.getElementById('aId');
-    a_link.href = image.src;
   };
 
   render() {
@@ -49,9 +41,10 @@ class Index extends Component {
           >
             <span className={styles.copyText}>{formatMessage({ id: `REFERRAL_CODE_COPY` })}</span>
           </CopyToClipboard>
-          <a download href=" " id="aId" className={styles.download} onClick={this.downloadSvg}>
-            <img src={DOWNLOAD} alt="download"/>
-          </a>
+          <aside className={styles.download}>
+            {/*<img src={DOWNLOAD} alt="download"/>*/}
+            长按二维码保存图片
+          </aside>
         </div>
       </div>
     );
