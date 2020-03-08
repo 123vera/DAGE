@@ -37,7 +37,14 @@ class WalletFlow extends Component {
   componentDidMount() {
     const { location, dispatch } = this.props;
     const { type } = location.query;
-    dispatch({ type: 'withdrawRecord/UpdateState', payload: { type } });
+    dispatch({
+      type: 'withdrawRecord/UpdateState', payload: {
+        type, list: [],
+        page: 1,
+        row: 10,
+        hasMore: true,
+      },
+    });
     this.getWithdrawRecord();
   }
 
@@ -52,7 +59,7 @@ class WalletFlow extends Component {
   };
 
   render() {
-    let { list = [], hasMore = true } = this.props.withdrawRecord;
+    let { list = [], hasMore = true, type } = this.props.withdrawRecord;
 
     return (
       <div className={styles.withdrawRecord}>
@@ -60,13 +67,17 @@ class WalletFlow extends Component {
           <Header
             icon={Icons.arrowLeft}
             title={formatMessage({ id: `RECORD_TITLE` })}
-            onHandle={() => router.push('/wallet/withdraw')}
+            onHandle={() => router.push(`/wallet/withdraw?type=${type}`)}
           />
         </section>
         <ListView hasMore={hasMore} onLoadMore={this.getWithdrawRecord}>
           <ul>
             {list.map(item => (
               <li key={item.id}>
+                <div className={styles.row}>
+                  <label>{formatMessage({ id: `RECORD_LI_REMARK` })}</label>
+                  <p>{item.remark}</p>
+                </div>
                 <div className={styles.row}>
                   <label>{formatMessage({ id: `RECORD_LI_ADDRESS` })}</label>
                   <p>{item.walletTo}</p>

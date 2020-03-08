@@ -27,42 +27,39 @@ import { formatMessage } from 'umi/locale';
 class Recharge extends Component {
   state = {
     showMenus: true,
-    getSmsSuccess: false,
+    menus: [],
   };
 
   componentDidMount() {
     this.getCaptcha();
-    this.getInitCoins();
+    this.getInitCoins().then();
   }
 
   getInitCoins = async () => {
-    const { dispatch } = this.props;
-    await dispatch({
-      type: 'globalModel/ExchangeInit',
-    });
-    const {
-      globalModel: { coinTeams },
-    } = this.props;
+    const { dispatch, location } = this.props;
+    await dispatch({ type: 'globalModel/ExchangeInit' });
+    const { coinTeams } = this.props.globalModel;
+    const { type } = location.query;
 
-    let menus = [];
-    let iArr = [];
+    let arr = [];
     coinTeams.forEach(team => {
-      team.split('_').map(i => iArr.push(i));
+      team.split('_').map(i => arr.push(i));
     });
-
-    [...new Set(iArr)].forEach(value => {
-      menus.push({
+    const menus = [...new Set(arr)].map(value => {
+      return {
         label: value.toUpperCase(),
         value: value.toLowerCase(),
-      });
+      };
     });
+    this.setState({ menus });
+    const coin = menus.find(menu => menu.value === type) || menus[0];
     setTimeout(() => {
       dispatch({
         type: 'withdraw/UpdateState',
-        payload: { coin: menus[0] },
+        payload: { coin },
       });
     }, 100);
-    this.changeCoin(menus[0]);
+    this.changeCoin(coin);
   };
 
   toggleShowMenus = e => {
@@ -133,7 +130,6 @@ class Recharge extends Component {
         payload: { type: 'cash' },
       })
       .then(res => {
-        this.setState({ getSmsSuccess: res.status === 1 });
         if (res.status === 1) {
           Toast.info(formatMessage({ id: `TOAST_GET_CODE_SUCCESS` }));
           return true;
@@ -167,24 +163,11 @@ class Recharge extends Component {
   };
 
   render() {
-    const { showMenus } = this.state;
-    const { captchaSrc, captcha, coinTeams } = this.props.globalModel;
+    const { showMenus, menus } = this.state;
+    const { captchaSrc, captcha } = this.props.globalModel;
     const { coin, initInfo, walletTo, amount, code } = this.props.withdraw;
     const fee = amount * initInfo.serviceCharge;
     const realIncome = amount - fee;
-
-    let menus = [];
-    let iArr = [];
-    coinTeams.forEach(team => {
-      team.split('_').map(i => iArr.push(i));
-    });
-
-    [...new Set(iArr)].forEach(value => {
-      menus.push({
-        label: value.toUpperCase(),
-        value: value.toLowerCase(),
-      });
-    });
 
     return (
       <div className={styles.withdraw} onClick={() => this.setState({ showMenus: false })}>
@@ -205,7 +188,7 @@ class Recharge extends Component {
           />
           {showMenus && (
             <div className={styles.menus}>
-              <Menus menus={menus} hasBorder textAlign="center" onHandle={this.changeCoin} />
+              <Menus menus={menus} hasBorder textAlign="center" onHandle={this.changeCoin}/>
             </div>
           )}
         </div>
@@ -244,7 +227,7 @@ class Recharge extends Component {
                 }
                 autoComplete="off"
                 placeholder={`${formatMessage({ id: `WITHDRAW_MIN` })}${initInfo.amountMin ||
-                  '--'}`}
+                '--'}`}
                 onChange={e => this.onAmountChange(e.target.value)}
               />
             </div>
@@ -260,7 +243,7 @@ class Recharge extends Component {
             getCaptcha={this.getCaptcha}
           />
           <div className={styles.row}>
-            <SmsCode value={code} getSmsCode={this.getSmsCode} onChange={this.onCodeChange} />
+            <SmsCode value={code} getSmsCode={this.getSmsCode} onChange={this.onCodeChange}/>
           </div>
           <div className={styles.group}>
             <small>{formatMessage({ id: `EXCHANGE_FEE` })}</small>
