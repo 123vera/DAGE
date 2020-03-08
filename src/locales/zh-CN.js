@@ -1,4 +1,6 @@
 export default {
+  LANG_ZH_CN: '简体中文',
+  LANG_EN_US: 'English',
   COMMON_CONFIRM: `确认`,
   COMMON_CANCEL: `取消`,
   COMMON_SUBMIT: `提交`,

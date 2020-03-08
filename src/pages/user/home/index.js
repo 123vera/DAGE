@@ -9,6 +9,7 @@ import LOGIN_OUT from '@/assets/dark/login-out.png';
 import BG_ICON from '@/assets/dark/bg-icon.png';
 import ARROW_RIGHT from '@/assets/icons/arrow-right.png';
 import ICON_RESET from '@/assets/icons/reset-password.png';
+import ICON_SWITCH from '@/assets/icons/switch-lang.png';
 import ICON_NOTICES from '@/assets/icons/notices.png';
 import ICON_CUSTOMER from '@/assets/icons/customer.png';
 import HOME_BG from '@/assets/imgs/home-bg.png';
@@ -28,6 +29,9 @@ class Home extends Component {
     Toast.info(formatMessage({ id: `USER_COPIED` }));
   };
 
+  toSwitchLang = url => {
+    router.push(url);
+  };
   render() {
     const { myInfo } = this.props.globalModel;
     const listContent = [
@@ -54,7 +58,7 @@ class Home extends Component {
       // {
       //   icon: ICON_SWITCH,
       //   text: formatMessage({ id: `USER_SECTION_05` }),
-      //   url: '',
+      //   url: '/switch_lang',
       // },
       {
         icon: ICON_CUSTOMER,
@@ -110,7 +114,7 @@ class Home extends Component {
         </div>
         <ul className={styles.list}>
           {listContent.map((item, key) => (
-            <li key={key} onClick={() => router.push(item.url)}>
+            <li key={key} onClick={() => this.toSwitchLang(item.url)}>
               <img className={styles.icon} src={item.icon} alt="" />
               <span>{item.text}</span>
               <img className={styles.right} src={ARROW_RIGHT} alt="" />

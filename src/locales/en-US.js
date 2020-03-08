@@ -1,7 +1,10 @@
 export default {
+  LANG_ZH_CN: '简体中文',
+  LANG_EN_US: 'English',
   COMMON_CONFIRM: `Confirm`,
   COMMON_CANCEL: `Cancel`,
   COMMON_SUBMIT: `Submit`,
+  COMMON_NEXT_STEP: `下一步`,
   COMMON_LABEL_PHONE: `Mobile Number`,
   COMMON_SELECT_AREA: `选择国家`,
   COMMON_LABEL_PASSWORD: `Password`,
@@ -121,6 +124,7 @@ export default {
   REFERRAL_CODE_TITLE: `Referral code`,
   REFERRAL_CODE_COPY: `Copy referral code`,
 
+  ZENDESK_TITLE: `Contact customer service`,
   ZENDESK_P_01: `Choose contact customer service below`,
   ZENDESK_P_02: `Will start communicating with customer service shortly`,
   ZENDESK_P_03: `If no contact customer service appears, please wait patiently for 3-5 seconds`,

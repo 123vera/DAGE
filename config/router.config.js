@@ -31,6 +31,11 @@ export default [
         component: './user/zendesk',
       },
       {
+        path: '/switch_lang',
+        title: '语言切换',
+        component: './user/switchLang',
+      },
+      {
         path: '/home',
         component: '../layouts/MainLayout',
         routes: [

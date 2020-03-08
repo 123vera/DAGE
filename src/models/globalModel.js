@@ -1,5 +1,7 @@
 import UserApi from '../services/api/user';
 import AssetApi from '../services/api/asset';
+import OtherApi from '../services/api/other';
+import { setCookie } from '../utils/utils';
 
 export default {
   namespace: 'globalModel',
@@ -8,6 +10,7 @@ export default {
     captcha: '',
     captchaSrc: '',
     coinTeams: [],
+    lang: 'zh-cn',
   },
   reducers: {
     UpdateState(state, { payload }) {
@@ -37,6 +40,12 @@ export default {
         type: 'UpdateState',
         payload: { myInfo: res && res.data },
       });
+    },
+
+    *Setlang({ payload }, { call }) {
+      const res = yield call(OtherApi.setlang, payload);
+      // setCookie('lang', payload.lang);
+      if (res && res.status !== 1) return;
     },
 
     *ExchangeInit({ _ }, { call, put }) {

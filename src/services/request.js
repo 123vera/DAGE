@@ -55,6 +55,7 @@ Request.interceptors.response.use(
     // if (data.status === -2 && api !== '/api/sign_out') {
     //   Toast.error(data.msg);
     // }
+    console.log(res);
 
     // 处理未登录
     if (data.status === -101) {
