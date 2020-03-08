@@ -40,7 +40,6 @@ export default {
 
     * Withdraw(_, { call, select }) {
       const { coin, walletTo, amount, code } = yield select(state => state.withdraw);
-      console.log(coin);
       return yield call(AssetApi.submitWithdrawal, {
         type: coin.value,
         walletTo,
