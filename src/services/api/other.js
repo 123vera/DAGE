@@ -10,7 +10,6 @@ class OtherApi {
   static getNoticeList(options) {
     return Request.post('/other/noticelist', options);
 
-    // console.log(options);
     // const data = [];
     // const order = (options.page - 1) * options.row;
     // for (let i = order; i < options.row + order; i++) {
@@ -23,6 +22,15 @@ class OtherApi {
     //   });
     // }
     // return new Promise(resolve => setTimeout(() => resolve({ status: 1, data }), 500));
+  }
+
+  /**
+   * 语言切换
+   *
+   * @required lang string 语言包名称，zh-cn（默认）、en-us
+   **/
+  static setlang(params) {
+    return Request.get('/other/setlang', { params });
   }
 }
 
