@@ -11,6 +11,15 @@ import { downFixed } from '../../../utils/utils';
 @connect(({ rewardDetail, globalModel }) => ({ rewardDetail, globalModel }))
 class MiningDetail extends Component {
   componentDidMount() {
+    this.props.dispatch({
+      type: 'rewardDetail/UpdateState', payload: {
+        list: [],
+        page: 1,
+        row: 10,
+        hasMore: true,
+        rewardSum: 0,
+      },
+    });
     this.getReward();
   }
 
@@ -26,7 +35,7 @@ class MiningDetail extends Component {
     return (
       <div className={styles.miningDetail}>
         <div className={styles.header}>
-          <Header icon={Icons.arrowLeft} title={formatMessage({ id: `REWARD_DETAIL_TITLE` })} />
+          <Header icon={Icons.arrowLeft} title={formatMessage({ id: `REWARD_DETAIL_TITLE` })}/>
         </div>
         <section>
           <div className={styles.summary}>
@@ -34,7 +43,7 @@ class MiningDetail extends Component {
               {downFixed(rewardSum) || '--'}
               <i>DID</i>
             </span>
-            <br />
+            <br/>
             <small>{formatMessage({ id: `REWARD_DETAIL_TOTAL_INCOME` })}</small>
             <p>{formatMessage({ id: `WALLET_REWARD_DETAIL_TIP` })}</p>
           </div>

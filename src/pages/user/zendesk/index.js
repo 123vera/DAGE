@@ -2,28 +2,29 @@ import React, { Component } from 'react';
 import PageHeader from '@/components/common/PageHeader';
 import ARROW_LEFT from '@/assets/icons/arrow-left.png';
 import ZENDESK from '@/assets/imgs/zendesk.png';
-import { hideChatButton } from '../../../services/utils';
 import styles from './index.less';
 import { formatMessage } from 'umi/locale';
 
 class Index extends Component {
-  componentDidMount() {
-    this.createIframe();
-  }
+  // state = {
+  //   script: undefined,
+  // };
 
-  componentWillUnmount() {
-    hideChatButton();
-  }
+  // componentDidMount() {
+  //   this.createIframe();
+  // }
 
-  createIframe = () => {
-    let script = document.createElement('script');
-    script.type = 'text/javascript';
-    // script.defer = true
-    script.id = 'ze-snippet';
-    script.src =
-      'https://static.zdassets.com/ekr/snippet.js?key=b6291a9c-d3e0-4123-882a-aaf0c125bb85';
-    document.body.appendChild(script);
-  };
+  // createIframe = () => {
+  //   const script = document.createElement('script');
+  //   script.type = 'text/javascript';
+  //   // script.defer = true
+  //   script.id = 'ze-snippet';
+  //   script.src =
+  //     'https://static.zdassets.com/ekr/snippet.js?key=b6291a9c-d3e0-4123-882a-aaf0c125bb85';
+  //   document.body.appendChild(script);
+  //   this.setState({ script });
+  // };
+
   render() {
     return (
       <div id={styles.zendesk}>
@@ -32,14 +33,14 @@ class Index extends Component {
           leftContent={{ icon: ARROW_LEFT }}
         />
         <div className={styles.content}>
-          <img src={ZENDESK} alt="" />
-          <br />
-          <br />
+          <img src={ZENDESK} alt=""/>
+          <br/>
+          <br/>
           <p>
             {formatMessage({ id: `ZENDESK_P_01` })}
-            <br />
+            <br/>
             {formatMessage({ id: `ZENDESK_P_02` })}
-            <br />
+            <br/>
             {formatMessage({ id: `ZENDESK_P_03` })}
           </p>
         </div>

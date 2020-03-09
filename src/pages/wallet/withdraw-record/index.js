@@ -39,7 +39,8 @@ class WalletFlow extends Component {
     const { type } = location.query;
     dispatch({
       type: 'withdrawRecord/UpdateState', payload: {
-        type, list: [],
+        type,
+        list: [],
         page: 1,
         row: 10,
         hasMore: true,

@@ -27,7 +27,7 @@ class Mining extends Component {
                 <span>{formatMessage({ id: `INCOME_TITLE` })}</span>
               </Link>
               <Link to="/referral_code">
-                <img width="34" src={Icons.arrowWhiteRight} alt="" />
+                <span>{formatMessage({ id: `INCOME_GET_INVITER_CODE` })}</span>
               </Link>
             </aside>
           </div>

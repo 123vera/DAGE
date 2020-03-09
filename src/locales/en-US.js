@@ -108,6 +108,7 @@ export default {
   PAY_WAITING_01: `Submission complete, pending approval ...`,
   PAY_WAITING_02: `Results will be displayed in the user center`,
 
+  INCOME_GET_INVITER_CODE: `获取邀请码`,
   INCOME_TITLE: `Revenue details`,
   INCOME_TOTAL: `Rebate Revenue`,
 

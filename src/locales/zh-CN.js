@@ -108,6 +108,7 @@ export default {
   PAY_WAITING_01: `提交成功，等待审核…`,
   PAY_WAITING_02: `审核结果将会显示在个人中心`,
 
+  INCOME_GET_INVITER_CODE: `获取邀请码`,
   INCOME_TITLE: `收益详情`,
   INCOME_TOTAL: `返点总收益`,
 
