@@ -31,10 +31,9 @@ class Index extends Component {
     });
 
     this.getCaptcha();
-    dispatch({ type: 'exchange/ExchangeInit' })
-      .then(res => {
-        if (res.status !== 1) Toast.info(res.msg);
-      });
+    dispatch({ type: 'exchange/ExchangeInit' }).then(res => {
+      if (res.status !== 1) Toast.info(res.msg);
+    });
   }
 
   getCaptcha = () => {
@@ -166,7 +165,7 @@ class Index extends Component {
                 onClick={e => this.onShowMenus(e, 'showBeforeMenus', !showBeforeMenus)}
               >
                 {beforeCoin.label}
-                <img src={Icons.arrowDown} alt=""/>
+                <img src={Icons.arrowDown} alt="" />
                 {showBeforeMenus && (
                   <div className={styles.menus}>
                     <Menus
@@ -179,17 +178,13 @@ class Index extends Component {
                   </div>
                 )}
               </span>
-              <img
-                className={styles.splitImg}
-                src={Icons.arrowLeft}
-                alt=""
-              />
+              <img className={styles.splitImg} src={Icons.arrowLeft} alt="" />
               <span
                 className={styles.coinSelect}
                 onClick={e => this.onShowMenus(e, 'showAfterMenus', !showAfterMenus)}
               >
                 {afterCoin.label}
-                <img src={Icons.arrowDown} alt=""/>
+                <img src={Icons.arrowDown} alt="" />
                 {showAfterMenus && (
                   <div className={styles.menus}>
                     <Menus
@@ -205,8 +200,8 @@ class Index extends Component {
             </div>
             <small className={styles.notice}>
               {formatMessage({ id: `EXCHANGE_RATE` })}
-              {downFixed(1)} {beforeCoin.label} ={' '}
-              {downFixed(initInfo.RATIO) || '--'} {afterCoin.label}
+              {downFixed(1)} {beforeCoin.label} = {downFixed(initInfo.RATIO) || '--'}{' '}
+              {afterCoin.label}
             </small>
             <label>
               <span className={styles.label}>
@@ -225,14 +220,14 @@ class Index extends Component {
                 }
                 onChange={e => this.onAmountChange(e.target.value)}
                 placeholder={`${formatMessage({ id: `EXCHANGE_MIN_AMOUNT` })}${initInfo.MIN ||
-                '--'}`}
+                  '--'}`}
               />
               <p className={styles.tips}>
                 {formatMessage({ id: `EXCHANGE_CAN_USE` })}
                 {beforeCoin.label}：{downFixed(balance)}
                 <small>
                   {formatMessage({ id: `EXCHANGE_FEE_RATE` })}
-                  {amount ? downFixed(initInfo.CHARGE * 100) : '--'}%
+                  {amount ? downFixed(initInfo.CHARGE * 100) : '0'}%
                 </small>
               </p>
             </label>
@@ -268,7 +263,7 @@ class Index extends Component {
             <p className={`${styles.labelTag} ${styles.small}`}>
               {formatMessage({ id: `EXCHANGE_FEE` })}{' '}
               <small>
-                {amount  ? downFixed(amount * initInfo.RATIO * initInfo.CHARGE) : '--'}
+                {amount ? downFixed(amount * initInfo.RATIO * initInfo.CHARGE) : '--'}
                 &nbsp;({afterCoin.label})
               </small>
             </p>

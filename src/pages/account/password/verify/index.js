@@ -31,7 +31,7 @@ class Home extends Component {
       payload: {
         type,
         phone: (location.query && location.query.phone) || '',
-        prefix: (location.query && location.query.prefix) || '86',
+        prefix: (location.query && location.query.prefix) || '',
       },
     });
     this.getCaptcha();
@@ -61,7 +61,13 @@ class Home extends Component {
   };
 
   getSmsCode = async () => {
-    const { phone, captcha } = this.props.password;
+    const { prefix, phone, captcha } = this.props.password;
+    if (!prefix) {
+      this.setState({
+        errMsg: { type: 'prefix', value: formatMessage({ id: `COMMON_PLACEHOLDER_AREA` }) },
+      });
+      return;
+    }
     if (!phone) {
       this.setState({
         errMsg: { type: 'phone', value: formatMessage({ id: `COMMON_PLACEHOLDER_PHONE` }) },
@@ -75,8 +81,6 @@ class Home extends Component {
       return;
     }
     if (!captcha) {
-      console.log(captcha);
-
       this.setState({
         errMsg: { type: 'captcha', value: formatMessage({ id: `COMMON_PLACEHOLDER_CAPTCHA` }) },
       });
@@ -98,6 +102,7 @@ class Home extends Component {
 
   toNext = () => {
     const { phone, code, type } = this.props.password;
+
     if (!phone) {
       this.setState({
         errMsg: { type: 'phone', value: formatMessage({ id: `COMMON_PLACEHOLDER_PHONE` }) },
@@ -135,6 +140,7 @@ class Home extends Component {
     const { globalModel } = this.props;
     const { prefix, phone, code, captchaSrc, captcha, type } = this.props.password;
     const { errMsg, showPrefix } = this.state;
+    const initPrefix = prefix ? `+${prefix}` : formatMessage({ id: `COMMON_SELECT_AREA` });
 
     return (
       <div className={styles.findPassword}>
@@ -155,7 +161,7 @@ class Home extends Component {
                   }`}
                 >
                   <span onClick={this.onOpenPrefix}>
-                    +{type !== 'find_password' ? globalModel.myInfo.phonePrefix : prefix}
+                    {type !== 'find_password' ? `+${globalModel.myInfo.phonePrefix}` : initPrefix}
                     <img src={Icons.arrowDown} alt="" />
                   </span>
                   <input

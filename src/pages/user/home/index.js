@@ -108,8 +108,8 @@ class Home extends Component {
           <img className={styles.status} src={STATUS_BG} alt="" />
           <p className={styles.statusText}>
             {myInfo && myInfo.activate === 1
-              ? formatMessage({ id: `USER_UNACTIVITY` })
-              : formatMessage({ id: `USER_ACTIVITY` })}
+              ? formatMessage({ id: `USER_ACTIVITY` })
+              : formatMessage({ id: `USER_UNACTIVITY` })}
           </p>
         </div>
         <ul className={styles.list}>

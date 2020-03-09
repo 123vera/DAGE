@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Toast } from 'antd-mobile';
 import { formatMessage } from 'umi-plugin-locale';
 import { connect } from 'dva';
+import TEL_PREFIX_DATA from '@/utils/tel-prefix';
 import router from 'umi/router';
 import Cookies from 'js-cookie';
 import { REG } from '../../../utils/constants';
@@ -49,7 +50,13 @@ class Login extends Component {
   };
 
   toNext = () => {
-    const { phone, password } = this.props.login;
+    const { prefix, phone, password } = this.props.login;
+    if (!prefix) {
+      this.setState({
+        errMsg: { type: 'prefix', value: formatMessage({ id: `COMMON_PLACEHOLDER_AREA` }) },
+      });
+      return;
+    }
     if (!phone) {
       this.setState({
         errMsg: { type: 'phone', value: formatMessage({ id: `COMMON_PLACEHOLDER_PHONE` }) },
@@ -104,11 +111,11 @@ class Login extends Component {
                 <span className={styles.label}>{formatMessage({ id: `COMMON_LABEL_PHONE` })}</span>
                 <div
                   className={`${styles.pickerWrapper} ${errMsg.type === 'phone' &&
-                  styles.inputErr}`}
+                    styles.inputErr}`}
                 >
                   <span onClick={this.onOpenPrefix}>
-                    +{prefix}
-                    <img src={Icons.arrowDown} alt=""/>
+                    {prefix ? `+${prefix}` : formatMessage({ id: `COMMON_SELECT_AREA` })}
+                    <img src={Icons.arrowDown} alt="" />
                   </span>
                   <input
                     type="number"
@@ -140,7 +147,7 @@ class Login extends Component {
                 </span>
               </div>
 
-              <img className={styles.nextStep} src={Images.nextStep} onClick={this.toNext} alt=""/>
+              <img className={styles.nextStep} src={Images.nextStep} onClick={this.toNext} alt="" />
             </div>
           </section>
         </div>

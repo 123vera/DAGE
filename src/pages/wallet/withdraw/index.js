@@ -171,10 +171,10 @@ class Recharge extends Component {
 
     // 计算收入和手续费
     let { serviceCharge } = this.props.withdraw;
-    serviceCharge = (walletTo && serviceCharge !== undefined) ? serviceCharge : initInfo.serviceCharge;
-    const fee = serviceCharge ? Number(amount) * serviceCharge : 0.00;
+    serviceCharge =
+      walletTo && serviceCharge !== undefined ? serviceCharge : initInfo.serviceCharge;
+    const fee = serviceCharge ? Number(amount) * serviceCharge : 0.0;
     const realIncome = amount - fee;
-
     return (
       <div className={styles.withdraw} onClick={() => this.setState({ showMenus: false })}>
         <div className={styles.header}>
@@ -194,7 +194,7 @@ class Recharge extends Component {
           />
           {showMenus && (
             <div className={styles.menus}>
-              <Menus menus={coinList} hasBorder textAlign="center" onHandle={this.changeCoin}/>
+              <Menus menus={coinList} hasBorder textAlign="center" onHandle={this.changeCoin} />
             </div>
           )}
         </div>
@@ -233,13 +233,13 @@ class Recharge extends Component {
                 }
                 autoComplete="off"
                 placeholder={`${formatMessage({ id: `WITHDRAW_MIN` })}${initInfo.amountMin ||
-                '--'}`}
+                  '--'}`}
                 onChange={e => this.onAmountChange(e.target.value)}
               />
             </div>
             <aside>
               {formatMessage({ id: `WITHDRAW_FEE` })}
-              {amount ? downFixed(serviceCharge * 100) : '--'}%
+              {serviceCharge !== '' ? downFixed(serviceCharge * 100) : '--'}%
             </aside>
           </div>
           <Captcha
@@ -249,7 +249,7 @@ class Recharge extends Component {
             getCaptcha={this.getCaptcha}
           />
           <div className={styles.row}>
-            <SmsCode value={code} getSmsCode={this.getSmsCode} onChange={this.onCodeChange}/>
+            <SmsCode value={code} getSmsCode={this.getSmsCode} onChange={this.onCodeChange} />
           </div>
           <div className={styles.group}>
             <small>{formatMessage({ id: `EXCHANGE_FEE` })}</small>
@@ -271,9 +271,8 @@ class Recharge extends Component {
               {downFixed(initInfo.dayMax)}
               {coin.label}，{formatMessage({ id: `WITHDRAW_TIPS_CONTENT_02` })}
               {downFixed(initInfo.amountMin) || '--'}-{downFixed(initInfo.amountMax) || '--'}
-              {coin.label}，
-              {formatMessage({ id: `WITHDRAW_TIPS_CONTENT_03` })}
-              {amount ? downFixed(serviceCharge): '--'}%
+              {coin.label}，{formatMessage({ id: `WITHDRAW_TIPS_CONTENT_03` })}
+              {amount ? downFixed(serviceCharge) : '--'}%
             </li>
             <li>{formatMessage({ id: `WITHDRAW_TIPS_CONTENT_04` })}</li>
           </ul>

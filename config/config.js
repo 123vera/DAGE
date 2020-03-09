@@ -13,6 +13,7 @@ const config = {
         dva: {
           hmr: true,
         },
+        // 按需加载
         dynamicImport: {
           // loadingComponent: createLoading(),
           webpackChunkName: true,
