@@ -3,7 +3,7 @@ import { UserApi } from '../../../services/api';
 export default {
   namespace: 'register',
   state: {
-    prefix: '86',
+    prefix: '',
     phone: '',
     code: '',
     password: '',
@@ -29,7 +29,7 @@ export default {
       return yield call(UserApi.sendSmsCode, payload, captchaKey);
     },
 
-    *Register({ payload }, { call, select }) {
+    *Register(_, { call, select }) {
       const register = yield select(state => state.register);
       const res = yield call(UserApi.existPhone, {
         prefix: register.prefix,

@@ -26,7 +26,7 @@ class Index extends Component {
     return (
       <div className={styles.referralCode} style={{ backgroundImage: `url(${REFERRAL_CODE})` }}>
         <PageHeader
-          title={formatMessage({ id: `REFERRAL_CODE_TITLE` })}
+          title={formatMessage({ id: `SET_ACCOUNT_RECOMMEND` })}
           leftContent={{ icon: Icons.arrowLeft }}
         />
         <div className={styles.mainContent}>

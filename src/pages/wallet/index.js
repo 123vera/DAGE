@@ -26,7 +26,7 @@ const menus = [
   {
     value: '/wallet/flow',
     icon: Icons.menuFlow,
-    label: formatMessage({ id: `WALLET_FLOW` }),
+    label: formatMessage({ id: `WALLET_TITLE` }),
     width: '26px',
   },
 ];
@@ -59,7 +59,7 @@ class Home extends Component {
       <div className={styles.home} onClick={() => this.setState({ showMenus: false })}>
         <section className={styles.header}>
           <Header
-            title={formatMessage({ id: `WALLET_TITLE` })}
+            title={formatMessage({ id: `WALLET_HOME` })}
             rightContent={{
               icon: Icons.more,
               onHandle: e => this.onShowMenus(e),

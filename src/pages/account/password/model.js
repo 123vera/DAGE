@@ -3,7 +3,7 @@ import UserApi from '../../../services/api/user';
 export default {
   namespace: 'password',
   state: {
-    prefix: 86,
+    prefix: '',
     phone: '',
     code: '',
     password: '',
@@ -18,9 +18,10 @@ export default {
     },
   },
   effects: {
-    * ClearInput(_, { put }) {
+    *ClearInput(_, { put }) {
       yield put({
-        type: 'UpdateState', payload: {
+        type: 'UpdateState',
+        payload: {
           phone: undefined,
           code: '',
           password: '',
@@ -30,12 +31,12 @@ export default {
       });
     },
 
-    * GetCaptcha(_, { call, put }) {
+    *GetCaptcha(_, { call, put }) {
       const captchaSrc = yield call(UserApi.getCaptcha, +new Date());
       yield put({ type: 'UpdateState', payload: { captchaSrc } });
     },
 
-    * GetSmsCode({ payload }, { call, select }) {
+    *GetSmsCode({ payload }, { call, select }) {
       const state = yield select(state => state.password);
       const { prefix, phone, captcha } = state;
       return yield call(UserApi.sendSmsCode, {
@@ -46,7 +47,7 @@ export default {
       });
     },
 
-    * FindPassword(_, { call, select }) {
+    *FindPassword(_, { call, select }) {
       const state = yield select(state => state.password);
       return yield call(UserApi.findPassword, {
         prefix: state.prefix,
@@ -55,7 +56,7 @@ export default {
       });
     },
 
-    * EditPassword(_, { call, select }) {
+    *EditPassword(_, { call, select }) {
       const state = yield select(state => state.password);
       return yield call(UserApi.editPassword, {
         password: state.password,

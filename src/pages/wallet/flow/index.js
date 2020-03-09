@@ -31,7 +31,7 @@ class WalletFlow extends Component {
     this.getInitCoins().then();
   }
 
-  initData = (coin) => {
+  initData = coin => {
     this.props.dispatch({
       type: 'walletFlow/UpdateState',
       payload: { coin, list: [], page: 1 },
@@ -85,7 +85,7 @@ class WalletFlow extends Component {
         <section className={styles.header}>
           <Header
             icon={Icons.arrowLeft}
-            title={formatMessage({ id: `FLOW_TITLE` })}
+            title={formatMessage({ id: `WALLET_TITLE` })}
             onHandle={() => router.push('/home/wallet')}
           />
         </section>
@@ -97,11 +97,11 @@ class WalletFlow extends Component {
                 onClick={() => this.setState({ showMenus: !showMenus })}
               >
                 {coin.label}
-                <img src={Icons.arrowUpDown} alt=""/>
+                <img src={Icons.arrowUpDown} alt="" />
               </div>
               {showMenus && (
                 <div className={styles.options}>
-                  <Menus menus={menus} textAlign="center" hasBorder onHandle={this.changeCoin}/>
+                  <Menus menus={menus} textAlign="center" hasBorder onHandle={this.changeCoin} />
                 </div>
               )}
             </div>
@@ -118,9 +118,7 @@ class WalletFlow extends Component {
                 <li key={item.id}>
                   <div className={styles.label}>
                     {item.remark}
-                    <small>
-                      {dayjs(item.addTime * 1000).format('YYYY-MM-DD HH:mm')}
-                    </small>
+                    <small>{dayjs(item.addTime * 1000).format('YYYY-MM-DD HH:mm')}</small>
                   </div>
                   <div className={styles.value}>{downFixed(item.amount)}</div>
                 </li>

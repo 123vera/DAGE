@@ -21,7 +21,7 @@ export default [
       { path: '/find_password/verify', title: '找回密码', component: './account/password/verify' },
       { path: '/find_password/edit', title: '设置新密码', component: './account/password/edit' },
 
-      { path: '/referral_code', title: '推荐码', component: './user/referralCode' },
+      { path: '/referral_code', title: '邀请码', component: './user/referralCode' },
       { path: '/notices', title: '公告列表', component: './user/notices' },
       { path: '/notice', title: '公告详情', component: './user/notice' },
       { path: '/promotion', title: '我的推广', component: './user/promotion' },
@@ -39,7 +39,7 @@ export default [
         path: '/home',
         component: '../layouts/MainLayout',
         routes: [
-          { path: '/home/wallet', title: '钱包', component: './wallet' },
+          { path: '/home/wallet', title: '首页', component: './wallet' },
           { path: '/home/user', title: '个人中心', component: './user/home' },
           { path: '/home/ecological', title: '生态', component: './ecological/home' },
         ],

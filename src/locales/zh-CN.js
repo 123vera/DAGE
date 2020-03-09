@@ -13,6 +13,7 @@ export default {
   COMMON_LABEL_REPASSWORD: `确认密码`,
   COMMON_EDIT_PASSWORD: `请设置密码`,
   COMMON_LABEL_VERFICATION_CODE: `验证码`,
+  COMMON_PLACEHOLDER_AREA: `请选择国家`,
   COMMON_PLACEHOLDER_PHONE: `请输入手机号码`,
   COMMON_PLACEHOLDER_PHONE_AGAIN: `请输入正确的手机号码`,
   COMMON_PLACEHOLDER_PASSWORD: `请输入密码`,
@@ -181,6 +182,7 @@ export default {
   RECORD_LI_STATUS: `状态`,
 
   WALLET_TITLE: `钱包`,
+  WALLET_HOME: `首页`,
   WALLET_RECHARGE: `充值`,
   WALLET_WITHDRAW: `提现`,
   WALLET_FLOW: `资金流水`,
@@ -202,7 +204,7 @@ export default {
   WALLET_MONETARY_AMOUNT: `购买金额`,
   WALLET_TIPS: `购买金额合计需在100-1000之间`,
   WALLET_BUY: `购买`,
-  WALLET_REWARD_DETAIL_TIP: `仅显示最近三天的收益详情，若想查看过往内容，请至资金流水中查看`,
+  WALLET_REWARD_DETAIL_TIP: `仅显示最近三天的收益详情，若想查看过往内容，请至钱包中查看`,
 
   // PAGE_NO_FOUND: `页面找不到了`,
 };

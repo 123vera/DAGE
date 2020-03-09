@@ -54,6 +54,12 @@ class Register extends Component {
 
   getSmsCode = async () => {
     const { prefix, phone, captcha } = this.props.register;
+    if (!prefix) {
+      this.setState({
+        errMsg: { type: 'prefix', value: formatMessage({ id: `COMMON_PLACEHOLDER_AREA` }) },
+      });
+      return;
+    }
     if (!phone) {
       this.setState({
         errMsg: { type: 'phone', value: formatMessage({ id: `COMMON_PLACEHOLDER_PHONE` }) },
@@ -90,6 +96,7 @@ class Register extends Component {
 
   toNext = () => {
     const { phone, password, passwordConfirm, code } = this.props.register;
+
     if (!phone) {
       this.setState({
         errMsg: { type: 'phone', value: formatMessage({ id: `COMMON_PLACEHOLDER_PHONE` }) },
@@ -161,18 +168,18 @@ class Register extends Component {
           leftContent={{ icon: Icons.arrowLeft, onHandle: () => router.push('/login') }}
         />
         <section>
-          <p>{formatMessage({ id: `REGISTER_TITLE` })}</p>
+          <p>{formatMessage({ id: `REGISTER_TITLE` })}DAGE</p>
           <div className={styles.mainWrapper}>
             <div className={styles.content}>
               <label>
                 <span>{formatMessage({ id: `COMMON_LABEL_PHONE` })}</span>
                 <div
                   className={`${styles.pickerWrapper} ${errMsg.type === 'phone' &&
-                  styles.inputErr}`}
+                    styles.inputErr}`}
                 >
                   <span onClick={this.onOpenPrefix}>
-                    +{prefix}
-                    <img src={Icons.arrowDown} alt=""/>
+                    {prefix ? `+${prefix}` : formatMessage({ id: `COMMON_SELECT_AREA` })}
+                    <img src={Icons.arrowDown} alt="" />
                   </span>
                   <input
                     value={phone}
@@ -218,7 +225,7 @@ class Register extends Component {
                 />
               </label>
               <h4 className={styles.errMsg}>{errMsg.value || ''}</h4>
-              <img onClick={this.toNext} className={styles.nextStep} src={Images.nextStep} alt=""/>
+              <img onClick={this.toNext} className={styles.nextStep} src={Images.nextStep} alt="" />
             </div>
           </div>
         </section>
