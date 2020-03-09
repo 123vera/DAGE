@@ -1,6 +1,8 @@
 export default {
   LANG_ZH_CN: '简体中文',
   LANG_EN_US: 'English',
+
+  COMMON_LEVEL: `级`,
   COMMON_CONFIRM: `确认`,
   COMMON_CANCEL: `取消`,
   COMMON_SUBMIT: `提交`,
@@ -54,8 +56,10 @@ export default {
 
   EXCHANGE_TITLE: `兑换`,
   EXCHANGE_SUCCESS: `兑换成功`,
+  EXCHANGE_SUCCESS_01: `激活成功`,
   EXCHANGE_PLACEHOLDER_AMOUNT: `请输入兑换数量`,
   EXCHANGE_BALANCE_NOT_ENOUGH: `余额不足`,
+  EXCHANGE_BALANCE_NOT_ENOUGH_01: `DID余额不足，请前往去中心化交易所购买`,
   EXCHANGE_RATE: `当前兑换比例：`,
   EXCHANGE_AMOUNT: `兑换数量`,
   EXCHANGE_MIN_AMOUNT: `最小兑换数量`,
@@ -83,6 +87,9 @@ export default {
 
   USER_TITLE: `个人中心`,
   USER_COPIED: `已复制`,
+  USER_UNACTIVITY: `未激活`,
+  USER_ACTIVITY: `已激活`,
+  USER_MINE: `我的`,
   USER_SECTION_01: `上传支付宝信息`,
   USER_SECTION_02: `我的推广`,
   USER_SECTION_03: `重置登录密码`,
@@ -123,6 +130,7 @@ export default {
 
   REFERRAL_CODE_TITLE: `推荐码`,
   REFERRAL_CODE_COPY: `复制邀请码`,
+  REFERRAL_SAVE: `长按二维码保存图片`,
 
   ZENDESK_TITLE: `联系客服`,
   ZENDESK_P_01: `点击下方的联系客服`,
@@ -134,6 +142,7 @@ export default {
 
   REWARD_DETAIL_TITLE: `收益详情`,
   REWARD_DETAIL_TOTAL_INCOME: `返点总收益`,
+
   MINING_DETAIL_TITLE: `挖矿详情`,
   MINING_DETAIL_TOTAL_INCOME: `挖矿总收益`,
   MINING_DETAIL_MONOMER: `单体挖矿`,
@@ -175,15 +184,24 @@ export default {
   WALLET_WITHDRAW: `提现`,
   WALLET_FLOW: `资金流水`,
   WALLET_SECTION_TITLE: `推广获得超高返利`,
-  WALLET_SECTION_SUBTITLE: `昨日获得返点收益`,
+  WALLET_SECTION_SUBTITLE: `返点总收益`,
   WALLET_POG_TITLE: `POG挖矿`,
   WALLET_POG_DESC: `挖矿投资本金将在1天后返还到账户，且将投资额中5%的DID释放至DGT账户。奖励部分70%进入DGC账户，30%进入DID账户。`,
-  WALLET_POG_APP_DOWNLOAD: `自由侠APP下载地址：`,
   WALLET_POG_LEVEL: `当前矿机等级`,
   WALLET_POG_DISCOUNT_RATE: `当前折损率`,
   WALLET_POG_TOTAL_MINING_REVENUE: `昨日挖矿总收益`,
   WALLET_POG_MEDAL_LEVEL: `当前勋章等级`,
   WALLET_POG_MINE_GRADE: `请选择购买的矿机等级`,
+  WALLET_ACTIVITY_ID: `激活ID`,
+  WALLET_ACTIVITY_DESC_01: `激活DID后您才可进行购买矿机，赚取收益，邀请好友等操作。`,
+  WALLET_ACTIVITY_DESC_02: `需支付 10 DID`,
+  WALLET_CONFIRM: `确认激活`,
+  WALLET_COMING_SOON: `即将开放`,
+  WALLET_HOW_TO_BUY: `购买方式`,
+  WALLET_MONETARY_AMOUNT: `购买金额`,
+  WALLET_TIPS: `购买金额合计需在100-1000之间`,
+  WALLET_BUY: `购买`,
+  WALLET_REWARD_DETAIL_TIP: `仅显示最近三天的收益详情，若想查看过往内容，请至资金流水中查看`,
 
-  PAGE_NO_FOUND: `页面找不到了`,
+  // PAGE_NO_FOUND: `页面找不到了`,
 };

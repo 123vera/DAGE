@@ -9,13 +9,12 @@ import LOGIN_OUT from '@/assets/dark/login-out.png';
 import BG_ICON from '@/assets/dark/bg-icon.png';
 import ARROW_RIGHT from '@/assets/icons/arrow-right.png';
 import ICON_RESET from '@/assets/icons/reset-password.png';
+import STATUS_BG from '@/assets/icons/status-bg.png';
 import ICON_SWITCH from '@/assets/icons/switch-lang.png';
 import ICON_NOTICES from '@/assets/icons/notices.png';
 import ICON_CUSTOMER from '@/assets/icons/customer.png';
 import HOME_BG from '@/assets/imgs/home-bg.png';
 import DAGE_LOGO from '@/assets/dark/dage-logo.png';
-import ACTIVITY from '@/assets/dark/activitied.png';
-import UNACTIVITY from '@/assets/dark/unactivitied.png';
 import styles from './index.less';
 import { formatMessage } from 'umi/locale';
 
@@ -106,11 +105,12 @@ class Home extends Component {
               </span>
             </CopyToClipboard>
           </div>
-          <img
-            className={styles.status}
-            src={myInfo && myInfo.activate === 1 ? ACTIVITY : UNACTIVITY}
-            alt=""
-          />
+          <img className={styles.status} src={STATUS_BG} alt="" />
+          <p className={styles.statusText}>
+            {myInfo && myInfo.activate === 1
+              ? formatMessage({ id: `USER_UNACTIVITY` })
+              : formatMessage({ id: `USER_ACTIVITY` })}
+          </p>
         </div>
         <ul className={styles.list}>
           {listContent.map((item, key) => (

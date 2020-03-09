@@ -23,14 +23,18 @@ class Mining extends Component {
               <small>DID</small>
             </div>
             <aside>
-              <Link to="/wallet/reward-detail"><span>{formatMessage({ id: `INCOME_TITLE` })}</span></Link>
-              <Link to="/referral_code"><img width="34" src={Icons.arrowWhiteRight} alt=""/></Link>
+              <Link to="/wallet/reward-detail">
+                <span>{formatMessage({ id: `INCOME_TITLE` })}</span>
+              </Link>
+              <Link to="/referral_code">
+                <img width="34" src={Icons.arrowWhiteRight} alt="" />
+              </Link>
             </aside>
           </div>
         </section>
         <section>
           <h3>
-            <img src={Icons.dIcon} alt=""/>
+            <img src={Icons.dIcon} alt="" />
             {formatMessage({ id: `WALLET_POG_TITLE` })}
           </h3>
           <p>{formatMessage({ id: `WALLET_POG_DESC` })}</p>
@@ -40,14 +44,14 @@ class Mining extends Component {
           {/*</p>*/}
         </section>
         <section className={styles.openingSoon}>
-          <h4>即将开放</h4>
+          <h4>{formatMessage({ id: `WALLET_COMING_SOON` })}</h4>
         </section>
         <section className={styles.buy} style={{ display: 'none' }}>
           <p>{formatMessage({ id: `WALLET_POG_MINE_GRADE` })}</p>
           <ul className={styles.levels}>
-            <li className={styles.active}>1级</li>
-            <li>2级</li>
-            <li>3级</li>
+            <li className={styles.active}>1{formatMessage({ id: `COMMON_LEVEL` })}</li>
+            <li>2{formatMessage({ id: `COMMON_LEVEL` })}</li>
+            <li>3{formatMessage({ id: `COMMON_LEVEL` })}</li>
           </ul>
           <aside className={styles.amount}>
             <small>交易额 1000 DAGE</small>

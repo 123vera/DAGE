@@ -1,23 +1,9 @@
 @import '../styles/mixin.less';
 
 .no {
-  text-align: center;
-
-  img {
-    width: 50%;
-    margin-top: 10%;
-  }
-
-  .sorry {
-    font-size: @font-size-common;
-    margin: 50px auto 100px;
-  }
-
-  .goBack {
-    width: 70%;
-    margin: 0 auto;
-    border-radius: 4px;
-    color: #fff;
-    .background-gradient-horizontal(@theme-border-gradient-from, @theme-border-gradient-to);
-  }
+  background-image: url('@/assets/imgs/404.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
 }

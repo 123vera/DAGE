@@ -4,6 +4,7 @@ import React from 'react';
 import { Icons } from '../../../assets';
 import { connect } from 'dva';
 import { Toast } from 'antd-mobile';
+import { formatMessage } from 'umi-plugin-locale';
 
 @connect(({ wallet, globalModel }) => ({ wallet, globalModel }))
 class Activation extends Component {
@@ -11,13 +12,13 @@ class Activation extends Component {
     const { dispatch, globalModel } = this.props;
     const { myInfo } = globalModel;
     if (myInfo.did < 10) {
-      return Toast.info('DID余额不足，请前往去中心化交易所购买');
+      return Toast.info(formatMessage({ id: `EXCHANGE_BALANCE_NOT_ENOUGH_01` }));
     }
     dispatch({ type: 'wallet/ActivateRole' }).then(res => {
       if (res.status !== 1) {
         return Toast.info(res.msg);
       }
-      Toast.info('激活成功', 2, () => {
+      Toast.info(formatMessage({ id: `EXCHANGE_SUCCESS_01` }), 2, () => {
         dispatch({ type: 'globalModel/GetMyInfo' });
       });
     });
@@ -28,15 +29,15 @@ class Activation extends Component {
       <div className={styles.activation}>
         <h3>
           <img src={Icons.dIcon} alt="" />
-          激活ID
+          {formatMessage({ id: `WALLET_ACTIVITY_ID` })}
         </h3>
         <p>
-          激活DID后您才可进行购买矿机，赚取收益，邀请好友等操作。
-          <span>需支付 10 DID</span>
+          {formatMessage({ id: `WALLET_ACTIVITY_DESC_01` })}
+          <span> {formatMessage({ id: `WALLET_ACTIVITY_DESC_02` })}</span>
         </p>
         {/*<input type="text" placeholder="请输入DID邀请码"/>*/}
         {/*<p className={styles.hint}>需支付 10 DID</p>*/}
-        <button onClick={this.onSubmit}>确认激活</button>
+        <button onClick={this.onSubmit}>{formatMessage({ id: `WALLET_CONFIRM` })}</button>
       </div>
     );
   }

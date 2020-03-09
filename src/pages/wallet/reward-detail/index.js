@@ -10,7 +10,6 @@ import { downFixed } from '../../../utils/utils';
 
 @connect(({ rewardDetail, globalModel }) => ({ rewardDetail, globalModel }))
 class MiningDetail extends Component {
-
   componentDidMount() {
     this.getReward();
   }
@@ -27,15 +26,17 @@ class MiningDetail extends Component {
     return (
       <div className={styles.miningDetail}>
         <div className={styles.header}>
-          <Header icon={Icons.arrowLeft} title={formatMessage({ id: `REWARD_DETAIL_TITLE` })}/>
+          <Header icon={Icons.arrowLeft} title={formatMessage({ id: `REWARD_DETAIL_TITLE` })} />
         </div>
         <section>
           <div className={styles.summary}>
             <span>
-              {downFixed(rewardSum) || '--'}<i>DID</i>
+              {downFixed(rewardSum) || '--'}
+              <i>DID</i>
             </span>
-            <br/>
+            <br />
             <small>{formatMessage({ id: `REWARD_DETAIL_TOTAL_INCOME` })}</small>
+            <p>{formatMessage({ id: `WALLET_REWARD_DETAIL_TIP` })}</p>
           </div>
         </section>
         <section>
@@ -45,9 +46,7 @@ class MiningDetail extends Component {
                 <li key={key}>
                   <div className={styles.label}>
                     {item.type || '--'}
-                    <small>
-                      {dayjs(item.addTime * 1000).format('YYYY-MM-DD HH:mm')}
-                    </small>
+                    <small>{dayjs(item.addTime * 1000).format('YYYY-MM-DD HH:mm')}</small>
                   </div>
                   <div className={styles.value}>{item.amount}</div>
                 </li>

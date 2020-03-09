@@ -44,7 +44,7 @@ export default {
 
     *Setlang({ payload }, { call }) {
       const res = yield call(OtherApi.setlang, payload);
-      // setCookie('lang', payload.lang);
+      setCookie('lang', payload.lang);
       if (res && res.status !== 1) return;
     },
 

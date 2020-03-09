@@ -12,7 +12,7 @@ import { Icons } from '../../../assets';
 
 @connect(({ globalModel }) => ({ globalModel }))
 class Index extends Component {
-  onCopyLink = (text) => {
+  onCopyLink = text => {
     text && Toast.info(formatMessage({ id: `USER_COPIED` }));
   };
 
@@ -31,7 +31,7 @@ class Index extends Component {
         />
         <div className={styles.mainContent}>
           <div className={styles.qrCode}>
-            <QrCodeBox key='https://wallet.thedage.com' value='https://wallet.thedage.com'/>
+            <QrCodeBox key="https://wallet.thedage.com" value="https://wallet.thedage.com" />
           </div>
           <span>{recommendCode || '--'}</span>
           <CopyToClipboard
@@ -41,10 +41,7 @@ class Index extends Component {
           >
             <span className={styles.copyText}>{formatMessage({ id: `REFERRAL_CODE_COPY` })}</span>
           </CopyToClipboard>
-          <aside className={styles.download}>
-            {/*<img src={DOWNLOAD} alt="download"/>*/}
-            长按二维码保存图片
-          </aside>
+          <aside className={styles.download}>{formatMessage({ id: `REFERRAL_SAVE` })}</aside>
         </div>
       </div>
     );
@@ -60,7 +57,7 @@ class QrCodeBox extends Component {
 
   componentDidMount() {
     const canvas = document.querySelector(`.${styles.qrCodeBox} canvas`);
-    const url = canvas && canvas.toDataURL('image/png') || '';
+    const url = (canvas && canvas.toDataURL('image/png')) || '';
     this.setState({ url });
   }
 
@@ -70,9 +67,9 @@ class QrCodeBox extends Component {
 
     return (
       <div className={styles.qrCodeBox}>
-        <QRCode className={styles.qrCode} size={250} value={value || ''}/>
-        <br/>
-        <img src={url} alt=""/>
+        <QRCode className={styles.qrCode} size={250} value={value || ''} />
+        <br />
+        <img src={url} alt="" />
       </div>
     );
   }

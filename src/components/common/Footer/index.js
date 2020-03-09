@@ -2,27 +2,28 @@ import React, { Component } from 'react';
 import { withRouter, router } from 'umi';
 import { Icons } from '../../../assets';
 import styles from './index.less';
+import { formatMessage } from 'umi-plugin-locale';
 
 const tabs = [
   {
     path: '/home/wallet',
     icon: Icons.wallet,
     iconActive: Icons.walletActive,
-    label: '钱包',
+    label: formatMessage({ id: `WALLET_TITLE` }),
     width: '50px',
   },
   {
     path: '/home/ecological',
     icon: Icons.zoology,
     iconActive: Icons.zoologyActive,
-    label: '生态',
+    label: formatMessage({ id: `ECOLOGICAL_TITLE` }),
     width: '40px',
   },
   {
     path: '/home/user',
     icon: Icons.user,
     iconActive: Icons.userActive,
-    label: '我的',
+    label: formatMessage({ id: `USER_MINE` }),
     width: '40px',
   },
 ];

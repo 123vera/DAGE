@@ -6,6 +6,23 @@
     text-align: center;
     min-height: 320px;
 
+    .statusText {
+      position: absolute;
+      top: 100%;
+      right: 100px;
+      transform: translateY(-100%);
+      font-size: @font-size-common;
+      z-index: 2;
+    }
+
+    .status {
+      position: absolute;
+      bottom: -33px;
+      right: 90px;
+      width: 105px;
+      z-index: 1;
+    }
+
     .center {
       position: absolute;
       top: 20%;
@@ -33,19 +50,22 @@
 
       &.bg1 {
         position: absolute;
-        top: 40px;
+        // top: 40px;
+        top: 14%;
         right: 100px;
-        width: 190px;
+        width: 28%;
+        // width: 190px;
         z-index: 0;
       }
 
-      &.status {
-        position: absolute;
-        bottom: -30px;
-        right: 70px;
-        width: 98px;
-        z-index: 1;
-      }
+      // &.status {
+      //   position: absolute;
+      //   bottom: -30px;
+      //   right: 70px;
+      //   width: 15%;
+      //   z-index: 1;
+      // }
+
       &.icon {
         width: 90px;
       }

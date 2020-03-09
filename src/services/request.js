@@ -16,7 +16,6 @@ const Request = axios.create({
     Accept: 'application/json, text/plain, */*',
     'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
     // 'Content-Type': 'application/json;charset=UTF-8',
-    // lang: getLocale() || 'ZH_CN',
   },
   // baseURL: '/api',
   withCredentials: true,
