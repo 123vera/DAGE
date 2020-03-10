@@ -35,6 +35,7 @@ export default {
   TOAST_SET_ACCOUNT_SUCCESS: `账号创建成功`,
   TOAST_SET_WITHDRAW_SUCCESS: `提币成功`,
 
+  LOGIN: `登录`,
   LOGIN_TITLE: `登录DAGE`,
   LOGIN_FORGET_PASSWORD: `忘记密码？`,
   LOGIN_FIND_PASSWORD: `找回登录密码`,

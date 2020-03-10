@@ -11,7 +11,7 @@ export default {
     captcha: '',
     captchaKey: +new Date(),
     captchaSrc: '',
-    agree: true,
+    agree: false,
   },
   reducers: {
     UpdateState(state, { payload }) {

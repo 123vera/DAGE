@@ -11,6 +11,7 @@ import styles from './index.less';
 import { Toast } from 'antd-mobile';
 import Cookies from 'js-cookie';
 import SmsCode from '../../../../components/partials/SmsCode';
+import SubmitBtn from '../../../../components/common/SubmitBtn';
 
 @connect(({ password, globalModel }) => ({ password, globalModel }))
 class Home extends Component {
@@ -185,7 +186,8 @@ class Home extends Component {
                 onChange={value => this.onInputChange(value, 'code')}
               />
               <h4>{errMsg.value || ''}</h4>
-              <img className={styles.nextStep} src={Images.nextStep} onClick={this.toNext} alt="" />
+              <SubmitBtn value={formatMessage({ id: `COMMON_NEXT_STEP` })} onClick={this.toNext}/>
+              {/*<img className={styles.nextStep} src={Images.nextStep} onClick={this.toNext} alt="" />*/}
             </div>
           </div>
         </section>

@@ -9,6 +9,7 @@ import { REG } from '../../../utils/constants';
 import styles from './index.less';
 import TelPrefix from '../../../components/partials/TelPrefix';
 import { Icons, Images } from '../../../assets';
+import SubmitBtn from '../../../components/common/SubmitBtn';
 
 @connect(({ globalModel, login }) => ({ globalModel, login }))
 class Login extends Component {
@@ -147,7 +148,9 @@ class Login extends Component {
                 </span>
               </div>
 
-              <img className={styles.nextStep} src={Images.nextStep} onClick={this.toNext} alt="" />
+              <SubmitBtn value={formatMessage({ id: `LOGIN` })} onClick={this.toNext}/>
+
+              {/*<img className={styles.nextStep} src={Images.nextStep} onClick={this.toNext} alt="" />*/}
             </div>
           </section>
         </div>

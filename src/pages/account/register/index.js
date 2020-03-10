@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { formatMessage } from 'umi/locale';
 import { connect } from 'dva';
 import router from 'umi/router';
-import { Icons, Images } from '../../../assets';
+import { Icons } from '../../../assets';
 import TelPrefix from '../../../components/partials/TelPrefix';
 import Captcha from '../../../components/partials/Captcha';
 import PageHeader from '../../../components/common/PageHeader';
@@ -11,6 +11,7 @@ import styles from './index.less';
 import { Toast } from 'antd-mobile';
 import { TOAST_DURATION } from '../../../utils/constants';
 import SmsCode from '../../../components/partials/SmsCode';
+import SubmitBtn from '../../../components/common/SubmitBtn';
 
 @connect(({ register }) => ({ register }))
 class Register extends Component {
@@ -96,7 +97,7 @@ class Register extends Component {
   };
 
   toNext = () => {
-    const { phone, password, passwordConfirm, code,agree } = this.props.register;
+    const { phone, password, passwordConfirm, code, agree } = this.props.register;
 
     if (!phone) {
       this.setState({
@@ -249,7 +250,8 @@ class Register extends Component {
                 <a href="http://www.baidu.com">{formatMessage({ id: `REGISTER_PROTOCOL` })}</a>
               </aside>
               <h4 className={styles.errMsg}>{errMsg.value || ''}</h4>
-              <img onClick={this.toNext} className={styles.nextStep} src={Images.nextStep} alt=""/>
+              <SubmitBtn value={formatMessage({ id: `REGISTER_TITLE` })} onClick={this.toNext}/>
+              {/*<img onClick={this.toNext} className={styles.nextStep} src={Images.nextStep} alt=""/>*/}
             </div>
           </div>
         </section>

@@ -35,6 +35,7 @@ export default {
   TOAST_SET_ACCOUNT_SUCCESS: `Account created`,
   TOAST_SET_WITHDRAW_SUCCESS: `Successful withdrawl`,
 
+  LOGIN: `Login`,
   LOGIN_TITLE: `Login to DAGE`,
   LOGIN_FORGET_PASSWORD: `Forget Password？`,
   LOGIN_FIND_PASSWORD: `Recover login password`,

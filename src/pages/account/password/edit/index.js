@@ -8,6 +8,7 @@ import { router } from 'umi';
 import { Toast } from 'antd-mobile';
 import { TOAST_DURATION } from '../../../../utils/constants';
 import { Icons, Images } from '../../../../assets';
+import SubmitBtn from '../../../../components/common/SubmitBtn';
 
 @connect(({ password }) => ({ password }))
 class Index extends Component {
@@ -102,7 +103,8 @@ class Index extends Component {
               />
               <h4>{errMsg.value || ''}</h4>
             </label>
-            <img className={styles.nextStep} src={Images.nextStep} onClick={this.toNext} alt="" />
+            <SubmitBtn value={formatMessage({ id: `COMMON_SUBMIT` })} onClick={this.toNext}/>
+            {/*<img className={styles.nextStep} src={Images.nextStep} onClick={this.toNext} alt="" />*/}
           </div>
         </section>
       </div>
