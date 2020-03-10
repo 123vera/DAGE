@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ARROW_LEFT from '@/assets/dark/arrow-left.png';
 import CHECKED from '@/assets/dark/checked.png';
-import PageHeader from '@/components/common/PageHeader';
+import PageHeader from '../../../components/common/PageHeader';
 import TEL_PREFIX_DATA from '@/utils/tel-prefix';
 import styles from './index.less';
 import { formatMessage } from 'umi-plugin-locale';

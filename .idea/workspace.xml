@@ -3,14 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="85fa9ab6-0589-4a2d-9a7e-858b39c025c1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/wallet/Mining/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/wallet/Mining/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layouts/BasicLayout/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/layouts/BasicLayout/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/locales/en-US.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/locales/en-US.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/locales/zh-CN.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/locales/zh-CN.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/globalModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/globalModel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/user/zendesk/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/user/zendesk/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/wallet/reward-detail/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/wallet/reward-detail/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/wallet/withdraw-record/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/wallet/withdraw-record/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/common/Footer/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/Footer/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/common/Footer/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/Footer/index.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/common/PageHeader/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/PageHeader/index.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/partials/Captcha/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/partials/Captcha/index.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/partials/SmsCode/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/partials/SmsCode/index.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/partials/TelPrefix/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/partials/TelPrefix/index.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -25,31 +23,31 @@
     <session id="1980149166">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="26" />
+          <entry key="project.closed" value="27" />
           <entry key="project.open.time.0" value="3" />
           <entry key="project.open.time.1" value="6" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.3" value="3" />
-          <entry key="project.open.time.4" value="7" />
+          <entry key="project.open.time.4" value="8" />
           <entry key="project.open.time.5" value="4" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.8" value="2" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="29" />
+          <entry key="project.opened" value="30" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="css" value="10" />
+          <entry key="css" value="11" />
           <entry key="ejs" value="2" />
           <entry key="gitignore" value="2" />
-          <entry key="js" value="559" />
+          <entry key="js" value="564" />
           <entry key="json" value="4" />
           <entry key="jsx" value="2" />
-          <entry key="less" value="135" />
+          <entry key="less" value="140" />
           <entry key="lock" value="1" />
-          <entry key="md" value="30" />
+          <entry key="md" value="31" />
           <entry key="png" value="31" />
           <entry key="pub" value="1" />
           <entry key="sh" value="1" />
@@ -61,14 +59,14 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Bash" value="1" />
-          <entry key="CSS" value="10" />
+          <entry key="CSS" value="11" />
           <entry key="EJS" value="2" />
           <entry key="Image" value="31" />
           <entry key="JSON" value="4" />
           <entry key="JSX Harmony" value="2" />
-          <entry key="JavaScript" value="559" />
-          <entry key="Less" value="135" />
-          <entry key="Markdown" value="30" />
+          <entry key="JavaScript" value="564" />
+          <entry key="Less" value="140" />
+          <entry key="Markdown" value="31" />
           <entry key="PLAIN_TEXT" value="3" />
           <entry key="SVG" value="2" />
           <entry key="TypeScript" value="10" />
@@ -78,33 +76,33 @@
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
         <counts>
-          <entry key="ESLintLanguageService" value="28" />
+          <entry key="ESLintLanguageService" value="29" />
           <entry key="TypeScriptServerServiceImpl" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="css" value="12" />
+          <entry key="css" value="14" />
           <entry key="ejs" value="17" />
           <entry key="gitignore" value="5" />
-          <entry key="js" value="23094" />
+          <entry key="js" value="23120" />
           <entry key="json" value="2" />
-          <entry key="less" value="4096" />
+          <entry key="less" value="4117" />
           <entry key="md" value="154" />
           <entry key="sh" value="14" />
-          <entry key="txt" value="257" />
+          <entry key="txt" value="266" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Bash" value="14" />
-          <entry key="CSS" value="12" />
+          <entry key="CSS" value="14" />
           <entry key="EJS" value="17" />
           <entry key="JSON" value="2" />
-          <entry key="JavaScript" value="23094" />
-          <entry key="Less" value="4096" />
+          <entry key="JavaScript" value="23120" />
+          <entry key="Less" value="4117" />
           <entry key="Markdown" value="154" />
-          <entry key="PLAIN_TEXT" value="262" />
+          <entry key="PLAIN_TEXT" value="271" />
         </counts>
       </usages-collector>
     </session>
@@ -112,49 +110,103 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/user/zendesk/index.js">
+        <entry file="file://$PROJECT_DIR$/src/components/partials/TelPrefix/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="178">
-              <caret line="40" column="17" lean-forward="true" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
+            <state relative-caret-position="66">
+              <caret line="3" column="14" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/common/PageHeader/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="22">
+              <caret line="1" column="25" lean-forward="true" selection-start-line="1" selection-start-column="25" selection-end-line="1" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/common/PageHeader/index.less">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="242">
+              <caret line="11" column="19" lean-forward="true" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/common/Footer/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-83">
+              <caret line="31" column="12" lean-forward="true" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="12" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+                <element signature="e#225#721#0" expanded="true" />
+                <element signature="e#229#389#0" expanded="true" />
+                <element signature="e#393#563#0" expanded="true" />
+                <element signature="e#567#718#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/account/password/verify/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="241">
+              <caret line="173" column="22" lean-forward="true" selection-start-line="173" selection-start-column="22" selection-end-line="173" selection-end-column="22" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/global.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="401">
+              <caret line="65" column="1" selection-start-line="65" selection-start-column="1" selection-end-line="65" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/partials/SmsCode/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-945">
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/partials/SmsCode/index.less">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="289">
+              <caret line="21" selection-start-line="21" selection-end-line="22" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/layouts/BasicLayout/index.js">
+        <entry file="file://$PROJECT_DIR$/src/components/partials/Captcha/index.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="373">
-              <caret line="56" column="5" lean-forward="true" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="5" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-                <element signature="e#247#273#0" expanded="true" />
-                <element signature="e#352#469#0" expanded="true" />
-                <element signature="e#404#462#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="310">
+              <caret line="28" column="20" lean-forward="true" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/models/globalModel.js">
+        <entry file="file://$PROJECT_DIR$/src/components/common/Footer/index.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="118">
-              <caret line="66" column="34" lean-forward="true" selection-start-line="66" selection-start-column="34" selection-end-line="66" selection-end-column="34" />
-              <folding>
-                <element signature="e#0#43#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/services/utils.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="9" selection-start-line="9" selection-end-line="10" />
+            <state relative-caret-position="332">
+              <caret line="35" column="11" lean-forward="true" selection-start-line="35" selection-start-column="11" selection-end-line="35" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -163,7 +215,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>next</find>
       <find>getAssetFlow</find>
       <find>setLocale</find>
       <find>TOAST_DURATION</find>
@@ -193,6 +244,7 @@
       <find>WITHDRAW_TIPS_CONTENT_03</find>
       <find>fee</find>
       <find>INCOME_TITLE</find>
+      <find>pl</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -208,10 +260,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/global.css" />
-        <option value="$PROJECT_DIR$/src/components/wallet/Activation/index.js" />
-        <option value="$PROJECT_DIR$/src/pages/account/password/edit/index.js" />
-        <option value="$PROJECT_DIR$/src/services/api/user.js" />
         <option value="$PROJECT_DIR$/src/pages/user/home/index.js" />
         <option value="$PROJECT_DIR$/src/pages/account/password/model.js" />
         <option value="$PROJECT_DIR$/src/pages/account/password/verify/index.js" />
@@ -220,7 +268,6 @@
         <option value="$PROJECT_DIR$/src/pages/account/register/index.js" />
         <option value="$PROJECT_DIR$/src/pages/account/register/model.js" />
         <option value="$PROJECT_DIR$/src/pages/ecological/exchange/index.less" />
-        <option value="$PROJECT_DIR$/src/components/partials/SmsCode/index.less" />
         <option value="$PROJECT_DIR$/src/pages/404.js" />
         <option value="$PROJECT_DIR$/config/router.config.js" />
         <option value="$PROJECT_DIR$/项目资源.md" />
@@ -246,11 +293,9 @@
         <option value="$PROJECT_DIR$/src/pages/user/notices/index.js" />
         <option value="$PROJECT_DIR$/src/pages/wallet/withdraw/model.js" />
         <option value="$PROJECT_DIR$/src/services/api/asset.js" />
-        <option value="$PROJECT_DIR$/src/components/partials/TelPrefix/index.js" />
         <option value="$PROJECT_DIR$/src/utils/utils.js" />
         <option value="$PROJECT_DIR$/src/pages/ecological/exchange/index.js" />
         <option value="$PROJECT_DIR$/src/pages/wallet/withdraw/index.js" />
-        <option value="$PROJECT_DIR$/src/components/partials/Captcha/index.less" />
         <option value="$PROJECT_DIR$/src/pages/wallet/withdraw-record/index.js" />
         <option value="$PROJECT_DIR$/src/pages/wallet/reward-detail/index.js" />
         <option value="$PROJECT_DIR$/src/locales/zh-CN.js" />
@@ -259,6 +304,13 @@
         <option value="$PROJECT_DIR$/src/models/globalModel.js" />
         <option value="$PROJECT_DIR$/src/pages/user/zendesk/index.js" />
         <option value="$PROJECT_DIR$/src/layouts/BasicLayout/index.js" />
+        <option value="$PROJECT_DIR$/src/components/partials/TelPrefix/index.js" />
+        <option value="$PROJECT_DIR$/src/components/common/PageHeader/index.less" />
+        <option value="$PROJECT_DIR$/src/components/common/Footer/index.less" />
+        <option value="$PROJECT_DIR$/src/components/common/Footer/index.js" />
+        <option value="$PROJECT_DIR$/src/global.css" />
+        <option value="$PROJECT_DIR$/src/components/partials/SmsCode/index.less" />
+        <option value="$PROJECT_DIR$/src/components/partials/Captcha/index.less" />
       </list>
     </option>
   </component>
@@ -289,7 +341,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -306,14 +357,44 @@
               <item name="dage" type="b2602c69:ProjectViewProjectNode" />
               <item name="dage" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="layouts" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dage" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dage" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="partials" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dage" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dage" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="partials" type="462c0819:PsiDirectoryNode" />
+              <item name="Captcha" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dage" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dage" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="partials" type="462c0819:PsiDirectoryNode" />
+              <item name="SmsCode" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dage" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dage" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="partials" type="462c0819:PsiDirectoryNode" />
+              <item name="TelPrefix" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="dage" type="b2602c69:ProjectViewProjectNode" />
               <item name="dage" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="layouts" type="462c0819:PsiDirectoryNode" />
-              <item name="BasicLayout" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="dage" type="b2602c69:ProjectViewProjectNode" />
@@ -332,15 +413,24 @@
               <item name="dage" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="ecological" type="462c0819:PsiDirectoryNode" />
+              <item name="account" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="dage" type="b2602c69:ProjectViewProjectNode" />
               <item name="dage" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="ecological" type="462c0819:PsiDirectoryNode" />
-              <item name="exchange" type="462c0819:PsiDirectoryNode" />
+              <item name="account" type="462c0819:PsiDirectoryNode" />
+              <item name="password" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dage" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dage" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="account" type="462c0819:PsiDirectoryNode" />
+              <item name="password" type="462c0819:PsiDirectoryNode" />
+              <item name="verify" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="dage" type="b2602c69:ProjectViewProjectNode" />
@@ -374,6 +464,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -416,6 +507,15 @@
       </list>
     </option>
   </component>
+  <component name="RunManager">
+    <configuration name="dage start" type="js.build_tools.npm" factoryName="npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="start" />
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -454,14 +554,8 @@
       <workItem from="1583634978546" duration="7379000" />
       <workItem from="1583648478704" duration="19908000" />
       <workItem from="1583762344163" duration="2380000" />
-      <workItem from="1583765206829" duration="2598000" />
-    </task>
-    <task id="LOCAL-00008" summary="Merge remote-tracking branch 'origin/dev' into dev&#10;&#10;# Conflicts:&#10;#&#9;src/components/common/Header/index.js&#10;#&#9;src/pages/wallet/index.js">
-      <created>1581951070387</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1581951070387</updated>
+      <workItem from="1583765206829" duration="2743000" />
+      <workItem from="1583847686035" duration="1827000" />
     </task>
     <task id="LOCAL-00009" summary="按照你的格式修改header组件">
       <created>1582123533093</created>
@@ -799,11 +893,18 @@
       <option name="project" value="LOCAL" />
       <updated>1583677453630</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="客服">
+      <created>1583768104555</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1583768104556</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="254747000" />
+    <option name="totallyTimeSpent" value="256719000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="454" y="26" width="1161" height="990" extended-state="0" />
@@ -815,7 +916,7 @@
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32962137" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -823,7 +924,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32962137" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50163937" side_tool="true" weight="0.32962137" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49836066" visible="true" weight="0.30846325" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49836066" weight="0.30846325" />
       <window_info anchor="bottom" id="Messages" order="11" />
       <window_info anchor="bottom" id="TypeScript" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -870,7 +971,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Merge remote-tracking branch 'origin/dev' into dev&#10;&#10;# Conflicts:&#10;#&#9;src/components/common/Header/index.js&#10;#&#9;src/pages/wallet/index.js" />
     <MESSAGE value="按照你的格式修改header组件" />
     <MESSAGE value="挖矿" />
     <MESSAGE value="UI完成" />
@@ -895,62 +995,10 @@
     <MESSAGE value="amount 限制输入两位数" />
     <MESSAGE value="字符排序" />
     <MESSAGE value="费率" />
-    <option name="LAST_COMMIT_MESSAGE" value="费率" />
+    <MESSAGE value="客服" />
+    <option name="LAST_COMMIT_MESSAGE" value="客服" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/pages/404.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="22" lean-forward="true" selection-start-column="22" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/account/setAccount/index.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-691" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/wallet/recharge/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="121" column="16" lean-forward="true" selection-start-line="121" selection-start-column="16" selection-end-line="121" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/wallet/recharge/index.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="21" column="23" lean-forward="true" selection-start-line="20" selection-start-column="6" selection-end-line="21" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/wallet/index.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-296" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/wallet/Mining/index.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="76" column="20" lean-forward="true" selection-start-line="76" selection-start-column="20" selection-end-line="76" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/wallet/WalletMenus/index.js" />
-    <entry file="file://$PROJECT_DIR$/src/pages/wallet/model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="26" selection-start-column="26" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/wallet/flow/model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="32" column="27" lean-forward="true" selection-start-line="32" selection-start-column="27" selection-end-line="32" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/wallet/withdraw-record/index.less">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="352">
@@ -1115,13 +1163,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/partials/TelPrefix/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="18" column="4" lean-forward="true" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/utils/utils.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -1133,10 +1174,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4290">
           <caret line="238" column="19" selection-start-line="238" selection-start-column="19" selection-end-line="238" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-            <element signature="e#909#993#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1151,13 +1188,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4334">
           <caret line="252" column="16" selection-start-line="250" selection-start-column="10" selection-end-line="252" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/partials/Captcha/index.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
         </state>
       </provider>
     </entry>
@@ -1203,20 +1233,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/项目资源.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="176">
-            <caret line="8" column="11" lean-forward="true" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/wallet/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="349">
           <caret line="95" column="39" selection-start-line="95" selection-start-column="39" selection-end-line="95" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/user/zendesk/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="770">
+          <caret line="40" column="17" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/layouts/BasicLayout/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1229,34 +1269,108 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/models/globalModel.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="66" column="34" lean-forward="true" selection-start-line="66" selection-start-column="34" selection-end-line="66" selection-end-column="34" />
+        <state relative-caret-position="308">
+          <caret line="76" column="10" lean-forward="true" selection-start-line="76" selection-start-column="10" selection-end-line="76" selection-end-column="10" />
           <folding>
             <element signature="e#0#43#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/user/zendesk/index.js">
+    <entry file="file://$PROJECT_DIR$/项目资源.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="518">
+            <caret line="24" column="11" lean-forward="true" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/partials/TelPrefix/index.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="40" column="17" lean-forward="true" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
+        <state relative-caret-position="-139" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/partials/TelPrefix/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="3" column="14" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/common/PageHeader/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="1" column="25" lean-forward="true" selection-start-line="1" selection-start-column="25" selection-end-line="1" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/common/PageHeader/index.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="11" column="19" lean-forward="true" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/common/Footer/index.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="35" column="11" lean-forward="true" selection-start-line="35" selection-start-column="11" selection-end-line="35" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/common/Footer/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-83">
+          <caret line="31" column="12" lean-forward="true" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+            <element signature="e#225#721#0" expanded="true" />
+            <element signature="e#229#389#0" expanded="true" />
+            <element signature="e#393#563#0" expanded="true" />
+            <element signature="e#567#718#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/account/password/verify/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="173" column="22" lean-forward="true" selection-start-line="173" selection-start-column="22" selection-end-line="173" selection-end-column="22" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/layouts/BasicLayout/index.js">
+    <entry file="file://$PROJECT_DIR$/src/global.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="56" column="5" lean-forward="true" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="5" />
+        <state relative-caret-position="401">
+          <caret line="65" column="1" selection-start-line="65" selection-start-column="1" selection-end-line="65" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/partials/SmsCode/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-945">
           <folding>
             <element signature="e#0#41#0" expanded="true" />
-            <element signature="e#247#273#0" expanded="true" />
-            <element signature="e#352#469#0" expanded="true" />
-            <element signature="e#404#462#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/partials/SmsCode/index.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="21" selection-start-line="21" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/partials/Captcha/index.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="28" column="20" lean-forward="true" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
         </state>
       </provider>
     </entry>

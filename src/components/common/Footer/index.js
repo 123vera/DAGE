@@ -10,21 +10,18 @@ const tabs = [
     icon: Icons.wallet,
     iconActive: Icons.walletActive,
     label: formatMessage({ id: `WALLET_TITLE` }),
-    width: '50px',
   },
   {
     path: '/home/ecological',
     icon: Icons.zoology,
     iconActive: Icons.zoologyActive,
     label: formatMessage({ id: `ECOLOGICAL_TITLE` }),
-    width: '40px',
   },
   {
     path: '/home/user',
     icon: Icons.user,
     iconActive: Icons.userActive,
     label: formatMessage({ id: `USER_MINE` }),
-    width: '40px',
   },
 ];
 
@@ -43,7 +40,7 @@ class Footer extends Component {
             >
               <img
                 src={location.pathname === tab.path ? tab.iconActive : tab.icon}
-                style={{ width: tab.width }}
+                width={tab.width}
                 alt=""
               />
             </li>
