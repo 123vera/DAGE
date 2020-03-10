@@ -47,6 +47,9 @@ export default {
   REGISTER_TITLE: `注册`,
   REGISTER_GET_CODE: `获取验证码`,
   REGISTER_GET_CAPTCHA: `图形验证码`,
+  REGISTER_AGREE: `我已阅读并接受`,
+  REGISTER_PROTOCOL: `用户协议`,
+  REGISTER_AGREE_PROTOCOL: `请同意用户协议`,
 
   SELECT_ACCOUNT_TITLE: `选择登录账号`,
   SELECT_SET_ACCOUNT: `创建新账号`,

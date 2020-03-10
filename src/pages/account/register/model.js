@@ -11,6 +11,7 @@ export default {
     captcha: '',
     captchaKey: +new Date(),
     captchaSrc: '',
+    agree: true,
   },
   reducers: {
     UpdateState(state, { payload }) {
@@ -18,18 +19,18 @@ export default {
     },
   },
   effects: {
-    *GetCaptcha({ payload }, { call, put }) {
+    * GetCaptcha({ payload }, { call, put }) {
       const captchaKey = payload;
       const captchaSrc = yield call(UserApi.getCaptcha, captchaKey);
       yield put({ type: 'UpdateState', payload: { captchaSrc, captchaKey } });
     },
 
-    *GetSmsCode({ payload }, { call, select }) {
+    * GetSmsCode({ payload }, { call, select }) {
       const captchaKey = yield select(state => state.register.captchaKey);
       return yield call(UserApi.sendSmsCode, payload, captchaKey);
     },
 
-    *Register(_, { call, select }) {
+    * Register(_, { call, select }) {
       const register = yield select(state => state.register);
       const res = yield call(UserApi.existPhone, {
         prefix: register.prefix,

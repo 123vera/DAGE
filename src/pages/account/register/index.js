@@ -32,6 +32,7 @@ class Register extends Component {
   };
 
   onInputChange = (value, key) => {
+    console.log(value);
     const { dispatch } = this.props;
     if (key === 'code' && value.length > 4) return;
     if (key === 'phone' || key === 'code') {
@@ -95,7 +96,7 @@ class Register extends Component {
   };
 
   toNext = () => {
-    const { phone, password, passwordConfirm, code } = this.props.register;
+    const { phone, password, passwordConfirm, code,agree } = this.props.register;
 
     if (!phone) {
       this.setState({
@@ -137,6 +138,18 @@ class Register extends Component {
       });
       return;
     }
+    if (password !== passwordConfirm) {
+      this.setState({
+        errMsg: { type: 'passwordConfirm', value: formatMessage({ id: `LOGIN_REPASSWORD` }) },
+      });
+      return;
+    }
+    if (!agree) {
+      this.setState({
+        errMsg: { type: '', value: formatMessage({ id: `REGISTER_AGREE_PROTOCOL` }) },
+      });
+      return;
+    }
 
     this.props.dispatch({ type: 'register/Register' }).then(res => {
       if (res.status !== 1) {
@@ -161,6 +174,7 @@ class Register extends Component {
       passwordConfirm,
       captchaSrc,
       captcha,
+      agree,
     } = this.props.register;
     return (
       <div className={styles.userRegister}>
@@ -171,15 +185,15 @@ class Register extends Component {
           <p>{formatMessage({ id: `REGISTER_TITLE` })}DAGE</p>
           <div className={styles.mainWrapper}>
             <div className={styles.content}>
-              <label>
+              <label className={styles.row}>
                 <span>{formatMessage({ id: `COMMON_LABEL_PHONE` })}</span>
                 <div
                   className={`${styles.pickerWrapper} ${errMsg.type === 'phone' &&
-                    styles.inputErr}`}
+                  styles.inputErr}`}
                 >
                   <span onClick={this.onOpenPrefix}>
                     {prefix ? `+${prefix}` : formatMessage({ id: `COMMON_SELECT_AREA` })}
-                    <img src={Icons.arrowDown} alt="" />
+                    <img src={Icons.arrowDown} alt=""/>
                   </span>
                   <input
                     value={phone}
@@ -202,7 +216,7 @@ class Register extends Component {
                 onChange={value => this.onInputChange(value, 'code')}
                 getSmsCode={this.getSmsCode}
               />
-              <label>
+              <label className={styles.row}>
                 <span>{formatMessage({ id: `COMMON_LABEL_PASSWORD` })}</span>
                 <input
                   value={password}
@@ -213,7 +227,7 @@ class Register extends Component {
                   onChange={e => this.onChangePassword(e, 'password')}
                 />
               </label>
-              <label>
+              <label className={styles.row}>
                 <span>{formatMessage({ id: `COMMON_LABEL_REPASSWORD` })}</span>
                 <input
                   value={passwordConfirm}
@@ -224,8 +238,18 @@ class Register extends Component {
                   onChange={e => this.onChangePassword(e, 'passwordConfirm')}
                 />
               </label>
+              <aside className={styles.aside}>
+                <input
+                  id="agree"
+                  type="checkbox"
+                  checked={agree}
+                  onChange={e => this.onInputChange(e.target.checked, 'agree')}
+                />
+                <label htmlFor="agree">{formatMessage({ id: `REGISTER_AGREE` })}</label>
+                <a href="http://www.baidu.com">{formatMessage({ id: `REGISTER_PROTOCOL` })}</a>
+              </aside>
               <h4 className={styles.errMsg}>{errMsg.value || ''}</h4>
-              <img onClick={this.toNext} className={styles.nextStep} src={Images.nextStep} alt="" />
+              <img onClick={this.toNext} className={styles.nextStep} src={Images.nextStep} alt=""/>
             </div>
           </div>
         </section>
