@@ -102,7 +102,7 @@ export default {
   USER_SECTION_05: `Change Language`,
   USER_SECTION_06: `Contact customer service`,
   USER_LOGOUT: `Confirm to log out?`,
-  USER_RECOMMEND_CODE: `Referral code:`,
+  USER_RECOMMEND_CODE: `Referral code：`,
 
   PAY_DESC: `Please upload your Alipay payment QR code, and you need to download the 自由侠App on your Android device and log in your Alipay account that is consistent with the uploaded QR code. Keep your 自由侠app open，or otherwise found out, the customer service will deduct the mining reward of the day in the back end`,
   PAY_PLACEHOLDER: `Please enter Alipay account`,
@@ -113,7 +113,7 @@ export default {
   PAY_WAITING_01: `Submission complete, pending approval ...`,
   PAY_WAITING_02: `Results will be displayed in the user center`,
 
-  INCOME_GET_INVITER_CODE: `获取邀请码`,
+  INCOME_GET_INVITER_CODE: `Get verification code`,
   INCOME_TITLE: `Revenue details`,
   INCOME_TOTAL: `Rebate Revenue`,
 

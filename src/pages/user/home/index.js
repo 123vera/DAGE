@@ -54,11 +54,11 @@ class Home extends Component {
         text: formatMessage({ id: `USER_SECTION_04` }),
         url: '/notices',
       },
-      // {
-      //   icon: ICON_SWITCH,
-      //   text: formatMessage({ id: `USER_SECTION_05` }),
-      //   url: '/switch_lang',
-      // },
+      {
+        icon: ICON_SWITCH,
+        text: formatMessage({ id: `USER_SECTION_05` }),
+        url: '/switch_lang',
+      },
       {
         icon: ICON_CUSTOMER,
         text: formatMessage({ id: `USER_SECTION_06` }),
