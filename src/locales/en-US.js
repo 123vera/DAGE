@@ -48,9 +48,9 @@ export default {
   REGISTER_TITLE: `Register`,
   REGISTER_GET_CODE: `Get verification code`,
   REGISTER_GET_CAPTCHA: `Graphic Verification Code`,
-  REGISTER_AGREE: `我已阅读并接受`,
-  REGISTER_PROTOCOL: `用户协议`,
-  REGISTER_AGREE_PROTOCOL: `请同意用户协议`,
+  REGISTER_AGREE: `I have read and accepted`,
+  REGISTER_PROTOCOL: `User Agreement`,
+  REGISTER_AGREE_PROTOCOL: `Please agree to the user agreement`,
 
   SELECT_ACCOUNT_TITLE: `Choose an account to log in`,
   SELECT_SET_ACCOUNT: `Create new account`,
