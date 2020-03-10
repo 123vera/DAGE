@@ -272,7 +272,7 @@ class Recharge extends Component {
               {coin.label}，{formatMessage({ id: `WITHDRAW_TIPS_CONTENT_02` })}
               {downFixed(initInfo.amountMin) || '--'}-{downFixed(initInfo.amountMax) || '--'}
               {coin.label}，{formatMessage({ id: `WITHDRAW_TIPS_CONTENT_03` })}
-              {amount ? downFixed(serviceCharge) : '--'}%
+              {serviceCharge !== '' ? downFixed(serviceCharge) : '--'}%
             </li>
             <li>{formatMessage({ id: `WITHDRAW_TIPS_CONTENT_04` })}</li>
           </ul>
