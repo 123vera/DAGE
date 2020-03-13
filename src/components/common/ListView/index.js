@@ -47,6 +47,7 @@ class ListView extends Component {
   render() {
     const { hasMore } = this.props;
     const { action } = this.state;
+
     return (
       <ReactPullLoad
         downEnough={150}

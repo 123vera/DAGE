@@ -28,10 +28,16 @@ export function getAccountToken() {
 }
 
 export function getApiBaseUrl() {
+  // 本地
   if (window.location.href.includes('localhost')) {
     return 'http://47.75.3.2:82/api';
   }
+  // 生产环境
+  if (window.location.href.includes('https://wallet.thedage.com')) {
+    return 'https://api.thedage.com/api';
+  }
 
+  // 测试环境
   return 'http://47.75.3.2:82/api';
 }
 
@@ -79,5 +85,3 @@ export function getHumpData(data) {
   }
   return data;
 }
-
-
