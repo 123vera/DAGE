@@ -56,6 +56,10 @@ export default [
         path: '/exchange',
         title: '去中心化交易中心',
         component: './ecological/exchange',
+      }, {
+        path: '/otc-mining',
+        title: 'OTC挖矿',
+        component: './ecological/otc-mining',
       },
       { component: './404' },
     ],
