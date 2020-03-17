@@ -2,13 +2,12 @@ import React, { Component } from 'react';
 import { Toast } from 'antd-mobile';
 import { formatMessage } from 'umi-plugin-locale';
 import { connect } from 'dva';
-import TEL_PREFIX_DATA from '@/utils/tel-prefix';
 import router from 'umi/router';
 import Cookies from 'js-cookie';
 import { REG } from '../../../utils/constants';
 import styles from './index.less';
 import TelPrefix from '../../../components/partials/TelPrefix';
-import { Icons, Images } from '../../../assets';
+import { Icons } from '../../../assets';
 import SubmitBtn from '../../../components/common/SubmitBtn';
 
 @connect(({ globalModel, login }) => ({ globalModel, login }))
@@ -147,10 +146,7 @@ class Login extends Component {
                   {formatMessage({ id: `LOGIN_FORGET_PASSWORD` })}
                 </span>
               </div>
-
               <SubmitBtn value={formatMessage({ id: `LOGIN` })} onClick={this.toNext}/>
-
-              {/*<img className={styles.nextStep} src={Images.nextStep} onClick={this.toNext} alt="" />*/}
             </div>
           </section>
         </div>

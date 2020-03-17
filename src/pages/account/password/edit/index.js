@@ -7,7 +7,7 @@ import styles from './index.less';
 import { router } from 'umi';
 import { Toast } from 'antd-mobile';
 import { TOAST_DURATION } from '../../../../utils/constants';
-import { Icons, Images } from '../../../../assets';
+import { Icons } from '../../../../assets';
 import SubmitBtn from '../../../../components/common/SubmitBtn';
 
 @connect(({ password }) => ({ password }))
@@ -75,7 +75,7 @@ class Index extends Component {
 
     return (
       <div className={styles.setPassword}>
-        <PageHeader leftContent={{ icon: Icons.arrowLeft }} />
+        <PageHeader leftContent={{ icon: Icons.arrowLeft }}/>
         <section>
           <p>{formatMessage({ id: `LOGIN_SET_PASSWORD` })}</p>
           <div className={styles.mainWrapper}>
@@ -104,7 +104,6 @@ class Index extends Component {
               <h4>{errMsg.value || ''}</h4>
             </label>
             <SubmitBtn value={formatMessage({ id: `COMMON_SUBMIT` })} onClick={this.toNext}/>
-            {/*<img className={styles.nextStep} src={Images.nextStep} onClick={this.toNext} alt="" />*/}
           </div>
         </section>
       </div>

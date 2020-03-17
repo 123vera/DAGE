@@ -34,7 +34,7 @@ const list = [
     img: GAME,
     title: '合成DEP',
     subTitle: '合成DEP快速开启POG挖矿',
-    link: '',
+    link: '/compound-dep',
   },
 ];
 @connect(({ ecological }) => ({ ecological }))

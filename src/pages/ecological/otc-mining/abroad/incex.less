@@ -1,9 +1,19 @@
-@import '../../../styles/mixin.less';
+@import '../../../../styles/mixin.less';
 
 .otcMining {
+  box-sizing: border-box;
   min-height: 100vh;
   line-height: 44px;
   color: @font-sub-color;
+  padding-top: @header-height;
+  padding-bottom: 60px;
+
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
 
   .label {
     display: block;
@@ -24,7 +34,8 @@
     }
 
     aside {
-      text-align: right;
+      display: flex;
+      justify-content: space-between;
       font-size: 24px;
     }
 

@@ -6,6 +6,8 @@ export default {
     userInfo: {},
     notice: {},
     reward: {},
+
+    currency: {}, // 当前选择要购买矿机的币种
   },
   reducers: {
     UpdateState(state, { payload }) {

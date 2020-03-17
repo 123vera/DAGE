@@ -12,6 +12,7 @@ export const Icons = {
   add: require('./icons/add.png'),
   unChecked: require('./icons/un-checked.png'),
   checked: require('./icons/checked.png'),
+  loginOut: require('./icons/login-out.png'),
 
   wallet: require('./icons/wallet.png'),
   walletActive: require('./icons/wallet-active.png'),
@@ -23,6 +24,13 @@ export const Icons = {
   menuRecharge: require('./icons/menu-recharge.png'),
   menuWithdraw: require('./icons/menu-withdraw.png'),
   menuFlow: require('./icons/menu-flow.png'),
+
+  userQrcode: require('./icons/qrcode.png'),
+  userSpread: require('./icons/spread.png'),
+  userReset: require('./icons/reset-password.png'),
+  userNotice: require('./icons/notices.png'),
+  userSwitch: require('./icons/switch-lang.png'),
+  userCustomer: require('./icons/customer.png'),
 };
 
 export const Images = {
@@ -30,5 +38,6 @@ export const Images = {
   cardBg: require('./imgs/card-bg.png'),
   nextStep: require('./imgs/next-step.png'),
 
+  alipayPass: require('./imgs/alipay-pass.png'),
 };
 

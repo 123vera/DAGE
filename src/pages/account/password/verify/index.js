@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { formatMessage } from 'umi-plugin-locale';
 import { connect } from 'dva';
 import router from 'umi/router';
-import { Icons, Images } from '../../../../assets';
+import { Icons } from '../../../../assets';
 import PageHeader from '../../../../components/common/PageHeader';
 import TelPrefix from '../../../../components/partials/TelPrefix';
 import Captcha from '../../../../components/partials/Captcha';
@@ -145,7 +145,7 @@ class Home extends Component {
 
     return (
       <div className={styles.findPassword}>
-        <PageHeader leftContent={{ icon: Icons.arrowLeft }} />
+        <PageHeader leftContent={{ icon: Icons.arrowLeft }}/>
         <section>
           <p>
             {formatMessage({
@@ -159,11 +159,11 @@ class Home extends Component {
                 <div
                   className={`${styles.pickerWrapper} ${
                     errMsg.type === 'phone' ? styles.inputErr : ''
-                  }`}
+                    }`}
                 >
                   <span onClick={this.onOpenPrefix}>
                     {type !== 'find_password' ? `+${globalModel.myInfo.phonePrefix}` : initPrefix}
-                    <img src={Icons.arrowDown} alt="" />
+                    <img src={Icons.arrowDown} alt=""/>
                   </span>
                   <input
                     type="text"
@@ -187,7 +187,6 @@ class Home extends Component {
               />
               <h4>{errMsg.value || ''}</h4>
               <SubmitBtn value={formatMessage({ id: `COMMON_NEXT_STEP` })} onClick={this.toNext}/>
-              {/*<img className={styles.nextStep} src={Images.nextStep} onClick={this.toNext} alt="" />*/}
             </div>
           </div>
         </section>
