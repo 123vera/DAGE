@@ -2,38 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="85fa9ab6-0589-4a2d-9a7e-858b39c025c1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/assets/imgs/alipay-pass.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/ecological/compound-dep/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/ecological/compound-dep/index.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/ecological/mining-detail/otc/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/ecological/mining-detail/otc/index.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/ecological/otc-mining/inland/incex.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/ecological/otc-mining/inland/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/user/alipay/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/user/alipay/index.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/user/alipay/pass/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/user/alipay/pass/index.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/user/alipay/pending/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/user/alipay/pending/index.less" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/user/alipay/reject/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/user/alipay/reject/index.less" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/router.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/router.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/dark/login-out.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/icons/login-out.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/common/Header/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/common/Header/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/wallet/Mining/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/wallet/Mining/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/wallet/Mining/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/wallet/Mining/index.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/account/login/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/account/login/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/account/password/edit/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/account/password/edit/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/account/password/verify/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/account/password/verify/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/ecological/home/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ecological/home/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/ecological/otc-mining/incex.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ecological/otc-mining/abroad/incex.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/ecological/otc-mining/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ecological/otc-mining/abroad/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/user/home/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/user/home/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/wallet/mining-detail/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ecological/mining-detail/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/wallet/mining-detail/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ecological/mining-detail/index.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/wallet/model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/wallet/model.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -48,7 +17,7 @@
     <session id="1980149166">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="30" />
+          <entry key="project.closed" value="31" />
           <entry key="project.open.time.0" value="3" />
           <entry key="project.open.time.1" value="6" />
           <entry key="project.open.time.2" value="2" />
@@ -238,7 +207,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pages/user/alipay/reject/index.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="836">
+            <state relative-caret-position="420">
               <caret line="38" selection-start-line="38" selection-end-line="38" />
             </state>
           </provider>
@@ -621,14 +590,7 @@
       <workItem from="1584258980265" duration="833000" />
       <workItem from="1584260612491" duration="4638000" />
       <workItem from="1584365368948" duration="4218000" />
-      <workItem from="1584452242411" duration="6150000" />
-    </task>
-    <task id="LOCAL-00013" summary="注册接口">
-      <created>1582508589731</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1582508589731</updated>
+      <workItem from="1584452242411" duration="6224000" />
     </task>
     <task id="LOCAL-00014" summary="登录接口">
       <created>1582595203195</created>
@@ -966,11 +928,18 @@
       <option name="project" value="LOCAL" />
       <updated>1584257639480</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="图片改成文字">
+      <created>1584459517808</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1584459517808</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="278384000" />
+    <option name="totallyTimeSpent" value="278458000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="672" y="23" width="944" height="990" extended-state="0" />
@@ -1138,6 +1107,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1188">
           <caret line="91" column="16" selection-start-line="87" selection-start-column="10" selection-end-line="91" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1204,6 +1176,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="370">
           <caret line="34" column="19" lean-forward="true" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="19" />
+          <folding>
+            <element signature="e#394#579#0" expanded="true" />
+            <element signature="e#756#837#0" expanded="true" />
+            <element signature="e#838#916#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1461,7 +1438,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/user/alipay/reject/index.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="836">
+        <state relative-caret-position="420">
           <caret line="38" selection-start-line="38" selection-end-line="38" />
         </state>
       </provider>
