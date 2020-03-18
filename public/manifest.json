@@ -1,0 +1,15 @@
+{
+  "short_name": "DAGE WALLET",
+  "name": "DAGE WALLET",
+  "icons": [
+    {
+      "src": "apple-touch-icon.png",
+      "sizes": "256x256 192x192 64x64 32x32",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "",
+  "display": "standalone",
+  "theme_color": "#0f1625",
+  "background_color": "#0f1625"
+}
