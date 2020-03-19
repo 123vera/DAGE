@@ -87,7 +87,7 @@ class Home extends Component {
         <section>
           <div className={styles.notice} onClick={() => router.push('/notices')}>
             <p>
-              {formatMessage({ id: `NOTICE` })}：{notice.title}
+              {formatMessage({ id: `NOTICE` })}：{notice && notice.title}
             </p>
           </div>
         </section>
