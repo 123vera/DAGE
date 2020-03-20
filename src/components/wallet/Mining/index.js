@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { Link } from 'umi';
+import { Toast } from 'antd-mobile';
 import styles from './index.less';
 import React from 'react';
 import { Icons, Images } from '../../../assets';
@@ -37,15 +38,29 @@ class Mining extends Component {
             <img src={Icons.dIcon} alt="" />
             {formatMessage({ id: `WALLET_POG_TITLE` })}
           </h3>
-          <p>{formatMessage({ id: `WALLET_POG_DESC` })}</p>
+          <p>{formatMessage({ id: `WALLET_POG_DESC_01` })}</p>
+
+          {/* 2.0版本先不展示POG相关文案 */}
+          {/* <p>{formatMessage({ id: `WALLET_POG_DESC` })}</p> */}
+
           {/*<p>*/}
           {/*自由侠APP下载地址：*/}
           {/*<a href="www.ziyouxia.com">www.ziyouxia.com</a>*/}
           {/*</p>*/}
         </section>
+
         <section className={styles.openingSoon}>
-          <h4>{formatMessage({ id: `WALLET_COMING_SOON` })}</h4>
+          <button
+            onClick={() => {
+              Toast.info(formatMessage({ id: `WALLET_COMING_SOON` }), 0.9);
+            }}
+          >
+            {formatMessage({ id: `WALLET_POG_BTN` })}
+          </button>
+          {/* 2.0版本先不展示即将开放 */}
+          {/* <h4>{formatMessage({ id: `WALLET_COMING_SOON` })}</h4> */}
         </section>
+
         <section className={styles.buy} style={{ display: 'none' }}>
           <p>{formatMessage({ id: `WALLET_POG_MINE_GRADE` })}</p>
           <ul className={styles.levels}>
