@@ -35,8 +35,8 @@ export function getApiBaseUrl() {
   return 'http://47.75.3.2:82/api';
 }
 
-export function onlinePost(path, options = {}) {
-  return request.post(path, { ...options, openId: getOpenId() });
+export function onlinePost(path, options = {}, config = {}) {
+  return request.post(path, { ...options, openId: getOpenId() }, config);
 }
 
 export function onlineGet(path, params = {}) {

@@ -37,7 +37,10 @@ export const Images = {
   homeBg: require('./imgs/home-bg.png'),
   cardBg: require('./imgs/card-bg.png'),
   nextStep: require('./imgs/next-step.png'),
+  noPhoto: require('./imgs/no-photo.png'),
 
   alipayPass: require('./imgs/alipay-pass.png'),
+  alipayReject: require('./imgs/alipay-reject.png'),
+  alipayPending: require('./imgs/alipay-pending.png'),
 };
 
