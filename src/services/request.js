@@ -35,7 +35,7 @@ Request.interceptors.request.use(
     // config.headers.lang = getLocale() || 'ZH_CN';
     return config;
   },
-  err => Promise.reject(err),
+  err => Promise.resolve(err),
 );
 
 // 拦截响应
@@ -56,9 +56,9 @@ Request.interceptors.response.use(
     // }
 
     // 处理未登录
-    if (data.status === -101) {
+    if (data && data.status === -101) {
       Toast.fail('请先登录', 2, () => router.push('/login'));
-      return Promise.reject(data);
+      return Promise.resolve(data);
     }
 
     // 对下划线转驼峰进行处理
@@ -74,8 +74,8 @@ Request.interceptors.response.use(
     return data;
   },
   err => {
-    console.log(err);
-    return Promise.reject(err);
+    // console.log(err);
+    return Promise.resolve(err);
   },
 );
 

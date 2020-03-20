@@ -190,11 +190,11 @@ class Register extends Component {
                 <span>{formatMessage({ id: `COMMON_LABEL_PHONE` })}</span>
                 <div
                   className={`${styles.pickerWrapper} ${errMsg.type === 'phone' &&
-                  styles.inputErr}`}
+                    styles.inputErr}`}
                 >
                   <span onClick={this.onOpenPrefix}>
                     {prefix ? `+${prefix}` : formatMessage({ id: `COMMON_SELECT_AREA` })}
-                    <img src={Icons.arrowDown} alt=""/>
+                    <img src={Icons.arrowDown} alt="" />
                   </span>
                   <input
                     value={phone}
@@ -247,10 +247,12 @@ class Register extends Component {
                   onChange={e => this.onInputChange(e.target.checked, 'agree')}
                 />
                 <label htmlFor="agree">{formatMessage({ id: `REGISTER_AGREE` })}</label>
-                <a href="http://www.baidu.com">{formatMessage({ id: `REGISTER_PROTOCOL` })}</a>
+                <a href="https://dage.zendesk.com/hc/zh-cn/articles/360040817631-%E7%94%A8%E6%88%B7%E5%8D%8F%E8%AE%AE-User-agreement">
+                  {formatMessage({ id: `REGISTER_PROTOCOL` })}
+                </a>
               </aside>
               <h4 className={styles.errMsg}>{errMsg.value || ''}</h4>
-              <SubmitBtn value={formatMessage({ id: `REGISTER_TITLE` })} onClick={this.toNext}/>
+              <SubmitBtn value={formatMessage({ id: `REGISTER_TITLE` })} onClick={this.toNext} />
               {/*<img onClick={this.toNext} className={styles.nextStep} src={Images.nextStep} alt=""/>*/}
             </div>
           </div>

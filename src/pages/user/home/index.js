@@ -7,6 +7,7 @@ import CopyToClipboard from 'react-copy-to-clipboard';
 import PageHeader from '@/components/common/PageHeader';
 import BG_ICON from '@/assets/dark/bg-icon.png';
 import STATUS_BG from '@/assets/icons/status-bg.png';
+import ICON_SWITCH from '@/assets/icons/switch-lang.png';
 import HOME_BG from '@/assets/imgs/home-bg.png';
 import DAGE_LOGO from '@/assets/dark/dage-logo.png';
 import styles from './index.less';
@@ -51,6 +52,11 @@ class Home extends Component {
         url: '/notices',
       },
       {
+        icon: ICON_SWITCH,
+        text: formatMessage({ id: `USER_SECTION_05` }),
+        url: '/switch_lang',
+      },
+      {
         icon: Icons.userSwitch,
         text: formatMessage({ id: `USER_SECTION_05` }),
         url: '/switch_lang',
@@ -85,10 +91,10 @@ class Home extends Component {
         />
 
         <div className={styles.banner}>
-          <img className={styles.bg} src={HOME_BG} alt=""/>
-          <img className={styles.bg1} src={DAGE_LOGO} alt=""/>
+          <img className={styles.bg} src={HOME_BG} alt="" />
+          <img className={styles.bg1} src={DAGE_LOGO} alt="" />
           <div className={styles.center}>
-            <img className={styles.icon} src={BG_ICON} alt=""/>
+            <img className={styles.icon} src={BG_ICON} alt="" />
             <p>DID：{(myInfo && myInfo.userName) || '--'}</p>
             <CopyToClipboard
               key={new Date().toString()}
@@ -101,7 +107,7 @@ class Home extends Component {
               </span>
             </CopyToClipboard>
           </div>
-          <img className={styles.status} src={STATUS_BG} alt=""/>
+          <img className={styles.status} src={STATUS_BG} alt="" />
           <p className={styles.statusText}>
             {myInfo && myInfo.activate === 1
               ? formatMessage({ id: `USER_ACTIVITY` })
@@ -111,9 +117,9 @@ class Home extends Component {
         <ul className={styles.list}>
           {listContent.map((item, key) => (
             <li key={key} onClick={() => this.toSwitchLang(item.url)}>
-              <img className={styles.icon} src={item.icon} alt=""/>
+              <img className={styles.icon} src={item.icon} alt="" />
               <span>{item.text}</span>
-              <img className={styles.right} src={Icons.arrowRight} alt=""/>
+              <img className={styles.right} src={Icons.arrowRight} alt="" />
             </li>
           ))}
         </ul>
