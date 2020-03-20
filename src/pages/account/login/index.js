@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { Toast } from 'antd-mobile';
 import { formatMessage } from 'umi-plugin-locale';
 import { connect } from 'dva';
-import TEL_PREFIX_DATA from '@/utils/tel-prefix';
 import router from 'umi/router';
 import Cookies from 'js-cookie';
 import { REG } from '../../../utils/constants';
 import styles from './index.less';
 import TelPrefix from '../../../components/partials/TelPrefix';
-import { Icons, Images } from '../../../assets';
+import SelectLang from '../../../components/common/SelectLang';
+import { Icons } from '../../../assets';
 import SubmitBtn from '../../../components/common/SubmitBtn';
 
 @connect(({ globalModel, login }) => ({ globalModel, login }))
@@ -104,6 +104,10 @@ class Login extends Component {
 
     return (
       <div id={styles.userLogin}>
+        <div className={styles.langWrapper}>
+          <SelectLang />
+        </div>
+
         <div className={styles.contentWrapper}>
           <section>
             <p>{formatMessage({ id: `LOGIN_TITLE` })}</p>
@@ -148,7 +152,7 @@ class Login extends Component {
                 </span>
               </div>
 
-              <SubmitBtn value={formatMessage({ id: `LOGIN` })} onClick={this.toNext}/>
+              <SubmitBtn value={formatMessage({ id: `LOGIN` })} onClick={this.toNext} />
 
               {/*<img className={styles.nextStep} src={Images.nextStep} onClick={this.toNext} alt="" />*/}
             </div>

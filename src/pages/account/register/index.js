@@ -3,6 +3,7 @@ import { formatMessage } from 'umi/locale';
 import { connect } from 'dva';
 import router from 'umi/router';
 import { Icons } from '../../../assets';
+import SelectLang from '../../../components/common/SelectLang';
 import TelPrefix from '../../../components/partials/TelPrefix';
 import Captcha from '../../../components/partials/Captcha';
 import PageHeader from '../../../components/common/PageHeader';
@@ -182,81 +183,88 @@ class Register extends Component {
         <PageHeader
           leftContent={{ icon: Icons.arrowLeft, onHandle: () => router.push('/login') }}
         />
-        <section>
-          <p>{formatMessage({ id: `REGISTER_TITLE` })}DAGE</p>
-          <div className={styles.mainWrapper}>
-            <div className={styles.content}>
-              <label className={styles.row}>
-                <span>{formatMessage({ id: `COMMON_LABEL_PHONE` })}</span>
-                <div
-                  className={`${styles.pickerWrapper} ${errMsg.type === 'phone' &&
-                    styles.inputErr}`}
-                >
-                  <span onClick={this.onOpenPrefix}>
-                    {prefix ? `+${prefix}` : formatMessage({ id: `COMMON_SELECT_AREA` })}
-                    <img src={Icons.arrowDown} alt="" />
-                  </span>
+        <div className={styles.langWrapper}>
+          <SelectLang />
+        </div>
+
+        <div className={styles.mainContent}>
+          <section>
+            <p>{formatMessage({ id: `REGISTER_TITLE` })}DAGE</p>
+            <div className={styles.mainWrapper}>
+              <div className={styles.content}>
+                <label className={styles.row}>
+                  <span>{formatMessage({ id: `COMMON_LABEL_PHONE` })}</span>
+                  <div
+                    className={`${styles.pickerWrapper} ${errMsg.type === 'phone' &&
+                      styles.inputErr}`}
+                  >
+                    <span onClick={this.onOpenPrefix}>
+                      {prefix ? `+${prefix}` : formatMessage({ id: `COMMON_SELECT_AREA` })}
+                      <img src={Icons.arrowDown} alt="" />
+                    </span>
+                    <input
+                      value={phone}
+                      type="text"
+                      autoComplete="off"
+                      placeholder={formatMessage({ id: `COMMON_PLACEHOLDER_PHONE` })}
+                      onChange={e => this.onInputChange(e.target.value, 'phone')}
+                    />
+                  </div>
+                </label>
+                <Captcha
+                  captchaSrc={captchaSrc}
+                  value={captcha}
+                  onChange={e => this.onInputChange(e.target.value, 'captcha')}
+                  getCaptcha={this.getCaptcha}
+                />
+                <SmsCode
+                  isErrInput={errMsg.type === 'code'}
+                  value={code}
+                  onChange={value => this.onInputChange(value, 'code')}
+                  getSmsCode={this.getSmsCode}
+                />
+                <label className={styles.row}>
+                  <span>{formatMessage({ id: `COMMON_LABEL_PASSWORD` })}</span>
                   <input
-                    value={phone}
-                    type="text"
+                    value={password}
+                    type="password"
+                    className={errMsg.type === 'password' ? styles.inputErr : ''}
                     autoComplete="off"
-                    placeholder={formatMessage({ id: `COMMON_PLACEHOLDER_PHONE` })}
-                    onChange={e => this.onInputChange(e.target.value, 'phone')}
+                    placeholder={formatMessage({ id: `COMMON_PLACEHOLDER_PASSWORD` })}
+                    onChange={e => this.onChangePassword(e, 'password')}
                   />
-                </div>
-              </label>
-              <Captcha
-                captchaSrc={captchaSrc}
-                value={captcha}
-                onChange={e => this.onInputChange(e.target.value, 'captcha')}
-                getCaptcha={this.getCaptcha}
-              />
-              <SmsCode
-                isErrInput={errMsg.type === 'code'}
-                value={code}
-                onChange={value => this.onInputChange(value, 'code')}
-                getSmsCode={this.getSmsCode}
-              />
-              <label className={styles.row}>
-                <span>{formatMessage({ id: `COMMON_LABEL_PASSWORD` })}</span>
-                <input
-                  value={password}
-                  type="password"
-                  className={errMsg.type === 'password' ? styles.inputErr : ''}
-                  autoComplete="off"
-                  placeholder={formatMessage({ id: `COMMON_PLACEHOLDER_PASSWORD` })}
-                  onChange={e => this.onChangePassword(e, 'password')}
-                />
-              </label>
-              <label className={styles.row}>
-                <span>{formatMessage({ id: `COMMON_LABEL_REPASSWORD` })}</span>
-                <input
-                  value={passwordConfirm}
-                  type="password"
-                  autoComplete="off"
-                  className={errMsg.type === 'passwordConfirm' ? styles.inputErr : ''}
-                  placeholder={formatMessage({ id: `COMMON_PLACEHOLDER_REPASSWORD` })}
-                  onChange={e => this.onChangePassword(e, 'passwordConfirm')}
-                />
-              </label>
-              <aside className={styles.aside}>
-                <input
-                  id="agree"
-                  type="checkbox"
-                  checked={agree}
-                  onChange={e => this.onInputChange(e.target.checked, 'agree')}
-                />
-                <label htmlFor="agree">{formatMessage({ id: `REGISTER_AGREE` })}</label>
-                <a href="https://dage.zendesk.com/hc/zh-cn/articles/360040817631-%E7%94%A8%E6%88%B7%E5%8D%8F%E8%AE%AE-User-agreement">
-                  {formatMessage({ id: `REGISTER_PROTOCOL` })}
-                </a>
-              </aside>
-              <h4 className={styles.errMsg}>{errMsg.value || ''}</h4>
-              <SubmitBtn value={formatMessage({ id: `REGISTER_TITLE` })} onClick={this.toNext} />
-              {/*<img onClick={this.toNext} className={styles.nextStep} src={Images.nextStep} alt=""/>*/}
+                </label>
+                <label className={styles.row}>
+                  <span>{formatMessage({ id: `COMMON_LABEL_REPASSWORD` })}</span>
+                  <input
+                    value={passwordConfirm}
+                    type="password"
+                    autoComplete="off"
+                    className={errMsg.type === 'passwordConfirm' ? styles.inputErr : ''}
+                    placeholder={formatMessage({ id: `COMMON_PLACEHOLDER_REPASSWORD` })}
+                    onChange={e => this.onChangePassword(e, 'passwordConfirm')}
+                  />
+                </label>
+                <aside className={styles.aside}>
+                  <input
+                    id="agree"
+                    type="checkbox"
+                    checked={agree}
+                    onChange={e => this.onInputChange(e.target.checked, 'agree')}
+                  />
+                  <label htmlFor="agree">{formatMessage({ id: `REGISTER_AGREE` })}</label>
+                  <a href="https://dage.zendesk.com/hc/zh-cn/articles/360040817631-%E7%94%A8%E6%88%B7%E5%8D%8F%E8%AE%AE-User-agreement">
+                    {formatMessage({ id: `REGISTER_PROTOCOL` })}
+                  </a>
+                </aside>
+                <h4 className={styles.errMsg}>{errMsg.value || ''}</h4>
+                <SubmitBtn value={formatMessage({ id: `REGISTER_TITLE` })} onClick={this.toNext} />
+                {/*<img onClick={this.toNext} className={styles.nextStep} src={Images.nextStep} alt=""/>*/}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </div>
+
         <TelPrefix
           show={showPrefix}
           prefix={prefix}
