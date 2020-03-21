@@ -96,8 +96,8 @@ export default {
 
   USER_TITLE: `User center`,
   USER_COPIED: `Copied`,
-  USER_UNACTIVITY: `Activated`,
-  USER_ACTIVITY: `Not activated`,
+  USER_UNACTIVITY: `Not activated`,
+  USER_ACTIVITY: `Activated`,
   USER_MINE: `My`,
   USER_SECTION_01: `Upload Alipay information`,
   USER_SECTION_02: `My Promotion`,
