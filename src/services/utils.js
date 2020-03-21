@@ -1,24 +1,6 @@
 import Cookies from 'js-cookie';
 import request from './request';
 
-/**
- * @description 隐藏联系客服按钮
- * @returns {void}
- */
-
-export function hideChatButton() {
-  let iframes = document.querySelectorAll('iframe');
-  const len = iframes.length || 0;
-  if (len <= 0) return;
-  for (let i = 0; i < len; i++) {
-    let win = iframes[i].contentWindow;
-    let button = win.document.querySelector('#Embed');
-    if (button) {
-      button.style.display = 'none';
-    }
-  }
-}
-
 export function getOpenId() {
   return Cookies.get('OPENID');
 }

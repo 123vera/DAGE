@@ -66,6 +66,11 @@ class Alipay extends Component {
     }
     this.props.dispatch({
       type: 'alipay/AlipayUpload',
+    }).then(res => {
+      if (res.status !== 1) {
+        return Toast.info(res.msg);
+      }
+      router.push('/alipay/pending');
     });
   };
 
