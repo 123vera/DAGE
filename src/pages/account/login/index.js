@@ -7,6 +7,7 @@ import Cookies from 'js-cookie';
 import { REG } from '../../../utils/constants';
 import styles from './index.less';
 import TelPrefix from '../../../components/partials/TelPrefix';
+import SelectLang from '../../../components/common/SelectLang';
 import { Icons } from '../../../assets';
 import SubmitBtn from '../../../components/common/SubmitBtn';
 
@@ -103,6 +104,10 @@ class Login extends Component {
 
     return (
       <div id={styles.userLogin}>
+        <div className={styles.langWrapper}>
+          <SelectLang />
+        </div>
+
         <div className={styles.contentWrapper}>
           <section>
             <p>{formatMessage({ id: `LOGIN_TITLE` })}</p>
@@ -146,7 +151,10 @@ class Login extends Component {
                   {formatMessage({ id: `LOGIN_FORGET_PASSWORD` })}
                 </span>
               </div>
-              <SubmitBtn value={formatMessage({ id: `LOGIN` })} onClick={this.toNext}/>
+
+              <SubmitBtn value={formatMessage({ id: `LOGIN` })} onClick={this.toNext} />
+
+              {/*<img className={styles.nextStep} src={Images.nextStep} onClick={this.toNext} alt="" />*/}
             </div>
           </section>
         </div>

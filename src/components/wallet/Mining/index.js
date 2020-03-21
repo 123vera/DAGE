@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { Link } from 'umi';
+import { Toast } from 'antd-mobile';
 import styles from './index.less';
 import React from 'react';
 import { connect } from 'dva';
@@ -74,13 +75,22 @@ class Mining extends Component {
             <img src={Icons.dIcon} alt=""/>
             {formatMessage({ id: `WALLET_POG_TITLE` })}
           </h3>
-          <p>{formatMessage({ id: `WALLET_POG_DESC` })}</p>
+          <p>{formatMessage({ id: `WALLET_POG_DESC_01` })}</p>
         </section>
-        {/*<section className={styles.openingSoon}>*/}
-        {/*<h4>{formatMessage({ id: `WALLET_COMING_SOON` })}</h4>*/}
-        {/*</section>*/}
 
-        {/*购买矿机*/}
+        <section className={styles.openingSoon}>
+          <button
+            onClick={() => {
+              Toast.info(formatMessage({ id: `WALLET_COMING_SOON` }), 0.9);
+            }}
+          >
+            {formatMessage({ id: `WALLET_POG_BTN` })}
+          </button>
+          {/* 2.0版本先不展示即将开放 */}
+          {/* <h4>{formatMessage({ id: `WALLET_COMING_SOON` })}</h4> */}
+        </section>
+
+        {/*购买矿机 未开放*/}
         <section className={styles.buy}>
           <div className={styles.form}>
             <div className={styles.row}>
@@ -146,7 +156,7 @@ class Mining extends Component {
           <button className={styles.submit}>购买</button>
         </section>
 
-        {/*挖矿详情*/}
+        {/*挖矿详情 未开放*/}
         <section className={styles.detail}>
           <div className={styles.title}>
             <p>今日购买矿机总价值</p>
