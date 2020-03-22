@@ -44,7 +44,7 @@ class OtcMining extends Component {
       return Toast.info(
         `${formatMessage({ id: `OTC_SALE_CONDITIONS_03` })}${initInfo.amountMin}-${
           initInfo.amountMax
-        }${formatMessage({ id: `OTC_SALE_CONDITIONS_02` })}`,
+          }${formatMessage({ id: `OTC_SALE_CONDITIONS_02` })}`,
       );
     }
     // if (Number(count) > 200) {
@@ -84,12 +84,12 @@ class OtcMining extends Component {
             type="text"
             placeholder={`${formatMessage({ id: `OTC_SALE_CONDITIONS_01` })}${initInfo.amountMin}-${
               initInfo.amountMax
-            }${formatMessage({ id: `OTC_SALE_CONDITIONS_02` })}`}
+              }${formatMessage({ id: `OTC_SALE_CONDITIONS_02` })}`}
             value={count}
             onChange={e => this.onCountChange(e.target.value)}
           />
           <aside>
-            <span>{formatMessage({ id: `OTC_ABROAD_TRADE` })}--</span>
+            <span>{formatMessage({ id: `OTC_ABROAD_TRADE` })}{downFixed(initInfo.otcnum)}</span>
             <span>
               {formatMessage({ id: `OTC_ABROAD_USABLE` })}DGT：{downFixed(myInfo.dgt)}
             </span>
