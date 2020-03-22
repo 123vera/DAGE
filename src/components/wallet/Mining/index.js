@@ -1,6 +1,5 @@
 import { Component } from 'react';
 import { Link } from 'umi';
-import { Toast } from 'antd-mobile';
 import styles from './index.less';
 import React from 'react';
 import { connect } from 'dva';
@@ -8,6 +7,7 @@ import { Icons, Images } from '../../../assets';
 import { formatMessage } from 'umi-plugin-locale';
 import { downFixed } from '../../../utils/utils';
 import Menus from '../../common/Menus';
+import { router } from 'umi';
 
 const menus = [
   {
@@ -45,10 +45,11 @@ class Mining extends Component {
   };
 
   render() {
-    const { myInfo } = this.props;
+    const { myInfo } = this.props.globalModel;
     const { currency } = this.props.wallet;
     const { showMenus } = this.state;
     const isMoreCurrency = currency.value === 'dgt+did';
+    console.log(myInfo);
 
     return (
       <div className={styles.mining}>
@@ -74,7 +75,7 @@ class Mining extends Component {
         </section>
         <section>
           <h3>
-            <img src={Icons.dIcon} alt="" />
+            <img src={Icons.dIcon} alt=""/>
             {formatMessage({ id: `WALLET_POG_TITLE` })}
           </h3>
           <p>{formatMessage({ id: `WALLET_POG_DESC_01` })}</p>
@@ -83,7 +84,9 @@ class Mining extends Component {
         <section className={styles.openingSoon}>
           <button
             onClick={() => {
-              Toast.info(formatMessage({ id: `WALLET_COMING_SOON` }), 0.9);
+              myInfo.phonePrefix === '86'
+                ? router.push('/otc-mining/inland')
+                : router.push('/otc-mining/abroad');
             }}
           >
             {formatMessage({ id: `WALLET_POG_BTN` })}
@@ -108,7 +111,7 @@ class Mining extends Component {
                   // placeholder={formatMessage({ id: `WITHDRAW_PLACEHOLDER` })}
                 />
                 <button>
-                  <img src={Icons.arrowDown} alt="" />
+                  <img src={Icons.arrowDown} alt=""/>
                 </button>
 
                 {showMenus && (
