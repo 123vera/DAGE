@@ -1,7 +1,6 @@
-import Request from '../request';
 import { onlinePost, optionsToLine } from '../utils';
 
-class OtherApi {
+class OtcApi {
   /**
    * 上传支付宝信息初始化
    *
@@ -32,6 +31,35 @@ class OtherApi {
       headers: { 'Content-Type': 'multipart/form-data' },
     });
   }
+
+  /**
+   * OTC 初始化
+   *
+   * @required openId 用户openid
+   **/
+  static otcInit(options) {
+    return onlinePost('/otc/otcini', options);
+  }
+
+  /**
+   * 提交OTC
+   *
+   * @required openId 用户openid
+   * @required num 数量
+   * @required type 币种
+   **/
+  static otcSubmit(options) {
+    return onlinePost('/otc/otc', options);
+  }
+
+  /**
+   * OTC 挖矿详情
+   *
+   * @required openId 用户openid
+   **/
+  static otcDetail(options) {
+    return onlinePost('/otc/otclist', options);
+  }
 }
 
-export default OtherApi;
+export default OtcApi;

@@ -2,9 +2,62 @@ import React, { Component } from 'react';
 import styles from './incex.less';
 import Header from '../../../../components/common/Header';
 import { Icons } from '../../../../assets';
+import { REG } from '../../../../utils/constants';
+import { Toast } from 'antd-mobile';
+import { downFixed } from '../../../../utils/utils';
+import { connect } from 'dva';
 
+@connect(({ otcMining, globalModel }) => ({ otcMining, globalModel }))
 class OtcMining extends Component {
+  componentDidMount() {
+    this.props.dispatch({ type: 'otcMining/OtcInit' });
+  }
+
+  componentWillUnmount() {
+    this.props.dispatch({
+      type: 'otcMining/UpdateState',
+      payload: { count: '', initInfo: {} },
+    });
+  }
+
+  onCountChange = (value) => {
+    if (value && !REG.NUMBER.test(value)) {
+      return;
+    }
+    this.props.dispatch({
+      type: 'otcMining/UpdateState',
+      payload: { count: value },
+    });
+  };
+
+  onSubmit = () => {
+    const { myInfo } = this.props.globalModel;
+    const { count, initInfo } = this.props.otcMining;
+    if (!count) {
+      return Toast.info('请填写出售数量');
+    }
+    if (Number(count) > Number(myInfo.dgt)) {
+      return Toast.info('余额不足');
+    }
+    if (Number(count) < initInfo.amountMin || Number(count) > initInfo.amountMax) {
+      return Toast.info(`出售数量需在${initInfo.amountMin}-${initInfo.amountMax}之间`);
+    }
+    if (Number(count) > 200) {
+      return Toast.info(`OTC交易余额不足，请前往去中心化交易所兑换`);
+    }
+    this.props.dispatch({ type: 'otcMining/OtcSubmit' }).then(res => {
+      if (res.status !== 1) {
+        return Toast.info(res.msg);
+      }
+      Toast.info('出售成功', 2, () => window.location.reload());
+    });
+  };
+
+
   render() {
+    const { initInfo, count } = this.props.otcMining;
+    const { myInfo } = this.props.globalModel;
+
     return (
       <div className={styles.otcMining}>
         <header>
@@ -15,13 +68,18 @@ class OtcMining extends Component {
           />
         </header>
         <div className={styles.form}>
-          <label className={styles.label}>出售数量（DGC）</label>
-          <input type="text" placeholder='单笔出售数量需在100-1000之间'/>
+          <label className={styles.label}>出售数量（DGT）</label>
+          <input
+            type="text"
+            placeholder={`单笔出售数量需在${initInfo.amountMin}-${initInfo.amountMax}之间`}
+            value={count}
+            onChange={e => this.onCountChange(e.target.value)}
+          />
           <aside>
             <span>OTC交易额度：245.43</span>
-            <span>可用DGT：245.43</span>
+            <span>可用DGT：{downFixed(myInfo.dgt)}</span>
           </aside>
-          <button>确认出售</button>
+          <button onClick={this.onSubmit}>确认出售</button>
         </div>
         <div className={styles.reminder}>
           <label className={styles.label}>友情提示</label>

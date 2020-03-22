@@ -73,6 +73,8 @@ export default {
           '/exchange',
           '/reset_password/verify',
           '/referral_code',
+          '/otc-mining/abroad',
+          '/otc-mining/inland',
           // '/wallet/reward-detail',
         ];
         list.forEach(i => {

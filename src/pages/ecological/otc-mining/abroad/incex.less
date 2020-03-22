@@ -13,6 +13,7 @@
     top: 0;
     left: 0;
     width: 100%;
+    background: @theme-color-bg;
   }
 
   .label {
@@ -31,6 +32,12 @@
       border-radius: 8px;
       padding: 10px 30px;
       border: none;
+      caret-color: @font-sub-color;
+      color: #fff;
+
+      &::placeholder {
+        color: @font-sub-color;
+      }
     }
 
     aside {

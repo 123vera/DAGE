@@ -42,5 +42,11 @@ export const Images = {
   alipayPass: require('./imgs/alipay-pass.png'),
   alipayReject: require('./imgs/alipay-reject.png'),
   alipayPending: require('./imgs/alipay-pending.png'),
+
+  ecoCurrency: require('./imgs/eco-currency.png'),
+  ecoGame: require('./imgs/eco-game.png'),
+  ecoOtcMining: require('./imgs/eco-otc-mining.png'),
+  ecoOtcMiningDetail: require('./imgs/eco-otc-mining-detail.png'),
+  ecoDep: require('./imgs/eco-dep.png'),
 };
 
