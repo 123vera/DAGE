@@ -7,6 +7,7 @@ export default {
     realName: '',
     payImg: '',
     imgSrc: '',
+    initInfo: {},
   },
   reducers: {
     UpdateState(state, { payload }) {
@@ -14,10 +15,14 @@ export default {
     },
   },
   effects: {
-    *AlipayInit(_, { call }) {
-      return yield call(OtcApi.alipayInit);
+    * AlipayInit(_, { call, put }) {
+      const res = yield call(OtcApi.alipayInit);
+      if (res.status === 1) {
+        yield put({ type: 'UpdateState', payload: { initInfo: res.data } });
+      }
+      return res;
     },
-    *AlipayUpload(_, { call, select }) {
+    * AlipayUpload(_, { call, select }) {
       const { payName, realName, payImg } = yield select(state => state.alipay);
       console.log(payImg);
       return yield call(OtcApi.alipayUpload, { payName, realName, payImg });

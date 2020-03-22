@@ -89,7 +89,7 @@ class OtcMining extends Component {
             onChange={e => this.onCountChange(e.target.value)}
           />
           <aside>
-            <span>{formatMessage({ id: `OTC_ABROAD_TRADE` })}--</span>
+            <span>{formatMessage({ id: `OTC_ABROAD_TRADE` })}{downFixed(initInfo.otcnum)}</span>
             <span>
               {formatMessage({ id: `EXCHANGE_CAN_USE` })}DGT：{downFixed(myInfo.dgt)}
             </span>
