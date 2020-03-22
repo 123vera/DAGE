@@ -18,34 +18,34 @@ class MiningDetailOtc extends Component {
 
     return (
       <div className={styles.miningDetail}>
-        <Header icon={Icons.arrowLeft} title={'OTC挖矿详情'}/>
+        <Header icon={Icons.arrowLeft} title={formatMessage({ id: `OTC_DETAIL_TITLE` })} />
         <section>
           <div className={styles.summary}>
             <span>
-              {downFixed(dgcTotal)}<i>DGC</i>
+              {downFixed(dgcTotal)}
+              <i>DGT</i>
             </span>
             <b>+</b>
             <span>
-              {downFixed(didTotal)}<i>DID</i>
+              {downFixed(didTotal)}
+              <i>DID</i>
             </span>
-            <br/>
-            <small>{'OTC挖矿总收益'}</small>
+            <br />
+            <small>{formatMessage({ id: `OTC_DETAIL_TOTAL_REVENUE` })}</small>
           </div>
-          <p className={styles.intro}>仅显示最近三天的收益详情，若想查看过往内容，请至资金流水中查看</p>
+          <p className={styles.intro}>{formatMessage({ id: `OTC_DETAIL_TIP` })}</p>
         </section>
         <section>
           <ul>
-            {
-              otcList.map(otc =>
-                <li key={otc.id}>
-                  <div className={styles.label}>
-                    {otc.remark}
-                    <small>{dayjs(otc.addTime * 1000).format('YYYY-MM-DD HH:mm')}</small>
-                  </div>
-                  <div className={styles.value}>{downFixed(otc.amount)}</div>
-                </li>,
-              )
-            }
+            {otcList.map(otc => (
+              <li key={otc.id}>
+                <div className={styles.label}>
+                  {otc.remark}
+                  <small>{dayjs(otc.addTime * 1000).format('YYYY-MM-DD HH:mm')}</small>
+                </div>
+                <div className={styles.value}>{downFixed(otc.amount)}</div>
+              </li>
+            ))}
           </ul>
         </section>
       </div>

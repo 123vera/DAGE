@@ -12,7 +12,7 @@ class MiningDetail extends Component {
         <section>
           <div className={styles.summary}>
             <span>
-              1460<i>DGC</i>
+              1460<i>DGT</i>
             </span>
             <br />
             <small>{formatMessage({ id: `MINING_DETAIL_TOTAL_INCOME` })}</small>

@@ -13,13 +13,16 @@ const menus = [
   {
     value: 'did',
     label: 'DID',
-  }, {
+  },
+  {
     value: 'dgt',
     label: 'DGT',
-  }, {
+  },
+  {
     value: 'dgt+did',
     label: 'DGT+DID',
-  }, {
+  },
+  {
     value: 'dep',
     label: 'DEP',
   },
@@ -27,7 +30,6 @@ const menus = [
 
 @connect(({ wallet, globalModel }) => ({ wallet, globalModel }))
 class Mining extends Component {
-
   state = {
     showMenus: false,
   };
@@ -37,7 +39,7 @@ class Mining extends Component {
     this.props.dispatch({ type: 'wallet/UpdateState', payload: { currency } });
   }
 
-  changeCurrency = (currency) => {
+  changeCurrency = currency => {
     this.props.dispatch({ type: 'wallet/UpdateState', payload: { currency } });
     this.setState({ showMenus: false });
   };
@@ -72,7 +74,7 @@ class Mining extends Component {
         </section>
         <section>
           <h3>
-            <img src={Icons.dIcon} alt=""/>
+            <img src={Icons.dIcon} alt="" />
             {formatMessage({ id: `WALLET_POG_TITLE` })}
           </h3>
           <p>{formatMessage({ id: `WALLET_POG_DESC_01` })}</p>
@@ -94,9 +96,11 @@ class Mining extends Component {
         <section className={styles.buy}>
           <div className={styles.form}>
             <div className={styles.row}>
-              <label>购买方式</label>
-              <div className={styles.inputBox}
-                   onClick={() => this.setState({ showMenus: !showMenus })}>
+              <label>{formatMessage({ id: `WALLET_HOW_TO_BUY` })}</label>
+              <div
+                className={styles.inputBox}
+                onClick={() => this.setState({ showMenus: !showMenus })}
+              >
                 <input
                   type="text"
                   value={currency.label || ''}
@@ -104,7 +108,7 @@ class Mining extends Component {
                   // placeholder={formatMessage({ id: `WITHDRAW_PLACEHOLDER` })}
                 />
                 <button>
-                  <img src={Icons.arrowDown} alt=""/>
+                  <img src={Icons.arrowDown} alt="" />
                 </button>
 
                 {showMenus && (
@@ -120,16 +124,17 @@ class Mining extends Component {
               </div>
             </div>
             <div className={styles.row}>
-              <label>购买金额</label>
-              {!isMoreCurrency ?
+              <label>{formatMessage({ id: `WALLET_HOW_TO_BUY` })}</label>
+              {!isMoreCurrency ? (
                 <div className={styles.inputBox}>
                   <input
                     type="text"
                     // value={walletTo}
-                    placeholder={'请输入购买的金额'}
+                    placeholder={formatMessage({ id: `COMMON_PLACEHOLDER_BUY_AMOUNT` })}
                     onChange={e => this.onWalletChange(e.target.value)}
                   />
-                </div> :
+                </div>
+              ) : (
                 <div className={styles.twoInputBox}>
                   <div className={styles.inputBox}>
                     <input
@@ -137,7 +142,7 @@ class Mining extends Component {
                       // value={walletTo}
                       onChange={e => this.onWalletChange(e.target.value)}
                     />
-                    <button>DGC</button>
+                    <button>DGT</button>
                   </div>
                   <span>+</span>
                   <div className={styles.inputBox}>
@@ -149,11 +154,10 @@ class Mining extends Component {
                     <button>DID</button>
                   </div>
                 </div>
-              }
-
+              )}
             </div>
           </div>
-          <button className={styles.submit}>购买</button>
+          <button className={styles.submit}>{formatMessage({ id: `WALLET_BUY` })}</button>
         </section>
 
         {/*挖矿详情 未开放*/}
@@ -162,7 +166,9 @@ class Mining extends Component {
             <p>今日购买矿机总价值</p>
           </div>
           <div className={styles.price}>
-            <span>267 <i>DGT</i></span>
+            <span>
+              267 <i>DGT</i>
+            </span>
           </div>
           <aside>预计返还时间：2020.03.02 18:00:00</aside>
         </section>

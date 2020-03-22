@@ -14,14 +14,13 @@ export default {
     },
   },
   effects: {
-    * AlipayInit(_, { call }) {
+    *AlipayInit(_, { call }) {
       return yield call(OtcApi.alipayInit);
     },
-    * AlipayUpload(_, { call, select }) {
+    *AlipayUpload(_, { call, select }) {
       const { payName, realName, payImg } = yield select(state => state.alipay);
       console.log(payImg);
       return yield call(OtcApi.alipayUpload, { payName, realName, payImg });
     },
   },
-  subscriptions: {},
 };
