@@ -20,7 +20,7 @@ class OtcMining extends Component {
     });
   }
 
-  onCountChange = (value) => {
+  onCountChange = value => {
     if (value && !REG.NUMBER.test(value)) {
       return;
     }
@@ -42,9 +42,9 @@ class OtcMining extends Component {
     if (Number(count) < initInfo.amountMin || Number(count) > initInfo.amountMax) {
       return Toast.info(`出售数量需在${initInfo.amountMin}-${initInfo.amountMax}之间`);
     }
-    if (Number(count) > 200) {
-      return Toast.info(`OTC交易余额不足，请前往去中心化交易所兑换`);
-    }
+    // if (Number(count) > 200) {
+    //   return Toast.info(`OTC交易余额不足，请前往去中心化交易所兑换`);
+    // }
     this.props.dispatch({ type: 'otcMining/OtcSubmit' }).then(res => {
       if (res.status !== 1) {
         return Toast.info(res.msg);
@@ -63,7 +63,10 @@ class OtcMining extends Component {
           <Header
             title={'OTC挖矿中国区'}
             icon={Icons.arrowLeft}
-            rightContent={{ text: '下载插件', textStyle: { color: '#F3AF66', fontSize: '24px' } }}
+            rightContent={{
+              text: '下载插件',
+              textStyle: { color: '#F3AF66', fontSize: '0.24rem' },
+            }}
           />
         </header>
         <div className={styles.form}>
@@ -75,7 +78,7 @@ class OtcMining extends Component {
             onChange={e => this.onCountChange(e.target.value)}
           />
           <aside>
-            <span>OTC交易额度：245.43</span>
+            <span>OTC交易额度：--</span>
             <span>可用DGT：{downFixed(myInfo.dgt)}</span>
           </aside>
           <button onClick={this.onSubmit}>确认出售</button>

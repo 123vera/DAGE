@@ -36,11 +36,11 @@ class Home extends Component {
         text: formatMessage({ id: `USER_SECTION_01` }),
         url: '/alipay',
       },
-      {
-        icon: Icons.userSpread,
-        text: formatMessage({ id: `USER_SECTION_02` }),
-        url: '/promotion',
-      },
+      // {
+      //   icon: Icons.userSpread,
+      //   text: formatMessage({ id: `USER_SECTION_02` }),
+      //   url: '/promotion',
+      // },
       {
         icon: Icons.userReset,
         text: formatMessage({ id: `USER_SECTION_03` }),
@@ -53,11 +53,6 @@ class Home extends Component {
       },
       {
         icon: ICON_SWITCH,
-        text: formatMessage({ id: `USER_SECTION_05` }),
-        url: '/switch_lang',
-      },
-      {
-        icon: Icons.userSwitch,
         text: formatMessage({ id: `USER_SECTION_05` }),
         url: '/switch_lang',
       },

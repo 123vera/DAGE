@@ -7,7 +7,6 @@ import { Icons, Images } from '../../../assets';
 import { formatMessage } from 'umi/locale';
 import { Toast } from 'antd-mobile';
 
-
 @connect(({ ecological, globalModel }) => ({ ecological, globalModel }))
 class Index extends Component {
   state = {
@@ -18,7 +17,9 @@ class Index extends Component {
     const { dispatch } = this.props;
     dispatch({ type: 'globalModel/GetMyInfo' }).then(() => {
       const { myInfo } = this.props.globalModel;
-      const otcLink = myInfo.phonePrefix.includes('86') ? '/otc-mining/inland' : '/otc-mining/abroad';
+      const otcLink = myInfo.phonePrefix.includes('86')
+        ? '/otc-mining/inland'
+        : '/otc-mining/abroad';
       const list = [
         {
           img: Images.ecoCurrency,
@@ -68,17 +69,17 @@ class Index extends Component {
 
     return (
       <div id={styles.ecological}>
-        <PageHeader title={formatMessage({ id: `ECOLOGICAL_TITLE` })}/>
+        <PageHeader title={formatMessage({ id: `ECOLOGICAL_TITLE` })} />
 
         <ul className={styles.contents}>
           {list.map((item, key) => (
             <li onClick={() => this.routerHref(item.link)} key={key}>
-              <img src={item.img} alt=""/>
+              <img src={item.img} alt="" />
               <div className={styles.text}>
                 <span>{item.title}</span>
                 <span>{item.subTitle}</span>
               </div>
-              <img className={styles.arrowRight} src={Icons.arrowRight} alt="ARROW_RIGHT"/>
+              <img className={styles.arrowRight} src={Icons.arrowRight} alt="ARROW_RIGHT" />
             </li>
           ))}
         </ul>
