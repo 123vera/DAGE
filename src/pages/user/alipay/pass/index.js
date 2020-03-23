@@ -11,7 +11,7 @@ function Pass() {
       <Header icon={Icons.arrowLeft} onHandle={() => router.push('/home/user')} />
       <article>
         <img src={Images.alipayPass} alt="" />
-        <p dangerouslySetInnerHTML={{ __html: formatMessage({ id: `PAY_SUCCESS` }) }} />>
+        <p dangerouslySetInnerHTML={{ __html: formatMessage({ id: `PAY_SUCCESS` }) }} />
       </article>
     </div>
   );

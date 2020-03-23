@@ -214,9 +214,9 @@ export default {
   WALLET_REWARD_DETAIL_TIP: `Only the earnings details of the last three days will be shown here. If you want to check out your track records, please proceed to wallet.`,
 
   OTC_QUANTITY_SOLD: `quantity sold`,
-  OTC_SALE_CONDITIONS_01: `单笔出售数量需在`,
+  OTC_SALE_CONDITIONS_01: `single sale quantity is required`,
   OTC_SALE_CONDITIONS_02: ``,
-  OTC_SALE_CONDITIONS_03: `出售数量需在`,
+  OTC_SALE_CONDITIONS_03: `quantity to be sold`,
   OTC_CONFIRM_SALE: `confirm sale`,
 
   OTC_PLACEHOLDER: `please fill in quantity sold`,
@@ -236,5 +236,5 @@ export default {
   OTC_INLAND_SALE_TIPS_02: `2. After successful authentication, users need to download POG mining machine plug in and log in using their DAGE account online to ensure the status of mining machine is online (closing of plug-in may cause mining failure, resulting in failure to give out earnings), on the other hand, active mining machine need to make sure that the receiving alipay account on the same android phone must be logged on, OTC transactions can be viewed in real time on POG Mining Machine plug-in`,
   OTC_INLAND_SALE_TIPS_03: `3. 0.3% of each sold amount is paid to the user as OTC mining bonus, 70% of the bonus is paid as DGT, 30% as DID`,
   OTC_INLAND_SALE_TIPS_04: `4. The sale of DGT will decrease OTC transaction limit. When the OTC transaction limit is insufficient, DGT cannot be sold.`,
-  OTC_INLAND_SALE_TIPS_05: `5. 正在进行OTC挖矿的DGT最高为30,000个，若出售DGT导致OTC挖矿的DGT超过30,000个，则此次出售不会成功。质押30000个DEP后可以享受额外代数收益，即1代200%，2到10代每代10%。`,
+  OTC_INLAND_SALE_TIPS_05: `5. After depositing 30,000 DEP, you can enjoy additional benefits, which is 200% for first generation, and 10% for each generation from the 2nd  to 10th generations.`,
 };

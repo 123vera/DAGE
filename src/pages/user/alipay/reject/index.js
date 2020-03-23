@@ -14,16 +14,18 @@ class Reject extends Component {
 
   render() {
     const { initInfo } = this.props.alipay;
-
     return (
       <div className={styles.pass}>
-        <Header icon={Icons.arrowLeft} onHandle={() => router.push('/home/user')}/>
+        <Header icon={Icons.arrowLeft} onHandle={() => router.push('/home/user')} />
         <article>
-          <img src={Images.alipayReject} alt=""/>
+          <img src={Images.alipayReject} alt="" />
           <p>
             {formatMessage({ id: `PAY_FAIL_01` })}
-            <br/>
-            <small>{formatMessage({ id: `PAY_FAIL_02` })}{initInfo.msg}</small>
+            <br />
+            <small>
+              {formatMessage({ id: `PAY_FAIL_02` })}
+              {initInfo.msg}
+            </small>
           </p>
           <div className={styles.submit}>
             <button onClick={() => router.push('/alipay?upload=1')}>

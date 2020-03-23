@@ -16,9 +16,10 @@ class Alipay extends Component {
     dispatch({ type: 'alipay/AlipayInit' }).then(res => {
       if (res.status === 1) {
         const { status } = res.data;
-        if (status === 0) router.push('/alipay/pending');
-        if (status === 1) router.push('/alipay/pass');
-        if (status === 2) router.push('/alipay/reject');
+        // 0为待审核，1为审核通过，-1被驳回，-2未上传
+        if (status === 0) router.push('/alipay/pending'); // 待审核
+        if (status === 1) router.push('/alipay/pass'); // 审核通过
+        if (status === -1) router.push('/alipay/reject'); // 被驳回
       }
     });
   }
@@ -30,8 +31,14 @@ class Alipay extends Component {
     });
   };
 
-  onFileChange = event => {
+  onFileChange = async event => {
     const payImg = event.target.files[0];
+
+    await this.props.dispatch({
+      type: 'alipay/UpdateState',
+      payload: { imgSrc: null, payImg: null },
+    });
+
     this.fileToSrc(payImg);
     this.props.dispatch({
       type: 'alipay/UpdateState',
@@ -65,6 +72,7 @@ class Alipay extends Component {
     if (!payImg) {
       return Toast.info(formatMessage({ id: `PAY_UPLOAD_COLLECTION_CODE` }));
     }
+
     this.props
       .dispatch({
         type: 'alipay/AlipayUpload',
