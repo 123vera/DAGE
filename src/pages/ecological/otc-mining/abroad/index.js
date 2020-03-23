@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styles from './incex.less';
+import styles from './index.less';
 import Header from '../../../../components/common/Header';
 import { Icons } from '../../../../assets';
 import { REG } from '../../../../utils/constants';
@@ -47,9 +47,12 @@ class OtcMining extends Component {
         }${formatMessage({ id: `OTC_SALE_CONDITIONS_02` })}`,
       );
     }
-    // if (Number(count) > 200) {
-    //   return Toast.info(formatMessage({id: `OTC_TOAST_BLANCE}));
-    // }
+
+    if (Number(count) > 200) {
+      Toast.info(formatMessage({ id: `OTC_TOAST_BLANCE` }));
+      return;
+    }
+
     this.props.dispatch({ type: 'otcMining/OtcSubmit' }).then(res => {
       if (res.status !== 1) {
         return Toast.info(res.msg);
@@ -67,14 +70,7 @@ class OtcMining extends Component {
     return (
       <div className={styles.otcMining}>
         <header>
-          <Header
-            title={formatMessage({ id: `OTC_ABROAD_TITLE` })}
-            icon={Icons.arrowLeft}
-            rightContent={{
-              text: formatMessage({ id: `OTC_ABROAD_DOWNLOAD_PLUGIN` }),
-              textStyle: { color: '#F3AF66', fontSize: '0.24rem' },
-            }}
-          />
+          <Header title={formatMessage({ id: `OTC_ABROAD_TITLE` })} icon={Icons.arrowLeft} />
         </header>
         <div className={styles.form}>
           <label className={styles.label}>
@@ -89,7 +85,10 @@ class OtcMining extends Component {
             onChange={e => this.onCountChange(e.target.value)}
           />
           <aside>
-            <span>{formatMessage({ id: `OTC_ABROAD_TRADE` })}{downFixed(initInfo.otcnum)}</span>
+            <span>
+              {formatMessage({ id: `OTC_ABROAD_TRADE` })}
+              {downFixed(initInfo.otcnum)}
+            </span>
             <span>
               {formatMessage({ id: `EXCHANGE_CAN_USE` })}DGT：{downFixed(myInfo.dgt)}
             </span>

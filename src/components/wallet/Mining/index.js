@@ -75,7 +75,7 @@ class Mining extends Component {
         </section>
         <section>
           <h3>
-            <img src={Icons.dIcon} alt=""/>
+            <img src={Icons.dIcon} alt="" />
             {formatMessage({ id: `WALLET_POG_TITLE` })}
           </h3>
           <p>{formatMessage({ id: `WALLET_POG_DESC_01` })}</p>
@@ -111,7 +111,7 @@ class Mining extends Component {
                   // placeholder={formatMessage({ id: `WITHDRAW_PLACEHOLDER` })}
                 />
                 <button>
-                  <img src={Icons.arrowDown} alt=""/>
+                  <img src={Icons.arrowDown} alt="" />
                 </button>
 
                 {showMenus && (

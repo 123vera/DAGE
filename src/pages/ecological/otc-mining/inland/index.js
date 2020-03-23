@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styles from './incex.less';
+import styles from './index.less';
 import Header from '../../../../components/common/Header';
 import { Icons } from '../../../../assets';
 import { connect } from 'dva';
@@ -37,19 +37,23 @@ class OtcMining extends Component {
     if (!count) {
       return Toast.info(formatMessage({ id: `OTC_PLACEHOLDER` }));
     }
+
     if (Number(count) > Number(myInfo.dgt)) {
       return Toast.info(formatMessage({ id: `TOAST_ERR_BALANCE_NOT_ENOUGH` }));
     }
+
     if (Number(count) < initInfo.amountMin || Number(count) > initInfo.amountMax) {
       return Toast.info(
         `${formatMessage({ id: `OTC_SALE_CONDITIONS_03` })}${initInfo.amountMin}-${
           initInfo.amountMax
-          }${formatMessage({ id: `OTC_SALE_CONDITIONS_02` })}`,
+        }${formatMessage({ id: `OTC_SALE_CONDITIONS_02` })}`,
       );
     }
-    // if (Number(count) > 200) {
-    //   return Toast.info(formatMessage({id: `OTC_TOAST_BLANCE}));
-    // }
+
+    if (Number(count) > 200) {
+      return Toast.info(formatMessage({ id: `OTC_TOAST_BLANCE` }));
+    }
+
     this.props.dispatch({ type: 'otcMining/OtcSubmit' }).then(res => {
       if (res.status !== 1) {
         return Toast.info(res.msg);
@@ -73,6 +77,9 @@ class OtcMining extends Component {
             rightContent={{
               text: formatMessage({ id: `OTC_ABROAD_DOWNLOAD_PLUGIN` }),
               textStyle: { color: '#F3AF66', fontSize: '0.24rem' },
+              onHandle: () =>
+                (window.location.href =
+                  'https://dage1.oss-cn-hongkong.aliyuncs.com/Android/app-current-debug.apk'),
             }}
           />
         </header>
@@ -84,12 +91,15 @@ class OtcMining extends Component {
             type="text"
             placeholder={`${formatMessage({ id: `OTC_SALE_CONDITIONS_01` })}${initInfo.amountMin}-${
               initInfo.amountMax
-              }${formatMessage({ id: `OTC_SALE_CONDITIONS_02` })}`}
+            }${formatMessage({ id: `OTC_SALE_CONDITIONS_02` })}`}
             value={count}
             onChange={e => this.onCountChange(e.target.value)}
           />
           <aside>
-            <span>{formatMessage({ id: `OTC_ABROAD_TRADE` })}{downFixed(initInfo.otcnum)}</span>
+            <span>
+              {formatMessage({ id: `OTC_ABROAD_TRADE` })}
+              {downFixed(initInfo.otcnum)}
+            </span>
             <span>
               {formatMessage({ id: `OTC_ABROAD_USABLE` })}DGT：{downFixed(myInfo.dgt)}
             </span>
