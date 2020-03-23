@@ -23,7 +23,7 @@ class MiningDetailOtc extends Component {
           <div className={styles.summary}>
             <span>
               {downFixed(dgcTotal)}
-              <i>DGT</i>
+              <i>DGC</i>
             </span>
             <b>+</b>
             <span>
@@ -40,10 +40,12 @@ class MiningDetailOtc extends Component {
             {otcList.map(otc => (
               <li key={otc.id}>
                 <div className={styles.label}>
-                  {otc.remark}
+                  {otc.type}
                   <small>{dayjs(otc.addTime * 1000).format('YYYY-MM-DD HH:mm')}</small>
                 </div>
-                <div className={styles.value}>{downFixed(otc.amount)}</div>
+                <div className={styles.value}>
+                  {downFixed(otc.amount) + ' ' + otc.coin.toUpperCase()}
+                </div>
               </li>
             ))}
           </ul>

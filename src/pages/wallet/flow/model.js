@@ -9,6 +9,7 @@ export default {
     row: 10,
     balance: '',
     list: [],
+    typeList: [],
   },
   reducers: {
     UpdateState(state, { payload }) {
@@ -16,10 +17,11 @@ export default {
     },
   },
   effects: {
-    * GetAssetFlow(_, { call, select, put }) {
+    *GetAssetFlow(_, { call, select, put }) {
       const { coin, page, row, list } = yield select(state => state.walletFlow);
+      // const res = yield call(AssetApi.getAssetFlow);
       const res = yield call(AssetApi.getAssetFlow, {
-        type: coin.value,
+        type: coin ? coin.value : '',
         page,
         row,
       });
@@ -30,6 +32,7 @@ export default {
           payload: {
             balance: res.data.balance,
             list,
+            typeList: res.data && res.data.typeList,
             page: page + 1,
             hasMore: row === res.data.list.length,
           },

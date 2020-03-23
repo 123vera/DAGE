@@ -10,6 +10,7 @@ export default {
     captcha: '',
     captchaSrc: '',
     coinTeams: [],
+    rechargeCoins: [], // 充值币种列表
     lang: 'zh-cn',
   },
   reducers: {
@@ -47,7 +48,7 @@ export default {
       if (res && res.status !== 1) return;
       yield put({
         type: 'UpdateState',
-        payload: { currencyList: res && res.data },
+        payload: { rechargeCoins: res && res.data.currency },
       });
     },
 

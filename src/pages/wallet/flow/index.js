@@ -28,7 +28,7 @@ class WalletFlow extends Component {
   };
 
   componentDidMount() {
-    this.getInitCoins().then();
+    this.getInitCoins();
   }
 
   initData = coin => {
@@ -39,25 +39,26 @@ class WalletFlow extends Component {
   };
 
   getInitCoins = async () => {
-    const { dispatch } = this.props;
-    await dispatch({
-      type: 'globalModel/ExchangeInit',
+    await this.getFlow();
+    const {
+      dispatch,
+      walletFlow: { typeList },
+    } = this.props;
+    console.log('==========', typeList);
+
+    let menus = [];
+    typeList.map(value => {
+      console.log(value);
+      // menus.push({
+      //   label: value.toUpperCase(),
+      //   value: value.toLowerCase(),
+      // });
     });
 
-    const { coinTeams } = this.props.globalModel;
-    let arr = [];
-    coinTeams.forEach(team => {
-      team.split('_').map(i => arr.push(i));
-    });
-    const menus = [...new Set(arr)].map(value => {
-      return {
-        label: value.toUpperCase(),
-        value: value.toLowerCase(),
-      };
-    });
-    this.setState({ menus });
-    this.initData(menus[0]);
-    this.getFlow();
+    console.log('menus', menus);
+
+    await this.initData(menus[0]);
+    // this.getFlow();
   };
 
   changeCoin = async coin => {
@@ -72,6 +73,7 @@ class WalletFlow extends Component {
       if (res.status !== 1) {
         return;
       }
+      console.log('32');
       callback && callback();
     });
   };
@@ -96,7 +98,7 @@ class WalletFlow extends Component {
                 className={styles.select}
                 onClick={() => this.setState({ showMenus: !showMenus })}
               >
-                {coin.label}
+                {coin && coin.label}
                 <img src={Icons.arrowUpDown} alt="" />
               </div>
               {showMenus && (

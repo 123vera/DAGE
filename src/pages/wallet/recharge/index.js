@@ -29,34 +29,27 @@ class Recharge extends Component {
 
   componentDidMount() {
     this.getInitCoins();
-
-    // this.props.dispatch({
-    //   type: 'globalModel/GetCurrencyList',
-    //   payload: {},
-    // });
   }
 
   getInitCoins = async () => {
     const { dispatch } = this.props;
-    await dispatch({
-      type: 'globalModel/ExchangeInit',
+    await this.props.dispatch({
+      type: 'globalModel/GetCurrencyList',
+      payload: {},
     });
+
     const {
-      globalModel: { coinTeams },
+      globalModel: { rechargeCoins },
     } = this.props;
-
     let menus = [];
-    let iArr = [];
-    coinTeams.forEach(team => {
-      team.split('_').map(i => iArr.push(i));
-    });
 
-    [...new Set(iArr)].forEach(value => {
+    rechargeCoins.forEach(value => {
       menus.push({
         label: value.toUpperCase(),
         value: value.toLowerCase(),
       });
     });
+
     setTimeout(() => {
       dispatch({
         type: 'recharge/UpdateState',
@@ -86,23 +79,29 @@ class Recharge extends Component {
   render() {
     const { showMenus } = this.state;
     const {
-      globalModel: { currencyList },
+      globalModel: { rechargeCoins },
     } = this.props;
     const { coin, wallet } = this.props.recharge;
-    const { coinTeams } = this.props.globalModel;
-    console.log(currencyList);
+    // const { coinTeams } = this.props.globalModel;
+    console.log(rechargeCoins);
     let menus = [];
     let iArr = [];
-    coinTeams.forEach(team => {
-      team.split('_').map(i => iArr.push(i));
-    });
+    // coinTeams.forEach(team => {
+    //   team.split('_').map(i => iArr.push(i));
+    // });
 
-    [...new Set(iArr)].forEach(value => {
+    rechargeCoins.forEach(value => {
       menus.push({
         label: value.toUpperCase(),
         value: value.toLowerCase(),
       });
     });
+    // [...new Set(rechargeCoins)].forEach(value => {
+    //   menus.push({
+    //     label: value.toUpperCase(),
+    //     value: value.toLowerCase(),
+    //   });
+    // });
 
     return (
       <div className={styles.recharge}>

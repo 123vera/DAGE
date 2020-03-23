@@ -61,12 +61,21 @@ class Index extends Component {
     if (!coin) {
       coin = beforeCoin;
     }
+
     teams.forEach(team => {
       beforeCoins.push({
         label: team.split('_')[0].toUpperCase(),
         value: team.split('_')[0].toLowerCase(),
       });
     });
+
+    //  数组内对象去重
+    let hash = {};
+    let newBeforeCoins = beforeCoins.reduceRight((item, next) => {
+      // eslint-disable-next-line no-unused-expressions
+      hash[next.label] ? '' : (hash[next.label] = true && item.push(next));
+      return item;
+    }, []);
 
     teams.find(team => {
       if (team.split('_')[0] === coin.label) {
@@ -79,23 +88,46 @@ class Index extends Component {
 
     dispatch({
       type: 'exchange/UpdateState',
-      payload: { beforeCoins, afterCoins },
+      payload: { beforeCoins: newBeforeCoins, afterCoins },
     });
   };
 
-  changeBeforeCoin = coin => {
-    const { dispatch } = this.props;
+  changeBeforeCoin = async coin => {
+    await this.initCoins(coin);
+    const {
+      dispatch,
+      exchange: { afterCoins, afterCoin },
+    } = this.props;
+
     dispatch({
       type: 'exchange/UpdateState',
-      payload: { beforeCoin: coin, afterCoin: { label: ' ', value: ' ' } },
+      payload: { beforeCoin: coin, afterCoin: afterCoins[0] },
     });
+
     this.setState({ showBeforeMenus: false });
-    this.initCoins(coin);
+    dispatch({
+      type: 'exchange/ExchangeInit',
+      payload: {
+        currency1: coin.label,
+        currency2: afterCoin.label,
+      },
+    });
   };
 
   changeAfterCoin = async coin => {
+    const {
+      dispatch,
+      exchange: { beforeCoin },
+    } = this.props;
     await this.props.dispatch({ type: 'exchange/UpdateState', payload: { afterCoin: coin } });
     this.setState({ showAfterMenus: false });
+    dispatch({
+      type: 'exchange/ExchangeInit',
+      payload: {
+        currency1: beforeCoin.label,
+        currency2: coin.label,
+      },
+    });
   };
 
   onAmountChange = value => {
