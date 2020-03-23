@@ -82,10 +82,7 @@ class Recharge extends Component {
       globalModel: { rechargeCoins },
     } = this.props;
     const { coin, wallet } = this.props.recharge;
-    // const { coinTeams } = this.props.globalModel;
-    console.log(rechargeCoins);
     let menus = [];
-    let iArr = [];
     // coinTeams.forEach(team => {
     //   team.split('_').map(i => iArr.push(i));
     // });

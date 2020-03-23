@@ -10,17 +10,6 @@ import ListView from '../../../components/common/ListView';
 import { formatMessage } from 'umi-plugin-locale';
 import { downFixed } from '../../../utils/utils';
 
-// const menus = [
-//   {
-//     value: 'dgt',
-//     label: 'DGT',
-//   },
-//   {
-//     value: 'usdt',
-//     label: 'USDT',
-//   },
-// ];
-
 @connect(({ walletFlow, globalModel }) => ({ walletFlow, globalModel }))
 class WalletFlow extends Component {
   state = {
@@ -28,41 +17,19 @@ class WalletFlow extends Component {
   };
 
   componentDidMount() {
-    this.getInitCoins();
+    this.initData();
+    this.getFlow();
   }
 
-  initData = coin => {
+  initData = type => {
     this.props.dispatch({
       type: 'walletFlow/UpdateState',
-      payload: { coin, list: [], page: 1 },
+      payload: { type, list: [], page: 1 },
     });
   };
 
-  getInitCoins = async () => {
-    await this.getFlow();
-    const {
-      dispatch,
-      walletFlow: { typeList },
-    } = this.props;
-    console.log('==========', typeList);
-
-    let menus = [];
-    typeList.map(value => {
-      console.log(value);
-      // menus.push({
-      //   label: value.toUpperCase(),
-      //   value: value.toLowerCase(),
-      // });
-    });
-
-    console.log('menus', menus);
-
-    await this.initData(menus[0]);
-    // this.getFlow();
-  };
-
-  changeCoin = async coin => {
-    this.initData(coin);
+  changeCoin = async (coin) => {
+    this.initData(coin.value);
     this.getFlow();
     this.setState({ showMenus: false });
   };
@@ -73,14 +40,17 @@ class WalletFlow extends Component {
       if (res.status !== 1) {
         return;
       }
-      console.log('32');
       callback && callback();
     });
   };
 
   render() {
-    const { coin, balance, list, hasMore } = this.props.walletFlow;
-    const { showMenus, menus } = this.state;
+    const { type, balance, list, typeList, hasMore } = this.props.walletFlow;
+    const { showMenus } = this.state;
+    const menus = typeList.map(i => ({
+      value: i,
+      label: i,
+    }));
 
     return (
       <div className={styles.walletFlow}>
@@ -98,12 +68,12 @@ class WalletFlow extends Component {
                 className={styles.select}
                 onClick={() => this.setState({ showMenus: !showMenus })}
               >
-                {coin && coin.label}
-                <img src={Icons.arrowUpDown} alt="" />
+                {type}
+                <img src={Icons.arrowUpDown} alt=""/>
               </div>
               {showMenus && (
                 <div className={styles.options}>
-                  <Menus menus={menus} textAlign="center" hasBorder onHandle={this.changeCoin} />
+                  <Menus menus={menus} textAlign="center" hasBorder onHandle={this.changeCoin}/>
                 </div>
               )}
             </div>

@@ -77,7 +77,7 @@ class Index extends Component {
       return item;
     }, []);
 
-    teams.find(team => {
+    teams.forEach(team => {
       if (team.split('_')[0] === coin.label) {
         afterCoins.push({
           label: team.split('_')[1].toUpperCase(),
@@ -241,7 +241,7 @@ class Index extends Component {
                 onClick={e => this.onShowMenus(e, 'showBeforeMenus', !showBeforeMenus)}
               >
                 {beforeCoin.label}
-                <img src={Icons.arrowDown} alt="" />
+                <img src={Icons.arrowDown} alt=""/>
                 {showBeforeMenus && (
                   <div className={styles.menus}>
                     <Menus
@@ -254,13 +254,13 @@ class Index extends Component {
                   </div>
                 )}
               </span>
-              <img className={styles.splitImg} src={Icons.arrowLeft} alt="" />
+              <img className={styles.splitImg} src={Icons.arrowLeft} alt=""/>
               <span
                 className={styles.coinSelect}
                 onClick={e => this.onShowMenus(e, 'showAfterMenus', !showAfterMenus)}
               >
                 {afterCoin.label}
-                <img src={Icons.arrowDown} alt="" />
+                <img src={Icons.arrowDown} alt=""/>
                 {showAfterMenus && (
                   <div className={styles.menus}>
                     <Menus
@@ -296,7 +296,7 @@ class Index extends Component {
                 }
                 onChange={e => this.onAmountChange(e.target.value)}
                 placeholder={`${formatMessage({ id: `EXCHANGE_MIN_AMOUNT` })}${initInfo.MIN ||
-                  '--'}`}
+                '--'}`}
               />
               <p className={styles.tips}>
                 {formatMessage({ id: `EXCHANGE_CAN_USE` })}

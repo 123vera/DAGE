@@ -3,7 +3,7 @@ import { AssetApi } from '../../../services/api';
 export default {
   namespace: 'walletFlow',
   state: {
-    coin: {},
+    type: '',
     hasMore: true,
     page: 1,
     row: 10,
@@ -17,11 +17,10 @@ export default {
     },
   },
   effects: {
-    *GetAssetFlow(_, { call, select, put }) {
-      const { coin, page, row, list } = yield select(state => state.walletFlow);
-      // const res = yield call(AssetApi.getAssetFlow);
+    * GetAssetFlow(_, { call, select, put }) {
+      const { type, page, row, list } = yield select(state => state.walletFlow);
       const res = yield call(AssetApi.getAssetFlow, {
-        type: coin ? coin.value : '',
+        type,
         page,
         row,
       });
@@ -31,6 +30,7 @@ export default {
           type: 'UpdateState',
           payload: {
             balance: res.data.balance,
+            type: type || res.data.typeList[0],
             list,
             typeList: res.data && res.data.typeList,
             page: page + 1,

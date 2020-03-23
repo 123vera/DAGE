@@ -5,7 +5,7 @@ import styles from './index.less';
 import router from 'umi/router';
 import { connect } from 'dva';
 import SubmitBtn from '../../../components/common/SubmitBtn';
-import { Icons, Images } from '../../../assets';
+import { Icons } from '../../../assets';
 import { Toast } from 'antd-mobile';
 import Cookies from 'js-cookie';
 
@@ -54,7 +54,7 @@ class Index extends Component {
 
     return (
       <div className={styles.selectAccount}>
-        <Header icon={Icons.arrowLeft} />
+        <Header icon={Icons.arrowLeft}/>
         <div className={styles.mainContent}>
           <p>{formatMessage({ id: `SELECT_ACCOUNT_TITLE` })}</p>
           <div className={styles.sectionWrap}>
@@ -63,18 +63,18 @@ class Index extends Component {
                 <span className={userId === user.userId ? '' : styles.unChecked}>
                   {user.userName}
                 </span>
-                <img src={userId === user.userId ? Icons.checked : Icons.unChecked} alt="" />
+                <img src={userId === user.userId ? Icons.checked : Icons.unChecked} alt=""/>
               </section>
             ))}
 
             {userList.length < 5 && (
               <section className={styles.setNew} onClick={() => router.push('/set_account')}>
                 {formatMessage({ id: `SELECT_SET_ACCOUNT` })}
-                <img src={Icons.add} onClick={this.addAccount} alt="ADD_IMG" />
+                <img src={Icons.add} onClick={this.addAccount} alt="ADD_IMG"/>
               </section>
             )}
           </div>
-          <SubmitBtn value={formatMessage({ id: `COMMON_CONFIRM` })} onClick={this.toNext} />
+          <SubmitBtn value={formatMessage({ id: `COMMON_CONFIRM` })} onClick={this.toNext}/>
           {/* <img onClick={this.toNext} className={styles.nextStep} src={Images.nextStep} alt=""/> */}
         </div>
       </div>
