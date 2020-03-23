@@ -42,6 +42,15 @@ export default {
       });
     },
 
+    *GetCurrencyList({ payload }, { call, put }) {
+      const res = yield call(AssetApi.getCurrencyList, payload);
+      if (res && res.status !== 1) return;
+      yield put({
+        type: 'UpdateState',
+        payload: { currencyList: res && res.data },
+      });
+    },
+
     *Setlang({ payload }, { call }) {
       const res = yield call(OtherApi.setlang, payload);
       setCookie('lang', payload.lang);

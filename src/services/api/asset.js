@@ -94,6 +94,13 @@ class AssetApi {
   }
 
   /**
+   * 获取系统所有币种
+   **/
+  static getCurrencyList(params) {
+    return request.get('/userasset/currency', { params });
+  }
+
+  /**
    * 提交币种兑换
    *
    * @required currency1 string 币种1, 非必填

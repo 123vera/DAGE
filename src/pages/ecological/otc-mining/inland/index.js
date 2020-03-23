@@ -50,9 +50,9 @@ class OtcMining extends Component {
       );
     }
 
-    if (Number(count) > 200) {
-      return Toast.info(formatMessage({ id: `OTC_TOAST_BLANCE` }));
-    }
+    // if (Number(count) > 200) {
+    //   return Toast.info(formatMessage({ id: `OTC_TOAST_BLANCE` }));
+    // }
 
     this.props.dispatch({ type: 'otcMining/OtcSubmit' }).then(res => {
       if (res.status !== 1) {

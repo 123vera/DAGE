@@ -29,6 +29,11 @@ class Recharge extends Component {
 
   componentDidMount() {
     this.getInitCoins();
+
+    // this.props.dispatch({
+    //   type: 'globalModel/GetCurrencyList',
+    //   payload: {},
+    // });
   }
 
   getInitCoins = async () => {
@@ -80,9 +85,12 @@ class Recharge extends Component {
 
   render() {
     const { showMenus } = this.state;
+    const {
+      globalModel: { currencyList },
+    } = this.props;
     const { coin, wallet } = this.props.recharge;
     const { coinTeams } = this.props.globalModel;
-
+    console.log(currencyList);
     let menus = [];
     let iArr = [];
     coinTeams.forEach(team => {

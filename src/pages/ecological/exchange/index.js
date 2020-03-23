@@ -76,7 +76,11 @@ class Index extends Component {
         });
       }
     });
-    dispatch({ type: 'exchange/UpdateState', payload: { beforeCoins, afterCoins } });
+
+    dispatch({
+      type: 'exchange/UpdateState',
+      payload: { beforeCoins, afterCoins },
+    });
   };
 
   changeBeforeCoin = coin => {
