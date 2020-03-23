@@ -102,7 +102,7 @@ export default {
   USER_LOGOUT: `Confirm to log out?`,
   USER_RECOMMEND_CODE: `Referral code：`,
 
-  PAY_DESC: `Please upload your Alipay payment QR code, and you need to download the 自由侠App on your Android device and log in your Alipay account that is consistent with the uploaded QR code. Keep your 自由侠app open，or otherwise found out, the customer service will deduct the mining reward of the day in the back end`,
+  PAY_DESC: `Please upload your alipay QR code, and you need to download the mining plug-in on your android device and log in the alipay account consistent with the QR code uploaded, so as to keep the mining plug-in always open. If the mining plug-in is not properly operated, the DGT in the auction will not be able to receive the account`,
   PAY_PLACEHOLDER_NAME: `please enter family name`,
   PAY_PLACEHOLDER: `Please enter Alipay account`,
   PAY_PLACEHOLDER_REALNAME: `please enter alipay real-name authentication`,

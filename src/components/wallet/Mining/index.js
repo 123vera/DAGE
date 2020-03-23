@@ -49,7 +49,6 @@ class Mining extends Component {
     const { currency } = this.props.wallet;
     const { showMenus } = this.state;
     const isMoreCurrency = currency.value === 'dgt+did';
-    console.log(myInfo);
 
     return (
       <div className={styles.mining}>

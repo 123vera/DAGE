@@ -29,10 +29,10 @@ class Index extends Component {
       type: 'exchange/UpdateState',
       payload: { amount: '', code: '' },
     });
-
     this.getCaptcha();
     dispatch({ type: 'exchange/ExchangeInit' }).then(res => {
       if (res.status !== 1) Toast.info(res.msg);
+      this.initCoins();
     });
   }
 
@@ -50,13 +50,47 @@ class Index extends Component {
     e.stopPropagation();
   };
 
-  changeBeforeCoin = coin => {
-    this.props.dispatch({ type: 'exchange/UpdateState', payload: { beforeCoin: coin } });
-    this.setState({ showBeforeMenus: false });
+  initCoins = coin => {
+    let beforeCoins = [];
+    let afterCoins = [];
+    const {
+      dispatch,
+      exchange: { teams, beforeCoin },
+    } = this.props;
+
+    if (!coin) {
+      coin = beforeCoin;
+    }
+    teams.forEach(team => {
+      beforeCoins.push({
+        label: team.split('_')[0].toUpperCase(),
+        value: team.split('_')[0].toLowerCase(),
+      });
+    });
+
+    teams.find(team => {
+      if (team.split('_')[0] === coin.label) {
+        afterCoins.push({
+          label: team.split('_')[1].toUpperCase(),
+          value: team.split('_')[1].toLowerCase(),
+        });
+      }
+    });
+    dispatch({ type: 'exchange/UpdateState', payload: { beforeCoins, afterCoins } });
   };
 
-  changeAfterCoin = coin => {
-    this.props.dispatch({ type: 'exchange/UpdateState', payload: { afterCoin: coin } });
+  changeBeforeCoin = coin => {
+    const { dispatch } = this.props;
+    dispatch({
+      type: 'exchange/UpdateState',
+      payload: { beforeCoin: coin, afterCoin: { label: ' ', value: ' ' } },
+    });
+    this.setState({ showBeforeMenus: false });
+    this.initCoins(coin);
+  };
+
+  changeAfterCoin = async coin => {
+    await this.props.dispatch({ type: 'exchange/UpdateState', payload: { afterCoin: coin } });
     this.setState({ showAfterMenus: false });
   };
 
@@ -144,11 +178,17 @@ class Index extends Component {
 
   render() {
     const { captchaSrc, captcha } = this.props.globalModel;
-    const { beforeCoin, afterCoin, initInfo, balance, amount, code } = this.props.exchange;
+    const {
+      beforeCoins,
+      afterCoins,
+      beforeCoin,
+      afterCoin,
+      initInfo,
+      balance,
+      amount,
+      code,
+    } = this.props.exchange;
     const { showBeforeMenus, showAfterMenus, count } = this.state;
-
-    let beforeCoins = [beforeCoin];
-    let afterCoins = [afterCoin];
 
     return (
       <div className={styles.exchange} onClick={this.onHideMenus}>
@@ -188,7 +228,7 @@ class Index extends Component {
                 {showAfterMenus && (
                   <div className={styles.menus}>
                     <Menus
-                      menus={afterCoins}
+                      menus={afterCoins || afterCoin}
                       active={afterCoin.value}
                       hasBorder
                       textAlign="center"

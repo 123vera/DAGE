@@ -18,12 +18,12 @@ export default {
     },
   },
   effects: {
-    * GetCaptcha({ _ }, { call, put }) {
+    *GetCaptcha({ _ }, { call, put }) {
       const captchaSrc = yield call(UserApi.getCaptcha, +new Date());
       yield put({ type: 'UpdateState', payload: { captchaSrc } });
     },
 
-    * GetSmsCode({ payload = {} }, { call, select }) {
+    *GetSmsCode({ payload = {} }, { call, select }) {
       const { myInfo, captcha } = yield select(state => state.globalModel);
       return yield call(UserApi.sendSmsCode, {
         prefix: payload.prefix || myInfo.phonePrefix,
@@ -33,7 +33,7 @@ export default {
       });
     },
 
-    * GetMyInfo({ payload }, { call, put }) {
+    *GetMyInfo({ payload }, { call, put }) {
       const res = yield call(UserApi.getMyInfo, payload);
       if (res && res.status !== 1) return;
       yield put({
@@ -42,13 +42,13 @@ export default {
       });
     },
 
-    * Setlang({ payload }, { call }) {
+    *Setlang({ payload }, { call }) {
       const res = yield call(OtherApi.setlang, payload);
       setCookie('lang', payload.lang);
       if (res && res.status !== 1) return;
     },
 
-    * ExchangeInit({ _ }, { call, put }) {
+    *ExchangeInit(_, { call, put }) {
       const res = yield call(AssetApi.exchangeInit);
       if (res.status === 1) {
         yield put({

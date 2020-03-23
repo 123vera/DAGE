@@ -9,7 +9,7 @@ class ListView extends Component {
   };
 
   handleAction = action => {
-    console.info(action, this.state.action, action === this.state.action);
+    // console.info(action, this.state.action, action === this.state.action);
     if (action === this.state.action) {
       return false;
     }

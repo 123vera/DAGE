@@ -34,7 +34,6 @@ class Register extends Component {
   };
 
   onInputChange = (value, key) => {
-    console.log(value);
     const { dispatch } = this.props;
     if (key === 'code' && value.length > 4) return;
     if (key === 'phone' || key === 'code') {

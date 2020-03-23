@@ -110,13 +110,24 @@ class Home extends Component {
           </p>
         </div>
         <ul className={styles.list}>
-          {listContent.map((item, key) => (
-            <li key={key} onClick={() => this.toSwitchLang(item.url)}>
-              <img className={styles.icon} src={item.icon} alt="" />
-              <span>{item.text}</span>
-              <img className={styles.right} src={Icons.arrowRight} alt="" />
-            </li>
-          ))}
+          {myInfo.phonePrefix === '86' &&
+            listContent.map((item, key) => (
+              <li key={key} onClick={() => this.toSwitchLang(item.url)}>
+                <img className={styles.icon} src={item.icon} alt="" />
+                <span>{item.text}</span>
+                <img className={styles.right} src={Icons.arrowRight} alt="" />
+              </li>
+            ))}
+
+          {/* 国外用户个人中心不显示上传支付宝信息 */}
+          {myInfo.phonePrefix !== '86' &&
+            listContent.splice(1).map((item, key) => (
+              <li key={key} onClick={() => this.toSwitchLang(item.url)}>
+                <img className={styles.icon} src={item.icon} alt="" />
+                <span>{item.text}</span>
+                <img className={styles.right} src={Icons.arrowRight} alt="" />
+              </li>
+            ))}
         </ul>
       </div>
     );
