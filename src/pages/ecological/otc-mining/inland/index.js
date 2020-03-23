@@ -66,7 +66,6 @@ class OtcMining extends Component {
 
   render() {
     const { initInfo, count } = this.props.otcMining;
-    const { myInfo } = this.props.globalModel;
 
     return (
       <div className={styles.otcMining}>
@@ -101,7 +100,7 @@ class OtcMining extends Component {
               {downFixed(initInfo.otcnum)}
             </span>
             <span>
-              {formatMessage({ id: `OTC_ABROAD_USABLE` })}DGT：{downFixed(myInfo.dgt)}
+              {formatMessage({ id: `OTC_ABROAD_USABLE` })}DGT：{downFixed(initInfo.balance)}
             </span>
           </aside>
           <button onClick={this.onSubmit}>{formatMessage({ id: `OTC_CONFIRM_SALE` })}</button>
