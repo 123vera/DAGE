@@ -16,6 +16,7 @@
     }
 
     &.banner {
+      position: relative;
       margin-top: 16px;
       line-height: 2.6;
 
@@ -24,7 +25,7 @@
         color: @font-sub-color;
         background-color: #3e475a;
         border-radius: 30px;
-        padding: 15px;
+        padding: 10px 20px;
       }
 
       h2 {
@@ -41,9 +42,10 @@
 
       img {
         position: absolute;
-        top: 55px;
+        top: -33%;
         right: 60px;
-        width: 230px;
+        width: 250px;
+        // z-index: 1;
       }
     }
 

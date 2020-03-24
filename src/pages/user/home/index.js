@@ -8,6 +8,7 @@ import PageHeader from '@/components/common/PageHeader';
 import BG_ICON from '@/assets/dark/bg-icon.png';
 import STATUS_BG from '@/assets/icons/status-bg.png';
 import ICON_SWITCH from '@/assets/icons/switch-lang.png';
+import MY_LEVEL from '@/assets/icons/spread.png';
 import HOME_BG from '@/assets/imgs/home-bg.png';
 import DAGE_LOGO from '@/assets/dark/dage-logo.png';
 import styles from './index.less';
@@ -41,6 +42,11 @@ class Home extends Component {
       //   text: formatMessage({ id: `USER_SECTION_02` }),
       //   url: '/promotion',
       // },
+      {
+        icon: MY_LEVEL,
+        text: formatMessage({ id: `USER_SECTION_07` }),
+        url: `/promotion`,
+      },
       {
         icon: Icons.userReset,
         text: formatMessage({ id: `USER_SECTION_03` }),

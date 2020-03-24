@@ -1,28 +1,48 @@
 import React, { Component } from 'react';
-import { Button } from 'antd-mobile';
+import { connect } from 'dva';
+import router from 'umi/router';
 import PageHeader from '@/components/common/PageHeader';
 import ARROW_LEFT from '@/assets/dark/arrow-left.png';
 import DAGE_LOGO from '@/assets/dark/dage-logo.png';
-import TIPS from '@/assets/icons/tips.png';
-import styles from './index.less';
+// import TIPS from '@/assets/icons/tips.png';
 import { formatMessage } from 'umi/locale';
+import styles from './index.less';
 
+@connect(({ promotion }) => ({ promotion }))
 class Index extends Component {
+  componentDidMount() {
+    this.props.dispatch({
+      type: 'promotion/GetNoticeList',
+    });
+  }
+
   render() {
+    const {
+      promotion: { teamLevel },
+    } = this.props;
+
     return (
       <div id={styles.promotion}>
         <PageHeader
-          title={formatMessage({ id: `PROMOTION_TITLE` })}
+          title={formatMessage({ id: `PROMOTION_TITLE_01` })}
           leftContent={{ icon: ARROW_LEFT }}
+          rightContent={{
+            text: (
+              <span style={{ color: '#F3AF66' }}>
+                {formatMessage({ id: `PROMOTION_IMMEDIATE` })}
+              </span>
+            ),
+            onHandle: () => router.push('/home/user'),
+          }}
         />
 
         <section className={styles.banner}>
-          <span className={styles.income}>{formatMessage({ id: `PROMOTION_INCOME` })}</span>
-          <h2>3000</h2>
-          <Button>{formatMessage({ id: `PROMOTION_IMMEDIATE` })}</Button>
+          <span className={styles.income}>{formatMessage({ id: `PROMOTION_USER_LEVEL` })}</span>
+          <h2>{teamLevel || teamLevel === 0 ? `VIP ${teamLevel}` : '--'}</h2>
           <img src={DAGE_LOGO} alt="DAGE_LOGO" />
         </section>
 
+        {/*  以下暂时隐藏
         <section className={styles.explain}>
           <h4>
             {formatMessage({ id: `PROMOTION_RECOMMENDATION` })}
@@ -72,6 +92,7 @@ class Index extends Component {
             </tr>
           </table>
         </section>
+      */}
       </div>
     );
   }

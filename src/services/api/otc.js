@@ -1,5 +1,4 @@
-import { onlinePost, onlineGet, optionsToLine } from '../utils';
-import Request from '../request';
+import { onlinePost, optionsToLine } from '../utils';
 
 class OtcApi {
   /**

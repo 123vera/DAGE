@@ -1,5 +1,5 @@
 import request from '../request';
-import { getApiBaseUrl, getAccountToken, getOpenId, onlinePost } from '../utils';
+import { getApiBaseUrl, getAccountToken, getOpenId, onlinePost, onlineGet } from '../utils';
 
 const SID = '12c68f99664da7bc';
 
@@ -143,6 +143,16 @@ class UserApi {
    **/
   static getMyWallet(options) {
     return onlinePost('/userasset/mywallet', options);
+  }
+
+  /**
+   * 我的推广 （我的等级）
+   * @required openId 用户openid
+   * @required page 页码
+   **/
+  static getRecommendList(options) {
+    return onlinePost('/user/recommendlist', options);
+    // return request.get('/user/recommendlist', { ...params, openId: getOpenId() });
   }
 }
 

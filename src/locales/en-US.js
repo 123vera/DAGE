@@ -99,6 +99,7 @@ export default {
   USER_SECTION_04: `Official Announcement`,
   USER_SECTION_05: `Change Language`,
   USER_SECTION_06: `Contact customer service`,
+  USER_SECTION_07: `My Grades`,
   USER_LOGOUT: `Confirm to log out?`,
   USER_RECOMMEND_CODE: `Referral code：`,
 
@@ -124,6 +125,8 @@ export default {
   NOTICE_DETAIL_TITLE: `Announcement details`,
 
   PROMOTION_TITLE: `My promotion`,
+  PROMOTION_TITLE_01: `My Grades`,
+  PROMOTION_USER_LEVEL: `Current user level`,
   PROMOTION_INCOME: `Dynamic mining gains yesterday`,
   PROMOTION_IMMEDIATE: `Promote Now`,
   PROMOTION_RECOMMENDATION: `Referral description`,

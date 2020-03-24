@@ -99,6 +99,7 @@ export default {
   USER_SECTION_04: `公告列表`,
   USER_SECTION_05: `语言切换`,
   USER_SECTION_06: `联系客服`,
+  USER_SECTION_07: `我的等级`,
   USER_LOGOUT: `确认退出登录？`,
   USER_RECOMMEND_CODE: `推荐码：`,
 
@@ -124,6 +125,8 @@ export default {
   NOTICE_DETAIL_TITLE: `公告详情`,
 
   PROMOTION_TITLE: `我的推广`,
+  PROMOTION_TITLE_01: `我的等级`,
+  PROMOTION_USER_LEVEL: `当前用户等级`,
   PROMOTION_INCOME: `昨日挖矿动态收益`,
   PROMOTION_IMMEDIATE: `立即推广`,
   PROMOTION_RECOMMENDATION: `推荐说明`,

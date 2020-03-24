@@ -85,6 +85,7 @@ export default {
           '/referral_code',
           '/otc-mining/abroad',
           '/otc-mining/inland',
+          '/promotion',
           // '/wallet/reward-detail',
         ];
         list.forEach(i => {
