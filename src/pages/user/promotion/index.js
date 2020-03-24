@@ -37,8 +37,11 @@ class Index extends Component {
         />
 
         <section className={styles.banner}>
-          <span className={styles.income}>{formatMessage({ id: `PROMOTION_USER_LEVEL` })}</span>
-          <h2>{teamLevel || teamLevel === 0 ? `VIP ${teamLevel}` : '--'}</h2>
+          <div className={styles.content}>
+            <span className={styles.income}>{formatMessage({ id: `PROMOTION_USER_LEVEL` })}</span>
+            <h2>{teamLevel || teamLevel === 0 ? `VIP ${teamLevel}` : '--'}</h2>
+          </div>
+
           <img src={DAGE_LOGO} alt="DAGE_LOGO" />
         </section>
 
