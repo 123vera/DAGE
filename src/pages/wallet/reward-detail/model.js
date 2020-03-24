@@ -7,7 +7,7 @@ export default {
     page: 1,
     row: 10,
     list: [],
-    rewardSum: 0.00,
+    rewardSum: 0.0,
   },
   reducers: {
     UpdateState(state, { payload }) {
@@ -15,7 +15,7 @@ export default {
     },
   },
   effects: {
-    * GetReward({ payload }, { call, select, put }) {
+    *GetReward(_, { call, select, put }) {
       const { page, row, list } = yield select(state => state.rewardDetail);
       const res = yield call(AssetApi.getRewardList, { page, row });
       if (res.status === 1) {

@@ -3,6 +3,7 @@ import styles from './index.less';
 import Header from '../../../../components/common/Header';
 import { Icons } from '../../../../assets';
 import { formatMessage } from 'umi/locale';
+import ListView from '@/components/common/ListView';
 import { connect } from 'dva';
 import { downFixed } from '../../../../utils/utils';
 import dayjs from 'dayjs';
@@ -10,11 +11,17 @@ import dayjs from 'dayjs';
 @connect(({ otcMiningDetail }) => ({ otcMiningDetail }))
 class MiningDetailOtc extends Component {
   componentDidMount() {
-    this.props.dispatch({ type: 'otcMiningDetail/OtcDetail' });
+    this.getMining();
   }
 
+  getMining = callback => {
+    this.props.dispatch({ type: 'otcMiningDetail/OtcDetail' }).then(res => {
+      callback && callback();
+    });
+  };
+
   render() {
-    const { dgcTotal, didTotal, otcList = [] } = this.props.otcMiningDetail;
+    const { dgcTotal, didTotal, otcList = [], hasMore = true } = this.props.otcMiningDetail;
 
     return (
       <div className={styles.miningDetail}>
@@ -36,19 +43,21 @@ class MiningDetailOtc extends Component {
           <p className={styles.intro}>{formatMessage({ id: `OTC_DETAIL_TIP` })}</p>
         </section>
         <section>
-          <ul>
-            {otcList.map(otc => (
-              <li key={otc.id}>
-                <div className={styles.label}>
-                  {otc.type}
-                  <small>{dayjs(otc.addTime * 1000).format('YYYY-MM-DD HH:mm')}</small>
-                </div>
-                <div className={styles.value}>
-                  {downFixed(otc.amount) + ' ' + otc.coin.toUpperCase()}
-                </div>
-              </li>
-            ))}
-          </ul>
+          <ListView hasMore={hasMore} onLoadMore={this.getMining}>
+            <ul>
+              {otcList.map(otc => (
+                <li key={otc.id}>
+                  <div className={styles.label}>
+                    {otc.type}
+                    <small>{dayjs(otc.addTime * 1000).format('YYYY-MM-DD HH:mm')}</small>
+                  </div>
+                  <div className={styles.value}>
+                    {downFixed(otc.amount) + ' ' + otc.coin.toUpperCase()}
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </ListView>
         </section>
       </div>
     );

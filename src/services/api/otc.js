@@ -1,4 +1,5 @@
-import { onlinePost, optionsToLine } from '../utils';
+import { onlinePost, onlineGet, optionsToLine } from '../utils';
+import Request from '../request';
 
 class OtcApi {
   /**
@@ -20,14 +21,16 @@ class OtcApi {
    **/
   static alipayUpload(options) {
     return onlinePost('/otc/rmbpay', options, {
-      transformRequest: [data => {
-        data = optionsToLine(data);
-        let formData = new FormData();
-        for (const key of Object.keys(data)) {
-          formData.append(key, data[key]);
-        }
-        return formData;
-      }],
+      transformRequest: [
+        data => {
+          data = optionsToLine(data);
+          let formData = new FormData();
+          for (const key of Object.keys(data)) {
+            formData.append(key, data[key]);
+          }
+          return formData;
+        },
+      ],
       headers: { 'Content-Type': 'multipart/form-data' },
     });
   }
@@ -53,12 +56,14 @@ class OtcApi {
   }
 
   /**
-   * OTC 挖矿详情
-   *
+   * OTC 挖矿详情（收益详情、明细 接口）
    * @required openId 用户openid
+   * @required page 页码
+   * @required type 推荐奖励：activate 、挖矿奖励：mining
    **/
   static otcDetail(options) {
-    return onlinePost('/otc/otclist', options);
+    // return onlinePost('/otc/otclist', options);
+    return onlinePost('/userasset/rewardlist', options);
   }
 }
 
