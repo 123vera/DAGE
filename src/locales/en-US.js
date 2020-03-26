@@ -129,7 +129,7 @@ export default {
   PROMOTION_USER_LEVEL: `Current user level`,
   PROMOTION_INCOME: `Dynamic mining gains yesterday`,
   PROMOTION_IMMEDIATE: `Promote Now`,
-  PROMOTION_RECOMMENDATION: `Referral description`,
+  PROMOTION_RECOMMENDATION: `How to raise my rank`,
   PROMOTION_GENERATION: `1st generation referral`,
   PROMOTION_SECONDARY: `2nd generation referral`,
   PROMOTION_RECOMMENDATION_TEAM: `Refer group`,
