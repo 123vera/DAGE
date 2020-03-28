@@ -32,7 +32,7 @@ class Index extends Component {
     this.getCaptcha();
     dispatch({ type: 'exchange/ExchangeInit' }).then(res => {
       if (res.status !== 1) Toast.info(res.msg);
-      this.initCoins();
+      // this.initCoins();
     });
   }
 
@@ -50,66 +50,68 @@ class Index extends Component {
     e.stopPropagation();
   };
 
-  initCoins = coin => {
-    let beforeCoins = [];
-    let afterCoins = [];
-    const {
-      dispatch,
-      exchange: { teams, beforeCoin },
-    } = this.props;
-
-    if (!coin) {
-      coin = beforeCoin;
-    }
-
-    teams.forEach(team => {
-      beforeCoins.push({
-        label: team.split('_')[0].toUpperCase(),
-        value: team.split('_')[0].toLowerCase(),
-      });
-    });
-
-    //  数组内对象去重
-    let hash = {};
-    let newBeforeCoins = beforeCoins.reduceRight((item, next) => {
-      // eslint-disable-next-line no-unused-expressions
-      hash[next.label] ? '' : (hash[next.label] = true && item.push(next));
-      return item;
-    }, []);
-
-    teams.forEach(team => {
-      if (team.split('_')[0] === coin.label) {
-        afterCoins.push({
-          label: team.split('_')[1].toUpperCase(),
-          value: team.split('_')[1].toLowerCase(),
-        });
-      }
-    });
-
-    dispatch({
-      type: 'exchange/UpdateState',
-      payload: { beforeCoins: newBeforeCoins, afterCoins },
-    });
-  };
+  // initCoins = coin => {
+  //   let beforeCoins = [];
+  //   let afterCoins = [];
+  //   const {
+  //     dispatch,
+  //     exchange: { teams, beforeCoin },
+  //   } = this.props;
+  //
+  //   if (!coin) {
+  //     coin = beforeCoin;
+  //   }
+  //
+  //   teams.forEach(team => {
+  //     beforeCoins.push({
+  //       label: team.split('_')[0].toUpperCase(),
+  //       value: team.split('_')[0].toLowerCase(),
+  //     });
+  //   });
+  //
+  //   //  数组内对象去重
+  //   let hash = {};
+  //   let newBeforeCoins = beforeCoins.reduceRight((item, next) => {
+  //     // eslint-disable-next-line no-unused-expressions
+  //     hash[next.label] ? '' : (hash[next.label] = true && item.push(next));
+  //     return item;
+  //   }, []);
+  //
+  //   teams.forEach(team => {
+  //     if (team.split('_')[0] === coin.label) {
+  //       afterCoins.push({
+  //         label: team.split('_')[1].toUpperCase(),
+  //         value: team.split('_')[1].toLowerCase(),
+  //       });
+  //     }
+  //   });
+  //
+  //   dispatch({
+  //     type: 'exchange/UpdateState',
+  //     payload: { beforeCoins: newBeforeCoins, afterCoins },
+  //   });
+  // };
 
   changeBeforeCoin = async coin => {
-    await this.initCoins(coin);
-    const {
-      dispatch,
-      exchange: { afterCoins, afterCoin },
-    } = this.props;
+    // await this.initCoins(coin);
+    const { dispatch } = this.props;
+    const { afterCoin, teams } = this.props.exchange;
 
-    dispatch({
+    await dispatch({
       type: 'exchange/UpdateState',
-      payload: { beforeCoin: coin, afterCoin: afterCoins[0] },
+      payload: { beforeCoin: coin.value },
+    });
+    await dispatch({
+      type: 'exchange/UpdateAfterCoinsState',
+      payload: { beforeCoin: coin.value, teams },
     });
 
     this.setState({ showBeforeMenus: false });
     dispatch({
       type: 'exchange/ExchangeInit',
       payload: {
-        currency1: coin.label,
-        currency2: afterCoin.label,
+        currency1: coin.value,
+        currency2: afterCoin,
       },
     });
   };
@@ -119,13 +121,16 @@ class Index extends Component {
       dispatch,
       exchange: { beforeCoin },
     } = this.props;
-    await this.props.dispatch({ type: 'exchange/UpdateState', payload: { afterCoin: coin } });
+    await dispatch({
+      type: 'exchange/UpdateState',
+      payload: { afterCoin: coin.value },
+    });
     this.setState({ showAfterMenus: false });
     dispatch({
       type: 'exchange/ExchangeInit',
       payload: {
-        currency1: beforeCoin.label,
-        currency2: coin.label,
+        currency1: beforeCoin,
+        currency2: coin.value,
       },
     });
   };
@@ -240,13 +245,13 @@ class Index extends Component {
                 className={styles.coinSelect}
                 onClick={e => this.onShowMenus(e, 'showBeforeMenus', !showBeforeMenus)}
               >
-                {beforeCoin.label}
+                {beforeCoin}
                 <img src={Icons.arrowDown} alt=""/>
                 {showBeforeMenus && (
                   <div className={styles.menus}>
                     <Menus
                       menus={beforeCoins}
-                      active={beforeCoin.value}
+                      active={beforeCoin}
                       hasBorder
                       textAlign="center"
                       onHandle={this.changeBeforeCoin}
@@ -259,13 +264,13 @@ class Index extends Component {
                 className={styles.coinSelect}
                 onClick={e => this.onShowMenus(e, 'showAfterMenus', !showAfterMenus)}
               >
-                {afterCoin.label}
+                {afterCoin}
                 <img src={Icons.arrowDown} alt=""/>
                 {showAfterMenus && (
                   <div className={styles.menus}>
                     <Menus
-                      menus={afterCoins || afterCoin}
-                      active={afterCoin.value}
+                      menus={afterCoins}
+                      active={afterCoin}
                       hasBorder
                       textAlign="center"
                       onHandle={this.changeAfterCoin}
@@ -276,12 +281,12 @@ class Index extends Component {
             </div>
             <small className={styles.notice}>
               {formatMessage({ id: `EXCHANGE_RATE` })}
-              {downFixed(1)} {beforeCoin.label} = {downFixed(initInfo.RATIO) || '--'}{' '}
-              {afterCoin.label}
+              {downFixed(1)} {beforeCoin} = {downFixed(initInfo.RATIO) || '--'}{' '}
+              {afterCoin}
             </small>
             <label>
               <span className={styles.label}>
-                {formatMessage({ id: `EXCHANGE_AMOUNT` })} ({beforeCoin.label})
+                {formatMessage({ id: `EXCHANGE_AMOUNT` })} ({beforeCoin})
               </span>
               <input
                 type="text"
@@ -300,7 +305,7 @@ class Index extends Component {
               />
               <p className={styles.tips}>
                 {formatMessage({ id: `EXCHANGE_CAN_USE` })}
-                {beforeCoin.label}：{downFixed(balance)}
+                {beforeCoin}：{downFixed(balance)}
                 <small>
                   {formatMessage({ id: `EXCHANGE_FEE_RATE` })}
                   {amount ? downFixed(initInfo.CHARGE * 100) : '0'}%
@@ -340,7 +345,7 @@ class Index extends Component {
               {formatMessage({ id: `EXCHANGE_FEE` })}{' '}
               <small>
                 {amount ? downFixed(amount * initInfo.RATIO * initInfo.CHARGE) : '--'}
-                &nbsp;({afterCoin.label})
+                &nbsp;({afterCoin})
               </small>
             </p>
             <p className={styles.labelTag}>
@@ -349,7 +354,7 @@ class Index extends Component {
                 {amount > initInfo.CHARGE * 100
                   ? downFixed(amount * initInfo.RATIO - amount * initInfo.RATIO * initInfo.CHARGE)
                   : '--'}
-                &nbsp;({afterCoin.label})
+                &nbsp;({afterCoin})
               </small>
             </p>
           </div>
