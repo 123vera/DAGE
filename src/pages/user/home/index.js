@@ -42,11 +42,11 @@ class Home extends Component {
       //   text: formatMessage({ id: `USER_SECTION_02` }),
       //   url: '/promotion',
       // },
-      {
-        icon: MY_LEVEL,
-        text: formatMessage({ id: `USER_SECTION_07` }),
-        url: `/promotion`,
-      },
+      // {
+      //   icon: MY_LEVEL,
+      //   text: formatMessage({ id: `USER_SECTION_07` }),
+      //   url: `/promotion`,
+      // },
       {
         icon: Icons.userReset,
         text: formatMessage({ id: `USER_SECTION_03` }),

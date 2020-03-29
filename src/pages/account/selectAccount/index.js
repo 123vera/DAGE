@@ -67,7 +67,7 @@ class Index extends Component {
               </section>
             ))}
 
-            {userList.length < 5 && (
+            {userList.length < 10 && (
               <section className={styles.setNew} onClick={() => router.push('/set_account')}>
                 {formatMessage({ id: `SELECT_SET_ACCOUNT` })}
                 <img src={Icons.add} onClick={this.addAccount} alt="ADD_IMG"/>

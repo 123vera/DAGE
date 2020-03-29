@@ -6,18 +6,8 @@ export default {
     beforeCoins: [],
     afterCoins: [],
     teams: [],
-    // pair: '',
     beforeCoin: '',
     afterCoin: '',
-
-    // beforeCoin: {
-    //   value: 'usdt',
-    //   label: 'USDT',
-    // },
-    // afterCoin: {
-    //   value: 'did',
-    //   label: 'DID',
-    // },
     balance: '',
     initInfo: {},
     amount: '',
