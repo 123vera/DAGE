@@ -43,7 +43,7 @@ class Index extends Component {
           </div>
           <img src={DAGE_LOGO} alt="DAGE_LOGO" />
         </section>
-        <section className={styles.explain}>
+        <section style={{ display: 'none' }} className={styles.explain}>
           <h4>
             {formatMessage({ id: `PROMOTION_RECOMMENDATION` })}
             <img src={TIPS} alt="TIPS" />
@@ -75,7 +75,7 @@ class Index extends Component {
           </ul>
         </section>
 
-        <section className={styles.firstRecommend}>
+        <section style={{display: 'none'}} className={styles.firstRecommend}>
           <h4>{formatMessage({ id: `PROMOTION_MY_GENERATION` })}</h4>
           <ListView hasMore={hasMore} onLoadMore={this.getNotices}>
             <table>

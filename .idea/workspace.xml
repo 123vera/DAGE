@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="85fa9ab6-0589-4a2d-9a7e-858b39c025c1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/ecological/exchange/model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ecological/exchange/model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/user/promotion/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/user/promotion/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/constants.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -82,12 +83,12 @@
           <entry key="css" value="14" />
           <entry key="ejs" value="17" />
           <entry key="gitignore" value="5" />
-          <entry key="js" value="29305" />
+          <entry key="js" value="29320" />
           <entry key="json" value="2" />
           <entry key="less" value="5612" />
           <entry key="md" value="155" />
           <entry key="sh" value="14" />
-          <entry key="txt" value="326" />
+          <entry key="txt" value="337" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -96,10 +97,10 @@
           <entry key="CSS" value="14" />
           <entry key="EJS" value="17" />
           <entry key="JSON" value="2" />
-          <entry key="JavaScript" value="29305" />
+          <entry key="JavaScript" value="29320" />
           <entry key="Less" value="5612" />
           <entry key="Markdown" value="155" />
-          <entry key="PLAIN_TEXT" value="331" />
+          <entry key="PLAIN_TEXT" value="342" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
@@ -172,34 +173,36 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pages/user/promotion/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="74" column="61" selection-start-line="74" selection-start-column="61" selection-end-line="74" selection-end-column="61" />
+            <state relative-caret-position="146">
+              <caret line="44" column="18" lean-forward="true" selection-start-line="44" selection-start-column="18" selection-end-line="44" selection-end-column="18" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
+                <element signature="e#971#1213#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/ecological/exchange/model.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="74" column="12" lean-forward="true" selection-start-line="74" selection-start-column="12" selection-end-line="74" selection-end-column="12" />
+            <state relative-caret-position="242">
+              <caret line="11" column="17" lean-forward="true" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
               <folding>
-                <element signature="e#104#442#0" expanded="true" />
                 <element signature="e#433#1186#0" expanded="true" />
                 <element signature="e#664#717#0" expanded="true" />
                 <element signature="e#983#1062#0" expanded="true" />
                 <element signature="e#1215#1315#0" expanded="true" />
+                <element signature="e#1199#2436#0" expanded="true" />
                 <element signature="e#1408#1495#0" expanded="true" />
                 <element signature="e#1561#1848#0" expanded="true" />
                 <element signature="e#1613#1837#0" expanded="true" />
                 <element signature="e#1649#1700#0" expanded="true" />
                 <element signature="e#1711#1796#0" expanded="true" />
+                <element signature="e#2132#2300#0" expanded="true" />
                 <element signature="e#2194#2289#0" expanded="true" />
                 <element signature="e#2427#2533#0" expanded="true" />
               </folding>
@@ -210,8 +213,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/utils/constants.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="32" column="15" lean-forward="true" selection-start-line="32" selection-start-column="15" selection-end-line="32" selection-end-column="15" />
+            <state relative-caret-position="220">
+              <caret line="29" column="12" lean-forward="true" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -332,11 +335,11 @@
         <option value="$PROJECT_DIR$/src/locales/zh-CN.js" />
         <option value="$PROJECT_DIR$/src/locales/en-US.js" />
         <option value="$PROJECT_DIR$/src/pages/ecological/exchange/index.js" />
-        <option value="$PROJECT_DIR$/src/utils/constants.js" />
         <option value="$PROJECT_DIR$/src/pages/account/selectAccount/index.js" />
         <option value="$PROJECT_DIR$/src/pages/user/home/index.js" />
-        <option value="$PROJECT_DIR$/src/pages/user/promotion/index.js" />
         <option value="$PROJECT_DIR$/src/pages/ecological/exchange/model.js" />
+        <option value="$PROJECT_DIR$/src/utils/constants.js" />
+        <option value="$PROJECT_DIR$/src/pages/user/promotion/index.js" />
       </list>
     </option>
   </component>
@@ -408,15 +411,15 @@
               <item name="dage" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="ecological" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="dage" type="b2602c69:ProjectViewProjectNode" />
               <item name="dage" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="ecological" type="462c0819:PsiDirectoryNode" />
-              <item name="exchange" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
+              <item name="promotion" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="dage" type="b2602c69:ProjectViewProjectNode" />
@@ -473,9 +476,9 @@
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
           <PATH vcs="Git" revision="">$PROJECT_DIR$/src/locales/en-US.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/locales/ko-KR.js</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/src/locales/zh-CN.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/pages/account/register/index.less</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/pages/user/switchLang/index.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/pages/user/promotion/index.js</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/src/utils/constants.js</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
@@ -484,7 +487,7 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="CREATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/locales/ko-KR.js</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/locales/vi-VN.js</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Deleted" />
@@ -646,14 +649,7 @@
       <workItem from="1584887952994" duration="2415000" />
       <workItem from="1584978800842" duration="2023000" />
       <workItem from="1585230170107" duration="3633000" />
-      <workItem from="1585320850542" duration="7627000" />
-    </task>
-    <task id="LOCAL-00023" summary="公告">
-      <created>1583166324704</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1583166324704</updated>
+      <workItem from="1585320850542" duration="8396000" />
     </task>
     <task id="LOCAL-00024" summary="修改提币记录">
       <created>1583167529016</created>
@@ -991,11 +987,18 @@
       <option name="project" value="LOCAL" />
       <updated>1585456945158</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL-00072" summary="修复兑换bug">
+      <created>1585489196179</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1585489196179</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="309829000" />
+    <option name="totallyTimeSpent" value="310598000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="634" y="36" width="944" height="990" extended-state="0" />
@@ -1062,7 +1065,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="找回密码" />
     <MESSAGE value="充值与提现" />
     <MESSAGE value="充值页完成" />
     <MESSAGE value="钱包相关" />
@@ -1087,7 +1089,8 @@
     <MESSAGE value="首页点击按钮跳转otc挖矿" />
     <MESSAGE value="提现流水" />
     <MESSAGE value="隐藏我的等级未开放的内容" />
-    <option name="LAST_COMMIT_MESSAGE" value="隐藏我的等级未开放的内容" />
+    <MESSAGE value="修复兑换bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="修复兑换bug" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/assets/imgs/合成作战.png" />
@@ -1336,13 +1339,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/constants.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="32" column="15" lean-forward="true" selection-start-line="32" selection-start-column="15" selection-end-line="32" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/utils/utils.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="278">
@@ -1372,16 +1368,6 @@
             <element signature="e#1126#2120#0" expanded="true" />
             <element signature="e#1410#1526#0" expanded="true" />
             <element signature="e#1730#1852#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/user/promotion/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="74" column="61" selection-start-line="74" selection-start-column="61" selection-end-line="74" selection-end-column="61" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1429,21 +1415,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/ecological/exchange/model.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="74" column="12" lean-forward="true" selection-start-line="74" selection-start-column="12" selection-end-line="74" selection-end-column="12" />
+        <state relative-caret-position="242">
+          <caret line="11" column="17" lean-forward="true" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
           <folding>
-            <element signature="e#104#442#0" expanded="true" />
             <element signature="e#433#1186#0" expanded="true" />
             <element signature="e#664#717#0" expanded="true" />
             <element signature="e#983#1062#0" expanded="true" />
             <element signature="e#1215#1315#0" expanded="true" />
+            <element signature="e#1199#2436#0" expanded="true" />
             <element signature="e#1408#1495#0" expanded="true" />
             <element signature="e#1561#1848#0" expanded="true" />
             <element signature="e#1613#1837#0" expanded="true" />
             <element signature="e#1649#1700#0" expanded="true" />
             <element signature="e#1711#1796#0" expanded="true" />
+            <element signature="e#2132#2300#0" expanded="true" />
             <element signature="e#2194#2289#0" expanded="true" />
             <element signature="e#2427#2533#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/constants.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="29" column="12" lean-forward="true" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/user/promotion/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="146">
+          <caret line="44" column="18" lean-forward="true" selection-start-line="44" selection-start-column="18" selection-end-line="44" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+            <element signature="e#971#1213#0" expanded="true" />
           </folding>
         </state>
       </provider>
