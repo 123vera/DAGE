@@ -1,6 +1,7 @@
 export default {
   LANG_ZH_CN: '简体中文',
   LANG_EN_US: 'English',
+  LANG_KO_KR: '한국어',
 
   COMMON_LEVEL: `级`,
   COMMON_CONFIRM: `确认`,

@@ -10,25 +10,15 @@ import { formatMessage, setLocale, getLocale } from 'umi-plugin-locale';
 
 class Index extends Component {
   state = {
-    activeKey: getLocale() === 'zh-CN' ? 1 : 0,
+    activeKey: LANG.findIndex(val => val === getLocale() || 0),
   };
 
   toSetLang = (lang, key) => {
     this.setState({ activeKey: key });
-    const arrLang = [
-      {
-        label: 'zh-cn',
-        value: 'zh-CN',
-      },
-      {
-        label: 'en-us',
-        value: 'en-US',
-      },
-    ];
-    const i = arrLang.find(i => i.label === lang);
-    setLocale(i.value);
+    setLocale(lang);
     removeCookie('lang');
   };
+
   render() {
     const { activeKey } = this.state;
     return (
