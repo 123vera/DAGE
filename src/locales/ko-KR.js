@@ -2,6 +2,7 @@ export default {
   LANG_ZH_CN: '简体中文',
   LANG_EN_US: 'English',
   LANG_KO_KR: '한국어',
+  LANG_VI_VN: 'ViệtName',
 
   COMMON_LEVEL: `레벨`,
   COMMON_CONFIRM: `확인`,
