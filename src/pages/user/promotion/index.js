@@ -41,12 +41,12 @@ class Index extends Component {
             <span className={styles.income}>{formatMessage({ id: `PROMOTION_USER_LEVEL` })}</span>
             <h2>{teamLevel || teamLevel === 0 ? `VIP ${teamLevel}` : '--'}</h2>
           </div>
-          <img src={DAGE_LOGO} alt="DAGE_LOGO" />
+          <img src={DAGE_LOGO} alt="DAGE_LOGO"/>
         </section>
-        <section style={{ display: 'none' }} className={styles.explain}>
+        <section className={styles.explain}>
           <h4>
             {formatMessage({ id: `PROMOTION_RECOMMENDATION` })}
-            <img src={TIPS} alt="TIPS" />
+            <img src={TIPS} alt="TIPS"/>
           </h4>
           <ul className={styles.explainList}>
             <li>
@@ -75,23 +75,23 @@ class Index extends Component {
           </ul>
         </section>
 
-        <section style={{display: 'none'}} className={styles.firstRecommend}>
+        <section className={styles.firstRecommend}>
           <h4>{formatMessage({ id: `PROMOTION_MY_GENERATION` })}</h4>
           <ListView hasMore={hasMore} onLoadMore={this.getNotices}>
             <table>
               <thead>
-                <tr>
-                  <td>{formatMessage({ id: `PROMOTION_USER` })}</td>
-                  <td>{formatMessage({ id: `PROMOTION_TIME` })}</td>
-                </tr>
+              <tr>
+                <td>{formatMessage({ id: `PROMOTION_USER` })}</td>
+                <td>{formatMessage({ id: `PROMOTION_TIME` })}</td>
+              </tr>
               </thead>
               <tbody>
-                {list.map(item => (
-                  <tr key={item.regTime}>
-                    <td>{item.userName}</td>
-                    <td>{dayjs(item.regTime * 1000).format('YYYY-MM-DD HH:mm')}</td>
-                  </tr>
-                ))}
+              {list.map(item => (
+                <tr key={item.regTime}>
+                  <td>{item.userName}</td>
+                  <td>{dayjs(item.regTime * 1000).format('YYYY-MM-DD HH:mm')}</td>
+                </tr>
+              ))}
               </tbody>
             </table>
           </ListView>
