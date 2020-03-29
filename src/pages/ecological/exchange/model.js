@@ -80,8 +80,8 @@ export default {
     * SubmitExchange(_, { call, select }) {
       const { beforeCoin, afterCoin, amount, code } = yield select(state => state.exchange);
       return yield call(AssetApi.submitExchange, {
-        currency1: beforeCoin.value,
-        currency2: afterCoin.value,
+        currency1: beforeCoin,
+        currency2: afterCoin,
         amount,
         code,
       });
