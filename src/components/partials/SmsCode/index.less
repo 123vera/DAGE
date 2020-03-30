@@ -11,15 +11,18 @@
 
   .inputBox {
     position: relative;
+    border-bottom: 2px solid #2e3546;
 
     input {
-      width: 100%;
+      width: 55%;
+      // width: 100%;
       height: 84px;
       border: none;
-      border-bottom: 2px solid #2e3546;
+      // border-bottom: 2px solid #2e3546;
       background: transparent;
       color: #fff;
       padding-left: 0;
+      text-overflow: ellipsis;
 
       &::placeholder {
         color: @font-sub-color;

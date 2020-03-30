@@ -11,6 +11,7 @@ import { Toast } from 'antd-mobile';
 import { REG } from '../../../utils/constants';
 import { downFixed } from '../../../utils/utils';
 import { formatMessage } from 'umi/locale';
+import { getLocale } from 'umi-plugin-locale';
 
 @connect(({ withdraw, globalModel }) => ({ withdraw, globalModel }))
 class Recharge extends Component {
@@ -175,6 +176,7 @@ class Recharge extends Component {
       walletTo && serviceCharge !== undefined ? serviceCharge : initInfo.serviceCharge;
     const fee = serviceCharge ? Number(amount) * serviceCharge : 0.0;
     const realIncome = amount - fee;
+
     return (
       <div className={styles.withdraw} onClick={() => this.setState({ showMenus: false })}>
         <div className={styles.header}>
@@ -232,14 +234,14 @@ class Recharge extends Component {
                   })
                 }
                 autoComplete="off"
-                placeholder={`${formatMessage({ id: `WITHDRAW_MIN` })}${initInfo.amountMin ||
+                placeholder={`${formatMessage({ id: `WITHDRAW_MIN` })} ${initInfo.amountMin ||
                   '--'}`}
                 onChange={e => this.onAmountChange(e.target.value)}
               />
             </div>
             <aside>
               {formatMessage({ id: `WITHDRAW_FEE` })}
-              {serviceCharge !== '' ? downFixed(serviceCharge * 100) : '--'}%
+              &nbsp;{serviceCharge !== '' ? downFixed(serviceCharge * 100) : '--'}%
             </aside>
           </div>
           <Captcha
@@ -269,10 +271,16 @@ class Recharge extends Component {
             <li>
               {formatMessage({ id: `WITHDRAW_TIPS_CONTENT_01` })}
               {downFixed(initInfo.dayMax)}
-              {coin.label}，{formatMessage({ id: `WITHDRAW_TIPS_CONTENT_02` })}
-              {downFixed(initInfo.amountMin) || '--'}-{downFixed(initInfo.amountMax) || '--'}
-              {coin.label}，{formatMessage({ id: `WITHDRAW_TIPS_CONTENT_03` })}
-              {serviceCharge !== '' ? downFixed(serviceCharge * 100) : '--'}%
+              &nbsp;{coin.label}，{formatMessage({ id: `WITHDRAW_TIPS_CONTENT_02` })}
+              {/* 英文语言下 文案显示不一样 */}
+              {getLocale() === 'en-US' && downFixed(initInfo.amountMin || '--')}
+              {/* 其他语言下 显示一样 */}
+              {getLocale() !== 'en-US' &&
+                (downFixed(initInfo.amountMin) || '--') +
+                  ' - ' +
+                  (downFixed(initInfo.amountMax) || '--')}
+              &nbsp;{coin.label}，{formatMessage({ id: `WITHDRAW_TIPS_CONTENT_03` })}
+              {serviceCharge !== '' ? downFixed(serviceCharge * 100, 1) : '--'}%
             </li>
             <li>{formatMessage({ id: `WITHDRAW_TIPS_CONTENT_04` })}</li>
           </ul>

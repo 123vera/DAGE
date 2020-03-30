@@ -49,7 +49,8 @@ export default {
   LOGIN_ERR_PASSWORD: `パスワードフォーマットがエラーです`,
   LOGIN_PLACEHOLDER_PASSWORD: `数字と文字を含む8~16桁のパスワードを設定してください`,
 
-  REGISTER_TITLE: `登録`,
+  REGISTER_TITLE: `登録 DAGE`,
+  REGISTER_TITLE_01: `登録`,
   REGISTER_GET_CODE: `認証コードを取得する`,
   REGISTER_GET_CAPTCHA: `図形認証コード`,
   REGISTER_AGREE: `読みましたので、同意します`,
@@ -232,7 +233,7 @@ export default {
   OTC_ABROAD_TITLE: `OTCマイニングインターナショナル`,
   OTC_ABROAD_DOWNLOAD_PLUGIN: `ダウンロードログイン`,
   OTC_ABROAD_TRADE: `OTC取引リミット：`,
-  OTC_ABROAD_USABLE: `利用可能`,
+  OTC_ABROAD_USABLE: `利用可能 DGT`,
   OTC_ABROAD_SALE_SUCCESS: `成功`,
   OTC_ABROAD_SALE_TIPS_01: `1.各トランザクションの販売金額は、OTCマイニングリワードとしてユーザーに配布され、リワードの70％はDGCに、30％はDIDに送られます`,
   OTC_ABROAD_SALE_TIPS_02: ` 2. DGTを販売するには、OTCトランザクションクォータを消費する必要があります。 OTCトランザクションクォータが不十分な場合、DGTは販売できません。 OTCトランザクションクォータは、DID交換によって取得できます。`,
