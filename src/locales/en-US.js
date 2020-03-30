@@ -241,5 +241,7 @@ export default {
   OTC_INLAND_SALE_TIPS_02: `2. After successful authentication, users need to download POG mining machine plug in and log in using their DAGE account online to ensure the status of mining machine is online (closing of plug-in may cause mining failure, resulting in failure to give out earnings), on the other hand, active mining machine need to make sure that the receiving alipay account on the same android phone must be logged on, OTC transactions can be viewed in real time on POG Mining Machine plug-in`,
   OTC_INLAND_SALE_TIPS_03: `3. 0.3% of each sold amount is paid to the user as OTC mining bonus, 70% of the bonus is paid as DGT, 30% as DID`,
   OTC_INLAND_SALE_TIPS_04: `4. The sale of DGT will decrease OTC transaction limit. When the OTC transaction limit is insufficient, DGT cannot be sold.`,
-  OTC_INLAND_SALE_TIPS_05: `5. After depositing 30,000 DEP, you can enjoy additional benefits, which is 200% for first generation, and 10% for each generation from the 2nd  to 10th generations.`,
+  // OTC_INLAND_SALE_TIPS_05: `5. After depositing 30,000 DEP, you can enjoy additional benefits, which is 200% for first generation, and 10% for each generation from the 2nd  to 10th generations.`,
+  OTC_INLAND_SALE_TIPS_05: `5.正在进行OTC挖矿的DGT最高为30,000个，若出售DGT导致OTC挖矿的DGT超过30,000个，则此次出售不会成功。建议挂单量为4000 DGT。`,
+
 };

@@ -46,7 +46,7 @@ class OtcMining extends Component {
       return Toast.info(
         `${formatMessage({ id: `OTC_SALE_CONDITIONS_03` })}${initInfo.amountMin}-${
           initInfo.amountMax
-        }${formatMessage({ id: `OTC_SALE_CONDITIONS_02` })}`,
+          }${formatMessage({ id: `OTC_SALE_CONDITIONS_02` })}`,
       );
     }
 
@@ -78,7 +78,7 @@ class OtcMining extends Component {
               textStyle: { color: '#F3AF66', fontSize: '0.24rem' },
               onHandle: () =>
                 (window.location.href =
-                  'https://dage1.oss-cn-hongkong.aliyuncs.com/Android/app-current-debug.apk'),
+                  'http://d.6short.com/sngw'),
             }}
           />
         </header>
@@ -90,7 +90,7 @@ class OtcMining extends Component {
             type="text"
             placeholder={`${formatMessage({ id: `OTC_SALE_CONDITIONS_01` })}${initInfo.amountMin}-${
               initInfo.amountMax
-            }${formatMessage({ id: `OTC_SALE_CONDITIONS_02` })}`}
+              }${formatMessage({ id: `OTC_SALE_CONDITIONS_02` })}`}
             value={count}
             onChange={e => this.onCountChange(e.target.value)}
           />
@@ -104,6 +104,12 @@ class OtcMining extends Component {
             </span>
           </aside>
           <button onClick={this.onSubmit}>{formatMessage({ id: `OTC_CONFIRM_SALE` })}</button>
+        </div>
+        <div className={styles.checkboxGroup}>
+          <label>
+            <input type="checkbox"/>
+            请确认已打开挖矿插件
+          </label>
         </div>
         <div className={styles.reminder}>
           <label className={styles.label}>{formatMessage({ id: `WITHDRAW_TIPS_TITLE` })}</label>

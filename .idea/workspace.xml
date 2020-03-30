@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="85fa9ab6-0589-4a2d-9a7e-858b39c025c1" name="Default Changelist" comment="修复兑换bug">
+    <list default="true" id="85fa9ab6-0589-4a2d-9a7e-858b39c025c1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/ecological/home/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ecological/home/index.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/user/promotion/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/user/promotion/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/constants.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/locales/en-US.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/locales/en-US.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/locales/ko-KR.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/locales/ko-KR.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/locales/vi-VN.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/locales/vi-VN.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/locales/zh-CN.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/locales/zh-CN.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/ecological/otc-mining/inland/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ecological/otc-mining/inland/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/ecological/otc-mining/inland/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ecological/otc-mining/inland/index.less" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -20,18 +23,18 @@
     <session id="1980149166">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="37" />
+          <entry key="project.closed" value="38" />
           <entry key="project.open.time.0" value="3" />
           <entry key="project.open.time.1" value="6" />
           <entry key="project.open.time.2" value="2" />
           <entry key="project.open.time.3" value="3" />
           <entry key="project.open.time.4" value="10" />
           <entry key="project.open.time.5" value="10" />
-          <entry key="project.open.time.6" value="3" />
+          <entry key="project.open.time.6" value="4" />
           <entry key="project.open.time.7" value="3" />
           <entry key="project.open.time.8" value="2" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="43" />
+          <entry key="project.opened" value="44" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -40,10 +43,10 @@
           <entry key="ejs" value="2" />
           <entry key="gitignore" value="4" />
           <entry key="html" value="1" />
-          <entry key="js" value="691" />
+          <entry key="js" value="696" />
           <entry key="json" value="4" />
           <entry key="jsx" value="2" />
-          <entry key="less" value="168" />
+          <entry key="less" value="169" />
           <entry key="lock" value="1" />
           <entry key="md" value="41" />
           <entry key="png" value="44" />
@@ -63,8 +66,8 @@
           <entry key="Image" value="44" />
           <entry key="JSON" value="4" />
           <entry key="JSX Harmony" value="2" />
-          <entry key="JavaScript" value="691" />
-          <entry key="Less" value="168" />
+          <entry key="JavaScript" value="696" />
+          <entry key="Less" value="169" />
           <entry key="Markdown" value="41" />
           <entry key="PLAIN_TEXT" value="5" />
           <entry key="SVG" value="2" />
@@ -75,7 +78,7 @@
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
         <counts>
-          <entry key="ESLintLanguageService" value="41" />
+          <entry key="ESLintLanguageService" value="42" />
           <entry key="TypeScriptServerServiceImpl" value="6" />
         </counts>
       </usages-collector>
@@ -84,12 +87,12 @@
           <entry key="css" value="14" />
           <entry key="ejs" value="17" />
           <entry key="gitignore" value="5" />
-          <entry key="js" value="29321" />
+          <entry key="js" value="29398" />
           <entry key="json" value="2" />
-          <entry key="less" value="5619" />
+          <entry key="less" value="5674" />
           <entry key="md" value="155" />
           <entry key="sh" value="14" />
-          <entry key="txt" value="337" />
+          <entry key="txt" value="347" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -98,10 +101,10 @@
           <entry key="CSS" value="14" />
           <entry key="EJS" value="17" />
           <entry key="JSON" value="2" />
-          <entry key="JavaScript" value="29321" />
-          <entry key="Less" value="5619" />
+          <entry key="JavaScript" value="29398" />
+          <entry key="Less" value="5674" />
           <entry key="Markdown" value="155" />
-          <entry key="PLAIN_TEXT" value="342" />
+          <entry key="PLAIN_TEXT" value="352" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
@@ -114,78 +117,76 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/项目资源.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="FIRST">
-              <first_editor relative-caret-position="88">
-                <caret line="4" column="8" lean-forward="true" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/ecological/home/index.js">
+        <entry file="file://$PROJECT_DIR$/src/pages/user/promotion/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="367">
-              <caret line="73" column="38" selection-start-line="73" selection-start-column="30" selection-end-line="73" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/ecological/home/index.less">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="66">
-              <caret line="3" column="13" lean-forward="true" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/config.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="448">
-              <caret line="60" lean-forward="true" selection-start-line="60" selection-end-line="60" />
-              <folding>
-                <element signature="e#0#24#0" expanded="true" />
-                <element signature="e#128#1119#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/ecological/exchange/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="535">
-              <caret line="104" column="43" selection-start-line="104" selection-start-column="22" selection-end-line="104" selection-end-column="43" />
+            <state relative-caret-position="1265">
+              <caret line="101" column="1" lean-forward="true" selection-start-line="101" selection-start-column="1" selection-end-line="101" selection-end-column="1" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
-                <element signature="e#638#738#0" expanded="true" />
-                <element signature="e#815#893#0" expanded="true" />
-                <element signature="e#909#993#0" expanded="true" />
-                <element signature="e#2858#2951#0" expanded="true" />
-                <element signature="e#2837#2974#0" expanded="true" />
-                <element signature="e#3211#3287#0" expanded="true" />
-                <element signature="e#3357#3425#0" expanded="true" />
-                <element signature="e#3253#3391#0" expanded="true" />
-                <element signature="e#3558#3629#0" expanded="true" />
-                <element signature="e#3888#4154#0" expanded="true" />
+                <element signature="e#971#1213#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/pages/user/promotion/index.js">
+        <entry file="file://$PROJECT_DIR$/src/pages/ecological/otc-mining/inland/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
-              <caret line="45" column="17" selection-start-line="45" selection-start-column="17" selection-end-line="45" selection-end-column="17" />
+            <state relative-caret-position="292">
+              <caret line="81" column="14" lean-forward="true" selection-start-line="81" selection-start-column="14" selection-end-line="81" selection-end-column="14" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
-                <element signature="e#971#1213#0" expanded="true" />
+                <element signature="e#2266#2587#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/locales/zh-CN.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="313">
+              <caret line="245" selection-start-line="245" selection-end-line="246" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/locales/vi-VN.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="304">
+              <caret line="245" column="25" selection-start-line="245" selection-start-column="2" selection-end-line="245" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/locales/ko-KR.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="304">
+              <caret line="245" column="25" selection-start-line="245" selection-start-column="2" selection-end-line="245" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/locales/en-US.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="326">
+              <caret line="241" column="22" selection-start-line="241" selection-start-column="22" selection-end-line="241" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pages/ecological/otc-mining/inland/index.less">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="159">
+              <caret line="62" column="25" lean-forward="true" selection-start-line="62" selection-start-column="25" selection-end-line="62" selection-end-column="25" />
+              <folding>
+                <element signature="e#214#315#0" />
+                <element signature="e#326#376#0" />
+                <element signature="e#386#1080#0" />
               </folding>
             </state>
           </provider>
@@ -196,21 +197,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="242">
               <caret line="11" column="17" lean-forward="true" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
-              <folding>
-                <element signature="e#433#1186#0" expanded="true" />
-                <element signature="e#664#717#0" expanded="true" />
-                <element signature="e#983#1062#0" expanded="true" />
-                <element signature="e#1215#1315#0" expanded="true" />
-                <element signature="e#1199#2436#0" expanded="true" />
-                <element signature="e#1408#1495#0" expanded="true" />
-                <element signature="e#1561#1848#0" expanded="true" />
-                <element signature="e#1613#1837#0" expanded="true" />
-                <element signature="e#1649#1700#0" expanded="true" />
-                <element signature="e#1711#1796#0" expanded="true" />
-                <element signature="e#2132#2300#0" expanded="true" />
-                <element signature="e#2194#2289#0" expanded="true" />
-                <element signature="e#2427#2533#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -220,9 +206,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="66">
               <caret line="22" column="38" selection-start-line="22" selection-start-column="38" selection-end-line="22" selection-end-column="38" />
-              <folding>
-                <element signature="e#1071#6102#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -230,7 +213,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/user/home/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
+            <state relative-caret-position="836">
               <caret line="107" column="21" lean-forward="true" selection-start-line="107" selection-start-column="21" selection-end-line="107" selection-end-column="21" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
@@ -247,7 +230,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>dayjs</find>
       <find>addTime</find>
       <find>MINING_DETAIL_TOTAL_INCOME</find>
       <find>RECORD_LI_ADDRESS</find>
@@ -277,6 +259,7 @@
       <find>iArr</find>
       <find>PROMOTION_RECOMMENDATION</find>
       <find>UpdateAfterCoinsState</find>
+      <find>OTC_INLAND_SALE_TIPS_05</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -297,9 +280,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/pages/account/register/index.less" />
-        <option value="$PROJECT_DIR$/src/components/common/SubmitBtn/index.less" />
-        <option value="$PROJECT_DIR$/src/pages/ecological/otc-mining/index.js" />
         <option value="$PROJECT_DIR$/src/pages/ecological/otc-mining/incex.less" />
         <option value="$PROJECT_DIR$/项目资源.md" />
         <option value="$PROJECT_DIR$/src/pages/wallet/model.js" />
@@ -330,7 +310,6 @@
         <option value="$PROJECT_DIR$/src/pages/ecological/mining-detail/otc/model.js" />
         <option value="$PROJECT_DIR$/src/pages/ecological/mining-detail/otc/index.js" />
         <option value="$PROJECT_DIR$/src/pages/ecological/otc-mining/model.js" />
-        <option value="$PROJECT_DIR$/src/pages/ecological/otc-mining/inland/index.js" />
         <option value="$PROJECT_DIR$/src/pages/ecological/otc-mining/abroad/index.js" />
         <option value="$PROJECT_DIR$/src/pages/user/alipay/model.js" />
         <option value="$PROJECT_DIR$/src/pages/user/alipay/reject/index.js" />
@@ -339,8 +318,6 @@
         <option value="$PROJECT_DIR$/src/pages/wallet/flow/model.js" />
         <option value="$PROJECT_DIR$/src/pages/wallet/recharge/index.js" />
         <option value="$PROJECT_DIR$/src/pages/user/promotion/model.js" />
-        <option value="$PROJECT_DIR$/src/locales/zh-CN.js" />
-        <option value="$PROJECT_DIR$/src/locales/en-US.js" />
         <option value="$PROJECT_DIR$/src/pages/ecological/exchange/index.js" />
         <option value="$PROJECT_DIR$/src/pages/account/selectAccount/index.js" />
         <option value="$PROJECT_DIR$/src/pages/user/home/index.js" />
@@ -348,6 +325,12 @@
         <option value="$PROJECT_DIR$/src/pages/ecological/home/index.less" />
         <option value="$PROJECT_DIR$/src/utils/constants.js" />
         <option value="$PROJECT_DIR$/src/pages/user/promotion/index.js" />
+        <option value="$PROJECT_DIR$/src/pages/ecological/otc-mining/inland/index.less" />
+        <option value="$PROJECT_DIR$/src/locales/zh-CN.js" />
+        <option value="$PROJECT_DIR$/src/locales/vi-VN.js" />
+        <option value="$PROJECT_DIR$/src/locales/ko-KR.js" />
+        <option value="$PROJECT_DIR$/src/locales/en-US.js" />
+        <option value="$PROJECT_DIR$/src/pages/ecological/otc-mining/inland/index.js" />
       </list>
     </option>
   </component>
@@ -406,6 +389,12 @@
               <item name="dage" type="b2602c69:ProjectViewProjectNode" />
               <item name="dage" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="locales" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dage" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dage" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -427,22 +416,16 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
               <item name="ecological" type="462c0819:PsiDirectoryNode" />
-              <item name="home" type="462c0819:PsiDirectoryNode" />
+              <item name="otc-mining" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="dage" type="b2602c69:ProjectViewProjectNode" />
               <item name="dage" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dage" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dage" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-              <item name="promotion" type="462c0819:PsiDirectoryNode" />
+              <item name="ecological" type="462c0819:PsiDirectoryNode" />
+              <item name="otc-mining" type="462c0819:PsiDirectoryNode" />
+              <item name="inland" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="dage" type="b2602c69:ProjectViewProjectNode" />
@@ -483,121 +466,6 @@
       <recent name="$PROJECT_DIR$/src/assets/icons" />
       <recent name="$PROJECT_DIR$/public" />
     </key>
-  </component>
-  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
-    <UpdatedFiles>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Updated from server" />
-        <option name="myStatusName" value="Changed on server" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="CHANGED_ON_SERVER" />
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Updated" />
-          <option name="myStatusName" value="Changed" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/locales/en-US.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/locales/ko-KR.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/locales/zh-CN.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/pages/user/promotion/index.js</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/utils/constants.js</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Created" />
-          <option name="myStatusName" value="Created" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="CREATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/locales/vi-VN.js</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Deleted" />
-          <option name="myStatusName" value="Deleted" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="true" />
-          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Restored" />
-          <option name="myStatusName" value="Will be restored" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="RESTORED" />
-        </FILE-GROUP>
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Modified" />
-        <option name="myStatusName" value="Modified" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MODIFIED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Skipped" />
-        <option name="myStatusName" value="Skipped" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SKIPPED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with conflicts" />
-        <option name="myStatusName" value="Will be merged with conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_CONFLICTS" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with tree conflicts" />
-        <option name="myStatusName" value="Merged with tree conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with property conflicts" />
-        <option name="myStatusName" value="Will be merged with property conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged" />
-        <option name="myStatusName" value="Will be merged" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Not in repository" />
-        <option name="myStatusName" value="Not in repository" />
-        <option name="mySupportsDeletion" value="true" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="UNKNOWN" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally added" />
-        <option name="myStatusName" value="Locally added" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_ADDED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally removed" />
-        <option name="myStatusName" value="Locally removed" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_REMOVED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Switched" />
-        <option name="myStatusName" value="Switched" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SWITCHED" />
-      </FILE-GROUP>
-    </UpdatedFiles>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -672,14 +540,8 @@
       <workItem from="1584887952994" duration="2415000" />
       <workItem from="1584978800842" duration="2023000" />
       <workItem from="1585230170107" duration="3633000" />
-      <workItem from="1585320850542" duration="9719000" />
-    </task>
-    <task id="LOCAL-00025" summary="修改项目资源">
-      <created>1583241442299</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1583241442299</updated>
+      <workItem from="1585320850542" duration="10147000" />
+      <workItem from="1585582880298" duration="1104000" />
     </task>
     <task id="LOCAL-00026" summary="修改项目资源">
       <created>1583249187581</created>
@@ -1017,11 +879,18 @@
       <option name="project" value="LOCAL" />
       <updated>1585489778522</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="放开我的等级">
+      <created>1585493470656</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1585493470656</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="311921000" />
+    <option name="totallyTimeSpent" value="313453000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="634" y="36" width="944" height="990" extended-state="0" />
@@ -1088,7 +957,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="充值与提现" />
     <MESSAGE value="充值页完成" />
     <MESSAGE value="钱包相关" />
     <MESSAGE value="兑换" />
@@ -1113,16 +981,10 @@
     <MESSAGE value="提现流水" />
     <MESSAGE value="隐藏我的等级未开放的内容" />
     <MESSAGE value="修复兑换bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复兑换bug" />
+    <MESSAGE value="放开我的等级" />
+    <option name="LAST_COMMIT_MESSAGE" value="放开我的等级" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/assets/imgs/任务详情.png" />
-    <entry file="file://$PROJECT_DIR$/src/assets/imgs/referral-code.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/icons/download.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/assets/imgs/eco-currency.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -1229,13 +1091,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/ecological/otc-mining/inland/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1694">
-          <caret line="97" column="18" selection-start-line="97" selection-start-column="18" selection-end-line="97" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/ecological/otc-mining/abroad/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1540">
@@ -1306,23 +1161,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/locales/zh-CN.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2882">
-          <caret line="131" column="26" selection-start-line="131" selection-start-column="2" selection-end-line="131" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/user/notices/model.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
           <caret line="18" column="29" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#49#0" expanded="true" />
-            <element signature="e#155#226#0" expanded="true" />
-            <element signature="e#240#329#0" expanded="true" />
-            <element signature="e#623#744#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1347,13 +1189,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/locales/en-US.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2882">
-          <caret line="131" column="51" selection-start-line="131" selection-start-column="51" selection-end-line="131" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/utils/utils.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="278">
@@ -1365,17 +1200,75 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="56">
           <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/项目资源.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="88">
+            <caret line="4" column="8" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/ecological/home/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="726">
+          <caret line="73" column="38" selection-start-line="73" selection-start-column="30" selection-end-line="73" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/ecological/home/index.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="60" lean-forward="true" selection-start-line="60" selection-end-line="60" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+            <element signature="e#128#1119#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/ecological/exchange/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1760">
+          <caret line="104" column="43" selection-start-line="104" selection-start-column="22" selection-end-line="104" selection-end-column="43" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
-            <element signature="e#572#616#0" expanded="true" />
-            <element signature="e#869#936#0" expanded="true" />
+            <element signature="e#638#738#0" expanded="true" />
+            <element signature="e#815#893#0" expanded="true" />
+            <element signature="e#909#993#0" expanded="true" />
+            <element signature="e#3558#3629#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/ecological/exchange/model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="11" column="17" lean-forward="true" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/constants.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="22" column="38" selection-start-line="22" selection-start-column="38" selection-end-line="22" selection-end-column="38" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/user/home/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
+        <state relative-caret-position="836">
           <caret line="107" column="21" lean-forward="true" selection-start-line="107" selection-start-column="21" selection-end-line="107" selection-end-column="21" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
@@ -1387,100 +1280,64 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="60" lean-forward="true" selection-start-line="60" selection-end-line="60" />
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-            <element signature="e#128#1119#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/ecological/exchange/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="535">
-          <caret line="104" column="43" selection-start-line="104" selection-start-column="22" selection-end-line="104" selection-end-column="43" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-            <element signature="e#638#738#0" expanded="true" />
-            <element signature="e#815#893#0" expanded="true" />
-            <element signature="e#909#993#0" expanded="true" />
-            <element signature="e#2858#2951#0" expanded="true" />
-            <element signature="e#2837#2974#0" expanded="true" />
-            <element signature="e#3211#3287#0" expanded="true" />
-            <element signature="e#3357#3425#0" expanded="true" />
-            <element signature="e#3253#3391#0" expanded="true" />
-            <element signature="e#3558#3629#0" expanded="true" />
-            <element signature="e#3888#4154#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/ecological/exchange/model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="11" column="17" lean-forward="true" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
-          <folding>
-            <element signature="e#433#1186#0" expanded="true" />
-            <element signature="e#664#717#0" expanded="true" />
-            <element signature="e#983#1062#0" expanded="true" />
-            <element signature="e#1215#1315#0" expanded="true" />
-            <element signature="e#1199#2436#0" expanded="true" />
-            <element signature="e#1408#1495#0" expanded="true" />
-            <element signature="e#1561#1848#0" expanded="true" />
-            <element signature="e#1613#1837#0" expanded="true" />
-            <element signature="e#1649#1700#0" expanded="true" />
-            <element signature="e#1711#1796#0" expanded="true" />
-            <element signature="e#2132#2300#0" expanded="true" />
-            <element signature="e#2194#2289#0" expanded="true" />
-            <element signature="e#2427#2533#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/ecological/home/index.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="3" column="13" lean-forward="true" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/constants.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="22" column="38" selection-start-line="22" selection-start-column="38" selection-end-line="22" selection-end-column="38" />
-          <folding>
-            <element signature="e#1071#6102#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/项目资源.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="88">
-            <caret line="4" column="8" lean-forward="true" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/ecological/home/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="73" column="38" selection-start-line="73" selection-start-column="30" selection-end-line="73" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/user/promotion/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="45" column="17" selection-start-line="45" selection-start-column="17" selection-end-line="45" selection-end-column="17" />
+        <state relative-caret-position="1265">
+          <caret line="101" column="1" lean-forward="true" selection-start-line="101" selection-start-column="1" selection-end-line="101" selection-end-column="1" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
             <element signature="e#971#1213#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/ecological/otc-mining/inland/index.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="62" column="25" lean-forward="true" selection-start-line="62" selection-start-column="25" selection-end-line="62" selection-end-column="25" />
+          <folding>
+            <element signature="e#214#315#0" />
+            <element signature="e#326#376#0" />
+            <element signature="e#386#1080#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/locales/vi-VN.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="245" column="25" selection-start-line="245" selection-start-column="2" selection-end-line="245" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/locales/ko-KR.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="245" column="25" selection-start-line="245" selection-start-column="2" selection-end-line="245" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/locales/zh-CN.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="245" selection-start-line="245" selection-end-line="246" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/locales/en-US.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="241" column="22" selection-start-line="241" selection-start-column="22" selection-end-line="241" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/ecological/otc-mining/inland/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="81" column="14" lean-forward="true" selection-start-line="81" selection-start-column="14" selection-end-line="81" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+            <element signature="e#2266#2587#0" expanded="true" />
           </folding>
         </state>
       </provider>

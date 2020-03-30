@@ -242,7 +242,8 @@ export default {
   OTC_INLAND_SALE_TIPS_02: `2.认证成功后，用户需要下载POG算力矿机插件并使用DAGE账号登录后保持矿机在线状态（关闭插件将可能导致挖矿失败无法发放收益），另外，开启矿机时需要保证收款支付宝在同一个安卓手机上保持登录状态，OTC交易情况可在POG算力矿机插件中实时查看 `,
   OTC_INLAND_SALE_TIPS_03: `3.每次出售数量的0.3%作为OTC挖矿奖金发放给用户，奖金的70%发放DGT，30%发放DID`,
   OTC_INLAND_SALE_TIPS_04: `4.出售DGT需要消耗OTC交易额度，当OTC交易额度不足时，无法进行出售DGT，OTC交易额度可用DID兑换获得。`,
-  OTC_INLAND_SALE_TIPS_05: `5.正在进行OTC挖矿的DGT最高为30,000个，若出售DGT导致OTC挖矿的DGT超过30,000个，则此次出售不会成功。质押30000个DEP后可以享受额外代数收益，即1代200%，2到10代每代10%。`,
+  // OTC_INLAND_SALE_TIPS_05: `5.正在进行OTC挖矿的DGT最高为30,000个，若出售DGT导致OTC挖矿的DGT超过30,000个，则此次出售不会成功。质押30000个DEP后可以享受额外代数收益，即1代200%，2到10代每代10%。`,
+  OTC_INLAND_SALE_TIPS_05: `5.正在进行OTC挖矿的DGT最高为30,000个，若出售DGT导致OTC挖矿的DGT超过30,000个，则此次出售不会成功。建议挂单量为4000 DGT。`,
 
   OTC_DETAIL_TITLE: `OTC挖矿详情`,
   OTC_DETAIL_TOTAL_REVENUE: `OTC挖矿总收益`,
