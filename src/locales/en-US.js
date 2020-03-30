@@ -245,7 +245,7 @@ export default {
   OTC_INLAND_SALE_TIPS_04: `4. The sale of DGT will decrease OTC transaction limit. When the OTC transaction limit is insufficient, DGT cannot be sold.`,
   OTC_INLAND_SALE_TIPS_05: `5. After depositing 30,000 DEP, you can enjoy additional benefits, which is 200% for first generation, and 10% for each generation from the 2nd  to 10th generations.`,
 
-  OTC_DETAIL_TITLE: `OTC挖矿详情`,
-  OTC_DETAIL_TOTAL_REVENUE: `OTC挖矿总收益`,
-  OTC_DETAIL_TIP: `仅显示最近三天的收益详情，若想查看过往内容，请至资金流水中查看`,
+  OTC_DETAIL_TITLE: `OTC Mining details`,
+  OTC_DETAIL_TOTAL_REVENUE: `OTC Total Mining Revenue`,
+  OTC_DETAIL_TIP: `Revenue records for the past three days will be shown here. If you wish to see past records，Please check under wallet, DGC and DID section`,
 };
