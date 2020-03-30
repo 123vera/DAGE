@@ -20,7 +20,7 @@ export const REG = {
   BTC_WALLET_3: /^3[0-9a-zA-Z]{33}$/,
 };
 
-export const LANG = ['en-US', 'zh-CN', 'ko-KR', 'vi-VN'];
+export const LANG = ['en-US', 'zh-CN', 'ko-KR', 'vi-VN', 'ja-JP'];
 // export const LANG = ['en-US', 'zh-CN'];
 
 export const COUNTRIES_LIST = [

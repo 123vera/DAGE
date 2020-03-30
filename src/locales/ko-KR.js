@@ -3,6 +3,7 @@ export default {
   LANG_EN_US: 'English',
   LANG_KO_KR: '한국어',
   LANG_VI_VN: 'ViệtName',
+  LANG_JA_JP: 'にほんご',
 
   COMMON_LEVEL: `레벨`,
   COMMON_CONFIRM: `확인`,
