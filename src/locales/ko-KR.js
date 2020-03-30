@@ -3,6 +3,7 @@ export default {
   LANG_EN_US: 'English',
   LANG_KO_KR: '한국어',
   LANG_VI_VN: 'ViệtName',
+  LANG_JA_JP: 'にほんご',
 
   COMMON_LEVEL: `레벨`,
   COMMON_CONFIRM: `확인`,
@@ -48,7 +49,8 @@ export default {
   LOGIN_ERR_PASSWORD: `비밀번호 형식이 잘못되었습니다`,
   LOGIN_PLACEHOLDER_PASSWORD: `숫자와 글자를 포함하여 8 ~ 16자리의 비밀번호를 설정해 주세요`,
 
-  REGISTER_TITLE: `등록`,
+  REGISTER_TITLE: `등록 DAGE`,
+  REGISTER_TITLE_01: `등록`,
   REGISTER_GET_CODE: `확인 코드 받기`,
   REGISTER_GET_CAPTCHA: `그래픽 확인 코드`,
   REGISTER_AGREE: `본인은 내용을 확인하였고 이에 대해 동의합니다`,
@@ -231,7 +233,7 @@ export default {
   OTC_ABROAD_TITLE: `OTC 채굴 인터내셔널`,
   OTC_ABROAD_DOWNLOAD_PLUGIN: `플러그인 다운로드`,
   OTC_ABROAD_TRADE: `OTC 거래 한도：`,
-  OTC_ABROAD_USABLE: `이용 가능`,
+  OTC_ABROAD_USABLE: `이용 가능 DGT`,
   OTC_ABROAD_SALE_SUCCESS: `성공적으로 완료되었습니다`,
   OTC_ABROAD_SALE_TIPS_01: `1.각 거래의 판매 금액은 OTC 채굴 보상으로 사용자들에게 배분됩니다. 보상의 70%는 DGC로 전달되고, 30%는 DID로 전달됩니다`,
   OTC_ABROAD_SALE_TIPS_02: `2.DGT를 판매하려면 OTC 거래 할당량을 소비해야 합니다. OTC 거래 할당량이 충분하지 않은 경우, DGT를 판매할 수 없습니다. OTC 거래 할당량은 DID 교환으로 획득할 수 있습니다.`,

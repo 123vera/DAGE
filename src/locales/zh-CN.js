@@ -3,6 +3,7 @@ export default {
   LANG_EN_US: 'English',
   LANG_KO_KR: '한국어',
   LANG_VI_VN: 'ViệtName',
+  LANG_JA_JP: 'にほんご',
 
   COMMON_LEVEL: `级`,
   COMMON_CONFIRM: `确认`,
@@ -49,6 +50,7 @@ export default {
   LOGIN_PLACEHOLDER_PASSWORD: `请设置包含数字及字母的8~16位密码`,
 
   REGISTER_TITLE: `注册`,
+  REGISTER_TITLE_01: `注册`,
   REGISTER_GET_CODE: `获取验证码`,
   REGISTER_GET_CAPTCHA: `图形验证码`,
   REGISTER_AGREE: `我已阅读并接受`,
@@ -231,7 +233,7 @@ export default {
   OTC_ABROAD_TITLE: `OTC挖矿国际区`,
   OTC_ABROAD_DOWNLOAD_PLUGIN: `下载插件`,
   OTC_ABROAD_TRADE: `OTC交易额度：`,
-  OTC_ABROAD_USABLE: `可用`,
+  OTC_ABROAD_USABLE: `可用DGT`,
   OTC_ABROAD_SALE_SUCCESS: `出售成功`,
   OTC_ABROAD_SALE_TIPS_01: `1.每次出售数量的0.3%作为OTC挖矿奖金发放给用户，奖金的70%发放DGT，30%发放DID`,
   OTC_ABROAD_SALE_TIPS_02: `2.出售DGT需要消耗OTC交易额度，当OTC交易额度不足时，无法进行出售DGT，OTC交易额度可用DID兑换获得。`,

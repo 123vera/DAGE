@@ -100,7 +100,7 @@ class OtcMining extends Component {
               {downFixed(initInfo.otcnum)}
             </span>
             <span>
-              {formatMessage({ id: `OTC_ABROAD_USABLE` })}DGT：{downFixed(initInfo.balance)}
+              {formatMessage({ id: `OTC_ABROAD_USABLE` })}：{downFixed(initInfo.balance)}
             </span>
           </aside>
           <button onClick={this.onSubmit}>{formatMessage({ id: `OTC_CONFIRM_SALE` })}</button>

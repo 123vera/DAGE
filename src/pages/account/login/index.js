@@ -145,7 +145,7 @@ class Login extends Component {
 
               <div className={styles.tipsInput}>
                 <span onClick={() => router.push(`/register`)}>
-                  {formatMessage({ id: `REGISTER_TITLE` })}
+                  {formatMessage({ id: `REGISTER_TITLE_01` })}
                 </span>
                 <span onClick={() => router.push(`/find_password/verify`)}>
                   {formatMessage({ id: `LOGIN_FORGET_PASSWORD` })}

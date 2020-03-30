@@ -207,10 +207,10 @@ class Index extends Component {
       Toast.info(formatMessage({ id: `EXCHANGE_BALANCE_NOT_ENOUGH` }));
       return;
     }
-    if (!code) {
-      Toast.info(formatMessage({ id: `COMMON_PLACEHOLDER_CODE` }));
-      return;
-    }
+    // if (!code) {
+    //   Toast.info(formatMessage({ id: `COMMON_PLACEHOLDER_CODE` }));
+    //   return;
+    // }
     dispatch({ type: 'exchange/SubmitExchange' }).then(res => {
       if (res.status !== 1) return Toast.info(res.msg);
       Toast.info(formatMessage({ id: `EXCHANGE_SUCCESS` }), 2, () => window.location.reload());
@@ -246,7 +246,7 @@ class Index extends Component {
                 onClick={e => this.onShowMenus(e, 'showBeforeMenus', !showBeforeMenus)}
               >
                 {beforeCoin}
-                <img src={Icons.arrowDown} alt=""/>
+                <img src={Icons.arrowDown} alt="" />
                 {showBeforeMenus && (
                   <div className={styles.menus}>
                     <Menus
@@ -259,13 +259,13 @@ class Index extends Component {
                   </div>
                 )}
               </span>
-              <img className={styles.splitImg} src={Icons.arrowLeft} alt=""/>
+              <img className={styles.splitImg} src={Icons.arrowLeft} alt="" />
               <span
                 className={styles.coinSelect}
                 onClick={e => this.onShowMenus(e, 'showAfterMenus', !showAfterMenus)}
               >
                 {afterCoin}
-                <img src={Icons.arrowDown} alt=""/>
+                <img src={Icons.arrowDown} alt="" />
                 {showAfterMenus && (
                   <div className={styles.menus}>
                     <Menus
@@ -281,8 +281,7 @@ class Index extends Component {
             </div>
             <small className={styles.notice}>
               {formatMessage({ id: `EXCHANGE_RATE` })}
-              {downFixed(1)} {beforeCoin} = {downFixed(initInfo.RATIO) || '--'}{' '}
-              {afterCoin}
+              {downFixed(1)} {beforeCoin} = {downFixed(initInfo.RATIO) || '--'} {afterCoin}
             </small>
             <label>
               <span className={styles.label}>
@@ -301,7 +300,7 @@ class Index extends Component {
                 }
                 onChange={e => this.onAmountChange(e.target.value)}
                 placeholder={`${formatMessage({ id: `EXCHANGE_MIN_AMOUNT` })}${initInfo.MIN ||
-                '--'}`}
+                  '--'}`}
               />
               <p className={styles.tips}>
                 {formatMessage({ id: `EXCHANGE_CAN_USE` })}
@@ -312,7 +311,7 @@ class Index extends Component {
                 </small>
               </p>
             </label>
-            <Captcha
+            {/* <Captcha
               captchaSrc={captchaSrc}
               value={captcha}
               onChange={e => this.onCaptchaChange(e.target.value)}
@@ -339,7 +338,7 @@ class Index extends Component {
                     : formatMessage({ id: `REGISTER_GET_CODE` })}
                 </button>
               </div>
-            </label>
+            </label> */}
 
             <p className={`${styles.labelTag} ${styles.small}`}>
               {formatMessage({ id: `EXCHANGE_FEE` })}{' '}

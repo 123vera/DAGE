@@ -3,6 +3,7 @@ export default {
   LANG_EN_US: 'English',
   LANG_KO_KR: '한국어',
   LANG_VI_VN: 'ViệtName',
+  LANG_JA_JP: 'にほんご',
 
   COMMON_LEVEL: `Cấp độ`,
   COMMON_CONFIRM: `Xác nhận`,
@@ -48,7 +49,8 @@ export default {
   LOGIN_ERR_PASSWORD: `Lỗi định dạng mật khẩu`,
   LOGIN_PLACEHOLDER_PASSWORD: `Hãy đặt mật khẩu dài 8-16 ký tự, gồm cả chữ cái và chữ số`,
 
-  REGISTER_TITLE: `Đăng ký`,
+  REGISTER_TITLE: `Đăng ký DAGE`,
+  REGISTER_TITLE_01: `Đăng ký`,
   REGISTER_GET_CODE: `Lấy Mã xác thực`,
   REGISTER_GET_CAPTCHA: `Mã xác thực hình ảnh`,
   REGISTER_AGREE: `Tôi đã đọc và đồng ý với`,
@@ -231,7 +233,7 @@ export default {
   OTC_ABROAD_TITLE: `Khải thác OTC quốc tế`,
   OTC_ABROAD_DOWNLOAD_PLUGIN: `Tải Plug-in`,
   OTC_ABROAD_TRADE: `Hạn mức giao dịch OTC：`,
-  OTC_ABROAD_USABLE: `khả dụng`,
+  OTC_ABROAD_USABLE: `khả dụng DGT`,
   OTC_ABROAD_SALE_SUCCESS: `Thành công`,
   OTC_ABROAD_SALE_TIPS_01: `1.Số tiền bán ra trong mỗi giao dịch sẽ được phân phối cho người dùng dưới dạng phần thưởng khai thác OTC, 70% chuyển vào tài khoản DGC, 30% vào tài khoản DID`,
   OTC_ABROAD_SALE_TIPS_02: `2.Để bán DGT cần tiêu hao một phần hạn mức giao dịch OTC. Nếu hạn mức giao dịch OTC không đủ, bạn sẽ không thể bán DGT. Bạn có thể thêm hạn mức giao dịch OTC khi giao dịch DID`,
