@@ -10,6 +10,10 @@ import { formatMessage } from 'umi-plugin-locale';
 
 @connect(({ otcMining, globalModel }) => ({ otcMining, globalModel }))
 class OtcMining extends Component {
+  state = {
+    isChecked: false,
+  };
+
   componentDidMount() {
     this.props.dispatch({ type: 'otcMining/OtcInit' });
   }
@@ -34,6 +38,7 @@ class OtcMining extends Component {
   onSubmit = () => {
     const { myInfo } = this.props.globalModel;
     const { count, initInfo } = this.props.otcMining;
+
     if (!count) {
       return Toast.info(formatMessage({ id: `OTC_PLACEHOLDER` }));
     }
@@ -46,8 +51,12 @@ class OtcMining extends Component {
       return Toast.info(
         `${formatMessage({ id: `OTC_SALE_CONDITIONS_03` })}${initInfo.amountMin}-${
           initInfo.amountMax
-          }${formatMessage({ id: `OTC_SALE_CONDITIONS_02` })}`,
+        }${formatMessage({ id: `OTC_SALE_CONDITIONS_02` })}`,
       );
+    }
+
+    if (!this.state.isChecked) {
+      return Toast.info(formatMessage({ id: `OTC_INLAND_CHECKBOX` }));
     }
 
     // if (Number(count) > 200) {
@@ -66,7 +75,7 @@ class OtcMining extends Component {
 
   render() {
     const { initInfo, count } = this.props.otcMining;
-
+    console.log(this.state.isChecked);
     return (
       <div className={styles.otcMining}>
         <header>
@@ -76,9 +85,7 @@ class OtcMining extends Component {
             rightContent={{
               text: formatMessage({ id: `OTC_ABROAD_DOWNLOAD_PLUGIN` }),
               textStyle: { color: '#F3AF66', fontSize: '0.24rem' },
-              onHandle: () =>
-                (window.location.href =
-                  'http://d.6short.com/sngw'),
+              onHandle: () => (window.location.href = 'http://d.6short.com/sngw'),
             }}
           />
         </header>
@@ -90,7 +97,7 @@ class OtcMining extends Component {
             type="text"
             placeholder={`${formatMessage({ id: `OTC_SALE_CONDITIONS_01` })}${initInfo.amountMin}-${
               initInfo.amountMax
-              }${formatMessage({ id: `OTC_SALE_CONDITIONS_02` })}`}
+            }${formatMessage({ id: `OTC_SALE_CONDITIONS_02` })}`}
             value={count}
             onChange={e => this.onCountChange(e.target.value)}
           />
@@ -107,8 +114,14 @@ class OtcMining extends Component {
         </div>
         <div className={styles.checkboxGroup}>
           <label>
-            <input type="checkbox"/>
-            请确认已打开挖矿插件
+            <input
+              type="checkbox"
+              checked={this.state.isChecked}
+              onChange={e => {
+                this.setState({ isChecked: e.target.checked });
+              }}
+            />
+            {formatMessage({ id: `OTC_INLAND_CHECKBOX` })}
           </label>
         </div>
         <div className={styles.reminder}>

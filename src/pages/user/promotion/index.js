@@ -45,7 +45,7 @@ class Index extends Component {
         </section>
 
         {/* 版本2.0临时隐藏 */}
-        <section style={{ display: 'none' }} className={styles.explain}>
+        <section className={styles.explain}>
           <h4>
             {formatMessage({ id: `PROMOTION_RECOMMENDATION` })}
             <img src={TIPS} alt="TIPS" />
@@ -79,7 +79,7 @@ class Index extends Component {
         </section>
 
         {/* 版本2.0临时隐藏 */}
-        <section style={{ display: 'none' }} className={styles.firstRecommend}>
+        <section className={styles.firstRecommend}>
           <h4>{formatMessage({ id: `PROMOTION_MY_GENERATION` })}</h4>
           <ListView hasMore={hasMore} onLoadMore={this.getNotices}>
             <table>

@@ -4,6 +4,7 @@ export default {
   LANG_KO_KR: '한국어',
   LANG_VI_VN: 'ViệtName',
   LANG_JA_JP: 'にほんご',
+  LANG_TH_TH: 'ไทย',
 
   COMMON_LEVEL: `레벨`,
   COMMON_CONFIRM: `확인`,
@@ -244,10 +245,11 @@ export default {
   OTC_INLAND_SALE_TIPS_02: `2.인증이 완료되면, 사용자는 POG 채굴 플러그인을 다운로드하고 DAGE 계정으로 로그인을 하여 채굴기가 온라인에 있도록 해야 합니다 (플러그인을 닫으면 채굴이 실패할 수 있고 이에 따라 수입이 지급되지 않을 수 있습니다). 또한, 채굴기가 열려 있을 때, 동일한 안드로이드 폰에서 알리페이가 로그인된 상태로 있어야 합니다. OTC 거래 상태는 POG 채굴 플러그인에서 실시간으로 확인할 수 있습니다 `,
   OTC_INLAND_SALE_TIPS_03: `3.각 판매 금액의 0.3%는 OTC 채굴 보상으로 사용자에게 지급되고, 보상의 70%는 DGC로 전달되고, 30%는 DID로 전달됩니다`,
   OTC_INLAND_SALE_TIPS_04: `4. DGT를 판매하려면 OTC 거래 할당량을 소비해야 합니다. OTC 거래 할당량이 충분하지 않은 경우, DGT를 판매할 수 없습니다. OTC 거래 할당량은 DID 교환으로 획득할 수 있습니다.`,
-  // OTC_INLAND_SALE_TIPS_05: ` OTC 채굴에서 DGT의 최대 수는 30,000입니다. DGT 판매 결과가 30,000을 초과하는 OTC 채굴의 DGT 수가 될 경우, 판매는 성공하지 못한 것으로 간주됩니다.`,
-  OTC_INLAND_SALE_TIPS_05: `5.正在进行OTC挖矿的DGT最高为30,000个，若出售DGT导致OTC挖矿的DGT超过30,000个，则此次出售不会成功。建议挂单量为4000 DGT。`,
+  OTC_INLAND_SALE_TIPS_05: ` OTC 채굴에서 DGT의 최대 수는 30,000입니다. DGT 판매 결과가 30,000을 초과하는 OTC 채굴의 DGT 수가 될 경우, 판매는 성공하지 못한 것으로 간주됩니다. 4 천 ddgt의 수주량을 권하고 있다`,
+  // OTC_INLAND_SALE_TIPS_05: `5.正在进行OTC挖矿的DGT最高为30,000个，若出售DGT导致OTC挖矿的DGT超过30,000个，则此次出售不会成功。建议挂单量为4000 DGT。`,
+  OTC_INLAND_CHECKBOX: `토굴 플러그인이 열려 있는지 확인하십시오.`,
 
-  OTC_DETAIL_TITLE: `OTC 채굴 상세 정보`,
-  OTC_DETAIL_TOTAL_REVENUE: `전체 OTC 채굴 수입`,
-  OTC_DETAIL_TIP: `지난 3일 동안의 수익만 확인할 수 있습니다. 과거 기록을 확인하려면 현금 흐름 내역서로 이동해 주세요`,
+  OTC_DETAIL_TITLE: `OTC 채굴 세부 정보`,
+  OTC_DETAIL_TOTAL_REVENUE: `OTC 총 채굴 수익`,
+  OTC_DETAIL_TIP: `지난 3일 동안의 수익 기록이 여기에 나타납니다. 과거 기록을 확인하고 싶으면 지갑 아래 DGC와 DID 항목을 확인해 주세요`,
 };

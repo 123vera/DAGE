@@ -4,6 +4,7 @@ export default {
   LANG_KO_KR: '한국어',
   LANG_VI_VN: 'ViệtName',
   LANG_JA_JP: 'にほんご',
+  LANG_TH_TH: 'ไทย',
 
   COMMON_LEVEL: `级`,
   COMMON_CONFIRM: `确认`,
@@ -246,6 +247,7 @@ export default {
   OTC_INLAND_SALE_TIPS_04: `4.出售DGT需要消耗OTC交易额度，当OTC交易额度不足时，无法进行出售DGT，OTC交易额度可用DID兑换获得。`,
   // OTC_INLAND_SALE_TIPS_05: `5.正在进行OTC挖矿的DGT最高为30,000个，若出售DGT导致OTC挖矿的DGT超过30,000个，则此次出售不会成功。质押30000个DEP后可以享受额外代数收益，即1代200%，2到10代每代10%。`,
   OTC_INLAND_SALE_TIPS_05: `5.正在进行OTC挖矿的DGT最高为30,000个，若出售DGT导致OTC挖矿的DGT超过30,000个，则此次出售不会成功。建议挂单量为4000 DGT。`,
+  OTC_INLAND_CHECKBOX: `请确认已打开挖矿插件`,
 
   OTC_DETAIL_TITLE: `OTC挖矿详情`,
   OTC_DETAIL_TOTAL_REVENUE: `OTC挖矿总收益`,

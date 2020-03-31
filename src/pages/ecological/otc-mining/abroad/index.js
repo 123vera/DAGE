@@ -6,7 +6,7 @@ import { REG } from '../../../../utils/constants';
 import { Toast } from 'antd-mobile';
 import { downFixed } from '../../../../utils/utils';
 import { connect } from 'dva';
-import { formatMessage } from 'umi-plugin-locale';
+import { formatMessage, getLocale } from 'umi-plugin-locale';
 
 @connect(({ otcMining, globalModel }) => ({ otcMining, globalModel }))
 class OtcMining extends Component {
@@ -89,7 +89,11 @@ class OtcMining extends Component {
               {downFixed(initInfo.otcnum)}
             </span>
             <span>
-              {formatMessage({ id: `EXCHANGE_CAN_USE` })}DGT：{downFixed(initInfo.balance)}
+              {getLocale() === 'en-US'
+                ? `DGT${formatMessage({ id: `EXCHANGE_CAN_USE` })} ：${downFixed(initInfo.balance)}`
+                : formatMessage({ id: `EXCHANGE_CAN_USE` })}{' '}
+              DGT：{downFixed(initInfo.balance)}
+              {/* {formatMessage({ id: `EXCHANGE_CAN_USE` })} DGT：{downFixed(initInfo.balance)} */}
             </span>
           </aside>
           <button onClick={this.onSubmit}>{formatMessage({ id: `OTC_CONFIRM_SALE` })}</button>

@@ -4,6 +4,7 @@ export default {
   LANG_KO_KR: '한국어',
   LANG_VI_VN: 'ViệtName',
   LANG_JA_JP: 'にほんご',
+  LANG_TH_TH: 'ไทย',
 
   COMMON_LEVEL: `レベル`,
   COMMON_CONFIRM: `確認`,
@@ -244,7 +245,8 @@ export default {
   OTC_INLAND_SALE_TIPS_02: `認証が完了したら、ユーザーはPOGマイニングプラグインをダウンロードし、DAGEアカウントでログインしてマイナーをオンラインに保つ必要があります（プラグインを閉じるとマイニングが失敗し、それに応じて収益が発生しません）。さらに、マイナーが開いているときは、Alipayが同じandroidの携帯電話でログインし続けている必要があります。 OTCトランザクションステータスは、POGマイニングプラグインでリアルタイムに表示できます。 `,
   OTC_INLAND_SALE_TIPS_03: `3．各販売金額の0.3％はOTCマイニングリワードとしてユーザーに発行され、リワードの70％はDGCに、30％はDIDに送られます `,
   OTC_INLAND_SALE_TIPS_04: `4. DGTを販売するには、OTCトランザクションクォータを消費する必要があります。 OTCトランザクションクォータが不十分な場合、DGTは販売できません。 OTCトランザクションクォータは、DID取引所によって取得できます。`,
-  OTC_INLAND_SALE_TIPS_05: ` OTCマイニングのDGTの最大数は30,000です。 DGTを販売した結果、OTCマイニングでのDGTの数が30,000を超える場合、販売は失敗したと見なされます。`,
+  OTC_INLAND_SALE_TIPS_05: `5. OTCマイニングのDGTの最大数は30,000です。 DGTを販売した結果、OTCマイニングでのDGTの数が30,000を超える場合、販売は失敗したと見なされます。注文量は4000 DGT`,
+  OTC_INLAND_CHECKBOX: `掘削プラグインを開いたことを確認してください`,
 
   OTC_DETAIL_TITLE: `OTCマイニング詳細`,
   OTC_DETAIL_TOTAL_REVENUE: `全体のOTCマイニング収入`,

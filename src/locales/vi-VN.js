@@ -4,6 +4,7 @@ export default {
   LANG_KO_KR: '한국어',
   LANG_VI_VN: 'ViệtName',
   LANG_JA_JP: 'にほんご',
+  LANG_TH_TH: 'ไทย',
 
   COMMON_LEVEL: `Cấp độ`,
   COMMON_CONFIRM: `Xác nhận`,
@@ -244,10 +245,11 @@ export default {
   OTC_INLAND_SALE_TIPS_02: `2. Sau khi xác thực, người dùng cần tải plug-in khai thác POG và đăng nhập bằng tài khoản DAGE để giữ thiết bị khai thác luôn hoạt động (đóng plug-in có thể khiến việc khai thác thất bại và không nhận được doanh thu tùy theo tình hình thực tế). Ngoài ra, khi thiết bị khai thác được mở, bạn cần đảm bảo chiếc điện thoại đó luôn đăng nhập Alipay. Trạng thái giao dịch OTC theo thời gian thực có thể được quan sát trên tiện ích khai thác plug-in POG`,
   OTC_INLAND_SALE_TIPS_03: `3. 0,3% giá trị mỗi khoản bán ra sẽ được phân phối cho người dùng dưới dạng phần thưởng khai thác OTC, 70% chuyển vào tài khoản DGC, 30% vào tài khoản DID `,
   OTC_INLAND_SALE_TIPS_04: `4. Để bán DGT cần tiêu hao một phần hạn mức giao dịch OTC. Nếu hạn mức giao dịch OTC không đủ, bạn sẽ không thể bán DGT. Bạn có thể thêm hạn mức giao dịch OTC khi giao dịch DID`,
-  // OTC_INLAND_SALE_TIPS_05: `Số DGT tối đa trong khai thác OTC là 30.000. Nếu việc bán DGT vượt quá hạn mức 30.000 DGT trong khai thác OTC, giao dịch bán ra này sẽ được coi là bất thành.`,
-  OTC_INLAND_SALE_TIPS_05: `5.正在进行OTC挖矿的DGT最高为30,000个，若出售DGT导致OTC挖矿的DGT超过30,000个，则此次出售不会成功。建议挂单量为4000 DGT。`,
+  OTC_INLAND_SALE_TIPS_05: `Số DGT tối đa trong khai thác OTC là 30.000. Nếu việc bán DGT vượt quá hạn mức 30.000 DGT trong khai thác OTC, giao dịch bán ra này sẽ được coi là bất thành. Đề nghị đăng ký 4000 DGT`,
+  // OTC_INLAND_SALE_TIPS_05: `5.正在进行OTC挖矿的DGT最高为30,000个，若出售DGT导致OTC挖矿的DGT超过30,000个，则此次出售不会成功。建议挂单量为4000 DGT。`,
+  OTC_INLAND_CHECKBOX: `Hãy xác nhận là đã mở các bổ sung khai thác mỏ`,
 
   OTC_DETAIL_TITLE: `Chi tiết Khai thác OTC`,
-  OTC_DETAIL_TOTAL_REVENUE: `Doanh thu khai thác OTC tổng thể`,
-  OTC_DETAIL_TIP: `Chỉ hiển thị thu nhập của ba ngày gần đây. Vui lòng vào phần dòng tiền để xem bản ghi lịch sử`,
+  OTC_DETAIL_TOTAL_REVENUE: `Tổng doanh thu Khai thác OTC`,
+  OTC_DETAIL_TIP: `Lịch sử doanh thu trong ba ngày qua sẽ được hiển thị ở đây. Nếu bạn muốn xem các danh sách trong quá khứ , Vui lòng kiểm tra dưới mục ví, mục DGC và DID`,
 };
