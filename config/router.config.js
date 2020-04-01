@@ -55,6 +55,7 @@ export default [
           { path: '/home/wallet', title: 'DAGE WALLET', component: './wallet' }, // 首页
           { path: '/home/user', title: 'DAGE WALLET', component: './user/home' }, // 个人中心
           { path: '/home/ecological', title: 'DAGE WALLET', component: './ecological/home' }, //生态
+          { path: '/home/assets', title: 'DAGE WALLET', component: './assets' }, // 资产
         ],
       },
 

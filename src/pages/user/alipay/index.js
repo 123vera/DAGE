@@ -98,6 +98,7 @@ class Alipay extends Component {
               className={styles.account}
               value={payName}
               type="text"
+              autoComplete="off"
               placeholder={formatMessage({ id: `PAY_PLACEHOLDER` })}
               onChange={e => this.onInputChange(e.target.value, 'payName')}
             />
@@ -105,6 +106,7 @@ class Alipay extends Component {
               className={styles.name}
               value={realName}
               type="text"
+              autoComplete="off"
               placeholder={formatMessage({ id: `PAY_PLACEHOLDER_REALNAME` })}
               onChange={e => this.onInputChange(e.target.value, 'realName')}
             />

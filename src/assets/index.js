@@ -14,6 +14,8 @@ export const Icons = {
   checked: require('./icons/checked.png'),
   loginOut: require('./icons/login-out.png'),
 
+  home: require('./icons/home.png'),
+  homeActive: require('./icons/home-active.png'),
   wallet: require('./icons/wallet.png'),
   walletActive: require('./icons/wallet-active.png'),
   zoology: require('./icons/zoology.png'),
@@ -49,4 +51,3 @@ export const Images = {
   ecoOtcMiningDetail: require('./imgs/eco-otc-mining-detail.png'),
   ecoDep: require('./imgs/eco-dep.png'),
 };
-

@@ -325,6 +325,7 @@ class Index extends Component {
                   autoComplete="off"
                   value={code}
                   maxLength={4}
+                  autoComplete="off"
                   placeholder={formatMessage({ id: `COMMON_PLACEHOLDER_CODE` })}
                   onChange={e => this.onCodeChange(e.target.value)}
                 />

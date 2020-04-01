@@ -124,6 +124,7 @@ class Login extends Component {
                   </span>
                   <input
                     type="number"
+                    autoComplete="off"
                     onChange={e => this.onInputChange(e.target.value, 'phone')}
                     placeholder={formatMessage({ id: `COMMON_PLACEHOLDER_PHONE` })}
                   />
@@ -136,6 +137,7 @@ class Login extends Component {
                 </span>
                 <input
                   type="password"
+                  autoComplete="off"
                   className={errMsg.type === 'password' ? styles.inputErr : ''}
                   onChange={this.onChangePassword}
                   placeholder={formatMessage({ id: `COMMON_PLACEHOLDER_PASSWORD` })}

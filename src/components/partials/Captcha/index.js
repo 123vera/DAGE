@@ -11,6 +11,7 @@ class Index extends Component {
         <span className={styles.label}>{formatMessage({ id: `REGISTER_GET_CAPTCHA` })}</span>
         <input
           type="text"
+          autoComplete="off"
           maxLength={4}
           placeholder={formatMessage({ id: `COMMON_PLACEHOLDER_CAPTCHA` })}
           value={value}

@@ -7,10 +7,7 @@ class CompoundDep extends Component {
   render() {
     return (
       <div>
-        <Header
-          icon={Icons.arrowLeft}
-          title={'合成DEP'}
-        />
+        <Header icon={Icons.arrowLeft} title={'合成DEP'} />
         <article className={styles.article}>
           <section className={styles.content}>
             <div className={styles.proportion}>
@@ -22,6 +19,7 @@ class CompoundDep extends Component {
               <div className={styles.inputBox}>
                 <input
                   type="text"
+                  autoComplete="off"
                   placeholder={'请输入DEP数量'}
                   onChange={e => this.onWalletChange(e.target.value)}
                 />
@@ -36,14 +34,11 @@ class CompoundDep extends Component {
               <span>--</span>
             </div>
           </section>
-          <button className={styles.submit}>
-            确认合成
-          </button>
+          <button className={styles.submit}>确认合成</button>
         </article>
       </div>
     );
   }
-
 }
 
 export default CompoundDep;

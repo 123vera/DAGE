@@ -213,6 +213,7 @@ class Recharge extends Component {
               <input
                 type="text"
                 value={walletTo}
+                autoComplete="off"
                 placeholder={formatMessage({ id: `WITHDRAW_PLACEHOLDER` })}
                 onChange={e => this.onWalletChange(e.target.value)}
               />
@@ -226,6 +227,7 @@ class Recharge extends Component {
               <input
                 type="text"
                 value={amount}
+                autoComplete="off"
                 onBlur={() =>
                   amount &&
                   this.props.dispatch({
@@ -233,7 +235,6 @@ class Recharge extends Component {
                     payload: { amount: downFixed(amount) },
                   })
                 }
-                autoComplete="off"
                 placeholder={`${formatMessage({ id: `WITHDRAW_MIN` })} ${initInfo.amountMin ||
                   '--'}`}
                 onChange={e => this.onAmountChange(e.target.value)}

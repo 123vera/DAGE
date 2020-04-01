@@ -95,6 +95,7 @@ class OtcMining extends Component {
           </label>
           <input
             type="text"
+            autoComplete="off"
             placeholder={`${formatMessage({ id: `OTC_SALE_CONDITIONS_01` })}${initInfo.amountMin}-${
               initInfo.amountMax
             }${formatMessage({ id: `OTC_SALE_CONDITIONS_02` })}`}

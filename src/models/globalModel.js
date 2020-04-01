@@ -2,6 +2,7 @@ import UserApi from '../services/api/user';
 import AssetApi from '../services/api/asset';
 import OtherApi from '../services/api/other';
 import { setCookie } from '../utils/utils';
+import { getLocale } from 'umi-plugin-locale';
 
 export default {
   namespace: 'globalModel',

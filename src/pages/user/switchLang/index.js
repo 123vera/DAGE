@@ -7,6 +7,7 @@ import PageHeader from '@/components/common/PageHeader';
 import { removeCookie } from '../../../utils/utils';
 import styles from './index.less';
 import { formatMessage, setLocale, getLocale } from 'umi-plugin-locale';
+import router from 'umi/router';
 
 class Index extends Component {
   state = {
@@ -19,8 +20,11 @@ class Index extends Component {
   };
 
   confirmLang = () => {
-    setLocale(this.state.lang);
-    removeCookie('lang');
+    router.goBack();
+    setTimeout(() => {
+      setLocale(this.state.lang);
+      removeCookie('lang');
+    }, 1);
   };
 
   render() {
@@ -41,7 +45,7 @@ class Index extends Component {
         </ul>
 
         <p onClick={this.confirmLang} className={`${styles.btn} ${styles.confirm}`}>
-          确认
+          {formatMessage({ id: `COMMON_CONFIRM` })}
         </p>
       </div>
     );

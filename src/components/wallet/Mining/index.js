@@ -105,6 +105,7 @@ class Mining extends Component {
               >
                 <input
                   type="text"
+                  autoComplete="off"
                   value={currency.label || ''}
                   readOnly={true}
                   // placeholder={formatMessage({ id: `WITHDRAW_PLACEHOLDER` })}
@@ -131,6 +132,7 @@ class Mining extends Component {
                 <div className={styles.inputBox}>
                   <input
                     type="text"
+                    autoComplete="off"
                     // value={walletTo}
                     placeholder={formatMessage({ id: `COMMON_PLACEHOLDER_BUY_AMOUNT` })}
                     onChange={e => this.onWalletChange(e.target.value)}
@@ -141,6 +143,7 @@ class Mining extends Component {
                   <div className={styles.inputBox}>
                     <input
                       type="text"
+                      autoComplete="off"
                       // value={walletTo}
                       onChange={e => this.onWalletChange(e.target.value)}
                     />
@@ -150,6 +153,7 @@ class Mining extends Component {
                   <div className={styles.inputBox}>
                     <input
                       type="text"
+                      autoComplete="off"
                       // value={walletTo}
                       onChange={e => this.onWalletChange(e.target.value)}
                     />
