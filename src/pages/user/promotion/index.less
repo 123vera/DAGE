@@ -4,7 +4,6 @@
   section {
     box-sizing: border-box;
     padding: 0 60px;
-    padding-bottom: 50px;
 
     h4 {
       color: @font-sub-color;
@@ -18,11 +17,15 @@
     &.banner {
       position: relative;
       margin-top: 16px;
+      margin-bottom: 50px;
       line-height: 2.6;
 
       .content {
         position: relative;
         z-index: 2;
+        display: inline-block;
+        width: 50%;
+        text-align: center;
       }
 
       .income {
@@ -34,7 +37,7 @@
       }
 
       h2 {
-        font-size: 75px;
+        font-size: @font-size-smaller * 2;
       }
 
       a {
@@ -62,8 +65,9 @@
           justify-content: space-between;
           align-items: center;
           box-sizing: border-box;
-          margin-top: 40px;
-          padding: 30px;
+          margin-top: 60px;
+          padding: 40px 45px;
+          height: 116px;
           text-indent: 100px;
           background-color: @theme-color-bg-content;
 
@@ -78,8 +82,27 @@
             .background-gradient-horizontal(@theme-border-gradient-from, @theme-border-gradient-to);
           }
 
+          span {
+            display: inline-block;
+            text-align: left;
+          }
+
           p {
-            font-size: 40px;
+            font-size: @font-size-common;
+
+            &.first {
+              font-size: @font-size-section-title;
+            }
+
+            &.activity {
+              background: linear-gradient(
+                90deg,
+                rgba(4, 116, 255, 1) 0%,
+                rgba(123, 3, 255, 1) 100%
+              );
+              -webkit-background-clip: text;
+              -webkit-text-fill-color: transparent;
+            }
           }
         }
       }

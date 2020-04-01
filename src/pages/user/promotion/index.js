@@ -5,6 +5,7 @@ import PageHeader from '@/components/common/PageHeader';
 import ARROW_LEFT from '@/assets/dark/arrow-left.png';
 import DAGE_LOGO from '@/assets/dark/dage-logo.png';
 import TIPS from '@/assets/icons/tips.png';
+import { LEVEL_LIST } from '../../../utils/constants';
 import { formatMessage } from 'umi/locale';
 import styles from './index.less';
 import dayjs from 'dayjs';
@@ -19,7 +20,16 @@ class Index extends Component {
   }
 
   render() {
-    const { list = [], hasMore, recommendCount, teamCount, teamLevel } = this.props.promotion;
+    const {
+      list = [],
+      hasMore,
+      mystatus,
+      achievement,
+      recommendCount,
+      teamCount,
+      teamLevelOtc,
+      teamLevel,
+    } = this.props.promotion;
 
     return (
       <div id={styles.promotion}>
@@ -41,26 +51,48 @@ class Index extends Component {
             <span className={styles.income}>{formatMessage({ id: `PROMOTION_USER_LEVEL` })}</span>
             <h2>{teamLevel || teamLevel === 0 ? `VIP ${teamLevel}` : '--'}</h2>
           </div>
+
+          {/* 版本2.0临时隐藏 */}
+          {/* <div className={styles.content}>
+            <span className={styles.income}>勋章等级</span>
+            <h2>{teamLevelOtc !== 0 ? `${LEVEL_LIST[teamLevelOtc || 0]}节点` : '无'}</h2>
+          </div> */}
           <img src={DAGE_LOGO} alt="DAGE_LOGO" />
         </section>
 
         {/* 版本2.0临时隐藏 */}
-        <section className={styles.explain}>
+        {/* <section className={styles.explain}>
           <h4>
             {formatMessage({ id: `PROMOTION_RECOMMENDATION` })}
             <img src={TIPS} alt="TIPS" />
           </h4>
           <ul className={styles.explainList}>
             <li>
-              <span>{formatMessage({ id: `PROMOTION_GENERATION` })}</span>
-              <p>{recommendCount}</p>
+              {formatMessage({ id: `PROMOTION_GENERATION` })}
+              <p className={styles.first}>{recommendCount}</p>
             </li>
-            {/*<li>*/}
-            {/*<span>{formatMessage({ id: `PROMOTION_SECONDARY` })}</span>*/}
-            {/*<p>10</p>*/}
-            {/*</li>*/}
           </ul>
-        </section>
+        </section> */}
+
+        {/* 版本2.0临时隐藏 */}
+        {/* <section style={{ display: 'none' }} className={styles.explain}>
+          <ul className={styles.explainList}>
+            <li>
+              昨日团队总业绩
+              <p>{achievement.dgt} DGT</p>
+            </li>
+          </ul>
+        </section> */}
+
+        {/* 版本2.0临时隐藏 */}
+        {/* <section style={{ display: 'none' }} className={styles.explain}>
+          <ul className={styles.explainList}>
+            <li>
+              用户状态
+              <p className={styles.activity}>{mystatus === 0 ? '非活跃用户' : '活跃用户'}</p>
+            </li>
+          </ul>
+        </section> */}
 
         {/* 版本2.0隐藏 */}
         <section style={{ display: 'none' }} className={styles.group}>
@@ -79,7 +111,7 @@ class Index extends Component {
         </section>
 
         {/* 版本2.0临时隐藏 */}
-        <section className={styles.firstRecommend}>
+        <section style={{ display: 'none' }} className={styles.firstRecommend}>
           <h4>{formatMessage({ id: `PROMOTION_MY_GENERATION` })}</h4>
           <ListView hasMore={hasMore} onLoadMore={this.getNotices}>
             <table>

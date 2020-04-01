@@ -23,6 +23,8 @@ export const REG = {
 export const LANG = ['en-US', 'zh-CN', 'ko-KR', 'vi-VN', 'ja-JP', 'th-TH'];
 // export const LANG = ['en-US', 'zh-CN'];
 
+export const LEVEL_LIST = ['--', '初级', '高级', '区域', '国际', '全球'];
+
 export const COUNTRIES_LIST = [
   'China中国',
   'Hong Kong香港',

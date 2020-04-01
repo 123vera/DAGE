@@ -249,6 +249,6 @@ export default {
   OTC_INLAND_CHECKBOX: `掘削プラグインを開いたことを確認してください`,
 
   OTC_DETAIL_TITLE: `OTCマイニング詳細`,
-  OTC_DETAIL_TOTAL_REVENUE: `全体のOTCマイニング収入`,
-  OTC_DETAIL_TIP: `過去3日間の収入のみを表示しています。キャッシュフローステートメントから履歴をご確認ください`,
+  OTC_DETAIL_TOTAL_REVENUE: `OTCマイニング収入合計`,
+  OTC_DETAIL_TIP: `過去3日間の収入合計はこちらに表示されます。過去の履歴を見たい場合は、ウォレットのDGCとDIDのセクションを確認ください`,
 };

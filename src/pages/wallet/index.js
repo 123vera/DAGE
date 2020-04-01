@@ -15,19 +15,19 @@ const menus = [
     value: '/wallet/recharge',
     icon: Icons.menuRecharge,
     label: formatMessage({ id: `WALLET_RECHARGE` }),
-    width: '34px',
+    width: '0.4rem',
   },
   {
     value: '/wallet/withdraw',
     icon: Icons.menuWithdraw,
     label: formatMessage({ id: `WALLET_WITHDRAW` }),
-    width: '34px',
+    width: '0.4rem',
   },
   {
     value: '/wallet/flow',
     icon: Icons.menuFlow,
     label: formatMessage({ id: `WALLET_TITLE` }),
-    width: '26px',
+    width: '0.4rem',
   },
 ];
 

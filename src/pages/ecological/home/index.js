@@ -74,7 +74,7 @@ class Index extends Component {
         <ul className={styles.contents}>
           {list.map((item, key) => (
             <li onClick={() => this.routerHref(item.link)} key={key}>
-              <img src={item.img} alt="" />
+              <img className={styles.left} src={item.img} alt="" />
               <div className={styles.text}>
                 <span>{item.title}</span>
                 <span>{item.subTitle}</span>

@@ -3,7 +3,12 @@ import UserApi from '../../../services/api/user';
 export default {
   namespace: 'promotion',
   state: {
+    teamLevelOtc: null,
+    achievement: null,
     teamLevel: null,
+    teamCount: null,
+    recommendCount: null,
+    mystatus: null,
     page: 1,
     row: 10,
     hasMore: false,
@@ -15,11 +20,20 @@ export default {
     },
   },
   effects: {
-    * GetRecommendList(_, { call, select, put }) {
+    *GetRecommendList(_, { call, select, put }) {
       const { page, list } = yield select(state => state.promotion);
       const res = yield call(UserApi.getRecommendList, { page });
       if (res.status === 1) {
-        const { recommendCount, teamCount, teamLevel, pageCount, currentPage } = res.data;
+        const {
+          mystatus,
+          achievement,
+          recommendCount,
+          teamCount,
+          teamLevel,
+          pageCount,
+          currentPage,
+          teamLevelOtc,
+        } = res.data;
         list.push(...res.data.list);
         yield put({
           type: 'UpdateState',
@@ -30,10 +44,12 @@ export default {
             recommendCount,
             teamCount,
             teamLevel,
+            achievement,
+            mystatus,
+            teamLevelOtc,
           },
         });
       }
-      console.log(res);
       return res;
     },
   },
