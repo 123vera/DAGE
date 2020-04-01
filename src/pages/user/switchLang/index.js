@@ -11,11 +11,15 @@ import { formatMessage, setLocale, getLocale } from 'umi-plugin-locale';
 class Index extends Component {
   state = {
     activeKey: LANG.findIndex(val => val === getLocale() || 0),
+    lang: getLocale(),
   };
 
   toSetLang = (lang, key) => {
-    this.setState({ activeKey: key });
-    setLocale(lang);
+    this.setState({ activeKey: key, lang });
+  };
+
+  confirmLang = () => {
+    setLocale(this.state.lang);
     removeCookie('lang');
   };
 
@@ -35,6 +39,10 @@ class Index extends Component {
             </li>
           ))}
         </ul>
+
+        <p onClick={this.confirmLang} className={`${styles.btn} ${styles.confirm}`}>
+          确认
+        </p>
       </div>
     );
   }
