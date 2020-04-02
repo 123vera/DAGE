@@ -11,12 +11,12 @@ const tabs = [
     iconActive: Icons.homeActive,
     label: formatMessage({ id: `WALLET_TITLE` }),
   },
-  // {
-  //   path: '/home/assets',
-  //   icon: Icons.wallet,
-  //   iconActive: Icons.walletActive,
-  //   label: '',
-  // },
+  {
+    path: '/home/assets',
+    icon: Icons.wallet,
+    iconActive: Icons.walletActive,
+    label: '',
+  },
   {
     path: '/home/ecological',
     icon: Icons.zoology,

@@ -28,7 +28,8 @@ export function onlinePost(path, options = {}, config = {}) {
 }
 
 export function onlineGet(path, params = {}) {
-  return request.get(path, { ...params, openId: getOpenId() });
+  params.openId = getOpenId();
+  return request.get(path, { ...params });
 }
 
 // 下划线转驼峰

@@ -154,6 +154,14 @@ class UserApi {
     return onlinePost('/user/recommendlist', options);
     // return request.get('/user/recommendlist', { ...params, openId: getOpenId() });
   }
+
+  /**
+   * 用户资产列表
+   * @required openId 用户openid
+   **/
+  static getUserAssets(params) {
+    return onlinePost('/userasset/assets', { params });
+  }
 }
 
 export default UserApi;
