@@ -204,7 +204,7 @@ export default {
   WALLET_SECTION_SUBTITLE: `Tiền thưởng`,
   WALLET_POG_TITLE: `Khai thác OTC`,
   WALLET_POG_BTN: `Tham gia khai thác`,
-  WALLET_POG_DESC: `Số tiền đầu tư gốc để khai thác sẽ được hoàn trả vào tài khoản sau 1 ngày, 5% DID của khoản đầu tư sẽ được giải ngân vào tài khoản DGT. 70% tiền thưởng sẽ chuyển vào tài khoản DGT và 30% còn lại về tài hoản DID`,
+  WALLET_POG_DESC: `Số tiền đầu tư gốc để khai thác sẽ được hoàn trả vào tài khoản sau 1 ngày, 5% DID của khoản đầu tư sẽ được giải ngân vào tài khoản DGT. 70% tiền thưởng sẽ chuyển vào tài khoản DGC và 30% còn lại về tài hoản DID`,
   WALLET_POG_DESC_01: `Hãy thay đổi hạn mức giao dịch OTC tại sàn giao dịch phi tập trung trước khi tham gia khai thác OTC. Sau khi đổi, bạn có thể tham gia khai thác OTC`,
   WALLET_POG_LEVEL: `Cấp độ khai thác hiện tại`,
   WALLET_POG_DISCOUNT_RATE: `Tỷ lệ giảm giá hiện nay`,

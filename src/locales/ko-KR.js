@@ -204,7 +204,7 @@ export default {
   WALLET_SECTION_SUBTITLE: `보상 금액`,
   WALLET_POG_TITLE: `OTC 채굴`,
   WALLET_POG_BTN: `채굴에 참여하기`,
-  WALLET_POG_DESC: `채굴을 위한 투자 원금은 하루 뒤에 계정으로 되돌려집니다. 투자 금액의 5% DID는 DGT 계정으로 전달됩니다. 보상의 70%는 DGT 계정으로 전달되고 30%는 DID 계정으로 전달됩니다.`,
+  WALLET_POG_DESC: `채굴을 위한 투자 원금은 하루 뒤에 계정으로 되돌려집니다. 투자 금액의 5% DID는 DGT 계정으로 전달됩니다. 보상의 70%는 DGC 계정으로 전달되고 30%는 DID 계정으로 전달됩니다.`,
   WALLET_POG_DESC_01: `OTC 채굴에 참여하기 전에 탈중앙화 된 거래소에서 OTC 거래 할당량을 교환하세요. 성공적으로 교환한 이후에 OTC 채굴에 참여할 수 있습니다.`,
   WALLET_POG_LEVEL: `현재 채굴기 레벨`,
   WALLET_POG_DISCOUNT_RATE: `현재 감가상각률`,

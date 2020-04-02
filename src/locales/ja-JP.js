@@ -234,7 +234,7 @@ export default {
   WALLET_SECTION_SUBTITLE: `リワード金額`,
   WALLET_POG_TITLE: `OTCマイニング`,
   WALLET_POG_BTN: `マイニングに参加する`,
-  WALLET_POG_DESC: `マイニングの投資元本は1日後にアカウントに戻され、投資額の5％DIDがDGTアカウントに解放されます。リワードの70％はDGTアカウントに、30％はDIDアカウントに支払われます。`,
+  WALLET_POG_DESC: `マイニングの投資元本は1日後にアカウントに戻され、投資額の5％DIDがDGTアカウントに解放されます。リワードの70％はDGCアカウントに、30％はDIDアカウントに支払われます。`,
   WALLET_POG_DESC_01: ` OTCマイニングに参加する前に、分散化型取引所でOTCトランザクションクォータを交換してください。交換が成功したら、OTC マイニングに参加できます。`,
   WALLET_POG_LEVEL: `現在のマイナーレベル`,
   WALLET_POG_DISCOUNT_RATE: `現在の減価償却率`,
