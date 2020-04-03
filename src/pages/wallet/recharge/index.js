@@ -83,9 +83,6 @@ class Recharge extends Component {
     } = this.props;
     const { coin, wallet } = this.props.recharge;
     let menus = [];
-    // coinTeams.forEach(team => {
-    //   team.split('_').map(i => iArr.push(i));
-    // });
 
     rechargeCoins.forEach(value => {
       menus.push({
@@ -93,12 +90,6 @@ class Recharge extends Component {
         value: value.toLowerCase(),
       });
     });
-    // [...new Set(rechargeCoins)].forEach(value => {
-    //   menus.push({
-    //     label: value.toUpperCase(),
-    //     value: value.toLowerCase(),
-    //   });
-    // });
 
     return (
       <div className={styles.recharge}>
@@ -111,7 +102,7 @@ class Recharge extends Component {
               reverse: true,
               onHandle: () => this.setState({ showMenus: !showMenus }),
             }}
-            onHandle={() => router.push('/home/wallet')}
+            // onHandle={() => router.push('/home/wallet')}
           />
           {showMenus && (
             <div className={styles.menus}>

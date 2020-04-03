@@ -43,7 +43,8 @@ class Recharge extends Component {
         return Toast.info(res.msg);
       }
       const { coinList } = this.props.withdraw;
-      const coin = coinList.find(i => i.value === type) || coinList[0];
+      const coin = coinList.find(i => i.value === type.toLowerCase()) || coinList[0];
+
       dispatch({
         type: 'withdraw/UpdateState',
         payload: { coin },
@@ -182,7 +183,7 @@ class Recharge extends Component {
         <div className={styles.header}>
           <Header
             icon={Icons.arrowLeft}
-            onHandle={() => router.push('/home/wallet')}
+            // onHandle={() => router.push('/home/wallet')}
             centerContent={{
               text: coin.label || '--',
               icon: Icons.arrowDown,

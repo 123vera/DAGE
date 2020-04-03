@@ -22,23 +22,24 @@ export default {
     },
   },
   effects: {
-    * WithdrawInit(_, { call, select, put }) {
+    *WithdrawInit(_, { call, select, put }) {
       const { coin } = yield select(state => state.withdraw);
       const res = yield call(AssetApi.withdrawInit, { type: coin.value });
       if (res.status === 1) {
         const { typeList } = res.data;
-        const coinList = typeList.map(i => {
-          return {
-            label: i.toUpperCase(),
-            value: i.toLowerCase(),
-          };
-        }) || [];
+        const coinList =
+          typeList.map(i => {
+            return {
+              label: i.toUpperCase(),
+              value: i.toLowerCase(),
+            };
+          }) || [];
         yield put({ type: 'UpdateState', payload: { initInfo: res.data, coinList } });
       }
       return res;
     },
 
-    * Withdraw(_, { call, select }) {
+    *Withdraw(_, { call, select }) {
       const { coin, walletTo, amount, code } = yield select(state => state.withdraw);
       return yield call(AssetApi.submitWithdrawal, {
         type: coin.value,
@@ -48,7 +49,7 @@ export default {
       });
     },
 
-    * GetServiceCharge(_, { call, select, put }) {
+    *GetServiceCharge(_, { call, select, put }) {
       const { coin, walletTo } = yield select(state => state.withdraw);
       const res = yield call(AssetApi.getServiceCharge, {
         address: walletTo,

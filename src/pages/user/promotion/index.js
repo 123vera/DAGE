@@ -10,6 +10,7 @@ import { formatMessage } from 'umi/locale';
 import styles from './index.less';
 import dayjs from 'dayjs';
 import ListView from '../../../components/common/ListView';
+import { getLocale } from 'umi-plugin-locale';
 
 @connect(({ promotion }) => ({ promotion }))
 class Index extends Component {
@@ -18,6 +19,18 @@ class Index extends Component {
       type: 'promotion/GetRecommendList',
     });
   }
+
+  hrefToTip = () => {
+    const lang = getLocale();
+    let url;
+    if (lang.includes('zh')) {
+      url =
+        ' https://dage.zendesk.com/hc/zh-cn/articles/900000463446-%E5%A6%82%E4%BD%95%E6%8F%90%E5%8D%87%E6%88%91%E7%9A%84%E7%AD%89%E7%BA%A7 ';
+    } else if (lang.includes('en')) {
+      url = 'https://dage.zendesk.com/hc/zh-cn/articles/900000463466-How-to-improve-my-level';
+    }
+    window.location.href = url;
+  };
 
   render() {
     const {
@@ -64,7 +77,7 @@ class Index extends Component {
         {/* <section className={styles.explain}>
           <h4>
             {formatMessage({ id: `PROMOTION_RECOMMENDATION` })}
-            <img src={TIPS} alt="TIPS" />
+            <img src={TIPS} alt="TIPS" onClick={this.hrefToTip}/>
           </h4>
           <ul className={styles.explainList}>
             <li>

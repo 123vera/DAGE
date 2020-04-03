@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import styles from './index.less';
-import Header from '../../../components/common/Header';
 import { connect } from 'dva';
 import { router } from 'umi';
-import { Icons } from '../../../assets';
-import Menus from '../../../components/common/Menus';
 import dayjs from 'dayjs';
-import ListView from '../../../components/common/ListView';
 import { formatMessage } from 'umi-plugin-locale';
 import { downFixed } from '../../../utils/utils';
+import { Icons } from '../../../assets';
+import Header from '../../../components/common/Header';
+import Menus from '../../../components/common/Menus';
+import ListView from '../../../components/common/ListView';
+import AssetsFooter from '../../../components/partials/AssetsFooter';
 
 @connect(({ walletFlow, globalModel }) => ({ walletFlow, globalModel }))
 class WalletFlow extends Component {
@@ -17,7 +18,7 @@ class WalletFlow extends Component {
   };
 
   componentDidMount() {
-    this.initData();
+    this.initData(this.props.location.query.type.toUpperCase() || '');
     this.getFlow();
   }
 
@@ -26,9 +27,10 @@ class WalletFlow extends Component {
       type: 'walletFlow/UpdateState',
       payload: { type, list: [], page: 1 },
     });
+    router.replace(`${window.location.pathname}?type=${type}`);
   };
 
-  changeCoin = async (coin) => {
+  changeCoin = async coin => {
     this.initData(coin.value);
     this.getFlow();
     this.setState({ showMenus: false });
@@ -58,7 +60,7 @@ class WalletFlow extends Component {
           <Header
             icon={Icons.arrowLeft}
             title={formatMessage({ id: `WALLET_TITLE` })}
-            onHandle={() => router.push('/home/wallet')}
+            // onHandle={() => router.push('/home/wallet')}
           />
         </section>
         <section>
@@ -69,11 +71,11 @@ class WalletFlow extends Component {
                 onClick={() => this.setState({ showMenus: !showMenus })}
               >
                 {type}
-                <img src={Icons.arrowUpDown} alt=""/>
+                <img src={Icons.arrowUpDown} alt="" />
               </div>
               {showMenus && (
                 <div className={styles.options}>
-                  <Menus menus={menus} textAlign="center" hasBorder onHandle={this.changeCoin}/>
+                  <Menus menus={menus} textAlign="center" hasBorder onHandle={this.changeCoin} />
                 </div>
               )}
             </div>
@@ -98,6 +100,8 @@ class WalletFlow extends Component {
             </ul>
           </ListView>
         </section>
+
+        <AssetsFooter type={type} />
       </div>
     );
   }
