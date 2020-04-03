@@ -1,0 +1,87 @@
+@import '../../../styles/mixin.less';
+
+#dgtPay {
+  p.title {
+    margin: 60px;
+  }
+
+  section {
+    box-sizing: border-box;
+    margin: 60px;
+    padding: 20px 60px;
+    background: @theme-color-bg-content;
+
+    &.top {
+      line-height: 2;
+      color: @font-sub-color;
+      font-size: @font-size-common;
+
+      p {
+        color: @theme-color-red;
+        font-size: @font-size-section-title;
+        text-align: center;
+      }
+
+      small {
+        display: block;
+        font-size: @font-size-smaller;
+        text-align: center;
+        margin-bottom: 15px;
+      }
+
+      ul {
+        .clearUl();
+      }
+    }
+
+    &.bottom {
+      padding: 20px 85px;
+      color: #0475ff;
+      font-size: @font-size-common;
+
+      ul {
+        position: relative;
+        list-style: none;
+        counter-reset: sectioncounter;
+
+        li {
+          margin-left: 10px;
+          line-height: 1.8;
+
+          &:before {
+            position: absolute;
+            left: -30px;
+            margin-top: 12px;
+            line-height: 1.8;
+            content: counter(sectioncounter) ' ';
+            counter-increment: sectioncounter;
+            font-size: 18px;
+            background: #0475ff;
+            text-align: center;
+            color: #fff;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+          }
+        }
+      }
+    }
+  }
+
+  .qrCodeBox {
+    display: inline-block;
+    font-size: 0;
+    width: 100%;
+    text-align: center;
+
+    .qrCode {
+      display: none;
+    }
+
+    img {
+      width: 250px;
+      height: 250px;
+      border: 10px solid #fff;
+    }
+  }
+}

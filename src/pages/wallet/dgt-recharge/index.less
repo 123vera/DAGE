@@ -1,0 +1,89 @@
+@import '../../../styles/mixin.less';
+
+#dgtRecharge {
+  color: @font-sub-color;
+
+  section {
+    box-sizing: border-box;
+    padding: 100px 70px;
+
+    &.inputContent {
+      font-size: @font-size-common;
+
+      label {
+        line-height: 2;
+
+        span {
+          display: block;
+        }
+
+        input {
+          .clearInput();
+          width: 100%;
+          padding: 22px 15px;
+          margin: 20px auto;
+          background-color: @theme-color-bg-content;
+
+          &::placeholder {
+            color: @font-sub-color;
+          }
+        }
+      }
+
+      p {
+        width: 100%;
+        text-align: right;
+        font-size: @font-size-smaller;
+      }
+    }
+
+    &.amountList {
+      padding: 0 70px;
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        .clearUl();
+
+        li {
+          width: 25%;
+          text-align: center;
+          box-sizing: border-box;
+          padding: 20px 0;
+          margin-right: 8%;
+          margin-bottom: 40px;
+          border: 2px solid @font-sub-color;
+          color: @font-sub-color;
+
+          &:nth-child(3n + 0) {
+            margin-right: 0;
+          }
+
+          &.activity {
+            border: 2px solid;
+            border-image: linear-gradient(90deg, rgba(1, 118, 255, 1), rgba(124, 1, 255, 1)) 2 2;
+          }
+        }
+      }
+
+      p {
+        text-align: right;
+        font-size: @font-size-smaller;
+      }
+
+      button {
+        width: 100%;
+        padding: 18px 0;
+        margin-top: 80px;
+      }
+    }
+  }
+
+  .tips {
+    box-sizing: border-box;
+    padding: 100px 70px;
+    font-size: @font-size-smaller;
+    line-height: 2;
+  }
+}

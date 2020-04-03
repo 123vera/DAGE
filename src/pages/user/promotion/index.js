@@ -81,7 +81,7 @@ class Index extends Component {
         <section className={styles.explain}>
           <h4>
             {formatMessage({ id: `PROMOTION_RECOMMENDATION` })}
-            <img src={TIPS} alt="TIPS" onClick={this.hrefToTip}/>
+            <img src={TIPS} alt="TIPS" onClick={this.hrefToTip} />
           </h4>
           <ul className={styles.explainList}>
             <li>

@@ -4,11 +4,11 @@ import { router } from 'umi';
 import Header from '../../../components/common/Header';
 import styles from './index.less';
 import QRcode from 'qrcode.react';
+import { formatMessage } from 'umi/locale';
 import { connect } from 'dva';
 import Menus from '../../../components/common/Menus';
 import { Toast } from 'antd-mobile';
 import CopyToClipboard from 'react-copy-to-clipboard';
-import { formatMessage } from 'umi/locale';
 
 // const menus = [
 //   {
