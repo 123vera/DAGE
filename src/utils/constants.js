@@ -1,3 +1,5 @@
+import { formatMessage } from 'umi-plugin-locale';
+
 // 常用数据验证规则
 export const REG = {
   MOBILE: /^[0-9]{7,16}$/,
@@ -23,7 +25,14 @@ export const REG = {
 export const LANG = ['en-US', 'zh-CN', 'ko-KR', 'vi-VN', 'ja-JP', 'th-TH'];
 // export const LANG = ['en-US', 'zh-CN'];
 
-export const LEVEL_LIST = ['--', '初级', '高级', '区域', '国际', '全球'];
+export const LEVEL_LIST = () => [
+  '--',
+  formatMessage({ id: `PROMOTION_LEVEL_01` }),
+  formatMessage({ id: `PROMOTION_LEVEL_02` }),
+  formatMessage({ id: `PROMOTION_LEVEL_03` }),
+  formatMessage({ id: `PROMOTION_LEVEL_04` }),
+  formatMessage({ id: `PROMOTION_LEVEL_05` }),
+];
 
 export const COUNTRIES_LIST = [
   'China中国',

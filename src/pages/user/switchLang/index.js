@@ -24,7 +24,7 @@ class Index extends Component {
     setTimeout(() => {
       setLocale(this.state.lang);
       removeCookie('lang');
-    }, 1);
+    }, 5);
   };
 
   render() {

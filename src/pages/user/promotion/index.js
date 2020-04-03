@@ -30,7 +30,7 @@ class Index extends Component {
       teamLevelOtc,
       teamLevel,
     } = this.props.promotion;
-
+    console.log(formatMessage({ id: `PROMOTION_ACTIVITY` }));
     return (
       <div id={styles.promotion}>
         <PageHeader
@@ -53,49 +53,57 @@ class Index extends Component {
           </div>
 
           {/* 版本2.0临时隐藏 */}
-          {/* <div className={styles.content}>
-            <span className={styles.income}>勋章等级</span>
-            <h2>{teamLevelOtc !== 0 ? `${LEVEL_LIST[teamLevelOtc || 0]}节点` : '无'}</h2>
-          </div> */}
+          <div className={styles.content}>
+            <span className={styles.income}>{formatMessage({ id: `PROMOTION_LEVEL` })}</span>
+            <h2>
+              {teamLevelOtc !== 0
+                ? `${LEVEL_LIST[teamLevelOtc || 0]}${formatMessage({ id: `PROMOTION_POINT_02` })}`
+                : formatMessage({ id: `PROMOTION_NONE` })}
+            </h2>
+          </div>
           <img src={DAGE_LOGO} alt="DAGE_LOGO" />
         </section>
 
         {/* 版本2.0临时隐藏 */}
-        {/* <section className={styles.explain}>
+        <section className={styles.explain}>
           <h4>
             {formatMessage({ id: `PROMOTION_RECOMMENDATION` })}
             <img src={TIPS} alt="TIPS" />
           </h4>
           <ul className={styles.explainList}>
             <li>
-              {formatMessage({ id: `PROMOTION_GENERATION` })}
+              <span>{formatMessage({ id: `PROMOTION_GENERATION` })}</span>
               <p className={styles.first}>{recommendCount}</p>
             </li>
           </ul>
-        </section> */}
+        </section>
 
         {/* 版本2.0临时隐藏 */}
-        {/* <section style={{ display: 'none' }} className={styles.explain}>
+        <section className={styles.explain}>
           <ul className={styles.explainList}>
             <li>
-              昨日团队总业绩
-              <p>{achievement.dgt} DGT</p>
+              <span>{formatMessage({ id: `PROMOTION_TOTAL` })}</span>
+              <p>{achievement && achievement.dgt}&nbsp;DGT</p>
             </li>
           </ul>
-        </section> */}
+        </section>
 
         {/* 版本2.0临时隐藏 */}
-        {/* <section style={{ display: 'none' }} className={styles.explain}>
+        <section className={styles.explain}>
           <ul className={styles.explainList}>
             <li>
-              用户状态
-              <p className={styles.activity}>{mystatus === 0 ? '非活跃用户' : '活跃用户'}</p>
+              <span>{formatMessage({ id: `PROMOTION_STATUS` })}</span>
+              <p className={styles.activity}>
+                {mystatus === 0
+                  ? formatMessage({ id: `PROMOTION_UNACTIVITY` })
+                  : formatMessage({ id: `PROMOTION_ACTIVITY` })}
+              </p>
             </li>
           </ul>
-        </section> */}
+        </section>
 
-        {/* 版本2.0隐藏 */}
-        <section style={{ display: 'none' }} className={styles.group}>
+        {/* 2.0隐藏 */}
+        {/* <section style={{ display: 'none' }} className={styles.group}>
           <h4>{formatMessage({ id: `PROMOTION_RECOMMENDATION_TEAM` })}</h4>
 
           <ul className={styles.chartGroup}>
@@ -108,10 +116,10 @@ class Index extends Component {
               <span>{formatMessage({ id: `PROMOTION_REBATE_RATIO` })}</span>
             </li>
           </ul>
-        </section>
+        </section> */}
 
         {/* 版本2.0临时隐藏 */}
-        <section style={{ display: 'none' }} className={styles.firstRecommend}>
+        <section className={styles.firstRecommend}>
           <h4>{formatMessage({ id: `PROMOTION_MY_GENERATION` })}</h4>
           <ListView hasMore={hasMore} onLoadMore={this.getNotices}>
             <table>
