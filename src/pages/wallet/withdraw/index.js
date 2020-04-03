@@ -43,7 +43,7 @@ class Recharge extends Component {
         return Toast.info(res.msg);
       }
       const { coinList } = this.props.withdraw;
-      const coin = coinList.find(i => i.value === type.toLowerCase()) || coinList[0];
+      const coin = (type && coinList.find(i => i.value === type.toLowerCase())) || coinList[0];
 
       dispatch({
         type: 'withdraw/UpdateState',

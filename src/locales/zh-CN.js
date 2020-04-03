@@ -156,6 +156,7 @@ export default {
   PROMOTION_STATUS: `用户状态`,
   PROMOTION_UNACTIVITY: `非活跃用户`,
   PROMOTION_ACTIVITY: `活跃用户`,
+  PROMOTION_ONLY_SHOW: `仅显示已激活账户`,
 
   ASSETS_PAGE_TITLE: `总账户资产折合`,
   ASSETS_RECHANGE: `充币`,

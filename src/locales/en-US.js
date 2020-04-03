@@ -104,7 +104,7 @@ export default {
   USER_SECTION_04: `Official Announcement`,
   USER_SECTION_05: `Change Language`,
   USER_SECTION_06: `Contact customer service`,
-  USER_SECTION_07: `My Grades`,
+  USER_SECTION_07: `VIP Level`,
   USER_LOGOUT: `Confirm to log out?`,
   USER_RECOMMEND_CODE: `Referral code：`,
 
@@ -156,6 +156,7 @@ export default {
   PROMOTION_STATUS: `User status`,
   PROMOTION_UNACTIVITY: `Inactive User`,
   PROMOTION_ACTIVITY: `Active User`,
+  PROMOTION_ONLY_SHOW: `Show only activated accounts`,
 
   ASSETS_PAGE_TITLE: `Total Assets`,
   ASSETS_RECHANGE: `Deposit`,

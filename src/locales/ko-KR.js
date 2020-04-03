@@ -156,6 +156,7 @@ export default {
   PROMOTION_STATUS: `사용자 상태`,
   PROMOTION_UNACTIVITY: `비활동 유저`,
   PROMOTION_ACTIVITY: `액티브 유저`,
+  PROMOTION_ONLY_SHOW: `활성화 된 계정 만 표시`,
 
   ASSETS_PAGE_TITLE: `총자산`,
   ASSETS_RECHANGE: `예금`,

@@ -156,6 +156,7 @@ export default {
   PROMOTION_STATUS: `สถานะผู้ใช้`,
   PROMOTION_UNACTIVITY: `ผู้ใช้ที่ไม่ได้ใช้งาน`,
   PROMOTION_ACTIVITY: `ผู้ใช้ที่ใช้งาน`,
+  PROMOTION_ONLY_SHOW: `แสดงบัญชีที่เปิดใช้งานเท่านั้น`,
 
   ASSETS_PAGE_TITLE: `สินทรัพย์รวม`,
   ASSETS_RECHANGE: `ฝาก`,

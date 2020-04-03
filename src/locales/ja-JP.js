@@ -156,6 +156,7 @@ export default {
   PROMOTION_STATUS: `ユーザーステータス`,
   PROMOTION_UNACTIVITY: `非アクティブユーザー`,
   PROMOTION_ACTIVITY: `アクティブユーザー`,
+  PROMOTION_ONLY_SHOW: `有効なアカウントのみを表示`,
 
   ASSETS_PAGE_TITLE: `アセット合計`,
   ASSETS_RECHANGE: `デポジット`,

@@ -156,6 +156,7 @@ export default {
   PROMOTION_STATUS: `Trạng thái người dùng`,
   PROMOTION_UNACTIVITY: `Người dùng không hoạt động`,
   PROMOTION_ACTIVITY: `Người dùng hoạt động`,
+  PROMOTION_ONLY_SHOW: `Chỉ hiển thị các tài khoản được kích hoạt`,
 
   ASSETS_PAGE_TITLE: `Tổng tài sản`,
   ASSETS_RECHANGE: `Nạp tiền`,
