@@ -75,7 +75,7 @@ class OtcMining extends Component {
 
   render() {
     const { initInfo, count } = this.props.otcMining;
-    console.log(this.state.isChecked);
+
     return (
       <div className={styles.otcMining}>
         <header>

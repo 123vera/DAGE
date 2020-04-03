@@ -16,15 +16,27 @@
 
     &.banner {
       position: relative;
+      display: flex;
+      justify-content: space-around;
       margin-top: 16px;
       margin-bottom: 50px;
       line-height: 2.6;
+
+      &:first-child {
+        .content {
+          width: 52%;
+        }
+      }
+      &:last-child {
+        .content {
+          width: 45%;
+        }
+      }
 
       .content {
         position: relative;
         z-index: 2;
         display: inline-block;
-        width: 50%;
         text-align: center;
       }
 
@@ -66,7 +78,7 @@
           align-items: center;
           box-sizing: border-box;
           margin-top: 60px;
-          padding: 40px 45px;
+          padding: 40px;
           height: 116px;
           text-indent: 100px;
           background-color: @theme-color-bg-content;
@@ -83,8 +95,10 @@
           }
 
           span {
-            display: inline-block;
+            display: contents;
             text-align: left;
+            width: 50%;
+            text-overflow: ellipsis;
           }
 
           p {
@@ -95,6 +109,7 @@
             }
 
             &.activity {
+              word-break: keep-all;
               background: linear-gradient(
                 90deg,
                 rgba(4, 116, 255, 1) 0%,
