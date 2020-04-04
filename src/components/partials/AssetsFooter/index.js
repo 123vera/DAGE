@@ -21,11 +21,13 @@ class Index extends Component {
       USDT: [
         {
           img: ICON_RECHARGE,
+          value: 'recharge',
           label: formatMessage({ id: `ASSETS_RECHANGE` }),
-          path: '/wallet/recharge',
+          path: '/wallet/recharge?type=USDT',
         },
         {
           img: ICON_WITHDRAW,
+          value: 'withdraw',
           label: formatMessage({ id: `ASSETS_WITHDRAW` }),
           path: `/wallet/withdraw?type=USDT`,
         },
@@ -33,21 +35,25 @@ class Index extends Component {
       DGT: [
         {
           img: ICON_RECHARGE,
+          value: 'recharge',
           label: formatMessage({ id: `ASSETS_RECHANGE` }),
-          path: '/wallet/recharge',
+          path: '/wallet/recharge?type=DGT',
         },
         {
           img: ICON_WITHDRAW,
+          value: 'withdraw',
           label: formatMessage({ id: `ASSETS_WITHDRAW` }),
           path: `/wallet/withdraw?type=USDT`,
         },
         {
           img: ICON_TRANSFER,
+          value: 'transfer',
           label: formatMessage({ id: `ASSETS_TRANSFER` }),
           path: '',
         },
         {
           img: ICON_PART,
+          value: 'mining',
           label: formatMessage({ id: `WALLET_POG_BTN` }),
           path: `/otc-mining/${myInfo.phonePrefix === '86' ? 'inland' : 'abroad'}`,
         },
@@ -55,11 +61,13 @@ class Index extends Component {
       DID: [
         {
           img: ICON_RECHARGE,
+          value: 'recharge',
           label: formatMessage({ id: `ASSETS_RECHANGE` }),
-          path: '/wallet/recharge',
+          path: '/wallet/recharge?type=DID',
         },
         {
           img: ICON_WITHDRAW,
+          value: 'withdraw',
           label: formatMessage({ id: `ASSETS_WITHDRAW` }),
           path: `/wallet/withdraw?type=DID`,
         },
@@ -67,11 +75,13 @@ class Index extends Component {
       DGC: [
         {
           img: ICON_RECHARGE,
+          value: 'recharge',
           label: formatMessage({ id: `ASSETS_RECHANGE` }),
-          path: '/wallet/recharge',
+          path: '/wallet/recharge?type=DGC',
         },
         {
           img: ICON_WITHDRAW,
+          value: 'withdraw',
           label: formatMessage({ id: `ASSETS_WITHDRAW` }),
           path: `/wallet/withdraw?type=DGC`,
         },
@@ -79,6 +89,7 @@ class Index extends Component {
       OTC: [
         {
           img: ICON_RECHARGE,
+          value: 'exchange',
           label: formatMessage({ id: `ASSETS_RECHANGE` }),
           path: '/exchange',
         },
@@ -86,23 +97,39 @@ class Index extends Component {
       RC: [
         {
           img: ICON_RECHARGE,
+          value: 'recharge',
           label: formatMessage({ id: `ASSETS_RECHANGE` }),
-          path: '/wallet/recharge',
+          path: '/wallet/recharge?type=RC',
         },
         {
           img: ICON_WITHDRAW,
+          value: 'withdraw',
           label: formatMessage({ id: `ASSETS_WITHDRAW` }),
           path: `/wallet/withdraw?type=RC`,
         },
         {
           img: ICON_TRANSFER,
+          value: 'transfer',
           label: formatMessage({ id: `ASSETS_TRANSFER` }),
           path: '',
         },
       ],
     };
-    this.setState({ coinJump });
+    this.removeRechargeItem(coinJump).then(coinJump => this.setState({ coinJump }));
   }
+
+  removeRechargeItem = async (coinJump) => {
+    const { dispatch } = this.props;
+    const coins = await dispatch({
+      type: 'globalModel/GetCurrencyList',
+    });
+    Object.keys(coinJump).forEach(key => {
+      if (!coins.includes(key)) {
+        coinJump[key] = coinJump[key].filter(i => i.value !== 'recharge');
+      }
+    });
+    return coinJump;
+  };
 
   jumpTo = path => {
     if (!path) {
@@ -122,7 +149,7 @@ class Index extends Component {
         {jumps.map(jump => (
           <div key={jump.label}>
             <p onClick={() => this.jumpTo(jump.path)}>
-              <img src={jump.img} alt="" />
+              <img src={jump.img} alt=""/>
             </p>
             {jump.label}
           </div>

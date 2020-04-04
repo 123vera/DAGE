@@ -51,6 +51,7 @@ export default {
         type: 'UpdateState',
         payload: { rechargeCoins: res && res.data.currency },
       });
+      return res.data.currency
     },
 
     *Setlang({ payload }, { call }) {

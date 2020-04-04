@@ -3,8 +3,9 @@ import { UserApi } from '../../../services/api';
 export default {
   namespace: 'recharge',
   state: {
-    coin: {},
+    coin: '',
     wallet: '',
+    menus: [],
   },
   reducers: {
     UpdateState(state, { payload }) {
