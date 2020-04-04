@@ -29,7 +29,7 @@ class UserApi {
    * @required imgcode number 图形验证码
    * @required prefix number 手机国际码
    * @required phone number 手机号
-   * @required type string 验证码类型，reg（注册）,exchange(币种兑换),cash(提现)
+   * @required type string 验证码类型，reg（注册）,exchange(币种兑换),cash(提币)
    **/
   static sendSmsCode(options) {
     return request.post('/user/sendsmscode', { ...options, sid: SID });

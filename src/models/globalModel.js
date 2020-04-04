@@ -11,7 +11,7 @@ export default {
     captcha: '',
     captchaSrc: '',
     coinTeams: [],
-    rechargeCoins: [], // 充值币种列表
+    rechargeCoins: [], // 充=币币种列表
     lang: 'zh-cn',
   },
   reducers: {

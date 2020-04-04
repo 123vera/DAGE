@@ -34,6 +34,10 @@ class Assets extends Component {
     this.setState({ activityLi: key });
   };
 
+  jumpTo = (type) => {
+    router.push(`/wallet/flow?type=${type}`);
+  };
+
   render() {
     const {
       assetsHome: { list, totalAmount },
@@ -82,23 +86,23 @@ class Assets extends Component {
             {list.map((item, key) => (
               <li
                 key={key.toString()}
-                onClick={() => router.push(`/wallet/flow?type=${item.type}`)}
+                onClick={() => this.jumpTo(item.type)}
               >
                 <p>{item.type}</p>
                 <table>
                   <thead>
-                    <tr>
-                      <th>{formatMessage({ id: `EXCHANGE_CAN_USE` })}</th>
-                      <th>{formatMessage({ id: `ASSETS_UNIT_PRICE` })}（USD)</th>
-                      <th>{formatMessage({ id: `ASSETS_CONVERT` })}（USD)</th>
-                    </tr>
+                  <tr>
+                    <th>{formatMessage({ id: `EXCHANGE_CAN_USE` })}</th>
+                    <th>{formatMessage({ id: `ASSETS_UNIT_PRICE` })}（USD)</th>
+                    <th>{formatMessage({ id: `ASSETS_CONVERT` })}（USD)</th>
+                  </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>{downFixed(item.amount)}</td>
-                      <td>{downFixed(item.price)}</td>
-                      <td>{downFixed(item.amount * item.price)}</td>
-                    </tr>
+                  <tr>
+                    <td>{downFixed(item.amount)}</td>
+                    <td>{downFixed(item.price)}</td>
+                    <td>{downFixed(item.amount * item.price)}</td>
+                  </tr>
                   </tbody>
                 </table>
               </li>
