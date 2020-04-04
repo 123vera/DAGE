@@ -196,7 +196,7 @@ class Recharge extends Component {
             }}
             rightContent={{
               icon: Icons.record,
-              onHandle: () => router.push(`/wallet/withdraw-record?type=${coin.value}`),
+              onHandle: () => router.push(`/wallet/withdraw-record?type=${coin}`),
             }}
           />
           {showMenus && (
@@ -226,7 +226,7 @@ class Recharge extends Component {
           </div>
           <div className={styles.row}>
             <label>
-              {formatMessage({ id: `RECORD_LI_AMOUNT` })}（{coin.label}）
+              {formatMessage({ id: `RECORD_LI_AMOUNT` })}（{coin}）
             </label>
             <div className={styles.inputBox}>
               <input
@@ -277,7 +277,7 @@ class Recharge extends Component {
             <li>
               {formatMessage({ id: `WITHDRAW_TIPS_CONTENT_01` })}
               {downFixed(initInfo.dayMax)}
-              &nbsp;{coin.label}，{formatMessage({ id: `WITHDRAW_TIPS_CONTENT_02` })}
+              &nbsp;{coin}，{formatMessage({ id: `WITHDRAW_TIPS_CONTENT_02` })}
               {/* 英文语言下 文案显示不一样 */}
               {getLocale() === 'en-US' && downFixed(initInfo.amountMin || '--')}
               {/* 其他语言下 显示一样 */}
@@ -285,7 +285,7 @@ class Recharge extends Component {
               (downFixed(initInfo.amountMin) || '--') +
               ' - ' +
               (downFixed(initInfo.amountMax) || '--')}
-              &nbsp;{coin.label}，{formatMessage({ id: `WITHDRAW_TIPS_CONTENT_03` })}
+              &nbsp;{coin}，{formatMessage({ id: `WITHDRAW_TIPS_CONTENT_03` })}
               {serviceCharge !== '' ? downFixed(serviceCharge * 100, 1) : '--'}%
             </li>
             <li>{formatMessage({ id: `WITHDRAW_TIPS_CONTENT_04` })}</li>

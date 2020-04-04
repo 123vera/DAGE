@@ -43,7 +43,7 @@ class Index extends Component {
           img: ICON_WITHDRAW,
           value: 'withdraw',
           label: formatMessage({ id: `ASSETS_WITHDRAW` }),
-          path: `/wallet/withdraw?type=USDT`,
+          path: `/wallet/withdraw?type=DGT`,
         },
         {
           img: ICON_TRANSFER,
