@@ -11,7 +11,6 @@ import { Toast } from 'antd-mobile';
 
 @connect(({ globalModel }) => ({ globalModel }))
 class Index extends Component {
-
   state = {
     coinJump: {},
   };
@@ -22,28 +21,32 @@ class Index extends Component {
       USDT: [
         {
           img: ICON_RECHARGE,
-          label: formatMessage({ id: `WALLET_RECHARGE` }),
+          label: formatMessage({ id: `ASSETS_RECHANGE` }),
           path: '/wallet/recharge',
-        }, {
+        },
+        {
           img: ICON_WITHDRAW,
-          label: formatMessage({ id: `WALLET_WITHDRAW` }),
+          label: formatMessage({ id: `ASSETS_WITHDRAW` }),
           path: `/wallet/withdraw?type=USDT`,
         },
       ],
       DGT: [
         {
           img: ICON_RECHARGE,
-          label: formatMessage({ id: `WALLET_RECHARGE` }),
+          label: formatMessage({ id: `ASSETS_RECHANGE` }),
           path: '/wallet/recharge',
-        }, {
+        },
+        {
           img: ICON_WITHDRAW,
-          label: formatMessage({ id: `WALLET_WITHDRAW` }),
+          label: formatMessage({ id: `ASSETS_WITHDRAW` }),
           path: `/wallet/withdraw?type=USDT`,
-        }, {
+        },
+        {
           img: ICON_TRANSFER,
-          label: formatMessage({ id: `WALLET_COMING_SOON` }),
+          label: formatMessage({ id: `ASSETS_TRANSFER` }),
           path: '',
-        }, {
+        },
+        {
           img: ICON_PART,
           label: formatMessage({ id: `WALLET_POG_BTN` }),
           path: `/otc-mining/${myInfo.phonePrefix === '86' ? 'inland' : 'abroad'}`,
@@ -52,44 +55,48 @@ class Index extends Component {
       DID: [
         {
           img: ICON_RECHARGE,
-          label: formatMessage({ id: `WALLET_RECHARGE` }),
+          label: formatMessage({ id: `ASSETS_RECHANGE` }),
           path: '/wallet/recharge',
-        }, {
+        },
+        {
           img: ICON_WITHDRAW,
-          label: formatMessage({ id: `WALLET_WITHDRAW` }),
+          label: formatMessage({ id: `ASSETS_WITHDRAW` }),
           path: `/wallet/withdraw?type=DID`,
         },
       ],
       DGC: [
         {
           img: ICON_RECHARGE,
-          label: formatMessage({ id: `WALLET_RECHARGE` }),
+          label: formatMessage({ id: `ASSETS_RECHANGE` }),
           path: '/wallet/recharge',
-        }, {
+        },
+        {
           img: ICON_WITHDRAW,
-          label: formatMessage({ id: `WALLET_WITHDRAW` }),
+          label: formatMessage({ id: `ASSETS_WITHDRAW` }),
           path: `/wallet/withdraw?type=DGC`,
         },
       ],
       OTC: [
         {
           img: ICON_RECHARGE,
-          label: formatMessage({ id: `WALLET_RECHARGE` }),
+          label: formatMessage({ id: `ASSETS_RECHANGE` }),
           path: '/exchange',
         },
       ],
       RC: [
         {
           img: ICON_RECHARGE,
-          label: formatMessage({ id: `WALLET_RECHARGE` }),
+          label: formatMessage({ id: `ASSETS_RECHANGE` }),
           path: '/wallet/recharge',
-        }, {
+        },
+        {
           img: ICON_WITHDRAW,
-          label: formatMessage({ id: `WALLET_WITHDRAW` }),
+          label: formatMessage({ id: `ASSETS_WITHDRAW` }),
           path: `/wallet/withdraw?type=RC`,
-        }, {
+        },
+        {
           img: ICON_TRANSFER,
-          label: formatMessage({ id: `WALLET_COMING_SOON` }),
+          label: formatMessage({ id: `ASSETS_TRANSFER` }),
           path: '',
         },
       ],
@@ -97,7 +104,7 @@ class Index extends Component {
     this.setState({ coinJump });
   }
 
-  jumpTo = (path) => {
+  jumpTo = path => {
     if (!path) {
       Toast.info(formatMessage({ id: `WALLET_COMING_SOON` }));
       return;
@@ -112,16 +119,14 @@ class Index extends Component {
     console.log('type', type);
     return (
       <section id={styles.assetsFooter}>
-        {
-          jumps.map(jump =>
-            <div key={jump.label}>
-              <p onClick={() => this.jumpTo(jump.path)}>
-                <img src={jump.img} alt=""/>
-              </p>
-              {jump.label}
-            </div>,
-          )
-        }
+        {jumps.map(jump => (
+          <div key={jump.label}>
+            <p onClick={() => this.jumpTo(jump.path)}>
+              <img src={jump.img} alt="" />
+            </p>
+            {jump.label}
+          </div>
+        ))}
         {/* 下方按钮 DGT有4种，RC有三种(充币、提币、划转)，其他币种均为2种（充值提币） */}
         {/*<div>*/}
         {/*<p onClick={() => router.push('/wallet/recharge')}>*/}
