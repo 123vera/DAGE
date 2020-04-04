@@ -125,7 +125,7 @@ class Index extends Component {
     });
     Object.keys(coinJump).forEach(key => {
       if (!coins.includes(key)) {
-        coinJump[key] = coinJump[key].filter(i => i.value !== 'recharge');
+        coinJump[key] = coinJump[key].filter(i => i.value !== 'recharge' && i.value !== 'withdraw');
       }
     });
     return coinJump;
