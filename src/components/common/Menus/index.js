@@ -5,12 +5,12 @@ import React, { Component } from 'react';
 // const menus = [
 //   {
 //     value: '/wallet/recharge',
-//     label: '充值',
+//     label: '充币',
 //     icon: Icons.menuRecharge,
 //     width: '34px',
 //   }, {
 //     value: '/wallet/withdraw',
-//     label: '提现',
+//     label: '提币',
 //     icon: Icons.menuWithdraw,
 //     width: '34px',
 //   }, {

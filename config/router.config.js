@@ -60,7 +60,7 @@ export default [
       },
 
       { path: '/wallet/flow', title: 'DAGE WALLET', component: './wallet/flow' }, // 资金流水
-      { path: '/wallet/recharge', title: 'DAGE WALLET', component: './wallet/recharge' }, // 充值
+      { path: '/wallet/recharge', title: 'DAGE WALLET', component: './wallet/recharge' }, // 充币
       { path: '/wallet/withdraw', title: 'DAGE WALLET', component: './wallet/withdraw' }, // 提币
       {
         path: '/wallet/withdraw-record',
