@@ -15,7 +15,6 @@ class Index extends Component {
   };
 
   selectPrice = key => {
-    console.log(key);
     this.setState({ activityKey: key });
   };
 
