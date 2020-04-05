@@ -313,6 +313,10 @@ export default {
   // OTC_INLAND_SALE_TIPS_05: `5.正在进行OTC挖矿的DGT最高为30,000个，若出售DGT导致OTC挖矿的DGT超过30,000个，则此次出售不会成功。质押30000个DEP后可以享受额外代数收益，即1代200%，2到10代每代10%。`,
   OTC_INLAND_SALE_TIPS_05: `5.正在进行OTC挖矿的DGT最高为30,000个，若出售DGT导致OTC挖矿的DGT超过30,000个，则此次出售不会成功。建议挂单量为4000 DGT。`,
   OTC_INLAND_CHECKBOX: `请确认已打开挖矿插件`,
+  OTC_INLAND_FUEL_COSTS: `燃料费：`,
+  OTC_INLAND_SALE_01: `出售`,
+  OTC_INLAND_SALE_02: `，消耗`,
+  OTC_INLAND_SALE_03: `作为燃料，是否确认出售`,
 
   OTC_DETAIL_TITLE: `OTC挖矿详情`,
   OTC_DETAIL_TOTAL_REVENUE: `OTC挖矿总收益`,

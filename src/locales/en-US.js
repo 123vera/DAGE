@@ -312,6 +312,10 @@ export default {
   // OTC_INLAND_SALE_TIPS_05: `5. After depositing 30,000 DEP, you can enjoy additional benefits, which is 200% for first generation, and 10% for each generation from the 2nd  to 10th generations.`,
   OTC_INLAND_SALE_TIPS_05: `5. The maximum number of DGT for OTC mining is 30000. If the sale of DGT results in more than 30000 DGT of OTC mining, the sale will not be successful. It is recommended that the order quantity is 4000 DGT.`,
   OTC_INLAND_CHECKBOX: `Make sure the mining plugin is open `,
+  OTC_INLAND_FUEL_COSTS: `Fuel costs：`,
+  OTC_INLAND_SALE_01: `Sell `,
+  OTC_INLAND_SALE_02: `, consume `,
+  OTC_INLAND_SALE_03: ` as fuel, whether to confirm the sale`,
 
   OTC_DETAIL_TITLE: `OTC Mining details`,
   OTC_DETAIL_TOTAL_REVENUE: `OTC Total Mining Revenue`,

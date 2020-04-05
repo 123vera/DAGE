@@ -300,6 +300,10 @@ export default {
   OTC_INLAND_SALE_TIPS_04: `4. DGTを販売するには、OTCトランザクションクォータを消費する必要があります。 OTCトランザクションクォータが不十分な場合、DGTは販売できません。 OTCトランザクションクォータは、DID取引所によって取得できます。`,
   OTC_INLAND_SALE_TIPS_05: `5. OTCマイニングのDGTの最大数は30,000です。 DGTを販売した結果、OTCマイニングでのDGTの数が30,000を超える場合、販売は失敗したと見なされます。注文量は4000 DGT`,
   OTC_INLAND_CHECKBOX: `掘削プラグインを開いたことを確認してください`,
+  OTC_INLAND_FUEL_COSTS: `燃料費：`,
+  OTC_INLAND_SALE_01: `  `,
+  OTC_INLAND_SALE_02: ` を販売し、燃料として `,
+  OTC_INLAND_SALE_03: ` を消費し、販売を確認するかどうか`,
 
   OTC_DETAIL_TITLE: `OTCマイニング詳細`,
   OTC_DETAIL_TOTAL_REVENUE: `OTCマイニング収入合計`,

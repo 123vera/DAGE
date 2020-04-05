@@ -313,6 +313,10 @@ export default {
   OTC_INLAND_SALE_TIPS_05: `Số DGT tối đa trong khai thác OTC là 30.000. Nếu việc bán DGT vượt quá hạn mức 30.000 DGT trong khai thác OTC, giao dịch bán ra này sẽ được coi là bất thành. Đề nghị đăng ký 4000 DGT`,
   // OTC_INLAND_SALE_TIPS_05: `5.正在进行OTC挖矿的DGT最高为30,000个，若出售DGT导致OTC挖矿的DGT超过30,000个，则此次出售不会成功。建议挂单量为4000 DGT。`,
   OTC_INLAND_CHECKBOX: `Hãy xác nhận là đã mở các bổ sung khai thác mỏ`,
+  OTC_INLAND_FUEL_COSTS: `Chi phí nhiên liệu：`,
+  OTC_INLAND_SALE_01: `Bán `,
+  OTC_INLAND_SALE_02: `, tiêu thụ  `,
+  OTC_INLAND_SALE_03: ` làm nhiên liệu, có xác nhận việc bán không`,
 
   OTC_DETAIL_TITLE: `Chi tiết Khai thác OTC`,
   OTC_DETAIL_TOTAL_REVENUE: `Tổng doanh thu Khai thác OTC`,
