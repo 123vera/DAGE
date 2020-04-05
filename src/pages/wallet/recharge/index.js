@@ -43,6 +43,10 @@ class Recharge extends Component {
   };
 
   changeCoin = menu => {
+    if (menu.value === 'DGT') {
+      router.push('/wallet/dgt_recharge');
+      return;
+    }
     const { dispatch } = this.props;
     dispatch({
       type: 'recharge/UpdateState',

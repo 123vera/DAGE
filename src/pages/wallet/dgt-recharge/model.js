@@ -3,7 +3,8 @@ import AssetApi from '../../../services/api/asset';
 export default {
   namespace: 'dgtRecharge',
   state: {
-    recommendnum: [],
+    amount: '',
+    amountOptions: [],
   },
   reducers: {
     UpdateState(state, { payload }) {
@@ -11,12 +12,20 @@ export default {
     },
   },
   effects: {
-    *GetRmbIni({ payload }, { call, put }) {
+    * GetRmbIni({ payload }, { call, put }) {
       const res = yield call(AssetApi.getRmbIni, payload);
       if (res.status === 1) {
-        const { recommendnum } = res.data;
-        yield put({ type: 'UpdateState', payload: { recommendnum: recommendnum.split(',') } });
+        const { recommendnum, ratio } = res.data;
+        const amountOptions = recommendnum && recommendnum.split(',') || [];
+        yield put({
+          type: 'UpdateState',
+          payload: { ratio, amountOptions, amount: amountOptions[0] },
+        });
       }
+    },
+    * RmbRecharge({ payload }, { call, select }) {
+      const { amount } = yield select(state => state.dgtRecharge);
+      return yield call(AssetApi.rmbRecharge, { num: amount });
     },
   },
   subscriptions: {

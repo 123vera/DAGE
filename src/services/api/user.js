@@ -1,5 +1,5 @@
 import request from '../request';
-import { getApiBaseUrl, getAccountToken, getOpenId, onlinePost, onlineGet } from '../utils';
+import { getApiBaseUrl, getAccountToken, getOpenId, onlinePost } from '../utils';
 
 const SID = '12c68f99664da7bc';
 

@@ -3,7 +3,7 @@ import { formatMessage } from 'umi/locale';
 import { connect } from 'dva';
 import { Toast, Button } from 'antd-mobile';
 import PageHeader from '../../../components/common/PageHeader';
-import Captcha from '../../../components/partials/Captcha';
+// import Captcha from '../../../components/partials/Captcha';
 import { COUNT_DOWN, REG } from '../../../utils/constants';
 import styles from './index.less';
 import { Icons } from '../../../assets';
@@ -218,7 +218,6 @@ class Index extends Component {
   };
 
   render() {
-    const { captchaSrc, captcha } = this.props.globalModel;
     const {
       beforeCoins,
       afterCoins,
@@ -227,7 +226,6 @@ class Index extends Component {
       initInfo,
       balance,
       amount,
-      code,
     } = this.props.exchange;
     const { showBeforeMenus, showAfterMenus, count } = this.state;
 
@@ -311,36 +309,6 @@ class Index extends Component {
                 </small>
               </p>
             </label>
-            {/* <Captcha
-              captchaSrc={captchaSrc}
-              value={captcha}
-              onChange={e => this.onCaptchaChange(e.target.value)}
-              getCaptcha={this.getCaptcha}
-            />
-            <label>
-              <span className={styles.label}>{formatMessage({ id: `EXCHANGE_LABEL_PHONE` })}</span>
-              <div className={styles.codeWrapper}>
-                <input
-                  type="number"
-                  autoComplete="off"
-                  value={code}
-                  maxLength={4}
-                  autoComplete="off"
-                  placeholder={formatMessage({ id: `COMMON_PLACEHOLDER_CODE` })}
-                  onChange={e => this.onCodeChange(e.target.value)}
-                />
-                <button
-                  disabled={count > 0 && count < COUNT_DOWN}
-                  className={styles.codeNumber}
-                  onClick={this.getSmsCode}
-                >
-                  {count > 0 && count < COUNT_DOWN
-                    ? count + 's'
-                    : formatMessage({ id: `REGISTER_GET_CODE` })}
-                </button>
-              </div>
-            </label> */}
-
             <p className={`${styles.labelTag} ${styles.small}`}>
               {formatMessage({ id: `EXCHANGE_FEE` })}{' '}
               <small>

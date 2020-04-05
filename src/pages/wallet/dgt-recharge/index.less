@@ -3,6 +3,21 @@
 #dgtRecharge {
   color: @font-sub-color;
 
+  .header {
+    position: relative;
+
+    .menus {
+      position: absolute;
+      top: 100px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: none;
+
+      &.show {
+        display: block;
+      }
+    }
+  }
   section {
     box-sizing: border-box;
     padding: 100px 70px;
@@ -23,6 +38,8 @@
           padding: 22px 15px;
           margin: 20px auto;
           background-color: @theme-color-bg-content;
+
+          color: #fff;
 
           &::placeholder {
             color: @font-sub-color;
