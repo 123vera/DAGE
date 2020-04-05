@@ -1,20 +1,31 @@
-import { UserApi } from '../../../services/api';
+import AssetApi from '../../../services/api/asset';
 
 export default {
   namespace: 'dgtRecharge',
-  state: {},
+  state: {
+    recommendnum: [],
+  },
   reducers: {
     UpdateState(state, { payload }) {
       return { ...state, ...payload };
     },
   },
   effects: {
-    *GetMyWallet({ payload }, { call, put }) {
-      // const res = yield call(UserApi.getMyWallet, payload);
-      // if (res.status === 1) {
-      //   yield put({ type: 'UpdateState', payload: { wallet: res.data.wallet } });
-      // }
-      // return res;
+    *GetRmbIni({ payload }, { call, put }) {
+      const res = yield call(AssetApi.getRmbIni, payload);
+      if (res.status === 1) {
+        const { recommendnum } = res.data;
+        yield put({ type: 'UpdateState', payload: { recommendnum: recommendnum.split(',') } });
+      }
+    },
+  },
+  subscriptions: {
+    SetupHistory({ dispatch, history }) {
+      history.listen(location => {
+        if (location.pathname === '/wallet/dgt_recharge') {
+          dispatch({ type: 'GetRmbIni' });
+        }
+      });
     },
   },
 };
