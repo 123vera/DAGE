@@ -279,6 +279,10 @@ export default {
   OTC_INLAND_SALE_TIPS_05: ` OTC 채굴에서 DGT의 최대 수는 30,000입니다. DGT 판매 결과가 30,000을 초과하는 OTC 채굴의 DGT 수가 될 경우, 판매는 성공하지 못한 것으로 간주됩니다. 4 천 ddgt의 수주량을 권하고 있다`,
   // OTC_INLAND_SALE_TIPS_05: `5.正在进行OTC挖矿的DGT最高为30,000个，若出售DGT导致OTC挖矿的DGT超过30,000个，则此次出售不会成功。建议挂单量为4000 DGT。`,
   OTC_INLAND_CHECKBOX: `토굴 플러그인이 열려 있는지 확인하십시오.`,
+  OTC_INLAND_FUEL_COSTS: `연료비：`,
+  OTC_INLAND_SALE_01: ` `,
+  OTC_INLAND_SALE_02: ` 판매，`,
+  OTC_INLAND_SALE_03: ` 를 연료로 소비, 판매 확인 여부`,
 
   OTC_DETAIL_TITLE: `OTC 채굴 세부 정보`,
   OTC_DETAIL_TOTAL_REVENUE: `OTC 총 채굴 수익`,
