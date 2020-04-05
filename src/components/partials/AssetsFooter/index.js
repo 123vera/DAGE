@@ -143,7 +143,6 @@ class Index extends Component {
     const { type } = this.props;
     const jumps = this.state.coinJump[type] || [];
 
-    console.log('type', type);
     return (
       <section id={styles.assetsFooter}>
         {jumps.map(jump => (
