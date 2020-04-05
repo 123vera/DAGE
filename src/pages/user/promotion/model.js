@@ -3,11 +3,11 @@ import UserApi from '../../../services/api/user';
 export default {
   namespace: 'promotion',
   state: {
-    teamLevelOtc: null,
-    achievement: null,
-    teamLevel: null,
-    teamCount: null,
-    recommendCount: null,
+    teamLevelOtc: 0,
+    achievement: {},
+    teamLevel: 0,
+    teamCount: 0,
+    recommendCount: 0,
     mystatus: null,
     page: 1,
     row: 10,
