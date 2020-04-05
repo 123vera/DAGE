@@ -41,6 +41,7 @@ class Index extends Component {
   countDown = () => {
     const { endTime } = this.state;
     if (endTime <= 0) return;
+
     setTimeout(() => {
       this.setState({ endTime: endTime - 1 }, () => this.countDown());
     }, 1000);
@@ -57,15 +58,15 @@ class Index extends Component {
   };
 
   render() {
-    const { payImg, endTime } = this.state;
+    const { payImg, endTime, orderNo, num } = this.state;
 
     return (
       <div id={styles.dgtPay}>
         <PageHeader title={'支付宝支付'} leftContent={{ icon: ARROW_LEFT }}/>
-        <p className={styles.title}>订单号： 32413432（需要接口返回）</p>
+        <p className={styles.title}>订单号：{orderNo}</p>
 
         <section className={styles.top}>
-          <p>￥887（需要接口返回）</p>
+          <p>￥{num}</p>
           <QrCodeBox key={payImg} value={payImg}/>
           <small>
             距离订单过期还有

@@ -5,6 +5,8 @@ export default {
   state: {
     amount: '',
     amountOptions: [],
+    minAmount: 0,
+    maxAmount: 100000,
   },
   reducers: {
     UpdateState(state, { payload }) {
@@ -15,26 +17,23 @@ export default {
     * GetRmbIni({ payload }, { call, put }) {
       const res = yield call(AssetApi.getRmbIni, payload);
       if (res.status === 1) {
-        const { recommendnum, ratio } = res.data;
+        const { recommendnum, ratio, MIN, MAX } = res.data;
         const amountOptions = recommendnum && recommendnum.split(',') || [];
         yield put({
           type: 'UpdateState',
-          payload: { ratio, amountOptions, amount: amountOptions[0] },
+          payload: {
+            ratio,
+            amountOptions,
+            amount: amountOptions[0],
+            minAmount: Number(MIN),
+            maxAmount: Number(MAX),
+          },
         });
       }
     },
     * RmbRecharge({ payload }, { call, select }) {
       const { amount } = yield select(state => state.dgtRecharge);
       return yield call(AssetApi.rmbRecharge, { num: amount });
-    },
-  },
-  subscriptions: {
-    SetupHistory({ dispatch, history }) {
-      history.listen(location => {
-        if (location.pathname === '/wallet/dgt_recharge') {
-          dispatch({ type: 'GetRmbIni' });
-        }
-      });
     },
   },
 };

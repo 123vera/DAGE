@@ -2,17 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="85fa9ab6-0589-4a2d-9a7e-858b39c025c1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/wallet/Coins/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/ecological/exchange/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/ecological/exchange/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/wallet/dgt-pay/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/wallet/dgt-pay/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/wallet/dgt-pay/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/wallet/dgt-pay/index.less" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/wallet/dgt-recharge/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/wallet/dgt-recharge/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/wallet/dgt-recharge/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/wallet/dgt-recharge/index.less" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/wallet/dgt-recharge/model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/wallet/dgt-recharge/model.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/wallet/recharge/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/wallet/recharge/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/api/asset.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/api/asset.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/api/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/api/user.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -47,7 +40,7 @@
           <entry key="ejs" value="2" />
           <entry key="gitignore" value="4" />
           <entry key="html" value="1" />
-          <entry key="js" value="728" />
+          <entry key="js" value="729" />
           <entry key="json" value="4" />
           <entry key="jsx" value="2" />
           <entry key="less" value="181" />
@@ -70,7 +63,7 @@
           <entry key="Image" value="44" />
           <entry key="JSON" value="4" />
           <entry key="JSX Harmony" value="2" />
-          <entry key="JavaScript" value="728" />
+          <entry key="JavaScript" value="729" />
           <entry key="Less" value="181" />
           <entry key="Markdown" value="45" />
           <entry key="PLAIN_TEXT" value="5" />
@@ -91,12 +84,12 @@
           <entry key="css" value="14" />
           <entry key="ejs" value="17" />
           <entry key="gitignore" value="5" />
-          <entry key="js" value="31853" />
+          <entry key="js" value="31986" />
           <entry key="json" value="2" />
           <entry key="less" value="5787" />
           <entry key="md" value="155" />
           <entry key="sh" value="14" />
-          <entry key="txt" value="380" />
+          <entry key="txt" value="388" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -105,17 +98,17 @@
           <entry key="CSS" value="14" />
           <entry key="EJS" value="17" />
           <entry key="JSON" value="2" />
-          <entry key="JavaScript" value="31853" />
+          <entry key="JavaScript" value="31986" />
           <entry key="Less" value="5787" />
           <entry key="Markdown" value="155" />
-          <entry key="PLAIN_TEXT" value="385" />
+          <entry key="PLAIN_TEXT" value="393" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
         <counts>
           <entry key="git.branch.checkout.remote" value="1" />
           <entry key="git.branch.create.new" value="1" />
-          <entry key="git.branch.merge" value="1" />
+          <entry key="git.branch.merge" value="3" />
         </counts>
       </usages-collector>
     </session>
@@ -125,10 +118,30 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/wallet/dgt-recharge/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="318">
-              <caret line="51" column="37" lean-forward="true" selection-start-line="51" selection-start-column="37" selection-end-line="51" selection-end-column="37" />
+            <state relative-caret-position="347">
+              <caret line="57" column="43" selection-start-line="57" selection-start-column="36" selection-end-line="57" selection-end-column="43" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
+                <element signature="e#462#509#0" expanded="true" />
+                <element signature="e#818#891#0" expanded="true" />
+                <element signature="e#1998#2182#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/partials/AssetsFooter/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-746">
+              <caret line="140" lean-forward="true" selection-start-line="140" selection-end-line="140" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+                <element signature="e#586#609#0" expanded="true" />
+                <element signature="e#704#3385#0" expanded="true" />
+                <element signature="e#1110#1862#0" expanded="true" />
+                <element signature="e#1120#1294#0" expanded="true" />
+                <element signature="e#1304#1478#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -146,10 +159,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pages/wallet/dgt-pay/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
-              <caret line="70" column="40" lean-forward="true" selection-start-line="70" selection-start-column="40" selection-end-line="70" selection-end-column="40" />
+            <state relative-caret-position="148">
+              <caret line="63" column="29" lean-forward="true" selection-start-line="63" selection-start-column="29" selection-end-line="63" selection-end-column="29" />
               <folding>
-                <element signature="e#109#143#0" expanded="true" />
+                <element signature="e#0#41#0" expanded="true" />
                 <element signature="e#389#407#0" expanded="true" />
               </folding>
             </state>
@@ -169,8 +182,8 @@
         <entry file="file://$PROJECT_DIR$/项目资源.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="264">
-                <caret line="12" column="8" lean-forward="true" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
+              <first_editor relative-caret-position="406">
+                <caret line="19" column="26" lean-forward="true" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
               </first_editor>
               <second_editor />
             </state>
@@ -180,24 +193,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pages/wallet/dgt-recharge/model.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="638">
-              <caret line="39" column="2" lean-forward="true" selection-start-line="39" selection-start-column="2" selection-end-line="39" selection-end-column="2" />
+            <state relative-caret-position="324">
+              <caret line="23" column="20" lean-forward="true" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
               <folding>
-                <element signature="e#68#1106#0" expanded="true" />
-                <element signature="e#267#872#0" expanded="true" />
-                <element signature="e#891#1103#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/services/api/user.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="15" column="5" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
-              <folding>
-                <element signature="e#0#33#0" expanded="true" />
+                <element signature="e#107#151#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -235,7 +234,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>登录</find>
       <find>下一步</find>
       <find>提交</find>
       <find>WALLET_POG_TITLE</find>
@@ -265,6 +263,7 @@
       <find>captchaSrc</find>
       <find>UserApi</find>
       <find>Captcha</find>
+      <find>console.log</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -320,7 +319,6 @@
         <option value="$PROJECT_DIR$/src/pages/wallet/recharge/model.js" />
         <option value="$PROJECT_DIR$/src/pages/wallet/withdraw/model.js" />
         <option value="$PROJECT_DIR$/src/pages/wallet/withdraw/index.js" />
-        <option value="$PROJECT_DIR$/src/components/partials/AssetsFooter/index.js" />
         <option value="$PROJECT_DIR$/src/pages/user/promotion/model.js" />
         <option value="$PROJECT_DIR$/src/pages/user/promotion/index.js" />
         <option value="$PROJECT_DIR$/src/pages/user/promotion/index.less" />
@@ -332,9 +330,10 @@
         <option value="$PROJECT_DIR$/src/components/wallet/Coins/index.js" />
         <option value="$PROJECT_DIR$/src/pages/wallet/dgt-recharge/index.less" />
         <option value="$PROJECT_DIR$/src/services/api/asset.js" />
+        <option value="$PROJECT_DIR$/src/pages/wallet/dgt-pay/index.less" />
+        <option value="$PROJECT_DIR$/src/components/partials/AssetsFooter/index.js" />
         <option value="$PROJECT_DIR$/src/pages/wallet/dgt-recharge/model.js" />
         <option value="$PROJECT_DIR$/src/pages/wallet/dgt-recharge/index.js" />
-        <option value="$PROJECT_DIR$/src/pages/wallet/dgt-pay/index.less" />
         <option value="$PROJECT_DIR$/src/pages/wallet/dgt-pay/index.js" />
       </list>
     </option>
@@ -611,21 +610,7 @@
       <workItem from="1585582880298" duration="1266000" />
       <workItem from="1585976362589" duration="12980000" />
       <workItem from="1586061714355" duration="1842000" />
-      <workItem from="1586075144772" duration="2036000" />
-    </task>
-    <task id="LOCAL-00034" summary="update">
-      <created>1583508872046</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1583508872046</updated>
-    </task>
-    <task id="LOCAL-00035" summary="update">
-      <created>1583551548108</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1583551548108</updated>
+      <workItem from="1586075144772" duration="3662000" />
     </task>
     <task id="LOCAL-00036" summary="update smsCode">
       <created>1583556526183</created>
@@ -956,11 +941,25 @@
       <option name="project" value="LOCAL" />
       <updated>1586066446563</updated>
     </task>
-    <option name="localTasksCounter" value="83" />
+    <task id="LOCAL-00083" summary="人民币充值">
+      <created>1586077345670</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1586077345671</updated>
+    </task>
+    <task id="LOCAL-00084" summary="人民币充值">
+      <created>1586077527810</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1586077527810</updated>
+    </task>
+    <option name="localTasksCounter" value="85" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="336151000" />
+    <option name="totallyTimeSpent" value="337777000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="575" y="38" width="944" height="990" extended-state="0" />
@@ -1027,7 +1026,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="修改提币记录" />
     <MESSAGE value="修改项目资源" />
     <MESSAGE value="update" />
     <MESSAGE value="update smsCode" />
@@ -1052,7 +1050,8 @@
     <MESSAGE value="修改luyao" />
     <MESSAGE value="修改钱包和提现" />
     <MESSAGE value="修改我的等级" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改我的等级" />
+    <MESSAGE value="人民币充值" />
+    <option name="LAST_COMMIT_MESSAGE" value="人民币充值" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/pages/account/selectAccount/index.js">
@@ -1197,6 +1196,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
           <caret line="21" column="37" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
+          <folding>
+            <element signature="e#102#322#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1204,6 +1206,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="572">
           <caret line="52" column="9" lean-forward="true" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
+          <folding>
+            <element signature="e#1498#1598#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1297,17 +1302,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/partials/AssetsFooter/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="39" column="42" lean-forward="true" selection-start-line="39" selection-start-column="17" selection-end-line="39" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/wallet/recharge/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
           <caret line="37" column="7" lean-forward="true" selection-start-line="34" selection-start-column="10" selection-end-line="37" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+            <element signature="e#575#602#0" expanded="true" />
+            <element signature="e#819#888#0" expanded="true" />
+            <element signature="e#1037#1112#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1387,42 +1391,10 @@
     <entry file="file://$PROJECT_DIR$/src/services/api/other.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/wallet/dgt-recharge/model.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="638">
-          <caret line="39" column="2" lean-forward="true" selection-start-line="39" selection-start-column="2" selection-end-line="39" selection-end-column="2" />
-          <folding>
-            <element signature="e#68#1106#0" expanded="true" />
-            <element signature="e#267#872#0" expanded="true" />
-            <element signature="e#891#1103#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/router.config.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
           <caret line="64" column="30" lean-forward="true" selection-start-line="64" selection-start-column="15" selection-end-line="64" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/项目资源.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="264">
-            <caret line="12" column="8" lean-forward="true" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pages/wallet/dgt-recharge/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="51" column="37" lean-forward="true" selection-start-line="51" selection-start-column="37" selection-end-line="51" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1433,12 +1405,60 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/partials/AssetsFooter/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-746">
+          <caret line="140" lean-forward="true" selection-start-line="140" selection-end-line="140" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+            <element signature="e#586#609#0" expanded="true" />
+            <element signature="e#704#3385#0" expanded="true" />
+            <element signature="e#1110#1862#0" expanded="true" />
+            <element signature="e#1120#1294#0" expanded="true" />
+            <element signature="e#1304#1478#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/项目资源.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="406">
+            <caret line="19" column="26" lean-forward="true" selection-start-line="19" selection-start-column="26" selection-end-line="19" selection-end-column="26" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/wallet/dgt-recharge/model.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="23" column="20" lean-forward="true" selection-start-line="23" selection-start-column="20" selection-end-line="23" selection-end-column="20" />
+          <folding>
+            <element signature="e#107#151#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/wallet/dgt-recharge/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="347">
+          <caret line="57" column="43" selection-start-line="57" selection-start-column="36" selection-end-line="57" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+            <element signature="e#462#509#0" expanded="true" />
+            <element signature="e#818#891#0" expanded="true" />
+            <element signature="e#1998#2182#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/wallet/dgt-pay/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="70" column="40" lean-forward="true" selection-start-line="70" selection-start-column="40" selection-end-line="70" selection-end-column="40" />
+        <state relative-caret-position="148">
+          <caret line="63" column="29" lean-forward="true" selection-start-line="63" selection-start-column="29" selection-end-line="63" selection-end-column="29" />
           <folding>
-            <element signature="e#109#143#0" expanded="true" />
+            <element signature="e#0#41#0" expanded="true" />
             <element signature="e#389#407#0" expanded="true" />
           </folding>
         </state>

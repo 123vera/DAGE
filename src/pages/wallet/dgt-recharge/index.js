@@ -12,8 +12,11 @@ import { Toast } from 'antd-mobile';
 class Index extends Component {
   state = {
     showMenus: false,
-    activityKey: 0,
   };
+
+  componentDidMount() {
+    this.props.dispatch({ type: 'dgtRecharge/GetRmbIni' });
+  }
 
   changeCoin = (coin) => {
     this.setState({ showMenus: false });
@@ -33,9 +36,7 @@ class Index extends Component {
   };
 
   submit = () => {
-    const { amount, amountOptions } = this.props.dgtRecharge;
-    const minAmount = Number(amountOptions[0]);
-    const maxAmount = Number(amountOptions[amountOptions.length - 1]);
+    const { minAmount, maxAmount, amount } = this.props.dgtRecharge;
     if (!amount) {
       return Toast.info('请输入充值金额');
     }
@@ -51,8 +52,11 @@ class Index extends Component {
         if (res.status !== 1) {
           return Toast.info(res.msg);
         }
-        const { payimg: payImg, endtime: endTime } = res.data;
-        router.push({ pathname: '/wallet/dgt_pay', state: { payImg, endTime } });
+        const { payimg: payImg, endtime: endTime, orderno: orderNo, num } = res.data;
+        router.push({
+          pathname: '/wallet/dgt_pay',
+          state: { payImg, endTime, orderNo, num },
+        });
       });
   };
 
