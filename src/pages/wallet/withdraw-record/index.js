@@ -68,7 +68,8 @@ class WalletFlow extends Component {
           <Header
             icon={Icons.arrowLeft}
             title={formatMessage({ id: `RECORD_TITLE` })}
-            onHandle={() => router.push(`/wallet/withdraw?type=${type}`)}
+            // onHandle={() => router.push(`/wallet/withdraw?type=${type}`)}
+            onHandle={() => router.goBack()}
           />
         </section>
         <ListView hasMore={hasMore} onLoadMore={this.getWithdrawRecord}>

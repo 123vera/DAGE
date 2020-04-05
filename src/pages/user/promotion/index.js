@@ -133,7 +133,10 @@ class Index extends Component {
 
         {/* 版本2.0临时隐藏 */}
         <section className={styles.firstRecommend}>
-          <h4>{formatMessage({ id: `PROMOTION_MY_GENERATION` })}</h4>
+          <h4>
+            {formatMessage({ id: `PROMOTION_MY_GENERATION` })} （
+            {formatMessage({ id: `PROMOTION_ONLY_SHOW` })}）
+          </h4>
           <ListView hasMore={hasMore} onLoadMore={this.getNotices}>
             <table>
               <thead>

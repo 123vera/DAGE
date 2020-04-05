@@ -10,17 +10,6 @@ import Menus from '../../../components/common/Menus';
 import { Toast } from 'antd-mobile';
 import CopyToClipboard from 'react-copy-to-clipboard';
 
-// const menus = [
-//   {
-//     value: 'dgt',
-//     label: 'DGT',
-//   },
-//   {
-//     value: 'usdt',
-//     label: 'USDT',
-//   },
-// ];
-
 @connect(({ globalModel, recharge }) => ({ globalModel, recharge }))
 class Recharge extends Component {
   state = {
@@ -28,46 +17,40 @@ class Recharge extends Component {
   };
 
   componentDidMount() {
-    this.getInitCoins();
+    this.getInitCoins().then();
   }
 
   getInitCoins = async () => {
-    const { dispatch } = this.props;
-    await this.props.dispatch({
+    const { dispatch, location } = this.props;
+    const { type = '' } = location.query;
+    const coins = await dispatch({
       type: 'globalModel/GetCurrencyList',
       payload: {},
+    }) || [];
+    const coin = type || coins[0];
+    const menus = coins.map(coin => ({
+      label: coin,
+      value: coin,
+    }));
+    await dispatch({
+      type: 'recharge/UpdateState',
+      payload: { coin, menus },
     });
-
-    const {
-      globalModel: { rechargeCoins },
-    } = this.props;
-    let menus = [];
-
-    rechargeCoins.forEach(value => {
-      menus.push({
-        label: value.toUpperCase(),
-        value: value.toLowerCase(),
-      });
+    this.changeCoin({
+      label: coin,
+      value: coin,
     });
-
-    setTimeout(() => {
-      dispatch({
-        type: 'recharge/UpdateState',
-        payload: { coin: menus[0] },
-      });
-    }, 100);
-    this.changeCoin(menus[0]);
   };
 
-  changeCoin = coin => {
+  changeCoin = menu => {
     const { dispatch } = this.props;
     dispatch({
       type: 'recharge/UpdateState',
-      payload: { coin },
+      payload: { coin: menu.value },
     });
     dispatch({
       type: 'recharge/GetMyWallet',
-      payload: { type: coin.value },
+      payload: { type: menu.value },
     }).then(res => {
       if (res.status !== 1) {
         Toast.info(res.msg);
@@ -78,18 +61,7 @@ class Recharge extends Component {
 
   render() {
     const { showMenus } = this.state;
-    const {
-      globalModel: { rechargeCoins },
-    } = this.props;
-    const { coin, wallet } = this.props.recharge;
-    let menus = [];
-
-    rechargeCoins.forEach(value => {
-      menus.push({
-        label: value.toUpperCase(),
-        value: value.toLowerCase(),
-      });
-    });
+    const { coin, wallet, menus } = this.props.recharge;
 
     return (
       <div className={styles.recharge}>
@@ -97,7 +69,7 @@ class Recharge extends Component {
           <Header
             icon={Icons.arrowLeft}
             centerContent={{
-              text: coin.label,
+              text: coin,
               icon: Icons.arrowDown,
               reverse: true,
               onHandle: () => this.setState({ showMenus: !showMenus }),
@@ -106,14 +78,14 @@ class Recharge extends Component {
           />
           {showMenus && (
             <div className={styles.menus}>
-              <Menus menus={menus} textAlign="center" hasBorder onHandle={this.changeCoin} />
+              <Menus menus={menus} textAlign="center" hasBorder onHandle={this.changeCoin}/>
             </div>
           )}
         </div>
 
         <div className={styles.content}>
           <div className={styles.qrCode}>
-            <QRcode size={240} value={wallet} renderAs="canvas" />
+            <QRcode size={240} value={wallet} renderAs="canvas"/>
           </div>
           <p>{wallet}</p>
           <CopyToClipboard
@@ -129,15 +101,15 @@ class Recharge extends Component {
           <ul>
             <li>
               {formatMessage({ id: `RECHARGE_TIP_01` })}
-              &nbsp;{coin.label}
+              &nbsp;{coin}
               {formatMessage({ id: `RECHARGE_TIP_02` })}
-              &nbsp;{coin.label}
+              &nbsp;{coin}
               {formatMessage({ id: `RECHARGE_TIP_03` })}
             </li>
             <li>{formatMessage({ id: `RECHARGE_TIP_04` })}</li>
             <li>
               {formatMessage({ id: `RECHARGE_TIP_05` })}
-              &nbsp;{coin.label}
+              &nbsp;{coin}
               {formatMessage({ id: `RECHARGE_TIP_06` })}
             </li>
           </ul>

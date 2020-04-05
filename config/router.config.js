@@ -60,7 +60,7 @@ export default [
       },
 
       { path: '/wallet/flow', title: 'DAGE WALLET', component: './wallet/flow' }, // 资金流水
-      { path: '/wallet/recharge', title: 'DAGE WALLET', component: './wallet/recharge' }, // 充值
+      { path: '/wallet/recharge', title: 'DAGE WALLET', component: './wallet/recharge' }, // 充币
       { path: '/wallet/dgt_recharge', title: 'DAGE WALLET', component: './wallet/dgt-recharge' }, // DGT法币充值
       { path: '/wallet/dgt_pay', title: 'DAGE WALLET', component: './wallet/dgt-pay' }, // DGT法币充值 - 支付二维码
       { path: '/wallet/withdraw', title: 'DAGE WALLET', component: './wallet/withdraw' }, // 提币

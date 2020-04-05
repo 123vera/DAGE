@@ -62,7 +62,6 @@
           border-bottom: 2px solid #2e3546;
 
           &.active {
-            border-bottom: 2px solid;
             border-image: linear-gradient(
                 to right,
                 @theme-border-gradient-to,
@@ -81,6 +80,9 @@
                 @theme-border-gradient-from
               )
               1 10;
+            border-top: 0;
+            border-left: 0;
+            border-right: 0;
           }
         }
       }

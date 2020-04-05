@@ -20,36 +20,47 @@ class Recharge extends Component {
   };
 
   componentDidMount() {
+    this.getCaptcha();
+    this.getInitCoins().then();
+  }
+
+  componentWillUnmount() {
     const { dispatch } = this.props;
     dispatch({
       type: 'globalModel/UpdateState',
       payload: { captcha: '' },
     });
+    this.clearInput()
+  }
+
+  clearInput = ()=>{
+    const { dispatch } = this.props;
     dispatch({
       type: 'withdraw/UpdateState',
       payload: { walletTo: '', amount: '', code: '' },
     });
-
-    this.getCaptcha();
-    this.getInitCoins().then();
   }
 
   getInitCoins = async () => {
     const { dispatch, location } = this.props;
-    const { type } = location.query;
+    const { type = '' } = location.query;
 
-    dispatch({ type: 'withdraw/WithdrawInit' }).then(res => {
-      if (res.status !== 1) {
-        return Toast.info(res.msg);
-      }
-      const { coinList } = this.props.withdraw;
-      const coin = coinList.find(i => i.value === type.toLowerCase()) || coinList[0];
-
-      dispatch({
-        type: 'withdraw/UpdateState',
-        payload: { coin },
-      });
-      this.changeCoin(coin);
+    const coins = await dispatch({
+      type: 'globalModel/GetCurrencyList',
+      payload: {},
+    }) || [];
+    const coin = type || coins[0];
+    const menus = coins.map(coin => ({
+      label: coin,
+      value: coin,
+    }));
+    await dispatch({
+      type: 'withdraw/UpdateState',
+      payload: { coin, menus },
+    });
+    this.changeCoin({
+      label: coin,
+      value: coin,
     });
   };
 
@@ -59,19 +70,12 @@ class Recharge extends Component {
     e.stopPropagation();
   };
 
-  changeCoin = coin => {
+  changeCoin = menu => {
     const { dispatch } = this.props;
-    dispatch({
-      type: 'withdraw/UpdateState',
-      payload: { coin, walletTo: '', amount: '', code: '' },
-    });
-    dispatch({
-      type: 'globalModel/UpdateState',
-      payload: { captcha: '' },
-    });
+    this.clearInput();
     dispatch({ type: 'withdraw/WithdrawInit' });
     this.setState({ showMenus: false });
-    router.replace(`/wallet/withdraw?type=${coin.value}`);
+    router.replace(`/wallet/withdraw?type=${menu.value}`);
   };
 
   getCaptcha = () => {
@@ -169,7 +173,7 @@ class Recharge extends Component {
   render() {
     const { showMenus } = this.state;
     const { captchaSrc, captcha } = this.props.globalModel;
-    const { coin, initInfo, walletTo, amount, code, coinList } = this.props.withdraw;
+    const { coin, initInfo, walletTo, amount, code, menus } = this.props.withdraw;
 
     // 计算收入和手续费
     let { serviceCharge } = this.props.withdraw;
@@ -185,19 +189,19 @@ class Recharge extends Component {
             icon={Icons.arrowLeft}
             // onHandle={() => router.push('/home/wallet')}
             centerContent={{
-              text: coin.label || '--',
+              text: coin || '--',
               icon: Icons.arrowDown,
               reverse: true,
               onHandle: e => this.toggleShowMenus(e),
             }}
             rightContent={{
               icon: Icons.record,
-              onHandle: () => router.push(`/wallet/withdraw-record?type=${coin.value}`),
+              onHandle: () => router.push(`/wallet/withdraw-record?type=${coin}`),
             }}
           />
           {showMenus && (
             <div className={styles.menus}>
-              <Menus menus={coinList} hasBorder textAlign="center" onHandle={this.changeCoin} />
+              <Menus menus={menus} hasBorder textAlign="center" onHandle={this.changeCoin}/>
             </div>
           )}
         </div>
@@ -222,7 +226,7 @@ class Recharge extends Component {
           </div>
           <div className={styles.row}>
             <label>
-              {formatMessage({ id: `RECORD_LI_AMOUNT` })}（{coin.label}）
+              {formatMessage({ id: `RECORD_LI_AMOUNT` })}（{coin}）
             </label>
             <div className={styles.inputBox}>
               <input
@@ -237,7 +241,7 @@ class Recharge extends Component {
                   })
                 }
                 placeholder={`${formatMessage({ id: `WITHDRAW_MIN` })} ${initInfo.amountMin ||
-                  '--'}`}
+                '--'}`}
                 onChange={e => this.onAmountChange(e.target.value)}
               />
             </div>
@@ -253,7 +257,7 @@ class Recharge extends Component {
             getCaptcha={this.getCaptcha}
           />
           <div className={styles.row}>
-            <SmsCode value={code} getSmsCode={this.getSmsCode} onChange={this.onCodeChange} />
+            <SmsCode value={code} getSmsCode={this.getSmsCode} onChange={this.onCodeChange}/>
           </div>
           <div className={styles.group}>
             <small>{formatMessage({ id: `EXCHANGE_FEE` })}</small>
@@ -273,15 +277,15 @@ class Recharge extends Component {
             <li>
               {formatMessage({ id: `WITHDRAW_TIPS_CONTENT_01` })}
               {downFixed(initInfo.dayMax)}
-              &nbsp;{coin.label}，{formatMessage({ id: `WITHDRAW_TIPS_CONTENT_02` })}
+              &nbsp;{coin}，{formatMessage({ id: `WITHDRAW_TIPS_CONTENT_02` })}
               {/* 英文语言下 文案显示不一样 */}
               {getLocale() === 'en-US' && downFixed(initInfo.amountMin || '--')}
               {/* 其他语言下 显示一样 */}
               {getLocale() !== 'en-US' &&
-                (downFixed(initInfo.amountMin) || '--') +
-                  ' - ' +
-                  (downFixed(initInfo.amountMax) || '--')}
-              &nbsp;{coin.label}，{formatMessage({ id: `WITHDRAW_TIPS_CONTENT_03` })}
+              (downFixed(initInfo.amountMin) || '--') +
+              ' - ' +
+              (downFixed(initInfo.amountMax) || '--')}
+              &nbsp;{coin}，{formatMessage({ id: `WITHDRAW_TIPS_CONTENT_03` })}
               {serviceCharge !== '' ? downFixed(serviceCharge * 100, 1) : '--'}%
             </li>
             <li>{formatMessage({ id: `WITHDRAW_TIPS_CONTENT_04` })}</li>
