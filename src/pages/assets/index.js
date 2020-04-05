@@ -30,8 +30,16 @@ class Assets extends Component {
     activityLi: 1,
   };
 
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
+
   selectLi = key => {
     this.setState({ activityLi: key });
+  };
+
+  jumpTo = type => {
+    router.push(`/wallet/flow?type=${type}`);
   };
 
   render() {
@@ -80,10 +88,7 @@ class Assets extends Component {
         <section className={styles.listContent}>
           <ul>
             {list.map((item, key) => (
-              <li
-                key={key.toString()}
-                onClick={() => router.push(`/wallet/flow?type=${item.type}`)}
-              >
+              <li key={key.toString()} onClick={() => this.jumpTo(item.type)}>
                 <p>{item.type}</p>
                 <table>
                   <thead>

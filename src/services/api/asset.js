@@ -56,7 +56,7 @@ class AssetApi {
     // for (let i = order; i < options.row + order; i++) {
     //   data.list.push({
     //     addTime: +new Date(),
-    //     remark: '充值',
+    //     remark: '充币',
     //     type: options.type,
     //     amount: 300,
     //     userId: '32424232',
@@ -69,7 +69,7 @@ class AssetApi {
   }
 
   /**
-   * 获取提现记录
+   * 获取提币记录
    *
    * @required type string 币种类型
    * @required page string 页码

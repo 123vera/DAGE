@@ -70,7 +70,12 @@
     }
 
     &.explain {
+      position: relative;
+      z-index: 2;
+
       .explainList {
+        .clearUl;
+
         li {
           position: relative;
           display: flex;
@@ -80,7 +85,6 @@
           margin-top: 60px;
           padding: 40px;
           height: 116px;
-          text-indent: 100px;
           background-color: @theme-color-bg-content;
 
           &::before {
@@ -95,21 +99,26 @@
           }
 
           span {
-            display: contents;
-            text-align: left;
             width: 50%;
             text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
           }
 
           p {
+            flex: 1;
+            text-align: right;
             font-size: @font-size-common;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
 
             &.first {
               font-size: @font-size-section-title;
             }
 
             &.activity {
-              word-break: keep-all;
+              text-align: end;
               background: linear-gradient(
                 90deg,
                 rgba(4, 116, 255, 1) 0%,

@@ -3,11 +3,8 @@ import { AssetApi } from '../../../services/api';
 export default {
   namespace: 'withdraw',
   state: {
-    coinList: [],
-    coin: {
-      value: 'usdt',
-      label: 'USDT',
-    },
+    menus: [],
+    coin: '',
     initInfo: {},
     walletTo: '',
     // walletTo: '0x17e3e0189447416d412a3d92a240a06178a98c3d',
@@ -22,24 +19,16 @@ export default {
     },
   },
   effects: {
-    *WithdrawInit(_, { call, select, put }) {
+    * WithdrawInit(_, { call, select, put }) {
       const { coin } = yield select(state => state.withdraw);
-      const res = yield call(AssetApi.withdrawInit, { type: coin.value });
+      const res = yield call(AssetApi.withdrawInit, { type: coin });
       if (res.status === 1) {
-        const { typeList } = res.data;
-        const coinList =
-          typeList.map(i => {
-            return {
-              label: i.toUpperCase(),
-              value: i.toLowerCase(),
-            };
-          }) || [];
-        yield put({ type: 'UpdateState', payload: { initInfo: res.data, coinList } });
+        yield put({ type: 'UpdateState', payload: { initInfo: res.data } });
       }
       return res;
     },
 
-    *Withdraw(_, { call, select }) {
+    * Withdraw(_, { call, select }) {
       const { coin, walletTo, amount, code } = yield select(state => state.withdraw);
       return yield call(AssetApi.submitWithdrawal, {
         type: coin.value,
@@ -49,7 +38,7 @@ export default {
       });
     },
 
-    *GetServiceCharge(_, { call, select, put }) {
+    * GetServiceCharge(_, { call, select, put }) {
       const { coin, walletTo } = yield select(state => state.withdraw);
       const res = yield call(AssetApi.getServiceCharge, {
         address: walletTo,
