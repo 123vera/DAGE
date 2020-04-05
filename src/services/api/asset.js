@@ -94,6 +94,17 @@ class AssetApi {
   }
 
   /**
+   * 人民币充值初始化
+   *
+   * @required type string 币种(可不传)
+   * @required openId string 用户openid
+   *
+   **/
+  static getRmbIni(options) {
+    return onlinePost('/otc/rmbdepositini', options);
+  }
+
+  /**
    * 获取系统所有币种
    **/
   static getCurrencyList(params) {

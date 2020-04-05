@@ -7,14 +7,23 @@ import Menus from '../../../components/common/Menus';
 import Header from '../../../components/common/Header';
 import styles from './index.less';
 
-@connect(({ globalModel, recharge }) => ({ globalModel, recharge }))
+@connect(({ globalModel, dgtRecharge }) => ({ globalModel, dgtRecharge }))
 class Index extends Component {
   state = {
     showMenus: false,
+    activityKey: 0,
+  };
+
+  selectPrice = key => {
+    console.log(key);
+    this.setState({ activityKey: key });
   };
 
   render() {
-    const { showMenus } = this.state;
+    const { showMenus, activityKey } = this.state;
+    const {
+      dgtRecharge: { recommendnum },
+    } = this.props;
 
     return (
       <div id={styles.dgtRecharge}>
@@ -46,12 +55,15 @@ class Index extends Component {
 
         <section className={styles.amountList}>
           <ul>
-            <li className={styles.activity}>200</li>
-            <li>500</li>
-            <li>1000</li>
-            <li>2000</li>
-            <li>5000</li>
-            <li>20000</li>
+            {recommendnum.map((i, index) => (
+              <li
+                key={index.toString()}
+                onClick={() => this.selectPrice(index)}
+                className={activityKey === index ? styles.activity : ''}
+              >
+                {i}
+              </li>
+            ))}
           </ul>
           <p>实际到账：32.4 DGT</p>
           <button className={styles.btn}>充值</button>
