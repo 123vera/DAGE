@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="85fa9ab6-0589-4a2d-9a7e-858b39c025c1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/user/promotion/index.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/user/promotion/index.less" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/user/promotion/model.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/user/promotion/model.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/wallet/withdraw-record/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/wallet/withdraw-record/index.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -39,7 +38,7 @@
           <entry key="ejs" value="2" />
           <entry key="gitignore" value="4" />
           <entry key="html" value="1" />
-          <entry key="js" value="710" />
+          <entry key="js" value="711" />
           <entry key="json" value="4" />
           <entry key="jsx" value="2" />
           <entry key="less" value="176" />
@@ -62,7 +61,7 @@
           <entry key="Image" value="44" />
           <entry key="JSON" value="4" />
           <entry key="JSX Harmony" value="2" />
-          <entry key="JavaScript" value="710" />
+          <entry key="JavaScript" value="711" />
           <entry key="Less" value="176" />
           <entry key="Markdown" value="43" />
           <entry key="PLAIN_TEXT" value="5" />
@@ -83,12 +82,12 @@
           <entry key="css" value="14" />
           <entry key="ejs" value="17" />
           <entry key="gitignore" value="5" />
-          <entry key="js" value="30458" />
+          <entry key="js" value="30465" />
           <entry key="json" value="2" />
-          <entry key="less" value="5734" />
+          <entry key="less" value="5739" />
           <entry key="md" value="155" />
           <entry key="sh" value="14" />
-          <entry key="txt" value="374" />
+          <entry key="txt" value="380" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -97,10 +96,10 @@
           <entry key="CSS" value="14" />
           <entry key="EJS" value="17" />
           <entry key="JSON" value="2" />
-          <entry key="JavaScript" value="30458" />
-          <entry key="Less" value="5734" />
+          <entry key="JavaScript" value="30465" />
+          <entry key="Less" value="5739" />
           <entry key="Markdown" value="155" />
-          <entry key="PLAIN_TEXT" value="379" />
+          <entry key="PLAIN_TEXT" value="385" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages">
@@ -113,102 +112,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/partials/AssetsFooter/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1261">
-              <caret line="41" column="9" lean-forward="true" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-                <element signature="e#586#609#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/pages/user/promotion/index.js">
+        <entry file="file://$PROJECT_DIR$/src/pages/wallet/withdraw-record/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="98" column="17" selection-start-line="98" selection-start-column="17" selection-end-line="98" selection-end-column="17" />
+            <state relative-caret-position="174">
+              <caret line="68" column="34" lean-forward="true" selection-start-line="68" selection-start-column="34" selection-end-line="68" selection-end-column="34" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/user/promotion/index.less">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="103" lean-forward="true" selection-start-line="103" selection-end-line="103" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/styles/common.less">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/styles/mixin.less">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-36" />
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/项目资源.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="FIRST">
-              <first_editor relative-caret-position="163">
-                <caret line="13" column="73" lean-forward="true" selection-start-line="13" selection-start-column="73" selection-end-line="13" selection-end-column="73" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/user/promotion/model.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-33">
-              <caret line="7" column="17" lean-forward="true" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-              <folding>
-                <element signature="e#406#1249#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/models/globalModel.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="572">
-              <caret line="52" column="9" lean-forward="true" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
-              <folding>
-                <element signature="e#1498#1598#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/wallet/recharge/model.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="16" selection-start-line="16" selection-end-line="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pages/wallet/recharge/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="41" column="7" lean-forward="true" selection-start-line="29" selection-start-column="4" selection-end-line="41" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -245,8 +156,8 @@
       <find>充值</find>
       <find>myInfo</find>
       <find>coin</find>
-      <find>achievement</find>
       <find>text-indent</find>
+      <find>achievement</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -267,7 +178,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/config/router.config.js" />
         <option value="$PROJECT_DIR$/src/pages/user/alipay/pass/index.less" />
         <option value="$PROJECT_DIR$/src/pages/user/alipay/pending/index.less" />
         <option value="$PROJECT_DIR$/src/pages/user/alipay/reject/index.less" />
@@ -316,8 +226,9 @@
         <option value="$PROJECT_DIR$/src/pages/wallet/withdraw/index.js" />
         <option value="$PROJECT_DIR$/src/components/partials/AssetsFooter/index.js" />
         <option value="$PROJECT_DIR$/src/pages/user/promotion/model.js" />
-        <option value="$PROJECT_DIR$/src/pages/user/promotion/index.less" />
         <option value="$PROJECT_DIR$/src/pages/user/promotion/index.js" />
+        <option value="$PROJECT_DIR$/src/pages/user/promotion/index.less" />
+        <option value="$PROJECT_DIR$/src/pages/wallet/withdraw-record/index.js" />
       </list>
     </option>
   </component>
@@ -435,6 +346,21 @@
               <item name="pages" type="462c0819:PsiDirectoryNode" />
               <item name="user" type="462c0819:PsiDirectoryNode" />
               <item name="promotion" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dage" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dage" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="wallet" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dage" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dage" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="wallet" type="462c0819:PsiDirectoryNode" />
+              <item name="withdraw-record" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="dage" type="b2602c69:ProjectViewProjectNode" />
@@ -558,21 +484,7 @@
       <workItem from="1585320850542" duration="10147000" />
       <workItem from="1585582880298" duration="1266000" />
       <workItem from="1585976362589" duration="12980000" />
-      <workItem from="1586061714355" duration="1283000" />
-    </task>
-    <task id="LOCAL-00032" summary="update">
-      <created>1583420372092</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1583420372092</updated>
-    </task>
-    <task id="LOCAL-00033" summary="update">
-      <created>1583420391808</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1583420391808</updated>
+      <workItem from="1586061714355" duration="1842000" />
     </task>
     <task id="LOCAL-00034" summary="update">
       <created>1583508872046</created>
@@ -903,11 +815,25 @@
       <option name="project" value="LOCAL" />
       <updated>1586011741699</updated>
     </task>
-    <option name="localTasksCounter" value="81" />
+    <task id="LOCAL-00081" summary="修改我的等级">
+      <created>1586065237104</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1586065237104</updated>
+    </task>
+    <task id="LOCAL-00082" summary="修改我的等级">
+      <created>1586066446562</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1586066446563</updated>
+    </task>
+    <option name="localTasksCounter" value="83" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="327878000" />
+    <option name="totallyTimeSpent" value="328437000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="461" y="37" width="944" height="990" extended-state="0" />
@@ -974,7 +900,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="公告" />
     <MESSAGE value="修改提币记录" />
     <MESSAGE value="修改项目资源" />
     <MESSAGE value="update" />
@@ -999,12 +924,10 @@
     <MESSAGE value="修改otc挖矿" />
     <MESSAGE value="修改luyao" />
     <MESSAGE value="修改钱包和提现" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改钱包和提现" />
+    <MESSAGE value="修改我的等级" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改我的等级" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/ecological/mining-detail/otc/index.less">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -1325,17 +1248,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/partials/AssetsFooter/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1261">
-          <caret line="41" column="9" lean-forward="true" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-            <element signature="e#586#609#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/项目资源.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
@@ -1366,8 +1278,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pages/user/promotion/index.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="103" lean-forward="true" selection-start-line="103" selection-end-line="103" />
+        <state relative-caret-position="2332">
+          <caret line="106" column="29" selection-start-line="106" selection-start-column="29" selection-end-line="106" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -1375,6 +1287,27 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="235">
           <caret line="98" column="17" selection-start-line="98" selection-start-column="17" selection-end-line="98" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/partials/AssetsFooter/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="41" column="9" lean-forward="true" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+            <element signature="e#586#609#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pages/wallet/withdraw-record/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="68" column="34" lean-forward="true" selection-start-line="68" selection-start-column="34" selection-end-line="68" selection-end-column="34" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
