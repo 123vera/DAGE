@@ -113,7 +113,7 @@ class Alipay extends Component {
             <div className={styles.fileBox}>
               <input type="file" onChange={this.onFileChange} />
               <img src={imgSrc || Images.noPhoto} alt="" />
-              {!imgSrc && <button>+</button>}
+              {!imgSrc && <span>+</span>}
             </div>
             <button className={styles.submit} onClick={this.submit}>
               {formatMessage({ id: `PAY_SUBMIT` })}

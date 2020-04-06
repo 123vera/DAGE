@@ -63,7 +63,7 @@ class OtcMining extends Component {
       '',
       <span style={{ lineHeight: '1.3', textAlign: 'left', fontSize: '0.32rem', color: '#000' }}>
         {formatMessage({ id: `OTC_INLAND_SALE_01` })}
-        {count || '--'}DGT{formatMessage({ id: `OTC_INLAND_SALE_02` })}
+        {count || '--'} DGT{formatMessage({ id: `OTC_INLAND_SALE_02` })}
         {count * 0.001 || '--'} DID
         {formatMessage({ id: `OTC_INLAND_SALE_03` })}
       </span>,
@@ -123,7 +123,8 @@ class OtcMining extends Component {
               {downFixed(initInfo.otcnum)} */}
             </span>
             <span>
-              {formatMessage({ id: `OTC_INLAND_FUEL_COSTS` })}0.1% DID
+              {formatMessage({ id: `OTC_ABROAD_USABLE_DID` })}：{downFixed(initInfo.didnum) || '--'}
+              {/* {formatMessage({ id: `OTC_INLAND_FUEL_COSTS` })}0.1% DID   {/* 燃料费：0.1% DID */}
               {/* {formatMessage({ id: `OTC_ABROAD_USABLE` })}：{downFixed(initInfo.balance)} */}
             </span>
           </aside>
