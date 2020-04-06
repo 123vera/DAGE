@@ -1,11 +1,15 @@
+@import '../../../styles/mixin.less';
+
 .submit {
   padding-top: 48px;
   text-align: right;
 
   button {
+    .clearBtn;
     width: 240px;
     height: 80px;
     border: none;
+    font-size: @font-size-common;
     background: linear-gradient(315deg, rgba(126, 0, 255, 1) 0%, rgba(0, 120, 255, 1) 100%);
     border-radius: 52px;
     color: #fff;

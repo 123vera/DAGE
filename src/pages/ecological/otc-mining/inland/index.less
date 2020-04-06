@@ -67,6 +67,7 @@
       height: 24px;
       margin-right: 10px;
     }
+
     label {
       display: flex;
       align-items: center;
@@ -88,5 +89,34 @@
     .outerLink {
       margin-top: 20px;
     }
+  }
+}
+
+& :global {
+  .am-checkbox-item{
+    background: none;
+    padding-left:0;
+  }
+
+  .am-list-item.am-list-item-active{
+    background-color: transparent ;
+  }
+
+  .am-list-item .am-list-line .am-list-content{
+    color: @font-sub-color;
+    font-size: 28px;
+  }
+
+  .am-checkbox.am-checkbox-checked .am-checkbox-inner{
+    background:#0078ff;
+  }
+  .am-checkbox-inner {
+    border-radius: 4px;
+    border-color: #1a202e;
+    background: #1a202e;
+  }
+
+  .am-list-item .am-list-thumb:first-child{
+    margin-right: 15px;
   }
 }

@@ -4,10 +4,10 @@ import Header from '../../../../components/common/Header';
 import { Icons } from '../../../../assets';
 import { connect } from 'dva';
 import { REG } from '../../../../utils/constants';
-import { Toast, Modal } from 'antd-mobile';
+import { Toast, Modal, Checkbox } from 'antd-mobile';
 import { downFixed } from '../../../../utils/utils';
 import { formatMessage } from 'umi-plugin-locale';
-
+const CheckboxItem = Checkbox.CheckboxItem;
 @connect(({ otcMining, globalModel }) => ({ otcMining, globalModel }))
 class OtcMining extends Component {
   state = {
@@ -132,15 +132,13 @@ class OtcMining extends Component {
         </div>
         <div className={styles.checkboxGroup}>
           <label>
-            <input
-              type="checkbox"
-              checked={this.state.isChecked}
-              onChange={e => {
+          <CheckboxItem
+           key={this.state.isChecked} 
+           checked={this.state.isChecked} 
+           onChange={e => {
                 this.setState({ isChecked: e.target.checked });
-              }}
-            />
-            {formatMessage({ id: `OTC_INLAND_CHECKBOX` })}
-          </label>
+              }}>{formatMessage({ id: `OTC_INLAND_CHECKBOX` })}</CheckboxItem>
+            </label>
         </div>
         <div className={styles.reminder}>
           <label className={styles.label}>{formatMessage({ id: `WITHDRAW_TIPS_TITLE` })}</label>

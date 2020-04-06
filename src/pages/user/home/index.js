@@ -78,6 +78,7 @@ class Home extends Component {
               Modal.alert(formatMessage({ id: `USER_LOGOUT` }), '', [
                 {
                   text: formatMessage({ id: `COMMON_CONFIRM` }),
+                  style: { fontSize: '0.34rem' },
                   onPress: () => {
                     // 退出登录
                     router.push('/login');
@@ -85,7 +86,7 @@ class Home extends Component {
                     removeCookie('OPENID');
                   },
                 },
-                { text: formatMessage({ id: `COMMON_CANCEL` }) },
+                { text: formatMessage({ id: `COMMON_CANCEL` }), style: { fontSize: '0.34rem' } },
               ]);
             },
           }}
