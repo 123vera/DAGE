@@ -92,10 +92,10 @@ class Home extends Component {
         />
 
         <div className={styles.banner}>
-          <img className={styles.bg} src={HOME_BG} alt=""/>
-          <img className={styles.bg1} src={DAGE_LOGO} alt=""/>
+          <img className={styles.bg} src={HOME_BG} alt="" />
+          <img className={styles.bg1} src={DAGE_LOGO} alt="" />
           <div className={styles.center}>
-            <img className={styles.icon} src={BG_ICON} alt=""/>
+            <img className={styles.icon} src={BG_ICON} alt="" />
             <p>DID：{(myInfo && myInfo.userName) || '--'}</p>
             <CopyToClipboard
               key={new Date().toString()}
@@ -108,32 +108,34 @@ class Home extends Component {
               </span>
             </CopyToClipboard>
           </div>
-          <img className={styles.status} src={STATUS_BG} alt=""/>
+          <img className={styles.status} src={STATUS_BG} alt="" />
           <p className={styles.statusText}>
-            {myInfo && myInfo.activate === 1
-              ? formatMessage({ id: `USER_ACTIVITY` })
-              : formatMessage({ id: `USER_UNACTIVITY` })}
+            {myInfo && myInfo.activate === 1 ? (
+              <span style={{ opacity: 0.5 }}>{formatMessage({ id: `USER_ACTIVITY` })}</span>
+            ) : (
+              formatMessage({ id: `USER_UNACTIVITY` })
+            )}
           </p>
         </div>
         <ul className={styles.list}>
           {myInfo.phonePrefix === '86' &&
-          listContent.map((item, key) => (
-            <li key={key} onClick={() => this.toSwitchLang(item.url)}>
-              <img className={styles.icon} src={item.icon} alt=""/>
-              <span>{item.text}</span>
-              <img className={styles.right} src={Icons.arrowRight} alt=""/>
-            </li>
-          ))}
+            listContent.map((item, key) => (
+              <li key={key} onClick={() => this.toSwitchLang(item.url)}>
+                <img className={styles.icon} src={item.icon} alt="" />
+                <span>{item.text}</span>
+                <img className={styles.right} src={Icons.arrowRight} alt="" />
+              </li>
+            ))}
 
           {/* 国外用户个人中心不显示上传支付宝信息 */}
           {myInfo.phonePrefix !== '86' &&
-          listContent.splice(1).map((item, key) => (
-            <li key={key} onClick={() => this.toSwitchLang(item.url)}>
-              <img className={styles.icon} src={item.icon} alt=""/>
-              <span>{item.text}</span>
-              <img className={styles.right} src={Icons.arrowRight} alt=""/>
-            </li>
-          ))}
+            listContent.splice(1).map((item, key) => (
+              <li key={key} onClick={() => this.toSwitchLang(item.url)}>
+                <img className={styles.icon} src={item.icon} alt="" />
+                <span>{item.text}</span>
+                <img className={styles.right} src={Icons.arrowRight} alt="" />
+              </li>
+            ))}
         </ul>
       </div>
     );

@@ -15,19 +15,19 @@ const menus = [
     value: '/wallet/recharge',
     icon: Icons.menuRecharge,
     label: formatMessage({ id: `WALLET_RECHARGE` }),
-    width: '0.4rem',
+    width: '0.34rem',
   },
   {
     value: '/wallet/withdraw',
     icon: Icons.menuWithdraw,
     label: formatMessage({ id: `WALLET_WITHDRAW` }),
-    width: '0.4rem',
+    width: '0.34rem',
   },
   {
     value: '/wallet/flow',
     icon: Icons.menuFlow,
     label: formatMessage({ id: `WALLET_TITLE` }),
-    width: '0.4rem',
+    width: '0.34rem',
   },
 ];
 
@@ -70,7 +70,11 @@ class Home extends Component {
             }}
           />
           {showMenus && (
-            <div className={styles.menus} onClick={e => e.stopPropagation()}>
+            <div
+              className={styles.menus}
+              style={{ color: '#99A7C2' }}
+              onClick={e => e.stopPropagation()}
+            >
               <Menus menus={menus} onHandle={this.onMenuHandle} />
             </div>
           )}

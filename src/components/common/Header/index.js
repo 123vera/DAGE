@@ -30,10 +30,14 @@ const HeaderItem = function(props) {
           />
         </i>
       )}
-      <span style={{
-        ...textStyle,
-        fontSize: textSize || (textStyle && textStyle.fontSize),
-      }}>{text}</span>
+      <span
+        style={{
+          ...textStyle,
+          fontSize: textSize || (textStyle && textStyle.fontSize),
+        }}
+      >
+        {text}
+      </span>
     </div>
   );
 };
@@ -44,7 +48,7 @@ class Header extends Component {
     title && (centerContent = centerContent ? (centerContent.text = title) : { text: title });
     icon && (leftContent = leftContent ? (leftContent.icon = icon) : { icon: icon });
     leftContent &&
-    (leftContent.onHandle = onHandle || leftContent.onHandle || (() => router.goBack()));
+      (leftContent.onHandle = onHandle || leftContent.onHandle || (() => router.goBack()));
     return (
       <header className={styles.header}>
         {leftContent && (

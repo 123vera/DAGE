@@ -4,7 +4,7 @@ import Header from '../../../../components/common/Header';
 import { Icons } from '../../../../assets';
 import { connect } from 'dva';
 import { REG } from '../../../../utils/constants';
-import { Toast } from 'antd-mobile';
+import { Toast, Modal } from 'antd-mobile';
 import { downFixed } from '../../../../utils/utils';
 import { formatMessage } from 'umi-plugin-locale';
 
@@ -59,18 +59,32 @@ class OtcMining extends Component {
       return Toast.info(formatMessage({ id: `OTC_INLAND_CHECKBOX` }));
     }
 
-    // if (Number(count) > 200) {
-    //   return Toast.info(formatMessage({ id: `OTC_TOAST_BLANCE` }));
-    // }
-
-    this.props.dispatch({ type: 'otcMining/OtcSubmit' }).then(res => {
-      if (res.status !== 1) {
-        return Toast.info(res.msg);
-      }
-      Toast.info(formatMessage({ id: `OTC_ABROAD_SALE_SUCCESS` }), 2, () =>
-        window.location.reload(),
-      );
-    });
+    Modal.alert(
+      '',
+      <span style={{ lineHeight: '1.3', textAlign: 'left', fontSize: '0.32rem', color: '#000' }}>
+        {formatMessage({ id: `OTC_INLAND_SALE_01` })}
+        {count || '--'} DGT{formatMessage({ id: `OTC_INLAND_SALE_02` })}
+        {count * 0.001 || '--'} DID
+        {formatMessage({ id: `OTC_INLAND_SALE_03` })}
+      </span>,
+      [
+        {
+          text: formatMessage({ id: `COMMON_CONFIRM` }),
+          style: { fontSize: '0.32rem' },
+          onPress: () => {
+            this.props.dispatch({ type: 'otcMining/OtcSubmit' }).then(res => {
+              if (res.status !== 1) {
+                return Toast.info(res.msg);
+              }
+              Toast.info(formatMessage({ id: `OTC_ABROAD_SALE_SUCCESS` }), 2, () =>
+                window.location.reload(),
+              );
+            });
+          },
+        },
+        { text: formatMessage({ id: `COMMON_CANCEL` }), style: { fontSize: '0.32rem' } },
+      ],
+    );
   };
 
   render() {
@@ -104,11 +118,14 @@ class OtcMining extends Component {
           />
           <aside>
             <span>
-              {formatMessage({ id: `OTC_ABROAD_TRADE` })}
-              {downFixed(initInfo.otcnum)}
+              {formatMessage({ id: `OTC_ABROAD_USABLE` })}：{downFixed(initInfo.balance)}
+              {/* {formatMessage({ id: `OTC_ABROAD_TRADE` })}
+              {downFixed(initInfo.otcnum)} */}
             </span>
             <span>
-              {formatMessage({ id: `OTC_ABROAD_USABLE` })}：{downFixed(initInfo.balance)}
+              {formatMessage({ id: `OTC_ABROAD_USABLE_DID` })}：{downFixed(initInfo.didnum) || '--'}
+              {/* {formatMessage({ id: `OTC_INLAND_FUEL_COSTS` })}0.1% DID   {/* 燃料费：0.1% DID */}
+              {/* {formatMessage({ id: `OTC_ABROAD_USABLE` })}：{downFixed(initInfo.balance)} */}
             </span>
           </aside>
           <button onClick={this.onSubmit}>{formatMessage({ id: `OTC_CONFIRM_SALE` })}</button>
