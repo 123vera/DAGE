@@ -9,10 +9,11 @@ import Captcha from '../../../components/partials/Captcha';
 import PageHeader from '../../../components/common/PageHeader';
 import { REG } from '../../../utils/constants';
 import styles from './index.less';
-import { Toast } from 'antd-mobile';
+import { Toast, Checkbox } from 'antd-mobile';
 import { TOAST_DURATION } from '../../../utils/constants';
 import SmsCode from '../../../components/partials/SmsCode';
 import SubmitBtn from '../../../components/common/SubmitBtn';
+const CheckboxItem = Checkbox.CheckboxItem;
 
 @connect(({ register }) => ({ register }))
 class Register extends Component {
@@ -246,19 +247,34 @@ class Register extends Component {
                   />
                 </label>
                 <aside className={styles.aside}>
-                  <input
+                  <CheckboxItem
+                    key={agree}
+                    checked={agree}
+                    onChange={e => this.onInputChange(e.target.checked, 'agree')}
+                  >
+                    <label
+                      htmlFor="agree"
+                      dangerouslySetInnerHTML={{ __html: formatMessage({ id: `REGISTER_AGREE` }) }}
+                    />
+                    <a href="https://dage.zendesk.com/hc/zh-cn/articles/360040817631-%E7%94%A8%E6%88%B7%E5%8D%8F%E8%AE%AE-User-agreement">
+                      {formatMessage({ id: `REGISTER_PROTOCOL` })}
+                    </a>
+                    {/* {formatMessage({ id: `OTC_INLAND_CHECKBOX` })} */}
+                  </CheckboxItem>
+
+                  {/* <input
                     id="agree"
                     type="checkbox"
                     checked={agree}
                     onChange={e => this.onInputChange(e.target.checked, 'agree')}
-                  />
-                  <label
+                  /> */}
+                  {/* <label
                     htmlFor="agree"
                     dangerouslySetInnerHTML={{ __html: formatMessage({ id: `REGISTER_AGREE` }) }}
                   />
                   <a href="https://dage.zendesk.com/hc/zh-cn/articles/360040817631-%E7%94%A8%E6%88%B7%E5%8D%8F%E8%AE%AE-User-agreement">
                     {formatMessage({ id: `REGISTER_PROTOCOL` })}
-                  </a>
+                  </a> */}
                 </aside>
                 <h4 className={styles.errMsg}>{errMsg.value || ''}</h4>
                 <SubmitBtn
