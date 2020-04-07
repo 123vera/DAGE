@@ -101,6 +101,11 @@ export default {
         if (iframe) {
           iframe.style.display = location.pathname !== '/zendesk' ? 'none' : 'block';
         }
+
+        // 切换页面返回顶部
+        setTimeout(function() {
+          document.body.scrollTop = document.documentElement.scrollTop = 0;
+        }, 0);
       });
     },
   },

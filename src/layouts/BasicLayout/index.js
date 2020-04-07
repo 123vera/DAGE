@@ -18,7 +18,6 @@ class Index extends Component {
     } = this.props;
     const { script } = this.state;
 
-    window.scrollTo(0, 0);
     dispatch({
       type: 'globalModel/Setlang',
       payload: {
