@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'dva';
 import styles from './index.less';
 import { getLocale } from 'umi-plugin-locale';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 @connect(({ globalModel }) => ({ globalModel }))
 class Index extends Component {
@@ -63,7 +64,23 @@ class Index extends Component {
 
   render() {
     const { children } = this.props;
-    return <div className={styles.basicLayout}>{children}</div>;
+    return (
+      <div className={styles.basicLayout}>
+        <ReactCSSTransitionGroup
+          component="div"
+          className="react-container"
+          transitionLeave={false}
+          transitionEnter={!!!window.location.pathname.includes('/home/')}
+          transitionName="example"
+          transitionEnterTimeout={300}
+          transitionLeaveTimeout={300}
+        >
+          <div key={this.props.location.pathname} className={this.props.location.pathname}>
+            {children}
+          </div>
+        </ReactCSSTransitionGroup>
+      </div>
+    );
   }
 }
 

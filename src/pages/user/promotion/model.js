@@ -23,7 +23,7 @@ export default {
     *GetRecommendList(_, { call, select, put }) {
       const { page, list } = yield select(state => state.promotion);
       const res = yield call(UserApi.getRecommendList, { page });
-      if (res.status === 1) {
+      if (res && res.status === 1) {
         const {
           mystatus,
           achievement,

@@ -71,11 +71,13 @@ class Recharge extends Component {
     e.stopPropagation();
   };
 
-  changeCoin = menu => {
+  changeCoin = async menu => {
     const { dispatch } = this.props;
     this.clearInput();
-    dispatch({ type: 'withdraw/WithdrawInit' });
-    this.setState({ showMenus: false });
+    console.log();
+    await dispatch({ type: 'withdraw/WithdrawInit', payload: { coin: menu.value } });
+    // await dispatch({ type: 'withdraw/UpdateState', payload: { coin: menu.value } });
+    await this.setState({ showMenus: false });
     router.replace(`/wallet/withdraw?type=${menu.value}`);
   };
 
@@ -190,7 +192,7 @@ class Recharge extends Component {
             icon={Icons.arrowLeft}
             // onHandle={() => router.push('/home/wallet')}
             centerContent={{
-              text: coin || '--',
+              text: coin.toUpperCase() || '--',
               icon: Icons.arrowDown,
               reverse: true,
               onHandle: e => this.toggleShowMenus(e),

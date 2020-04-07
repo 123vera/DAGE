@@ -3,7 +3,6 @@ import { formatMessage } from 'umi/locale';
 import { connect } from 'dva';
 import { Toast, Button } from 'antd-mobile';
 import PageHeader from '../../../components/common/PageHeader';
-import Captcha from '../../../components/partials/Captcha';
 import { COUNT_DOWN, REG } from '../../../utils/constants';
 import styles from './index.less';
 import { Icons } from '../../../assets';
@@ -218,7 +217,7 @@ class Index extends Component {
   };
 
   render() {
-    const { captchaSrc, captcha } = this.props.globalModel;
+    // const { captchaSrc, captcha } = this.props.globalModel;
     const {
       beforeCoins,
       afterCoins,
@@ -227,9 +226,9 @@ class Index extends Component {
       initInfo,
       balance,
       amount,
-      code,
+      // code,
     } = this.props.exchange;
-    const { showBeforeMenus, showAfterMenus, count } = this.state;
+    const { showBeforeMenus, showAfterMenus } = this.state;
 
     return (
       <div className={styles.exchange} onClick={this.onHideMenus}>

@@ -19,16 +19,16 @@ export default {
     },
   },
   effects: {
-    * WithdrawInit(_, { call, select, put }) {
-      const { coin } = yield select(state => state.withdraw);
-      const res = yield call(AssetApi.withdrawInit, { type: coin });
+    *WithdrawInit({ payload }, { call, put }) {
+      const res = yield call(AssetApi.withdrawInit, { type: payload.coin });
+      console.log(payload);
       if (res.status === 1) {
-        yield put({ type: 'UpdateState', payload: { initInfo: res.data } });
+        yield put({ type: 'UpdateState', payload: { initInfo: res.data, coin: payload.coin } });
       }
       return res;
     },
 
-    * Withdraw(_, { call, select }) {
+    *Withdraw(_, { call, select }) {
       const { coin, walletTo, amount, code } = yield select(state => state.withdraw);
       return yield call(AssetApi.submitWithdrawal, {
         type: coin.value,
@@ -38,7 +38,7 @@ export default {
       });
     },
 
-    * GetServiceCharge(_, { call, select, put }) {
+    *GetServiceCharge(_, { call, select, put }) {
       const { coin, walletTo } = yield select(state => state.withdraw);
       const res = yield call(AssetApi.getServiceCharge, {
         address: walletTo,

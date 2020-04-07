@@ -121,7 +121,6 @@ class Login extends Component {
                   <span onClick={this.onOpenPrefix}>
                     {prefix ? `+${prefix}` : formatMessage({ id: `COMMON_SELECT_AREA` })}
                     <img src={Icons.arrowDown} alt="" />
-                    &nbsp;|
                   </span>
                   <input
                     type="number"

@@ -132,13 +132,16 @@ class OtcMining extends Component {
         </div>
         <div className={styles.checkboxGroup}>
           <label>
-          <CheckboxItem
-           key={this.state.isChecked} 
-           checked={this.state.isChecked} 
-           onChange={e => {
+            <CheckboxItem
+              key={this.state.isChecked}
+              checked={this.state.isChecked}
+              onChange={e => {
                 this.setState({ isChecked: e.target.checked });
-              }}>{formatMessage({ id: `OTC_INLAND_CHECKBOX` })}</CheckboxItem>
-            </label>
+              }}
+            >
+              {formatMessage({ id: `OTC_INLAND_CHECKBOX` })}
+            </CheckboxItem>
+          </label>
         </div>
         <div className={styles.reminder}>
           <label className={styles.label}>{formatMessage({ id: `WITHDRAW_TIPS_TITLE` })}</label>
