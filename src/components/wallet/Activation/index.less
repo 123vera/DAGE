@@ -1,61 +1,91 @@
 @import '../../../styles/mixin.less';
 
 .activation {
-  margin: 80px 60px 150px;
+  margin: 6px 60px 30px;
 
-  h3 {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-bottom: 20px;
-    color: #1663f7;
-    font-size: 32px;
+  .content {
+    padding: 30px 0;
 
-    img {
-      width: 40px;
-      height: 40px;
-      margin-right: 20px;
-    }
-  }
-
-  p {
-    .clearBox;
-    margin-bottom: 60px;
-    color: @font-sub-color;
-    line-height: 44px;
-
-    span {
-      color: @theme-color-blue;
-    }
-  }
-
-  input {
-    height: 90px;
-    box-sizing: border-box;
-    padding: 10px 30px;
-    width: 100%;
-    background: rgba(26, 32, 46, 1);
-    border-radius: 8px;
-    border: none;
-    caret-color: @font-sub-color;
-
-    &::placeholder {
+    p {
+      .clearBox;
       color: @font-sub-color;
+
+      font-weight: 400;
+      line-height: 44px;
+
+      a {
+        color: rgba(243, 175, 102, 1);
+        text-decoration: underline;
+      }
+    }
+
+    .toActivation,
+    .hasActivation {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      height: 66px;
+      margin-top: 18px;
+    }
+
+    .toActivation {
+      span {
+        font-size: 24px;
+        font-weight: 400;
+        color: rgba(109, 119, 139, 1);
+        line-height: 34px;
+      }
+
+      button {
+        width: 222px;
+        height: 66px;
+        background: linear-gradient(315deg, rgba(126, 0, 255, 1) 0%, rgba(0, 120, 255, 1) 100%);
+        border-radius: 52px;
+        border: none;
+        font-size: @font-size-common;
+        color: @font-color-primary;
+      }
+    }
+
+    .hasActivation a {
+      color: rgba(243, 175, 102, 1);
     }
   }
 
-  .hint {
-    margin-top: 20px;
-    text-align: right;
-  }
+  .banner {
+    position: relative;
+    margin-top: 40px;
+    height: 302px;
+    border-radius: 60px;
+    border: 2px solid rgba(26, 32, 47, 1);
+    background-size: 100% 100%;
+    background-position: center center;
+    padding: 54px 28px;
 
-  button {
-    width: 100%;
-    height: 80px;
-    background: linear-gradient(315deg, rgba(126, 0, 255, 1) 0%, rgba(0, 120, 255, 1) 100%);
-    border-radius: 52px;
-    border: none;
-    font-size: @font-size-common;
-    color: @font-color-primary;
+    label {
+      display: block;
+      font-size: 32px;
+      line-height: 44px;
+    }
+
+    small {
+      display: block;
+      margin-top: 28px;
+      font-size: 24px;
+      font-weight: 400;
+      color: rgba(109, 119, 139, 1);
+      line-height: 34px;
+    }
+
+    a {
+      position: absolute;
+      right: 58px;
+      bottom: 52px;
+      display: inline-block;
+      line-height: 44px;
+      color: rgba(243, 175, 102, 1);
+    }
   }
 }

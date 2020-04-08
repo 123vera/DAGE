@@ -1,16 +1,19 @@
 import { Component } from 'react';
 import styles from './index.less';
 import React from 'react';
-import { Icons } from '../../../assets';
+import { Icons, Images } from '../../../assets';
 import { connect } from 'dva';
 import { Toast } from 'antd-mobile';
 import { formatMessage } from 'umi-plugin-locale';
+import GroupTitle from '../GroupTitle';
+import { Link } from 'react-router-dom';
 
 @connect(({ wallet, globalModel }) => ({ wallet, globalModel }))
 class Activation extends Component {
   onSubmit = () => {
     const { dispatch, globalModel } = this.props;
     const { myInfo } = globalModel;
+    console.log(myInfo);
     if (myInfo.did < 10) {
       return Toast.info(formatMessage({ id: `EXCHANGE_BALANCE_NOT_ENOUGH_01` }));
     }
@@ -25,19 +28,48 @@ class Activation extends Component {
   };
 
   render() {
+    const { myInfo } = this.props.globalModel;
+
     return (
       <div className={styles.activation}>
-        <h3>
-          <img src={Icons.dIcon} alt="" />
-          {formatMessage({ id: `WALLET_ACTIVITY_ID` })}
-        </h3>
-        <p>
-          {formatMessage({ id: `WALLET_ACTIVITY_DESC_01` })}
-          <span> {formatMessage({ id: `WALLET_ACTIVITY_DESC_02` })}</span>
-        </p>
-        {/*<input type="text" placeholder="请输入DID邀请码"/>*/}
-        {/*<p className={styles.hint}>需支付 10 DID</p>*/}
-        <button onClick={this.onSubmit}>{formatMessage({ id: `WALLET_CONFIRM` })}</button>
+        <GroupTitle
+          icon={Icons.dIcon}
+          title={formatMessage({ id: `WALLET_ACTIVITY_ID` })}
+          msg={'未激活'}
+        />
+        {myInfo.activate !== 0 ?
+          <div className={styles.content}>
+            <p>
+              <Link to="/wallet/recharge?type=USDT">充值USDT</Link>
+              并在去中心化交易所
+              <Link to="/exchange">兑换DID</Link>
+              ，使用DID激活账户
+            </p>
+            <div className={styles.toActivation}>
+              <span>消耗：10DID</span>
+              <button onClick={this.onSubmit}>确认激活</button>
+            </div>
+          </div> :
+          <div className={styles.content}>
+            <p>
+              <Link to="/wallet/withdraw?type=DID">转账DID</Link>
+              给好友，好友激活成功后，可快速提升你的VIP等级，等级详情请在个人中心查看
+            </p>
+            <div className={styles.hasActivation}>
+              <Link to="/wallet/reward-detail">推广收益详情</Link>
+              <Link to='/referral_code'>获取邀请码</Link>
+            </div>
+          </div>
+        }
+        <div className={styles.banner} style={{ backgroundImage: `url(${Images.cardBg})` }}>
+          <label>去中心化交易所</label>
+          <small>
+            使用闪电网络快速实现USDT
+            <br/>
+            与DID，DGT的兑换
+          </small>
+          <Link to="/exchange">立即闪兑</Link>
+        </div>
       </div>
     );
   }

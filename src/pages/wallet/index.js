@@ -80,6 +80,14 @@ class Home extends Component {
           )}
         </section>
         <section>
+          <div className={styles.notice} onClick={() => router.push('/notices')}>
+            <p>
+              {formatMessage({ id: `NOTICE` })}：{notice && notice.title}
+            </p>
+          </div>
+        </section>
+
+        <section style={{display: 'none'}}>
           <div className={styles.banner} style={{ backgroundImage: `url(${Images.homeBg})` }}>
             <label>DAGE Wallet</label>
             <h1>
@@ -88,15 +96,10 @@ class Home extends Component {
             </h1>
           </div>
         </section>
-        <section>
-          <div className={styles.notice} onClick={() => router.push('/notices')}>
-            <p>
-              {formatMessage({ id: `NOTICE` })}：{notice && notice.title}
-            </p>
-          </div>
-        </section>
-        {myInfo.activate === 0 && <Activation />}
-        {myInfo.activate === 1 && <Mining myInfo={myInfo} />}
+
+        <Activation />
+        {/*{myInfo.activate === 1 && <Mining myInfo={myInfo} />}*/}
+        <Mining myInfo={myInfo} />
       </div>
     );
   }

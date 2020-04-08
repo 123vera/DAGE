@@ -8,6 +8,7 @@ import { formatMessage } from 'umi-plugin-locale';
 import { downFixed } from '../../../utils/utils';
 import Menus from '../../common/Menus';
 import { router } from 'umi';
+import GroupTitle from '../GroupTitle';
 
 const menus = [
   {
@@ -53,30 +54,10 @@ class Mining extends Component {
     return (
       <div className={styles.mining}>
         <section>
-          <p>{formatMessage({ id: `WALLET_SECTION_TITLE` })}</p>
-          <div className={styles.card} style={{ backgroundImage: `url(${Images.cardBg})` }}>
-            <p>
-              <small>{formatMessage({ id: `WALLET_SECTION_SUBTITLE` })}</small>
-            </p>
-            <div className={styles.earnings}>
-              <span>{downFixed(myInfo.yestodayReward) || '--'}</span>
-              <small>DID</small>
-            </div>
-            <aside>
-              <Link to="/wallet/reward-detail">
-                <span>{formatMessage({ id: `INCOME_TITLE` })}</span>
-              </Link>
-              <Link to="/referral_code">
-                <span>{formatMessage({ id: `INCOME_GET_INVITER_CODE` })}</span>
-              </Link>
-            </aside>
-          </div>
-        </section>
-        <section>
-          <h3>
-            <img src={Icons.dIcon} alt="" />
-            {formatMessage({ id: `WALLET_POG_TITLE` })}
-          </h3>
+          <GroupTitle
+            icon={Icons.oIcon}
+            title={formatMessage({ id: `WALLET_POG_TITLE` })}
+          />
           <p>{formatMessage({ id: `WALLET_POG_DESC_01` })}</p>
         </section>
 

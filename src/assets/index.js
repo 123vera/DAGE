@@ -8,6 +8,7 @@ export const Icons = {
   list: require('./icons/list.png'),
   more: require('./icons/more.png'),
   dIcon: require('./icons/d-icon.png'),
+  oIcon: require('./icons/o-icon.png'),
   record: require('./icons/record.png'),
   add: require('./icons/add.png'),
   unChecked: require('./icons/un-checked.png'),
