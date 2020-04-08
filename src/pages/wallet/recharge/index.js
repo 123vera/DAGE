@@ -23,10 +23,11 @@ class Recharge extends Component {
   getInitCoins = async () => {
     const { dispatch, location } = this.props;
     const { type = '' } = location.query;
-    const coins = await dispatch({
-      type: 'globalModel/GetCurrencyList',
-      payload: {},
-    }) || [];
+    const coins =
+      (await dispatch({
+        type: 'globalModel/GetCurrencyList',
+        payload: {},
+      })) || [];
     const coin = type || coins[0];
     const menus = coins.map(coin => ({
       label: coin,
@@ -82,14 +83,14 @@ class Recharge extends Component {
           />
           {showMenus && (
             <div className={styles.menus}>
-              <Menus menus={menus} textAlign="center" hasBorder onHandle={this.changeCoin}/>
+              <Menus menus={menus} textAlign="center" hasBorder onHandle={this.changeCoin} />
             </div>
           )}
         </div>
 
         <div className={styles.content}>
           <div className={styles.qrCode}>
-            <QRcode size={240} value={wallet} renderAs="canvas"/>
+            <QRcode size={250} value={wallet} renderAs="canvas" />
           </div>
           <p>{wallet}</p>
           <CopyToClipboard

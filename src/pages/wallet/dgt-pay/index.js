@@ -22,9 +22,9 @@ class QrCodeBox extends Component {
 
     return (
       <div className={styles.qrCodeBox}>
-        <QRCode className={styles.qrCode} size={250} value={value || ''}/>
-        <br/>
-        <img src={url} alt=""/>
+        <QRCode className={styles.qrCode} size={250} value={value || ''} />
+        <br />
+        <img src={url} alt="" />
       </div>
     );
   }
@@ -47,11 +47,11 @@ class Index extends Component {
     }, 1000);
   };
 
-  addZero = (num) => {
+  addZero = num => {
     return num < 10 ? '0' + num : num;
   };
 
-  getDisplayTime = (time) => {
+  getDisplayTime = time => {
     const minute = Math.floor(time / 60);
     const second = time % 60;
     return `${this.addZero(minute)}分${this.addZero(second)}秒`;
@@ -62,27 +62,32 @@ class Index extends Component {
 
     return (
       <div id={styles.dgtPay}>
-        <PageHeader title={'支付宝支付'} leftContent={{ icon: ARROW_LEFT }}/>
-        <p className={styles.title}>订单号：{orderNo}</p>
+        <PageHeader
+          title={formatMessage({ id: `DGT_ALIPAY_TITLE` })}
+          leftContent={{ icon: ARROW_LEFT }}
+        />
+        <p className={styles.title}>{`${formatMessage({
+          id: `DGT_ALIPAY_ORDERID`,
+        })}  ${orderNo}`}</p>
 
         <section className={styles.top}>
           <p>￥{num}</p>
-          <QrCodeBox key={payImg} value={payImg}/>
+          <QrCodeBox key={payImg} value={payImg} />
           <small>
-            距离订单过期还有
+            {formatMessage({ id: `DGT_ALIPAY_DEALLINE` })}
             <span>{this.getDisplayTime(endTime)}</span>
           </small>
           <ul>
-            <li>每次充值必须在钱包充值页面重新获取二维码</li>
-            <li>实际支付金额与订单金额必须保持一致；</li>
-            <li>请在订单有效期内完成支付</li>
+            <li dangerouslySetInnerHTML={{ __html: formatMessage({ id: `DGT_ALIPAY_TIPS_01` }) }} />
+            <li>{formatMessage({ id: `DGT_ALIPAY_TIPS_02` })}</li>
+            <li>{formatMessage({ id: `DGT_ALIPAY_TIPS_03` })}</li>
           </ul>
         </section>
         <section className={styles.bottom}>
           <ul>
-            <li>长按/截图，保存到相册；</li>
-            <li>打开支付宝扫一扫，相册识别；</li>
-            <li>进行支付确认。</li>
+            <li>{formatMessage({ id: `DGT_ALIPAY_STEPS_01` })}</li>
+            <li>{formatMessage({ id: `DGT_ALIPAY_STEPS_02` })}</li>
+            <li>{formatMessage({ id: `DGT_ALIPAY_STEPS_03` })}</li>
           </ul>
         </section>
       </div>

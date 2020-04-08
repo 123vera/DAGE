@@ -18,7 +18,7 @@ class Index extends Component {
     this.props.dispatch({ type: 'dgtRecharge/GetRmbIni' });
   }
 
-  changeCoin = (coin) => {
+  changeCoin = coin => {
     this.setState({ showMenus: false });
     if (coin === 'DGT') return;
     router.push('/wallet/recharge?type=' + coin);
@@ -38,31 +38,30 @@ class Index extends Component {
   submit = () => {
     const { minAmount, maxAmount, amount } = this.props.dgtRecharge;
     if (!amount) {
-      return Toast.info('请输入充值金额');
+      return Toast.info(formatMessage({ id: `COMMON_PLACEHOLDER_RECHARGE_AMOUNT` }));
     }
     if (amount < minAmount) {
-      return Toast.info(`最小充值金额为${minAmount}`);
+      return Toast.info(`${formatMessage({ id: `TOAST_MINIMUM_RECHARGE` })}${minAmount}`);
     }
     if (amount > maxAmount) {
-      return Toast.info(`最大充值金额为${maxAmount}`);
+      return Toast.info(`${formatMessage({ id: `TOAST_MAXIMUM_RECHARGE` })}${maxAmount}`);
     }
 
-    this.props.dispatch({ type: 'dgtRecharge/RmbRecharge' })
-      .then(res => {
-        if (res.status !== 1) {
-          return Toast.info(res.msg);
-        }
-        const { payimg: payImg, endtime: endTime, orderno: orderNo, num } = res.data;
-        router.push({
-          pathname: '/wallet/dgt_pay',
-          state: { payImg, endTime, orderNo, num },
-        });
+    this.props.dispatch({ type: 'dgtRecharge/RmbRecharge' }).then(res => {
+      if (res.status !== 1) {
+        return Toast.info(res.msg);
+      }
+      const { payimg: payImg, endtime: endTime, orderno: orderNo, num } = res.data;
+      router.push({
+        pathname: '/wallet/dgt_pay',
+        state: { payImg, endTime, orderNo, num },
       });
+    });
   };
 
   render() {
     const { showMenus } = this.state;
-    const { ratio, amountOptions, amount } = this.props.dgtRecharge;
+    const { ratio, amountOptions, amount, minAmount, maxAmount } = this.props.dgtRecharge;
     const realAmount = Number(amount) * Number(ratio);
 
     return (
@@ -71,7 +70,7 @@ class Index extends Component {
           <Header
             icon={Icons.arrowLeft}
             centerContent={{
-              text: 'DGT法币充值',
+              text: formatMessage({ id: `DGT_RECHARGE_TITLE` }),
               icon: Icons.arrowDown,
               reverse: true,
               onHandle: () => this.setState({ showMenus: !showMenus }),
@@ -79,21 +78,23 @@ class Index extends Component {
             onHandle={() => router.push('/home/wallet')}
           />
           <div className={`${styles.menus} ${showMenus ? styles.show : ''}`}>
-            <Coins coin="DGT" onHandle={this.changeCoin}/>
+            <Coins coin="DGT" onHandle={this.changeCoin} />
           </div>
         </div>
 
         <section className={styles.inputContent}>
           <label>
-            <span>充值金额（支付宝支付）</span>
+            <span>{formatMessage({ id: `DGT_RECHARGE_LABEL` })}</span>
             <input
               value={amount}
               type="text"
-              placeholder={'输入充值CNY数量'}
-              onChange={(e) => this.changeAmount(e.target.value)}
+              placeholder={formatMessage({ id: `DGT_RECHARGE_PLACEHOLDER` })}
+              onChange={e => this.changeAmount(e.target.value)}
             />
           </label>
-          <p>当前汇率：1CNY = {ratio}DGT</p>
+          <p>
+            {formatMessage({ id: `DGT_RECHARGE_RATIO` })}1 CNY = {ratio} DGT
+          </p>
         </section>
 
         <section className={styles.amountList}>
@@ -108,16 +109,26 @@ class Index extends Component {
               </li>
             ))}
           </ul>
-          <p>实际到账：{realAmount || '--'} DGT</p>
-          <button className={styles.btn} onClick={this.submit}>充值</button>
+          <p>
+            {formatMessage({ id: `DGT_RECHARGE_ACTUAL_ARRIVAL` })}
+            {realAmount || '--'} DGT
+          </p>
+          <button className={`${styles.btn} ${styles.submit}`} onClick={this.submit}>
+            {formatMessage({ id: `ASSETS_RECHANGE` })}
+          </button>
         </section>
 
         <ul className={styles.tips}>
-          <li>3232323</li>
-          <li>323</li>
-          <li>• 单笔最小金额为200CNY，最大金额为20,000CNY。</li>
-          <li>• 充值以实际到账金额为准。</li>
-          <li>• 每次充值必须在钱包充值页面重新获取二维码。</li>
+          <li>
+            {formatMessage({ id: `DGT_RECHARGE_TIPS_00` })}
+            {minAmount} CNY{formatMessage({ id: `DGT_RECHARGE_TIPS_01` })}
+            {maxAmount} CNY。
+          </li>
+          <li>{formatMessage({ id: `DGT_RECHARGE_TIPS_02` })}</li>
+          <li>{formatMessage({ id: `DGT_RECHARGE_TIPS_03` })}</li>
+          <li>{formatMessage({ id: `DGT_RECHARGE_TIPS_04` })}</li>
+          <li>{formatMessage({ id: `DGT_RECHARGE_TIPS_05` })}</li>
+          <li>{formatMessage({ id: `DGT_RECHARGE_TIPS_06` })}</li>
         </ul>
       </div>
     );

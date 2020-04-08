@@ -3,12 +3,13 @@
 #dgtPay {
   p.title {
     margin: 60px;
+    color: #6d778b;
   }
 
   section {
     box-sizing: border-box;
     margin: 60px;
-    padding: 20px 60px;
+    padding: 20px 80px;
     background: @theme-color-bg-content;
 
     &.top {
@@ -28,18 +29,19 @@
         text-align: center;
         margin-bottom: 15px;
 
-        span{
+        span {
           color: @theme-color-blue;
         }
       }
 
       ul {
         .clearUl();
+        font-size: @font-size-smaller;
       }
     }
 
     &.bottom {
-      padding: 20px 85px;
+      padding: 20px 100px;
       color: #0475ff;
       font-size: @font-size-common;
 
@@ -47,10 +49,11 @@
         position: relative;
         list-style: none;
         counter-reset: sectioncounter;
+        font-size: @font-size-common;
 
         li {
           margin-left: 10px;
-          line-height: 1.8;
+          line-height: 2;
 
           &:before {
             position: absolute;
