@@ -5,6 +5,10 @@
   color: @font-sub-color;
   line-height: 44px;
 
+  p {
+    font-size: 26px;
+  }
+
   input {
     border: none;
     caret-color: @font-sub-color;
@@ -28,6 +32,9 @@
 
   .fileBox {
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-top: 82px;
     width: 260px;
     height: 260px;
@@ -45,30 +52,27 @@
     }
 
     img {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      margin: auto;
-      width: 198px;
-      height: 180px;
+      // // position: absolute;
+      // // top: 0;
+      // // right: 0;
+      // // bottom: 0;
+      // // left: 0;
+      // margin: auto;
+      // width: 198px;
+      // height: 180px;
       border-radius: 8px;
     }
 
-    button {
+    span {
       position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      z-index: 1;
-      margin: auto;
-
+      display: flex;
+      justify-content: center;
+      align-items: center;
       width: 98px;
       height: 98px;
+      box-sizing: border-box;
+      padding-bottom: 8px;
       border-radius: 50%;
-      border: none;
       background: linear-gradient(315deg, rgba(126, 0, 255, 1) 0%, rgba(0, 120, 255, 1) 100%);
 
       font-size: 52px;

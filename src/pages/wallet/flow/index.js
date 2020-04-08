@@ -95,7 +95,8 @@ class WalletFlow extends Component {
                     {item.remark}
                     <small>{dayjs(item.addTime * 1000).format('YYYY-MM-DD HH:mm')}</small>
                   </div>
-                  <div className={`${styles.value} ${item.amount.includes('-') ? styles.decrease : ''}`}>
+                  <div
+                    className={`${styles.value} ${item.amount.includes('-') ? styles.decrease : ''}`}>
                     {downFixed(item.amount)}
                   </div>
                 </li>

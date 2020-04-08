@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ARROW_LEFT from '@/assets/dark/arrow-left.png';
 import CHECKED from '@/assets/dark/checked.png';
+import UNCHECKED from '@/assets/icons/un-checked.png';
 import PageHeader from '../../../components/common/PageHeader';
 import TEL_PREFIX_DATA from '@/utils/tel-prefix';
 import styles from './index.less';
@@ -42,7 +43,9 @@ class Index extends Component {
               onClick={() => this.onSelect(i, key)}
             >
               <label>{i.en + i.name}</label>
-              {activeKey === key && <img src={CHECKED} alt="" />}
+              <img src={activeKey === key ? CHECKED : UNCHECKED} alt="" />
+
+              {/* {activeKey === key && <img src={CHECKED} alt="" />} */}
             </li>
           ))}
         </ul>

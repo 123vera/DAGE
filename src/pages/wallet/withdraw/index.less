@@ -2,7 +2,7 @@
 
 .withdraw {
   padding-top: @header-height;
-  font-weight: bold;
+  // font-weight: bold;
 
   .header {
     position: fixed;
@@ -71,7 +71,7 @@
       aside {
         margin-top: 22px;
         text-align: right;
-        font-size: 24px;
+        font-size: 26px;
       }
     }
 
@@ -88,19 +88,17 @@
 
   .aside {
     padding: 0 60px 60px;
-    font-size: 24px;
+    font-size: @font-size-small;
     color: #6d778b;
     line-height: 44px;
 
     ul {
-      margin: 0;
-      padding: 0;
-      list-style: none;
+      .clearUl;
 
       li {
         position: relative;
         padding-left: 40px;
-        line-height: 60px;
+        line-height: 50px;
 
         &::before {
           position: absolute;

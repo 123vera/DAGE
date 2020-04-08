@@ -164,6 +164,7 @@ class Home extends Component {
                   <span onClick={this.onOpenPrefix}>
                     {type !== 'find_password' ? `+${globalModel.myInfo.phonePrefix}` : initPrefix}
                     <img src={Icons.arrowDown} alt=""/>
+                    &nbsp;|
                   </span>
                   <input
                     type="text"

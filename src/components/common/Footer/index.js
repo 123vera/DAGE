@@ -32,6 +32,12 @@ const tabs = [
 ];
 
 class Footer extends Component {
+  jumpTo = (path) => {
+    const { location } = this.props;
+    if (location.pathname === path) return;
+    router.push(path);
+  };
+
   render() {
     const { location } = this.props;
 
@@ -42,7 +48,7 @@ class Footer extends Component {
             <li
               key={tab.path}
               className={location.pathname === tab.path ? styles.active : ''}
-              onClick={() => router.push(tab.path)}
+              onClick={() => this.jumpTo(tab.path)}
             >
               <img
                 src={location.pathname === tab.path ? tab.iconActive : tab.icon}

@@ -39,11 +39,11 @@ class Index extends Component {
       mystatus,
       achievement,
       recommendCount,
-      teamCount,
+      // teamCount,
       teamLevelOtc,
       teamLevel,
     } = this.props.promotion;
-    console.log(formatMessage({ id: `PROMOTION_ACTIVITY` }));
+    console.log(teamLevelOtc);
     return (
       <div id={styles.promotion}>
         <PageHeader
@@ -70,7 +70,9 @@ class Index extends Component {
             <span className={styles.income}>{formatMessage({ id: `PROMOTION_LEVEL` })}</span>
             <h2>
               {teamLevelOtc !== 0
-                ? `${LEVEL_LIST[teamLevelOtc || 0]}${formatMessage({ id: `PROMOTION_POINT_02` })}`
+                ? `${LEVEL_LIST()[teamLevelOtc || 0]}${formatMessage({
+                    id: `PROMOTION_POINT_02`,
+                  })}`
                 : formatMessage({ id: `PROMOTION_NONE` })}
             </h2>
           </div>

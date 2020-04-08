@@ -227,7 +227,7 @@ class Index extends Component {
       balance,
       amount,
     } = this.props.exchange;
-    const { showBeforeMenus, showAfterMenus, count } = this.state;
+    const { showBeforeMenus, showAfterMenus } = this.state;
 
     return (
       <div className={styles.exchange} onClick={this.onHideMenus}>

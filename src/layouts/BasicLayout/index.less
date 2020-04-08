@@ -3,4 +3,39 @@
 .basicLayout {
   min-height: 100vh;
   background-color: @theme-color-bg;
+
+  & :global {
+    // 进出场动画
+    // 飞入
+    .example-appear {
+      transform: translate3D(100%, 0, 0);
+      transition: all 310ms linear;
+
+      &.example-appear-active {
+        transform: translate3D(0, 0, 0);
+      }
+    }
+
+    // 向左滑入
+    .example-enter {
+      transform: translate3D(100%, 0, 0);
+      transition: all 310ms linear;
+
+      &.example-enter-active {
+        transform: translate3D(0, 0, 0);
+      }
+    }
+
+    // // 向右滑出
+    // .example-leave {
+    //   position: absolute;
+    //   top: 0;
+    //   transform: translate3D(0, 0, 0);
+    //   transition: all 350ms linear;
+
+    //   &.example-leave-active {
+    //     transform: translate3D(100%, 0, 0);
+    //   }
+    // }
+  }
 }

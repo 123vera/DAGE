@@ -35,12 +35,14 @@
     background: rgba(26, 32, 46, 1);
     // padding: 0 18px;
     border-radius: 8px;
+    box-sizing: border-box;
+    padding: 0 20px;
 
     li {
+      display: flex;
       height: 72px;
       line-height: 72px;
       border-bottom: 2px solid #2e3546;
-      padding: 0 5px;
 
       &:last-child {
         border-bottom: none;
@@ -60,11 +62,16 @@
         margin-right: 2%;
 
         img {
+          margin-right: 7px;
           vertical-align: middle;
         }
       }
 
       span {
+        display: inline-block;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
         flex: 1;
         margin-left: 6px;
         vertical-align: middle;
