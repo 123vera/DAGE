@@ -230,6 +230,7 @@ export default {
   DGT_RECHARGE_ACTUAL_ARRIVAL: `Actual Arrival：`,
   DGT_RECHARGE_TIPS_00: `Single Purchase Min Amount is `,
   DGT_RECHARGE_TIPS_01: ` ，Max Amount is `,
+  DGT_RECHARGE_TIPS_01_A: ` `,
   // DGT_RECHARGE_TIPS_01: `• Single Purchase Min Amount is 200CNY，Max Amount is20,000CNY。`,
   DGT_RECHARGE_TIPS_02: `Reload is based on actual amount received。 `,
   DGT_RECHARGE_TIPS_03: `Every time you reload, you must reacquire the QR code on the wallet reload page。 `,

@@ -227,6 +227,7 @@ export default {
   DGT_RECHARGE_ACTUAL_ARRIVAL: `实际到账：`,
   DGT_RECHARGE_TIPS_00: `单笔最小金额为`,
   DGT_RECHARGE_TIPS_01: ` ，最大金额为`,
+  DGT_RECHARGE_TIPS_01_A: ` `,
   // DGT_RECHARGE_TIPS_01: `• 单笔最小金额为200CNY，最大金额为20,000CNY。`,
   DGT_RECHARGE_TIPS_02: `充值以实际到账金额为准。 `,
   DGT_RECHARGE_TIPS_03: `每次充值必须在钱包充值页面重新获取二维码。 `,

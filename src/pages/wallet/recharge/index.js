@@ -44,7 +44,7 @@ class Recharge extends Component {
   };
 
   changeCoin = menu => {
-    if (menu.value === 'DGT') {
+    if (menu.value === '_DGT') { // dgt 法币充值
       router.push('/wallet/dgt_recharge');
       return;
     }
@@ -83,7 +83,7 @@ class Recharge extends Component {
           />
           {showMenus && (
             <div className={styles.menus}>
-              <Menus menus={menus} textAlign="center" hasBorder onHandle={this.changeCoin} />
+              <Menus menus={menus.concat([{label: formatMessage({ id: `DGT_RECHARGE_TITLE` }), value: '_DGT'}])} textAlign="center" hasBorder onHandle={this.changeCoin} />
             </div>
           )}
         </div>

@@ -121,8 +121,8 @@ class Index extends Component {
         <ul className={styles.tips}>
           <li>
             {formatMessage({ id: `DGT_RECHARGE_TIPS_00` })}
-            {minAmount} CNY{formatMessage({ id: `DGT_RECHARGE_TIPS_01` })}
-            {maxAmount} CNY。
+            {minAmount} CNY {formatMessage({ id: `DGT_RECHARGE_TIPS_01` })}
+            {maxAmount} CNY {formatMessage({ id: `DGT_RECHARGE_TIPS_01_A` })}。
           </li>
           <li>{formatMessage({ id: `DGT_RECHARGE_TIPS_02` })}</li>
           <li>{formatMessage({ id: `DGT_RECHARGE_TIPS_03` })}</li>
