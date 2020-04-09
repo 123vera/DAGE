@@ -5,7 +5,12 @@ export default [
     component: './account/login',
     title: 'DAGE WALLET',
   }, // 登录
-
+  // {
+  //   path: '/',
+  //   // redirect: './homepage',
+  //   component: './account/homepage',
+  //   title: 'DAGE WALLET',
+  // }, // 启动页
   {
     path: '/',
     component: '../layouts/BasicLayout',

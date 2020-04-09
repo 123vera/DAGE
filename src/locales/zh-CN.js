@@ -330,4 +330,26 @@ export default {
   OTC_DETAIL_TITLE: `OTC挖矿详情`,
   OTC_DETAIL_TOTAL_REVENUE: `OTC挖矿总收益`,
   OTC_DETAIL_TIP: `仅显示最近三天的收益详情，若想查看过往内容，请至资金流水中查看`,
+
+  HOMEPAGE_TITLE: `欢迎使用DAGE`,
+
+  HOME_SECTION_01: `激活ID`,
+  HOME_SECTION_02: `OTC挖矿`,
+  HOME_SECTION_CONTENT_01: `充值USDT`,
+  HOME_SECTION_CONTENT_02: `并在去中心化交易所`,
+  HOME_SECTION_CONTENT_03: `兑换DID`,
+  HOME_SECTION_CONTENT_04: `，使用DID激活账户`,
+  HOME_SECTION_CONTENT_05: `消耗：`,
+  HOME_SECTION_CARD_DESC: `使用闪电网络快速实现USDT与DID，DGT的兑换`,
+  HOME_SECTION_CARD_GO: `立即闪兑`,
+  HOME_SECTION_MAIN_01: `中国区用户请先通过支付宝认证`,
+  HOME_SECTION_MAIN_02: `请确保资产中有足够的DGT和DID`,
+  HOME_SECTION_MAIN_03: `挖矿总收益`,
+  HOME_SECTION_MAIN_04: `查看详情`,
+  HOME_SECTION_MAIN_05: `重新认证`,
+
+  FOOTER_NAME_01: `首页`,
+  FOOTER_NAME_02: `资产`,
+  FOOTER_NAME_03: `生态`,
+  FOOTER_NAME_04: `我的`,
 };
