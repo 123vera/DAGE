@@ -9,13 +9,13 @@ const tabs = [
     path: '/home/wallet',
     icon: Icons.home,
     iconActive: Icons.homeActive,
-    label: formatMessage({ id: `WALLET_TITLE` }),
+    label: '首页',
   },
   {
     path: '/home/assets',
     icon: Icons.wallet,
     iconActive: Icons.walletActive,
-    label: '',
+    label: formatMessage({ id: `WALLET_TITLE` }),
   },
   {
     path: '/home/ecological',
@@ -55,6 +55,7 @@ class Footer extends Component {
                 width={tab.width}
                 alt=""
               />
+              <span>{tab.label}</span>
             </li>
           ))}
         </ul>
