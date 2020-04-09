@@ -49,7 +49,8 @@ class Index extends Component {
 
     this.props.dispatch({ type: 'dgtRecharge/RmbRecharge' }).then(res => {
       if (res.status !== 1) {
-        return Toast.info(res.msg);
+        res.msg && Toast.info(res.msg);
+        return;
       }
       const { payimg: payImg, endtime: endTime, orderno: orderNo, num } = res.data;
       router.push({

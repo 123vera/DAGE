@@ -155,7 +155,7 @@ class Register extends Component {
 
     this.props.dispatch({ type: 'register/Register' }).then(res => {
       if (res.status !== 1) {
-        Toast.fail(res.msg);
+        res.msg && Toast.fail(res.msg);
         return;
       }
 

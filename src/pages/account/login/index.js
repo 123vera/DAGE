@@ -83,7 +83,7 @@ class Login extends Component {
 
     this.props.dispatch({ type: 'login/Login' }).then(res => {
       if (res.status !== 1) {
-        Toast.fail(res.msg);
+        res.msg && Toast.fail(res.msg);
         return;
       }
       const { accountToken, userList } = res.data;
