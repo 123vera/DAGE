@@ -1,11 +1,16 @@
 export default [
+  // {
+  //   path: '/',
+  //   redirect: './login',
+  //   component: './account/login',
+  //   title: 'DAGE WALLET',
+  // }, // 登录
   {
     path: '/',
-    redirect: './login',
-    component: './account/login',
+    redirect: './homepage',
+    component: './account/homepage',
     title: 'DAGE WALLET',
-  }, // 登录
-
+  }, // 入口页
   {
     path: '/',
     component: '../layouts/BasicLayout',
@@ -15,6 +20,7 @@ export default [
       { path: '/alipay/pending', title: 'DAGE WALLET', component: './user/alipay/pending' }, // 审核中
       { path: '/alipay/reject', title: 'DAGE WALLET', component: './user/alipay/reject' }, // 审核拒绝
 
+      { path: '/homepage', title: 'DAGE WALLET', component: './account/homepage' }, // 入口页
       { path: '/login', title: 'DAGE WALLET', component: './account/login' }, // 登录
       { path: '/register', title: 'DAGE WALLET', component: './account/register' }, // 注册
       { path: '/select_account', title: 'DAGE WALLET', component: './account/selectAccount' }, // 选择登录账号
@@ -63,6 +69,7 @@ export default [
       { path: '/wallet/recharge', title: 'DAGE WALLET', component: './wallet/recharge' }, // 充币
       { path: '/wallet/dgt_recharge', title: 'DAGE WALLET', component: './wallet/dgt-recharge' }, // DGT法币充值
       { path: '/wallet/dgt_pay', title: 'DAGE WALLET', component: './wallet/dgt-pay' }, // DGT法币充值 - 支付二维码
+      { path: '/wallet/dgt_record', title: 'DAGE WALLET', component: './wallet/dgt-record' }, // DGT法币充值 - 充值记录
       { path: '/wallet/withdraw', title: 'DAGE WALLET', component: './wallet/withdraw' }, // 提币
       {
         path: '/wallet/withdraw-record',

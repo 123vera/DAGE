@@ -129,7 +129,7 @@ class Home extends Component {
 
     this.props.dispatch({ type: 'password/FindPassword' }).then(res => {
       if (res.status !== 1) {
-        Toast.fail(res.msg);
+        res.msg && Toast.fail(res.msg);
         return;
       }
       Cookies.set('ACCOUNT_TOKEN', res.data.accountToken);
@@ -145,7 +145,7 @@ class Home extends Component {
 
     return (
       <div className={styles.findPassword}>
-        <PageHeader leftContent={{ icon: Icons.arrowLeft }}/>
+        <PageHeader leftContent={{ icon: Icons.arrowLeft }} />
         <section>
           <p>
             {formatMessage({
@@ -159,11 +159,11 @@ class Home extends Component {
                 <div
                   className={`${styles.pickerWrapper} ${
                     errMsg.type === 'phone' ? styles.inputErr : ''
-                    }`}
+                  }`}
                 >
                   <span onClick={this.onOpenPrefix}>
                     {type !== 'find_password' ? `+${globalModel.myInfo.phonePrefix}` : initPrefix}
-                    <img src={Icons.arrowDown} alt=""/>
+                    <img src={Icons.arrowDown} alt="" />
                     &nbsp;|
                   </span>
                   <input
@@ -187,7 +187,7 @@ class Home extends Component {
                 onChange={value => this.onInputChange(value, 'code')}
               />
               <h4>{errMsg.value || ''}</h4>
-              <SubmitBtn value={formatMessage({ id: `COMMON_NEXT_STEP` })} onClick={this.toNext}/>
+              <SubmitBtn value={formatMessage({ id: `COMMON_NEXT_STEP` })} onClick={this.toNext} />
             </div>
           </div>
         </section>

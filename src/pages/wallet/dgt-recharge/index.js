@@ -49,7 +49,8 @@ class Index extends Component {
 
     this.props.dispatch({ type: 'dgtRecharge/RmbRecharge' }).then(res => {
       if (res.status !== 1) {
-        return Toast.info(res.msg);
+        res.msg && Toast.info(res.msg);
+        return;
       }
       const { payimg: payImg, endtime: endTime, orderno: orderNo, num } = res.data;
       router.push({
@@ -114,15 +115,15 @@ class Index extends Component {
             {realAmount || '--'} DGT
           </p>
           <button className={`${styles.btn} ${styles.submit}`} onClick={this.submit}>
-            {formatMessage({ id: `ASSETS_RECHANGE` })}
+            {formatMessage({ id: `DGT_RECHARGE_ALIPAY` })}
           </button>
         </section>
 
         <ul className={styles.tips}>
           <li>
             {formatMessage({ id: `DGT_RECHARGE_TIPS_00` })}
-            {minAmount} CNY{formatMessage({ id: `DGT_RECHARGE_TIPS_01` })}
-            {maxAmount} CNY。
+            {minAmount} CNY {formatMessage({ id: `DGT_RECHARGE_TIPS_01` })}
+            {maxAmount} CNY {formatMessage({ id: `DGT_RECHARGE_TIPS_01_A` })}。
           </li>
           <li>{formatMessage({ id: `DGT_RECHARGE_TIPS_02` })}</li>
           <li>{formatMessage({ id: `DGT_RECHARGE_TIPS_03` })}</li>

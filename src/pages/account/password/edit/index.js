@@ -59,7 +59,7 @@ class Index extends Component {
 
     this.props.dispatch({ type: 'password/EditPassword' }).then(res => {
       if (res.status !== 1) {
-        Toast.fail(res.msg);
+        res.msg && Toast.fail(res.msg);
         return;
       }
       Toast.info(formatMessage({ id: `TOAST_SET_PASSWORD_SUCCESS` }), TOAST_DURATION, () => {
@@ -75,7 +75,7 @@ class Index extends Component {
 
     return (
       <div className={styles.setPassword}>
-        <PageHeader leftContent={{ icon: Icons.arrowLeft }}/>
+        <PageHeader leftContent={{ icon: Icons.arrowLeft }} />
         <section>
           <p>{formatMessage({ id: `LOGIN_SET_PASSWORD` })}</p>
           <div className={styles.mainWrapper}>
@@ -103,7 +103,7 @@ class Index extends Component {
               />
               <h4>{errMsg.value || ''}</h4>
             </label>
-            <SubmitBtn value={formatMessage({ id: `COMMON_SUBMIT` })} onClick={this.toNext}/>
+            <SubmitBtn value={formatMessage({ id: `COMMON_SUBMIT` })} onClick={this.toNext} />
           </div>
         </section>
       </div>

@@ -55,7 +55,8 @@ class OtcMining extends Component {
 
     this.props.dispatch({ type: 'otcMining/OtcSubmit' }).then(res => {
       if (res.status !== 1) {
-        return Toast.info(res.msg);
+        res.msg && Toast.info(res.msg);
+        return;
       }
       Toast.info(formatMessage({ id: `OTC_ABROAD_SALE_SUCCESS` }), 2, () =>
         window.location.reload(),

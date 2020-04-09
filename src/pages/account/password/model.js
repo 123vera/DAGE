@@ -36,7 +36,7 @@ export default {
       yield put({ type: 'UpdateState', payload: { captchaSrc } });
     },
 
-    *GetSmsCode({ payload }, { call, select }) {
+    *GetSmsCode(_, { call, select }) {
       const state = yield select(state => state.password);
       const { prefix, phone, captcha } = state;
       return yield call(UserApi.sendSmsCode, {

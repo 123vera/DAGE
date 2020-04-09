@@ -39,6 +39,10 @@ class Recharge extends Component {
       type: 'withdraw/UpdateState',
       payload: { walletTo: '', amount: '', code: '' },
     });
+    dispatch({
+      type: 'globalModel/UpdateState',
+      payload: { captcha: '' },
+    });
   };
 
   getInitCoins = async () => {
@@ -73,8 +77,7 @@ class Recharge extends Component {
 
   changeCoin = async menu => {
     const { dispatch } = this.props;
-    this.clearInput();
-    console.log();
+    await this.clearInput();
     await dispatch({ type: 'withdraw/WithdrawInit', payload: { coin: menu.value } });
     // await dispatch({ type: 'withdraw/UpdateState', payload: { coin: menu.value } });
     await this.setState({ showMenus: false });
@@ -166,10 +169,17 @@ class Recharge extends Component {
     if (!code) return Toast.info(formatMessage({ id: `COMMON_PLACEHOLDER_CODE` }));
 
     this.props.dispatch({ type: 'withdraw/Withdraw' }).then(res => {
-      if (res.status !== 1) return Toast.info(res.msg);
-      Toast.info(formatMessage({ id: `TOAST_SET_WITHDRAW_SUCCESS` }), 2, () =>
-        window.location.reload(),
-      );
+      if (res.status === 1) {
+        Toast.info(formatMessage({ id: `TOAST_SET_WITHDRAW_SUCCESS` }), 2, () =>
+          window.location.reload(),
+        );
+      } else {
+        res.msg && Toast.info(res.msg);
+      }
+      // if (res.status !== 1) return Toast.info(res.msg);
+      // Toast.info(formatMessage({ id: `TOAST_SET_WITHDRAW_SUCCESS` }), 2, () =>
+      //   window.location.reload(),
+      // );
     });
   };
 

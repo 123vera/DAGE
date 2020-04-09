@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Menus from '../../common/Menus';
 import { connect } from 'dva';
+import { formatMessage } from 'umi/locale';
 
 @connect(({ globalModel }) => ({ globalModel }))
 class Coins extends Component {
@@ -27,7 +28,7 @@ class Coins extends Component {
     });
   }
 
-  changeCoin = (menu) => {
+  changeCoin = menu => {
     const { onHandle } = this.props;
     onHandle && onHandle(menu.value);
   };
@@ -36,7 +37,12 @@ class Coins extends Component {
     const { menus } = this.state;
     return (
       <div>
-        <Menus menus={menus} textAlign="center" hasBorder onHandle={this.changeCoin}/>
+        <Menus
+          menus={menus.concat([{ label: formatMessage({ id: `DGT_RECHARGE_TITLE` }), value: '_DGT' }])}
+          textAlign="center"
+          hasBorder
+          onHandle={this.changeCoin}
+        />
       </div>
     );
   }
