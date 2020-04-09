@@ -114,7 +114,7 @@ class Index extends Component {
             {realAmount || '--'} DGT
           </p>
           <button className={`${styles.btn} ${styles.submit}`} onClick={this.submit}>
-            {formatMessage({ id: `ASSETS_RECHANGE` })}
+            {formatMessage({ id: `DGT_RECHARGE_ALIPAY` })}
           </button>
         </section>
 

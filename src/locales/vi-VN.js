@@ -236,6 +236,7 @@ export default {
   DGT_RECHARGE_TIPS_06: `Ghi chú: DAGE sẽ không chịu trách nhiệm cho các vấn đề liên quan tới tổn thất phát sinh do vi phạm các quy định nêu trên. Nếu có thắc mắc, vui lòng liên hệ với bộ phận Chăm sóc khách hàng của chúng tôi.`,
 
   DGT_ALIPAY_TITLE: `Thanh toán Alipay`,
+  DGT_RECHARGE_ALIPAY: `Nạp tiền`,
   DGT_ALIPAY_ORDERID: `Mã lệnh:  `,
   DGT_ALIPAY_DEALLINE: `Thời gian trước khi lệnh hết hạn: `,
   DGT_ALIPAY_TIPS_01: `•  Mỗi lần nạp thêm <span style="color: #FF3750"> bạn phải lấy lại Mã QR trong trang nạp tiền cho Ví </span>`,
@@ -330,4 +331,26 @@ export default {
   OTC_DETAIL_TITLE: `Chi tiết Khai thác OTC`,
   OTC_DETAIL_TOTAL_REVENUE: `Tổng doanh thu Khai thác OTC`,
   OTC_DETAIL_TIP: `Lịch sử doanh thu trong ba ngày qua sẽ được hiển thị ở đây. Nếu bạn muốn xem các danh sách trong quá khứ , Vui lòng kiểm tra dưới mục ví, mục DGC và DID`,
+
+  HOMEPAGE_TITLE: `Chào mừng đến với DAGE`,
+
+  HOME_SECTION_01: `DID kích hoạt`,
+  HOME_SECTION_02: `Khai thác OTC`,
+  HOME_SECTION_CONTENT_01: `Gửi tiền USDT`,
+  HOME_SECTION_CONTENT_02: `Và trên một sàn giao dịch phi tập trung`,
+  HOME_SECTION_CONTENT_03: `Đổi DID`,
+  HOME_SECTION_CONTENT_04: `，Sử dụng DID để kích hoạt tài khoản`,
+  HOME_SECTION_CONTENT_05: `Tiêu thụ：`,
+  HOME_SECTION_CARD_DESC: `Nhanh chóng nhận ra việc trao đổi USDT, DID và DGT bằng cách sử dụng mạng sét`,
+  HOME_SECTION_CARD_GO: `Mua lại ngay`,
+  HOME_SECTION_MAIN_01: `Đối với người dùng ở Trung Quốc, trước tiên, vui lòng vượt qua chứng nhận Alipay`,
+  HOME_SECTION_MAIN_02: `Vui lòng đảm bảo có đủ DGT và DID trong tài sản`,
+  HOME_SECTION_MAIN_03: `Tổng doanh thu khai thác`,
+  HOME_SECTION_MAIN_04: `Xem chi tiết`,
+  HOME_SECTION_MAIN_05: `Xác nhận lại`,
+
+  FOOTER_NAME_01: `Trang chủ`,
+  FOOTER_NAME_02: `Tài sản`,
+  FOOTER_NAME_03: `Sinh thái học`,
+  FOOTER_NAME_04: `Của tôi`,
 };

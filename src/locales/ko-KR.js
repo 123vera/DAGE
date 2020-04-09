@@ -209,6 +209,7 @@ export default {
   RECHARGE_TIP_06: `모든 탑업 자산은 다른 자산 때문에 회복되지 않습니다`,
 
   DGT_RECHARGE_TITLE: `DGT FIAT 재충전`,
+  DGT_RECHARGE_ALIPAY: `위로`,
   DGT_RECHARGE_LABEL: `재충전 금액 (알리페이 결제_ `,
   DGT_RECHARGE_PLACEHOLDER: `CNY 재충전 금액 입력`,
   DGT_RECHARGE_RATIO: `현재 환율：`,
@@ -318,4 +319,25 @@ export default {
   OTC_DETAIL_TITLE: `OTC 채굴 세부 정보`,
   OTC_DETAIL_TOTAL_REVENUE: `OTC 총 채굴 수익`,
   OTC_DETAIL_TIP: `지난 3일 동안의 수익 기록이 여기에 나타납니다. 과거 기록을 확인하고 싶으면 지갑 아래 DGC와 DID 항목을 확인해 주세요`,
+  HOMEPAGE_TITLE: `DAGE에 오신 것을 환영합니다`,
+
+  HOME_SECTION_01: `활성화 DID`,
+  HOME_SECTION_02: `OTC 마이닝`,
+  HOME_SECTION_CONTENT_01: `USDT 입금`,
+  HOME_SECTION_CONTENT_02: `그리고 탈 중앙화 거래소에서`,
+  HOME_SECTION_CONTENT_03: `DID 사용`,
+  HOME_SECTION_CONTENT_04: `，DID를 사용하여 계정 활성화`,
+  HOME_SECTION_CONTENT_05: `소비하다：`,
+  HOME_SECTION_CARD_DESC: `낙뢰 네트워크를 사용하여 USDT, DID 및 DGT 교환을 신속하게 실현`,
+  HOME_SECTION_CARD_GO: `지금 사용하십시오`,
+  HOME_SECTION_MAIN_01: `중국 사용자의 경우 먼저 Alipay 인증을 통과하십시오`,
+  HOME_SECTION_MAIN_02: `자산에 충분한 DGT 및 DID가 있는지 확인하십시오`,
+  HOME_SECTION_MAIN_03: `총 채굴 수입`,
+  HOME_SECTION_MAIN_04: `세부 사항보기`,
+  HOME_SECTION_MAIN_05: `재 인증`,
+
+  FOOTER_NAME_01: `홈`,
+  FOOTER_NAME_02: `자산`,
+  FOOTER_NAME_03: `생태학`,
+  FOOTER_NAME_04: `광산`,
 };

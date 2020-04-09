@@ -209,6 +209,7 @@ export default {
   RECHARGE_TIP_06: `追加の資産は、他の資産では回収されません`,
 
   DGT_RECHARGE_TITLE: `DGT FIATリロード`,
+  DGT_RECHARGE_ALIPAY: `補充する`,
   DGT_RECHARGE_LABEL: `リロード金額 (Alipayでの支払い)`,
   DGT_RECHARGE_PLACEHOLDER: `CNYリロード金額を入力`,
   DGT_RECHARGE_RATIO: `現在の交換レート：`,
@@ -317,4 +318,26 @@ export default {
   OTC_DETAIL_TITLE: `OTCマイニング詳細`,
   OTC_DETAIL_TOTAL_REVENUE: `OTCマイニング収入合計`,
   OTC_DETAIL_TIP: `過去3日間の収入合計はこちらに表示されます。過去の履歴を見たい場合は、ウォレットのDGCとDIDのセクションを確認ください`,
+
+  HOMEPAGE_TITLE: `DAGEへようこそ`,
+
+  HOME_SECTION_01: `アクティベーションDID`,
+  HOME_SECTION_02: `OTCマイニング`,
+  HOME_SECTION_CONTENT_01: `USDTを入金`,
+  HOME_SECTION_CONTENT_02: `そして分散型の交換では`,
+  HOME_SECTION_CONTENT_03: `DIDを利用する`,
+  HOME_SECTION_CONTENT_04: `，DIDを使用してアカウントをアクティブ化する`,
+  HOME_SECTION_CONTENT_05: `消費する：`,
+  HOME_SECTION_CARD_DESC: `雷ネットワークを使用してUSDT、DID、DGTの交換をすばやく実現`,
+  HOME_SECTION_CARD_GO: `今すぐ交換`,
+  HOME_SECTION_MAIN_01: `中国のユーザーは、最初にAlipay認定を取得してください`,
+  HOME_SECTION_MAIN_02: `アセットに十分なDGTとDIDがあることを確認してください`,
+  HOME_SECTION_MAIN_03: `総鉱業収益`,
+  HOME_SECTION_MAIN_04: `詳細を見る`,
+  HOME_SECTION_MAIN_05: `再認証`,
+
+  FOOTER_NAME_01: `ホーム`,
+  FOOTER_NAME_02: `資産`,
+  FOOTER_NAME_03: `生態学`,
+  FOOTER_NAME_04: `鉱山`,
 };

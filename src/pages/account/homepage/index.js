@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import SelectLang from '../../../components/common/SelectLang';
 import styles from './index.less';
 import { router } from 'umi';
+import { formatMessage } from 'umi-plugin-locale';
 
-class Homepage extends Component {
+class Index extends Component {
   render() {
     return (
       <div id={styles.homepageBg}>
@@ -11,21 +12,21 @@ class Homepage extends Component {
           <SelectLang />
         </div>
 
-        <h2>欢迎使用DAGE</h2>
+        <h2>{formatMessage({ id: `HOMEPAGE_TITLE` })}</h2>
 
         <div className={styles.btnGroup}>
           <button onClick={() => router.push('/login')} className={`${styles.btn} ${styles.login}`}>
-            登录
+            {formatMessage({ id: `LOGIN` })}
           </button>
           <button
             onClick={() => router.push('/register')}
             className={`${styles.btn} ${styles.reg}`}
           >
-            注册
+            {formatMessage({ id: `REGISTER_TITLE_01` })}
           </button>
         </div>
       </div>
     );
   }
 }
-export default Homepage;
+export default Index;

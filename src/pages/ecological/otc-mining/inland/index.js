@@ -73,12 +73,13 @@ class OtcMining extends Component {
           style: { fontSize: '0.32rem' },
           onPress: () => {
             this.props.dispatch({ type: 'otcMining/OtcSubmit' }).then(res => {
-              if (res.status !== 1) {
-                return Toast.info(res.msg);
+              if (res && res.status === 1) {
+                Toast.info(formatMessage({ id: `OTC_ABROAD_SALE_SUCCESS` }), 2, () =>
+                  window.location.reload(),
+                );
+              } else {
+                res.msg && Toast.info(res.msg);
               }
-              Toast.info(formatMessage({ id: `OTC_ABROAD_SALE_SUCCESS` }), 2, () =>
-                window.location.reload(),
-              );
             });
           },
         },

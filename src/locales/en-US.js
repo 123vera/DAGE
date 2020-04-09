@@ -224,6 +224,7 @@ export default {
   RECHARGE_TIP_06: ` to the above address. Otherwise, you may lose your assets permanently.`,
 
   DGT_RECHARGE_TITLE: `DGT FIAT Reload`,
+  DGT_RECHARGE_ALIPAY: `Top up`,
   DGT_RECHARGE_LABEL: `Reload Amount (Alipay Payment)`,
   DGT_RECHARGE_PLACEHOLDER: `Enter CNY Reload Amount`,
   DGT_RECHARGE_RATIO: `Current Exchange Rate：`,
@@ -333,4 +334,26 @@ export default {
   OTC_DETAIL_TITLE: `OTC Mining details`,
   OTC_DETAIL_TOTAL_REVENUE: `OTC Total Mining Revenue`,
   OTC_DETAIL_TIP: `Revenue records for the past three days will be shown here. If you wish to see past records，Please check under wallet, DGC and DID section`,
+
+  HOMEPAGE_TITLE: `Welcome to DAGE`,
+
+  HOME_SECTION_01: `activate DID`,
+  HOME_SECTION_02: `OTC mining`,
+  HOME_SECTION_CONTENT_01: `deposit USDT`,
+  HOME_SECTION_CONTENT_02: `and on a decentralised exchange`,
+  HOME_SECTION_CONTENT_03: `exchange DID`,
+  HOME_SECTION_CONTENT_04: `，use DID to activate account`,
+  HOME_SECTION_CONTENT_05: `consume：`,
+  HOME_SECTION_CARD_DESC: `Click to swap assets`,
+  HOME_SECTION_CARD_GO: `Exchange immediately`,
+  HOME_SECTION_MAIN_01: `For China users, please get your Alipay information certified first`,
+  HOME_SECTION_MAIN_02: `please make sure there are enough DGT and DID in the asset`,
+  HOME_SECTION_MAIN_03: `Total mining revenue`,
+  HOME_SECTION_MAIN_04: `More details`,
+  HOME_SECTION_MAIN_05: `Recertify`,
+
+  FOOTER_NAME_01: `Home`,
+  FOOTER_NAME_02: `Assets`,
+  FOOTER_NAME_03: `Ecosystem`,
+  FOOTER_NAME_04: `Profile`,
 };
