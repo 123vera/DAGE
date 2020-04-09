@@ -22,73 +22,52 @@
 
   p {
     .clearBox;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     margin: 30px 0;
     line-height: 44px;
     text-align: justify;
+
+    .certification {
+      color: rgba(243, 175, 102, 1);
+    }
+  }
+
+  .miningSummary {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 20px 0;
+    border-bottom: 2px solid #2E3546;
+    color: #fff;
+
+    span {
+      font-size: 48px;
+
+      i {
+        font-size: 24px;
+        font-style: normal;
+      }
+
+      span {
+        margin: 0 30px;
+        font-size: 60px;
+      }
+    }
+
+    a {
+      line-height: 44px;
+      color: rgba(243, 175, 102, 1);
+    }
   }
 
   small {
     font-size: 24px;
   }
 
-  .card {
-    position: relative;
-    margin: 30px 0 54px;
-    height: 300px;
-    box-sizing: border-box;
-    padding: 0 50px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    background-size: cover;
-    background-position: center;
-
-    &::before {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      content: '';
-      background: linear-gradient(315deg, rgba(126, 0, 255, 1) 0%, rgba(0, 120, 255, 1) 100%);
-    }
-
-    p {
-      color: #fff;
-    }
-
-    .earnings {
-      color: #fff;
-
-      span {
-        font-size: 60px;
-        line-height: 84px;
-      }
-
-      small {
-        margin-left: 12px;
-        font-size: 28px;
-        line-height: 44px;
-      }
-    }
-
-    aside {
-      margin: 30px 0;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
-
-      span {
-        color: #f3af66;
-        font-size: 22px;
-      }
-    }
-  }
-
-  .openingSoon {
+  .btnBox {
     text-align: center;
     color: #1663f7;
     margin-top: 30px;

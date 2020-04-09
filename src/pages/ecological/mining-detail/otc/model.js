@@ -16,7 +16,7 @@ export default {
     },
   },
   effects: {
-    *OtcDetail(_, { call, put, select }) {
+    * OtcDetail(_, { call, put, select }) {
       const { page, row, otcList } = yield select(state => state.otcMiningDetail);
       const res = yield call(OtcApi.otcDetail, { type: 'mining', page });
       if (res.status === 1) {
@@ -35,7 +35,7 @@ export default {
       }
       return res;
     },
-    *OtcSubmit(_, { call, select }) {
+    * OtcSubmit(_, { call, select }) {
       const { count, initInfo } = yield select(state => state.otcMining);
       return yield call(OtcApi.otcSubmit, { num: count, type: initInfo.type });
     },

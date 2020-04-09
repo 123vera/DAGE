@@ -13,7 +13,6 @@ class Activation extends Component {
   onSubmit = () => {
     const { dispatch, globalModel } = this.props;
     const { myInfo } = globalModel;
-    console.log(myInfo);
     if (myInfo.did < 10) {
       return Toast.info(formatMessage({ id: `EXCHANGE_BALANCE_NOT_ENOUGH_01` }));
     }
@@ -29,15 +28,16 @@ class Activation extends Component {
 
   render() {
     const { myInfo } = this.props.globalModel;
+    const isActivate = myInfo.activate === 1;
 
     return (
       <div className={styles.activation}>
         <GroupTitle
           icon={Icons.dIcon}
           title={formatMessage({ id: `WALLET_ACTIVITY_ID` })}
-          msg={'未激活'}
+          msg={myInfo.activate === 1 ? '已激活' : '未激活'}
         />
-        {myInfo.activate !== 0 ?
+        {!isActivate ?
           <div className={styles.content}>
             <p>
               <Link to="/wallet/recharge?type=USDT">充值USDT</Link>
