@@ -1,0 +1,39 @@
+@import '../../../styles/mixin.less';
+
+#homepageBg {
+  height: 100vh;
+  .background-image();
+  background-size: 100%;
+  background-position: center;
+  background-image: url('@/assets/dark/homepage.png');
+
+  .langWrapper {
+    position: absolute;
+    top: 54px;
+    right: 10px;
+    display: inline-block;
+  }
+
+  h2 {
+    padding-top: 240px;
+    padding-left: 60px;
+  }
+
+  .btnGroup {
+    position: fixed;
+    bottom: 160px;
+    padding: 0 68px;
+    width: 100%;
+
+    button {
+      width: 100%;
+      padding: 20px 0;
+      margin-bottom: 40px;
+
+      &.reg {
+        background: #fff;
+        color: #000;
+      }
+    }
+  }
+}

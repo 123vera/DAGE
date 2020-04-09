@@ -38,7 +38,8 @@ class WalletFlow extends Component {
     const { location, dispatch } = this.props;
     const { type } = location.query;
     dispatch({
-      type: 'withdrawRecord/UpdateState', payload: {
+      type: 'withdrawRecord/UpdateState',
+      payload: {
         type,
         list: [],
         page: 1,
@@ -60,7 +61,7 @@ class WalletFlow extends Component {
   };
 
   render() {
-    let { list = [], hasMore = true, type } = this.props.withdrawRecord;
+    let { list = [], hasMore = true } = this.props.withdrawRecord;
 
     return (
       <div className={styles.withdrawRecord}>
@@ -82,9 +83,7 @@ class WalletFlow extends Component {
                 </div>
                 <div className={styles.row}>
                   <label>{formatMessage({ id: `RECORD_LI_TIME` })}</label>
-                  <p>
-                    {dayjs(item.addTime * 1000).format('YYYY-MM-DD HH:mm')}
-                  </p>
+                  <p>{dayjs(item.addTime * 1000).format('YYYY-MM-DD HH:mm')}</p>
                 </div>
                 <div className={styles.row}>
                   <label>{formatMessage({ id: `RECORD_LI_AMOUNT` })}</label>

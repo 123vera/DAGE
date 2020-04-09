@@ -1,0 +1,53 @@
+@import '../../../styles/mixin.less';
+
+#dgtRecord {
+  ul {
+    .clearUl;
+
+    li {
+      padding: 30px 0;
+      margin: 0 60px;
+      border-bottom: 1px solid @theme-border-gray;
+      font-size: @font-size-common;
+
+      .status {
+        display: inline-block;
+        font-size: @font-size-smaller;
+        padding: 6px 25px;
+        border-radius: 22px;
+        color: #fff;
+
+        &.success {
+          background: #00c773;
+        }
+
+        &.fail {
+          background: @theme-color-red;
+        }
+
+        &.waiting {
+          background: @theme-border-gradient-to;
+        }
+      }
+
+      p {
+        margin: 25px 0;
+      }
+
+      .time {
+        display: flex;
+        justify-content: space-between;
+
+        span {
+          color: #fff;
+          font-size: @font-size-large;
+        }
+
+        small {
+          color: @font-sub-color;
+          font-size: @font-size-smaller;
+        }
+      }
+    }
+  }
+}

@@ -25,7 +25,6 @@ class Index extends Component {
     });
   }
 
-
   onChangeAccount = e => {
     const { value } = e.target;
     if (value && !REG.INPUT_GROUP.test(value)) return;
@@ -74,7 +73,7 @@ class Index extends Component {
     }
     this.props.dispatch({ type: 'login/AddUser' }).then(res => {
       if (res.status !== 1) {
-        Toast.fail(res.msg);
+        res.msg && Toast.fail(res.msg);
         return;
       }
       Cookies.set('OPENID', res.data.openId);
@@ -93,7 +92,7 @@ class Index extends Component {
 
     return (
       <div className={styles.setAccount}>
-        <PageHeader leftContent={{ icon: Icons.arrowLeft }}/>
+        <PageHeader leftContent={{ icon: Icons.arrowLeft }} />
 
         <div className={styles.mainContent}>
           <p>{formatMessage({ id: `SELECT_SET_ACCOUNT` })}</p>
@@ -121,7 +120,7 @@ class Index extends Component {
               />
               <h4>{errMsg.value || ''}</h4>
             </label>
-            <img className={styles.nextStep} onClick={this.toNext} src={Images.nextStep} alt=""/>
+            <img className={styles.nextStep} onClick={this.toNext} src={Images.nextStep} alt="" />
           </section>
         </div>
       </div>

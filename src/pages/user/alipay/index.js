@@ -79,7 +79,8 @@ class Alipay extends Component {
       })
       .then(res => {
         if (res.status !== 1) {
-          return Toast.info(res.msg);
+          res.msg && Toast.info(res.msg);
+          return;
         }
         router.push('/alipay/pending');
       });

@@ -16,7 +16,7 @@ export default {
     *GetMyWallet({ payload }, { call, put }) {
       const res = yield call(UserApi.getMyWallet, payload);
       if (res.status === 1) {
-        yield put({ type: 'UpdateState', payload: { wallet: res.data.wallet } });
+        yield put({ type: 'UpdateState', payload: { wallet: res.data && res.data.wallet } });
       }
       return res;
     },

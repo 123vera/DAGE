@@ -3,7 +3,7 @@ import AssetApi from '../../../services/api/asset';
 export default {
   namespace: 'dgtRecharge',
   state: {
-    amount: null,
+    amount: '',
     amountOptions: [],
     minAmount: 0,
     maxAmount: 100000,

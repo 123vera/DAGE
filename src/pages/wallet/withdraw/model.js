@@ -10,6 +10,7 @@ export default {
     // walletTo: '0x17e3e0189447416d412a3d92a240a06178a98c3d',
     amount: '',
     code: '',
+    captcha: '',
     walletType: undefined,
     serviceCharge: undefined,
   },
@@ -21,7 +22,6 @@ export default {
   effects: {
     *WithdrawInit({ payload }, { call, put }) {
       const res = yield call(AssetApi.withdrawInit, { type: payload.coin });
-      console.log(payload);
       if (res.status === 1) {
         yield put({ type: 'UpdateState', payload: { initInfo: res.data, coin: payload.coin } });
       }
@@ -31,7 +31,7 @@ export default {
     *Withdraw(_, { call, select }) {
       const { coin, walletTo, amount, code } = yield select(state => state.withdraw);
       return yield call(AssetApi.submitWithdrawal, {
-        type: coin.value,
+        type: coin,
         walletTo,
         amount,
         code,
