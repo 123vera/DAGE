@@ -72,6 +72,7 @@ class Activation extends Component {
             </div>
           </div>
         )}
+
         <div className={styles.banner} style={{ backgroundImage: `url(${Images.cardBg})` }}>
           <label>{formatMessage({ id: `ECOLOGICAL_CURRENCY_TITLE_01` })}</label>
           <small

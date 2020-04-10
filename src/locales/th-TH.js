@@ -335,6 +335,8 @@ export default {
   HOME_SECTION_MAIN_03: `รวมรายได้จากการขุด`,
   HOME_SECTION_MAIN_04: `ดูรายละเอียด`,
   HOME_SECTION_MAIN_05: `รับรอง`,
+  HOME_SECTION_MAIN_06: `รับรองความถูกต้องตอนนี้`,
+  HOME_SECTION_MAIN_07: `ได้รับการรับรองโดย`,
   HOME_SECTION_CONTENT_001: `โอน DID`,
   HOME_SECTION_CONTENT_002: `ไปให้เพื่อนหลังจากเปิดใช้งานเป็นเพื่อนเรียบร้อยแล้วคุณสามารถอัพเกรดระดับ VIP ได้อย่างรวดเร็วโปรดตรวจสอบรายละเอียดระดับในศูนย์ส่วนตัว`,
   HOME_SECTION_CONTENT_003: `รายละเอียดการส่งเสริมการขาย`,

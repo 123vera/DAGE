@@ -49,7 +49,7 @@ class Mining extends Component {
 
   render() {
     const { myInfo } = this.props.globalModel;
-    const { currency, certification,reward } = this.props.wallet;
+    const { currency, certification, reward } = this.props.wallet;
     const { showMenus } = this.state;
     const isMoreCurrency = currency.value === 'dgt+did';
     const isActivate = myInfo.activate === 1;
@@ -57,42 +57,39 @@ class Mining extends Component {
 
     return (
       <div className={styles.mining}>
-        <GroupTitle
-          icon={Icons.oIcon}
-          title={formatMessage({ id: `WALLET_POG_TITLE` })}
-        />
-        {!isActivate ?
+        <GroupTitle icon={Icons.oIcon} title={formatMessage({ id: `WALLET_POG_TITLE` })} />
+        {!isActivate ? (
           <div className="content">
-            {isChinese ?
+            {isChinese ? (
               <p>
-                <span>中国区用户请先通过支付宝认证</span>
+                <span>{formatMessage({ id: `HOME_SECTION_MAIN_01` })}</span>
                 <span className={styles.certification}>
-                  <Certification status={certification}/>
+                  <Certification status={certification} />
                 </span>
-              </p> :
-              <p>
-                <span>请确保资产中有足够的DGT和DID</span>
               </p>
-            }
-          </div> :
+            ) : (
+              <p>
+                <span>{formatMessage({ id: `HOME_SECTION_MAIN_02` })}</span>
+              </p>
+            )}
+          </div>
+        ) : (
           <div className="content">
-            <p>挖矿总收益</p>
+            <p>{formatMessage({ id: `HOME_SECTION_MAIN_03` })}</p>
             <div className={styles.miningSummary}>
               <span>
                 {downFixed(reward.dgc)} <i>DGT</i>
                 <span>+</span>
                 {downFixed(reward.did)} <i>DID</i>
               </span>
-              <Link to="/mining-detail/otc">查看详情</Link>
+              <Link to="/mining-detail/otc">{formatMessage({ id: `HOME_SECTION_MAIN_04` })}</Link>
             </div>
           </div>
-        }
+        )}
         <div className={styles.btnBox}>
           <button
             onClick={() =>
-              isChinese
-                ? router.push('/otc-mining/inland')
-                : router.push('/otc-mining/abroad')
+              isChinese ? router.push('/otc-mining/inland') : router.push('/otc-mining/abroad')
             }
           >
             {formatMessage({ id: `WALLET_POG_BTN` })}
@@ -116,7 +113,7 @@ class Mining extends Component {
                   // placeholder={formatMessage({ id: `WITHDRAW_PLACEHOLDER` })}
                 />
                 <button>
-                  <img src={Icons.arrowDown} alt=""/>
+                  <img src={Icons.arrowDown} alt="" />
                 </button>
 
                 {showMenus && (
@@ -193,13 +190,21 @@ export default Mining;
 function Certification({ status }) {
   switch (status) {
     case 0:
-      return <span>待审核</span>;
+      return <span>{formatMessage({ id: `RECORD_AUDIT` })}</span>;
     case 1:
-      return <span>认证通过</span>;
+      return <span>{formatMessage({ id: `HOME_SECTION_MAIN_07` })}</span>;
     case -1:
-      return <span onClick={() => router.push('/alipay')}>重新认证</span>;
+      return (
+        <span onClick={() => router.push('/alipay')}>
+          {formatMessage({ id: `HOME_SECTION_MAIN_05` })}
+        </span>
+      );
     case -2:
-      return <span onClick={() => router.push('/alipay')}>立即认证</span>;
+      return (
+        <span onClick={() => router.push('/alipay')}>
+          {formatMessage({ id: `HOME_SECTION_MAIN_06` })}
+        </span>
+      );
     default:
       return <span> </span>;
   }

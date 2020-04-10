@@ -348,6 +348,8 @@ export default {
   HOME_SECTION_MAIN_03: `挖矿总收益`,
   HOME_SECTION_MAIN_04: `查看详情`,
   HOME_SECTION_MAIN_05: `重新认证`,
+  HOME_SECTION_MAIN_06: `立即认证`,
+  HOME_SECTION_MAIN_07: `认证通过`,
   HOME_SECTION_CONTENT_001: `转账DID`,
   HOME_SECTION_CONTENT_002: `给好友，好友激活成功后，可快速提升你的VIP等级，等级详情请在个人中心查看`,
   HOME_SECTION_CONTENT_003: `推广收益详情`,

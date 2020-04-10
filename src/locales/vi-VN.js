@@ -348,6 +348,8 @@ export default {
   HOME_SECTION_MAIN_03: `Tổng doanh thu khai thác`,
   HOME_SECTION_MAIN_04: `Xem chi tiết`,
   HOME_SECTION_MAIN_05: `Xác nhận lại`,
+  HOME_SECTION_MAIN_06: `Xác thực ngay`,
+  HOME_SECTION_MAIN_07: `Chứng nhận`,
   HOME_SECTION_CONTENT_001: `Chuyển DID `,
   HOME_SECTION_CONTENT_002: `cho bạn bè, sau khi bạn bè được kích hoạt thành công, bạn có thể nhanh chóng nâng cấp cấp VIP của mình, vui lòng kiểm tra chi tiết cấp độ trong trung tâm cá nhân`,
   HOME_SECTION_CONTENT_003: `Chi tiết doanh thu khuyến mãi`,

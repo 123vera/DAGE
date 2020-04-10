@@ -335,6 +335,8 @@ export default {
   HOME_SECTION_MAIN_03: `総鉱業収益`,
   HOME_SECTION_MAIN_04: `詳細を見る`,
   HOME_SECTION_MAIN_05: `再認証`,
+  HOME_SECTION_MAIN_06: `今すぐ認証`,
+  HOME_SECTION_MAIN_07: `認定済み`,
   HOME_SECTION_CONTENT_001: `友達にDID`,
   HOME_SECTION_CONTENT_002: `を転送します。友達が正常にアクティブ化されたら、すぐにVIPレベルをアップグレードできます。パーソナルセンターでレベルの詳細を確認してください`,
   HOME_SECTION_CONTENT_003: `プロモーション収益の詳細`,
