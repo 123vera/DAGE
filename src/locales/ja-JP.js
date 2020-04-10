@@ -337,7 +337,7 @@ export default {
   HOME_SECTION_MAIN_05: `再認証`,
   HOME_SECTION_MAIN_06: `今すぐ認証`,
   HOME_SECTION_MAIN_07: `認定済み`,
-  HOME_SECTION_CONTENT_001: `友達にDID`,
+  HOME_SECTION_CONTENT_001: `友達に DID `,
   HOME_SECTION_CONTENT_002: `を転送します。友達が正常にアクティブ化されたら、すぐにVIPレベルをアップグレードできます。パーソナルセンターでレベルの詳細を確認してください`,
   HOME_SECTION_CONTENT_003: `プロモーション収益の詳細`,
   HOME_SECTION_CONTENT_004: `招待コードを取得`,

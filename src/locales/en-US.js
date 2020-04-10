@@ -353,7 +353,7 @@ export default {
   HOME_SECTION_MAIN_05: `Recertify`,
   HOME_SECTION_MAIN_06: `Authenticate now`,
   HOME_SECTION_MAIN_07: `Certified`,
-  HOME_SECTION_CONTENT_001: `Transfer DID`,
+  HOME_SECTION_CONTENT_001: `Transfer DID `,
   HOME_SECTION_CONTENT_002: `to friends, after the friend is activated successfully, you can quickly upgrade your VIP level, please check the level details in the personal center`,
   HOME_SECTION_CONTENT_003: `Promotion revenue details`,
   HOME_SECTION_CONTENT_004: `Get invitation code`,

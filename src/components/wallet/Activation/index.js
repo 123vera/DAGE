@@ -41,7 +41,7 @@ class Activation extends Component {
               : formatMessage({ id: `USER_UNACTIVITY` })
           }
         />
-        {!isActivate ? (
+        {isActivate ? (
           <div className={styles.content}>
             <p>
               <Link to="/wallet/recharge?type=USDT">
@@ -52,7 +52,7 @@ class Activation extends Component {
               {formatMessage({ id: `HOME_SECTION_CONTENT_04` })}
             </p>
             <div className={styles.toActivation}>
-              <span>{formatMessage({ id: `HOME_SECTION_CONTENT_05` })}10DID</span>
+              <span>{formatMessage({ id: `HOME_SECTION_CONTENT_05` })}10 DID</span>
               <button onClick={this.onSubmit}>{formatMessage({ id: `WALLET_CONFIRM` })}</button>
             </div>
           </div>
