@@ -335,6 +335,10 @@ export default {
   HOME_SECTION_MAIN_03: `총 채굴 수입`,
   HOME_SECTION_MAIN_04: `세부 사항보기`,
   HOME_SECTION_MAIN_05: `재 인증`,
+  HOME_SECTION_CONTENT_001: `친구에게 DID`,
+  HOME_SECTION_CONTENT_002: `를 전송하면 친구가 성공적으로 활성화 된 후 VIP 레벨을 빠르게 업그레이드 할 수 있습니다. 개인 센터에서 레벨 세부 정보를 확인하십시오`,
+  HOME_SECTION_CONTENT_003: `프로모션 수익 세부 정보`,
+  HOME_SECTION_CONTENT_004: `초대 코드 받기`,
 
   FOOTER_NAME_01: `홈`,
   FOOTER_NAME_02: `자산`,

@@ -15,6 +15,7 @@ export const Icons = {
   checked: require('./icons/checked.png'),
   loginOut: require('./icons/login-out.png'),
 
+  home1: require('./icons/home1.png'),
   home: require('./icons/home.png'),
   homeActive: require('./icons/home-active.png'),
   wallet: require('./icons/wallet.png'),

@@ -35,40 +35,50 @@ class Activation extends Component {
         <GroupTitle
           icon={Icons.dIcon}
           title={formatMessage({ id: `WALLET_ACTIVITY_ID` })}
-          msg={myInfo.activate === 1 ? '已激活' : '未激活'}
+          msg={
+            myInfo.activate === 1
+              ? formatMessage({ id: `USER_ACTIVITY` })
+              : formatMessage({ id: `USER_UNACTIVITY` })
+          }
         />
-        {!isActivate ?
+        {!isActivate ? (
           <div className={styles.content}>
             <p>
-              <Link to="/wallet/recharge?type=USDT">充值USDT</Link>
-              并在去中心化交易所
-              <Link to="/exchange">兑换DID</Link>
-              ，使用DID激活账户
+              <Link to="/wallet/recharge?type=USDT">
+                {formatMessage({ id: `HOME_SECTION_CONTENT_01` })}
+              </Link>
+              {formatMessage({ id: `HOME_SECTION_CONTENT_02` })}
+              <Link to="/exchange">{formatMessage({ id: `HOME_SECTION_CONTENT_03` })}</Link>
+              {formatMessage({ id: `HOME_SECTION_CONTENT_04` })}
             </p>
             <div className={styles.toActivation}>
-              <span>消耗：10DID</span>
-              <button onClick={this.onSubmit}>确认激活</button>
-            </div>
-          </div> :
-          <div className={styles.content}>
-            <p>
-              <Link to="/wallet/withdraw?type=DID">转账DID</Link>
-              给好友，好友激活成功后，可快速提升你的VIP等级，等级详情请在个人中心查看
-            </p>
-            <div className={styles.hasActivation}>
-              <Link to="/wallet/reward-detail">推广收益详情</Link>
-              <Link to='/referral_code'>获取邀请码</Link>
+              <span>{formatMessage({ id: `HOME_SECTION_CONTENT_05` })}10DID</span>
+              <button onClick={this.onSubmit}>{formatMessage({ id: `WALLET_CONFIRM` })}</button>
             </div>
           </div>
-        }
+        ) : (
+          <div className={styles.content}>
+            <p>
+              <Link to="/wallet/withdraw?type=DID">
+                {formatMessage({ id: `HOME_SECTION_CONTENT_001` })}
+              </Link>
+              {formatMessage({ id: `HOME_SECTION_CONTENT_002` })}
+            </p>
+            <div className={styles.hasActivation}>
+              <Link to="/wallet/reward-detail">
+                {formatMessage({ id: `HOME_SECTION_CONTENT_003` })}
+              </Link>
+              <Link to="/referral_code">{formatMessage({ id: `HOME_SECTION_CONTENT_004` })}</Link>
+            </div>
+          </div>
+        )}
         <div className={styles.banner} style={{ backgroundImage: `url(${Images.cardBg})` }}>
-          <label>去中心化交易所</label>
-          <small>
-            使用闪电网络快速实现USDT
-            <br/>
-            与DID，DGT的兑换
-          </small>
-          <Link to="/exchange">立即闪兑</Link>
+          <label>{formatMessage({ id: `ECOLOGICAL_CURRENCY_TITLE_01` })}</label>
+          <small
+            dangerouslySetInnerHTML={{ __html: formatMessage({ id: `HOME_SECTION_CARD_DESC` }) }}
+          />
+
+          <Link to="/exchange">{formatMessage({ id: `HOME_SECTION_CARD_GO` })}</Link>
         </div>
       </div>
     );

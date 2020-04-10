@@ -8,31 +8,31 @@ const tabs = [
   {
     path: '/home/wallet',
     icon: Icons.home,
-    iconActive: Icons.homeActive,
-    label: '首页',
+    iconActive: Icons.home1,
+    label: formatMessage({ id: `FOOTER_NAME_01` }),
   },
   {
     path: '/home/assets',
     icon: Icons.wallet,
     iconActive: Icons.walletActive,
-    label: formatMessage({ id: `WALLET_TITLE` }),
+    label: formatMessage({ id: `FOOTER_NAME_02` }),
   },
   {
     path: '/home/ecological',
     icon: Icons.zoology,
     iconActive: Icons.zoologyActive,
-    label: formatMessage({ id: `ECOLOGICAL_TITLE` }),
+    label: formatMessage({ id: `FOOTER_NAME_03` }),
   },
   {
     path: '/home/user',
     icon: Icons.user,
     iconActive: Icons.userActive,
-    label: formatMessage({ id: `USER_MINE` }),
+    label: formatMessage({ id: `FOOTER_NAME_04` }),
   },
 ];
 
 class Footer extends Component {
-  jumpTo = (path) => {
+  jumpTo = path => {
     const { location } = this.props;
     if (location.pathname === path) return;
     router.push(path);

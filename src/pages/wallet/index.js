@@ -87,7 +87,7 @@ class Home extends Component {
           </div>
         </section>
 
-        <section style={{display: 'none'}}>
+        <section style={{ display: 'none' }}>
           <div className={styles.banner} style={{ backgroundImage: `url(${Images.homeBg})` }}>
             <label>DAGE Wallet</label>
             <h1>
@@ -98,7 +98,7 @@ class Home extends Component {
         </section>
 
         <Activation />
-        {/*{myInfo.activate === 1 && <Mining myInfo={myInfo} />}*/}
+        {/* {myInfo.activate === 1 && <Mining myInfo={myInfo} />} */}
         <Mining myInfo={myInfo} />
       </div>
     );
