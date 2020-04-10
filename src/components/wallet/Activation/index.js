@@ -41,7 +41,7 @@ class Activation extends Component {
               : formatMessage({ id: `USER_UNACTIVITY` })
           }
         />
-        {isActivate ? (
+        {!isActivate ? (
           <div className={styles.content}>
             <p>
               <Link to="/wallet/recharge?type=USDT">
