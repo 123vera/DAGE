@@ -101,7 +101,7 @@ class Assets extends Component {
                   <tbody>
                     <tr>
                       <td>{downFixed(item.amount)}</td>
-                      <td>{downFixed(item.price)}</td>
+                      <td>{downFixed(item.price, 4)}</td>
                       <td>{downFixed(item.amount * item.price)}</td>
                     </tr>
                   </tbody>

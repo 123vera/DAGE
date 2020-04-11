@@ -34,7 +34,7 @@ class Activation extends Component {
       <div className={styles.activation}>
         <GroupTitle
           icon={Icons.dIcon}
-          title={formatMessage({ id: `WALLET_ACTIVITY_ID` })}
+          title={formatMessage({ id: `HOME_SECTION_01` })}
           msg={
             myInfo.activate === 1
               ? formatMessage({ id: `USER_ACTIVITY` })

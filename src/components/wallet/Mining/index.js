@@ -58,23 +58,22 @@ class Mining extends Component {
     return (
       <div className={styles.mining}>
         <GroupTitle icon={Icons.oIcon} title={formatMessage({ id: `WALLET_POG_TITLE` })} />
+
         {!isActivate ? (
-          <div className="content">
+          <div className={styles.content}>
             {isChinese ? (
               <p>
-                <span>{formatMessage({ id: `HOME_SECTION_MAIN_01` })}</span>
+                <span className={styles.left}>{formatMessage({ id: `HOME_SECTION_MAIN_01` })}</span>
                 <span className={styles.certification}>
                   <Certification status={certification} />
                 </span>
               </p>
             ) : (
-              <p>
-                <span>{formatMessage({ id: `HOME_SECTION_MAIN_02` })}</span>
-              </p>
+              <p>{formatMessage({ id: `HOME_SECTION_MAIN_02` })}</p>
             )}
           </div>
         ) : (
-          <div className="content">
+          <div className={styles.content}>
             <p>{formatMessage({ id: `HOME_SECTION_MAIN_03` })}</p>
             <div className={styles.miningSummary}>
               <span>
@@ -168,6 +167,7 @@ class Mining extends Component {
           <button className={styles.submit}>{formatMessage({ id: `WALLET_BUY` })}</button>
         </section>
 
+        {/*挖矿详情 未开放*/}
         {/*挖矿详情 未开放*/}
         <section className={styles.detail}>
           <div className={styles.title}>

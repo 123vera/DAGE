@@ -7,7 +7,7 @@ import { formatMessage } from 'umi-plugin-locale';
 const tabs = [
   {
     path: '/home/wallet',
-    icon: Icons.home,
+    icon: Icons.home2,
     iconActive: Icons.home1,
     label: formatMessage({ id: `FOOTER_NAME_01` }),
   },

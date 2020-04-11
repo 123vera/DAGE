@@ -21,27 +21,26 @@ class Index extends Component {
     });
   };
 
-
   render() {
     const { list, hasMore = true } = this.props.dgtRecord;
     return (
       <div id={styles.dgtRecord}>
-        <PageHeader title="充值记录" leftContent={{ icon: ARROW_LEFT }}/>
+        <PageHeader title="充值记录" leftContent={{ icon: ARROW_LEFT }} />
 
         <ListView hasMore={hasMore} onLoadMore={this.getRecord}>
           <ul>
-            {list.map(i =>
+            {list.map(i => (
               <li key={i.id}>
                 <div className={styles.status}>
-                  <RecordStatus status={i.status}/>
+                  <RecordStatus status={i.status} />
                 </div>
                 <p>订单号：{i.orderno}</p>
                 <div className={styles.time}>
-                  <small>时间：{dayjs(i.addTime * 1000).format('HH:mm')}</small>
+                  <small>时间：{dayjs(i.addTime * 1000).format('MM:DD HH:mm')}</small>
                   <span>{downFixed(i.num)}</span>
                 </div>
-              </li>,
-            )}
+              </li>
+            ))}
           </ul>
         </ListView>
       </div>

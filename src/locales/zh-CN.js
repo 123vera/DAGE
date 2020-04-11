@@ -334,7 +334,7 @@ export default {
 
   HOMEPAGE_TITLE: `欢迎使用DAGE`,
 
-  HOME_SECTION_01: `激活ID`,
+  HOME_SECTION_01: `激活DID`,
   HOME_SECTION_02: `OTC挖矿`,
   HOME_SECTION_CONTENT_01: `充值USDT`,
   HOME_SECTION_CONTENT_02: `并在去中心化交易所`,
