@@ -51,8 +51,8 @@ class Footer extends Component {
               onClick={() => this.jumpTo(tab.path)}
             >
               <img
-                src={tab.icon}
-                // src={location.pathname === tab.path ? tab.iconActive : tab.icon}
+                // src={tab.icon}
+                src={location.pathname === tab.path ? tab.iconActive : tab.icon}
                 width={tab.width}
                 alt=""
               />
