@@ -160,6 +160,17 @@ class AssetApi {
   static rmbRecharge(options) {
     return onlinePost('/otc/rmbdeposit', options);
   }
+
+  /**
+   * 人民币充值
+   *
+   * @required num string 人民币数量
+   * @required openId string 用户openid
+   *
+   **/
+  static rmbRechargeRecord(options) {
+    return onlinePost('/otc/rmbdepositlist', options);
+  }
 }
 
 export default AssetApi;

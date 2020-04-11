@@ -76,10 +76,14 @@ class Index extends Component {
               reverse: true,
               onHandle: () => this.setState({ showMenus: !showMenus }),
             }}
+            rightContent={{
+              text: '充值记录',
+              onHandle: () => router.push('/wallet/dgt_record'),
+            }}
             onHandle={() => router.push('/home/wallet')}
           />
           <div className={`${styles.menus} ${showMenus ? styles.show : ''}`}>
-            <Coins coin="DGT" onHandle={this.changeCoin} />
+            <Coins coin="DGT" onHandle={this.changeCoin}/>
           </div>
         </div>
 
