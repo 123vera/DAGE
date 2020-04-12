@@ -234,6 +234,12 @@ export default {
   DGT_ALIPAY_STEPS_02: `Alipayを開いてスキャンし、アルバムを認識します。`,
   DGT_ALIPAY_STEPS_03: `お支払いを確定してください。`,
 
+  DGT_RECORD_TITLE: `追加記録`,
+  DGT_RECORD_STATUS_SUCCESS: `成功する`,
+  DGT_RECORD_STATUS_FAIL: `失敗する`,
+  DGT_RECORD_STATUS_WAITING: `処理中`,
+  DGT_RECORD_TIME: `時間：`,
+
   WITHDRAW_ADDRESS: `出金アドレス`,
   WITHDRAW_PLACEHOLDER: `入力するか、長押ししてアドレスをコピーしてください`,
   WITHDRAW_MIN: `最小出金金額`,

@@ -246,6 +246,12 @@ export default {
   DGT_ALIPAY_STEPS_02: ` Mở ứng dụng Alipay để scan, nhận diện album; `,
   DGT_ALIPAY_STEPS_03: ` Xác nhận thanh toán. `,
 
+  DGT_RECORD_TITLE: `Kỷ lục nạp tiền`,
+  DGT_RECORD_STATUS_SUCCESS: `Thành công`,
+  DGT_RECORD_STATUS_FAIL: `Thất bại`,
+  DGT_RECORD_STATUS_WAITING: `Gia công`,
+  DGT_RECORD_TIME: `Thời gian：`,
+
   WITHDRAW_ADDRESS: `Địa chỉ rút tiền`,
   WITHDRAW_PLACEHOLDER: `Enter hoặc nhấn giữ để copy địa chỉ`,
   WITHDRAW_MIN: `Số tiền rút tối thiểu`,

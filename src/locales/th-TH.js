@@ -234,6 +234,12 @@ export default {
   DGT_ALIPAY_STEPS_02: `เปิดแอพ Alipay เพื่อสแกน, จำอัลบัมไว้ `,
   DGT_ALIPAY_STEPS_03: `ยืนยันการชำระเงิน`,
 
+  DGT_RECORD_TITLE: `บันทึกการเติมเงิน`,
+  DGT_RECORD_STATUS_SUCCESS: `ความสำเร็จ`,
+  DGT_RECORD_STATUS_FAIL: `ความล้มเหลว`,
+  DGT_RECORD_STATUS_WAITING: `การประมวลผล`,
+  DGT_RECORD_TIME: `เวลา：`,
+
   WITHDRAW_ADDRESS: `ที่อยู่การถอน`,
   WITHDRAW_PLACEHOLDER: `กรอกหรือกดค้างเพื่อคัดลอกที่อยู่`,
   WITHDRAW_MIN: `จำนวนการถอนขั้นต่ำ`,

@@ -246,6 +246,12 @@ export default {
   DGT_ALIPAY_STEPS_02: `打开支付宝扫一扫，相册识别；`,
   DGT_ALIPAY_STEPS_03: `进行支付确认。`,
 
+  DGT_RECORD_TITLE: `充值记录`,
+  DGT_RECORD_STATUS_SUCCESS: `成功`,
+  DGT_RECORD_STATUS_FAIL: `失败`,
+  DGT_RECORD_STATUS_WAITING: `处理中`,
+  DGT_RECORD_TIME: `时间：`,
+
   WITHDRAW_ADDRESS: `提币地址`,
   WITHDRAW_PLACEHOLDER: `输入或长按粘贴地址`,
   WITHDRAW_MIN: `最小提币量`,

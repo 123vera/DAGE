@@ -224,7 +224,7 @@ export default {
   RECHARGE_TIP_06: ` to the above address. Otherwise, you may lose your assets permanently.`,
 
   DGT_RECHARGE_TITLE: `DGT FIAT Reload`,
-  DGT_RECHARGE_ALIPAY: `Top up`,
+  DGT_RECHARGE_ALIPAY: `Deposit`,
   DGT_RECHARGE_LABEL: `Reload Amount (Alipay Payment)`,
   DGT_RECHARGE_PLACEHOLDER: `Enter CNY Reload Amount`,
   DGT_RECHARGE_RATIO: `Current Exchange Rate：`,
@@ -249,6 +249,12 @@ export default {
   DGT_ALIPAY_STEPS_02: ` Open Alipay to scan, album recognition; `,
   DGT_ALIPAY_STEPS_03: ` Confirm payment. `,
 
+  DGT_RECORD_TITLE: `Recharge record`,
+  DGT_RECORD_STATUS_SUCCESS: `success`,
+  DGT_RECORD_STATUS_FAIL: `failure`,
+  DGT_RECORD_STATUS_WAITING: `processing`,
+  DGT_RECORD_TIME: `Time：`,
+
   WITHDRAW_ADDRESS: `Withdrawal address`,
   WITHDRAW_PLACEHOLDER: `Enter or long-press to paste address `,
   WITHDRAW_MIN: `Minimum amount is `,
@@ -272,7 +278,7 @@ export default {
 
   WALLET_TITLE: `Wallet`,
   WALLET_HOME: `Home`,
-  WALLET_RECHARGE: `Top up`,
+  WALLET_RECHARGE: `Deposit`,
   WALLET_WITHDRAW: `Withdraw`,
   WALLET_FLOW: `Cash Flow`,
   WALLET_SECTION_TITLE: `Refer more users and get more referral rewards`,
@@ -337,7 +343,7 @@ export default {
 
   HOMEPAGE_TITLE: `Welcome to DAGE`,
 
-  HOME_SECTION_01: `activate DID`,
+  HOME_SECTION_01: `Activate DID`,
   HOME_SECTION_02: `OTC mining`,
   HOME_SECTION_CONTENT_01: `Deposit USDT `,
   HOME_SECTION_CONTENT_02: ` and`,

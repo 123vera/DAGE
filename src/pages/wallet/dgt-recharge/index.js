@@ -77,13 +77,13 @@ class Index extends Component {
               onHandle: () => this.setState({ showMenus: !showMenus }),
             }}
             rightContent={{
-              text: '充值记录',
+              text: formatMessage({ id: `DGT_RECORD_TITLE` }),
               onHandle: () => router.push('/wallet/dgt_record'),
             }}
             onHandle={() => router.push('/home/wallet')}
           />
           <div className={`${styles.menus} ${showMenus ? styles.show : ''}`}>
-            <Coins coin="DGT" onHandle={this.changeCoin}/>
+            <Coins coin="DGT" onHandle={this.changeCoin} />
           </div>
         </div>
 

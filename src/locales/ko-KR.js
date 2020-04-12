@@ -234,6 +234,12 @@ export default {
   DGT_ALIPAY_STEPS_02: `알리페이 열어서 스캔, 앨범 인식; `,
   DGT_ALIPAY_STEPS_03: `결제 확인. `,
 
+  DGT_RECORD_TITLE: `최고 기록`,
+  DGT_RECORD_STATUS_SUCCESS: `성공`,
+  DGT_RECORD_STATUS_FAIL: `실패`,
+  DGT_RECORD_STATUS_WAITING: `가공`,
+  DGT_RECORD_TIME: `시간：`,
+
   WITHDRAW_ADDRESS: `인출 주소`,
   WITHDRAW_PLACEHOLDER: `입력하거나 주소를 복사하려면 길게 누르세요`,
   WITHDRAW_MIN: `최소 인출 금액`,
