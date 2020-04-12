@@ -41,7 +41,7 @@ export default {
   TOAST_SET_PASSWORD_SUCCESS: `Password setting complete`,
   TOAST_REGISTER_SUCCESS: `Registration complete`,
   TOAST_SET_ACCOUNT_SUCCESS: `Account created`,
-  TOAST_SET_WITHDRAW_SUCCESS: `Successful withdrawl`,
+  TOAST_SET_WITHDRAW_SUCCESS: `Successful withdrawal`,
   TOAST_MINIMUM_RECHARGE: `The minimum deposit amount is`,
   TOAST_MAXIMUM_RECHARGE: `The maximum deposit amount is`,
 
@@ -90,12 +90,12 @@ export default {
 
   ECOLOGICAL_TITLE: `Ecosystem`,
   ECOLOGICAL_CURRENCY_TITLE_01: `Decentralized Exchange`,
-  ECOLOGICAL_CURRENCY_SUBTITLE_01: `Coin exchange based on smart contracts`,
+  ECOLOGICAL_CURRENCY_SUBTITLE_01: `Token exchange based on smart contracts`,
   ECOLOGICAL_CURRENCY_TITLE_02: `Gaming platform`,
   ECOLOGICAL_CURRENCY_SUBTITLE_02: `Gaming DApp center based on POG protocol`,
   ECOLOGICAL_CURRENCY_TITLE_03: `OTC Mining`,
   ECOLOGICAL_CURRENCY_SUBTITLE_03: `Simple and fast, just one click to withdraw   `,
-  ECOLOGICAL_CURRENCY_TITLE_04: `OTC Mining Details`,
+  ECOLOGICAL_CURRENCY_TITLE_04: `OTC Mining Revenue`,
   ECOLOGICAL_CURRENCY_SUBTITLE_04: `View mining details in real time  `,
   ECOLOGICAL_CURRENCY_TITLE_05: `Combine DEP`,
   ECOLOGICAL_CURRENCY_SUBTITLE_05: `Combined DEP will enjoy higher OTC mining rewards`,
@@ -199,9 +199,12 @@ export default {
   REFERRAL_SAVE: `Long press the QR code to save the image`,
 
   ZENDESK_TITLE: `Contact customer service`,
-  ZENDESK_P_01: `Choose contact customer service below`,
-  ZENDESK_P_02: `Will start communicating with customer service shortly`,
-  ZENDESK_P_03: `If no contact customer service appears, please wait patiently for 3-5 seconds`,
+  ZENDESK_P_01: `Kindly wait patiently and the next`,
+  ZENDESK_P_02: `available customer service will attend to you shortly`,
+  ZENDESK_P_03: ` `,
+  // ZENDESK_P_01: `Choose contact customer service below`,
+  // ZENDESK_P_02: `Will start communicating with customer service shortly`,
+  // ZENDESK_P_03: `If no contact customer service appears, please wait patiently for 3-5 seconds`,
 
   FLOW_TITLE: `Cash flow`,
   FLOW_BALANCE: `Balance：`,
@@ -337,8 +340,8 @@ export default {
   OTC_INLAND_SALE_02: ` requires a `,
   OTC_INLAND_SALE_03: ` fuel fee. Are you sure?`,
 
-  OTC_DETAIL_TITLE: `OTC Mining details`,
-  OTC_DETAIL_TOTAL_REVENUE: `OTC Total Mining Revenue`,
+  OTC_DETAIL_TITLE: `OTC Mining Revenue`,
+  OTC_DETAIL_TOTAL_REVENUE: `OTC Mining Total Revenue`,
   OTC_DETAIL_TIP: `Revenue records for the past three days will be shown here. If you wish to see past records，Please check under wallet, DGC and DID section`,
 
   HOMEPAGE_TITLE: `Welcome to DAGE`,

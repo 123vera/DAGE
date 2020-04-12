@@ -4,14 +4,14 @@ export default [
   {
     short: 'AE',
     name: '阿拉伯联合酋长国',
-    en: 'UnitedArabEmirates',
+    en: 'United Arab Emirates',
     tel: '971',
   },
   { short: 'AF', name: '阿富汗', en: 'Afghanistan', tel: '93' },
   {
     short: 'AG',
     name: '安提瓜和巴布达',
-    en: 'AntiguaandBarbuda',
+    en: 'Antigua and Barbuda',
     tel: '1268',
   },
   { short: 'AI', name: '安圭拉岛', en: 'Anguilla', tel: '1264' },
@@ -77,7 +77,7 @@ export default [
     en: 'Palestine',
     tel: '970',
   },
-  { short: 'BM', name: '百慕大群岛', en: 'BermudaIs.', tel: '1441' },
+  { short: 'BM', name: '百慕大群岛', en: 'Bermuda Islands ', tel: '1441' },
   {
     short: 'BN',
     name: '文莱',
@@ -109,10 +109,10 @@ export default [
   {
     short: '',
     name: '开曼群岛',
-    en: 'CaymanIs.',
+    en: 'Cayman Islands',
     tel: '1345',
   },
-  { short: 'CF', name: '中非共和国', en: 'CentralAfricanRepublic', tel: '236' },
+  { short: 'CF', name: '中非共和国', en: 'Central African Republic', tel: '236' },
   {
     short: 'CG',
     name: '刚果',
@@ -123,7 +123,7 @@ export default [
   {
     short: 'CK',
     name: '库克群岛',
-    en: 'CookIs.',
+    en: 'Cook Islands',
     tel: '682',
   },
   { short: 'CL', name: '智利', en: 'Chile', tel: '56' },
@@ -153,7 +153,7 @@ export default [
     en: 'Cyprus',
     tel: '357',
   },
-  { short: 'CZ', name: '捷克', en: 'CzechRepublic', tel: '420' },
+  { short: 'CZ', name: '捷克', en: 'Czech Republic', tel: '420' },
   {
     short: 'DE',
     name: '德国',
@@ -167,7 +167,7 @@ export default [
     en: 'Denmark',
     tel: '45',
   },
-  { short: 'DO', name: '多米尼加共和国', en: 'DominicaRep.', tel: '1890' },
+  { short: 'DO', name: '多米尼加共和国', en: 'Dominican Republic.', tel: '1890' },
   {
     short: 'DZ',
     name: '阿尔及利亚',
@@ -206,7 +206,7 @@ export default [
   {
     short: 'GB',
     name: '英国',
-    en: 'UnitedKiongdom',
+    en: 'United Kingdom',
     tel: '44',
   },
   { short: 'GD', name: '格林纳达', en: 'Grenada', tel: '1809' },
@@ -216,7 +216,7 @@ export default [
     en: 'Georgia',
     tel: '995',
   },
-  { short: 'GF', name: '法属圭亚那', en: 'FrenchGuiana', tel: '594' },
+  { short: 'GF', name: '法属圭亚那', en: 'French Guiana', tel: '594' },
   {
     short: 'GH',
     name: '加纳',
@@ -247,8 +247,8 @@ export default [
   { short: 'GY', name: '圭亚那', en: 'Guyana', tel: '592' },
   {
     short: 'HK',
-    name: '香港特别行政区',
-    en: 'Hongkong',
+    name: '香港',
+    en: 'Hong Kong',
     tel: '852',
   },
   { short: 'HN', name: '洪都拉斯', en: 'Honduras', tel: '504' },
@@ -290,7 +290,7 @@ export default [
   {
     short: '',
     name: '科特迪瓦',
-    en: 'IvoryCoast',
+    en: 'Ivory Coast',
     tel: '225',
   },
   { short: 'JM', name: '牙买加', en: 'Jamaica', tel: '1876' },
@@ -311,7 +311,7 @@ export default [
   {
     short: 'KH',
     name: '柬埔寨',
-    en: 'Kampuchea(Cambodia)',
+    en: 'Cambodia',
     tel: '855',
   },
   { short: 'KP', name: '朝鲜', en: 'NorthKorea', tel: '850' },
@@ -321,7 +321,7 @@ export default [
     en: 'Korea',
     tel: '82',
   },
-  { short: 'KT', name: '科特迪瓦共和国', en: 'RepublicofIvoryCoast', tel: '225' },
+  { short: 'KT', name: '科特迪瓦共和国', en: 'Republic of Ivory Coast', tel: '225' },
   {
     short: 'KW',
     name: '科威特',
@@ -346,7 +346,7 @@ export default [
   {
     short: 'LK',
     name: '斯里兰卡',
-    en: 'SriLanka',
+    en: 'Sri Lanka',
     tel: '94',
   },
   { short: 'LR', name: '利比里亚', en: 'Liberia', tel: '231' },
@@ -377,7 +377,7 @@ export default [
     en: 'Monaco',
     tel: '377',
   },
-  { short: 'MD', name: '摩尔多瓦', en: 'Moldova,Republicof', tel: '373' },
+  { short: 'MD', name: '摩尔多瓦', en: 'Moldova', tel: '373' },
   {
     short: 'MG',
     name: '马达加斯加',
@@ -398,14 +398,14 @@ export default [
     en: 'Macao',
     tel: '853',
   },
-  { short: 'MS', name: '蒙特塞拉特岛', en: 'MontserratIs', tel: '1664' },
+  { short: 'MS', name: '蒙特塞拉特岛', en: 'Montserrat', tel: '1664' },
   {
     short: 'MT',
     name: '马耳他',
     en: 'Malta',
     tel: '356',
   },
-  { short: '', name: '马里亚那群岛', en: 'MarianaIs', tel: '1670' },
+  { short: '', name: '马里亚那群岛', en: 'Mariana Islands', tel: '1670' },
   {
     short: '',
     name: '马提尼克',
@@ -458,14 +458,14 @@ export default [
   {
     short: '',
     name: '荷属安的列斯',
-    en: 'NetheriandsAntilles',
+    en: 'Netherlands Antilles',
     tel: '599',
   },
   { short: 'NR', name: '瑙鲁', en: 'Nauru', tel: '674' },
   {
     short: 'NZ',
     name: '新西兰',
-    en: 'NewZealand',
+    en: 'new Zealand',
     tel: '64',
   },
   { short: 'OM', name: '阿曼', en: 'Oman', tel: '968' },
@@ -479,10 +479,10 @@ export default [
   {
     short: 'PF',
     name: '法属玻利尼西亚',
-    en: 'FrenchPolynesia',
+    en: 'French Polynesia',
     tel: '689',
   },
-  { short: 'PG', name: '巴布亚新几内亚', en: 'PapuaNewCuinea', tel: '675' },
+  { short: 'PG', name: '巴布亚新几内亚', en: 'Papua New Guinea', tel: '675' },
   {
     short: 'PH',
     name: '菲律宾',
@@ -521,10 +521,10 @@ export default [
   {
     short: 'SA',
     name: '沙特阿拉伯',
-    en: 'SaudiArabia',
+    en: 'Saudi Arabia',
     tel: '966',
   },
-  { short: 'SB', name: '所罗门群岛', en: 'SolomonIs', tel: '677' },
+  { short: 'SB', name: '所罗门群岛', en: 'Solomon Islands', tel: '677' },
   {
     short: 'SC',
     name: '塞舌尔',
@@ -549,14 +549,14 @@ export default [
   {
     short: 'SL',
     name: '塞拉利昂',
-    en: 'SierraLeone',
+    en: 'Sierra Leone',
     tel: '232',
   },
   { short: 'SM', name: '圣马力诺', en: 'SanMarino', tel: '378' },
   {
     short: '',
     name: '东萨摩亚(美)',
-    en: 'SamoaEastern',
+    en: 'East Samoa',
     tel: '684',
   },
   { short: '', name: '西萨摩亚', en: 'SanMarino', tel: '685' },
@@ -573,11 +573,11 @@ export default [
     en: 'Suriname',
     tel: '597',
   },
-  { short: 'ST', name: '圣多美和普林西比', en: 'SaoTomeandPrincipe', tel: '239' },
+  { short: 'ST', name: '圣多美和普林西比', en: 'Sao Tome and Principe', tel: '239' },
   {
     short: 'SV',
     name: '萨尔瓦多',
-    en: 'EISalvador',
+    en: 'El Salvador',
     tel: '503',
   },
   { short: 'SY', name: '叙利亚', en: 'Syria', tel: '963' },

@@ -5,7 +5,7 @@ import UNCHECKED from '@/assets/icons/un-checked.png';
 import PageHeader from '../../../components/common/PageHeader';
 import TEL_PREFIX_DATA from '@/utils/tel-prefix';
 import styles from './index.less';
-import { formatMessage } from 'umi-plugin-locale';
+import { formatMessage, getLocale } from 'umi-plugin-locale';
 
 // 排序
 TEL_PREFIX_DATA.sort(function(a, b) {
@@ -44,7 +44,6 @@ class Index extends Component {
             >
               <label>{i.en + i.name}</label>
               <img src={activeKey === key ? CHECKED : UNCHECKED} alt="" />
-
               {/* {activeKey === key && <img src={CHECKED} alt="" />} */}
             </li>
           ))}
