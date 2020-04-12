@@ -104,9 +104,12 @@ class Login extends Component {
 
     return (
       <div id={styles.userLogin}>
-        <div className={styles.langWrapper}>
-          <SelectLang />
-        </div>
+        <header>
+          <img src={Icons.arrowLeft} onClick={() => router.goBack()} alt=""/>
+          <div className={styles.langWrapper}>
+            <SelectLang/>
+          </div>
+        </header>
 
         <div className={styles.contentWrapper}>
           <section>
@@ -116,11 +119,11 @@ class Login extends Component {
                 <span className={styles.label}>{formatMessage({ id: `COMMON_LABEL_PHONE` })}</span>
                 <div
                   className={`${styles.pickerWrapper} ${errMsg.type === 'phone' &&
-                    styles.inputErr}`}
+                  styles.inputErr}`}
                 >
                   <span onClick={this.onOpenPrefix}>
                     {prefix ? `+${prefix}` : formatMessage({ id: `COMMON_SELECT_AREA` })}
-                    <img src={Icons.arrowDown} alt="" />
+                    <img src={Icons.arrowDown} alt=""/>
                   </span>
                   <input
                     type="number"
@@ -154,7 +157,7 @@ class Login extends Component {
                 </span>
               </div>
 
-              <SubmitBtn value={formatMessage({ id: `LOGIN` })} onClick={this.toNext} />
+              <SubmitBtn value={formatMessage({ id: `LOGIN` })} onClick={this.toNext}/>
 
               {/*<img className={styles.nextStep} src={Images.nextStep} onClick={this.toNext} alt="" />*/}
             </div>
