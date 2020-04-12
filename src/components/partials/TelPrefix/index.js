@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-import ARROW_LEFT from '@/assets/dark/arrow-left.png';
-import CHECKED from '@/assets/dark/checked.png';
-import UNCHECKED from '@/assets/icons/un-checked.png';
 import PageHeader from '../../../components/common/PageHeader';
-import TEL_PREFIX_DATA from '@/utils/tel-prefix';
+import TEL_PREFIX_DATA from '../../../utils/tel-prefix';
 import styles from './index.less';
 import { formatMessage } from 'umi-plugin-locale';
+import { Icons } from '../../../assets';
 
 // 排序
 TEL_PREFIX_DATA.sort(function(a, b) {
+  if (a.en.charCodeAt(0) === b.en.charCodeAt(0)) {
+    return a.en.charCodeAt(1) - b.en.charCodeAt(1);
+  }
   return a.en.charCodeAt(0) - b.en.charCodeAt(0);
 });
 
@@ -29,7 +30,7 @@ class Index extends Component {
         <PageHeader
           fixed
           title={formatMessage({ id: `COMMON_SELECT_AREA` })}
-          leftContent={{ icon: ARROW_LEFT, onHandle: () => cancel() }}
+          leftContent={{ icon: Icons.arrowLeft, onHandle: () => cancel() }}
           rightContent={{
             text: formatMessage({ id: `COMMON_NEXT_STEP` }),
             onHandle: () => cancel(),
@@ -42,8 +43,8 @@ class Index extends Component {
               className={activeKey === key ? styles.active : ''}
               onClick={() => this.onSelect(i, key)}
             >
-              <label>{i.en + i.name}</label>
-              <img src={activeKey === key ? CHECKED : UNCHECKED} alt="" />
+              <label>{i.en + ' ' + i.name}</label>
+              <img src={activeKey === key ? Icons.checked : Icons.unChecked} alt=""/>
 
               {/* {activeKey === key && <img src={CHECKED} alt="" />} */}
             </li>
