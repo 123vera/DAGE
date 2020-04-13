@@ -197,6 +197,7 @@ export default {
   REFERRAL_CODE_TITLE: `Referral code`,
   REFERRAL_CODE_COPY: `Copy referral code`,
   REFERRAL_SAVE: `Long press the QR code to save the image`,
+  REFERRAL_SAVE_01: `Screenshot or click Copy share link`,
 
   ZENDESK_TITLE: `Contact customer service`,
   ZENDESK_P_01: `Kindly wait patiently and the next`,

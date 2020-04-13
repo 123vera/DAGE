@@ -77,7 +77,7 @@ class Mining extends Component {
             <p>{formatMessage({ id: `HOME_SECTION_MAIN_03` })}</p>
             <div className={styles.miningSummary}>
               <span>
-                {downFixed(reward.dgc)} <i>DGT</i>
+                {downFixed(reward.dgc)} <i>DGC</i>
                 <span>+</span>
                 {downFixed(reward.did)} <i>DID</i>
               </span>

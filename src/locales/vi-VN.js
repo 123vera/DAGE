@@ -193,6 +193,7 @@ export default {
   REFERRAL_CODE_TITLE: `Mã giới thiệu`,
   REFERRAL_CODE_COPY: `Copy Mã giới thiệu`,
   REFERRAL_SAVE: `Nhấn và giữ vào mã QR để lưu hình ảnh`,
+  REFERRAL_SAVE_01: `Chụp ảnh màn hình hoặc nhấp vào liên kết chia sẻ sao chép`,
 
   ZENDESK_TITLE: `Liên hệ Chăm sóc Khách hàng`,
   ZENDESK_P_01: `Chọn liên hệ Chăm sóc Khách hàng bên dưới`,

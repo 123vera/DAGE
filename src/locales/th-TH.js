@@ -181,6 +181,7 @@ export default {
   REFERRAL_CODE_TITLE: `รหัสอ้างอิง`,
   REFERRAL_CODE_COPY: `คัดลอกรหัสอ้างอิง`,
   REFERRAL_SAVE: `กดที่รหัส QR ค้างไว้เพื่อบันทึกรูปภาพ `,
+  REFERRAL_SAVE_01: `ถ่ายภาพหน้าจอหรือคลิกลิงก์คัดลอกแชร์`,
 
   ZENDESK_TITLE: `ติดต่อฝ่ายบริการลูกค้า`,
   ZENDESK_P_01: `เลือกติดต่อฝ่ายบริการลูกค้าด้านล่าง`,

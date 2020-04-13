@@ -43,7 +43,7 @@ class Index extends Component {
       teamLevelOtc,
       teamLevel,
     } = this.props.promotion;
-    console.log(teamLevelOtc);
+    // console.log(list);
     return (
       <div id={styles.promotion}>
         <PageHeader
@@ -139,7 +139,7 @@ class Index extends Component {
             {formatMessage({ id: `PROMOTION_MY_GENERATION` })} （
             {formatMessage({ id: `PROMOTION_ONLY_SHOW` })}）
           </h4>
-          <ListView hasMore={hasMore} onLoadMore={this.getNotices}>
+          <ListView key={list} hasMore={hasMore} onLoadMore={this.getNotices}>
             <table>
               <thead>
                 <tr>

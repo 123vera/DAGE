@@ -41,7 +41,13 @@ class Index extends Component {
           >
             <span className={styles.copyText}>{formatMessage({ id: `REFERRAL_CODE_COPY` })}</span>
           </CopyToClipboard>
-          <aside className={styles.download}>{formatMessage({ id: `REFERRAL_SAVE` })}</aside>
+          <CopyToClipboard
+            key={new Date().toString()}
+            text={'https://wallet.thedage.com'}
+            onCopy={this.onCopyLink}
+          >
+            <aside className={styles.download}>{formatMessage({ id: `REFERRAL_SAVE_01` })}</aside>
+          </CopyToClipboard>
         </div>
       </div>
     );

@@ -45,7 +45,7 @@ class Index extends Component {
       Cookies.remove('OPENID');
       Cookies.set('USER_ID', login.userId);
       Cookies.set('OPENID', res.data.openId);
-      router.push('/home/wallet');
+      window.location.href = '/home/wallet';
     });
   };
 

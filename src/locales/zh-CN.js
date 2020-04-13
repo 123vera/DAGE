@@ -193,6 +193,7 @@ export default {
   REFERRAL_CODE_TITLE: `推荐码`,
   REFERRAL_CODE_COPY: `复制邀请码`,
   REFERRAL_SAVE: `长按二维码保存图片`,
+  REFERRAL_SAVE_01: `截屏或点击复制分享链接`,
 
   ZENDESK_TITLE: `联系客服`,
   ZENDESK_P_01: `点击下方的联系客服`,

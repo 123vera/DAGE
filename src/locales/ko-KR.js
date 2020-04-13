@@ -181,6 +181,7 @@ export default {
   REFERRAL_CODE_TITLE: `추천 코드`,
   REFERRAL_CODE_COPY: `추천 코드 복사`,
   REFERRAL_SAVE: `이미지를 저장하려면 QR 코드를 길게 눌러 주세요`,
+  REFERRAL_SAVE_01: `스크린 샷을 찍거나 공유 복사 링크를 클릭하십시오`,
 
   ZENDESK_TITLE: `고객 서비스 문의`,
   ZENDESK_P_01: `아래에서 고객 서비스 문의를 선택하면`,

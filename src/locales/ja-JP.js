@@ -181,6 +181,7 @@ export default {
   REFERRAL_CODE_TITLE: `リファラルコード`,
   REFERRAL_CODE_COPY: `リファラルコードをコピー`,
   REFERRAL_SAVE: ` QRコードを長押しして画像を保存します`,
+  REFERRAL_SAVE_01: `スクリーンショットを撮るか、コピー共有リンクをクリックします`,
 
   ZENDESK_TITLE: `カスタマーサービスにお問い合わせ`,
   ZENDESK_P_01: `以下のお問い合わせカスタマーサービスを選択して`,
