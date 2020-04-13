@@ -4,7 +4,9 @@ export default {
   namespace: 'assetsHome',
   state: {
     list: [],
-    totalAmount: null,
+    gameList: [],
+    totalAmount: '',
+    gameTotalAmount: '',
   },
   reducers: {
     UpdateState(state, { payload }) {
@@ -12,7 +14,7 @@ export default {
     },
   },
   effects: {
-    *GetUserAssets(_, { call, put }) {
+    * GetUserAssets(_, { call, put }) {
       const res = yield call(UserApi.getUserAssets);
       if (res && res.status === 1) {
         const totalAmount =
@@ -25,14 +27,34 @@ export default {
         yield put({ type: 'UpdateState', payload: { list: res.data.list, totalAmount } });
       }
     },
-  },
-  subscriptions: {
-    SetupHistory({ dispatch, history }) {
-      history.listen(location => {
-        if (location.pathname === '/home/assets') {
-          dispatch({ type: 'GetUserAssets' });
-        }
-      });
+    * GetGameAssets(_, { call, put }) {
+      const res = yield call(getGameAssets);
+      if (res && res.status === 1) {
+        const { list } = res.data;
+        const totalAmount = list.reduce((acc, cur) => acc + Number(cur.amount) * cur.price, 0);
+        yield put({ type: 'UpdateState', payload: { list, totalAmount } });
+      }
     },
   },
 };
+
+function getGameAssets() {
+  return Promise.resolve({
+    'status': 1,
+    'msg': '操作成功',
+    'data': {
+      'list': [
+        {
+          'type': 'RC',
+          'amount': '0.00000000',
+          'price': 1,
+        },
+        {
+          'type': 'DGT',
+          'amount': '0.00000000',
+          'price': 1,
+        },
+      ],
+    },
+  });
+}

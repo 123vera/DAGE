@@ -32,9 +32,14 @@ class Assets extends Component {
 
   componentDidMount() {
     window.scrollTo(0, 0);
+    this.props.dispatch({ type: 'assetsHome/GetUserAssets' });
   }
 
   selectLi = key => {
+    const { dispatch } = this.props;
+    key === 1
+      ? dispatch({ type: 'assetsHome/GetUserAssets' })
+      : dispatch({ type: 'assetsHome/GetGameAssets' });
     this.setState({ activityLi: key });
   };
 
@@ -43,9 +48,8 @@ class Assets extends Component {
   };
 
   render() {
-    const {
-      assetsHome: { list, totalAmount },
-    } = this.props;
+    const { activityLi } = this.state;
+    const { assetsHome: { list, totalAmount } } = this.props;
 
     return (
       <div id={styles.assetsHome}>
@@ -60,7 +64,7 @@ class Assets extends Component {
             <li onClick={() => router.push('/wallet/withdraw?type=usdt')}>
               {formatMessage({ id: `ASSETS_WITHDRAW` })}
             </li>
-            <li onClick={() => Toast.info(formatMessage({ id: `WALLET_COMING_SOON` }))}>
+            <li onClick={() => router.push('/assets/transfer')}>
               {formatMessage({ id: `ASSETS_TRANSFER` })}
             </li>
           </ul>
@@ -68,13 +72,14 @@ class Assets extends Component {
 
         <section className={styles.listHeader}>
           <ul className={styles.bgDark}>
-            <li onClick={() => this.selectLi(1)} className={styles.active}>
+            <li onClick={() => this.selectLi(1)} className={activityLi === 1 ? styles.active : ''}>
               {formatMessage({ id: `ASSETS_WALLET` })}
             </li>
             <li
+              className={activityLi === 2 ? styles.active : ''}
               onClick={() => {
-                // this.selectLi(2);
-                Toast.info(formatMessage({ id: `WALLET_COMING_SOON` }));
+                this.selectLi(2);
+                // Toast.info(formatMessage({ id: `WALLET_COMING_SOON` }));
               }}
             >
               {formatMessage({ id: `ASSETS_GAME_WALLET` })}
@@ -92,18 +97,18 @@ class Assets extends Component {
                 <p>{item.type}</p>
                 <table>
                   <thead>
-                    <tr>
-                      <th>{formatMessage({ id: `EXCHANGE_CAN_USE` })}</th>
-                      <th>{formatMessage({ id: `ASSETS_UNIT_PRICE` })}（USD)</th>
-                      <th>{formatMessage({ id: `ASSETS_CONVERT` })}（USD)</th>
-                    </tr>
+                  <tr>
+                    <th>{formatMessage({ id: `EXCHANGE_CAN_USE` })}</th>
+                    <th>{formatMessage({ id: `ASSETS_UNIT_PRICE` })}（USD)</th>
+                    <th>{formatMessage({ id: `ASSETS_CONVERT` })}（USD)</th>
+                  </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>{downFixed(item.amount)}</td>
-                      <td>{downFixed(item.price, 4)}</td>
-                      <td>{downFixed(item.amount * item.price)}</td>
-                    </tr>
+                  <tr>
+                    <td>{downFixed(item.amount)}</td>
+                    <td>{downFixed(item.price, 4)}</td>
+                    <td>{downFixed(item.amount * item.price)}</td>
+                  </tr>
                   </tbody>
                 </table>
               </li>

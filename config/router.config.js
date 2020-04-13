@@ -98,6 +98,8 @@ export default [
       }, // OTC挖矿国际区
       { path: '/compound-dep', title: 'DAGE WALLET', component: './ecological/compound-dep' }, // 合成DEP
 
+      { path: '/assets/transfer', title: 'DAGE WALLET', component: './assets/transfer' }, // 划转
+
       { component: './404' },
     ],
   },

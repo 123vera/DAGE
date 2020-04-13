@@ -5,25 +5,37 @@ import styles from './index.less';
 import { formatMessage } from 'umi-plugin-locale';
 import { Icons } from '../../../assets';
 
-// 排序
-TEL_PREFIX_DATA.sort(function(a, b) {
-  if (a.en.charCodeAt(0) === b.en.charCodeAt(0)) {
-    return a.en.charCodeAt(1) - b.en.charCodeAt(1);
-  }
-  return a.en.charCodeAt(0) - b.en.charCodeAt(0);
-});
-
 class Index extends Component {
-  state = { activeKey: '' };
+  state = {
+    activeKey: '',
+    search: '',
+    list: TEL_PREFIX_DATA,
+  };
+  componentDidMount(){
+    this.setState({ search: '', activeKey: '' });
+  }
 
   onSelect = (i, key) => {
     this.setState({ activeKey: key });
     this.props.confirm(i.tel);
   };
 
+  onSearchChange = (event) => {
+    const { value } = event.target;
+    if (!value) {
+      this.setState({ list: TEL_PREFIX_DATA });
+    } else {
+      const list = TEL_PREFIX_DATA.filter(i => (i.en + i.name).toLocaleLowerCase().includes(value.toLocaleLowerCase()));
+      this.setState({ list });
+    }
+    this.setState({ search: value, activeKey: '' });
+    this.props.confirm('');
+  };
+
+
   render() {
-    const { activeKey } = this.state;
     const { show, cancel } = this.props;
+    const { activeKey, search, list } = this.state;
 
     return (
       <div className={`${styles.telPopup} ${show ? styles.show : ''}`}>
@@ -36,15 +48,24 @@ class Index extends Component {
             onHandle: () => cancel(),
           }}
         />
+        <div className={styles.search}>
+          <img src={Icons.search} alt=""/>
+          <input
+            placeholder="搜索国家"
+            type="text"
+            value={search}
+            onChange={this.onSearchChange}
+          />
+        </div>
         <ul className="box">
-          {TEL_PREFIX_DATA.map((i, key) => (
+          {list.map((i, key) => (
             <li
               key={key.toString()}
               className={activeKey === key ? styles.active : ''}
               onClick={() => this.onSelect(i, key)}
             >
               <label>{i.en + ' ' + i.name}</label>
-              <img src={activeKey === key ? Icons.checked : Icons.unChecked} alt="" />
+              <img src={activeKey === key ? Icons.checked : Icons.unChecked} alt=""/>
 
               {/* {activeKey === key && <img src={CHECKED} alt="" />} */}
             </li>
