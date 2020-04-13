@@ -77,7 +77,8 @@ class Index extends Component {
               onHandle: () => this.setState({ showMenus: !showMenus }),
             }}
             rightContent={{
-              text: formatMessage({ id: `DGT_RECORD_TITLE` }),
+              icon: Icons.record,
+              // text: formatMessage({ id: `DGT_RECORD_TITLE` }),
               onHandle: () => router.push('/wallet/dgt_record'),
             }}
             onHandle={() => router.push('/home/wallet')}

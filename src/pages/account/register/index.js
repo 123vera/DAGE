@@ -181,7 +181,7 @@ class Register extends Component {
     return (
       <div className={styles.userRegister}>
         <PageHeader
-          leftContent={{ icon: Icons.arrowLeft, onHandle: () => router.push('/login') }}
+          leftContent={{ icon: Icons.arrowLeft, onHandle: () => router.goBack() }}
         />
         <div className={styles.langWrapper}>
           <SelectLang />
@@ -261,27 +261,12 @@ class Register extends Component {
                     </a>
                     {/* {formatMessage({ id: `OTC_INLAND_CHECKBOX` })} */}
                   </CheckboxItem>
-
-                  {/* <input
-                    id="agree"
-                    type="checkbox"
-                    checked={agree}
-                    onChange={e => this.onInputChange(e.target.checked, 'agree')}
-                  /> */}
-                  {/* <label
-                    htmlFor="agree"
-                    dangerouslySetInnerHTML={{ __html: formatMessage({ id: `REGISTER_AGREE` }) }}
-                  />
-                  <a href="https://dage.zendesk.com/hc/zh-cn/articles/360040817631-%E7%94%A8%E6%88%B7%E5%8D%8F%E8%AE%AE-User-agreement">
-                    {formatMessage({ id: `REGISTER_PROTOCOL` })}
-                  </a> */}
                 </aside>
                 <h4 className={styles.errMsg}>{errMsg.value || ''}</h4>
                 <SubmitBtn
                   value={formatMessage({ id: `REGISTER_TITLE_01` })}
                   onClick={this.toNext}
                 />
-                {/*<img onClick={this.toNext} className={styles.nextStep} src={Images.nextStep} alt=""/>*/}
               </div>
             </div>
           </section>

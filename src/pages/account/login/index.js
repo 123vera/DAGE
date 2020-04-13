@@ -104,8 +104,11 @@ class Login extends Component {
 
     return (
       <div id={styles.userLogin}>
-        <div className={styles.langWrapper}>
-          <SelectLang />
+        <div className={styles.headerWrapper}>
+          <img src={Icons.arrowLeft} onClick={() => router.goBack()} alt="" />
+          <div className={styles.langWrapper}>
+            <SelectLang />
+          </div>
         </div>
 
         <div className={styles.contentWrapper}>

@@ -68,6 +68,9 @@ class Recharge extends Component {
   render() {
     const { showMenus } = this.state;
     const { coin, wallet, menus } = this.props.recharge;
+    const {
+      globalModel: { myInfo },
+    } = this.props;
 
     return (
       <div className={styles.recharge}>
@@ -85,9 +88,13 @@ class Recharge extends Component {
           {showMenus && (
             <div className={styles.menus}>
               <Menus
-                menus={menus.concat([
-                  { label: formatMessage({ id: `DGT_RECHARGE_TITLE` }), value: '_DGT' },
-                ])}
+                menus={
+                  myInfo.phonePrefix === '86'
+                    ? menus.concat([
+                        { label: formatMessage({ id: `DGT_RECHARGE_TITLE` }), value: '_DGT' },
+                      ])
+                    : menus
+                }
                 textAlign="center"
                 hasBorder
                 onHandle={this.changeCoin}

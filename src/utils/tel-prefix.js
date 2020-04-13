@@ -465,7 +465,7 @@ export default [
   {
     short: 'NZ',
     name: '新西兰',
-    en: 'new Zealand',
+    en: 'New Zealand',
     tel: '64',
   },
   { short: 'OM', name: '阿曼', en: 'Oman', tel: '968' },
