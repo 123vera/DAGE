@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styles from './index.less';
-import Header from '../../../components/common/Header';
-import { Icons } from '../../../assets';
+import Header from '../../../../components/common/Header';
+import { Icons } from '../../../../assets';
 
 class Index extends Component {
   render() {
