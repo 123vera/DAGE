@@ -317,7 +317,7 @@ export default {
   OTC_ABROAD_USABLE_DID: `可用DID`,
   OTC_ABROAD_SALE_SUCCESS: `出售成功`,
   OTC_ABROAD_SALE_TIPS_01: `1.每次出售数量的0.3%作为OTC挖矿奖金发放给用户，奖金的70%发放DGC，30%发放DID`,
-  OTC_ABROAD_SALE_TIPS_02: `2.出售DGT需要消耗OTC交易额度，当OTC交易额度不足时，无法进行出售DGT，OTC交易额度可用DID兑换获得。`,
+  OTC_ABROAD_SALE_TIPS_02: `2.出售DGT需要消耗0.1%的DID，请确保有足够的DID余额`,
   OTC_ABROAD_SALE_TIPS_03: `3.正在进行OTC挖矿的DGT最高为30,000个，若出售DGT导致OTC挖矿的DGT超过30,000个，则此次出售不会成功。`,
 
   OTC_INLAND_TITLE: `OTC挖矿中国区`,

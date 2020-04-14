@@ -18,13 +18,13 @@ class QrCodeBox extends Component {
 
   render() {
     const { value } = this.props;
-    const { url } = this.state;
-
+    // const { url } = this.state;
     return (
       <div className={styles.qrCodeBox}>
-        <QRCode className={styles.qrCode} size={250} value={value || ''} />
+        {/* <QRCode className={styles.qrCode} size={250} value={value || ''} /> */}
         <br />
-        <img src={url} alt="" />
+        <img src={value} alt="" />
+        {/* <img src={url} alt="" /> */}
       </div>
     );
   }

@@ -15,7 +15,7 @@ export default {
     },
   },
   effects: {
-    * RmbRechargeRecord(_, { call, select, put }) {
+    *RmbRechargeRecord(_, { call, select, put }) {
       const { type, page, row, list } = yield select(state => state.dgtRecord);
       const res = yield call(AssetApi.rmbRechargeRecord, { type, page, row });
       if (res.status === 1) {

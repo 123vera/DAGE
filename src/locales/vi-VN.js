@@ -317,7 +317,8 @@ export default {
   OTC_ABROAD_USABLE_DID: `khả dụng DID`,
   OTC_ABROAD_SALE_SUCCESS: `Thành công`,
   OTC_ABROAD_SALE_TIPS_01: `1.Số tiền bán ra trong mỗi giao dịch sẽ được phân phối cho người dùng dưới dạng phần thưởng khai thác OTC, 70% chuyển vào tài khoản DGC, 30% vào tài khoản DID`,
-  OTC_ABROAD_SALE_TIPS_02: `2.Để bán DGT cần tiêu hao một phần hạn mức giao dịch OTC. Nếu hạn mức giao dịch OTC không đủ, bạn sẽ không thể bán DGT. Bạn có thể thêm hạn mức giao dịch OTC khi giao dịch DID`,
+  OTC_ABROAD_SALE_TIPS_02: `2.Bán DGT tiêu thụ 0,1% DID, vui lòng đảm bảo bạn có đủ số dư DID.`,
+  // OTC_ABROAD_SALE_TIPS_02: `2.Để bán DGT cần tiêu hao một phần hạn mức giao dịch OTC. Nếu hạn mức giao dịch OTC không đủ, bạn sẽ không thể bán DGT. Bạn có thể thêm hạn mức giao dịch OTC khi giao dịch DID`,
   OTC_ABROAD_SALE_TIPS_03: `3. Số DGT tối đa trong khai thác OTC là 30.000. Nếu việc bán DGT vượt quá hạn mức 30.000 DGT trong khai thác OTC, giao dịch bán ra này sẽ được coi là bất thành.`,
 
   OTC_INLAND_TITLE: `Khai thác OTC tại Trung Quốc`,
