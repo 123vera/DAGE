@@ -1,4 +1,4 @@
-@import './../../styles/mixin.less';
+@import '../../../styles/mixin.less';
 
 #game {
   .banner {
@@ -15,6 +15,7 @@
       li {
         display: flex;
         align-items: center;
+        line-height: 1.4;
 
         &:first-child,
         &:last-child {
@@ -80,9 +81,17 @@
       }
 
       &.first {
-        display: flex;
-        // justify-content: space-between;
         margin-top: 20px;
+
+        h3 {
+          font-size: @font-size-common;
+          color: @font-sub-color;
+          margin-bottom: 14px;
+        }
+
+        .imgGroup {
+          display: flex;
+        }
 
         .rightWrapper {
           display: flex;
@@ -95,7 +104,7 @@
             display: inline-block;
             width: 45%;
             min-width: 50px;
-            min-height: 50%;
+            min-height: 45%;
             margin-right: 10px;
             margin-bottom: 10px;
             background: #ccc;
@@ -122,15 +131,18 @@
             display: inline-flex;
             justify-content: flex-start;
             align-items: center;
-            // border-bottom: 2px solid #2e3546;
 
             li {
-              width: 148px;
+              width: 130px;
               padding: 36px 0;
               text-align: center;
               border-bottom: 2px solid transparent;
+              font-size: @font-size-smaller;
+              color: @font-sub-color;
 
               &.active {
+                font-size: @font-size-common;
+                color: @font-color;
                 border-image: linear-gradient(
                     to right,
                     @theme-border-gradient-to,
@@ -164,22 +176,19 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-basis: 30%;
             border-bottom: 2px solid @theme-border-gray;
             padding: 30px 0;
 
             img {
-              flex-shrink: 1;
               width: 68px;
               min-height: 68px;
               background: #ddd;
             }
 
             p {
-              flex-shrink: 2;
-
               &.center {
-                transform: translateX(-10%);
+                line-height: 1.4;
+                flex-grow: 0.85;
                 color: @font-color-primary;
 
                 span {
@@ -190,8 +199,23 @@
               }
 
               &.right {
+                position: relative;
                 color: @font-sub-color;
-                margin-right: 20px;
+                margin-right: 40px;
+                line-height: 1.7;
+
+                &::after {
+                  position: absolute;
+                  right: -40px;
+                  bottom: 0;
+                  transform: translateY(-50%);
+                  content: '';
+                  display: inline-block;
+                  width: 10px;
+                  height: 18px;
+                  .background-image();
+                  background-image: url(@/assets/icons/arrow-right.png);
+                }
               }
 
               span {
@@ -200,6 +224,13 @@
               }
             }
           }
+        }
+
+        .viewAll {
+          margin-top: 30px;
+          text-align: center;
+          color: @font-sub-color;
+          font-size: @font-size-smaller;
         }
       }
     }

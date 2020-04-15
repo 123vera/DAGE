@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import PageHeader from './../../components/common/PageHeader';
-import { Icons } from './../../assets';
+import PageHeader from '../../../components/common/PageHeader';
+import { Icons } from '../../../assets';
+import { connect } from 'dva';
 import styles from './index.less';
 
-const list = ['热门推荐', '棋牌', '体育', '真人', '电子'];
+const typeArr = ['热门推荐', '棋牌', '体育', '真人', '电子'];
+@connect(({ game }) => ({ game }))
 class Game extends Component {
   state = { activeKey: 0 };
 
@@ -13,6 +15,9 @@ class Game extends Component {
 
   render() {
     const { activeKey } = this.state;
+    const {
+      game: { gameList },
+    } = this.props;
 
     return (
       <div id={styles.game}>
@@ -41,19 +46,22 @@ class Game extends Component {
           <img className={styles.top} src="" alt="" />
 
           <section className={styles.first}>
-            <img className={styles.left} src="" alt="" />
-            <div className={styles.rightWrapper}>
-              <img className={styles.right} src="" alt="" />
-              <img className={styles.right} src="" alt="" />
-              <img className={styles.right} src="" alt="" />
-              <img className={styles.right} src="" alt="" />
+            <h3>精品推荐</h3>
+            <div className={styles.imgGroup}>
+              <img className={styles.left} src="" alt="" />
+              <div className={styles.rightWrapper}>
+                <img className={styles.right} src="" alt="" />
+                <img className={styles.right} src="" alt="" />
+                <img className={styles.right} src="" alt="" />
+                <img className={styles.right} src="" alt="" />
+              </div>
             </div>
           </section>
 
           <section className={styles.second}>
             <div className={styles.navWrapper}>
               <ul className={styles.tabNav}>
-                {list.map((i, key) => (
+                {typeArr.map((i, key) => (
                   <li
                     key={key.toString()}
                     className={activeKey === key ? styles.active : ''}
@@ -65,19 +73,21 @@ class Game extends Component {
               </ul>
             </div>
             <ul className={styles.contentWrapper}>
-              <li>
-                <img src="" alt="" />
-                <p className={styles.center}>
-                  <span>323</span>
-                  <span>323</span>
-                </p>
-                <p className={styles.right}>
-                  <span>323</span>
-                  <span>323</span>
-                </p>
-              </li>
-              <li></li>
+              {gameList.map((i, key) => (
+                <li>
+                  <img src="" alt="" />
+                  <p className={styles.center}>
+                    <span>323</span>
+                    <span>NO.{key + 1}</span>
+                  </p>
+                  <p className={styles.right}>
+                    <span>类型：323</span>
+                    <span>平台：323</span>
+                  </p>
+                </li>
+              ))}
             </ul>
+            <p className={styles.viewAll}>查看全部</p>
           </section>
         </div>
       </div>
