@@ -4,7 +4,6 @@ import { connect } from 'dva';
 import { router } from 'umi';
 import { formatMessage } from 'umi/locale';
 import { downFixed } from '../../utils/utils';
-import { Toast } from 'antd-mobile';
 
 // const list = [
 //   {
@@ -49,7 +48,9 @@ class Assets extends Component {
 
   render() {
     const { activityLi } = this.state;
-    const { assetsHome: { list, totalAmount } } = this.props;
+    const {
+      assetsHome: { list, totalAmount },
+    } = this.props;
 
     return (
       <div id={styles.assetsHome}>
@@ -97,18 +98,18 @@ class Assets extends Component {
                 <p>{item.type}</p>
                 <table>
                   <thead>
-                  <tr>
-                    <th>{formatMessage({ id: `EXCHANGE_CAN_USE` })}</th>
-                    <th>{formatMessage({ id: `ASSETS_UNIT_PRICE` })}（USD)</th>
-                    <th>{formatMessage({ id: `ASSETS_CONVERT` })}（USD)</th>
-                  </tr>
+                    <tr>
+                      <th>{formatMessage({ id: `EXCHANGE_CAN_USE` })}</th>
+                      <th>{formatMessage({ id: `ASSETS_UNIT_PRICE` })}（USD)</th>
+                      <th>{formatMessage({ id: `ASSETS_CONVERT` })}（USD)</th>
+                    </tr>
                   </thead>
                   <tbody>
-                  <tr>
-                    <td>{downFixed(item.amount)}</td>
-                    <td>{downFixed(item.price, 4)}</td>
-                    <td>{downFixed(item.amount * item.price)}</td>
-                  </tr>
+                    <tr>
+                      <td>{downFixed(item.amount)}</td>
+                      <td>{downFixed(item.price, 4)}</td>
+                      <td>{downFixed(item.amount * item.price)}</td>
+                    </tr>
                   </tbody>
                 </table>
               </li>

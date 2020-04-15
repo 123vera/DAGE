@@ -6,7 +6,7 @@ import { REG } from '../../../../utils/constants';
 import { Toast } from 'antd-mobile';
 import { downFixed } from '../../../../utils/utils';
 import { connect } from 'dva';
-import { formatMessage, getLocale } from 'umi-plugin-locale';
+import { formatMessage } from 'umi-plugin-locale';
 
 @connect(({ otcMining, globalModel }) => ({ otcMining, globalModel }))
 class OtcMining extends Component {

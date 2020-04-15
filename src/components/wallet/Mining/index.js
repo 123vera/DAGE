@@ -3,7 +3,7 @@ import { Link } from 'umi';
 import styles from './index.less';
 import React from 'react';
 import { connect } from 'dva';
-import { Icons, Images } from '../../../assets';
+import { Icons } from '../../../assets';
 import { formatMessage } from 'umi-plugin-locale';
 import { downFixed } from '../../../utils/utils';
 import Menus from '../../common/Menus';
@@ -167,7 +167,6 @@ class Mining extends Component {
           <button className={styles.submit}>{formatMessage({ id: `WALLET_BUY` })}</button>
         </section>
 
-        {/*挖矿详情 未开放*/}
         {/*挖矿详情 未开放*/}
         <section className={styles.detail}>
           <div className={styles.title}>

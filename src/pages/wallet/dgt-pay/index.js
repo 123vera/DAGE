@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import QRCode from 'qrcode.react';
+// import QRCode from 'qrcode.react';
 import { formatMessage } from 'umi/locale';
 import ARROW_LEFT from '@/assets/dark/arrow-left.png';
 import PageHeader from '../../../components/common/PageHeader';

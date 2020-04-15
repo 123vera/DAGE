@@ -197,7 +197,7 @@ class Index extends Component {
 
   onSubmit = () => {
     const { dispatch, exchange } = this.props;
-    const { amount, balance, code } = exchange;
+    const { amount, balance } = exchange;
 
     if (!amount) {
       Toast.info(formatMessage({ id: `EXCHANGE_PLACEHOLDER_AMOUNT` }));

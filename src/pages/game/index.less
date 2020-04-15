@@ -1,0 +1,59 @@
+@import './../../styles/mixin.less';
+
+#game {
+  .banner {
+    height: 360px;
+    .background-gradient-horizontal(@theme-border-gradient-from, @theme-border-gradient-to);
+
+    ul {
+      display: flex;
+      justify-content: space-between;
+      // align-items: center;
+      width:66%;
+      margin:auto;
+
+
+
+      li {
+        display: flex;
+        align-items: center;
+
+        &:first-child,
+        &:last-child {
+          &::before {
+            content: '';
+            display: inline-block;
+            width: 44px;
+            height: 44px;
+            .background-image();
+          }
+        }
+
+        &:first-child {
+          &::before {
+            background-image: url(@/assets/dark/game-d.png);
+          }
+        }
+
+        &:last-child {
+          &::before {
+            background-image: url(@/assets/dark/game-r.png);
+          }
+        }
+
+        span {
+          display: block;
+          margin-left: 26px;
+
+          &:first-child {
+            font-size: @font-size-largest;
+          }
+
+          &:last-child {
+            font-size: @font-size-smaller;
+          }
+        }
+      }
+    }
+  }
+}
