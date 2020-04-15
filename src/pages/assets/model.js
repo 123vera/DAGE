@@ -1,4 +1,4 @@
-import { UserApi } from '../../services/api';
+import { UserApi, GameApi } from '../../services/api';
 
 export default {
   namespace: 'assetsHome',
@@ -28,7 +28,7 @@ export default {
       }
     },
     * GetGameAssets(_, { call, put }) {
-      const res = yield call(getGameAssets);
+      const res = yield call(GameApi.getGameAssets);
       if (res && res.status === 1) {
         const { list } = res.data;
         const totalAmount = list.reduce((acc, cur) => acc + Number(cur.amount) * cur.price, 0);
@@ -38,23 +38,23 @@ export default {
   },
 };
 
-function getGameAssets() {
-  return Promise.resolve({
-    'status': 1,
-    'msg': '操作成功',
-    'data': {
-      'list': [
-        {
-          'type': 'RC',
-          'amount': '0.00000000',
-          'price': 1,
-        },
-        {
-          'type': 'DGT',
-          'amount': '0.00000000',
-          'price': 1,
-        },
-      ],
-    },
-  });
-}
+// function getGameAssets() {
+//   return Promise.resolve({
+//     'status': 1,
+//     'msg': '操作成功',
+//     'data': {
+//       'list': [
+//         {
+//           'type': 'RC',
+//           'amount': '0.00000000',
+//           'price': 1,
+//         },
+//         {
+//           'type': 'DGT',
+//           'amount': '0.00000000',
+//           'price': 1,
+//         },
+//       ],
+//     },
+//   });
+// }

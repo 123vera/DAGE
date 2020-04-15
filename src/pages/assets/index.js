@@ -4,25 +4,6 @@ import { connect } from 'dva';
 import { router } from 'umi';
 import { formatMessage } from 'umi/locale';
 import { downFixed } from '../../utils/utils';
-import { Toast } from 'antd-mobile';
-
-// const list = [
-//   {
-//     type: 'USDT',
-//     amount: '245.32',
-//     price: 3.3,
-//   },
-//   {
-//     type: 'DGT',
-//     amount: '245.32',
-//     price: 3.3,
-//   },
-//   {
-//     type: 'DGT',
-//     amount: '245.32',
-//     price: 3.3,
-//   },
-// ];
 
 @connect(({ assetsHome, globalModel }) => ({ assetsHome, globalModel }))
 class Assets extends Component {
@@ -94,7 +75,7 @@ class Assets extends Component {
           <ul>
             {list.map((item, key) => (
               <li key={key.toString()} onClick={() => this.jumpTo(item.type)}>
-                <p>{item.type}</p>
+                <p>{item.type.toLocaleUpperCase()}</p>
                 <table>
                   <thead>
                   <tr>

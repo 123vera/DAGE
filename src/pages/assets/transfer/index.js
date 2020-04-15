@@ -2,9 +2,28 @@ import React, { Component } from 'react';
 import styles from './index.less';
 import Header from '../../../components/common/Header';
 import { Icons } from '../../../assets';
+import { connect } from 'dva';
 
+
+@connect(({ transfer, globalModel }) => ({ transfer, globalModel }))
 class Index extends Component {
+  componentDidMount() {
+    this.props.dispatch({ type: 'transfer/TransferInit' });
+  }
+
+  changeTransfer = () => {
+    const { transfer } = this.props.transfer;
+    this.props.dispatch({
+      type: 'transfer/UpdateState',
+      payload: {
+        transfer: transfer === 'DToG' ? 'GToD' : 'DToG',
+      },
+    });
+  };
+
   render() {
+    const { initInfo, transfer } = this.props.transfer;
+    console.log(initInfo);
     return (
       <div>
         <Header
@@ -21,19 +40,19 @@ class Index extends Component {
               <li>
                 <div className={styles.item}>
                   <label>从</label>
-                  <span>DAGE账户</span>
+                  <span>{transfer === 'DToG' ? 'DAGE账户' : '游戏账户'}</span>
                   <i></i>
                 </div>
               </li>
               <li>
                 <div className={styles.item}>
                   <label>到</label>
-                  <span>游戏账户</span>
+                  <span>{transfer === 'GToD' ? 'DAGE账户' : '游戏账户'}</span>
                   <i></i>
                 </div>
               </li>
             </ul>
-            <div className={styles.transferIcon}>
+            <div className={styles.transferIcon} onClick={this.changeTransfer}>
               <img src={Icons.transfer} alt=""/>
             </div>
           </div>
