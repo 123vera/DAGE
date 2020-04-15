@@ -37,6 +37,7 @@
       }
 
       .item {
+        position: relative;
         display: flex;
         align-items: center;
         width: 100%;
@@ -46,6 +47,14 @@
         label {
           margin-right: 20px;
           color: @font-sub-color;
+        }
+
+        img {
+          position: absolute;
+          top: 0;
+          right: 10px;
+          bottom: 0;
+          margin: auto;
         }
       }
 
@@ -81,6 +90,7 @@
   }
 
   .inputBox {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -105,6 +115,16 @@
         font-style: normal;
         margin: 0 20px;
       }
+    }
+
+    .coins {
+      position: absolute;
+      top: 70px;
+      right: 0;
+    }
+
+    .type {
+      color: @font-sub-color;
     }
   }
 

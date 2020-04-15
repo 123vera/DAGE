@@ -99,6 +99,11 @@ export default [
       { path: '/compound-dep', title: 'DAGE WALLET', component: './ecological/compound-dep' }, // 合成DEP
 
       { path: '/assets/transfer', title: 'DAGE WALLET', component: './assets/transfer' }, // 划转
+      {
+        path: '/assets/transfer/record',
+        title: 'DAGE WALLET',
+        component: './assets/transfer/record',
+      }, // 划转
 
       { path: '/game', title: 'DAGE WALLET', component: './game/index' }, // 游戏中心
 

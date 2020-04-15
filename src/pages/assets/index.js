@@ -28,11 +28,11 @@ class Assets extends Component {
     router.push(`/wallet/flow?type=${type}`);
   };
 
+
   render() {
     const { activityLi } = this.state;
-    const {
-      assetsHome: { list, totalAmount },
-    } = this.props;
+    const { list, totalAmount } = this.props.assetsHome;
+    const transferUrl = `/assets/transfer?transfer=${activityLi === 2 ? 'GToD' : 'DToG'}`;
 
     return (
       <div id={styles.assetsHome}>
@@ -47,7 +47,7 @@ class Assets extends Component {
             <li onClick={() => router.push('/wallet/withdraw?type=usdt')}>
               {formatMessage({ id: `ASSETS_WITHDRAW` })}
             </li>
-            <li onClick={() => router.push('/assets/transfer')}>
+            <li onClick={() => router.push(transferUrl)}>
               {formatMessage({ id: `ASSETS_TRANSFER` })}
             </li>
           </ul>
@@ -80,18 +80,18 @@ class Assets extends Component {
                 <p>{item.type.toLocaleUpperCase()}</p>
                 <table>
                   <thead>
-                    <tr>
-                      <th>{formatMessage({ id: `EXCHANGE_CAN_USE` })}</th>
-                      <th>{formatMessage({ id: `ASSETS_UNIT_PRICE` })}（USD)</th>
-                      <th>{formatMessage({ id: `ASSETS_CONVERT` })}（USD)</th>
-                    </tr>
+                  <tr>
+                    <th>{formatMessage({ id: `EXCHANGE_CAN_USE` })}</th>
+                    <th>{formatMessage({ id: `ASSETS_UNIT_PRICE` })}（USD)</th>
+                    <th>{formatMessage({ id: `ASSETS_CONVERT` })}（USD)</th>
+                  </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>{downFixed(item.amount)}</td>
-                      <td>{downFixed(item.price, 4)}</td>
-                      <td>{downFixed(item.amount * item.price)}</td>
-                    </tr>
+                  <tr>
+                    <td>{downFixed(item.amount)}</td>
+                    <td>{downFixed(item.price, 4)}</td>
+                    <td>{downFixed(item.amount * item.price)}</td>
+                  </tr>
                   </tbody>
                 </table>
               </li>

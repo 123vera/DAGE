@@ -9,11 +9,7 @@ class Index extends Component {
       <div>
         <Header
           icon={Icons.arrowLeft}
-          title={'划转'}
-          rightContent={{
-            text: '划转记录',
-            //TODO 跳转到划转记录页面
-          }}
+          title={'划转记录'}
         />
         <section>
           <div className={styles.switch}>
