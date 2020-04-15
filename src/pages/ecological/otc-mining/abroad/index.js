@@ -85,7 +85,7 @@ class OtcMining extends Component {
             value={count}
             onChange={e => this.onCountChange(e.target.value)}
           />
-          <aside>
+          {/* <aside>
             <span>
               {formatMessage({ id: `OTC_ABROAD_TRADE` })}
               {downFixed(initInfo.otcnum)}
@@ -94,10 +94,23 @@ class OtcMining extends Component {
               {getLocale() === 'en-US'
                 ? `DGT${formatMessage({ id: `EXCHANGE_CAN_USE` })} ：${downFixed(initInfo.balance)}`
                 : formatMessage({ id: `EXCHANGE_CAN_USE` })}{' '}
-              DGT：{downFixed(initInfo.balance)}
-              {/* {formatMessage({ id: `EXCHANGE_CAN_USE` })} DGT：{downFixed(initInfo.balance)} */}
+              DGT：{downFixed(initInfo.balance)} */}
+          {/* {formatMessage({ id: `EXCHANGE_CAN_USE` })} DGT：{downFixed(initInfo.balance)} */}
+          {/* </span>
+          </aside> */}
+          <aside>
+            <span>
+              {formatMessage({ id: `OTC_ABROAD_USABLE` })}：{downFixed(initInfo.balance)}
+              {/* {formatMessage({ id: `OTC_ABROAD_TRADE` })}
+              {downFixed(initInfo.otcnum)} */}
+            </span>
+            <span>
+              {formatMessage({ id: `OTC_ABROAD_USABLE_DID` })}：{downFixed(initInfo.didnum) || '--'}
+              {/* {formatMessage({ id: `OTC_INLAND_FUEL_COSTS` })}0.1% DID   {/* 燃料费：0.1% DID */}
+              {/* {formatMessage({ id: `OTC_ABROAD_USABLE` })}：{downFixed(initInfo.balance)} */}
             </span>
           </aside>
+
           <button onClick={this.onSubmit}>{formatMessage({ id: `OTC_CONFIRM_SALE` })}</button>
         </div>
         <div className={styles.reminder}>
