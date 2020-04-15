@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PageHeader from '../../../components/common/PageHeader';
 import dayjs from 'dayjs';
+import { router } from 'umi';
+import Cookies from 'js-cookie';
 import { connect } from 'dva';
 import styles from './index.less';
 import { formatMessage } from 'umi/locale';
@@ -12,6 +14,7 @@ import ListView from '../../../components/common/ListView';
 class Index extends Component {
   componentDidMount() {
     this.getNotices();
+    Cookies.remove('CONTENT');
   }
 
   getNotices = callback => {
@@ -32,9 +35,16 @@ class Index extends Component {
         <div className={styles.list}>
           <ListView hasMore={hasMore} onLoadMore={this.getNotices}>
             {list.map(item => (
-              <div key={item.id} className={styles.item}>
-                {/* <p onClick={() => router.push(`/notice?url=${encodeURIComponent(item.linkUrl)}`)}> */}
-                <p onClick={() => (window.location.href = item.linkUrl)}>{item.title}</p>
+              <div
+                key={item.id}
+                className={styles.item}
+                onClick={() => {
+                  item.content && Cookies.set('CONTENT', item.content);
+                  router.push(`/notice`);
+                }}
+              >
+                <p>{item.title}</p>
+                {/* <p onClick={() => (window.location.href = item.linkUrl)}>{item.title}</p> */}
                 <small>{dayjs(item.addTime * 1000).format('YYYY-MM-DD HH:mm')}</small>
               </div>
             ))}
