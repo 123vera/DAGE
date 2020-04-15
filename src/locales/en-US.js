@@ -323,7 +323,7 @@ export default {
   OTC_ABROAD_USABLE_DID: `DID Quantity`,
   OTC_ABROAD_SALE_SUCCESS: `sold successfully`,
   OTC_ABROAD_SALE_TIPS_01: `1. Upon activation of OTC mining, user will receive 0.3% of the sale amount as revenue immediately, which 70% is paid as DGC and 30% as DID.`,
-  OTC_ABROAD_SALE_TIPS_02: `2. Sale of DGT will result in the deduction of OTC mining limit. When OTC mining limit is less than the sale quantity of DGT, the transaction cannot be processed. DID can be used to purchase `,
+  OTC_ABROAD_SALE_TIPS_02: `2. The sale of DGT will consumes 0.1% of DID, please make sure you have enough DID balance.`,
   OTC_ABROAD_SALE_TIPS_03: `3. The maximum number of DGT to participate in OTC mining is 30,000. If the sale of DGT results in more than 30,000 DGT in OTC mining, the sale will not be successful.`,
 
   OTC_INLAND_TITLE: `OTC mining China zone`,

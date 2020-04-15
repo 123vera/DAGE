@@ -23,7 +23,6 @@ export default {
             return acc + Number(cur.amount) * cur.price;
           }, 0);
 
-        console.log('totalAmount', totalAmount);
         yield put({ type: 'UpdateState', payload: { list: res.data.list, totalAmount } });
       }
     },

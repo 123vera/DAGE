@@ -305,7 +305,8 @@ export default {
   OTC_ABROAD_USABLE_DID: `利用可能 DID`,
   OTC_ABROAD_SALE_SUCCESS: `成功`,
   OTC_ABROAD_SALE_TIPS_01: `1.各トランザクションの販売金額は、OTCマイニングリワードとしてユーザーに配布され、リワードの70％はDGCに、30％はDIDに送られます`,
-  OTC_ABROAD_SALE_TIPS_02: ` 2. DGTを販売するには、OTCトランザクションクォータを消費する必要があります。 OTCトランザクションクォータが不十分な場合、DGTは販売できません。 OTCトランザクションクォータは、DID交換によって取得できます。`,
+  OTC_ABROAD_SALE_TIPS_02: ` 2. DGTを販売すると0.1％のDIDが消費されます。十分なDID残高があることを確認してください。`,
+  // OTC_ABROAD_SALE_TIPS_02: ` 2. DGTを販売するには、OTCトランザクションクォータを消費する必要があります。 OTCトランザクションクォータが不十分な場合、DGTは販売できません。 OTCトランザクションクォータは、DID交換によって取得できます。`,
   OTC_ABROAD_SALE_TIPS_03: `3. OTCマイニングのDGTの最大数は30,000です。 DGTを販売した結果、OTCマイニングでのDGTの数が30,000を超える場合、販売は失敗したと見なされます。`,
 
   OTC_INLAND_TITLE: `OTCマイニング中国`,

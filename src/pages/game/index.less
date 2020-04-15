@@ -1,0 +1,207 @@
+@import './../../styles/mixin.less';
+
+#game {
+  .banner {
+    height: 300px;
+    // height: 360px;
+    .background-gradient-horizontal(@theme-border-gradient-from, @theme-border-gradient-to);
+
+    ul {
+      display: flex;
+      justify-content: space-between;
+      width: 66%;
+      margin: auto;
+
+      li {
+        display: flex;
+        align-items: center;
+
+        &:first-child,
+        &:last-child {
+          &::before {
+            content: '';
+            display: inline-block;
+            width: 44px;
+            height: 44px;
+            .background-image();
+          }
+        }
+
+        &:first-child {
+          &::before {
+            background-image: url(@/assets/dark/game-d.png);
+          }
+        }
+
+        &:last-child {
+          &::before {
+            background-image: url(@/assets/dark/game-r.png);
+          }
+        }
+
+        span {
+          display: block;
+          margin-left: 26px;
+
+          &:first-child {
+            font-size: @font-size-largest;
+          }
+
+          &:last-child {
+            font-size: @font-size-smaller;
+          }
+        }
+      }
+    }
+  }
+
+  .mainContent {
+    box-sizing: border-box;
+    padding: 20px 60px;
+
+    .top {
+      display: block;
+      width: 100%;
+      min-height: 100px;
+      background: #ddd;
+      border-radius: 10px;
+    }
+
+    section {
+      width: 100%;
+      background: #1a202f;
+      padding: 25px;
+      border-radius: 10px;
+      border: 2px solid #1a202f;
+      margin-bottom: 20px;
+
+      img {
+        border-radius: 10px;
+      }
+
+      &.first {
+        display: flex;
+        // justify-content: space-between;
+        margin-top: 20px;
+
+        .rightWrapper {
+          display: flex;
+          justify-content: flex-end;
+          flex-wrap: wrap;
+          align-items: center;
+          width: 100%;
+
+          .right {
+            display: inline-block;
+            width: 45%;
+            min-width: 50px;
+            min-height: 50%;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            background: #ccc;
+          }
+        }
+        .left {
+          display: inline-block;
+          width: 45%;
+          min-width: 100px;
+          min-height: 200px;
+          background: #ddd;
+        }
+      }
+
+      &.second {
+        .navWrapper {
+          overflow-x: scroll;
+
+          &::-webkit-scrollbar {
+            display: none;
+          }
+
+          ul {
+            display: inline-flex;
+            justify-content: flex-start;
+            align-items: center;
+            // border-bottom: 2px solid #2e3546;
+
+            li {
+              width: 148px;
+              padding: 36px 0;
+              text-align: center;
+              border-bottom: 2px solid transparent;
+
+              &.active {
+                border-image: linear-gradient(
+                    to right,
+                    @theme-border-gradient-to,
+                    @theme-border-gradient-from
+                  )
+                  1 10;
+                border-image: -webkit-linear-gradient(
+                    to right,
+                    @theme-border-gradient-to,
+                    @theme-border-gradient-from
+                  )
+                  1 10;
+                border-image: -moz-linear-gradient(
+                    to right,
+                    @theme-border-gradient-to,
+                    @theme-border-gradient-from
+                  )
+                  1 10;
+                border-top: 0;
+                border-left: 0;
+                border-right: 0;
+              }
+            }
+          }
+        }
+
+        .contentWrapper {
+          margin-top: 20px;
+
+          li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-basis: 30%;
+            border-bottom: 2px solid @theme-border-gray;
+            padding: 30px 0;
+
+            img {
+              flex-shrink: 1;
+              width: 68px;
+              min-height: 68px;
+              background: #ddd;
+            }
+
+            p {
+              flex-shrink: 2;
+
+              &.center {
+                transform: translateX(-10%);
+                color: @font-color-primary;
+
+                span {
+                  &:first-child {
+                    font-size: @font-size-common;
+                  }
+                }
+              }
+
+              &.right {
+                color: @font-sub-color;
+                margin-right: 20px;
+              }
+
+              span {
+                display: block;
+                font-size: @font-size-smaller-1;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

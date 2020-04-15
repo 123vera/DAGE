@@ -305,7 +305,8 @@ export default {
   OTC_ABROAD_USABLE_DID: `이용 가능 DID`,
   OTC_ABROAD_SALE_SUCCESS: `성공적으로 완료되었습니다`,
   OTC_ABROAD_SALE_TIPS_01: `1.각 거래의 판매 금액은 OTC 채굴 보상으로 사용자들에게 배분됩니다. 보상의 70%는 DGC로 전달되고, 30%는 DID로 전달됩니다`,
-  OTC_ABROAD_SALE_TIPS_02: `2.DGT를 판매하려면 OTC 거래 할당량을 소비해야 합니다. OTC 거래 할당량이 충분하지 않은 경우, DGT를 판매할 수 없습니다. OTC 거래 할당량은 DID 교환으로 획득할 수 있습니다.`,
+  OTC_ABROAD_SALE_TIPS_02: `2.DGT 판매는 DID의 0.1 %를 소비합니다. 충분한 DID 잔액이 있는지 확인하십시오.`,
+  // OTC_ABROAD_SALE_TIPS_02: `2.DGT를 판매하려면 OTC 거래 할당량을 소비해야 합니다. OTC 거래 할당량이 충분하지 않은 경우, DGT를 판매할 수 없습니다. OTC 거래 할당량은 DID 교환으로 획득할 수 있습니다.`,
   OTC_ABROAD_SALE_TIPS_03: `3.OTC 채굴에서 DGT의 최대 수는 30,000입니다. DGT 판매 결과가 30,000을 초과하는 OTC 채굴의 DGT 수가 될 경우, 판매는 성공하지 못한 것으로 간주됩니다.`,
 
   OTC_INLAND_TITLE: `OTC 채굴 차이나`,
