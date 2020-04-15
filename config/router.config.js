@@ -100,7 +100,8 @@ export default [
 
       { path: '/assets/transfer', title: 'DAGE WALLET', component: './assets/transfer' }, // 划转
 
-      { path: '/game', title: 'DAGE WALLET', component: './game/index' }, // 游戏中心
+      { path: '/game', title: 'DAGE WALLET', component: './game/home' }, // 游戏中心
+      { path: '/game_list', title: 'DAGE WALLET', component: './game/list' }, // 游戏列表
 
       { component: './404' },
     ],

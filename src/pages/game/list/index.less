@@ -1,0 +1,63 @@
+@import '../../../styles/mixin.less';
+
+#gameList {
+  .contentWrapper {
+    margin: 20px 60px;
+    padding: 20px 20px 100px;
+    background: @theme-color-bg-content;
+    border-radius: 10px;
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid @theme-border-gray;
+      padding: 30px 0;
+
+      img {
+        width: 68px;
+        min-height: 68px;
+        background: #ddd;
+      }
+
+      p {
+        &.center {
+          line-height: 1.4;
+          flex-grow: 0.85;
+          color: @font-color-primary;
+
+          span {
+            &:first-child {
+              font-size: @font-size-common;
+            }
+          }
+        }
+
+        &.right {
+          position: relative;
+          color: @font-sub-color;
+          margin-right: 40px;
+          line-height: 1.7;
+
+          &::after {
+            position: absolute;
+            right: -40px;
+            bottom: 0;
+            transform: translateY(-50%);
+            content: '';
+            display: inline-block;
+            width: 10px;
+            height: 18px;
+            .background-image();
+            background-image: url(@/assets/icons/arrow-right.png);
+          }
+        }
+
+        span {
+          display: block;
+          font-size: @font-size-smaller-1;
+        }
+      }
+    }
+  }
+}
