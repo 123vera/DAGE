@@ -3,7 +3,6 @@
 #game {
   .banner {
     height: 300px;
-    // height: 360px;
     .background-gradient-horizontal(@theme-border-gradient-from, @theme-border-gradient-to);
 
     ul {
@@ -64,8 +63,11 @@
       display: block;
       width: 100%;
       min-height: 100px;
+      max-height: 136px;
+      // max-height: 200px;
       background: #ddd;
       border-radius: 10px;
+      object-fit: cover;
     }
 
     section {
@@ -78,6 +80,7 @@
 
       img {
         border-radius: 10px;
+        object-fit: cover;
       }
 
       &.first {
@@ -93,29 +96,85 @@
           display: flex;
         }
 
+        .leftWrapper {
+          position: relative;
+          width: 48%;
+          margin-right: 10px;
+          overflow: hidden;
+          border-radius: 10px;
+
+          .left {
+            display: inline-block;
+            background: #ddd;
+            // width: 100%;
+            // width: 264px;
+            height: 300px;
+          }
+
+          span {
+            position: absolute;
+            width: 100%;
+            left: 0;
+            bottom: 5.5px;
+            padding: 5px 0;
+            text-align: center;
+            font-size: @font-size-smaller;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            background: rgba(0, 0, 0, 0.7);
+          }
+        }
+
         .rightWrapper {
+          position: relative;
           display: flex;
           justify-content: flex-end;
           flex-wrap: wrap;
           align-items: center;
-          width: 100%;
+          width: 60%;
+
+          > p {
+            position: relative;
+            width: 48%;
+            overflow: hidden;
+            border-radius: 10px;
+
+            span {
+              position: absolute;
+              width: 100%;
+              left: 0;
+              right: 0;
+              bottom: 5.5px;
+              padding: 5px 10px;
+              text-align: center;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              font-size: @font-size-smaller;
+              border-bottom-left-radius: 10px;
+              border-bottom-right-radius: 10px;
+              text-overflow: ellipsis;
+              background: rgba(0, 0, 0, 0.7);
+            }
+
+            &:nth-child(1),
+            &:nth-child(2) {
+              margin-bottom: 20px;
+            }
+
+            &:nth-child(1),
+            &:nth-child(3) {
+              margin-right: 10px;
+            }
+          }
 
           .right {
             display: inline-block;
-            width: 45%;
+            width: 100%;
+            // width: 138px;
+            height: 140px;
             min-width: 50px;
-            min-height: 45%;
-            margin-right: 10px;
-            margin-bottom: 10px;
             background: #ccc;
           }
-        }
-        .left {
-          display: inline-block;
-          width: 45%;
-          min-width: 100px;
-          min-height: 200px;
-          background: #ddd;
         }
       }
 

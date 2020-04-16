@@ -1,4 +1,5 @@
 import { onlinePost } from '../utils';
+import request from '../request';
 
 class GameApi {
   /**
@@ -51,6 +52,45 @@ class GameApi {
    **/
   static getGameUrl(options) {
     return onlinePost('/game/game', { gameid: options.gameId });
+  }
+
+  /**
+   * 获取推荐游戏及Banner
+   *
+   **/
+  static getRecommendgame(params) {
+    return request.get('/game/recommendgame', { params });
+  }
+
+  /**
+   * 游戏类别列表
+   *
+   **/
+  static getTypelist(options) {
+    return request.get('/game/typelist', options);
+  }
+
+  /**
+   * 游戏列表
+   * @required openId string
+   * @required type string 游戏类别
+   * @required page number 页码
+   * @required row number 条数
+   *
+   **/
+  static getGamelist(options) {
+    // return request.get('/game/gamelist', { params });
+    return onlinePost('/game/gamelist', options);
+  }
+
+  /**
+   * 获取游戏地址
+   * @required openId string
+   * @required gameid string 游戏id
+   *
+   **/
+  static getGameAddress(options) {
+    return onlinePost('/game/game', options);
   }
 }
 

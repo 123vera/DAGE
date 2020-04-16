@@ -103,7 +103,7 @@ export default [
         path: '/assets/transfer/record',
         title: 'DAGE WALLET',
         component: './assets/transfer/record',
-      }, // 划转
+      }, // 划转记录
 
       { path: '/game', title: 'DAGE WALLET', component: './game/home' }, // 游戏中心
       { path: '/game_list', title: 'DAGE WALLET', component: './game/list' }, // 游戏列表
