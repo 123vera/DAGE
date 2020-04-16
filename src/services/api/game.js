@@ -32,6 +32,57 @@ class GameApi {
   }
 
   /**
+   * 资金划转
+   *
+   * @required openId string
+   * @required row string
+   * @required page number
+   **/
+  static getTransferRecord(options) {
+    return onlinePost('/game/transferlist', options);
+
+    // return Promise.resolve({
+    //   'status': 1,
+    //   'msg': '操作成功',
+    //   'data': {
+    //     'transferlist': [
+    //       {
+    //         'user_id': 202747,
+    //         'type': 'rc',
+    //         'num': '10.00000000',
+    //         'remark': 'DAGE账户到游戏账户',
+    //         'addTime': 1586829784,
+    //       }, {
+    //         'user_id': 202747,
+    //         'type': 'rc',
+    //         'num': '10.00000000',
+    //         'remark': 'DAGE账户到游戏账户',
+    //         'addTime': 1586829784,
+    //       },{
+    //         'user_id': 202747,
+    //         'type': 'rc',
+    //         'num': '10.00000000',
+    //         'remark': 'DAGE账户到游戏账户',
+    //         'addTime': 1586829784,
+    //       },{
+    //         'user_id': 202747,
+    //         'type': 'rc',
+    //         'num': '10.00000000',
+    //         'remark': 'DAGE账户到游戏账户',
+    //         'addTime': 1586829784,
+    //       }, {
+    //         'user_id': 202747,
+    //         'type': 'rc',
+    //         'num': '10.00000000',
+    //         'remark': 'DAGE账户到游戏账户',
+    //         'addTime': 1586829784,
+    //       },
+    //     ],
+    //   },
+    // });
+  }
+
+  /**
    * 获取游戏列表
    *
    * @required openId string
