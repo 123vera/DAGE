@@ -8,7 +8,7 @@ import { formatMessage } from 'umi/locale';
 class Index extends Component {
   render() {
     const content = Cookies.get('CONTENT');
-    // const url = decodeURIComponent(this.props.location.query.url);
+    const url = decodeURIComponent(this.props.location.query.url) || '';
 
     return (
       <div id={styles.noticeDetail}>
@@ -16,15 +16,17 @@ class Index extends Component {
           title={formatMessage({ id: `NOTICE_DETAIL_TITLE` })}
           leftContent={{ icon: ARROW_LEFT }}
         />
-        <div className={styles.content} dangerouslySetInnerHTML={{ __html: content }} />
-        {/* <iframe
+        {!content ? (
+          <iframe
             title="notice"
             style={{ width: '100vw', height: '100%' }}
             src={url}
             id="iframe1"
             scrolling="no"
-          /> */}
-        {/* </div> */}
+          />
+        ) : (
+          <div className={styles.content} dangerouslySetInnerHTML={{ __html: content }} />
+        )}
       </div>
     );
   }

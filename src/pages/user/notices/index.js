@@ -39,8 +39,12 @@ class Index extends Component {
                 key={item.id}
                 className={styles.item}
                 onClick={() => {
-                  item.content && Cookies.set('CONTENT', item.content);
-                  router.push(`/notice`);
+                  if (item.content && !item.linkUrl) {
+                    Cookies.set('CONTENT', item.content);
+                    router.push(`/notice`);
+                  } else {
+                    window.location.href = item.linkUrl;
+                  }
                 }}
               >
                 <p>{item.title}</p>
