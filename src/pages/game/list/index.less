@@ -18,15 +18,21 @@
         width: 68px;
         min-height: 68px;
         background: #ddd;
+        margin-right: 10px;
       }
 
       p {
         &.center {
+          width: 50%;
           line-height: 1.4;
-          flex-grow: 0.85;
+          flex-grow: 0.35;
           color: @font-color-primary;
 
           span {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+
             &:first-child {
               font-size: @font-size-common;
             }
@@ -36,12 +42,16 @@
         &.right {
           position: relative;
           color: @font-sub-color;
-          margin-right: 40px;
+          margin-right: 20px;
           line-height: 1.7;
+
+          span {
+            width: 135px;
+          }
 
           &::after {
             position: absolute;
-            right: -40px;
+            right: -3%;
             bottom: 0;
             transform: translateY(-50%);
             content: '';
@@ -56,6 +66,9 @@
         span {
           display: block;
           font-size: @font-size-smaller-1;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
         }
       }
     }

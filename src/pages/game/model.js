@@ -1,4 +1,5 @@
-import { GameApi } from '../../../services/api';
+import { GameApi } from '../../services/api';
+import { Toast } from 'antd-mobile';
 
 export default {
   namespace: 'game',
@@ -70,6 +71,8 @@ export default {
             gameUrl: url,
           },
         });
+      } else {
+        res.msg && Toast.info(res.msg);
       }
     },
   },

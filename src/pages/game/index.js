@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import PageHeader from '../../../components/common/PageHeader';
-import { Icons } from '../../../assets';
+import PageHeader from '../../components/common/PageHeader';
+import { Icons } from '../../assets';
 import { connect } from 'dva';
 import styles from './index.less';
 import { router } from 'umi';
 import { Modal } from 'antd-mobile';
+import { downFixed } from '../../utils/utils';
 
 @connect(({ game }) => ({ game }))
 class Game extends Component {
@@ -46,14 +47,16 @@ class Game extends Component {
   };
 
   getGameAddress = id => {
-    this.props.dispatch({
-      type: `game/GetGamelist`,
-      payload: { id },
+    return new Promise(resolve => {
+      this.props.dispatch({
+        type: `game/GetGameAddress`,
+        payload: { id },
+      });
+      resolve();
     });
   };
 
   showModal = async (id, name) => {
-    await this.getGameAddress(id);
     Modal.alert(
       '',
       <span>
@@ -69,13 +72,14 @@ class Game extends Component {
         {
           text: '启动游戏',
           style: { fontSize: '0.34rem' },
-          onHandle: () => {
-            const {
-              game: { gameUrl },
-            } = this.props;
-            console.log('gameUrl', gameUrl);
+          onPress: () => {
+            this.getGameAddress(id).then(res => {
+              const {
+                game: { gameUrl },
+              } = this.props;
 
-            window.location.href = gameUrl;
+              gameUrl && (window.location.href = gameUrl);
+            }, 100);
           },
         },
       ],
@@ -102,14 +106,14 @@ class Game extends Component {
           <ul>
             <li>
               <p>
-                <span>{dgtBalance}</span>
+                <span>{downFixed(dgtBalance)}</span>
                 <span>DGT筹码</span>
               </p>
             </li>
             <li>
               <p>
-                <span>{rcBalance}</span>
-                <span>DGT筹码</span>
+                <span>{downFixed(rcBalance)}</span>
+                <span>RC拟码</span>
               </p>
             </li>
           </ul>
@@ -119,13 +123,16 @@ class Game extends Component {
             alt=""
             className={styles.top}
             src={banner.bannerUrl}
-            onClick={() => this.showModal(banner.gameid)}
+            onClick={() => this.showModal(banner.gameid, banner.gameName)}
           />
 
           <section className={styles.first}>
             <h3>精品推荐</h3>
             <div className={styles.imgGroup}>
-              <p className={styles.leftWrapper}>
+              <p
+                className={styles.leftWrapper}
+                onClick={() => this.showModal(imgList[0].gameid, imgList[0].name)}
+              >
                 <img className={styles.left} src={imgList[0] && imgList[0].img} alt="" />
                 <span>{imgList[0] && imgList[0].name}</span>
               </p>
@@ -155,8 +162,8 @@ class Game extends Component {
               </ul>
             </div>
             <ul key={activeKey} className={styles.contentWrapper}>
-              {gameList.slice(3).map((i, key) => (
-                <li key={key.toString()} onclick={() => this.showModal(i.gameid, i.name)}>
+              {gameList.slice(0, 3).map((i, key) => (
+                <li key={key.toString()} onClick={() => this.showModal(i.gameid, i.name)}>
                   <img src={i.img} alt="" />
                   <p className={styles.center}>
                     <span>{i.name}</span>
@@ -170,7 +177,13 @@ class Game extends Component {
               ))}
             </ul>
             <p
-              onClick={() => router.push(`/game_list?type=${typelist ? typelist[activeKey] : ''}`)}
+              onClick={() =>
+                router.push({
+                  pathname: '/game_list',
+                  query: { type: typelist ? typelist[activeKey] : '' },
+                })
+              }
+              // onClick={() => router.push(`/game_list?type=${typelist ? typelist[activeKey] : ''}`)}
               className={styles.viewAll}
             >
               查看全部

@@ -45,7 +45,7 @@ class Index extends Component {
           title={formatMessage({ id: `COMMON_SELECT_AREA` })}
           leftContent={{ icon: Icons.arrowLeft, onHandle: () => cancel() }}
           rightContent={{
-            text: formatMessage({ id: `COMMON_NEXT_STEP` }),
+            text: <span style={{ color: '#F3AF66',fontSize: '0.24rem' }}>{formatMessage({ id: `COMMON_NEXT_STEP` })}</span>,
             onHandle: () => cancel(),
           }}
         />

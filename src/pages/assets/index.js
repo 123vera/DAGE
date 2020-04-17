@@ -18,10 +18,13 @@ class Assets extends Component {
 
   selectLi = key => {
     const { dispatch } = this.props;
+    // dispatch({ type: 'assetsHome/UpdateState', payload: { list: [] } });
+
     key === 1
       ? dispatch({ type: 'assetsHome/GetUserAssets' })
       : dispatch({ type: 'assetsHome/GetGameAssets' });
     this.setState({ activityLi: key });
+
   };
 
   jumpTo = type => {
