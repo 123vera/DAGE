@@ -2,13 +2,23 @@ import React, { Component } from 'react';
 import PageHeader from '@/components/common/PageHeader';
 import ARROW_LEFT from '@/assets/dark/arrow-left.png';
 import styles from './index.less';
-import Cookies from 'js-cookie';
+import { connect } from 'dva';
 import { formatMessage } from 'umi/locale';
 
+@connect(({ notice }) => ({ notice }))
 class Index extends Component {
+  componentDidMount() {
+    const id = window.location.pathname.split('/')[2];
+    this.props.dispatch({
+      type: 'notice/GetNotice',
+      payload: { id },
+    });
+  }
+
   render() {
-    const content = Cookies.get('CONTENT');
-    const url = decodeURIComponent(this.props.location.query.url) || '';
+    const {
+      notice: { content },
+    } = this.props;
 
     return (
       <div id={styles.noticeDetail}>
@@ -16,17 +26,7 @@ class Index extends Component {
           title={formatMessage({ id: `NOTICE_DETAIL_TITLE` })}
           leftContent={{ icon: ARROW_LEFT }}
         />
-        {!content ? (
-          <iframe
-            title="notice"
-            style={{ width: '100vw', height: '100%' }}
-            src={url}
-            id="iframe1"
-            scrolling="no"
-          />
-        ) : (
-          <div className={styles.content} dangerouslySetInnerHTML={{ __html: content }} />
-        )}
+        <div className={styles.content} dangerouslySetInnerHTML={{ __html: content }} />
       </div>
     );
   }

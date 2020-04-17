@@ -25,6 +25,15 @@ class OtherApi {
   }
 
   /**
+   * 获取公告详情
+   *
+   * @required id number 公告id
+   **/
+  static getNotice(params) {
+    return Request.get('/other/notice', { params });
+  }
+
+  /**
    * 语言切换
    *
    * @required lang string 语言包名称，zh-cn（默认）、en-us

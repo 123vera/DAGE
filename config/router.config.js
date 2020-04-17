@@ -42,7 +42,7 @@ export default [
 
       { path: '/referral_code', title: 'DAGE WALLET', component: './user/referralCode' }, //邀请码
       { path: '/notices', title: 'DAGE WALLET', component: './user/notices' }, // 公告列表
-      { path: '/notice', title: 'DAGE WALLET', component: './user/notice' }, // 公告详情
+      { path: '/notice/:id', title: 'DAGE WALLET', component: './user/notice' }, // 公告详情
       { path: '/promotion', title: 'DAGE WALLET', component: './user/promotion' }, // 我的推广/等级
       {
         path: '/zendesk',

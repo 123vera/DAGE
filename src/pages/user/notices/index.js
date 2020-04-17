@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PageHeader from '../../../components/common/PageHeader';
 import dayjs from 'dayjs';
-import { router } from 'umi';
+import router from 'umi/router';
 import Cookies from 'js-cookie';
 import { connect } from 'dva';
 import styles from './index.less';
@@ -14,7 +14,6 @@ import ListView from '../../../components/common/ListView';
 class Index extends Component {
   componentDidMount() {
     this.getNotices();
-    Cookies.remove('CONTENT');
   }
 
   getNotices = callback => {
@@ -39,9 +38,9 @@ class Index extends Component {
                 key={item.id}
                 className={styles.item}
                 onClick={() => {
-                  if (item.content && !item.linkUrl) {
-                    Cookies.set('CONTENT', item.content);
-                    router.push(`/notice`);
+                  console.log(!item.linkUrl);
+                  if (!item.linkUrl) {
+                    router.push(`/notice/${item.id}`);
                   } else {
                     window.location.href = item.linkUrl;
                   }
