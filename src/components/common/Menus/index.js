@@ -23,9 +23,9 @@ import React, { Component } from 'react';
 
 class Menus extends Component {
   render() {
-    const { menus, onHandle, active, hasBorder, textAlign } = this.props;
+    const { menus, onHandle, active, hasBorder, textAlign, maxWidth = '2.1rem' } = this.props;
     return (
-      <div className={`${styles.menus} ${hasBorder ? styles.hasBorder : ''}`}>
+      <div style={{ maxWidth }} className={`${styles.menus} ${hasBorder ? styles.hasBorder : ''}`}>
         <ul className={styles.menuList} onClick={e => e.stopPropagation()}>
           {menus.map(menu => (
             <li

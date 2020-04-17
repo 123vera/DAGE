@@ -94,6 +94,7 @@ class Index extends Component {
             <input
               value={amount}
               type="text"
+              autoComplete="off"
               placeholder={formatMessage({ id: `DGT_RECHARGE_PLACEHOLDER` })}
               onChange={e => this.changeAmount(e.target.value)}
             />

@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import styles from './index.less';
-import Header from '../../../components/common/Header';
+import PageHeader from '../../../components/common/PageHeader';
+// import Header from '../../../components/common/Header';
 import { Icons } from '../../../assets';
 import { connect } from 'dva';
 import Menus from '../../../components/common/Menus';
 import { downFixed } from '../../../utils/utils';
 import { Toast } from 'antd-mobile';
 import { router } from 'umi';
-
 
 @connect(({ transfer, globalModel }) => ({ transfer, globalModel }))
 class Index extends Component {
@@ -35,7 +35,7 @@ class Index extends Component {
   getCoins = () => {
     const { initInfo, transfer } = this.props.transfer;
     const list = transfer === 'DToG' ? initInfo.DAGECURRENCY : initInfo.GAMECURRENCY;
-    return list && list.map(i => ({ label: i, value: i })) || [];
+    return (list && list.map(i => ({ label: i, value: i }))) || [];
   };
 
   getCoinBalance = () => {
@@ -55,11 +55,12 @@ class Index extends Component {
     this.setState({ showCoins: false });
   };
 
-  changeNum = (value) => {
+  changeNum = value => {
     const reg = /^\d+(\.)?\d{0,2}?$/;
     if (value && !reg.test(value) && value !== 0) {
       return;
     }
+    if (Array.from(value).length > 2) return;
     this.props.dispatch({
       type: 'transfer/UpdateState',
       payload: {
@@ -72,29 +73,27 @@ class Index extends Component {
     const { num } = this.props.transfer;
     if (!num) return Toast.info('请输入划转数量');
     // if (num > this.getCoinBalance()) return Toast.info('余额不足');
-    this.props.dispatch({ type: 'transfer/Transfer' })
-      .then(res => {
-        if (res.status !== 1) return Toast.info(res.msg);
-        Toast.info('划转成功');
-        this.props.dispatch({
-          type: 'transfer/UpdateState',
-          payload: { num: '' },
-        });
+    this.props.dispatch({ type: 'transfer/Transfer' }).then(res => {
+      if (res.status !== 1) return Toast.info(res.msg);
+      Toast.info('划转成功');
+      this.props.dispatch({
+        type: 'transfer/UpdateState',
+        payload: { num: '' },
       });
+    });
   };
 
   render() {
     const { transfer, type, num } = this.props.transfer;
     const { showCoins } = this.state;
     return (
-      <div>
-        <Header
-          icon={Icons.arrowLeft}
-          title={'划转'}
+      <div id={styles.transfer}>
+        <PageHeader
+          title="划转"
+          leftContent={{ icon: Icons.arrowLeft }}
           rightContent={{
             text: '划转记录',
             onHandle: () => router.push('/assets/transfer/record'),
-            //TODO 跳转到划转记录页面
           }}
         />
         <section>
@@ -104,19 +103,19 @@ class Index extends Component {
                 <div className={styles.item} onClick={this.changeTransfer}>
                   <label>从</label>
                   <span>{transfer === 'DToG' ? 'DAGE账户' : '游戏账户'}</span>
-                  <img src={Icons.arrowRight} alt=""/>
+                  <img src={Icons.arrowRight} alt="" />
                 </div>
               </li>
               <li>
                 <div className={styles.item}>
                   <label>到</label>
                   <span>{transfer === 'GToD' ? 'DAGE账户' : '游戏账户'}</span>
-                  <img src={Icons.arrowRight} alt=""/>
+                  <img src={Icons.arrowRight} alt="" />
                 </div>
               </li>
             </ul>
             <div className={styles.transferIcon} onClick={this.changeTransfer}>
-              <img src={Icons.transfer} alt=""/>
+              <img src={Icons.transfer} alt="" />
             </div>
           </div>
         </section>
@@ -127,17 +126,20 @@ class Index extends Component {
               <input
                 placeholder="请选择币种"
                 readOnly
+                autoComplete="off"
                 value={type}
                 type="text"
-                onClick={() => this.setState({ showCoins: !showCoins })}/>
+                onClick={() => this.setState({ showCoins: !showCoins })}
+              />
               <div className={styles.operate}>
-                <img src={Icons.arrowRight} alt=""/>
+                <img src={Icons.arrowRight} alt="" />
               </div>
               <div className={styles.coins} style={{ display: showCoins ? 'block' : 'none' }}>
                 <Menus
                   menus={this.getCoins()}
                   hasBorder
-                  textAlign="center"
+                  maxWidth="100%"
+                  textAlign="left"
                   onHandle={this.changeCoin}
                 />
               </div>
@@ -150,7 +152,8 @@ class Index extends Component {
                 placeholder="请输入划转数量"
                 type="text"
                 value={num}
-                onChange={(e) => this.changeNum(e.target.value)}
+                autoComplete="off"
+                onChange={e => this.changeNum(e.target.value)}
               />
               <div className={styles.operate}>
                 <span className={styles.type}>{type}</span>
@@ -158,7 +161,9 @@ class Index extends Component {
                 <span onClick={() => this.changeNum(this.getCoinBalance())}>全部</span>
               </div>
             </div>
-            <aside>可用 {this.getCoinBalance()} {type}</aside>
+            <aside>
+              可用 {this.getCoinBalance()} {type}
+            </aside>
           </div>
         </section>
         <section>

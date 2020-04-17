@@ -11,7 +11,7 @@ class Index extends Component {
     search: '',
     list: TEL_PREFIX_DATA,
   };
-  componentDidMount(){
+  componentDidMount() {
     this.setState({ search: '', activeKey: '' });
   }
 
@@ -20,18 +20,19 @@ class Index extends Component {
     this.props.confirm(i.tel);
   };
 
-  onSearchChange = (event) => {
+  onSearchChange = event => {
     const { value } = event.target;
     if (!value) {
       this.setState({ list: TEL_PREFIX_DATA });
     } else {
-      const list = TEL_PREFIX_DATA.filter(i => (i.en + i.name).toLocaleLowerCase().includes(value.toLocaleLowerCase()));
+      const list = TEL_PREFIX_DATA.filter(i =>
+        (i.en + i.name).toLocaleLowerCase().includes(value.toLocaleLowerCase()),
+      );
       this.setState({ list });
     }
     this.setState({ search: value, activeKey: '' });
     this.props.confirm('');
   };
-
 
   render() {
     const { show, cancel } = this.props;
@@ -49,11 +50,12 @@ class Index extends Component {
           }}
         />
         <div className={styles.search}>
-          <img src={Icons.search} alt=""/>
+          <img src={Icons.search} alt="" />
           <input
             placeholder="搜索国家"
             type="text"
             value={search}
+            autoComplete="off"
             onChange={this.onSearchChange}
           />
         </div>
@@ -65,7 +67,7 @@ class Index extends Component {
               onClick={() => this.onSelect(i, key)}
             >
               <label>{i.en + ' ' + i.name}</label>
-              <img src={activeKey === key ? Icons.checked : Icons.unChecked} alt=""/>
+              <img src={activeKey === key ? Icons.checked : Icons.unChecked} alt="" />
 
               {/* {activeKey === key && <img src={CHECKED} alt="" />} */}
             </li>

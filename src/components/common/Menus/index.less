@@ -4,27 +4,27 @@
   position: relative;
   z-index: 1;
   min-width: 198px;
-  max-width: 210px;
-  padding-top: 20px;
+  // max-width: 210px;
+  padding-top: 5px;
 
-  &::before,
-  &::after {
-    position: absolute;
-    top: 2px;
-    right: 40px;
-    z-index: 2;
-    content: '';
-    border-right: 20px solid transparent;
-    border-left: 20px solid transparent;
-    border-bottom: 20px solid rgba(26, 32, 46, 1);
-  }
+  // &::before,
+  // &::after {
+  //   position: absolute;
+  //   top: 2px;
+  //   right: 40px;
+  //   z-index: 2;
+  //   content: '';
+  //   border-right: 20px solid transparent;
+  //   border-left: 20px solid transparent;
+  //   border-bottom: 20px solid rgba(26, 32, 46, 1);
+  // }
 
   &.hasBorder {
-    &::after {
-      top: 0;
-      z-index: 1;
-      border-bottom: 20px solid rgba(46, 53, 70, 1);
-    }
+    // &::after {
+    //   top: 0;
+    //   z-index: 1;
+    //   border-bottom: 20px solid rgba(46, 53, 70, 1);
+    // }
 
     .menuList {
       border: 2px solid rgba(46, 53, 70, 1);

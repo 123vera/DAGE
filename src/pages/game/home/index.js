@@ -94,7 +94,10 @@ class Game extends Component {
           <PageHeader
             title="游戏中心"
             leftContent={{ icon: Icons.arrowWhiteLeft }}
-            rightContent={{ text: '充值', onHandle: () => router.push('/assets/transfer') }}
+            rightContent={{
+              text: '充值',
+              onHandle: () => router.push('/assets/transfer?transfer=GToD'),
+            }}
           />
           <ul>
             <li>
