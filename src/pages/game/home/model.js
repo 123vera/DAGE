@@ -25,7 +25,7 @@ export default {
         yield put({
           type: 'UpdateState',
           payload: {
-            banner: banner && banner.bannerUrl,
+            banner,
             imgList: recommendlist,
           },
         });
@@ -45,7 +45,6 @@ export default {
       }
     },
     *GetGamelist({ payload }, { call, put }) {
-      console.log(payload);
       const res = yield call(GameApi.getGamelist, payload);
       if (res.status === 1) {
         const { dgt, rc, list } = res.data;

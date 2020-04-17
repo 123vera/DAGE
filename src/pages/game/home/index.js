@@ -53,7 +53,7 @@ class Game extends Component {
   };
 
   showModal = async (id, name) => {
-    this.getGameAddress(id);
+    await this.getGameAddress(id);
     Modal.alert(
       '',
       <span>
@@ -73,6 +73,8 @@ class Game extends Component {
             const {
               game: { gameUrl },
             } = this.props;
+            console.log('gameUrl', gameUrl);
+
             window.location.href = gameUrl;
           },
         },
@@ -110,7 +112,12 @@ class Game extends Component {
           </ul>
         </div>
         <div className={styles.mainContent}>
-          <img alt="" className={styles.top} src={banner} />
+          <img
+            alt=""
+            className={styles.top}
+            src={banner.bannerUrl}
+            onClick={() => this.showModal(banner.gameid)}
+          />
 
           <section className={styles.first}>
             <h3>精品推荐</h3>
