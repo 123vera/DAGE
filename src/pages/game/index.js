@@ -41,7 +41,7 @@ class Game extends Component {
     } = this.props;
 
     dispatch({
-      type: `game/GetGamelist`,
+      type: `game/GetGameList`,
       payload: { type: typelist[key], page: 1, row: 10 },
     });
   };

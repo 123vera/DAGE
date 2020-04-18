@@ -1,23 +1,31 @@
 import React, { Component } from 'react';
 import PageHeader from '../../../components/common/PageHeader';
 import { Icons } from '../../../assets';
-import { Modal } from 'antd-mobile';
+import { Modal, Toast } from 'antd-mobile';
 import { connect } from 'dva';
 import styles from './index.less';
+import ListView from '../../../components/common/ListView';
 
 @connect(({ game, gameList }) => ({ game, gameList }))
 class Index extends Component {
   componentDidMount() {
-    const type = this.props.location.query.type;
-    type && this.getGamelist(type);
+    const { type } = this.props.location.query;
+    this.props.dispatch({
+      type: 'gameList/UpdateState',
+      payload: {
+        hasMore: true,
+        list: [],
+        page: 1,
+        type,
+      },
+    });
+    this.getList();
   }
 
-  getGamelist = type => {
-    const { dispatch } = this.props;
-
-    dispatch({
-      type: `game/GetGamelist`,
-      payload: { type, page: 1, row: 10 },
+  getList = callback => {
+    this.props.dispatch({ type: 'gameList/GetGameList' }).then(res => {
+      callback && callback();
+      if (res.status !== 1) Toast.info(res.msg);
     });
   };
 
@@ -36,13 +44,14 @@ class Index extends Component {
       '',
       <span>
         即将离开DAGE，
-        <br /> 启动「{name}」
+        <br/> 启动「{name}」
       </span>,
       [
         {
           text: '取消',
           style: { fontSize: '0.34rem' },
-          onPress: () => {},
+          onPress: () => {
+          },
         },
         {
           text: '启动游戏',
@@ -52,7 +61,6 @@ class Index extends Component {
               const {
                 game: { gameUrl },
               } = this.props;
-
               gameUrl && (window.location.href = gameUrl);
             }, 100);
           },
@@ -62,20 +70,17 @@ class Index extends Component {
   };
 
   render() {
-    const {
-      game: { gameList },
-    } = this.props;
-    const title = this.props.location.query.type;
+    const { list, type ,hasMore} = this.props.gameList;
 
     return (
       <div id={styles.gameList}>
-        <PageHeader title={title} leftContent={{ icon: Icons.arrowLeft }} />
+        <PageHeader title={type} leftContent={{ icon: Icons.arrowLeft }}/>
+        <ListView hasMore={hasMore} onLoadMore={this.getList}>
 
-        <ul className={styles.contentWrapper}>
-          {gameList &&
-            gameList.map((i, key) => (
+          <ul className={styles.contentWrapper}>
+            {list.map((i, key) => (
               <li key={key.toString()} onClick={() => this.showModal(i.gameid, i.name)}>
-                <img src={i.img} alt="" />
+                <img src={i.img} alt=""/>
                 <p className={styles.center}>
                   <span>{i.name}</span>
                   <span>NO.{key + 1}</span>
@@ -86,7 +91,8 @@ class Index extends Component {
                 </p>
               </li>
             ))}
-        </ul>
+          </ul>
+        </ListView>
       </div>
     );
   }

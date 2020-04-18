@@ -15,7 +15,7 @@ export default {
     },
   },
   effects: {
-    *GetTransferRecord(_, { call, select, put }) {
+    * GetTransferRecord(_, { call, select, put }) {
       const { page, row, list } = yield select(state => state.transferRecord);
       const res = yield call(GameApi.getTransferRecord, { page, row });
       if (res.status === 1) {

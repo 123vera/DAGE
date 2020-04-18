@@ -31,7 +31,7 @@ class Index extends Component {
           img: Images.ecoGame,
           title: formatMessage({ id: `ECOLOGICAL_CURRENCY_TITLE_02` }),
           subTitle: formatMessage({ id: `ECOLOGICAL_CURRENCY_SUBTITLE_02` }),
-          link: '',
+          link: '/game',
         },
         {
           img: Images.ecoOtcMining,
