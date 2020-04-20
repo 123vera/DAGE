@@ -41,17 +41,16 @@ class Index extends Component {
 
   showModal = async (id, name) => {
     Modal.alert(
-      '',
-      <span>
+      <span style={{ lineHeight: '1.3', textAlign: 'left', fontSize: '0.32rem', color: '#000' }}>
         即将离开DAGE，
-        <br/> 启动「{name}」
+        <br /> 启动「{name}」
       </span>,
+      '',
       [
         {
           text: '取消',
           style: { fontSize: '0.34rem' },
-          onPress: () => {
-          },
+          onPress: () => {},
         },
         {
           text: '启动游戏',
@@ -70,17 +69,16 @@ class Index extends Component {
   };
 
   render() {
-    const { list, type ,hasMore} = this.props.gameList;
+    const { list, type, hasMore } = this.props.gameList;
 
     return (
       <div id={styles.gameList}>
-        <PageHeader title={type} leftContent={{ icon: Icons.arrowLeft }}/>
+        <PageHeader title={type} leftContent={{ icon: Icons.arrowLeft }} />
         <ListView hasMore={hasMore} onLoadMore={this.getList}>
-
           <ul className={styles.contentWrapper}>
             {list.map((i, key) => (
               <li key={key.toString()} onClick={() => this.showModal(i.gameid, i.name)}>
-                <img src={i.img} alt=""/>
+                <img src={i.img} alt="" />
                 <p className={styles.center}>
                   <span>{i.name}</span>
                   <span>NO.{key + 1}</span>

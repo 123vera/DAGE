@@ -68,6 +68,8 @@ class Home extends Component {
         url: '/zendesk',
       },
     ];
+    console.log(myInfo.teamLevel);
+
     return (
       <div className={styles.userCenter}>
         <PageHeader
@@ -111,11 +113,15 @@ class Home extends Component {
           </div>
           <img className={styles.status} src={STATUS_BG} alt="" />
           <p className={styles.statusText}>
-            {myInfo && myInfo.activate === 1 ? (
-              <span style={{ opacity: 0.5 }}>{formatMessage({ id: `USER_ACTIVITY` })}</span>
+            <span style={{ opacity: 0.5 }}>
+              {myInfo && myInfo.teamLevel === 0 ? `VIP ${myInfo.teamLevel}` : '--'}
+            </span>
+
+            {/* {myInfo && myInfo.activate === 1 ? (
+              <span style={{ opacity: 0.5 }}>VIP{formatMessage({ id: `USER_ACTIVITY` })}</span>
             ) : (
               formatMessage({ id: `USER_UNACTIVITY` })
-            )}
+            )} */}
           </p>
         </div>
         <ul className={styles.list}>

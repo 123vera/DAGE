@@ -18,7 +18,7 @@ class Index extends Component {
   componentDidMount() {
     const { query } = this.props.location;
     const { transfer = 'DToG' } = query;
-    this.props.dispatch({ type: 'transfer/UpdateState', payload: { transfer } });
+    this.props.dispatch({ type: 'transfer/UpdateState', payload: { transfer, num: '' } });
     this.props.dispatch({ type: 'transfer/TransferInit' });
   }
 
@@ -75,10 +75,12 @@ class Index extends Component {
     // if (num > this.getCoinBalance()) return Toast.info('余额不足');
     this.props.dispatch({ type: 'transfer/Transfer' }).then(res => {
       if (res.status !== 1) return Toast.info(res.msg);
-      Toast.info('划转成功');
       this.props.dispatch({
         type: 'transfer/UpdateState',
         payload: { num: '' },
+      });
+      Toast.info('划转成功', () => {
+        router.push('/assets/transfer/record');
       });
     });
   };
