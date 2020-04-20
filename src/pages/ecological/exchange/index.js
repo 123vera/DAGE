@@ -41,7 +41,12 @@ class Index extends Component {
   };
 
   onShowMenus = (e, type, value) => {
-    this.setState({ [type]: value });
+    // this.setState({ [type]: value });
+    if (type === 'showBeforeMenus') {
+      this.setState({ [type]: value, showAfterMenus: false });
+    } else {
+      this.setState({ [type]: value, showBeforeMenus: false });
+    }
     e.stopPropagation();
   };
 
@@ -213,7 +218,10 @@ class Index extends Component {
     // }
     dispatch({ type: 'exchange/SubmitExchange' }).then(res => {
       if (res.status !== 1) return Toast.info(res.msg);
-      Toast.info(formatMessage({ id: `EXCHANGE_SUCCESS` }), 2, () => window.location.reload());
+      Toast.info(formatMessage({ id: `EXCHANGE_SUCCESS` }), 2, () => {
+        window.location.reload();
+        // window.location.href = ''
+      });
     });
   };
 
@@ -231,14 +239,62 @@ class Index extends Component {
 
     return (
       <div className={styles.exchange} onClick={this.onHideMenus}>
-        <PageHeader
-          title={formatMessage({ id: `EXCHANGE_TITLE` })}
-          leftContent={{ icon: Icons.arrowLeft }}
-        />
+        <PageHeader title="闪兑" leftContent={{ icon: Icons.arrowLeft }} />
 
         <div className={styles.wrapper}>
           <div className={styles.mainContent}>
-            <div className={styles.selectCurrency}>
+            <ul className={styles.selectCurrency}>
+              <li className={styles.liWrapper}>
+                <div
+                  className={styles.item}
+                  onClick={e => this.onShowMenus(e, 'showBeforeMenus', !showBeforeMenus)}
+                >
+                  <label>从</label>
+                  <span>{beforeCoin}</span>
+                  <img src={Icons.arrowRight} alt="" />
+                </div>
+                {showBeforeMenus && (
+                  <div className={styles.menusContent}>
+                    <Menus
+                      menus={beforeCoins}
+                      active={beforeCoin}
+                      hasBorder
+                      textAlign="left"
+                      maxWidth="100%"
+                      onHandle={this.changeBeforeCoin}
+                    />
+                  </div>
+                )}
+              </li>
+              <li className={styles.liWrapper}>
+                <div
+                  className={styles.item}
+                  onClick={e => this.onShowMenus(e, 'showAfterMenus', !showAfterMenus)}
+                >
+                  <label>到</label>
+                  <span>{afterCoin}</span>
+                  <img src={Icons.arrowRight} alt="" />
+                </div>
+                {showAfterMenus && (
+                  <div className={styles.menusContent}>
+                    <Menus
+                      menus={afterCoins}
+                      active={afterCoin}
+                      hasBorder
+                      maxWidth="100%"
+                      textAlign="left"
+                      onHandle={this.changeAfterCoin}
+                    />
+                  </div>
+                )}
+              </li>
+            </ul>
+
+            {/* <div className={styles.transferIcon} onClick={this.changeTransfer}>
+                <img src={Icons.transfer} alt="" />
+              </div> */}
+            {/* </ul> */}
+            {/* <div className={styles.selectCurrency}>
               <span
                 className={styles.coinSelect}
                 onClick={e => this.onShowMenus(e, 'showBeforeMenus', !showBeforeMenus)}
@@ -276,55 +332,58 @@ class Index extends Component {
                   </div>
                 )}
               </span>
-            </div>
+            </div> */}
             <small className={styles.notice}>
               {formatMessage({ id: `EXCHANGE_RATE` })}
               {downFixed(1)} {beforeCoin} = {downFixed(initInfo.RATIO) || '--'} {afterCoin}
             </small>
-            <label>
-              <span className={styles.label}>
-                {formatMessage({ id: `EXCHANGE_AMOUNT` })} ({beforeCoin})
-              </span>
-              <input
-                type="text"
-                autoComplete="off"
-                value={amount}
-                onBlur={() =>
-                  amount &&
-                  this.props.dispatch({
-                    type: 'exchange/UpdateState',
-                    payload: { amount: downFixed(amount) },
-                  })
-                }
-                onChange={e => this.onAmountChange(e.target.value)}
-                placeholder={`${formatMessage({ id: `EXCHANGE_MIN_AMOUNT` })}${initInfo.MIN ||
-                  '--'}`}
-              />
-              <p className={styles.tips}>
-                {formatMessage({ id: `EXCHANGE_CAN_USE` })}
-                {beforeCoin}：{downFixed(balance)}
+
+            <div className={styles.bottomContent}>
+              <label>
+                <span className={styles.label}>
+                  {formatMessage({ id: `EXCHANGE_AMOUNT` })} ({beforeCoin})
+                </span>
+                <input
+                  type="text"
+                  autoComplete="off"
+                  value={amount}
+                  onBlur={() =>
+                    amount &&
+                    this.props.dispatch({
+                      type: 'exchange/UpdateState',
+                      payload: { amount: downFixed(amount) },
+                    })
+                  }
+                  onChange={e => this.onAmountChange(e.target.value)}
+                  placeholder={`${formatMessage({ id: `EXCHANGE_MIN_AMOUNT` })}${initInfo.MIN ||
+                    '--'}`}
+                />
+                <p className={styles.tips}>
+                  {formatMessage({ id: `EXCHANGE_CAN_USE` })}
+                  {beforeCoin}：{downFixed(balance)}
+                  <small>
+                    {formatMessage({ id: `EXCHANGE_FEE_RATE` })}
+                    {amount ? downFixed(initInfo.CHARGE * 100) : '0'}%
+                  </small>
+                </p>
+              </label>
+              <p className={`${styles.labelTag} ${styles.small}`}>
+                {formatMessage({ id: `EXCHANGE_FEE` })}{' '}
                 <small>
-                  {formatMessage({ id: `EXCHANGE_FEE_RATE` })}
-                  {amount ? downFixed(initInfo.CHARGE * 100) : '0'}%
+                  {amount ? downFixed(amount * initInfo.RATIO * initInfo.CHARGE) : '--'}
+                  &nbsp;({afterCoin})
                 </small>
               </p>
-            </label>
-            <p className={`${styles.labelTag} ${styles.small}`}>
-              {formatMessage({ id: `EXCHANGE_FEE` })}{' '}
-              <small>
-                {amount ? downFixed(amount * initInfo.RATIO * initInfo.CHARGE) : '--'}
-                &nbsp;({afterCoin})
-              </small>
-            </p>
-            <p className={styles.labelTag}>
-              {formatMessage({ id: `EXCHANGE_PAIDIN_AMOUNT` })}
-              <small>
-                {amount > initInfo.CHARGE * 100
-                  ? downFixed(amount * initInfo.RATIO - amount * initInfo.RATIO * initInfo.CHARGE)
-                  : '--'}
-                &nbsp;({afterCoin})
-              </small>
-            </p>
+              <p className={styles.labelTag}>
+                {formatMessage({ id: `EXCHANGE_PAIDIN_AMOUNT` })}
+                <small>
+                  {amount > initInfo.CHARGE * 100
+                    ? downFixed(amount * initInfo.RATIO - amount * initInfo.RATIO * initInfo.CHARGE)
+                    : '--'}
+                  &nbsp;({afterCoin})
+                </small>
+              </p>
+            </div>
           </div>
           <p className={styles.reminder}>{formatMessage({ id: `EXCHANGE_TIPS` })}</p>
 

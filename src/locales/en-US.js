@@ -91,7 +91,7 @@ export default {
   ECOLOGICAL_TITLE: `Ecosystem`,
   ECOLOGICAL_CURRENCY_TITLE_01: `Decentralized Exchange`,
   ECOLOGICAL_CURRENCY_SUBTITLE_01: `Token exchange based on smart contracts`,
-  ECOLOGICAL_CURRENCY_TITLE_02: `Gaming platform`,
+  ECOLOGICAL_CURRENCY_TITLE_02: `Gaming Platform`,
   ECOLOGICAL_CURRENCY_SUBTITLE_02: `Gaming DApp center based on POG protocol`,
   ECOLOGICAL_CURRENCY_TITLE_03: `OTC Mining`,
   ECOLOGICAL_CURRENCY_SUBTITLE_03: `Simple and fast, just one click to withdraw   `,

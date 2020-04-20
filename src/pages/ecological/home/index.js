@@ -23,7 +23,7 @@ class Index extends Component {
       const list = [
         {
           img: Images.ecoCurrency,
-          title: formatMessage({ id: `ECOLOGICAL_CURRENCY_TITLE_01` }),
+          title: '闪兑',
           subTitle: formatMessage({ id: `ECOLOGICAL_CURRENCY_SUBTITLE_01` }),
           link: '/exchange',
         },

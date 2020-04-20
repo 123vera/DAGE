@@ -40,6 +40,11 @@ class Game extends Component {
       game: { typelist },
     } = this.props;
 
+    // dispatch({
+    //   type: `game/UpdateState`,
+    //   payload: { dgtBalance: '--', rcBalance: '--' },
+    // });
+
     dispatch({
       type: `game/GetGameList`,
       payload: { type: typelist[key], page: 1, row: 10 },
@@ -50,7 +55,7 @@ class Game extends Component {
     return new Promise(resolve => {
       this.props.dispatch({
         type: `game/GetGameAddress`,
-        payload: { id },
+        payload: { gameid: id },
       });
       resolve();
     });
@@ -58,11 +63,11 @@ class Game extends Component {
 
   showModal = async (id, name) => {
     Modal.alert(
-      '',
-      <span>
+      <span style={{ lineHeight: '1.3', textAlign: 'left', fontSize: '0.32rem', color: '#000' }}>
         即将离开DAGE，
         <br /> 启动「{name}」
       </span>,
+      '',
       [
         {
           text: '取消',

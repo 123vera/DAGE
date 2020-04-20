@@ -10,7 +10,112 @@
     position: relative;
     box-sizing: border-box;
     padding: 44px;
-    background-color: @theme-color-bg-content;
+    // background-color: @theme-color-bg-content;
+
+    // .selectCurrency {
+    //   border: 2px solid #2e3546;
+    // }
+
+    .selectCurrency {
+      width: 100%;
+      // display: flex;
+      align-items: center;
+      justify-content: center;
+      box-sizing: border-box;
+      // padding: 40px 0;
+      border: 2px solid @theme-border-gray;
+
+      .coinSelect {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+
+        img {
+          width: 30px;
+          margin: 0 20px;
+        }
+
+        .menus {
+          position: absolute;
+          top: 40px;
+          left: 50%;
+          transform: translateX(-50%);
+          z-index: 10;
+        }
+      }
+
+      .splitImg {
+        max-width: 40px;
+        transform: rotate(180deg);
+        margin: 0 60px;
+      }
+    }
+
+    ul {
+      .clearUl;
+      flex: 1;
+      padding: 10px 0;
+      box-sizing: border-box;
+
+      .liWrapper {
+        position: relative;
+        padding-left: 102px;
+
+        .menusContent {
+          position: absolute;
+          left: 0;
+          top: 90px;
+          width: 100%;
+          z-index: 10;
+        }
+
+        &::before {
+          content: '·';
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 40px;
+          margin: auto;
+
+          display: flex;
+          align-items: center;
+          font-size: 50px;
+          color: @theme-color-blue;
+        }
+
+        &:last-child::before {
+          color: #ff4d4d;
+        }
+
+        .item {
+          position: relative;
+          display: flex;
+          align-items: center;
+          width: 100%;
+          box-sizing: border-box;
+          padding: 30px 0;
+          border-bottom: 2px solid rgba(46, 53, 70, 1);
+
+          label {
+            margin-right: 20px;
+            color: @font-sub-color;
+          }
+
+          img {
+            position: absolute;
+            top: 0;
+            right: 30px;
+            bottom: 0;
+            margin: auto;
+          }
+        }
+
+        &:last-child .item {
+          border-bottom: none;
+        }
+      }
+    }
 
     .notice {
       display: block;
@@ -19,10 +124,16 @@
       color: @font-sub-color;
     }
 
+    .bottomContent {
+      box-sizing: border-box;
+      padding: 40px;
+      background-color: #1a202e;
+    }
+
     label {
       display: flex;
       flex-direction: column;
-      margin-bottom: 26px;
+      // margin-bottom: 26px;
       font-size: @font-size-common;
 
       span.label {
@@ -76,42 +187,6 @@
 
       &.small {
         font-size: @font-size-smaller;
-      }
-    }
-
-    .selectCurrency {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-sizing: border-box;
-      padding: 40px 0;
-      border-bottom: 2px solid @theme-border-gray;
-
-      .coinSelect {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-
-        img {
-          width: 30px;
-          margin: 0 20px;
-        }
-
-        .menus {
-          position: absolute;
-          top: 40px;
-          left: 50%;
-          transform: translateX(-50%);
-          z-index: 10;
-        }
-      }
-
-      .splitImg {
-        max-width: 40px;
-        transform: rotate(180deg);
-        margin: 0 60px;
       }
     }
   }

@@ -197,10 +197,11 @@
             display: inline-flex;
             justify-content: flex-start;
             align-items: center;
+            // .clearUl();
 
             li {
               width: 130px;
-              padding: 36px 0;
+              padding: 0 0 26px;
               text-align: center;
               border-bottom: 2px solid transparent;
               font-size: @font-size-smaller;
@@ -227,6 +228,7 @@
                     @theme-border-gradient-from
                   )
                   1 10;
+                border-bottom: 2px solid;
                 border-top: 0;
                 border-left: 0;
                 border-right: 0;
@@ -236,14 +238,14 @@
         }
 
         .contentWrapper {
-          margin-top: 20px;
+          .clearUl();
 
           li {
             display: flex;
             justify-content: space-between;
             align-items: center;
             border-bottom: 2px solid @theme-border-gray;
-            padding: 30px 0;
+            padding: 50px 0 30px;
 
             img {
               width: 68px;
