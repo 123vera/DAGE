@@ -6,9 +6,9 @@ import styles from './index.less';
 import QRcode from 'qrcode.react';
 import { formatMessage } from 'umi/locale';
 import { connect } from 'dva';
-import Menus from '../../../components/common/Menus';
 import { Toast } from 'antd-mobile';
 import CopyToClipboard from 'react-copy-to-clipboard';
+import CoinSwitch from '../../../components/wallet/CoinSwitch';
 
 @connect(({ globalModel, recharge }) => ({ globalModel, recharge }))
 class Recharge extends Component {
@@ -44,11 +44,11 @@ class Recharge extends Component {
   };
 
   changeCoin = menu => {
-    if (menu.value === '_DGT') {
-      // dgt 法币充值
-      router.push('/wallet/dgt_recharge');
-      return;
-    }
+    // if (menu.value === '_DGT') {
+    //   // dgt 法币充值
+    //   router.push('/wallet/dgt_recharge');
+    //   return;
+    // }
     const { dispatch } = this.props;
     dispatch({
       type: 'recharge/UpdateState',
@@ -68,44 +68,32 @@ class Recharge extends Component {
   render() {
     const { showMenus } = this.state;
     const { coin, wallet, menus } = this.props.recharge;
-    const {
-      globalModel: { myInfo },
-    } = this.props;
+    // const { myInfo } = this.props.globalModel;
+    // const _dgt = { label: formatMessage({ id: `DGT_RECHARGE_TITLE` }), value: '_DGT' };
+    //
+    // const newMenus = myInfo.phonePrefix === '86'
+    //   ? menus.concat([_dgt])
+    //   : menus;
 
     return (
       <div className={styles.recharge}>
         <div className={styles.header}>
           <Header
             icon={Icons.arrowLeft}
-            centerContent={{
-              text: coin,
-              icon: Icons.arrowDown,
-              reverse: true,
-              onHandle: () => this.setState({ showMenus: !showMenus }),
-            }}
-            // onHandle={() => router.push('/home/wallet')}
+            title={formatMessage({ id: `ASSETS_RECHANGE` })}
           />
-          {showMenus && (
-            <div className={styles.menus}>
-              <Menus
-                menus={
-                  myInfo.phonePrefix === '86'
-                    ? menus.concat([
-                        { label: formatMessage({ id: `DGT_RECHARGE_TITLE` }), value: '_DGT' },
-                      ])
-                    : menus
-                }
-                textAlign="center"
-                hasBorder
-                onHandle={this.changeCoin}
-              />
-            </div>
-          )}
         </div>
 
         <div className={styles.content}>
+          <CoinSwitch
+            showMenus={showMenus}
+            coin={coin}
+            menus={menus}
+            click={() => this.setState({ showMenus: !showMenus })}
+            change={this.changeCoin}
+          />
           <div className={styles.qrCode}>
-            <QRcode size={250} value={wallet} renderAs="canvas" />
+            <QRcode size={250} value={wallet} renderAs="canvas"/>
           </div>
           <p>{wallet}</p>
           <CopyToClipboard

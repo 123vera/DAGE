@@ -70,12 +70,7 @@ class Index extends Component {
         <div className={styles.header}>
           <Header
             icon={Icons.arrowLeft}
-            centerContent={{
-              text: formatMessage({ id: `DGT_RECHARGE_TITLE` }),
-              icon: Icons.arrowDown,
-              reverse: true,
-              onHandle: () => this.setState({ showMenus: !showMenus }),
-            }}
+            title={formatMessage({ id: `DGT_RECHARGE_TITLE` })}
             rightContent={{
               icon: Icons.record,
               // text: formatMessage({ id: `DGT_RECORD_TITLE` }),

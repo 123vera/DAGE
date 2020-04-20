@@ -227,7 +227,7 @@ export default {
   RECHARGE_TIP_05: `Please don’t deposit any other digital assets expect `,
   RECHARGE_TIP_06: ` to the above address. Otherwise, you may lose your assets permanently.`,
 
-  DGT_RECHARGE_TITLE: `DGT FIAT Reload`,
+  DGT_RECHARGE_TITLE: `FIAT Reload`,
   DGT_RECHARGE_ALIPAY: `Deposit`,
   DGT_RECHARGE_LABEL: `Reload Amount (Alipay Payment)`,
   DGT_RECHARGE_PLACEHOLDER: `Enter CNY Reload Amount`,

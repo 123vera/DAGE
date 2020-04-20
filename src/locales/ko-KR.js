@@ -209,7 +209,7 @@ export default {
   RECHARGE_TIP_05: `이 계정은 다음의 사항 외에는 탑업 목적으로 허용되지 않습니다`,
   RECHARGE_TIP_06: `모든 탑업 자산은 다른 자산 때문에 회복되지 않습니다`,
 
-  DGT_RECHARGE_TITLE: `DGT FIAT 재충전`,
+  DGT_RECHARGE_TITLE: `FIAT 재충전`,
   DGT_RECHARGE_ALIPAY: `위로`,
   DGT_RECHARGE_LABEL: `재충전 금액 (알리페이 결제_ `,
   DGT_RECHARGE_PLACEHOLDER: `CNY 재충전 금액 입력`,

@@ -221,7 +221,7 @@ export default {
   RECHARGE_TIP_05: `Tài khoản này không cho phép dùng để nạp tiền, trừ trường hợp`,
   RECHARGE_TIP_06: `Mọi tài sản nạp vào sẽ không được phục hồi dưới dạng tài sản khác`,
 
-  DGT_RECHARGE_TITLE: `Nạp thêm DGT bằng tiền pháp định (FIAT)`,
+  DGT_RECHARGE_TITLE: `Nạp thêm bằng tiền pháp định (FIAT)`,
   DGT_RECHARGE_LABEL: `Số tiền nạp thêm (Thanh toán Alipay)`,
   DGT_RECHARGE_PLACEHOLDER: `Nhập số NDT nạp thêm`,
   DGT_RECHARGE_RATIO: `Tỷ giá hối đoái hiện nay:`,

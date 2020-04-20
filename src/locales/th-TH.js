@@ -209,7 +209,7 @@ export default {
   RECHARGE_TIP_05: `บัญชีนี้ไม่ได้รับอนุญาตให้เติมเงิน ยกเว้น`,
   RECHARGE_TIP_06: `สินทรัพย์ที่เติมจะไม่ได้รับการกู้คืนสำหรับสินทรัพย์อื่น ๆ`,
 
-  DGT_RECHARGE_TITLE: `เติมเงิน DGT FIAT`,
+  DGT_RECHARGE_TITLE: `เติมเงิน FIAT`,
   DGT_RECHARGE_ALIPAY: `เติมเงิน`,
   DGT_RECHARGE_LABEL: `จำนวนเติมเงิน (จ่ายเงินด้วย Alipay)`,
   DGT_RECHARGE_PLACEHOLDER: `ระบุจำนวนเติมเงิน CNY`,

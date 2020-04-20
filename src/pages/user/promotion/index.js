@@ -39,11 +39,10 @@ class Index extends Component {
       mystatus,
       achievement,
       recommendCount,
-      // teamCount,
       teamLevelOtc,
       teamLevel,
     } = this.props.promotion;
-    // console.log(list);
+
     return (
       <div id={styles.promotion}>
         <PageHeader
@@ -61,29 +60,35 @@ class Index extends Component {
 
         <section className={styles.banner}>
           <div className={styles.content}>
-            <span className={styles.income}>{formatMessage({ id: `PROMOTION_USER_LEVEL` })}</span>
-            <h2>{teamLevel || teamLevel === 0 ? `VIP ${teamLevel}` : '--'}</h2>
+            <div className={styles.income}>
+              <span>VIP</span>
+            </div>
+            <h2>{teamLevel || teamLevel === 0 ? `LEVEL ${teamLevel}` : '--'}</h2>
           </div>
-
-          {/* 版本2.0临时隐藏 */}
           <div className={styles.content}>
-            <span className={styles.income}>{formatMessage({ id: `PROMOTION_LEVEL` })}</span>
+            <div className={styles.income}>
+              <span>
+                勋章
+                {/*TODO翻译换一下*/}
+                {/*{formatMessage({ id: `PROMOTION_LEVEL` })}*/}
+              </span>
+            </div>
             <h2>
               {teamLevelOtc !== 0
                 ? `${LEVEL_LIST()[teamLevelOtc || 0]}${formatMessage({
-                    id: `PROMOTION_POINT_02`,
-                  })}`
+                  id: `PROMOTION_POINT_02`,
+                })}`
                 : formatMessage({ id: `PROMOTION_NONE` })}
             </h2>
           </div>
-          <img src={DAGE_LOGO} alt="DAGE_LOGO" />
+          <img src={DAGE_LOGO} alt="DAGE_LOGO"/>
         </section>
 
         {/* 版本2.0临时隐藏 */}
         <section className={styles.explain}>
           <h4>
             {formatMessage({ id: `PROMOTION_RECOMMENDATION` })}
-            <img src={TIPS} alt="TIPS" onClick={this.hrefToTip} />
+            <img src={TIPS} alt="TIPS" onClick={this.hrefToTip}/>
           </h4>
           <ul className={styles.explainList}>
             <li>
@@ -142,18 +147,18 @@ class Index extends Component {
           <ListView key={list} hasMore={hasMore} onLoadMore={this.getNotices}>
             <table>
               <thead>
-                <tr>
-                  <td>{formatMessage({ id: `PROMOTION_USER` })}</td>
-                  <td>{formatMessage({ id: `PROMOTION_TIME` })}</td>
-                </tr>
+              <tr>
+                <td>{formatMessage({ id: `PROMOTION_USER` })}</td>
+                <td>{formatMessage({ id: `PROMOTION_TIME` })}</td>
+              </tr>
               </thead>
               <tbody>
-                {list.map(item => (
-                  <tr key={item.regTime}>
-                    <td>{item.userName}</td>
-                    <td>{dayjs(item.regTime * 1000).format('YYYY-MM-DD HH:mm')}</td>
-                  </tr>
-                ))}
+              {list.map(item => (
+                <tr key={item.regTime}>
+                  <td>{item.userName}</td>
+                  <td>{dayjs(item.regTime * 1000).format('YYYY-MM-DD HH:mm')}</td>
+                </tr>
+              ))}
               </tbody>
             </table>
           </ListView>

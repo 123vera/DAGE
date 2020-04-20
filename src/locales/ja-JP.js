@@ -209,7 +209,7 @@ export default {
   RECHARGE_TIP_05: `このアカウントは以下を除くチャージ目的では使用できません`,
   RECHARGE_TIP_06: `追加の資産は、他の資産では回収されません`,
 
-  DGT_RECHARGE_TITLE: `DGT FIATリロード`,
+  DGT_RECHARGE_TITLE: `FIATリロード`,
   DGT_RECHARGE_ALIPAY: `補充する`,
   DGT_RECHARGE_LABEL: `リロード金額 (Alipayでの支払い)`,
   DGT_RECHARGE_PLACEHOLDER: `CNYリロード金額を入力`,

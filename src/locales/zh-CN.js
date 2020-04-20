@@ -221,7 +221,7 @@ export default {
   RECHARGE_TIP_05: `本地址禁止充币除`,
   RECHARGE_TIP_06: `之外的其它资产，任何其它资产充币将不可找回。`,
 
-  DGT_RECHARGE_TITLE: `DGT法币充值`,
+  DGT_RECHARGE_TITLE: `法币充值`,
   DGT_RECHARGE_ALIPAY: `充值`,
   DGT_RECHARGE_LABEL: `充值金额（支付宝支付）`,
   DGT_RECHARGE_PLACEHOLDER: `输入充值CNY数量`,
