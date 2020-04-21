@@ -71,12 +71,12 @@ class WalletFlow extends Component {
                 className={styles.select}
                 onClick={() => this.setState({ showMenus: !showMenus })}
               >
-                {type}
-                <img src={Icons.arrowUpDown} alt=""/>
+                {type.toUpperCase()}
+                <img src={Icons.arrowUpDown} alt="" />
               </div>
               {showMenus && (
                 <div className={styles.options}>
-                  <Menus menus={menus} textAlign="center" hasBorder onHandle={this.changeCoin}/>
+                  <Menus menus={menus} textAlign="center" hasBorder onHandle={this.changeCoin} />
                 </div>
               )}
             </div>
@@ -96,7 +96,10 @@ class WalletFlow extends Component {
                     <small>{dayjs(item.addTime * 1000).format('YYYY-MM-DD HH:mm')}</small>
                   </div>
                   <div
-                    className={`${styles.value} ${item.amount.includes('-') ? styles.decrease : ''}`}>
+                    className={`${styles.value} ${
+                      item.amount.includes('-') ? styles.decrease : ''
+                    }`}
+                  >
                     {downFixed(item.amount)}
                   </div>
                 </li>
@@ -105,7 +108,7 @@ class WalletFlow extends Component {
           </ListView>
         </section>
 
-        <AssetsFooter type={type}/>
+        <AssetsFooter type={type} />
       </div>
     );
   }
