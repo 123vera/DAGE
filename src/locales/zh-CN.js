@@ -386,7 +386,8 @@ export default {
 
   GAME_TITLE: `游戏中心`,
   GAME_RECHARGE: `充值`,
-  GAME_LEAVING: `即将离开DAGE, <br/>启动 RUN`,
+  GAME_LEAVING_01: `即将离开DAGE, <br/>启动`,
+  GAME_LEAVING_02: ` `,
   GAME_START: `启动游戏`,
   GAME_DGT: `DGT筹码`,
   GAME_RC: `RC拟码`,
