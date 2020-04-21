@@ -147,7 +147,7 @@ export default {
   PROMOTION_USER: `ผู้ใช้`,
   PROMOTION_TIME: `ระยะเวลาโปรโมชั่น`,
 
-  PROMOTION_LEVEL: `รางวัลอ้างอิง`,
+  PROMOTION_LEVEL: `เหรียญ`,
   PROMOTION_LEVEL_01: `หลัก`,
   PROMOTION_LEVEL_02: `ขั้นสูง`,
   PROMOTION_LEVEL_03: `ตามพื้นที่`,

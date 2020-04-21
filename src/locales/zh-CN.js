@@ -396,4 +396,17 @@ export default {
   GAME_VIEW_ALL: `查看全部`,
 
   COMMON_PLACEHOLDER_SEARCH_COUNTRY: `搜索国家`,
+
+  HOME_DIGITAL_CASH: `数字货币`,
+  HOME_DIGITAL_CASH_DESC: `USDT/BTC/ETH`,
+  HOME_LEGAL_TENDER: `法币充值`,
+  HOME_LEGAL_TENDER_DESC: `银行卡/境内支付宝`,
+  HOME_INVITE_FRIEND: `邀请好友`,
+  HOME_ADV_INVITE_FRIEND: `邀请好友使用DAGE`,
+  HOME_ADV_INVITE_FRIEND_DESC: `立享更多收益`,
+  HOME_OTC_CN: `中国区用户需要支付宝认证`,
+  HOME_OTC_MINING: `正在挖矿`,
+  HOME_OTC_TEAM_REVENUE: `昨日团队收益`,
+
+  PROMOTION_MEDAL_LEVEL: `勋章`,
 };
