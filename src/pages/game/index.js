@@ -6,6 +6,7 @@ import styles from './index.less';
 import { router } from 'umi';
 import { Modal } from 'antd-mobile';
 import { downFixed } from '../../utils/utils';
+import { formatMessage } from 'umi-plugin-locale';
 
 @connect(({ game }) => ({ game }))
 class Game extends Component {
@@ -63,19 +64,19 @@ class Game extends Component {
 
   showModal = async (id, name) => {
     Modal.alert(
-      <span style={{ lineHeight: '1.3', textAlign: 'left', fontSize: '0.32rem', color: '#000' }}>
-        即将离开DAGE，
-        <br /> 启动「{name}」
-      </span>,
       '',
+      <p>
+        <span dangerouslySetInnerHTML={{ __html: formatMessage({ id: `GAME_LEAVING_01` }) }}></span>
+        「{name}」
+      </p>,
       [
         {
-          text: '取消',
+          text: formatMessage({ id: `COMMON_CANCEL` }),
           style: { fontSize: '0.34rem' },
           onPress: () => {},
         },
         {
-          text: '启动游戏',
+          text: formatMessage({ id: `GAME_START` }),
           style: { fontSize: '0.34rem' },
           onPress: () => {
             this.getGameAddress(id).then(res => {
@@ -101,10 +102,10 @@ class Game extends Component {
       <div id={styles.game}>
         <div className={styles.banner}>
           <PageHeader
-            title="游戏中心"
+            title={formatMessage({ id: `GAME_TITLE` })}
             leftContent={{ icon: Icons.arrowWhiteLeft }}
             rightContent={{
-              text: '充值',
+              text: formatMessage({ id: `GAME_RECHARGE` }),
               onHandle: () => router.push('/assets/transfer?transfer=GToD'),
             }}
           />
@@ -112,13 +113,13 @@ class Game extends Component {
             <li>
               <p>
                 <span>{downFixed(dgtBalance)}</span>
-                <span>DGT筹码</span>
+                <span>{formatMessage({ id: `GAME_DGT` })}</span>
               </p>
             </li>
             <li>
               <p>
                 <span>{downFixed(rcBalance)}</span>
-                <span>RC拟码</span>
+                <span>{formatMessage({ id: `GAME_RC` })}</span>
               </p>
             </li>
           </ul>
@@ -132,7 +133,7 @@ class Game extends Component {
           />
 
           <section className={styles.first}>
-            <h3>精品推荐</h3>
+            <h3>{formatMessage({ id: `GAME_RECOMMEND` })}</h3>
             <div className={styles.imgGroup}>
               <p
                 className={styles.leftWrapper}
@@ -175,8 +176,14 @@ class Game extends Component {
                     <span>NO.{key + 1}</span>
                   </p>
                   <p className={styles.right}>
-                    <span>类型：{i.type}</span>
-                    <span>平台：{i.technology}</span>
+                    <span>
+                      {formatMessage({ id: `GAME_TYPE` })}
+                      {i.type}
+                    </span>
+                    <span>
+                      {formatMessage({ id: `GAME_PLAT` })}
+                      {i.technology}
+                    </span>
                   </p>
                 </li>
               ))}
@@ -191,7 +198,7 @@ class Game extends Component {
               // onClick={() => router.push(`/game_list?type=${typelist ? typelist[activeKey] : ''}`)}
               className={styles.viewAll}
             >
-              查看全部
+              {formatMessage({ id: `GAME_VIEW_ALL` })}
             </p>
           </section>
         </div>
