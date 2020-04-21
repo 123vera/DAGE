@@ -5,24 +5,26 @@
   min-height: 100vh;
   line-height: 44px;
   color: @font-sub-color;
-  padding-top: @header-height;
+  // padding-top: @header-height;
   padding-bottom: 60px;
 
-  header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: @theme-color-bg;
-  }
+  // header {
+  //   position: fixed;
+  //   top: 0;
+  //   left: 0;
+  //   width: 100%;
+  //   background: @theme-color-bg;
+  // }
 
   .label {
-    display: block;
+    display: flex;
+    justify-content: space-between;
     margin-bottom: 30px;
+    color: @font-color;
   }
 
   .form {
-    padding: 44px 60px 30px;
+    padding: 0 60px 30px;
 
     input {
       margin-bottom: 20px;
@@ -44,6 +46,7 @@
       display: flex;
       justify-content: space-between;
       font-size: 24px;
+      margin: 40px 0 60px;
     }
 
     button {

@@ -19,7 +19,7 @@ class Index extends Component {
   componentDidMount() {
     const { query } = this.props.location;
     const { transfer = 'DToG' } = query;
-    this.props.dispatch({ type: 'transfer/UpdateState', payload: { transfer, num: '' } });
+    this.props.dispatch({ type: 'transfer/UpdateState', payload: { transfer, initInfo: {} } });
     this.props.dispatch({ type: 'transfer/TransferInit' });
   }
 
@@ -73,7 +73,7 @@ class Index extends Component {
   submit = () => {
     const { num } = this.props.transfer;
     if (!num) return Toast.info(formatMessage({ id: `TRANSFER_PLACEHOLDER_QUANTITY` }));
-    // if (num > this.getCoinBalance()) return Toast.info('余额不足');
+
     this.props.dispatch({ type: 'transfer/Transfer' }).then(res => {
       if (res.status === 1) {
         res.msg && Toast.info(res.msg);

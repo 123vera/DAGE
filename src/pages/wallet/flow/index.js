@@ -13,9 +13,9 @@ import AssetsFooter from '../../../components/partials/AssetsFooter';
 
 @connect(({ walletFlow, globalModel }) => ({ walletFlow, globalModel }))
 class WalletFlow extends Component {
-  state = {
-    showMenus: false,
-  };
+  // state = {
+  //   showMenus: false,
+  // };
 
   componentDidMount() {
     const { type = '' } = this.props.location.query;
@@ -48,12 +48,11 @@ class WalletFlow extends Component {
   };
 
   render() {
-    const { type, balance, price, list, typeList, hasMore } = this.props.walletFlow;
-    const { showMenus } = this.state;
-    const menus = typeList.map(i => ({
-      value: i,
-      label: i,
-    }));
+    const { type, balance, price, list, hasMore } = this.props.walletFlow;
+    // const menus = typeList.map(i => ({
+    //   value: i,
+    //   label: i,
+    // }));
 
     return (
       <div className={styles.walletFlow}>
@@ -78,28 +77,6 @@ class WalletFlow extends Component {
             </tbody>
           </table>
         </section>
-        {/* <section>
-          <div className={styles.summary}>
-            <div className={styles.coin}>
-              <div
-                className={styles.select}
-                onClick={() => this.setState({ showMenus: !showMenus })}
-              >
-                {type.toUpperCase()}
-                <img src={Icons.arrowUpDown} alt="" />
-              </div>
-              {showMenus && (
-                <div className={styles.options}>
-                  <Menus menus={menus} textAlign="center" hasBorder onHandle={this.changeCoin} />
-                </div>
-              )}
-            </div>
-            <div>
-              {formatMessage({ id: `FLOW_BALANCE` })}
-              {downFixed(balance) || 0}
-            </div>
-          </div>
-        </section> */}
 
         <section>
           <span>{formatMessage({ id: `OTC_MINING_DETAIL_NAME` })}</span>
@@ -113,10 +90,10 @@ class WalletFlow extends Component {
                   </div>
                   <div
                     className={`${styles.value} ${
-                      item && item.amount.includes('-') ? styles.decrease : ''
+                      item.amount.includes('-') ? styles.decrease : ''
                     }`}
                   >
-                    {item && downFixed(item.amount)}
+                    {downFixed(item.amount)}
                   </div>
                 </li>
               ))}

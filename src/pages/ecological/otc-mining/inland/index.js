@@ -1,22 +1,47 @@
 import React, { Component } from 'react';
 import styles from './index.less';
-import Header from '../../../../components/common/Header';
+import PageHeader from '../../../../components/common/PageHeader';
 import { Icons } from '../../../../assets';
 import { connect } from 'dva';
 import { REG } from '../../../../utils/constants';
 import { Toast, Modal, Checkbox } from 'antd-mobile';
 import { downFixed } from '../../../../utils/utils';
 import { formatMessage } from 'umi-plugin-locale';
+import { router } from 'umi';
+import CoinSwitch from '../../../../components/wallet/CoinSwitch';
+
 const CheckboxItem = Checkbox.CheckboxItem;
 @connect(({ otcMining, globalModel }) => ({ otcMining, globalModel }))
 class OtcMining extends Component {
   state = {
     isChecked: false,
+    showMenus: false,
   };
 
   componentDidMount() {
+    this.coinIni();
     this.props.dispatch({ type: 'otcMining/OtcInit' });
   }
+
+  coinIni = async () => {
+    const { dispatch, location, globalModel } = this.props;
+    const { type = '' } = location.query;
+
+    const coins =
+      (await dispatch({
+        type: 'globalModel/GetCurrencyList',
+        payload: {},
+      })) || [];
+    const coin = type || coins[0];
+    const menus = coins.map(coin => ({
+      label: coin,
+      value: coin,
+    }));
+    await dispatch({
+      type: 'otcMining/UpdateState',
+      payload: { coin, menus },
+    });
+  };
 
   componentWillUnmount() {
     this.props.dispatch({
@@ -88,49 +113,78 @@ class OtcMining extends Component {
     );
   };
 
-  render() {
-    const { initInfo, count } = this.props.otcMining;
+  changeCoin = menu => {
+    const { dispatch } = this.props;
+    dispatch({
+      type: 'otcMining/UpdateState',
+      payload: { coin: menu.value },
+    });
 
+    this.setState({ showMenus: false });
+  };
+
+  render() {
+    const { initInfo, count, coin, menus } = this.props.otcMining;
+    const { showMenus } = this.state;
+    console.log(this.props);
     return (
       <div className={styles.otcMining}>
-        <header>
-          <Header
-            title={formatMessage({ id: `OTC_INLAND_TITLE` })}
-            icon={Icons.arrowLeft}
-            rightContent={{
-              text: formatMessage({ id: `OTC_ABROAD_DOWNLOAD_PLUGIN` }),
-              textStyle: { color: '#F3AF66', fontSize: '0.24rem' },
-              onHandle: () => (window.location.href = 'http://d.6short.com/sngw'),
-            }}
-          />
-        </header>
+        <PageHeader
+          title={formatMessage({ id: `OTC_INLAND_TITLE` })}
+          leftContent={{ icon: Icons.arrowLeft }}
+          rightContent={{
+            text: '挖矿详情',
+            // text: formatMessage({ id: `OTC_ABROAD_DOWNLOAD_PLUGIN` }),
+            textStyle: { color: '#F3AF66', fontSize: '0.24rem' },
+            onHandle: () => router.push('/mining-detail'),
+            // onHandle: () => (window.location.href = 'http://d.6short.com/sngw'),
+          }}
+        />
+
         <div className={styles.form}>
           <label className={styles.label}>
-            {formatMessage({ id: `OTC_QUANTITY_SOLD` })}（DGT）
+            挖矿量（USD）
+            {/* {formatMessage({ id: `OTC_QUANTITY_SOLD` })}（DGT） */}
           </label>
           <input
             type="text"
             autoComplete="off"
-            placeholder={`${formatMessage({ id: `OTC_SALE_CONDITIONS_01` })}${initInfo.amountMin}-${
+            placeholder={`单笔挖矿数量需在${initInfo.amountMin}USD-${
               initInfo.amountMax
-            }${formatMessage({ id: `OTC_SALE_CONDITIONS_02` })}`}
+            }USD${formatMessage({ id: `OTC_SALE_CONDITIONS_02` })}`}
             value={count}
             onChange={e => this.onCountChange(e.target.value)}
           />
+        </div>
+        <div className={styles.form}>
+          <label className={styles.label}>支付方式 </label>
+          <CoinSwitch
+            showMenus={showMenus}
+            coin={coin}
+            menus={menus}
+            click={() => this.setState({ showMenus: !showMenus })}
+            change={this.changeCoin}
+          />
           <aside>
             <span>
-              {formatMessage({ id: `OTC_ABROAD_USABLE` })}：{downFixed(initInfo.balance)}
-              {/* {formatMessage({ id: `OTC_ABROAD_TRADE` })}
-              {downFixed(initInfo.otcnum)} */}
-            </span>
-            <span>
-              {formatMessage({ id: `OTC_ABROAD_USABLE_DID` })}：{downFixed(initInfo.didnum) || '--'}
-              {/* {formatMessage({ id: `OTC_INLAND_FUEL_COSTS` })}0.1% DID   {/* 燃料费：0.1% DID */}
               {/* {formatMessage({ id: `OTC_ABROAD_USABLE` })}：{downFixed(initInfo.balance)} */}
             </span>
+            <span>
+              可用{coin}: XXX
+              {/* {formatMessage({ id: `OTC_ABROAD_USABLE_DID` })}： */}
+              {/* {downFixed(initInfo.didnum) || '--'} */}
+            </span>
           </aside>
-          <button onClick={this.onSubmit}>{formatMessage({ id: `OTC_CONFIRM_SALE` })}</button>
+          <label className={styles.label}>
+            当前汇率 <span>3333 {coin}/USD</span>
+          </label>
+          <label className={styles.label}>
+            预计消耗 <span>3333.4 {coin}</span>
+          </label>
+
+          <button onClick={this.onSubmit}>{formatMessage({ id: `OTC_CONFIRM_MINING` })}</button>
         </div>
+
         <div className={styles.checkboxGroup}>
           <label>
             <CheckboxItem
@@ -145,7 +199,7 @@ class OtcMining extends Component {
           </label>
         </div>
         <div className={styles.reminder}>
-          <label className={styles.label}>{formatMessage({ id: `WITHDRAW_TIPS_TITLE` })}</label>
+          <label>{formatMessage({ id: `WITHDRAW_TIPS_TITLE` })}</label>
           <p>
             <small>{formatMessage({ id: `OTC_INLAND_SALE_TIPS_01` })}</small>
           </p>

@@ -5,6 +5,8 @@ export default {
   state: {
     initInfo: {},
     count: '',
+    coin: '',
+    menus: [],
   },
   reducers: {
     UpdateState(state, { payload }) {
@@ -12,13 +14,13 @@ export default {
     },
   },
   effects: {
-    * OtcInit(_, { call, put }) {
+    *OtcInit(_, { call, put }) {
       const res = yield call(OtcApi.otcInit);
       if (res.status === 1) {
         yield put({ type: 'UpdateState', payload: { initInfo: res.data } });
       }
     },
-    * OtcSubmit(_, { call, select }) {
+    *OtcSubmit(_, { call, select }) {
       const { count, initInfo } = yield select(state => state.otcMining);
       return yield call(OtcApi.otcSubmit, { num: count, type: initInfo.type });
     },

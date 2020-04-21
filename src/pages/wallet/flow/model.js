@@ -33,7 +33,7 @@ export default {
             balance: res.data.balance,
             type: type || res.data.typeList[0],
             list,
-            typeList: res.data && res.data.typeList,
+            // typeList: res.data && res.data.typeList,
             page: page + 1,
             hasMore: row === res.data.list.length,
           },
