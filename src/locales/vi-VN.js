@@ -223,7 +223,7 @@ export default {
 
   DGT_RECHARGE_TITLE: `Nạp thêm bằng tiền pháp định (FIAT)`,
   DGT_RECHARGE_LABEL: `Số tiền nạp thêm (Thanh toán Alipay)`,
-  DGT_RECHARGE_PLACEHOLDER: `Nhập số NDT nạp thêm`,
+  DGT_RECHARGE_PLACEHOLDER: `Nhập số RMB nạp thêm`,
   DGT_RECHARGE_RATIO: `Tỷ giá hối đoái hiện nay:`,
   DGT_RECHARGE_ACTUAL_ARRIVAL: `Số tiền thực nhận:`,
   DGT_RECHARGE_TIPS_00: `Tiền mua tối thiểu là `,

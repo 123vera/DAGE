@@ -212,7 +212,7 @@ export default {
   DGT_RECHARGE_TITLE: `FIATリロード`,
   DGT_RECHARGE_ALIPAY: `補充する`,
   DGT_RECHARGE_LABEL: `リロード金額 (Alipayでの支払い)`,
-  DGT_RECHARGE_PLACEHOLDER: `CNYリロード金額を入力`,
+  DGT_RECHARGE_PLACEHOLDER: `RMBリロード金額を入力`,
   DGT_RECHARGE_RATIO: `現在の交換レート：`,
   DGT_RECHARGE_ACTUAL_ARRIVAL: `実際の到着：`,
   DGT_RECHARGE_TIPS_00: `一回の購入最小金額は `,

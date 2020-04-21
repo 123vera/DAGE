@@ -230,7 +230,7 @@ export default {
   DGT_RECHARGE_TITLE: `DGT FIAT Reload`,
   DGT_RECHARGE_ALIPAY: `Deposit`,
   DGT_RECHARGE_LABEL: `Reload Amount (Alipay Payment)`,
-  DGT_RECHARGE_PLACEHOLDER: `Enter CNY Reload Amount`,
+  DGT_RECHARGE_PLACEHOLDER: `Enter RMB Reload Amount`,
   DGT_RECHARGE_RATIO: `Current Exchange Rate：`,
   DGT_RECHARGE_ACTUAL_ARRIVAL: `Actual Arrival：`,
   DGT_RECHARGE_TIPS_00: `Single Purchase Min Amount is `,

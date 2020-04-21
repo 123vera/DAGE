@@ -212,7 +212,7 @@ export default {
   DGT_RECHARGE_TITLE: `FIAT 재충전`,
   DGT_RECHARGE_ALIPAY: `위로`,
   DGT_RECHARGE_LABEL: `재충전 금액 (알리페이 결제_ `,
-  DGT_RECHARGE_PLACEHOLDER: `CNY 재충전 금액 입력`,
+  DGT_RECHARGE_PLACEHOLDER: `RMB 재충전 금액 입력`,
   DGT_RECHARGE_RATIO: `현재 환율：`,
   DGT_RECHARGE_ACTUAL_ARRIVAL: `실제 도착：`,
   DGT_RECHARGE_TIPS_00: `한 번에 구입 최소 금액은 `,

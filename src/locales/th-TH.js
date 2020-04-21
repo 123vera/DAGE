@@ -212,7 +212,7 @@ export default {
   DGT_RECHARGE_TITLE: `เติมเงิน FIAT`,
   DGT_RECHARGE_ALIPAY: `เติมเงิน`,
   DGT_RECHARGE_LABEL: `จำนวนเติมเงิน (จ่ายเงินด้วย Alipay)`,
-  DGT_RECHARGE_PLACEHOLDER: `ระบุจำนวนเติมเงิน CNY`,
+  DGT_RECHARGE_PLACEHOLDER: `ระบุจำนวนเติมเงิน RMB`,
   DGT_RECHARGE_RATIO: `อัตราแลกเปลี่ยนปัจจุบัน：`,
   DGT_RECHARGE_ACTUAL_ARRIVAL: `อัตราจริงที่ได้：`,
   DGT_RECHARGE_TIPS_00: `ยอดซื้อขั้นต่ำต่อครั้งคือ `,
