@@ -67,28 +67,24 @@ class Index extends Component {
           </div>
           <div className={styles.content}>
             <div className={styles.income}>
-              <span>
-                勋章
-                {/*TODO翻译换一下*/}
-                {/*{formatMessage({ id: `PROMOTION_LEVEL` })}*/}
-              </span>
+              <span>{formatMessage({ id: `PROMOTION_MEDAL_LEVEL` })}</span>
             </div>
             <h2>
               {teamLevelOtc !== 0
                 ? `${LEVEL_LIST()[teamLevelOtc || 0]}${formatMessage({
-                  id: `PROMOTION_POINT_02`,
-                })}`
+                    id: `PROMOTION_POINT_02`,
+                  })}`
                 : formatMessage({ id: `PROMOTION_NONE` })}
             </h2>
           </div>
-          <img src={DAGE_LOGO} alt="DAGE_LOGO"/>
+          <img src={DAGE_LOGO} alt="DAGE_LOGO" />
         </section>
 
         {/* 版本2.0临时隐藏 */}
         <section className={styles.explain}>
           <h4>
             {formatMessage({ id: `PROMOTION_RECOMMENDATION` })}
-            <img src={TIPS} alt="TIPS" onClick={this.hrefToTip}/>
+            <img src={TIPS} alt="TIPS" onClick={this.hrefToTip} />
           </h4>
           <ul className={styles.explainList}>
             <li>
@@ -147,18 +143,18 @@ class Index extends Component {
           <ListView key={list} hasMore={hasMore} onLoadMore={this.getNotices}>
             <table>
               <thead>
-              <tr>
-                <td>{formatMessage({ id: `PROMOTION_USER` })}</td>
-                <td>{formatMessage({ id: `PROMOTION_TIME` })}</td>
-              </tr>
+                <tr>
+                  <td>{formatMessage({ id: `PROMOTION_USER` })}</td>
+                  <td>{formatMessage({ id: `PROMOTION_TIME` })}</td>
+                </tr>
               </thead>
               <tbody>
-              {list.map(item => (
-                <tr key={item.regTime}>
-                  <td>{item.userName}</td>
-                  <td>{dayjs(item.regTime * 1000).format('YYYY-MM-DD HH:mm')}</td>
-                </tr>
-              ))}
+                {list.map(item => (
+                  <tr key={item.regTime}>
+                    <td>{item.userName}</td>
+                    <td>{dayjs(item.regTime * 1000).format('YYYY-MM-DD HH:mm')}</td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </ListView>

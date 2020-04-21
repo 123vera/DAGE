@@ -220,7 +220,6 @@ class Index extends Component {
       if (res.status !== 1) return Toast.info(res.msg);
       Toast.info(formatMessage({ id: `EXCHANGE_SUCCESS` }), 2, () => {
         window.location.reload();
-        // window.location.href = ''
       });
     });
   };
@@ -239,7 +238,10 @@ class Index extends Component {
 
     return (
       <div className={styles.exchange} onClick={this.onHideMenus}>
-        <PageHeader title="闪兑" leftContent={{ icon: Icons.arrowLeft }} />
+        <PageHeader
+          title={formatMessage({ id: `REDEEM_NOW_TITLE` })}
+          leftContent={{ icon: Icons.arrowLeft }}
+        />
 
         <div className={styles.wrapper}>
           <div className={styles.mainContent}>

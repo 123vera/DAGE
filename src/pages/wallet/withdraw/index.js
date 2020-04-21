@@ -3,6 +3,7 @@ import { Icons } from '../../../assets';
 import { router } from 'umi';
 import { connect } from 'dva';
 import Header from '../../../components/common/Header';
+import PageHeader from '../../../components/common/PageHeader';
 import styles from './index.less';
 import Menus from '../../../components/common/Menus';
 import Captcha from '../../../components/partials/Captcha';
@@ -12,6 +13,7 @@ import { REG } from '../../../utils/constants';
 import { downFixed } from '../../../utils/utils';
 import { formatMessage } from 'umi/locale';
 import { getLocale } from 'umi-plugin-locale';
+import CoinSwitch from '../../../components/wallet/CoinSwitch';
 
 @connect(({ withdraw, globalModel }) => ({ withdraw, globalModel }))
 class Recharge extends Component {
@@ -196,27 +198,24 @@ class Recharge extends Component {
     const realIncome = amount - fee;
 
     return (
-      <div className={styles.withdraw} onClick={() => this.setState({ showMenus: false })}>
-        <div className={styles.header}>
-          <Header
-            icon={Icons.arrowLeft}
-            // onHandle={() => router.push('/home/wallet')}
-            centerContent={{
-              text: coin.toUpperCase() || '--',
-              icon: Icons.arrowDown,
-              reverse: true,
-              onHandle: e => this.toggleShowMenus(e),
-            }}
-            rightContent={{
-              icon: Icons.record,
-              onHandle: () => router.push(`/wallet/withdraw-record?type=${coin}`),
-            }}
+      <div className={styles.withdraw}>
+        <PageHeader
+          title={formatMessage({ id: `WALLET_WITHDRAW` })}
+          leftContent={{ icon: Icons.arrowLeft }}
+          rightContent={{
+            icon: Icons.record,
+            onHandle: () => router.push(`/wallet/withdraw-record?type=${coin}`),
+          }}
+        />
+
+        <div className={styles.selectArea} onClick={() => this.setState({ showMenus: !showMenus })}>
+          <CoinSwitch
+            showMenus={showMenus}
+            coin={coin}
+            menus={menus}
+            click={() => this.setState({ showMenus: !showMenus })}
+            change={this.changeCoin}
           />
-          {showMenus && (
-            <div className={styles.menus}>
-              <Menus menus={menus} hasBorder textAlign="center" onHandle={this.changeCoin} />
-            </div>
-          )}
         </div>
 
         <div className={styles.content}>

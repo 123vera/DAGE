@@ -3,18 +3,56 @@
 .walletFlow {
   box-sizing: border-box;
   min-height: 100vh;
-  //padding-bottom: 30px;
-  font-weight: 600;
-  padding-top: @header-height;
   padding-bottom: 261px;
 
-  .header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background: @theme-color-bg;
-    z-index: 10;
+  section {
+    padding: 0 60px;
+
+    &.contentTop {
+      p {
+        font-weight: 600;
+        color: #0078ff;
+        font-size: @font-size-largest;
+        background: -webkit-linear-gradient(320deg, #0078ff 0%, #7e00ff 15%, #7e00ff 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      table {
+        width: 100%;
+        padding: 0 0 20px;
+        margin-bottom: 50px;
+        border-bottom: 2px solid #1a202e;
+
+        th,
+        td {
+          width: 30%;
+
+          &:nth-child(2) {
+            text-align: center;
+          }
+
+          &:last-child {
+            text-align: right;
+          }
+        }
+
+        th {
+          color: #6d778b;
+          line-height: 2;
+          font-size: @font-size-smaller - 2px;
+          text-align: left;
+        }
+
+        td {
+          font-size: @font-size-smaller;
+
+          &:nth-child(2) {
+            transform: translateX(-50px);
+          }
+        }
+      }
+    }
   }
 
   .summary {
@@ -53,15 +91,15 @@
 
   ul {
     .clearUl;
-    padding: 50px 60px 20px;
+    padding: 20px 0;
 
     li {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-
-      height: 140px;
+      box-sizing: border-box;
+      padding: 30px 0;
       border-bottom: 2px solid rgba(26, 32, 46, 1);
 
       .label {

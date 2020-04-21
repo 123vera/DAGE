@@ -8,6 +8,7 @@ export default {
     page: 1,
     row: 10,
     balance: '',
+    price: '',
     list: [],
     typeList: [],
   },
@@ -17,7 +18,7 @@ export default {
     },
   },
   effects: {
-    * GetAssetFlow(_, { call, select, put }) {
+    *GetAssetFlow(_, { call, select, put }) {
       const { type, page, row, list } = yield select(state => state.walletFlow);
       const res = yield call(AssetApi.getAssetFlow, {
         type,

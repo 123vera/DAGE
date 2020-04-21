@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Icons } from '../../../assets';
-import { router } from 'umi';
 import Header from '../../../components/common/Header';
 import styles from './index.less';
 import QRcode from 'qrcode.react';
@@ -78,10 +77,7 @@ class Recharge extends Component {
     return (
       <div className={styles.recharge}>
         <div className={styles.header}>
-          <Header
-            icon={Icons.arrowLeft}
-            title={formatMessage({ id: `ASSETS_RECHANGE` })}
-          />
+          <Header icon={Icons.arrowLeft} title={formatMessage({ id: `ASSETS_RECHANGE` })} />
         </div>
 
         <div className={styles.content}>
@@ -93,7 +89,7 @@ class Recharge extends Component {
             change={this.changeCoin}
           />
           <div className={styles.qrCode}>
-            <QRcode size={250} value={wallet} renderAs="canvas"/>
+            <QRcode size={250} value={wallet} renderAs="canvas" />
           </div>
           <p>{wallet}</p>
           <CopyToClipboard

@@ -6,7 +6,7 @@ import dayjs from 'dayjs';
 import { formatMessage } from 'umi-plugin-locale';
 import { downFixed } from '../../../utils/utils';
 import { Icons } from '../../../assets';
-import Header from '../../../components/common/Header';
+import PageHeader from '../../../components/common/PageHeader';
 import Menus from '../../../components/common/Menus';
 import ListView from '../../../components/common/ListView';
 import AssetsFooter from '../../../components/partials/AssetsFooter';
@@ -48,7 +48,7 @@ class WalletFlow extends Component {
   };
 
   render() {
-    const { type, balance, list, typeList, hasMore } = this.props.walletFlow;
+    const { type, balance, price, list, typeList, hasMore } = this.props.walletFlow;
     const { showMenus } = this.state;
     const menus = typeList.map(i => ({
       value: i,
@@ -57,26 +57,40 @@ class WalletFlow extends Component {
 
     return (
       <div className={styles.walletFlow}>
-        <section className={styles.header}>
-          <Header
-            icon={Icons.arrowLeft}
-            title={formatMessage({ id: `WALLET_TITLE` })}
-            // onHandle={() => router.push('/home/wallet')}
-          />
+        <PageHeader leftContent={{ icon: Icons.arrowLeft }} />
+
+        <section className={styles.contentTop}>
+          <p> {type.toUpperCase()}</p>
+          <table>
+            <thead>
+              <tr>
+                <th>{formatMessage({ id: `EXCHANGE_CAN_USE` })}</th>
+                <th>{formatMessage({ id: `ASSETS_UNIT_PRICE` })}（USD)</th>
+                <th>{formatMessage({ id: `ASSETS_CONVERT` })}（USD)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{(balance && downFixed(balance)) || 0}</td>
+                <td>{(price && downFixed(price, 4)) || '--'}</td>
+                <td>{(balance && price && downFixed(balance * price)) || '--'}</td>
+              </tr>
+            </tbody>
+          </table>
         </section>
-        <section>
+        {/* <section>
           <div className={styles.summary}>
             <div className={styles.coin}>
               <div
                 className={styles.select}
                 onClick={() => this.setState({ showMenus: !showMenus })}
               >
-                {type}
-                <img src={Icons.arrowUpDown} alt=""/>
+                {type.toUpperCase()}
+                <img src={Icons.arrowUpDown} alt="" />
               </div>
               {showMenus && (
                 <div className={styles.options}>
-                  <Menus menus={menus} textAlign="center" hasBorder onHandle={this.changeCoin}/>
+                  <Menus menus={menus} textAlign="center" hasBorder onHandle={this.changeCoin} />
                 </div>
               )}
             </div>
@@ -85,19 +99,24 @@ class WalletFlow extends Component {
               {downFixed(balance) || 0}
             </div>
           </div>
-        </section>
+        </section> */}
+
         <section>
+          <span>{formatMessage({ id: `OTC_MINING_DETAIL_NAME` })}</span>
           <ListView hasMore={hasMore} onLoadMore={this.getFlow}>
             <ul>
               {list.map(item => (
                 <li key={item.id}>
                   <div className={styles.label}>
-                    {item.remark}
-                    <small>{dayjs(item.addTime * 1000).format('YYYY-MM-DD HH:mm')}</small>
+                    {item && item.remark}
+                    <small>{item && dayjs(item.addTime * 1000).format('YYYY-MM-DD HH:mm')}</small>
                   </div>
                   <div
-                    className={`${styles.value} ${item.amount.includes('-') ? styles.decrease : ''}`}>
-                    {downFixed(item.amount)}
+                    className={`${styles.value} ${
+                      item && item.amount.includes('-') ? styles.decrease : ''
+                    }`}
+                  >
+                    {item && downFixed(item.amount)}
                   </div>
                 </li>
               ))}
@@ -105,7 +124,7 @@ class WalletFlow extends Component {
           </ListView>
         </section>
 
-        <AssetsFooter type={type}/>
+        <AssetsFooter type={type} />
       </div>
     );
   }

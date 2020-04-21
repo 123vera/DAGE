@@ -152,7 +152,6 @@ class UserApi {
    **/
   static getRecommendList(options) {
     return onlinePost('/user/recommendlist', options);
-    // return request.get('/user/recommendlist', { ...params, openId: getOpenId() });
   }
 
   /**

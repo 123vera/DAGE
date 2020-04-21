@@ -385,4 +385,47 @@ export default {
   GAME_VIEW_ALL: `ดูทั้งหมด`,
 
   COMMON_PLACEHOLDER_SEARCH_COUNTRY: `ค้นหาประเทศ`,
+
+  HOME_DIGITAL_CASH: `数字货币`,
+  HOME_DIGITAL_CASH_DESC: `USDT/BTC/ETH`,
+  HOME_LEGAL_TENDER: `法币充值`,
+  HOME_LEGAL_TENDER_DESC: `银行卡/境内支付宝`,
+  HOME_INVITE_FRIEND: `邀请好友`,
+  HOME_ADV_INVITE_FRIEND: `邀请好友使用DAGE`,
+  HOME_ADV_INVITE_FRIEND_DESC: `立享更多收益`,
+  HOME_OTC_CN: `中国区用户需要支付宝认证`,
+  HOME_OTC_MINING: `正在挖矿`,
+  HOME_OTC_TEAM_REVENUE: `昨日团队收益`,
+
+  PROMOTION_MEDAL_LEVEL: `勋章`,
+
+  REDEEM_NOW_TITLE: `闪兑`,
+
+  OTC_MINING_AMOUNT: `挖矿量（USD）`,
+  OTC_AMOUNT_PLACEHOLDER_01: `单笔挖矿数量需在`,
+  OTC_AMOUNT_PLACEHOLDER_02: `之间`,
+  OTC_AMOUNT_PLACEHOLDER_03: `出售数量需在`,
+  OTC_PAY_COIN: `支付方式`,
+  OTC_RATE: `当前汇率`,
+  OTC_CONSUMPTION: `预计消耗`,
+  OTC_CONFIRM_MINING: `确认挖矿`,
+  OTC_BESURE_01: `我已经打开挖矿插件，没有插件？`,
+  OTC_BESURE_02: `立即下载`,
+  OTC_TIPS_01: `确认挖矿23小时后，挖矿中的资产将原路返还至DAGE钱包账户，清注意查收`,
+
+  OTC_MINING_DETAIL_TITLE: `挖矿详情`,
+  OTC_MINING_DETAIL_SUBTITLE: `正在挖矿中`,
+  OTC_MINING_DETAIL_APPROX: `约合 `,
+  OTC_MINING_DETAIL_SMALL_01: `挖矿中的资金 11小时32分 后以USDT形式原路返回 `,
+  OTC_MINING_DETAIL_SMALL_02: ` `,
+  OTC_MINING_DETAIL_NAME: `流水明细 `,
+
+  FIAT_WITHDRAWAL_TITLE: `法币提现`,
+  FIAT_WITHDRAWAL_INPUT: `输入`,
+  FIAT_WITHDRAWAL_LABEL_01: `银行`,
+  FIAT_WITHDRAWAL_LABEL_02: `开户支行`,
+  FIAT_WITHDRAWAL_LABEL_03: `银行卡号`,
+  FIAT_WITHDRAWAL_LABEL_04: `姓名`,
+  FIAT_WITHDRAWAL_INPUT_01: `输入银行账户姓名`,
+  FIAT_WITHDRAWAL_SUBMIT: `提交账户`,
 };
