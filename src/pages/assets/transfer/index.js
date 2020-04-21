@@ -60,7 +60,7 @@ class Index extends Component {
     if (value && !reg.test(value) && value !== 0) {
       return;
     }
-    if (Array.from(value).length > 2) return;
+    // if (Array.from(value).length > 2) return;
     this.props.dispatch({
       type: 'transfer/UpdateState',
       payload: {
