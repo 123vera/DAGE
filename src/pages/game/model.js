@@ -61,6 +61,7 @@ export default {
       }
     },
     *GetGameAddress({ payload }, { call, put }) {
+      Toast.loading('loading...');
       const res = yield call(GameApi.getGameAddress, payload);
       if (res.status === 1) {
         const { url } = res.data;
