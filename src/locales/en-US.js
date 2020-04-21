@@ -377,7 +377,7 @@ export default {
   TRANSFER_TO: `To`,
   TRANSFER_FROM: `From`,
   TRANSFER_DAGE_ACCOUNT: `DAGE Account`,
-  TRANSFER_GAME_ACCOUNT: `Game Account`,
+  TRANSFER_GAME_ACCOUNT: `GAME Account`,
   TRANSFER_COINS: `Coin Type`,
   TRANSFER_PLACEHOLDER_COINS: `Please Choose Coin Type`,
   TRANSFER_PLACEHOLDER_QUANTITY: `Please Enter Transfer Amount `,

@@ -45,14 +45,18 @@ class Index extends Component {
           title={formatMessage({ id: `COMMON_SELECT_AREA` })}
           leftContent={{ icon: Icons.arrowLeft, onHandle: () => cancel() }}
           rightContent={{
-            text: <span style={{ color: '#F3AF66',fontSize: '0.24rem' }}>{formatMessage({ id: `COMMON_NEXT_STEP` })}</span>,
+            text: (
+              <span style={{ color: '#F3AF66', fontSize: '0.24rem' }}>
+                {formatMessage({ id: `COMMON_NEXT_STEP` })}
+              </span>
+            ),
             onHandle: () => cancel(),
           }}
         />
         <div className={styles.search}>
           <img src={Icons.search} alt="" />
           <input
-            placeholder="搜索国家"
+            placeholder={formatMessage({ id: `COMMON_PLACEHOLDER_SEARCH_COUNTRY` })}
             type="text"
             value={search}
             autoComplete="off"

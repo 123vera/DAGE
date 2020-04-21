@@ -17,16 +17,15 @@
       li {
         position: relative;
         height: 100px;
-        padding-left: 112px;
+        padding-left: 23%;
 
         &::before {
           content: '·';
           position: absolute;
           top: 0;
           bottom: 0;
-          left: 50px;
+          left: 10%;
           margin: auto;
-
           display: flex;
           align-items: center;
           font-size: 50px;
@@ -50,6 +49,13 @@
             color: @font-sub-color;
           }
 
+          span {
+            max-width: 60%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+
           img {
             position: absolute;
             top: 0;
@@ -66,11 +72,10 @@
     }
 
     .transferIcon {
-      //flex: 0 1;
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 138px;
+      width: 23%;
       height: 200px;
       background: rgba(26, 32, 46, 1);
 

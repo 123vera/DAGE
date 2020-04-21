@@ -8,6 +8,7 @@ import Menus from '../../../components/common/Menus';
 import { downFixed } from '../../../utils/utils';
 import { Toast } from 'antd-mobile';
 import { router } from 'umi';
+import { formatMessage } from 'umi-plugin-locale';
 
 @connect(({ transfer, globalModel }) => ({ transfer, globalModel }))
 class Index extends Component {
@@ -71,15 +72,16 @@ class Index extends Component {
 
   submit = () => {
     const { num } = this.props.transfer;
-    if (!num) return Toast.info('请输入划转数量');
+    if (!num) return Toast.info(formatMessage({ id: `TRANSFER_PLACEHOLDER_QUANTITY` }));
     // if (num > this.getCoinBalance()) return Toast.info('余额不足');
     this.props.dispatch({ type: 'transfer/Transfer' }).then(res => {
-      if (res.status !== 1) return Toast.info(res.msg);
-      Toast.info('划转成功');
-      this.props.dispatch({
-        type: 'transfer/UpdateState',
-        payload: { num: '' },
-      });
+      res.msg && Toast.info(res.msg);
+      if (res.status === 1) {
+        this.props.dispatch({
+          type: 'transfer/UpdateState',
+          payload: { num: '' },
+        });
+      }
     });
   };
 
@@ -89,10 +91,10 @@ class Index extends Component {
     return (
       <div id={styles.transfer}>
         <PageHeader
-          title="划转"
+          title={formatMessage({ id: `ASSETS_TRANSFER` })}
           leftContent={{ icon: Icons.arrowLeft }}
           rightContent={{
-            text: '划转记录',
+            text: formatMessage({ id: `TRANSFER_RECORD_TITLE` }),
             onHandle: () => router.push('/assets/transfer/record'),
           }}
         />
@@ -101,15 +103,23 @@ class Index extends Component {
             <ul>
               <li>
                 <div className={styles.item} onClick={this.changeTransfer}>
-                  <label>从</label>
-                  <span>{transfer === 'DToG' ? 'DAGE账户' : '游戏账户'}</span>
+                  <label>{formatMessage({ id: `TRANSFER_FROM` })}</label>
+                  <span>
+                    {transfer === 'DToG'
+                      ? formatMessage({ id: `TRANSFER_DAGE_ACCOUNT` })
+                      : formatMessage({ id: `TRANSFER_GAME_ACCOUNT` })}
+                  </span>
                   <img src={Icons.arrowRight} alt="" />
                 </div>
               </li>
               <li>
                 <div className={styles.item}>
-                  <label>到</label>
-                  <span>{transfer === 'GToD' ? 'DAGE账户' : '游戏账户'}</span>
+                  <label>{formatMessage({ id: `TRANSFER_TO` })}</label>
+                  <span>
+                    {transfer === 'GToD'
+                      ? formatMessage({ id: `TRANSFER_DAGE_ACCOUNT` })
+                      : formatMessage({ id: `TRANSFER_GAME_ACCOUNT` })}
+                  </span>
                   <img src={Icons.arrowRight} alt="" />
                 </div>
               </li>
@@ -121,10 +131,10 @@ class Index extends Component {
         </section>
         <section>
           <div className={styles.group}>
-            <label>币种</label>
+            <label>{formatMessage({ id: `TRANSFER_COINS` })}</label>
             <div className={styles.inputBox}>
               <input
-                placeholder="请选择币种"
+                placeholder={formatMessage({ id: `TRANSFER_PLACEHOLDER_COINS` })}
                 readOnly
                 autoComplete="off"
                 value={type}
@@ -146,10 +156,10 @@ class Index extends Component {
             </div>
           </div>
           <div className={styles.group}>
-            <label>划转数量</label>
+            <label>{formatMessage({ id: `TRANSFER_QUANTITY` })}</label>
             <div className={styles.inputBox}>
               <input
-                placeholder="请输入划转数量"
+                placeholder={formatMessage({ id: `TRANSFER_PLACEHOLDER_QUANTITY` })}
                 type="text"
                 value={num}
                 autoComplete="off"
@@ -158,17 +168,19 @@ class Index extends Component {
               <div className={styles.operate}>
                 <span className={styles.type}>{type}</span>
                 <i>|</i>
-                <span onClick={() => this.changeNum(this.getCoinBalance())}>全部</span>
+                <span onClick={() => this.changeNum(this.getCoinBalance())}>
+                  {formatMessage({ id: `TRANSFER_ALL` })}
+                </span>
               </div>
             </div>
             <aside>
-              可用 {this.getCoinBalance()} {type}
+              {formatMessage({ id: `EXCHANGE_CAN_USE` })}： {this.getCoinBalance()} {type}
             </aside>
           </div>
         </section>
         <section>
           <div className={styles.submit}>
-            <button onClick={this.submit}>划转</button>
+            <button onClick={this.submit}>{formatMessage({ id: `ASSETS_TRANSFER` })}</button>
           </div>
         </section>
       </div>

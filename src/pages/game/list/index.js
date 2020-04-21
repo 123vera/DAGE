@@ -5,6 +5,7 @@ import { Modal, Toast } from 'antd-mobile';
 import { connect } from 'dva';
 import styles from './index.less';
 import ListView from '../../../components/common/ListView';
+import { formatMessage } from 'umi-plugin-locale';
 
 @connect(({ game, gameList }) => ({ game, gameList }))
 class Index extends Component {
@@ -42,19 +43,18 @@ class Index extends Component {
   showModal = async (id, name) => {
     Modal.alert(
       '',
-      <span>
-        即将离开DAGE，
-        <br/> 启动「{name}」
-      </span>,
+      <p>
+        <span dangerouslySetInnerHTML={{ __html: formatMessage({ id: `GAME_LEAVING_01` }) }}></span>
+        「{name}」
+      </p>,
       [
         {
-          text: '取消',
+          text: formatMessage({ id: `COMMON_CANCEL` }),
           style: { fontSize: '0.34rem' },
-          onPress: () => {
-          },
+          onPress: () => {},
         },
         {
-          text: '启动游戏',
+          text: formatMessage({ id: `GAME_START` }),
           style: { fontSize: '0.34rem' },
           onPress: () => {
             this.getGameAddress(id).then(res => {
@@ -70,24 +70,31 @@ class Index extends Component {
   };
 
   render() {
-    const { list, type ,hasMore} = this.props.gameList;
+    const { list, type, hasMore } = this.props.gameList;
 
     return (
       <div id={styles.gameList}>
-        <PageHeader title={type} leftContent={{ icon: Icons.arrowLeft }}/>
+        <PageHeader title={type} leftContent={{ icon: Icons.arrowLeft }} />
         <ListView hasMore={hasMore} onLoadMore={this.getList}>
-
           <ul className={styles.contentWrapper}>
             {list.map((i, key) => (
               <li key={key.toString()} onClick={() => this.showModal(i.gameid, i.name)}>
-                <img src={i.img} alt=""/>
+                <img src={i.img} alt="" />
                 <p className={styles.center}>
                   <span>{i.name}</span>
                   <span>NO.{key + 1}</span>
                 </p>
                 <p className={styles.right}>
-                  <span>类型：{i.type}</span>
-                  <span>平台：{i.technology}</span>
+                  <span>
+                    {' '}
+                    {formatMessage({ id: `GAME_TYPE` })}
+                    {i.type}
+                  </span>
+                  <span>
+                    {' '}
+                    {formatMessage({ id: `GAME_PLAT` })}
+                    {i.technology}
+                  </span>
                 </p>
               </li>
             ))}
