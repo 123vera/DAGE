@@ -18,7 +18,7 @@ export default {
     },
   },
   effects: {
-    * GetRecommendgame(_, { call, put }) {
+    *GetRecommendgame(_, { call, put }) {
       const res = yield call(GameApi.getRecommendgame);
       if (res.status === 1) {
         const { banner, recommendlist } = res.data;
@@ -32,7 +32,7 @@ export default {
         });
       }
     },
-    * GetTypelist(_, { call, put }) {
+    *GetTypelist(_, { call, put }) {
       const res = yield call(GameApi.getTypelist);
       if (res.status === 1) {
         const { typelist } = res.data;
@@ -45,7 +45,7 @@ export default {
         });
       }
     },
-    * GetGameList({ payload }, { call, put }) {
+    *GetGameList({ payload }, { call, put }) {
       const res = yield call(GameApi.getGameList, payload);
       if (res.status === 1) {
         const { dgt, rc, list } = res.data;
@@ -60,7 +60,8 @@ export default {
         });
       }
     },
-    * GetGameAddress({ payload }, { call, put }) {
+    *GetGameAddress({ payload }, { call, put }) {
+      Toast.loading('loading...');
       const res = yield call(GameApi.getGameAddress, payload);
       if (res.status === 1) {
         const { url } = res.data;
@@ -71,6 +72,8 @@ export default {
             gameUrl: url,
           },
         });
+
+        url && (window.location.href = url);
       } else {
         res.msg && Toast.info(res.msg);
       }

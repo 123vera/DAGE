@@ -53,16 +53,13 @@ class Game extends Component {
   };
 
   getGameAddress = id => {
-    return new Promise(resolve => {
-      this.props.dispatch({
-        type: `game/GetGameAddress`,
-        payload: { gameid: id },
-      });
-      resolve();
+    this.props.dispatch({
+      type: `game/GetGameAddress`,
+      payload: { gameid: id },
     });
   };
 
-  showModal = async (id, name) => {
+  showModal = (id, name) => {
     Modal.alert(
       '',
       <p>
@@ -79,13 +76,7 @@ class Game extends Component {
           text: formatMessage({ id: `GAME_START` }),
           style: { fontSize: '0.34rem' },
           onPress: () => {
-            this.getGameAddress(id).then(res => {
-              const {
-                game: { gameUrl },
-              } = this.props;
-
-              gameUrl && (window.location.href = gameUrl);
-            }, 100);
+            this.getGameAddress(id);
           },
         },
       ],
