@@ -120,13 +120,9 @@ class OtcMining extends Component {
           <aside>
             <span>
               {formatMessage({ id: `OTC_ABROAD_USABLE` })}：{downFixed(initInfo.balance)}
-              {/* {formatMessage({ id: `OTC_ABROAD_TRADE` })}
-              {downFixed(initInfo.otcnum)} */}
             </span>
             <span>
               {formatMessage({ id: `OTC_ABROAD_USABLE_DID` })}：{downFixed(initInfo.didnum) || '--'}
-              {/* {formatMessage({ id: `OTC_INLAND_FUEL_COSTS` })}0.1% DID   {/* 燃料费：0.1% DID */}
-              {/* {formatMessage({ id: `OTC_ABROAD_USABLE` })}：{downFixed(initInfo.balance)} */}
             </span>
           </aside>
           <button onClick={this.onSubmit}>{formatMessage({ id: `OTC_CONFIRM_SALE` })}</button>
