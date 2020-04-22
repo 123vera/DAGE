@@ -4,7 +4,6 @@
   box-sizing: border-box;
   min-height: 100vh;
   line-height: 44px;
-  color: @font-sub-color;
   // padding-top: @header-height;
   padding-bottom: 60px;
 
@@ -25,6 +24,7 @@
 
   .form {
     padding: 0 60px 30px;
+    color: @font-sub-color;
 
     input {
       margin-bottom: 20px;
@@ -75,10 +75,15 @@
       display: flex;
       align-items: center;
     }
+
+    a {
+      color: @font-color-btn;
+    }
   }
 
   .reminder {
     padding: 44px 60px 30px;
+    color: @font-sub-color;
 
     small {
       font-size: @font-size-small;
@@ -87,6 +92,7 @@
 
     p {
       text-align: justify;
+      margin-top: 30px;
     }
 
     .outerLink {
@@ -117,8 +123,7 @@
     height: 32px;
     margin-top: 4px;
     border-radius: 5px;
-    border-color: #1a202e;
-    background: #1a202e;
+    border-color: #2e3546;
   }
 
   .am-checkbox-inner:after {

@@ -6,7 +6,7 @@ import { connect } from 'dva';
 import { REG } from '../../../../utils/constants';
 import { Toast, Modal, Checkbox } from 'antd-mobile';
 import { downFixed } from '../../../../utils/utils';
-import { formatMessage } from 'umi-plugin-locale';
+import { formatMessage, getLocale } from 'umi-plugin-locale';
 import { router } from 'umi';
 import CoinSwitch from '../../../../components/wallet/CoinSwitch';
 
@@ -19,20 +19,46 @@ class OtcMining extends Component {
   };
 
   componentDidMount() {
-    this.coinIni();
-    this.props.dispatch({ type: 'otcMining/OtcInit' });
+    this.init();
   }
 
-  coinIni = async () => {
-    const { dispatch, location, globalModel } = this.props;
-    const { type = '' } = location.query;
+  componentWillUnmount() {
+    this.props.dispatch({
+      type: 'otcMining/UpdateState',
+      payload: { count: '', initInfo: {} },
+    });
+  }
 
-    const coins =
-      (await dispatch({
-        type: 'globalModel/GetCurrencyList',
-        payload: {},
-      })) || [];
-    const coin = type || coins[0];
+  init = () => {
+    this.otcInit();
+
+    setTimeout(() => {
+      this.coinIni();
+    }, 200);
+  };
+
+  otcInit = () => {
+    const {
+      otcMining: { coin },
+    } = this.props;
+
+    this.props.dispatch({
+      type: 'otcMining/OtcInit',
+      payload: {
+        type: coin || '',
+      },
+    });
+  };
+
+  coinIni = async () => {
+    const {
+      dispatch,
+      otcMining: { initInfo },
+    } = this.props;
+
+    const coins = initInfo.typeList || [];
+    const coin = initInfo.type;
+    // const coin = type || coins[0];
     const menus = coins.map(coin => ({
       label: coin,
       value: coin,
@@ -42,13 +68,6 @@ class OtcMining extends Component {
       payload: { coin, menus },
     });
   };
-
-  componentWillUnmount() {
-    this.props.dispatch({
-      type: 'otcMining/UpdateState',
-      payload: { count: '', initInfo: {} },
-    });
-  }
 
   onCountChange = value => {
     if (value && !REG.NUMBER.test(value)) {
@@ -84,67 +103,77 @@ class OtcMining extends Component {
       return Toast.info(formatMessage({ id: `OTC_INLAND_CHECKBOX` }));
     }
 
-    Modal.alert(
-      '',
-      <span style={{ lineHeight: '1.3', textAlign: 'left', fontSize: '0.32rem', color: '#000' }}>
-        {formatMessage({ id: `OTC_INLAND_SALE_01` })}
-        {count || '--'} DGT{formatMessage({ id: `OTC_INLAND_SALE_02` })}
-        {count * 0.001 || '--'} DID
-        {formatMessage({ id: `OTC_INLAND_SALE_03` })}
-      </span>,
-      [
-        {
-          text: formatMessage({ id: `COMMON_CONFIRM` }),
-          style: { fontSize: '0.32rem' },
-          onPress: () => {
-            this.props.dispatch({ type: 'otcMining/OtcSubmit' }).then(res => {
-              if (res && res.status === 1) {
-                Toast.info(formatMessage({ id: `OTC_ABROAD_SALE_SUCCESS` }), 2, () =>
-                  window.location.reload(),
-                );
-              } else {
-                res.msg && Toast.info(res.msg);
-              }
-            });
-          },
-        },
-        { text: formatMessage({ id: `COMMON_CANCEL` }), style: { fontSize: '0.32rem' } },
-      ],
-    );
+    this.props.dispatch({ type: 'otcMining/OtcSubmit' }).then(res => {
+      if (res && res.status === 1) {
+        Toast.info(formatMessage({ id: `OTC_ABROAD_SALE_SUCCESS` }), 2, () =>
+          window.location.reload(),
+        );
+      } else {
+        res.msg && Toast.info(res.msg);
+      }
+    });
+
+    // Modal.alert(
+    //   '',
+    //   <span style={{ lineHeight: '1.3', textAlign: 'left', fontSize: '0.32rem', color: '#000' }}>
+    //     {formatMessage({ id: `OTC_INLAND_SALE_01` })}
+    //     {count || '--'} {coin}
+    //     {formatMessage({ id: `OTC_INLAND_SALE_02` })}
+    //     {count * 0.001 || '--'} DID
+    //     {formatMessage({ id: `OTC_INLAND_SALE_03` })}
+    //   </span>,
+    //   [
+    //     {
+    //       text: formatMessage({ id: `COMMON_CONFIRM` }),
+    //       style: { fontSize: '0.32rem' },
+    //       onPress: () => {
+    //         this.props.dispatch({ type: 'otcMining/OtcSubmit' }).then(res => {
+    //           if (res && res.status === 1) {
+    //             Toast.info(formatMessage({ id: `OTC_ABROAD_SALE_SUCCESS` }), 2, () =>
+    //               window.location.reload(),
+    //             );
+    //           } else {
+    //             res.msg && Toast.info(res.msg);
+    //           }
+    //         });
+    //       },
+    //     },
+    //     { text: formatMessage({ id: `COMMON_CANCEL` }), style: { fontSize: '0.32rem' } },
+    //   ],
+    // );
   };
 
   changeCoin = menu => {
     const { dispatch } = this.props;
+
     dispatch({
       type: 'otcMining/UpdateState',
       payload: { coin: menu.value },
     });
-
+    this.otcInit();
     this.setState({ showMenus: false });
   };
 
   render() {
     const { initInfo, count, coin, menus } = this.props.otcMining;
     const { showMenus } = this.state;
-    console.log(this.props);
+
     return (
       <div className={styles.otcMining}>
         <PageHeader
           title={formatMessage({ id: `OTC_INLAND_TITLE` })}
           leftContent={{ icon: Icons.arrowLeft }}
           rightContent={{
-            text: '挖矿详情',
-            // text: formatMessage({ id: `OTC_ABROAD_DOWNLOAD_PLUGIN` }),
-            textStyle: { color: '#F3AF66', fontSize: '0.24rem' },
+            text: <span style={{ color: '#F3AF66', fontSize: '0.24rem' }}>挖矿详情</span>,
+            // formatMessage({ id: `OTC_MINING_DETAIL_TITLE` }),
             onHandle: () => router.push('/mining-detail'),
-            // onHandle: () => (window.location.href = 'http://d.6short.com/sngw'),
           }}
         />
 
         <div className={styles.form}>
           <label className={styles.label}>
             挖矿量（USD）
-            {/* {formatMessage({ id: `OTC_QUANTITY_SOLD` })}（DGT） */}
+            {/* {formatMessage({ id: `OTC_MINING_AMOUNT` })}（DGT） */}
           </label>
           <input
             type="text"
@@ -157,7 +186,7 @@ class OtcMining extends Component {
           />
         </div>
         <div className={styles.form}>
-          <label className={styles.label}>支付方式 </label>
+          <label className={styles.label}>支付方式</label>
           <CoinSwitch
             showMenus={showMenus}
             coin={coin}
@@ -170,16 +199,27 @@ class OtcMining extends Component {
               {/* {formatMessage({ id: `OTC_ABROAD_USABLE` })}：{downFixed(initInfo.balance)} */}
             </span>
             <span>
-              可用{coin}: XXX
-              {/* {formatMessage({ id: `OTC_ABROAD_USABLE_DID` })}： */}
-              {/* {downFixed(initInfo.didnum) || '--'} */}
+              {/* 可用{coin}：{downFixed(initInfo.balance) || '--'} */}
+              {getLocale() === 'en-US'
+                ? `${coin}${formatMessage({ id: `EXCHANGE_CAN_USE` })} ：${downFixed(
+                    initInfo.balance,
+                  )}`
+                : formatMessage({ id: `EXCHANGE_CAN_USE` })}
+              {coin}：{downFixed(initInfo.balance)}
+              {/* {formatMessage({ id: `EXCHANGE_CAN_USE` })}： {downFixed(initInfo.didnum) || '--'} */}
             </span>
           </aside>
           <label className={styles.label}>
-            当前汇率 <span>3333 {coin}/USD</span>
+            当前汇率
+            <span>
+              {downFixed(initInfo.ratio, 4) || '--'} {coin}/USD
+            </span>
           </label>
           <label className={styles.label}>
-            预计消耗 <span>3333.4 {coin}</span>
+            预计消耗
+            <span>
+              {downFixed(initInfo.balance * initInfo.ratio, 4) || '--'} {coin}
+            </span>
           </label>
 
           <button onClick={this.onSubmit}>{formatMessage({ id: `OTC_CONFIRM_MINING` })}</button>
@@ -194,26 +234,19 @@ class OtcMining extends Component {
                 this.setState({ isChecked: e.target.checked });
               }}
             >
-              {formatMessage({ id: `OTC_INLAND_CHECKBOX` })}
+              {formatMessage({ id: `OTC_BESURE_01` })}
+              <a href="http://d.6short.com/sngw">{formatMessage({ id: `OTC_BESURE_02` })}</a>
             </CheckboxItem>
           </label>
         </div>
+
         <div className={styles.reminder}>
           <label>{formatMessage({ id: `WITHDRAW_TIPS_TITLE` })}</label>
           <p>
-            <small>{formatMessage({ id: `OTC_INLAND_SALE_TIPS_01` })}</small>
-          </p>
-          <p>
-            <small>{formatMessage({ id: `OTC_INLAND_SALE_TIPS_02` })}</small>
-          </p>
-          <p>
-            <small>{formatMessage({ id: `OTC_INLAND_SALE_TIPS_03` })}</small>
-          </p>
-          <p>
-            <small>{formatMessage({ id: `OTC_INLAND_SALE_TIPS_04` })}</small>
-          </p>
-          <p>
-            <small>{formatMessage({ id: `OTC_INLAND_SALE_TIPS_05` })}</small>
+            <small>
+              23小时内未挖矿完成的资产，将以当天货币交易所OTC交易的汇率返还USDT至DAGE钱包账户
+              {/* {formatMessage({ id: `OTC_INLAND_SALE_TIPS_01` })} */}
+            </small>
           </p>
         </div>
       </div>
