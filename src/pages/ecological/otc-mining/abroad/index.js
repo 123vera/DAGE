@@ -149,16 +149,16 @@ class OtcMining extends Component {
           <input
             type="text"
             autoComplete="off"
-            placeholder={`单笔挖矿数量需在${initInfo.amountMin}USD-${
-              initInfo.amountMax
-            }USD${formatMessage({ id: `OTC_SALE_CONDITIONS_02` })}`}
+            placeholder={`${formatMessage({ id: `OTC_AMOUNT_PLACEHOLDER_01` })}${
+              initInfo.amountMin
+            }USD-${initInfo.amountMax}USD${formatMessage({ id: `OTC_SALE_CONDITIONS_02` })}`}
             value={count}
             onChange={e => this.onCountChange(e.target.value)}
           />
         </div>
 
         <div className={styles.form}>
-          <label className={styles.label}>支付方式</label>
+          <label className={styles.label}>{formatMessage({ id: `OTC_PAY_COIN` })}</label>
           <CoinSwitch
             showMenus={showMenus}
             coin={coin}
@@ -181,13 +181,13 @@ class OtcMining extends Component {
             </span>
           </aside>
           <label className={styles.label}>
-            当前汇率
+            {formatMessage({ id: `OTC_RATE` })}
             <span>
               {downFixed(initInfo.ratio, 4) || '--'} {coin}/USD
             </span>
           </label>
           <label className={styles.label}>
-            预计消耗
+            {formatMessage({ id: `OTC_CONSUMPTION` })}
             <span>
               {downFixed(initInfo.balance * initInfo.ratio, 4) || '--'} {coin}
             </span>
@@ -199,25 +199,9 @@ class OtcMining extends Component {
         <div className={styles.reminder}>
           <label>{formatMessage({ id: `WITHDRAW_TIPS_TITLE` })}</label>
           <p>
-            <small>
-              23小时内未挖矿完成的资产，将以当天货币交易所OTC交易的汇率返还USDT至DAGE钱包账户
-              {/* {formatMessage({ id: `OTC_INLAND_SALE_TIPS_01` })} */}
-            </small>
+            <small>{formatMessage({ id: `OTC_TIPS_01` })}</small>
           </p>
         </div>
-
-        {/* <div className={styles.reminder}>
-          <label className={styles.label}>{formatMessage({ id: `WITHDRAW_TIPS_TITLE` })}</label>
-          <p>
-            <small>{formatMessage({ id: `OTC_ABROAD_SALE_TIPS_01` })}</small>
-          </p>
-          <p>
-            <small>{formatMessage({ id: `OTC_ABROAD_SALE_TIPS_02` })}</small>
-          </p>
-          <p>
-            <small>{formatMessage({ id: `OTC_ABROAD_SALE_TIPS_03` })}</small>
-          </p>
-        </div> */}
       </div>
     );
   }

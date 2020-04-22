@@ -424,6 +424,8 @@ export default {
   OTC_BESURE_01: `我已经打开挖矿插件，没有插件？`,
   OTC_BESURE_02: `立即下载`,
   OTC_TIPS_01: `确认挖矿23小时后，挖矿中的资产将原路返还至DAGE钱包账户，清注意查收`,
+  OTC_TIPS_INLAND_01: `23小时内未挖矿完成的资产，将以当天货币交易所OTC交易的汇率返还USDT至DAGE钱包账户`,
+  OTC_TIPS_INLAND_02: ` `,
 
   OTC_MINING_DETAIL_TITLE: `挖矿详情`,
   OTC_MINING_DETAIL_SUBTITLE: `正在挖矿中`,
@@ -440,4 +442,9 @@ export default {
   FIAT_WITHDRAWAL_LABEL_04: `姓名`,
   FIAT_WITHDRAWAL_INPUT_01: `输入银行账户姓名`,
   FIAT_WITHDRAWAL_SUBMIT: `提交账户`,
+  FIAT_WITHDRAWAL_PLACEHOLDER_01: `请输入银行`,
+  FIAT_WITHDRAWAL_PLACEHOLDER_02: `请输入开户支行`,
+  FIAT_WITHDRAWAL_PLACEHOLDER_03: `请输入银行卡号`,
+  FIAT_WITHDRAWAL_PLACEHOLDER_04: `请输入银行账户姓名`,
+  FIAT_WITHDRAWAL_PLACEHOLDER_05: `请输入提现金额`,
 };

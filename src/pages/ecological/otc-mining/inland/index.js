@@ -4,7 +4,7 @@ import PageHeader from '../../../../components/common/PageHeader';
 import { Icons } from '../../../../assets';
 import { connect } from 'dva';
 import { REG } from '../../../../utils/constants';
-import { Toast, Modal, Checkbox } from 'antd-mobile';
+import { Toast, Checkbox } from 'antd-mobile';
 import { downFixed } from '../../../../utils/utils';
 import { formatMessage, getLocale } from 'umi-plugin-locale';
 import { router } from 'umi';
@@ -113,6 +113,7 @@ class OtcMining extends Component {
       }
     });
 
+    //  ** 弹窗确认 **
     // Modal.alert(
     //   '',
     //   <span style={{ lineHeight: '1.3', textAlign: 'left', fontSize: '0.32rem', color: '#000' }}>
@@ -164,29 +165,32 @@ class OtcMining extends Component {
           title={formatMessage({ id: `OTC_INLAND_TITLE` })}
           leftContent={{ icon: Icons.arrowLeft }}
           rightContent={{
-            text: <span style={{ color: '#F3AF66', fontSize: '0.24rem' }}>挖矿详情</span>,
-            // formatMessage({ id: `OTC_MINING_DETAIL_TITLE` }),
+            text: (
+              <span style={{ color: '#F3AF66', fontSize: '0.24rem' }}>
+                {formatMessage({ id: `OTC_MINING_DETAIL_TITLE` })}
+              </span>
+            ),
             onHandle: () => router.push('/mining-detail'),
           }}
         />
 
         <div className={styles.form}>
           <label className={styles.label}>
-            挖矿量（USD）
-            {/* {formatMessage({ id: `OTC_MINING_AMOUNT` })}（DGT） */}
+            {/* 挖矿量（USD） */}
+            {formatMessage({ id: `OTC_MINING_AMOUNT` })}
           </label>
           <input
             type="text"
             autoComplete="off"
-            placeholder={`单笔挖矿数量需在${initInfo.amountMin}USD-${
-              initInfo.amountMax
-            }USD${formatMessage({ id: `OTC_SALE_CONDITIONS_02` })}`}
+            placeholder={`${formatMessage({ id: `OTC_AMOUNT_PLACEHOLDER_01` })}${
+              initInfo.amountMin
+            }USD-${initInfo.amountMax}USD${formatMessage({ id: `OTC_SALE_CONDITIONS_02` })}`}
             value={count}
             onChange={e => this.onCountChange(e.target.value)}
           />
         </div>
         <div className={styles.form}>
-          <label className={styles.label}>支付方式</label>
+          <label className={styles.label}>{formatMessage({ id: `OTC_PAY_COIN` })}</label>
           <CoinSwitch
             showMenus={showMenus}
             coin={coin}
@@ -199,24 +203,23 @@ class OtcMining extends Component {
               {/* {formatMessage({ id: `OTC_ABROAD_USABLE` })}：{downFixed(initInfo.balance)} */}
             </span>
             <span>
-              {/* 可用{coin}：{downFixed(initInfo.balance) || '--'} */}
               {getLocale() === 'en-US'
                 ? `${coin}${formatMessage({ id: `EXCHANGE_CAN_USE` })} ：${downFixed(
                     initInfo.balance,
-                  )}`
+                  ) || '--'}`
                 : formatMessage({ id: `EXCHANGE_CAN_USE` })}
-              {coin}：{downFixed(initInfo.balance)}
+              {coin}：{downFixed(initInfo.balance) || '--'}
               {/* {formatMessage({ id: `EXCHANGE_CAN_USE` })}： {downFixed(initInfo.didnum) || '--'} */}
             </span>
           </aside>
           <label className={styles.label}>
-            当前汇率
+            {formatMessage({ id: `OTC_RATE` })}
             <span>
               {downFixed(initInfo.ratio, 4) || '--'} {coin}/USD
             </span>
           </label>
           <label className={styles.label}>
-            预计消耗
+            {formatMessage({ id: `OTC_CONSUMPTION` })}
             <span>
               {downFixed(initInfo.balance * initInfo.ratio, 4) || '--'} {coin}
             </span>
@@ -244,8 +247,9 @@ class OtcMining extends Component {
           <label>{formatMessage({ id: `WITHDRAW_TIPS_TITLE` })}</label>
           <p>
             <small>
-              23小时内未挖矿完成的资产，将以当天货币交易所OTC交易的汇率返还USDT至DAGE钱包账户
-              {/* {formatMessage({ id: `OTC_INLAND_SALE_TIPS_01` })} */}
+              {formatMessage({ id: `OTC_TIPS_INLAND_01` })}
+              {coin}
+              {formatMessage({ id: `OTC_TIPS_INLAND_02` })}
             </small>
           </p>
         </div>
