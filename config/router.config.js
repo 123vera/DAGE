@@ -108,6 +108,8 @@ export default [
       { path: '/game', title: 'DAGE WALLET', component: './game/index' }, // 游戏中心
       { path: '/game_list', title: 'DAGE WALLET', component: './game/list' }, // 游戏列表
 
+      { path: '/dgt/withdraw', title: 'DAGE WALLET', component: './dgt/withdraw' }, // 法币提现
+
       { component: './404' },
     ],
   },
