@@ -429,12 +429,18 @@ export default {
   OTC_BESURE_01: `We have opened your mining plugin, there is no plugin?`,
   OTC_BESURE_02: `Download now`,
   OTC_TIPS_01: ` After mining has been confirmed for 23 hours, the assets found during mining will be returned to DAGE wallet account, please check and receive the assets with care`,
+  // OTC_TIPS_INLAND_01: `Assets that have not been mined within 23 hours, will be returned to the DAGE wallet account at the exchange rate of the currency exchange OTC on the day in the form of USDT.`,
+  OTC_TIPS_INLAND_01: `Assets that have not been mined within 23 hours, will be returned to the DAGE wallet account at the exchange rate of the currency exchange OTC on the day in the form of `,
+  OTC_TIPS_INLAND_02: ` .`,
 
   OTC_MINING_DETAIL_TITLE: `Mining Details`,
   OTC_MINING_DETAIL_SUBTITLE: `Currently Mining`,
   OTC_MINING_DETAIL_APPROX: `Approximately`,
-  OTC_MINING_DETAIL_SMALL_01: ` The mining funds will be returned in the form of USDT after 11 hours and 32 minutes`,
-  OTC_MINING_DETAIL_SMALL_02: ` `,
+  // OTC_MINING_DETAIL_SMALL_01: `挖矿中的资金 11小时32分 后以USDT形式原路返回 `,
+  // OTC_MINING_DETAIL_SMALL_01: `The mining funds will be returned in the form of USDT after 11 hours and 32 minutes`,
+  OTC_MINING_DETAIL_SMALL_01: `The mining funds will be returned in the form of `,
+  OTC_MINING_DETAIL_SMALL_02: ` after `,
+  OTC_MINING_DETAIL_SMALL_03: ` `,
   OTC_MINING_DETAIL_NAME: ` Detailed List`,
 
   FIAT_WITHDRAWAL_TITLE: `Withdraw FIAT Currency`,
@@ -445,4 +451,10 @@ export default {
   FIAT_WITHDRAWAL_LABEL_04: `Name`,
   FIAT_WITHDRAWAL_INPUT_01: `Enter Bank Account Name`,
   FIAT_WITHDRAWAL_SUBMIT: `Submit Account`,
+
+  IAT_WITHDRAWAL_PLACEHOLDER_01: `Please enter bank name`,
+  FIAT_WITHDRAWAL_PLACEHOLDER_02: `Please enter account branch name`,
+  FIAT_WITHDRAWAL_PLACEHOLDER_03: `Please enter bank card number`,
+  FIAT_WITHDRAWAL_PLACEHOLDER_04: `Please enter bank account name`,
+  FIAT_WITHDRAWAL_PLACEHOLDER_05: `Please enter cash withdrawal amount`,
 };
