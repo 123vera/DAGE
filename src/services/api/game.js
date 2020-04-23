@@ -1,6 +1,5 @@
 import { onlinePost } from '../utils';
 import request from '../request';
-import Cookies from 'js-cookie';
 
 class GameApi {
   /**
