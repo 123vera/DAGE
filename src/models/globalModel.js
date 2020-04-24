@@ -89,7 +89,7 @@ export default {
           '/otc-mining/abroad',
           '/otc-mining/inland',
           '/promotion',
-          // '/dgt/withdraw',
+          '/dgt/withdraw',
           // '/wallet/reward-detail',
         ];
         list.forEach(i => {

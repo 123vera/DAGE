@@ -27,31 +27,12 @@ export default {
           payload: { initInfo: res.data.type, typeList: res.data.typeList },
         });
       }
-      console.log(res);
       return res;
     },
 
     * Withdraw(_, { call, select }) {
-      const { bank, subBank, cardNum, userName } = yield select(state => state.dgtWithdraw);
-      return yield call(withdrawal, { bank, subBank, cardNum, userName });
+      const { bankName, bankBranch, bankNo, name, num, code } = yield select(state => state.dgtWithdraw);
+      return yield call(DgtApi.dgtWithdraw, { bankName, bankBranch, bankNo, name, num, code });
     },
   },
 };
-
-async function getBalance() {
-  return {
-    status: 1,
-    msg: '\u64cd\u4f5c\u6210\u529f',
-    data: {
-      balance: 21448,
-    },
-  };
-}
-
-async function withdrawal() {
-  return {
-    status: 1,
-    msg: '提交成功',
-    data: {},
-  };
-}
