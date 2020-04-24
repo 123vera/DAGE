@@ -1,6 +1,14 @@
 @import '../../../styles/mixin.less';
 
 .dgtWithdraw {
+  padding-bottom: 60px;
+
+  .show {
+    display: block;
+  }
+  .hidden {
+    display: none;
+  }
   .content {
     margin: 10px 60px 40px;
     padding: 44px;
@@ -49,14 +57,47 @@
         }
       }
     }
+
+    .line {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-bottom: 40px;
+      line-height: 44px;
+
+      small {
+        font-size: 24px;
+      }
+
+      .primary {
+        color: @theme-color-blue;
+      }
+    }
   }
 
-  .submit {
-    padding: 0 60px;
+  .aside {
+    padding: 0 60px 60px;
+    font-size: @font-size-small;
+    color: #6d778b;
+    line-height: 44px;
 
-    button {
-      width: 100%;
-      height: 80px;
+    ul {
+      .clearUl;
+
+      li {
+        position: relative;
+        padding-left: 40px;
+        line-height: 50px;
+
+        &::before {
+          position: absolute;
+          left: 0;
+          top: 0;
+          bottom: 0;
+          margin: auto;
+          content: '•';
+        }
+      }
     }
   }
 }

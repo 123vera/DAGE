@@ -1,0 +1,19 @@
+@import '../../../styles/mixin.less';
+
+.primaryButton {
+  padding: 0 60px;
+
+  &.full {
+    padding: 0;
+  }
+
+  button {
+    width: 100%;
+    height: 80px;
+    border: none;
+    color: @font-color-primary;
+    border-radius: 52px;
+    font-size: @font-size-common;
+    .background-gradient(@theme-border-gradient-from, @theme-border-gradient-to);
+  }
+}

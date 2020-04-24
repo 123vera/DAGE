@@ -91,8 +91,8 @@ class Game extends Component {
             title={formatMessage({ id: `GAME_TITLE` })}
             leftContent={{ icon: Icons.arrowWhiteLeft }}
             rightContent={{
-              text: formatMessage({ id: `GAME_RECHARGE` }),
-              onHandle: () => router.push('/assets/transfer?transfer=GToD'),
+              text: '提现',
+              onHandle: () => router.push('/dgt/withdraw'),
             }}
           />
           <ul>

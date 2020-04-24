@@ -1,11 +1,17 @@
+import { DgtApi } from '../../../services/api';
+
 export default {
   namespace: 'dgtWithdraw',
   state: {
     balance: '',
-    bank: '',
-    subBank: '',
-    cardNum: '',
-    userName: '',
+    bankName: '中国银行',
+    bankBranch: '上海支行',
+    bankNo: '1234554321',
+    name: '不想说',
+    num: '',
+    code: '',
+    initInfo: {},
+    typeList: [], // 可提现币种列表
   },
   reducers: {
     UpdateState(state, { payload }) {
@@ -13,15 +19,19 @@ export default {
     },
   },
   effects: {
-    *GetBalance(_, { call, put }) {
-      const res = yield call(getBalance);
+    * GetInitInfo(_, { call, put }) {
+      const res = yield call(DgtApi.getDgtWithdrawInitInfo);
       if (res.status === 1) {
-        yield put({ type: 'UpdateState', payload: { balance: res.data.balance } });
+        yield put({
+          type: 'UpdateState',
+          payload: { initInfo: res.data.type, typeList: res.data.typeList },
+        });
       }
+      console.log(res);
       return res;
     },
 
-    *Withdraw(_, { call, select }) {
+    * Withdraw(_, { call, select }) {
       const { bank, subBank, cardNum, userName } = yield select(state => state.dgtWithdraw);
       return yield call(withdrawal, { bank, subBank, cardNum, userName });
     },
