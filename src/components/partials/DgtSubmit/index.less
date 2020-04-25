@@ -1,0 +1,107 @@
+@import '../../../styles/mixin';
+
+#dgtSubmit {
+  section {
+    margin: 10px 60px 40px;
+    padding: 44px 44px 10px;
+    background: #1a202e;
+
+    .row {
+      margin-bottom: 40px;
+      color: @font-sub-color;
+
+      small {
+        display: block;
+        padding: 20px 0;
+        font-size: 24px;
+      }
+
+      label {
+        color: #0078ff;
+        line-height: 44px;
+        margin-bottom: 4px;
+      }
+
+      .inputBox {
+        position: relative;
+
+        input {
+          width: 100%;
+          height: 84px;
+          padding: 0;
+          border: none;
+          border-bottom: 2px solid #2e3546;
+          background: transparent;
+          color: #fff;
+
+          &::placeholder {
+            color: @font-sub-color;
+          }
+        }
+
+        button {
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          margin: auto;
+          color: #fff;
+        }
+      }
+
+      .lineContent {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+
+        .item {
+          small {
+            display: inline;
+          }
+        }
+      }
+
+      aside {
+        margin-top: 22px;
+        text-align: right;
+        font-size: 26px;
+      }
+    }
+
+    .group {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      line-height: 44px;
+      color: #0078ff;
+    }
+  }
+
+  .aside {
+    padding: 0 60px 60px;
+    font-size: @font-size-small;
+    color: #6d778b;
+    line-height: 44px;
+
+    ul {
+      .clearUl;
+
+      li {
+        position: relative;
+        padding-left: 40px;
+        line-height: 50px;
+
+        &::before {
+          position: absolute;
+          left: 0;
+          top: 0;
+          bottom: 0;
+          margin: auto;
+          content: '•';
+        }
+      }
+    }
+  }
+}

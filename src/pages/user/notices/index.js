@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PageHeader from '../../../components/common/PageHeader';
 import dayjs from 'dayjs';
 import router from 'umi/router';
-import Cookies from 'js-cookie';
 import { connect } from 'dva';
 import styles from './index.less';
 import { formatMessage } from 'umi/locale';

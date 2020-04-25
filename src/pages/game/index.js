@@ -19,7 +19,7 @@ class Game extends Component {
 
   selectLi = key => {
     this.setState({ activeKey: key });
-    this.getGamelist(key);
+    this.getGameList(key);
   };
 
   getRecommendgame = () => {
@@ -32,10 +32,10 @@ class Game extends Component {
     await this.props.dispatch({
       type: `game/GetTypelist`,
     });
-    this.getGamelist(0);
+    this.getGameList(0);
   };
 
-  getGamelist = key => {
+  getGameList = key => {
     const {
       dispatch,
       game: { typelist },
@@ -96,8 +96,8 @@ class Game extends Component {
             title={formatMessage({ id: `GAME_TITLE` })}
             leftContent={{ icon: Icons.arrowWhiteLeft }}
             rightContent={{
-              text: formatMessage({ id: `GAME_RECHARGE` }),
-              onHandle: () => router.push('/assets/transfer?transfer=GToD'),
+              text: '提现',
+              onHandle: () => router.push('/dgt/withdraw'),
             }}
           />
           <ul>

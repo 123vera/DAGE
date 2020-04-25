@@ -11,7 +11,6 @@ import ListView from '../../../components/common/ListView';
 @connect(({ dgtRecord }) => ({ dgtRecord }))
 class Index extends Component {
   componentDidMount() {
-    console.log('page');
     this.props.dispatch({
       type: 'dgtRecord/UpdateState',
       payload: {

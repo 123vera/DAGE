@@ -26,6 +26,8 @@ export default {
 
     *GetSmsCode({ payload = {} }, { call, select }) {
       const { myInfo, captcha } = yield select(state => state.globalModel);
+
+      console.log(myInfo);
       return yield call(UserApi.sendSmsCode, {
         prefix: payload.prefix || myInfo.phonePrefix,
         phone: payload.phone || myInfo.phoneNo,
@@ -87,10 +89,12 @@ export default {
           '/otc-mining/abroad',
           '/otc-mining/inland',
           '/promotion',
+          '/dgt/withdraw',
           // '/wallet/reward-detail',
         ];
         list.forEach(i => {
-          if (location.pathname === i) {
+          if (location.pathname.includes(i)) {
+            // if (location.pathname === i) {
             // 这里可以获取当前变化的history路径以及参数，hash所有值，这样就可以在路由地址变化后做处理
             dispatch({ type: 'GetMyInfo' });
           }
