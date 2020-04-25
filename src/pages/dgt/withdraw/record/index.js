@@ -10,25 +10,26 @@ import { formatMessage } from 'umi/locale';
 import { downFixed } from '../../../../utils/utils';
 
 const withdrawStatus = [
+
   {
     value: 0,
-    label: formatMessage({ id: `RECORD_AUDIT` }),
-    background: '#6D778B',
-  },
-  {
-    value: 1,
     label: formatMessage({ id: `RECORD_WITHDRAW` }),
     background: '#0078FF',
   },
   {
-    value: 2,
+    value: 1,
     label: formatMessage({ id: `RECORD_MENTION` }),
     background: '#00C873',
   },
   {
-    value: 3,
+    value: -1,
     label: formatMessage({ id: `RECORD_AUDIT_REJECT` }),
     background: '#FF3750',
+  },
+  {
+    value: -2,
+    label: '转发失败',
+    background: '#6D778B',
   },
 ];
 
@@ -76,21 +77,22 @@ class Index extends Component {
         <ListView hasMore={hasMore} onLoadMore={this.getWithdrawRecord}>
           <ul>
             {list.map(item => (
-              <li key={item.id}>
+              <li key={item.userId}>
                 <div className={styles.row}>
-                  <span className={styles.status} style={{ background: this.getStatus(item.status).background }}>
+                  <span className={styles.status}
+                        style={{ background: this.getStatus(item.status).background }}>
                     {this.getStatus(item.status).label}
                   </span>
                 </div>
                 <div className={styles.row}>
-                  订单号：{item.order}
+                  订单号：{item.orderNo}
                 </div>
                 <div className={styles.row}>
                   <small>
                     {formatMessage({ id: `RECORD_LI_TIME` })}
                     ：
                     {dayjs(item.addTime * 1000).format('YYYY.MM.DD HH:mm')}
-                    </small>
+                  </small>
                   <span>{downFixed(item.num)}</span>
                 </div>
               </li>

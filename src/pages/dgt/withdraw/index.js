@@ -17,7 +17,7 @@ import Captcha from '../../../components/partials/Captcha';
 class Index extends Component {
   state = {
     showMenus: false,
-    step: 2,
+    step: 1,
   };
 
   componentDidMount() {
@@ -212,7 +212,7 @@ class Index extends Component {
                 <input
                   type="text"
                   value={num}
-                  autoComplete="off"
+                  // autoComplete="off"
                   placeholder="输入金额"
                   onChange={e => this.onNumChange(e.target.value)}
                 />
@@ -235,13 +235,13 @@ class Index extends Component {
             </div>
             <div className={styles.line}>
               <small className={styles.primary}>{formatMessage({ id: `EXCHANGE_FEE` })}</small>
-              <small className={styles.primary}>{Number(num) * initInfo.charge}</small>
+              <small className={styles.primary}>{Number(num) * initInfo.charge || '--'}</small>
             </div>
             <div className={styles.line}>
             <span
               className={styles.primary}>{formatMessage({ id: `EXCHANGE_PAIDIN_AMOUNT` })}</span>
               <span
-                className={styles.primary}>{downFixed(Number(num) - Number(num) * initInfo.charge)}</span>
+                className={styles.primary}>{downFixed(Number(num) - Number(num) * initInfo.charge) || '--'}</span>
             </div>
           </div>
           <aside className={styles.aside}>
