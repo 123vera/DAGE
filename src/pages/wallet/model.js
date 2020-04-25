@@ -8,7 +8,7 @@ export default {
     notice: {},
     reward: {},
 
-    currency: {}, // 当前选择要购买矿机的币种
+    // currency: {}, // 当前选择要购买矿机的币种
     certification: '', // 支付宝认证结果
   },
   reducers: {

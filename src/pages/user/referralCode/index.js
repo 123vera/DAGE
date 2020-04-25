@@ -5,7 +5,6 @@ import { Toast } from 'antd-mobile';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import PageHeader from '@/components/common/PageHeader';
 import REFERRAL_CODE from '@/assets/imgs/referral-code.png';
-// import DOWNLOAD from '@/assets/icons/download.png';
 import styles from './index.less';
 import { formatMessage } from 'umi/locale';
 import { Icons } from '../../../assets';
@@ -31,18 +30,18 @@ class Index extends Component {
         />
         <div className={styles.mainContent}>
           <div className={styles.qrCode}>
-            <QrCodeBox key="https://wallet.thedage.com" value="https://wallet.thedage.com" />
+            <QrCodeBox key="https://wallet.thedage.com" value="https://wallet.thedage.com"/>
           </div>
           <span>{recommendCode || '--'}</span>
           <CopyToClipboard
-            key={new Date().toString()}
+            key={new Date().toString() + Math.random()}
             text={recommendCode}
             onCopy={this.onCopyLink}
           >
             <span className={styles.copyText}>{formatMessage({ id: `REFERRAL_CODE_COPY` })}</span>
           </CopyToClipboard>
           <CopyToClipboard
-            key={new Date().toString()}
+            key={new Date().toString() + Math.random()}
             text={'https://wallet.thedage.com'}
             onCopy={this.onCopyLink}
           >
@@ -73,9 +72,9 @@ class QrCodeBox extends Component {
 
     return (
       <div className={styles.qrCodeBox}>
-        <QRCode className={styles.qrCode} size={250} value={value || ''} />
-        <br />
-        <img src={url} alt="" />
+        <QRCode className={styles.qrCode} size={250} value={value || ''}/>
+        <br/>
+        <img src={url} alt=""/>
       </div>
     );
   }
