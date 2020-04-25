@@ -138,7 +138,7 @@ class Index extends Component {
           onHandle={this.back}
           rightContent={{
             icon: Icons.record,
-            onHandle: () => router.push('/wallet/dgt_record'),
+            onHandle: () => router.push('/dgt/withdraw/record'),
           }}
         />
         <section className={step === 1 ? styles.show : styles.hidden}>
