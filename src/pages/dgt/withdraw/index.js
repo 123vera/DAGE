@@ -12,7 +12,6 @@ import { getLocale } from 'umi-plugin-locale';
 import PrimaryButton from '../../../components/common/PrimaryButton';
 import Captcha from '../../../components/partials/Captcha';
 
-
 @connect(({ dgtWithdraw, globalModel }) => ({ dgtWithdraw, globalModel }))
 class Index extends Component {
   state = {
@@ -98,10 +97,10 @@ class Index extends Component {
   onNext = () => {
     const { bankName, bankBranch, bankNo, name } = this.props.dgtWithdraw;
 
-    if (!bankName) return Toast.info('请输入银行');
-    if (!bankBranch) return Toast.info('请输入开户支行');
-    if (!bankNo) return Toast.info('请输入银行卡号');
-    if (!name) return Toast.info('请输入银行账户姓名');
+    if (!bankName) return Toast.info(formatMessage({ id: `FIAT_WITHDRAWAL_PLACEHOLDER_01` }));
+    if (!bankBranch) return Toast.info(formatMessage({ id: `FIAT_WITHDRAWAL_PLACEHOLDER_02` }));
+    if (!bankNo) return Toast.info(formatMessage({ id: `FIAT_WITHDRAWAL_PLACEHOLDER_03` }));
+    if (!name) return Toast.info(formatMessage({ id: `FIAT_WITHDRAWAL_PLACEHOLDER_04` }));
 
     this.setState({ step: 2 });
   };
@@ -109,7 +108,7 @@ class Index extends Component {
   onSubmit = () => {
     const { initInfo, num, code } = this.props.dgtWithdraw;
 
-    if (!num) return Toast.info('请输入提现金额');
+    if (!num) return Toast.info(formatMessage({ id: `FIAT_WITHDRAWAL_PLACEHOLDER_05` }));
     if (initInfo.balance < Number(num))
       return Toast.info(formatMessage({ id: `TOAST_ERR_BALANCE_NOT_ENOUGH` }));
     if (!code) return Toast.info(formatMessage({ id: `COMMON_PLACEHOLDER_CODE` }));
@@ -133,7 +132,7 @@ class Index extends Component {
     return (
       <div className={styles.dgtWithdraw}>
         <Header
-          title="DGT法币提现"
+          title={formatMessage({ id: `FIAT_WITHDRAWAL_TITLE` })}
           icon={Icons.arrowLeft}
           onHandle={this.back}
           rightContent={{
@@ -149,29 +148,32 @@ class Index extends Component {
               </small>
             </div>
             <div className={styles.row}>
-              <label>{'银行'}</label>
+              <label>{formatMessage({ id: `FIAT_WITHDRAWAL_LABEL_01` })}</label>
               <div className={styles.inputBox}>
                 <input
                   type="text"
                   value={bankName}
-                  placeholder={'输入银行'}
+                  placeholder={formatMessage({ id: `FIAT_WITHDRAWAL_INPUT_01` })}
                   onChange={e => this.onValueChange(e.target.value, 'bankName')}
                 />
               </div>
             </div>
             <div className={styles.row}>
-              <label>{'开户支行'}</label>
+              <label>{formatMessage({ id: `FIAT_WITHDRAWAL_LABEL_02` })}</label>
               <div className={styles.inputBox}>
                 <input
                   type="text"
                   value={bankBranch}
-                  placeholder={'输入开户支行'}
+                  placeholder={
+                    formatMessage({ id: `FIAT_WITHDRAWAL_INPUT` }) +
+                    formatMessage({ id: `FIAT_WITHDRAWAL_LABEL_02` })
+                  }
                   onChange={e => this.onValueChange(e.target.value, 'bankBranch')}
                 />
               </div>
             </div>
             <div className={styles.row}>
-              <label>{'银行卡号'}</label>
+              <label>{formatMessage({ id: `FIAT_WITHDRAWAL_LABEL_03` })}</label>
               <div className={styles.inputBox}>
                 <input
                   type="text"
@@ -193,10 +195,7 @@ class Index extends Component {
               </div>
             </div>
           </div>
-          <PrimaryButton
-            value={formatMessage({ id: `COMMON_CONFIRM` })}
-            onHandle={this.onNext}
-          />
+          <PrimaryButton value={formatMessage({ id: `COMMON_CONFIRM` })} onHandle={this.onNext} />
         </section>
 
         <section className={step === 2 ? styles.show : styles.hidden}>
@@ -219,9 +218,7 @@ class Index extends Component {
               </div>
             </div>
             <div className={styles.line}>
-              <small>
-                汇率：1 DGT= {initInfo.ratio} CNY
-              </small>
+              <small>汇率：1 DGT= {initInfo.ratio} CNY</small>
               <small>手续费率：{downFixed(initInfo.charge * 100, 1)}%</small>
             </div>
             <Captcha
@@ -231,17 +228,19 @@ class Index extends Component {
               getCaptcha={this.getCaptcha}
             />
             <div className={styles.row}>
-              <SmsCode value={code} getSmsCode={this.getSmsCode} onChange={this.onCodeChange}/>
+              <SmsCode value={code} getSmsCode={this.getSmsCode} onChange={this.onCodeChange} />
             </div>
             <div className={styles.line}>
               <small className={styles.primary}>{formatMessage({ id: `EXCHANGE_FEE` })}</small>
               <small className={styles.primary}>{Number(num) * initInfo.charge}</small>
             </div>
             <div className={styles.line}>
-            <span
-              className={styles.primary}>{formatMessage({ id: `EXCHANGE_PAIDIN_AMOUNT` })}</span>
-              <span
-                className={styles.primary}>{downFixed(Number(num) - Number(num) * initInfo.charge)}</span>
+              <span className={styles.primary}>
+                {formatMessage({ id: `EXCHANGE_PAIDIN_AMOUNT` })}
+              </span>
+              <span className={styles.primary}>
+                {downFixed(Number(num) - Number(num) * initInfo.charge)}
+              </span>
             </div>
           </div>
           <aside className={styles.aside}>
@@ -254,17 +253,15 @@ class Index extends Component {
                 {/* 英文语言下 文案显示不一样 */}
                 {getLocale() === 'en-US' && downFixed(initInfo.min || '--')}
                 {/* 其他语言下 显示一样 */}
-                {getLocale() !== 'en-US' && (downFixed(initInfo.min) || '--') + ' - ' + (downFixed(initInfo.max) || '--')}
+                {getLocale() !== 'en-US' &&
+                  (downFixed(initInfo.min) || '--') + ' - ' + (downFixed(initInfo.max) || '--')}
                 &nbsp;DGT，{formatMessage({ id: `WITHDRAW_TIPS_CONTENT_03` })}
                 {initInfo.charge !== '' ? downFixed(initInfo.charge * 100, 1) : '--'}%
               </li>
               <li>{formatMessage({ id: `WITHDRAW_TIPS_CONTENT_04` })}</li>
             </ul>
           </aside>
-          <PrimaryButton
-            value={formatMessage({ id: `COMMON_CONFIRM` })}
-            onHandle={this.onSubmit}
-          />
+          <PrimaryButton value={formatMessage({ id: `COMMON_CONFIRM` })} onHandle={this.onSubmit} />
         </section>
       </div>
     );
