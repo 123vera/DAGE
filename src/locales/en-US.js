@@ -443,7 +443,7 @@ export default {
   OTC_MINING_DETAIL_SMALL_03: ` `,
   OTC_MINING_DETAIL_NAME: ` Detailed List`,
 
-  FIAT_WITHDRAWAL_TITLE: `Withdraw FIAT Currency`,
+  FIAT_WITHDRAWAL_TITLE: `DGT Withdraw FIAT Currency`,
   FIAT_WITHDRAWAL_INPUT: `Enter`,
   FIAT_WITHDRAWAL_LABEL_01: `Bank`,
   FIAT_WITHDRAWAL_LABEL_02: `Open Branching Account`,
@@ -457,4 +457,10 @@ export default {
   FIAT_WITHDRAWAL_PLACEHOLDER_03: `Please enter bank card number`,
   FIAT_WITHDRAWAL_PLACEHOLDER_04: `Please enter bank account name`,
   FIAT_WITHDRAWAL_PLACEHOLDER_05: `Please enter cash withdrawal amount`,
+
+  FIAT_WITHDRAWAL_AMOUNT: `Withdrawal Amount`,
+  FIAT_WITHDRAWAL_RECORD: `Withdrawals record`,
+  FIAT_WITHDRAWAL: `Withdraw`,
+  FIAT_WITHDRAWAL_PLACEHOLDER_06: `Enter the amount`,
+  FIAT_RATIO: `Exchange Rate：`,
 };

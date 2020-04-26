@@ -424,7 +424,7 @@ export default {
   OTC_MINING_DETAIL_SMALL_03: ` の形で返されます`,
   OTC_MINING_DETAIL_NAME: ` 詳細リスト`,
 
-  FIAT_WITHDRAWAL_TITLE: `FIAT通貨を引き出す`,
+  FIAT_WITHDRAWAL_TITLE: `DGT FIAT通貨を引き出す`,
   FIAT_WITHDRAWAL_INPUT: `入力`,
   FIAT_WITHDRAWAL_LABEL_01: `バンク`,
   FIAT_WITHDRAWAL_LABEL_02: `ブランチアカウントを開く`,
@@ -438,4 +438,10 @@ export default {
   FIAT_WITHDRAWAL_PLACEHOLDER_03: `请输入银行卡号`,
   FIAT_WITHDRAWAL_PLACEHOLDER_04: `请输入银行账户姓名`,
   FIAT_WITHDRAWAL_PLACEHOLDER_05: `请输入提现金额`,
+
+  FIAT_WITHDRAWAL_AMOUNT: `引き出し金額`,
+  FIAT_WITHDRAWAL_RECORD: `出金記録`,
+  FIAT_WITHDRAWAL: `引き出す`,
+  FIAT_WITHDRAWAL_PLACEHOLDER_06: `金額を入力してください`,
+  FIAT_RATIO: `為替レート：`,
 };

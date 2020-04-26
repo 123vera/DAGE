@@ -425,7 +425,7 @@ export default {
   OTC_MINING_DETAIL_SMALL_03: ` 로 되돌려지게 됩니다.`,
   OTC_MINING_DETAIL_NAME: ` 상세 목록`,
 
-  FIAT_WITHDRAWAL_TITLE: `법정 통화 인출`,
+  FIAT_WITHDRAWAL_TITLE: `DGT 법정 통화 인출`,
   FIAT_WITHDRAWAL_INPUT: `입력`,
   FIAT_WITHDRAWAL_LABEL_01: `은행`,
   FIAT_WITHDRAWAL_LABEL_02: `브랜칭 계정 열기`,
@@ -439,4 +439,10 @@ export default {
   FIAT_WITHDRAWAL_PLACEHOLDER_03: `请输入银行卡号`,
   FIAT_WITHDRAWAL_PLACEHOLDER_04: `请输入银行账户姓名`,
   FIAT_WITHDRAWAL_PLACEHOLDER_05: `请输入提现金额`,
+
+  FIAT_WITHDRAWAL_AMOUNT: `인출 금액`,
+  FIAT_WITHDRAWAL_RECORD: `출금 기록`,
+  FIAT_WITHDRAWAL: `인출`,
+  FIAT_WITHDRAWAL_PLACEHOLDER_06: `금액을 입력하십시오`,
+  FIAT_RATIO: `환율：`,
 };

@@ -425,7 +425,7 @@ export default {
   OTC_MINING_DETAIL_SMALL_03: ` `,
   OTC_MINING_DETAIL_NAME: ` รายการรายละเอียด`,
 
-  FIAT_WITHDRAWAL_TITLE: `ถอนสกุลเงิน FIAT`,
+  FIAT_WITHDRAWAL_TITLE: `DGT ถอนสกุลเงิน FIAT`,
   FIAT_WITHDRAWAL_INPUT: `ป้อนข้อมูล`,
   FIAT_WITHDRAWAL_LABEL_01: `ธนาคาร`,
   FIAT_WITHDRAWAL_LABEL_02: `เปิดบัญชีสาขา`,
@@ -439,4 +439,10 @@ export default {
   FIAT_WITHDRAWAL_PLACEHOLDER_03: `请输入银行卡号`,
   FIAT_WITHDRAWAL_PLACEHOLDER_04: `请输入银行账户姓名`,
   FIAT_WITHDRAWAL_PLACEHOLDER_05: `请输入提现金额`,
+
+  FIAT_WITHDRAWAL_AMOUNT: `จำนวนเงินที่ถอน`,
+  FIAT_WITHDRAWAL_RECORD: `ถอนบันทึก`,
+  FIAT_WITHDRAWAL: `ถอนตัว`,
+  FIAT_WITHDRAWAL_PLACEHOLDER_06: `ใส่จำนวนเงิน`,
+  FIAT_RATIO: `อัตราแลกเปลี่ยน：`,
 };

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Icons } from '../../../assets';
 import { router } from 'umi';
 import { connect } from 'dva';
-import Header from '../../../components/common/Header';
+import PageHeader from '../../../components/common/PageHeader';
 import styles from './index.less';
 import { Toast } from 'antd-mobile';
 import { downFixed } from '../../../utils/utils';
@@ -16,10 +16,16 @@ import Captcha from '../../../components/partials/Captcha';
 class Index extends Component {
   state = {
     showMenus: false,
-    step: 2,
+    step: null,
   };
 
   componentDidMount() {
+    const stepArr = window.location.pathname.split('/');
+    const step = stepArr[stepArr.length - 1];
+    if (Number(step) !== 1 && Number(step) !== 2) router.goBack();
+    this.clearInput();
+    this.setState({ step: step || 1 });
+
     this.props.dispatch({ type: 'dgtWithdraw/GetInitInfo' });
     this.getCaptcha();
   }
@@ -103,6 +109,7 @@ class Index extends Component {
     if (!name) return Toast.info(formatMessage({ id: `FIAT_WITHDRAWAL_PLACEHOLDER_04` }));
 
     this.setState({ step: 2 });
+    router.push('/dgt/withdraw/2');
   };
 
   onSubmit = () => {
@@ -131,16 +138,18 @@ class Index extends Component {
 
     return (
       <div className={styles.dgtWithdraw}>
-        <Header
+        <PageHeader
+          leftContent={{
+            icon: Icons.arrowLeft,
+          }}
           title={formatMessage({ id: `FIAT_WITHDRAWAL_TITLE` })}
-          icon={Icons.arrowLeft}
-          onHandle={this.back}
           rightContent={{
             icon: Icons.record,
-            onHandle: () => router.push('/wallet/dgt_record'),
+            onHandle: () => router.push('/dgt/record'),
           }}
         />
-        <section className={step === 1 ? styles.show : styles.hidden}>
+
+        <section className={Number(step) === 1 ? styles.show : styles.hidden}>
           <div className={styles.content}>
             <div className={styles.row}>
               <small>
@@ -178,18 +187,21 @@ class Index extends Component {
                 <input
                   type="text"
                   value={bankNo}
-                  placeholder={'输入银行卡号'}
+                  placeholder={formatMessage({ id: `FIAT_WITHDRAWAL_PLACEHOLDER_03` })}
                   onChange={e => this.onValueChange(e.target.value, 'bankNo')}
                 />
               </div>
             </div>
             <div className={styles.row}>
-              <label>{'姓名'}</label>
+              <label>{formatMessage({ id: `FIAT_WITHDRAWAL_LABEL_04` })}</label>
               <div className={styles.inputBox}>
                 <input
                   type="text"
                   value={name}
-                  placeholder={'输入姓名'}
+                  placeholder={
+                    formatMessage({ id: `FIAT_WITHDRAWAL_INPUT` }) +
+                    formatMessage({ id: `FIAT_WITHDRAWAL_LABEL_04` })
+                  }
                   onChange={e => this.onValueChange(e.target.value, 'name')}
                 />
               </div>
@@ -198,7 +210,7 @@ class Index extends Component {
           <PrimaryButton value={formatMessage({ id: `COMMON_CONFIRM` })} onHandle={this.onNext} />
         </section>
 
-        <section className={step === 2 ? styles.show : styles.hidden}>
+        <section className={Number(step) === 2 ? styles.show : styles.hidden}>
           <div className={styles.content}>
             <div className={styles.row}>
               <small>
@@ -206,20 +218,25 @@ class Index extends Component {
               </small>
             </div>
             <div className={styles.row}>
-              <label>提现金额</label>
+              <label>{formatMessage({ id: `FIAT_WITHDRAWAL_AMOUNT` })}</label>
               <div className={styles.inputBox}>
                 <input
                   type="text"
                   value={num}
                   autoComplete="off"
-                  placeholder="输入金额"
+                  placeholder={formatMessage({ id: `FIAT_WITHDRAWAL_PLACEHOLDER_06` })}
                   onChange={e => this.onNumChange(e.target.value)}
                 />
               </div>
             </div>
             <div className={styles.line}>
-              <small>汇率：1 DGT= {initInfo.ratio} CNY</small>
-              <small>手续费率：{downFixed(initInfo.charge * 100, 1)}%</small>
+              <small>
+                {formatMessage({ id: `FIAT_RATIO` })}1 DGT= {initInfo.ratio} CNY
+              </small>
+              <small>
+                {formatMessage({ id: `EXCHANGE_FEE_RATE` })}
+                {downFixed(initInfo.charge * 100, 1)}%
+              </small>
             </div>
             <Captcha
               captchaSrc={captchaSrc}
@@ -232,14 +249,14 @@ class Index extends Component {
             </div>
             <div className={styles.line}>
               <small className={styles.primary}>{formatMessage({ id: `EXCHANGE_FEE` })}</small>
-              <small className={styles.primary}>{Number(num) * initInfo.charge}</small>
+              <small className={styles.primary}>{Number(num) * initInfo.charge || '--'}</small>
             </div>
             <div className={styles.line}>
               <span className={styles.primary}>
                 {formatMessage({ id: `EXCHANGE_PAIDIN_AMOUNT` })}
               </span>
               <span className={styles.primary}>
-                {downFixed(Number(num) - Number(num) * initInfo.charge)}
+                {downFixed(Number(num) - Number(num) * initInfo.charge) || '--'}
               </span>
             </div>
           </div>
@@ -248,7 +265,7 @@ class Index extends Component {
             <ul>
               <li>
                 {formatMessage({ id: `WITHDRAW_TIPS_CONTENT_01` })}
-                {500}
+                {initInfo.dayMax || ' --'}
                 &nbsp;DGT，{formatMessage({ id: `WITHDRAW_TIPS_CONTENT_02` })}
                 {/* 英文语言下 文案显示不一样 */}
                 {getLocale() === 'en-US' && downFixed(initInfo.min || '--')}

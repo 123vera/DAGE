@@ -24,6 +24,17 @@ class DgtApi {
   static dgtWithdraw(options) {
     return onlinePost('/otc/rmbwithdrawal', options);
   }
+
+  /**
+   * 法币提现记录
+   *
+   * @required openId string
+   * @required page string 页码
+   * @required row string 条数
+   **/
+  static dgtWithdrawRecord(options) {
+    return onlinePost('/otc/rmbwithdrawallist', options);
+  }
 }
 
 export default DgtApi;
