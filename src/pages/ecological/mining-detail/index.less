@@ -4,45 +4,59 @@
   min-height: 100vh;
   font-weight: 600;
 
+  p {
+    padding: 16px 60px;
+    line-height: 44px;
+
+    small {
+      font-size: 24px;
+      color: @font-sub-color;
+    }
+
+    time {
+      margin: 0 10px;
+      color: @font-color;
+      font-size: 24px;
+    }
+  }
+
   .summary {
-    padding: 50px 60px;
-    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 16px 60px;
 
     span {
-      font-size: 78px;
-      line-height: 108px;
+      font-size: 60px;
+      line-height: 84px;
 
       i {
-        margin-left: 15px;
+        margin-left: 18px;
         font-style: normal;
-        font-size: 48px;
-        line-height: 66px;
+        font-size: 28px;
+        line-height: 44px;
       }
     }
 
     small {
-      margin-top: 14px;
-      display: inline-block;
-      width: 166px;
-      height: 60px;
-      background: rgba(26, 32, 46, 1);
-      border-radius: 30px;
+      font-size: 24px;
       color: rgba(109, 119, 139, 1);
-      line-height: 60px;
+      line-height: 44px;
     }
   }
 
   ul {
     .clearUl;
-    padding: 50px 60px;
+    padding: 16px 60px;
 
     li {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      align-items: center;
+      align-items: flex-start;
 
-      height: 140px;
+      padding: 30px 0;
       border-bottom: 2px solid rgba(26, 32, 46, 1);
 
       .label {
@@ -60,6 +74,10 @@
       .value {
         color: rgba(0, 200, 115, 1);
         line-height: 44px;
+
+        .negative {
+          color: #E02020;
+        }
       }
     }
   }
