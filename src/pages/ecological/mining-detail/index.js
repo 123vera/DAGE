@@ -51,12 +51,13 @@ function MiningDetail() {
 
   return (
     <div className={styles.miningDetail}>
-      <Header icon={Icons.arrowLeft} title={formatMessage({ id: `MINING_DETAIL_TITLE` })}/>
+      <Header icon={Icons.arrowLeft} title={formatMessage({ id: `MINING_DETAIL_TITLE` })} />
       <section>
         <p>正在挖矿</p>
         <div className={styles.summary}>
           <span>
-            {downFixed(info.rtotal)}<i>RMB</i>
+            {downFixed(info.rtotal)}
+            <i>RMB</i>
           </span>
           <small>约合 {downFixed(info.utotal)} USD</small>
         </div>

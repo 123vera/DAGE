@@ -411,8 +411,10 @@ export default {
   OTC_BESURE_01: `マイニングプラグインを開きました。プラグインはありませんか？`,
   OTC_BESURE_02: `今すぐダウンロード`,
   OTC_TIPS_01: ` マイニングが23時間確認された後、マイニング中に見つかったアセットはDAGEウォレットアカウントに返されます。アセットを確認して、慎重に受け取ってください。`,
-  OTC_TIPS_INLAND_01: `23小时内未挖矿完成的资产，将以当天货币交易所OTC交易的汇率返还USDT至DAGE钱包账户`,
-  OTC_TIPS_INLAND_02: ` `,
+  OTC_TIPS_INLAND_01: `23時間以内にマイニングされなかったアセットは、`,
+  // OTC_TIPS_INLAND_01: `23小时内未挖矿完成的资产，将以当天货币交易所OTC交易的汇率返还USDT至DAGE钱包账户`,
+  // OTC_TIPS_INLAND_01: `23時間以内にマイニングされなかったアセットは、USDT形式で、当日のOTC通貨交換比率でDAGEウォレットアカウントに返金されます。 `,
+  OTC_TIPS_INLAND_02: `形式で、当日のOTC通貨交換比率でDAGEウォレットアカウントに返金されます。  `,
 
   OTC_MINING_DETAIL_TITLE: `マイニング詳細`,
   OTC_MINING_DETAIL_SUBTITLE: `現在のマイニング`,
@@ -433,9 +435,9 @@ export default {
   FIAT_WITHDRAWAL_INPUT_01: `バンクアカウント名を入力`,
   FIAT_WITHDRAWAL_SUBMIT: `アカウント提出`,
 
-  FIAT_WITHDRAWAL_PLACEHOLDER_01: `请输入银行`,
-  FIAT_WITHDRAWAL_PLACEHOLDER_02: `请输入开户支行`,
-  FIAT_WITHDRAWAL_PLACEHOLDER_03: `请输入银行卡号`,
-  FIAT_WITHDRAWAL_PLACEHOLDER_04: `请输入银行账户姓名`,
-  FIAT_WITHDRAWAL_PLACEHOLDER_05: `请输入提现金额`,
+  FIAT_WITHDRAWAL_PLACEHOLDER_01: `銀行名を入力してください`,
+  FIAT_WITHDRAWAL_PLACEHOLDER_02: `口座支店名を入力してください`,
+  FIAT_WITHDRAWAL_PLACEHOLDER_03: `銀行カード番号を入力してください`,
+  FIAT_WITHDRAWAL_PLACEHOLDER_04: `銀行口座名を入力してください`,
+  FIAT_WITHDRAWAL_PLACEHOLDER_05: `現金の出金額を入力してください`,
 };

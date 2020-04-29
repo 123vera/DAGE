@@ -412,8 +412,9 @@ export default {
   OTC_BESURE_01: `저희가 귀하의 채굴 플러그인을 열었습니다. 플러그인이 없나요? `,
   OTC_BESURE_02: `지금 다운로드하기`,
   OTC_TIPS_01: `채굴이 23시간 동안 확인된 이후에 채굴이 이뤄지는 동안 발견되는 자산은 DAGE 지갑 계정으로 되돌려지게 됩니다. 확인하고 주의를 기울여서 자산을 수령해 주세요. `,
-  OTC_TIPS_INLAND_01: `23小时内未挖矿完成的资产，将以当天货币交易所OTC交易的汇率返还USDT至DAGE钱包账户`,
-  OTC_TIPS_INLAND_02: ``,
+  // OTC_TIPS_INLAND_01: `23小时内未挖矿完成的资产，将以当天货币交易所OTC交易的汇率返还USDT至DAGE钱包账户`,
+  OTC_TIPS_INLAND_01: `23시간 내에 채굴되지 않는 자산은 환율에 따라 `,
+  OTC_TIPS_INLAND_02: `로 DAGE 지갑 계정에 반환됩니다.`,
 
   OTC_MINING_DETAIL_TITLE: `채굴 세부 정보`,
   OTC_MINING_DETAIL_SUBTITLE: `현재 채굴 중입니다`,
@@ -434,9 +435,9 @@ export default {
   FIAT_WITHDRAWAL_INPUT_01: `은행 계정 이름 입력`,
   FIAT_WITHDRAWAL_SUBMIT: `계정 제출`,
 
-  FIAT_WITHDRAWAL_PLACEHOLDER_01: `请输入银行`,
-  FIAT_WITHDRAWAL_PLACEHOLDER_02: `请输入开户支行`,
-  FIAT_WITHDRAWAL_PLACEHOLDER_03: `请输入银行卡号`,
-  FIAT_WITHDRAWAL_PLACEHOLDER_04: `请输入银行账户姓名`,
-  FIAT_WITHDRAWAL_PLACEHOLDER_05: `请输入提现金额`,
+  FIAT_WITHDRAWAL_PLACEHOLDER_01: `은행 이름을 입력해 주세요`,
+  FIAT_WITHDRAWAL_PLACEHOLDER_02: `계정의 지점 이름을 입력해 주세요`,
+  FIAT_WITHDRAWAL_PLACEHOLDER_03: `은행 카드 번호를 입력해 주세요`,
+  FIAT_WITHDRAWAL_PLACEHOLDER_04: `은행 계정 이름을 입력해 주세요`,
+  FIAT_WITHDRAWAL_PLACEHOLDER_05: `현금 인출 금액을 입력해 주세요`,
 };

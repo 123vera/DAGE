@@ -7,7 +7,6 @@ import { formatMessage } from 'umi-plugin-locale';
 import { downFixed } from '../../../utils/utils';
 import { Icons } from '../../../assets';
 import PageHeader from '../../../components/common/PageHeader';
-import Menus from '../../../components/common/Menus';
 import ListView from '../../../components/common/ListView';
 import AssetsFooter from '../../../components/partials/AssetsFooter';
 

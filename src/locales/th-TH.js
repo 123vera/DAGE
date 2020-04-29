@@ -412,8 +412,10 @@ export default {
   OTC_BESURE_01: `เราได้ทำการเปิดปลั๊กอินการขุด แต่ไม่พบปลั๊กอิน`,
   OTC_BESURE_02: `ดาวน์โหลดตอนนี้`,
   OTC_TIPS_01: ` หลังจากการขุดได้รับการยืนยันใน 23 ชั่วโมง ทรัพย์สินทที่ได้ในระหว่างการขุด จะถูกส่งคืนไปที่บัญชีกระเป๋าเงิน DAGE โปรดตรวจสอบและรับทรัพย์สินด้วยความระมัดระวัง`,
-  OTC_TIPS_INLAND_01: `23小时内未挖矿完成的资产，将以当天货币交易所OTC交易的汇率返还USDT至DAGE钱包账户`,
-  OTC_TIPS_INLAND_02: ` `,
+  OTC_TIPS_INLAND_01: `สินทรัพย์ที่ไม่มีการขุดใน 23 ชั่วโมงจะถูกส่งคืนเข้าบัญชีวอลเลท DAGE ที่อัตราการแลกเปลี่ยนค่าเงิน OTC ในรูปแบบสกุลเงิน `,
+  // OTC_TIPS_INLAND_01: `23小时内未挖矿完成的资产，将以当天货币交易所OTC交易的汇率返还USDT至DAGE钱包账户`,
+  // OTC_TIPS_INLAND_01: `สินทรัพย์ที่ไม่มีการขุดใน 23 ชั่วโมงจะถูกส่งคืนเข้าบัญชีวอลเลท DAGE ที่อัตราการแลกเปลี่ยนค่าเงิน OTC ในรูปแบบสกุลเงิน USDT ของวันนั้น`,
+  OTC_TIPS_INLAND_02: ` ของวันนั้น`,
 
   OTC_MINING_DETAIL_TITLE: `รายละเอียดการขุด`,
   OTC_MINING_DETAIL_SUBTITLE: `กำลังทำการขุดเหมืองแร่`,
@@ -434,9 +436,9 @@ export default {
   FIAT_WITHDRAWAL_INPUT_01: `ป้อนข้อมูลชื่อบัญชีธนาคาร`,
   FIAT_WITHDRAWAL_SUBMIT: `ส่งข้อมูลบัญชี`,
 
-  FIAT_WITHDRAWAL_PLACEHOLDER_01: `请输入银行`,
-  FIAT_WITHDRAWAL_PLACEHOLDER_02: `请输入开户支行`,
-  FIAT_WITHDRAWAL_PLACEHOLDER_03: `请输入银行卡号`,
-  FIAT_WITHDRAWAL_PLACEHOLDER_04: `请输入银行账户姓名`,
-  FIAT_WITHDRAWAL_PLACEHOLDER_05: `请输入提现金额`,
+  FIAT_WITHDRAWAL_PLACEHOLDER_01: `กรุณาใส่ชื่อธนาคาร`,
+  FIAT_WITHDRAWAL_PLACEHOLDER_02: `กรุณาใส่ชื่อสาขาธนาคาร`,
+  FIAT_WITHDRAWAL_PLACEHOLDER_03: `กรุณาใส่หมายเลขบัตรเครกิตธนาคาร`,
+  FIAT_WITHDRAWAL_PLACEHOLDER_04: `กรุณาใส่ชื่อบัญชีธนาคาร`,
+  FIAT_WITHDRAWAL_PLACEHOLDER_05: `กรุณาระบุจำนวนเงินที่ต้องการถอน`,
 };
