@@ -3,7 +3,7 @@ import styles from './index.less';
 import { connect } from 'dva';
 import { router } from 'umi';
 import PageHeader from '../../components/common/PageHeader';
-import { Icons } from '../../assets';
+import {Images, Icons } from '../../assets';
 import { formatMessage } from 'umi/locale';
 
 @connect(({ wallet, globalModel }) => ({ wallet, globalModel }))
@@ -38,20 +38,6 @@ class Home extends Component {
             onHandle: () => router.push('/select_account'),
           }}
         />
-        {/* <section className={styles.header}>
-          <Header
-            title={formatMessage({ id: `WALLET_HOME` })}
-            rightContent={{
-              text: '邀请好友',
-              textStyle: { color: 'rgb(243, 175, 102)' },
-              onHandle: () => router.push('/referral_code'),
-            }}
-            leftContent={{
-              icon: Icons.list,
-              onHandle: () => router.push('/select_account'),
-            }}
-          />
-        </section> */}
         <section className={styles.cards}>
           <ul className={!isChinese ? styles.foreigner : ''}>
             <li onClick={() => router.push('/wallet/recharge')}>
@@ -66,18 +52,20 @@ class Home extends Component {
                 <small>银行卡/境内支付宝</small>
               </li>
             ) : (
-              <li onClick={() => router.push('/wallet/dgt_recharge')}>
+              <li onClick={() => router.push('/wallet/game')}>
                 <img src={Icons.dIcon} alt="" />
-                <span>邀请好友</span>
-                <small>立享更多收益</small>
+                <span>游戏中心</span>
+                <small>基于去中心化的游戏中心</small>
               </li>
             )}
           </ul>
           {isChinese && (
-            <div className={styles.inviterCard} onClick={() => router.push('/referral_code')}>
-              <span>邀请好友使用DAGE</span>
+            <div className={styles.gameCard}
+                 style={{backgroundImage: `url(${Images.homeGameBg})`}}
+                 onClick={() => router.push('/game')}>
+              <span>游戏中心</span>
               <br />
-              <small>立享更多收益</small>
+              <small>基于去中心化的游戏中心</small>
             </div>
           )}
         </section>
@@ -95,6 +83,7 @@ class Home extends Component {
 }
 
 export default Home;
+
 
 @connect(({ wallet, globalModel }) => ({ wallet, globalModel }))
 class Mining extends Component {
@@ -116,7 +105,7 @@ class Mining extends Component {
       <div className={styles.mining}>
         <h3>
           <img src={Icons.oIcon} alt="" />
-          {formatMessage({ id: `WALLET_POG_TITLE` })}
+          {'游戏矿池'}
         </h3>
         {!isChinese && (
           <p className={styles.alipay}>
@@ -142,7 +131,7 @@ class Mining extends Component {
               isChinese ? router.push('/otc-mining/inland') : router.push('/otc-mining/abroad')
             }
           >
-            {formatMessage({ id: `WALLET_POG_BTN` })}
+            {'购买配套'}
           </button>
         </div>
       </div>

@@ -6,25 +6,25 @@ import { formatMessage } from 'umi-plugin-locale';
 
 const tabs = [
   {
-    path: '/home/wallet',
+    path: '/main/home',
     icon: Icons.home2,
     iconActive: Icons.home1,
     label: formatMessage({ id: `FOOTER_NAME_01` }),
   },
   {
-    path: '/home/assets',
+    path: '/main/assets',
     icon: Icons.wallet,
     iconActive: Icons.walletActive,
     label: formatMessage({ id: `FOOTER_NAME_02` }),
   },
   {
-    path: '/home/ecological',
+    path: '/main/ecological',
     icon: Icons.zoology,
     iconActive: Icons.zoologyActive,
     label: formatMessage({ id: `FOOTER_NAME_03` }),
   },
   {
-    path: '/home/user',
+    path: '/main/user',
     icon: Icons.user,
     iconActive: Icons.userActive,
     label: formatMessage({ id: `FOOTER_NAME_04` }),

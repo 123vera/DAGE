@@ -72,3 +72,33 @@
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$color-from}', endColorstr='#{$color-to}', GradientType=0);
   /* stylelint-enable function-name-case */
 }
+
+.overflow(@num: 1,@fontSize: 0,@lineHeight: 1.5) {
+  display: -webkit-box;
+  overflow: hidden;
+  /* autoprefixer: ignore next */
+  -webkit-line-clamp: @num;
+  /* autoprefixer: ignore next */
+  -webkit-box-orient: vertical;
+
+  /* autoprefixer: on */
+  .mixin (@lineHeight) when (@lineHeight < 1.2) {
+    line-height: 1.2;
+    /*最小需要1.2，否则在部分安卓机下第$num+1行会顶部漏出*/
+  }
+
+  .mixin (@fontSize) when (@fontSize > 0) {
+    /*高度需要撑开*/
+    line-height: @lineHeight;
+
+    height: @num * @fontSize * @lineHeight;
+
+    [data-dpr='2'] & {
+      height: @num * @fontSize * @lineHeight * 2 !important;
+    }
+
+    [data-dpr='3'] & {
+      height: @num * @fontSize * @lineHeight* 3 !important;
+    }
+  }
+}

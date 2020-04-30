@@ -8,7 +8,7 @@ import { formatMessage } from 'umi-plugin-locale';
 function Pass() {
   return (
     <div className={styles.pass}>
-      <Header icon={Icons.arrowLeft} onHandle={() => router.push('/home/user')} />
+      <Header icon={Icons.arrowLeft} onHandle={() => router.push('/main/user')} />
       <article>
         <img src={Images.alipayPass} alt="" />
         <p dangerouslySetInnerHTML={{ __html: formatMessage({ id: `PAY_SUCCESS` }) }} />

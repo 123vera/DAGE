@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'dva';
-import Footer from '@/components/common/Footer';
+import Footer from '../../components/common/Footer';
 import styles from './index.less';
 
 @connect(({ global }) => ({ global }))

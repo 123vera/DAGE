@@ -1,16 +1,31 @@
 export default [
-  // {
-  //   path: '/',
-  //   redirect: './login',
-  //   component: './account/login',
-  //   title: 'DAGE WALLET',
-  // }, // 登录
   {
     path: '/',
     redirect: './homepage',
     component: './account/homepage',
     title: 'DAGE WALLET',
   }, // 入口页
+
+  // 四大入口
+  {
+    path: '/main',
+    component: '../layouts/MainLayout',
+    routes: [
+      { path: '/main/home', title: 'DAGE WALLET', component: './home' }, // 首页
+      { path: '/main/user', title: 'DAGE WALLET', component: './user/home' }, // 个人中心
+      { path: '/main/ecological', title: 'DAGE WALLET', component: './ecological/home' }, //生态
+      { path: '/main/assets', title: 'DAGE WALLET', component: './assets' }, // 资产
+    ],
+  },
+
+  {
+    path: '/home',
+    component: '../layouts/BasicLayout',
+    routes: [
+      { path: '/home/order-detail', title: 'DAGE WALLET', component: './home/order_detail' }, // 首页
+    ],
+  },
+
   {
     path: '/',
     component: '../layouts/BasicLayout',
@@ -54,16 +69,7 @@ export default [
         title: 'DAGE WALLET',
         component: './user/switchLang',
       }, // 语言切换
-      {
-        path: '/home',
-        component: '../layouts/MainLayout',
-        routes: [
-          { path: '/home/wallet', title: 'DAGE WALLET', component: './wallet' }, // 首页
-          { path: '/home/user', title: 'DAGE WALLET', component: './user/home' }, // 个人中心
-          { path: '/home/ecological', title: 'DAGE WALLET', component: './ecological/home' }, //生态
-          { path: '/home/assets', title: 'DAGE WALLET', component: './assets' }, // 资产
-        ],
-      },
+
 
       { path: '/wallet/flow', title: 'DAGE WALLET', component: './wallet/flow' }, // 资金流水
       { path: '/wallet/recharge', title: 'DAGE WALLET', component: './wallet/recharge' }, // 充币

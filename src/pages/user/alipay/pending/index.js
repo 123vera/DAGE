@@ -8,7 +8,7 @@ import { formatMessage } from 'umi-plugin-locale';
 function Pending() {
   return (
     <div className={styles.pass}>
-      <Header icon={Icons.arrowLeft} onHandle={() => router.push('/home/user')} />
+      <Header icon={Icons.arrowLeft} onHandle={() => router.push('/main/user')} />
       <article>
         <img src={Images.alipayPending} alt="" />
         <p>

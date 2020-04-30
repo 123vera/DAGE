@@ -16,7 +16,7 @@ class Reject extends Component {
     const { initInfo } = this.props.alipay;
     return (
       <div className={styles.pass}>
-        <Header icon={Icons.arrowLeft} onHandle={() => router.push('/home/user')} />
+        <Header icon={Icons.arrowLeft} onHandle={() => router.push('/main/user')} />
         <article>
           <img src={Images.alipayReject} alt="" />
           <p>

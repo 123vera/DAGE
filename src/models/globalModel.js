@@ -79,8 +79,8 @@ export default {
     SetupHistory({ dispatch, history }) {
       history.listen(location => {
         const list = [
-          '/home/wallet',
-          '/home/user',
+          '/main/home',
+          '/main/user',
           '/wallet/recharge',
           '/wallet/withdraw',
           '/exchange',
