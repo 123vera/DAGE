@@ -76,7 +76,7 @@ export default [
         title: 'DAGE WALLET',
         component: './wallet/withdraw-record',
       }, // 提币记录
-      { path: '/wallet/reward-detail', title: 'DAGE WALLET', component: './wallet/reward-detail' }, // 收益详情
+      { path: '/wallet/reward-detail', title: 'DAGE WALLET', component: './wallet/reward-detail' }, // 推广收益详情
       // { path: '/wallet/mining-detail', title: 'DAGE WALLET', component: './wallet/mining-detail' }, // 挖矿详情
 
       { path: '/exchange', title: 'DAGE WALLET', component: './ecological/exchange' }, // 去中心化交易中心
@@ -108,8 +108,8 @@ export default [
       { path: '/game', title: 'DAGE WALLET', component: './game/index' }, // 游戏中心
       { path: '/game_list', title: 'DAGE WALLET', component: './game/list' }, // 游戏列表
 
-      { path: '/dgt/withdraw', title: 'DAGE WALLET', component: './dgt/withdraw' }, // dgt法币提现
-      { path: '/dgt/withdraw/record', title: 'DAGE WALLET', component: './dgt/withdraw/record' }, // dgt法币提现
+      { path: '/dgt/withdraw/:step', title: 'DAGE WALLET', component: './dgt/withdraw' }, // dgt法币提现
+      { path: '/dgt/record', title: 'DAGE WALLET', component: './dgt/withdrawRecord' }, // dgt法币提现
 
       { component: './404' },
     ],

@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
 import styles from './index.less';
-import Header from '../../../../components/common/Header';
+import Header from '../../../components/common/Header';
 import { connect } from 'dva';
-import { router } from 'umi';
-import { Icons } from '../../../../assets';
+import { Icons } from '../../../assets';
 import dayjs from 'dayjs';
-import ListView from '../../../../components/common/ListView';
+import ListView from '../../../components/common/ListView';
 import { formatMessage } from 'umi/locale';
-import { downFixed } from '../../../../utils/utils';
+import { downFixed } from '../../../utils/utils';
 
 const withdrawStatus = [
-
   {
     value: 0,
     label: formatMessage({ id: `RECORD_WITHDRAW` }),
@@ -28,7 +26,7 @@ const withdrawStatus = [
   },
   {
     value: -2,
-    label: '转发失败',
+    label: formatMessage({ id: `DGT_RECORD_STATUS_FAIL` }),
     background: '#6D778B',
   },
 ];
@@ -67,30 +65,27 @@ class Index extends Component {
     return (
       <div className={styles.withdrawRecord}>
         <section className={styles.header}>
-          <Header
-            icon={Icons.arrowLeft}
-            title={formatMessage({ id: `RECORD_TITLE` })}
-            // onHandle={() => router.push(`/wallet/withdraw?type=${type}`)}
-            onHandle={() => router.goBack()}
-          />
+          <Header icon={Icons.arrowLeft} title={formatMessage({ id: `FIAT_WITHDRAWAL_RECORD` })} />
         </section>
         <ListView hasMore={hasMore} onLoadMore={this.getWithdrawRecord}>
           <ul>
             {list.map(item => (
               <li key={item.userId}>
                 <div className={styles.row}>
-                  <span className={styles.status}
-                        style={{ background: this.getStatus(item.status).background }}>
+                  <span
+                    className={styles.status}
+                    style={{ background: this.getStatus(item.status).background }}
+                  >
                     {this.getStatus(item.status).label}
                   </span>
                 </div>
                 <div className={styles.row}>
-                  订单号：{item.orderNo}
+                  {formatMessage({ id: `DGT_ALIPAY_ORDERID` })}
+                  {item.orderNo}
                 </div>
                 <div className={styles.row}>
                   <small>
-                    {formatMessage({ id: `RECORD_LI_TIME` })}
-                    ：
+                    {formatMessage({ id: `RECORD_LI_TIME` })}：
                     {dayjs(item.addTime * 1000).format('YYYY.MM.DD HH:mm')}
                   </small>
                   <span>{downFixed(item.num)}</span>

@@ -17,22 +17,27 @@ function MiningDetail() {
   const [list, setList] = useState([]);
 
   useEffect(() => {
-    console.log(+new Date() / 1000 + 1000);
-    // getMining();
+    // console.log(+new Date() / 1000 + 1000);
+    getMining();
   }, [getMining]);
 
-  const getMining = useCallback(callback => {
-    OtcApi.otcDetail({ type: 'mining', page }).then(res => {
-      console.log(res);
-      if (res.status === 1) {
-        setInfo(res.data);
-        setList([...list, ...res.data.list]);
-        setPage(page + 1);
-        setHasMore(row === res.data.list.length);
-      }
-      callback && callback();
-    });
-  });
+  const getMining = useCallback(
+    callback => {
+      // OtcApi.otcDetail({ type: 'mining', page }).then(res => {
+      OtcApi.otcDetail({ page, row }).then(res => {
+        console.log(res);
+        if (res.status === 1) {
+          setInfo(res.data);
+          setList([list, res.data.list]);
+          // setList([...list, ...res.data.list]);
+          setPage(page + 1);
+          setHasMore(row === res.data && res.data.list.length);
+        }
+        callback && callback();
+      });
+    },
+    [list, page, row],
+  );
 
   const addZero = num => {
     return num < 10 ? '0' + num : num;
@@ -49,45 +54,51 @@ function MiningDetail() {
     if (type === 'm') return addZero(minute);
   };
 
+  console.log(info);
+
   return (
     <div className={styles.miningDetail}>
       <Header icon={Icons.arrowLeft} title={formatMessage({ id: `MINING_DETAIL_TITLE` })} />
       <section>
-        <p>正在挖矿</p>
+        <p>{formatMessage({ id: `OTC_MINING_DETAIL_SUBTITLE` })}</p>
         <div className={styles.summary}>
           <span>
             {downFixed(info.rtotal)}
             <i>RMB</i>
           </span>
-          <small>约合 {downFixed(info.utotal)} USD</small>
+          <small>
+            {formatMessage({ id: `OTC_MINING_DETAIL_APPROX` })} {downFixed(info.utotal)} USD
+          </small>
         </div>
         <p>
-          <small>挖矿中的资金</small>
+          <small>{formatMessage({ id: `OTC_MINING_DETAIL_SMALL_01` })}</small>
           <time>
             {getLastTime(info.lasttime, 'H')}小时
             {getLastTime(info.lasttime, 'm')}分
           </time>
-          <small>后以USDT形式原路返回</small>
+          <small>{formatMessage({ id: `OTC_MINING_DETAIL_SMALL_02` })}</small>
         </p>
       </section>
       <section>
-        <p>流水明细</p>
+        <p>{formatMessage({ id: `OTC_MINING_DETAIL_NAME` })}</p>
         <ListView hasMore={hasMore} onLoadMore={getMining}>
-          <ul>
-            {list.map(otc => (
-              <li key={otc.addTime}>
+          {/* <ul>
+            {list.map((otc, key) => (
+              <li key={key.toString()}>
                 <div className={styles.label}>
                   {formatMessage({ id: `MINING_DETAIL_MONOMER` })}
-                  <small>{dayjs(otc.addTime * 1000).format('YYYY-MM-DD HH:mm')}</small>
+                  <small>
+                    {(otc.addTime && dayjs(otc.addTime * 1000).format('YYYY-MM-DD HH:mm')) || '--'}
+                  </small>
                 </div>
                 <div className={styles.value}>
-                  <span className={Number(otc.num) < 0 ? styles.negative : ''}>
-                    {downFixed(otc.num)} {otc.type.toLocaleUpperCase()}
+                  <span className={otc.num && Number(otc.num) < 0 ? styles.negative : ''}>
+                    {downFixed(otc.num)} {otc.type && otc.type.toUpperCase()}
                   </span>
                 </div>
               </li>
             ))}
-          </ul>
+          </ul> */}
         </ListView>
       </section>
     </div>

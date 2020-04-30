@@ -62,31 +62,31 @@ class OtcApi {
    **/
   static otcDetail(options) {
     // return onlinePost('/otc/otclist', options);
-    // return onlinePost('/userasset/rewardlist', options);
-    return Promise.resolve({
-      'status': 1,
-      'msg': '操作成功',
-      'data': {
-        'utotal': 0,
-        'rtotal': 0,
-        'lasttime': 1587917035 + 1000,
-        'ratio': 100,
-        'list': [
-          {
-            'type': 'dgt',
-            'num': '100.00000000',
-            'remark': '参与挖矿',
-            'addTime': 1587566804,
-          },
-          {
-            'type': 'dgt',
-            'num': '100.00000000',
-            'remark': '参与挖矿',
-            'addTime': 1587566712,
-          },
-        ],
-      },
-    });
+    return onlinePost('/otc/rmbwithdrawallist', options);
+    // return Promise.resolve({
+    //   status: 1,
+    //   msg: '操作成功',
+    //   data: {
+    //     utotal: 0,
+    //     rtotal: 0,
+    //     lasttime: 1587917035 + 1000,
+    //     ratio: 100,
+    //     list: [
+    //       {
+    //         type: 'dgt',
+    //         num: '100.00000000',
+    //         remark: '参与挖矿',
+    //         addTime: 1587566804,
+    //       },
+    //       {
+    //         type: 'dgt',
+    //         num: '100.00000000',
+    //         remark: '参与挖矿',
+    //         addTime: 1587566712,
+    //       },
+    //     ],
+    //   },
+    // });
   }
 }
 

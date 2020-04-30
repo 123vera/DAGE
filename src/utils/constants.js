@@ -27,11 +27,11 @@ export const LANG = ['en-US', 'zh-CN', 'ko-KR', 'vi-VN', 'ja-JP', 'th-TH'];
 
 export const LEVEL_LIST = () => [
   '--',
-  formatMessage({ id: `PROMOTION_LEVEL_01` }),
-  formatMessage({ id: `PROMOTION_LEVEL_02` }),
-  formatMessage({ id: `PROMOTION_LEVEL_03` }),
-  formatMessage({ id: `PROMOTION_LEVEL_04` }),
-  formatMessage({ id: `PROMOTION_LEVEL_05` }),
+  formatMessage({ id: `PROMOTION_NAME_01` }),
+  formatMessage({ id: `PROMOTION_NAME_02` }),
+  formatMessage({ id: `PROMOTION_NAME_03` }),
+  formatMessage({ id: `PROMOTION_NAME_04` }),
+  formatMessage({ id: `PROMOTION_NAME_05` }),
 ];
 
 export const COUNTRIES_LIST = [

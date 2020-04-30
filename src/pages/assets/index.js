@@ -46,7 +46,7 @@ class Assets extends Component {
             <li onClick={() => router.push('/wallet/recharge')}>
               {formatMessage({ id: `ASSETS_RECHANGE` })}
             </li>
-            <li onClick={() => router.push('/wallet/withdraw?type=usdt')}>
+            <li onClick={() => router.push('/wallet/withdraw?type=USDT')}>
               {formatMessage({ id: `ASSETS_WITHDRAW` })}
             </li>
             <li onClick={() => router.push(transferUrl)}>

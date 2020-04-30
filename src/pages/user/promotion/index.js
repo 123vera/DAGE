@@ -41,12 +41,14 @@ class Index extends Component {
       recommendCount,
       teamLevelOtc,
       teamLevel,
+      teamCount,
     } = this.props.promotion;
 
+    console.log(teamCount);
     return (
       <div id={styles.promotion}>
         <PageHeader
-          title={formatMessage({ id: `PROMOTION_TITLE_01` })}
+          title={formatMessage({ id: `PROMOTION_TITLE_02` })}
           leftContent={{ icon: ARROW_LEFT }}
           rightContent={{
             text: (
@@ -71,16 +73,13 @@ class Index extends Component {
             </div>
             <h2>
               {teamLevelOtc !== 0
-                ? `${LEVEL_LIST()[teamLevelOtc || 0]}${formatMessage({
-                    id: `PROMOTION_POINT_02`,
-                  })}`
+                ? `${LEVEL_LIST()[teamLevelOtc || 0]}`
                 : formatMessage({ id: `PROMOTION_NONE` })}
             </h2>
           </div>
-          <img src={DAGE_LOGO} alt="DAGE_LOGO" />
+          {/* <img src={DAGE_LOGO} alt="DAGE_LOGO" /> */}
         </section>
 
-        {/* 版本2.0临时隐藏 */}
         <section className={styles.explain}>
           <h4>
             {formatMessage({ id: `PROMOTION_RECOMMENDATION` })}
@@ -94,17 +93,26 @@ class Index extends Component {
           </ul>
         </section>
 
-        {/* 版本2.0临时隐藏 */}
+        {/* 伞下总人数 */}
         <section className={styles.explain}>
           <ul className={styles.explainList}>
             <li>
-              <span>{formatMessage({ id: `PROMOTION_TOTAL` })}</span>
-              <p>{achievement && achievement.dgt}&nbsp;DGT</p>
+              <span>伞下总人数</span>
+              <p className={styles.first}>{teamCount}</p>
             </li>
           </ul>
         </section>
 
-        {/* 版本2.0临时隐藏 */}
+        {/* 团队总业绩 */}
+        <section className={styles.explain}>
+          <ul className={styles.explainList}>
+            <li>
+              <span>{formatMessage({ id: `PROMOTION_TOTAL_01` })}</span>
+              <p>{(achievement && achievement.dgt) || 0} DGT</p>
+            </li>
+          </ul>
+        </section>
+
         <section className={styles.explain}>
           <ul className={styles.explainList}>
             <li>

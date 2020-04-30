@@ -97,7 +97,7 @@ class Recharge extends Component {
             text={wallet}
             onCopy={() => Toast.info(formatMessage({ id: `USER_COPIED` }))}
           >
-            <span>{formatMessage({ id: `RECHARGE_ADDRESS` })}</span>
+            <span className={styles.cpoyBtn}>{formatMessage({ id: `RECHARGE_ADDRESS` })}</span>
           </CopyToClipboard>
         </div>
         <aside>

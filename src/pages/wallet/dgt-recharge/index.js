@@ -62,8 +62,9 @@ class Index extends Component {
 
   render() {
     const { showMenus } = this.state;
-    const { ratio, amountOptions, amount, minAmount, maxAmount } = this.props.dgtRecharge;
-    const realAmount = Number(amount) * Number(ratio);
+    const { amountOptions, amount, minAmount, maxAmount } = this.props.dgtRecharge;
+    // const { ratio } = this.props.dgtRecharge;
+    // const realAmount = Number(amount) * Number(ratio);
 
     return (
       <div id={styles.dgtRecharge}>
@@ -71,11 +72,11 @@ class Index extends Component {
           <Header
             icon={Icons.arrowLeft}
             title={formatMessage({ id: `DGT_RECHARGE_TITLE` })}
-            rightContent={{
-              icon: Icons.record,
-              // text: formatMessage({ id: `DGT_RECORD_TITLE` }),
-              onHandle: () => router.push('/wallet/dgt_record'),
-            }}
+            // rightContent={{
+            //   icon: Icons.record,
+            //   // text: formatMessage({ id: `DGT_RECORD_TITLE` }),
+            //   onHandle: () => router.push('/wallet/dgt_record'),
+            // }}
             onHandle={() => router.push('/home/wallet')}
           />
           <div className={`${styles.menus} ${showMenus ? styles.show : ''}`}>
@@ -94,9 +95,9 @@ class Index extends Component {
               onChange={e => this.changeAmount(e.target.value)}
             />
           </label>
-          <p>
+          {/* <p>
             {formatMessage({ id: `DGT_RECHARGE_RATIO` })}1 CNY = {ratio} DGT
-          </p>
+          </p> */}
         </section>
 
         <section className={styles.amountList}>
@@ -111,10 +112,10 @@ class Index extends Component {
               </li>
             ))}
           </ul>
-          <p>
+          {/* <p>
             {formatMessage({ id: `DGT_RECHARGE_ACTUAL_ARRIVAL` })}
             {realAmount || '--'} DGT
-          </p>
+          </p> */}
           <button className={`${styles.btn} ${styles.submit}`} onClick={this.submit}>
             {formatMessage({ id: `DGT_RECHARGE_ALIPAY` })}
           </button>
@@ -123,8 +124,8 @@ class Index extends Component {
         <ul className={styles.tips}>
           <li>
             {formatMessage({ id: `DGT_RECHARGE_TIPS_00` })}
-            {minAmount} CNY {formatMessage({ id: `DGT_RECHARGE_TIPS_01` })}
-            {maxAmount} CNY {formatMessage({ id: `DGT_RECHARGE_TIPS_01_A` })}。
+            {minAmount} RMB {formatMessage({ id: `DGT_RECHARGE_TIPS_01` })}
+            {maxAmount} RMB {formatMessage({ id: `DGT_RECHARGE_TIPS_01_A` })}。
           </li>
           <li>{formatMessage({ id: `DGT_RECHARGE_TIPS_02` })}</li>
           <li>{formatMessage({ id: `DGT_RECHARGE_TIPS_03` })}</li>

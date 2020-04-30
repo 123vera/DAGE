@@ -33,7 +33,7 @@ class OtcMining extends Component {
 
     setTimeout(() => {
       this.coinIni();
-    }, 200);
+    }, 400);
   };
 
   otcInit = () => {

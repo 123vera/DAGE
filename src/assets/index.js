@@ -7,6 +7,7 @@ export const Icons = {
   arrowWhiteRight: require('./icons/arrow-white-right.png'),
   arrowWhiteLeft: require('./icons/arrow-left-white.png'),
   search: require('./icons/search.png'),
+  iconInvite: require('./icons/icon-invite.png'),
   list: require('./icons/list.png'),
   more: require('./icons/more.png'),
   dIcon: require('./icons/d-icon.png'),

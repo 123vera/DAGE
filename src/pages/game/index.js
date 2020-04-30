@@ -96,8 +96,8 @@ class Game extends Component {
             title={formatMessage({ id: `GAME_TITLE` })}
             leftContent={{ icon: Icons.arrowWhiteLeft }}
             rightContent={{
-              text: '提现',
-              onHandle: () => router.push('/dgt/withdraw'),
+              text: formatMessage({ id: `FIAT_WITHDRAWAL` }),
+              onHandle: () => (window.location.href = '/dgt/withdraw/1'),
             }}
           />
           <ul>

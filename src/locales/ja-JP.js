@@ -134,6 +134,7 @@ export default {
 
   PROMOTION_TITLE: `Myプロモーション`,
   PROMOTION_TITLE_01: `Myレベル`,
+  PROMOTION_TITLE_02: `私のチーム`,
   PROMOTION_USER_LEVEL: `現在のユーザーレベル`,
   PROMOTION_INCOME: `昨日のダイナミックマイニング収入`,
   PROMOTION_IMMEDIATE: `今すぐプロモーション`,
@@ -154,8 +155,17 @@ export default {
   PROMOTION_LEVEL_04: `カントリー`,
   PROMOTION_LEVEL_05: `グローバル`,
   PROMOTION_POINT_02: `ノード`,
+
+  PROMOTION_NAME_01: `ブロンズ`,
+  PROMOTION_NAME_02: `シルバー`,
+  PROMOTION_NAME_03: `ゴールド`,
+  PROMOTION_NAME_04: `プラチナ`,
+  PROMOTION_NAME_05: `ダイヤモンド`,
+
   PROMOTION_NONE: `なし`,
   PROMOTION_TOTAL: `過去の日にちの合計ネットワーク収入`,
+  PROMOTION_TOTAL_01: `团队总业绩`,
+  PROMOTION_PEOPLE_NUMBER: `伞下总人数`,
   PROMOTION_STATUS: `ユーザーステータス`,
   PROMOTION_UNACTIVITY: `非アクティブユーザー`,
   PROMOTION_ACTIVITY: `アクティブユーザー`,
@@ -420,13 +430,14 @@ export default {
   OTC_MINING_DETAIL_SUBTITLE: `現在のマイニング`,
   OTC_MINING_DETAIL_APPROX: `おおよそ`,
   // OTC_MINING_DETAIL_SMALL_01: `挖矿中的资金 11小时32分 后以USDT形式原路返回 `,
-  // OTC_MINING_DETAIL_SMALL_01: `マイニングファンドは11時間32分後にUSDTの形で返されます`,
+  // OTC_MINING_DETAIL_SMALL_01: `マイニングファンドは11時間32分後に元本の形で返されます`,
+  // 鉱業の資金は11時間30分後に元本の形で返されます
   OTC_MINING_DETAIL_SMALL_01: `マイニングファンドは`,
-  OTC_MINING_DETAIL_SMALL_02: ` 後に`,
-  OTC_MINING_DETAIL_SMALL_03: ` の形で返されます`,
+  OTC_MINING_DETAIL_SMALL_02: ` 後に元本の形で返されます`,
+  OTC_MINING_DETAIL_SMALL_03: ` `,
   OTC_MINING_DETAIL_NAME: ` 詳細リスト`,
 
-  FIAT_WITHDRAWAL_TITLE: `FIAT通貨を引き出す`,
+  FIAT_WITHDRAWAL_TITLE: `DGT FIAT通貨を引き出す`,
   FIAT_WITHDRAWAL_INPUT: `入力`,
   FIAT_WITHDRAWAL_LABEL_01: `バンク`,
   FIAT_WITHDRAWAL_LABEL_02: `ブランチアカウントを開く`,
@@ -440,4 +451,10 @@ export default {
   FIAT_WITHDRAWAL_PLACEHOLDER_03: `銀行カード番号を入力してください`,
   FIAT_WITHDRAWAL_PLACEHOLDER_04: `銀行口座名を入力してください`,
   FIAT_WITHDRAWAL_PLACEHOLDER_05: `現金の出金額を入力してください`,
+
+  FIAT_WITHDRAWAL_AMOUNT: `引き出し金額`,
+  FIAT_WITHDRAWAL_RECORD: `出金記録`,
+  FIAT_WITHDRAWAL: `引き出す`,
+  FIAT_WITHDRAWAL_PLACEHOLDER_06: `金額を入力してください`,
+  FIAT_RATIO: `為替レート：`,
 };

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styles from './index.less';
 import { connect } from 'dva';
 import { router } from 'umi';
-import Header from '../../components/common/Header';
+import PageHeader from '../../components/common/PageHeader';
 import { Icons } from '../../assets';
 import { formatMessage } from 'umi/locale';
 
@@ -23,12 +23,27 @@ class Home extends Component {
 
     return (
       <div className={styles.home} onClick={() => this.setState({ showMenus: false })}>
-        <section className={styles.header}>
+        <PageHeader
+          title={formatMessage({ id: `WALLET_HOME` })}
+          rightContent={{
+            text: (
+              <span>
+                <img src={Icons.iconInvite} alt="" />
+              </span>
+            ),
+            onHandle: () => router.push('/referral_code'),
+          }}
+          leftContent={{
+            icon: Icons.list,
+            onHandle: () => router.push('/select_account'),
+          }}
+        />
+        {/* <section className={styles.header}>
           <Header
             title={formatMessage({ id: `WALLET_HOME` })}
             rightContent={{
               text: '邀请好友',
-              textStyle: {color: 'rgb(243, 175, 102)'},
+              textStyle: { color: 'rgb(243, 175, 102)' },
               onHandle: () => router.push('/referral_code'),
             }}
             leftContent={{
@@ -36,36 +51,35 @@ class Home extends Component {
               onHandle: () => router.push('/select_account'),
             }}
           />
-        </section>
+        </section> */}
         <section className={styles.cards}>
           <ul className={!isChinese ? styles.foreigner : ''}>
             <li onClick={() => router.push('/wallet/recharge')}>
-              <img src={Icons.dIcon} alt=""/>
+              <img src={Icons.dIcon} alt="" />
               <span>数字货币</span>
               <small>USDT/BTC/ETH</small>
             </li>
-            {
-              isChinese ?
-                <li onClick={() => router.push('/wallet/dgt_recharge')}>
-                  <img src={Icons.dIcon} alt=""/>
-                  <span>法币充值</span>
-                  <small>银行卡/境内支付宝</small>
-                </li> :
-                <li onClick={() => router.push('/wallet/dgt_recharge')}>
-                  <img src={Icons.dIcon} alt=""/>
-                  <span>邀请好友</span>
-                  <small>立享更多收益</small>
-                </li>
-            }
+            {isChinese ? (
+              <li onClick={() => router.push('/wallet/dgt_recharge')}>
+                <img src={Icons.dIcon} alt="" />
+                <span>法币充值</span>
+                <small>银行卡/境内支付宝</small>
+              </li>
+            ) : (
+              <li onClick={() => router.push('/wallet/dgt_recharge')}>
+                <img src={Icons.dIcon} alt="" />
+                <span>邀请好友</span>
+                <small>立享更多收益</small>
+              </li>
+            )}
           </ul>
-          {
-            isChinese &&
+          {isChinese && (
             <div className={styles.inviterCard} onClick={() => router.push('/referral_code')}>
               <span>邀请好友使用DAGE</span>
-              <br/>
+              <br />
               <small>立享更多收益</small>
             </div>
-          }
+          )}
         </section>
         <section>
           <div className={styles.notice} onClick={() => router.push('/notices')}>
@@ -74,7 +88,7 @@ class Home extends Component {
             </p>
           </div>
         </section>
-        <Mining myInfo={myInfo}/>
+        <Mining myInfo={myInfo} />
       </div>
     );
   }
@@ -101,18 +115,17 @@ class Mining extends Component {
     return (
       <div className={styles.mining}>
         <h3>
-          <img src={Icons.oIcon} alt=""/>
+          <img src={Icons.oIcon} alt="" />
           {formatMessage({ id: `WALLET_POG_TITLE` })}
         </h3>
-        {
-          !isChinese &&
+        {!isChinese && (
           <p className={styles.alipay}>
             <span className={styles.left}>{formatMessage({ id: `HOME_SECTION_MAIN_01` })}</span>
             <span className={styles.certification}>
-                  <Certification status={certification}/>
-                </span>
+              <Certification status={certification} />
+            </span>
           </p>
-        }
+        )}
         <ul>
           <li onClick={() => router.push('/mining-detail/otc')}>
             <span>正在挖矿</span>

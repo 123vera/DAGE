@@ -44,7 +44,7 @@ class Home extends Component {
       // },
       {
         icon: MY_LEVEL,
-        text: formatMessage({ id: `USER_SECTION_07` }),
+        text: formatMessage({ id: `PROMOTION_TITLE_02` }),
         url: `/promotion`,
       },
       {

@@ -134,6 +134,7 @@ export default {
 
   PROMOTION_TITLE: `Giới thiệu của Tôi`,
   PROMOTION_TITLE_01: `Cấp độ của Tôi`,
+  PROMOTION_TITLE_02: `Đội của tôi`,
   PROMOTION_USER_LEVEL: `Cấp độ người dùng hiện tại`,
   PROMOTION_INCOME: `Doanh thu khai thác chủ động hôm qua`,
   PROMOTION_IMMEDIATE: `Quảng bá ngay`,
@@ -154,8 +155,17 @@ export default {
   PROMOTION_LEVEL_04: `Quốc gia`,
   PROMOTION_LEVEL_05: `Toàn cầu`,
   PROMOTION_POINT_02: `Nốt`,
+
+  PROMOTION_NAME_01: `Đồng`,
+  PROMOTION_NAME_02: `Bạc`,
+  PROMOTION_NAME_03: `Vàng`,
+  PROMOTION_NAME_04: `Bạch kim`,
+  PROMOTION_NAME_05: `Diamond`,
+
   PROMOTION_NONE: `Không có`,
   PROMOTION_TOTAL: `Tổng doanh thu mạng lưới ngày hôm trước`,
+  PROMOTION_TOTAL_01: `团队总业绩`,
+  PROMOTION_PEOPLE_NUMBER: `伞下总人数`,
   PROMOTION_STATUS: `Trạng thái người dùng`,
   PROMOTION_UNACTIVITY: `Người dùng không hoạt động`,
   PROMOTION_ACTIVITY: `Người dùng hoạt động`,
@@ -435,9 +445,9 @@ export default {
   OTC_MINING_DETAIL_TITLE: `Chi tiết khai thác`,
   OTC_MINING_DETAIL_SUBTITLE: `Tiền tệ khai thác`,
   OTC_MINING_DETAIL_APPROX: `Xấp xỉ`,
-  // OTC_MINING_DETAIL_SMALL_01: ` The Quỹ khai thác sẽ được trả lại dưới dạng USDT sau 11 giờ và 32 phút`,
-  OTC_MINING_DETAIL_SMALL_01: ` The Quỹ khai thác sẽ được trả lại dưới dạng `,
-  OTC_MINING_DETAIL_SMALL_02: `sau `,
+  // OTC_MINING_DETAIL_SMALL_01: ` The Quỹ khai thác sẽ được trả lại dưới dạng tiền gốc sau 11 giờ và 32 phút`,
+  OTC_MINING_DETAIL_SMALL_01: `The Quỹ khai thác sẽ được trả lại dưới dạng tiền gốc sau `,
+  OTC_MINING_DETAIL_SMALL_02: ` `,
   OTC_MINING_DETAIL_SMALL_03: ` `,
   OTC_MINING_DETAIL_NAME: ` Danh sách chi tiết`,
 
@@ -455,4 +465,10 @@ export default {
   FIAT_WITHDRAWAL_PLACEHOLDER_03: `Vui lòng nhập số thẻ ngân hàng`,
   FIAT_WITHDRAWAL_PLACEHOLDER_04: `Vui lòng nhập tên tài khoản ngân hàng`,
   FIAT_WITHDRAWAL_PLACEHOLDER_05: `Vui lòng nhập số tiền rút`,
+
+  FIAT_WITHDRAWAL_AMOUNT: `提现金额`,
+  FIAT_WITHDRAWAL_RECORD: `提现记录`,
+  FIAT_WITHDRAWAL: `提现`,
+  FIAT_WITHDRAWAL_PLACEHOLDER_06: `输入金额`,
+  FIAT_RATIO: `汇率：`,
 };
