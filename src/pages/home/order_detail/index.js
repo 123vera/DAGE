@@ -26,8 +26,7 @@ function OrderDetail() {
 
   useEffect(() => {
     getOrderDetail();
-  }, [getOrderDetail]);
-
+  }, []);
 
   return <div className={styles.orderDetail}>
     <Header title={'订单详情'} icon={Icons.arrowLeft}/>

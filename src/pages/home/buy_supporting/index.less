@@ -1,44 +1,96 @@
 @import '../../../styles/mixin.less';
 
-ul {
+.buySupporting {
+  line-height: 44px;
+}
+
+.label {
+  padding: 20px 60px;
+}
+
+.gears {
   .clearUl;
-  padding: 0 60px;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  padding: 0 30px;
 
   li {
-    padding: 26px 0;
-    border-bottom: 2px solid rgba(26, 32, 46, 1);
-  }
+    width: 33.333%;
+    margin: 20px 0;
+    padding: 0 30px;
 
-  p {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 10px 0;
-    line-height: 44px;
-    font-size: 24px;
-    color: @font-sub-color;
-
-    &.light {
-      color: @font-color;
-    }
-
-    label {
-      width: 160px;
+    &.active span {
+      border: 2px solid;
+      border-image: linear-gradient(90deg, rgba(1, 118, 255, 1), rgba(124, 1, 255, 1)) 2 2;
     }
 
     span {
-      flex: 1;
-      .overflow(1);
-    }
+      display: block;
+      width: 100%;
+      height: 80px;
 
-    button {
-      padding: 0 20px;
-      height: 34px;
-      background: rgba(0, 120, 255, 1);
-      border-radius: 16px;
-      font-size: 20px;
-      border: none;
-      color: @font-color;
+      border: 2px solid rgba(109, 119, 139, 1);
+      text-align: center;
+      line-height: 80px;
     }
+  }
+}
+
+.income {
+  padding: 20px 60px 40px;
+  color: @font-sub-color;
+
+  p:first-child {
+    margin-bottom: 4px;
+  }
+
+  small {
+    font-size: 24px;
+  }
+}
+
+.payment {
+  padding: 10px 60px 40px;
+
+  .coin {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    box-sizing: border-box;
+    height: 90px;
+    padding: 0 30px;
+    background: rgba(26, 32, 46, 1);
+    border-radius: 8px;
+  }
+
+  aside {
+    margin-top: 20px;
+    text-align: right;
+    font-size: 24px;
+    color: @font-sub-color;
+  }
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 60px;
+}
+
+.btnBox {
+  padding: 100px 60px;
+
+  button {
+    width: 100%;
+    height: 80px;
+    background: linear-gradient(315deg, rgba(126, 0, 255, 1) 0%, rgba(0, 120, 255, 1) 100%);
+    border-radius: 52px;
+    border: none;
+    color: #fff;
   }
 }

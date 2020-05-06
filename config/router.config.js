@@ -22,7 +22,8 @@ export default [
     path: '/home',
     component: '../layouts/BasicLayout',
     routes: [
-      { path: '/home/order-detail', title: 'DAGE WALLET', component: './home/order_detail' }, // 首页
+      { path: '/home/order-detail', title: 'DAGE WALLET', component: './home/order_detail' }, // 订单详情
+      { path: '/home/buy-supporting', title: 'DAGE WALLET', component: './home/buy_supporting' }, // 购买配套
     ],
   },
 
