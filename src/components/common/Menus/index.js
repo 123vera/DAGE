@@ -23,9 +23,16 @@ import React, { Component } from 'react';
 
 class Menus extends Component {
   render() {
-    const { menus, onHandle, active, hasBorder, textAlign, maxWidth = '2.1rem' } = this.props;
+    const { menus, onHandle, active, hasBorder, textAlign, maxWidth = '2.1rem', isFull = false } = this.props;
     return (
-      <div style={{ maxWidth }} className={`${styles.menus} ${hasBorder ? styles.hasBorder : ''}`}>
+      <div
+        style={{ maxWidth }}
+        className={`
+        ${styles.menus}
+        ${hasBorder ? styles.hasBorder : ''}
+        ${isFull ? styles.full : ''}
+        `}
+      >
         <ul className={styles.menuList} onClick={e => e.stopPropagation()}>
           {menus.map(menu => (
             <li
@@ -36,7 +43,7 @@ class Menus extends Component {
             >
               {menu.icon && (
                 <i>
-                  <img src={menu.icon} style={{ width: menu.width }} alt="" />
+                  <img src={menu.icon} style={{ width: menu.width }} alt=""/>
                 </i>
               )}
               {menu.label && <span>{menu.label}</span>}

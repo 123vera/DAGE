@@ -4,6 +4,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { Icons } from '../../../assets';
 import { HomeApi } from '../../../services/api';
 import ListView from '../../../components/common/ListView';
+import dayjs from 'dayjs';
 
 function OrderDetail() {
   const [page, setPage] = useState(1);
@@ -32,30 +33,30 @@ function OrderDetail() {
     <Header title={'订单详情'} icon={Icons.arrowLeft}/>
     <ListView hasMore={hasMore} onLoadMore={getOrderDetail}>
       <ul>
-        {list.length && list.map(order =>
-          <li key={order.orderNum}>
+        {list.length > 0 && list.map(order =>
+          <li key={order.orderNo}>
             <p className={styles.light}>
               <label>订单号</label>
-              <span>{order.orderNum}</span>
+              <span>{order.orderNo}</span>
             </p>
             <p>
               <label>时间</label>
-              <span>123243455464645</span>
+              <span>{dayjs(order.addTime * 1000).format('YYYY-MM-DD HH:mm')}</span>
             </p>
             <p>
               <label>总释放</label>
-              <span>123243455464645</span>
+              <span>{order.usdt}</span>
             </p>
             <p>
               <label>已释放</label>
-              <span>123243455464645</span>
+              <span>{order.returnNum}</span>
             </p>
             <p>
               <label>释放比例</label>
-              <span>123243455464645</span>
-              <button>释放中</button>
+              <span>{order.ratio}</span>
+              <button>{order.status === 1 ? '释放中' : '已释放'}</button>
             </p>
-          </li>,
+          </li>
         )}
       </ul>
     </ListView>

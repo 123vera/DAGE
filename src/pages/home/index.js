@@ -127,9 +127,7 @@ class Mining extends Component {
         </ul>
         <div className={styles.btnBox}>
           <button
-            onClick={() =>
-              isChinese ? router.push('/otc-mining/inland') : router.push('/otc-mining/abroad')
-            }
+            onClick={() =>router.push('/home/buy-supporting')}
           >
             {'购买配套'}
           </button>
