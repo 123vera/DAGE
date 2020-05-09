@@ -95,6 +95,8 @@ export default {
   ECOLOGICAL_CURRENCY_SUBTITLE_04: `リアルタイムでマイニング詳細をモニターします`,
   ECOLOGICAL_CURRENCY_TITLE_05: `DEPにマージします`,
   ECOLOGICAL_CURRENCY_SUBTITLE_05: `DEPから高額のOTCマイニングリワードをゲットします`,
+  ECOLOGICAL_CURRENCY_TITLE_06: `ソーシャルライブ`,
+  ECOLOGICAL_CURRENCY_SUBTITLE_06: `ブロックチェーンソーシャルの新しいアイデア`,
 
   USER_TITLE: `ユーザーセンター`,
   USER_COPIED: `コピーしました`,
@@ -164,8 +166,8 @@ export default {
 
   PROMOTION_NONE: `なし`,
   PROMOTION_TOTAL: `過去の日にちの合計ネットワーク収入`,
-  PROMOTION_TOTAL_01: `团队总业绩`,
-  PROMOTION_PEOPLE_NUMBER: `伞下总人数`,
+  PROMOTION_TOTAL_01: `チームのパフォーマンス`,
+  PROMOTION_PEOPLE_NUMBER: `傘下の総人数`,
   PROMOTION_STATUS: `ユーザーステータス`,
   PROMOTION_UNACTIVITY: `非アクティブユーザー`,
   PROMOTION_ACTIVITY: `アクティブユーザー`,
@@ -400,10 +402,13 @@ export default {
   HOME_DIGITAL_CASH_DESC: `USDT/BTC/ETH`,
   HOME_LEGAL_TENDER: `FIATをリロード`,
   HOME_LEGAL_TENDER_DESC: `バンクカード / ドメスティックAlipay`,
+  HOME_GAME_CENTER: `ゲームセンター`,
+  HOME_GAME_CENTER_DESC: `分散型ゲームセンター`,
   HOME_INVITE_FRIEND: `友人を招待`,
   HOME_ADV_INVITE_FRIEND: `DAGEを使って友人を招待`,
   HOME_ADV_INVITE_FRIEND_DESC: `さらなる収入をエンジョイ`,
   HOME_OTC_CN: `中国ユーザーはAlipay認証が必要です`,
+  HOME_MINING_POOL: `ゲームマイニングプール`,
   HOME_OTC_MINING: `現在のマイニング`,
   HOME_OTC_TEAM_REVENUE: `昨日のチーム収入`,
 

@@ -3,8 +3,9 @@ import styles from './index.less';
 import { connect } from 'dva';
 import { router } from 'umi';
 import PageHeader from '../../components/common/PageHeader';
-import {Images, Icons } from '../../assets';
+import { Images, Icons } from '../../assets';
 import { formatMessage } from 'umi/locale';
+import { downFixed } from '../../utils/utils';
 
 @connect(({ wallet, globalModel }) => ({ wallet, globalModel }))
 class Home extends Component {
@@ -42,30 +43,32 @@ class Home extends Component {
           <ul className={!isChinese ? styles.foreigner : ''}>
             <li onClick={() => router.push('/wallet/recharge')}>
               <img src={Icons.dIcon} alt="" />
-              <span>数字货币</span>
+              <span>{formatMessage({ id: `HOME_DIGITAL_CASH` })}</span>
               <small>USDT/BTC/ETH</small>
             </li>
             {isChinese ? (
               <li onClick={() => router.push('/wallet/dgt_recharge')}>
                 <img src={Icons.dIcon} alt="" />
-                <span>法币充值</span>
-                <small>银行卡/境内支付宝</small>
+                <span>{formatMessage({ id: `HOME_LEGAL_TENDER` })}</span>
+                <small>{formatMessage({ id: `HOME_LEGAL_TENDER_DESC` })}</small>
               </li>
             ) : (
-              <li onClick={() => router.push('/wallet/game')}>
+              <li onClick={() => router.push('/game')}>
                 <img src={Icons.dIcon} alt="" />
-                <span>游戏中心</span>
-                <small>基于去中心化的游戏中心</small>
+                <span>{formatMessage({ id: `HOME_GAME_CENTER` })}</span>
+                <small>{formatMessage({ id: `HOME_GAME_CENTER_DESC` })}</small>
               </li>
             )}
           </ul>
           {isChinese && (
-            <div className={styles.gameCard}
-                 style={{backgroundImage: `url(${Images.homeGameBg})`}}
-                 onClick={() => router.push('/game')}>
-              <span>游戏中心</span>
+            <div
+              className={styles.gameCard}
+              style={{ backgroundImage: `url(${Images.homeGameBg})` }}
+              onClick={() => router.push('/game')}
+            >
+              <span>{formatMessage({ id: `HOME_GAME_CENTER` })}</span>
               <br />
-              <small>基于去中心化的游戏中心</small>
+              <small>{formatMessage({ id: `HOME_GAME_CENTER_DESC` })}</small>
             </div>
           )}
         </section>
@@ -84,7 +87,6 @@ class Home extends Component {
 
 export default Home;
 
-
 @connect(({ wallet, globalModel }) => ({ wallet, globalModel }))
 class Mining extends Component {
   state = {
@@ -94,18 +96,19 @@ class Mining extends Component {
   componentDidMount() {
     this.props.dispatch({ type: 'wallet/AlipayInit' });
     this.props.dispatch({ type: 'wallet/OtcDetail' });
+    this.props.dispatch({ type: 'wallet/GetRewardAndAurplus' });
   }
 
   render() {
     const { myInfo } = this.props.globalModel;
-    const { certification } = this.props.wallet;
+    const { certification, teamreward, surplus } = this.props.wallet;
     const isChinese = myInfo.phonePrefix === '86';
 
     return (
       <div className={styles.mining}>
         <h3>
           <img src={Icons.oIcon} alt="" />
-          {'游戏矿池'}
+          {formatMessage({ id: `HOME_MINING_POOL` })}
         </h3>
         {!isChinese && (
           <p className={styles.alipay}>
@@ -116,20 +119,18 @@ class Mining extends Component {
           </p>
         )}
         <ul>
-          <li onClick={() => router.push('/mining-detail/otc')}>
-            <span>正在挖矿</span>
-            <span>7282.33USD</span>
+          <li onClick={() => router.push('/home/order-detail')}>
+            <span>{formatMessage({ id: `HOME_OTC_MINING` })}</span>
+            <span>{downFixed(surplus, 2)} USD</span>
           </li>
           <li onClick={() => router.push('/promotion')}>
-            <span>昨日团队收益</span>
-            <span>7272.33USD</span>
+            <span>{formatMessage({ id: `HOME_OTC_TEAM_REVENUE` })}</span>
+            <span>{downFixed(teamreward, 2)} USD</span>
           </li>
         </ul>
         <div className={styles.btnBox}>
-          <button
-            onClick={() =>router.push('/home/buy-supporting')}
-          >
-            {'购买配套'}
+          <button onClick={() => router.push('/home/buy-supporting')}>
+            {formatMessage({ id: `BUY_TITLE` })}
           </button>
         </div>
       </div>

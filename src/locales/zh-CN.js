@@ -95,6 +95,8 @@ export default {
   ECOLOGICAL_CURRENCY_SUBTITLE_04: `实时查看挖矿详情`,
   ECOLOGICAL_CURRENCY_TITLE_05: `合成DEP`,
   ECOLOGICAL_CURRENCY_SUBTITLE_05: `合成DEP享更高OTC挖矿奖励`,
+  ECOLOGICAL_CURRENCY_TITLE_06: `社交直播`,
+  ECOLOGICAL_CURRENCY_SUBTITLE_06: `区块链社交新主张`,
 
   USER_TITLE: `个人中心`,
   USER_COPIED: `已复制`,
@@ -412,10 +414,13 @@ export default {
   HOME_DIGITAL_CASH_DESC: `USDT/BTC/ETH`,
   HOME_LEGAL_TENDER: `法币充值`,
   HOME_LEGAL_TENDER_DESC: `银行卡/境内支付宝`,
+  HOME_GAME_CENTER: `游戏中心`,
+  HOME_GAME_CENTER_DESC: `基于去中心化的游戏中心`,
   HOME_INVITE_FRIEND: `邀请好友`,
   HOME_ADV_INVITE_FRIEND: `邀请好友使用DAGE`,
   HOME_ADV_INVITE_FRIEND_DESC: `立享更多收益`,
   HOME_OTC_CN: `中国区用户需要支付宝认证`,
+  HOME_MINING_POOL: `游戏矿池`,
   HOME_OTC_MINING: `正在挖矿`,
   HOME_OTC_TEAM_REVENUE: `昨日团队收益`,
 
@@ -465,4 +470,12 @@ export default {
   FIAT_WITHDRAWAL: `提现`,
   FIAT_WITHDRAWAL_PLACEHOLDER_06: `输入金额`,
   FIAT_RATIO: `汇率：`,
+
+  BUY_TITLE: `购买配套`,
+  BUY_DETAIL_TITLE: `订单详情`,
+  BUY_STALLS: `购买档位`,
+  BUY_TOTAL_REVENUE: `总收益`,
+  BUY_CONFIRM: `确认购买`,
+  BUY_SUCCESS: `购买成功`,
+  BUY_TOTAL_REVENUE_DESC: `EST 及 RC 为立即发放，USDT 为每日释放，释放比例：`,
 };

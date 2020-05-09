@@ -81,7 +81,7 @@ class Mining extends Component {
                 <span>+</span>
                 {downFixed(reward.did)} <i>DID</i>
               </span>
-              <Link to="/mining-detail/otc">{formatMessage({ id: `HOME_SECTION_MAIN_04` })}</Link>
+              <Link to="/mining-detail">{formatMessage({ id: `HOME_SECTION_MAIN_04` })}</Link>
             </div>
           </div>
         )}
