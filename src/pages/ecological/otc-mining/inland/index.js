@@ -248,7 +248,7 @@ class OtcMining extends Component {
           <p>
             <small>
               {formatMessage({ id: `OTC_TIPS_INLAND_01` })}
-              {coin}
+              {'本金'}
               {formatMessage({ id: `OTC_TIPS_INLAND_02` })}
             </small>
           </p>

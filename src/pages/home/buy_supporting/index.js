@@ -1,6 +1,6 @@
 import styles from './index.less';
 import Header from '../../../components/common/Header';
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Icons } from '../../../assets';
 import { router } from 'umi';
 import { HomeApi } from '../../../services/api';
@@ -111,7 +111,6 @@ function BuySupporting() {
               menus={coins.map(i => ({ label: i, value: i }))}
               active={currCoin}
               onHandle={(menu) => {
-                console.log(menu.value);
                 setCoin(menu.value);
                 setShowMenus(false);
               }}
@@ -141,4 +140,3 @@ function BuySupporting() {
 }
 
 export default BuySupporting;
-;

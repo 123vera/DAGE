@@ -24,6 +24,9 @@ export const Icons = {
   home1: require('./icons/home1.png'),
   // home: require('./icons/home.png'),
   homeActive: require('./icons/home-active.png'),
+  homeCurrency: require('./icons/home_currency.jpg'),
+  homeDgt: require('./icons/home_dgt.jpg'),
+  homeGame: require('./icons/home_game.jpg'),
 
   wallet: require('./icons/wallet.png'),
   walletActive: require('./icons/wallet-active.png'),
@@ -47,6 +50,7 @@ export const Icons = {
 export const Images = {
   homeBg: require('./imgs/home-bg.png'),
   homeGameBg: require('./imgs/home_game_bg.png'),
+  homeGameCard: require('./imgs/home_game_card.png'),
 
   cardBg: require('./imgs/card-bg.png'),
   nextStep: require('./imgs/next-step.png'),

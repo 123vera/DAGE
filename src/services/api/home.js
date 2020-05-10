@@ -3,6 +3,14 @@ import { onlinePost } from '../utils';
 class HomeApi {
 
   /**
+   * 游戏矿池
+   * @required openId 用户openid
+   **/
+  static getGameReward(options) {
+    return onlinePost('/other/index', options);
+  }
+
+  /**
    * 购买配套初始化
    * @required openId 用户openid
    * @required type 币种类型

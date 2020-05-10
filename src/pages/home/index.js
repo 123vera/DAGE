@@ -3,8 +3,9 @@ import styles from './index.less';
 import { connect } from 'dva';
 import { router } from 'umi';
 import PageHeader from '../../components/common/PageHeader';
-import {Images, Icons } from '../../assets';
+import { Images, Icons } from '../../assets';
 import { formatMessage } from 'umi/locale';
+import { downFixed } from '../../utils/utils';
 
 @connect(({ wallet, globalModel }) => ({ wallet, globalModel }))
 class Home extends Component {
@@ -19,7 +20,7 @@ class Home extends Component {
   render() {
     const { myInfo } = this.props.globalModel;
     const { notice } = this.props.wallet;
-    const isChinese = myInfo.phonePrefix === '86';
+    const isChinese = myInfo.phonePrefix !== '86';
 
     return (
       <div className={styles.home} onClick={() => this.setState({ showMenus: false })}>
@@ -28,7 +29,7 @@ class Home extends Component {
           rightContent={{
             text: (
               <span>
-                <img src={Icons.iconInvite} alt="" />
+                <img src={Icons.iconInvite} alt=""/>
               </span>
             ),
             onHandle: () => router.push('/referral_code'),
@@ -41,30 +42,31 @@ class Home extends Component {
         <section className={styles.cards}>
           <ul className={!isChinese ? styles.foreigner : ''}>
             <li onClick={() => router.push('/wallet/recharge')}>
-              <img src={Icons.dIcon} alt="" />
+              <img src={Icons.homeCurrency} alt=""/>
               <span>数字货币</span>
               <small>USDT/BTC/ETH</small>
             </li>
             {isChinese ? (
               <li onClick={() => router.push('/wallet/dgt_recharge')}>
-                <img src={Icons.dIcon} alt="" />
+                <img src={Icons.homeDgt} alt=""/>
                 <span>法币充值</span>
                 <small>银行卡/境内支付宝</small>
               </li>
             ) : (
               <li onClick={() => router.push('/wallet/game')}>
-                <img src={Icons.dIcon} alt="" />
+                <img src={Icons.homeGame} alt=""/>
                 <span>游戏中心</span>
                 <small>基于去中心化的游戏中心</small>
+                <img className={styles.gameCardBg} src={Images.homeGameCard} alt=""/>
               </li>
             )}
           </ul>
           {isChinese && (
             <div className={styles.gameCard}
-                 style={{backgroundImage: `url(${Images.homeGameBg})`}}
+                 style={{ backgroundImage: `url(${Images.homeGameBg})` }}
                  onClick={() => router.push('/game')}>
               <span>游戏中心</span>
-              <br />
+              <br/>
               <small>基于去中心化的游戏中心</small>
             </div>
           )}
@@ -76,7 +78,7 @@ class Home extends Component {
             </p>
           </div>
         </section>
-        <Mining myInfo={myInfo} />
+        <Mining myInfo={myInfo}/>
       </div>
     );
   }
@@ -93,41 +95,41 @@ class Mining extends Component {
 
   componentDidMount() {
     this.props.dispatch({ type: 'wallet/AlipayInit' });
-    this.props.dispatch({ type: 'wallet/OtcDetail' });
+    this.props.dispatch({ type: 'wallet/GetGameReward' });
   }
 
   render() {
     const { myInfo } = this.props.globalModel;
-    const { certification } = this.props.wallet;
+    const { certification, reward } = this.props.wallet;
     const isChinese = myInfo.phonePrefix === '86';
 
     return (
       <div className={styles.mining}>
         <h3>
-          <img src={Icons.oIcon} alt="" />
+          <img src={Icons.oIcon} alt=""/>
           {'游戏矿池'}
         </h3>
         {!isChinese && (
           <p className={styles.alipay}>
             <span className={styles.left}>{formatMessage({ id: `HOME_SECTION_MAIN_01` })}</span>
             <span className={styles.certification}>
-              <Certification status={certification} />
+              <Certification status={certification}/>
             </span>
           </p>
         )}
         <ul>
           <li onClick={() => router.push('/mining-detail/otc')}>
             <span>正在挖矿</span>
-            <span>7282.33USD</span>
+            <span>{downFixed(reward.surplus)} USDT</span>
           </li>
           <li onClick={() => router.push('/promotion')}>
             <span>昨日团队收益</span>
-            <span>7272.33USD</span>
+            <span>{downFixed(reward.yestodayTeamreward)} USDT</span>
           </li>
         </ul>
         <div className={styles.btnBox}>
           <button
-            onClick={() =>router.push('/home/buy-supporting')}
+            onClick={() => router.push('/home/buy-supporting')}
           >
             {'购买配套'}
           </button>

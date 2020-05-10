@@ -12,9 +12,6 @@ import AssetsFooter from '../../../components/partials/AssetsFooter';
 
 @connect(({ walletFlow, globalModel }) => ({ walletFlow, globalModel }))
 class WalletFlow extends Component {
-  // state = {
-  //   showMenus: false,
-  // };
 
   componentDidMount() {
     const { type = '' } = this.props.location.query;
@@ -30,12 +27,6 @@ class WalletFlow extends Component {
     router.replace(`${window.location.pathname}?type=${type}`);
   };
 
-  changeCoin = async coin => {
-    this.initData(coin.value);
-    this.getFlow();
-    this.setState({ showMenus: false });
-  };
-
   getFlow = callback => {
     const { dispatch } = this.props;
     dispatch({ type: 'walletFlow/GetAssetFlow' }).then(res => {
@@ -48,31 +39,27 @@ class WalletFlow extends Component {
 
   render() {
     const { type, balance, price, list, hasMore } = this.props.walletFlow;
-    // const menus = typeList.map(i => ({
-    //   value: i,
-    //   label: i,
-    // }));
 
     return (
       <div className={styles.walletFlow}>
-        <PageHeader leftContent={{ icon: Icons.arrowLeft }} />
+        <PageHeader leftContent={{ icon: Icons.arrowLeft }}/>
 
         <section className={styles.contentTop}>
           <p> {type.toUpperCase()}</p>
           <table>
             <thead>
-              <tr>
-                <th>{formatMessage({ id: `EXCHANGE_CAN_USE` })}</th>
-                <th>{formatMessage({ id: `ASSETS_UNIT_PRICE` })}（USD)</th>
-                <th>{formatMessage({ id: `ASSETS_CONVERT` })}（USD)</th>
-              </tr>
+            <tr>
+              <th>{formatMessage({ id: `EXCHANGE_CAN_USE` })}</th>
+              <th>{formatMessage({ id: `ASSETS_UNIT_PRICE` })}（USD)</th>
+              <th>{formatMessage({ id: `ASSETS_CONVERT` })}（USD)</th>
+            </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>{(balance && downFixed(balance)) || 0}</td>
-                <td>{(price && downFixed(price, 4)) || '--'}</td>
-                <td>{(balance && price && downFixed(balance * price)) || '--'}</td>
-              </tr>
+            <tr>
+              <td>{(balance && downFixed(balance)) || 0}</td>
+              <td>{(price && downFixed(price, 4)) || '--'}</td>
+              <td>{(balance && price && downFixed(balance * price)) || '--'}</td>
+            </tr>
             </tbody>
           </table>
         </section>
@@ -90,7 +77,7 @@ class WalletFlow extends Component {
                   <div
                     className={`${styles.value} ${
                       item.amount.includes('-') ? styles.decrease : ''
-                    }`}
+                      }`}
                   >
                     {downFixed(item.amount)}
                   </div>
@@ -100,7 +87,7 @@ class WalletFlow extends Component {
           </ListView>
         </section>
 
-        <AssetsFooter type={type} />
+        <AssetsFooter type={type}/>
       </div>
     );
   }

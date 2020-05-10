@@ -49,7 +49,7 @@ class Index extends Component {
           img: ICON_TRANSFER,
           value: 'transfer',
           label: formatMessage({ id: `ASSETS_TRANSFER` }),
-          path: '',
+          path: '/assets/transfer',
         },
         {
           img: ICON_PART,
@@ -111,7 +111,7 @@ class Index extends Component {
           img: ICON_TRANSFER,
           value: 'transfer',
           label: formatMessage({ id: `ASSETS_TRANSFER` }),
-          path: '',
+          path: '/assets/transfer',
         },
       ],
     };

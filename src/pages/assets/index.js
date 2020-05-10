@@ -13,16 +13,17 @@ class Assets extends Component {
 
   componentDidMount() {
     window.scrollTo(0, 0);
-    this.props.dispatch({ type: 'assetsHome/GetUserAssets' });
+    // this.props.dispatch({ type: 'assetsHome/GetUserAssets' });
+    this.props.dispatch({ type: 'assetsHome/GetAssets' });
   }
 
   selectLi = key => {
-    const { dispatch } = this.props;
+    // const { dispatch } = this.props;
     // dispatch({ type: 'assetsHome/UpdateState', payload: { list: [] } });
 
-    key === 1
-      ? dispatch({ type: 'assetsHome/GetUserAssets' })
-      : dispatch({ type: 'assetsHome/GetGameAssets' });
+    // key === 1
+    //   ? dispatch({ type: 'assetsHome/GetUserAssets' })
+    //   : dispatch({ type: 'assetsHome/GetGameAssets' });
     this.setState({ activityLi: key });
   };
 
@@ -33,14 +34,16 @@ class Assets extends Component {
 
   render() {
     const { activityLi } = this.state;
-    const { list, totalAmount } = this.props.assetsHome;
+    const { userAssets, gameAssets } = this.props.assetsHome;
     const transferUrl = `/assets/transfer?transfer=${activityLi === 2 ? 'GToD' : 'DToG'}`;
+    const { list = [], total = '' } = activityLi === 1 ? userAssets : gameAssets;
+    const allTotal = userAssets.total + gameAssets.total;
 
     return (
       <div id={styles.assetsHome}>
         <section className={styles.banner}>
           <label>
-            {formatMessage({ id: `ASSETS_PAGE_TITLE` })}（USD）<span>{downFixed(totalAmount)}</span>
+            {formatMessage({ id: `ASSETS_PAGE_TITLE` })}（USDT）<span>{downFixed(allTotal)}</span>
           </label>
           <ul>
             <li onClick={() => router.push('/wallet/recharge')}>
@@ -62,16 +65,13 @@ class Assets extends Component {
             </li>
             <li
               className={activityLi === 2 ? styles.active : ''}
-              onClick={() => {
-                this.selectLi(2);
-                // Toast.info(formatMessage({ id: `WALLET_COMING_SOON` }));
-              }}
+              onClick={() => this.selectLi(2)}
             >
               {formatMessage({ id: `ASSETS_GAME_WALLET` })}
             </li>
           </ul>
           <div className={`${styles.bgDark} ${styles.totalAmount}`}>
-            {formatMessage({ id: `ASSETS_PAGE_TITLE` })}（USD）<span>{downFixed(totalAmount)}</span>
+            {formatMessage({ id: `ASSETS_PAGE_TITLE` })}（USD）<span>{downFixed(total)}</span>
           </div>
         </section>
 
@@ -82,18 +82,18 @@ class Assets extends Component {
                 <p>{item.type.toLocaleUpperCase()}</p>
                 <table>
                   <thead>
-                    <tr>
-                      <th>{formatMessage({ id: `EXCHANGE_CAN_USE` })}</th>
-                      <th>{formatMessage({ id: `ASSETS_UNIT_PRICE` })}（USD)</th>
-                      <th>{formatMessage({ id: `ASSETS_CONVERT` })}（USD)</th>
-                    </tr>
+                  <tr>
+                    <th>{formatMessage({ id: `EXCHANGE_CAN_USE` })}</th>
+                    <th>{formatMessage({ id: `ASSETS_UNIT_PRICE` })}（USD)</th>
+                    <th>{formatMessage({ id: `ASSETS_CONVERT` })}（USD)</th>
+                  </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>{downFixed(item.amount)}</td>
-                      <td>{downFixed(item.price, 4)}</td>
-                      <td>{downFixed(item.amount * item.price)}</td>
-                    </tr>
+                  <tr>
+                    <td>{downFixed(item.amount)}</td>
+                    <td>{downFixed(item.price, 4)}</td>
+                    <td>{downFixed(item.amount * item.price)}</td>
+                  </tr>
                   </tbody>
                 </table>
               </li>

@@ -11,6 +11,7 @@ class Index extends Component {
     search: '',
     list: TEL_PREFIX_DATA,
   };
+
   componentDidMount() {
     this.setState({ search: '', activeKey: '' });
   }
@@ -21,6 +22,7 @@ class Index extends Component {
   };
 
   onSearchChange = event => {
+    document.body.scrollTop = document.documentElement.scrollTop = 0;
     const { value } = event.target;
     if (!value) {
       this.setState({ list: TEL_PREFIX_DATA });
@@ -54,7 +56,7 @@ class Index extends Component {
           }}
         />
         <div className={styles.search}>
-          <img src={Icons.search} alt="" />
+          <img src={Icons.search} alt=""/>
           <input
             placeholder={formatMessage({ id: `COMMON_PLACEHOLDER_SEARCH_COUNTRY` })}
             type="text"
@@ -71,9 +73,7 @@ class Index extends Component {
               onClick={() => this.onSelect(i, key)}
             >
               <label>{i.en + ' ' + i.name}</label>
-              <img src={activeKey === key ? Icons.checked : Icons.unChecked} alt="" />
-
-              {/* {activeKey === key && <img src={CHECKED} alt="" />} */}
+              <img src={activeKey === key ? Icons.checked : Icons.unChecked} alt=""/>
             </li>
           ))}
         </ul>
