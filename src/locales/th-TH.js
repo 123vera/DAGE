@@ -239,6 +239,7 @@ export default {
 
   DGT_ALIPAY_TITLE: `ระบบชำระเงิน Alipay`,
   DGT_ALIPAY_ORDERID: `หมายเลขสั่งซื้อ:  `,
+  DGT_ALIPAY_ORDERID_01: `หมายเลขสั่งซื้อ`,
   DGT_ALIPAY_DEALLINE: `จนกว่าจะหมดเวลาคำสั่งซื้อ: `,
   DGT_ALIPAY_TIPS_01: `• ทุกครั้งที่คุณเติมเงิน <span style="color:#FF3750"> คุณต้องขอโค้ด QR ใหม่ขณะทำรายการบนหน้าเติมเงินวอลเลท </span>`,
   DGT_ALIPAY_TIPS_02: `•  จำนวนเงินที่จ่ายจริงต้องสอดคล้องกับจำนวนการสั่งซื้อ`,
@@ -338,6 +339,11 @@ export default {
   OTC_DETAIL_TITLE: `รายละเอียดการขุด OTC`,
   OTC_DETAIL_TOTAL_REVENUE: `รายได้จากการขุด OTC โดยรวม`,
   OTC_DETAIL_TIP: `แสดงเฉพาะรายละเอียดรายได้ที่ได้รับในช่วงสามวันที่ผ่านมา โปรดไปที่งบกระแสเงินสดของคุณเพื่อดูประวัติการบันทึก`,
+
+  ORDER_DETAIL_LABEL_1: `总释放`,
+  ORDER_DETAIL_LABEL_2: `已释放`,
+  ORDER_DETAIL_LABEL_3: `释放比例`,
+  ORDER_DETAIL_VALUE: `释放中`,
 
   HOMEPAGE_TITLE: `ยินดีต้อนรับสู่ DAGE`,
 

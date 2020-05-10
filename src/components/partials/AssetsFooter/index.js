@@ -42,12 +42,12 @@ class Index extends Component {
       label: formatMessage({ id: `WALLET_POG_BTN` }),
       path: `/otc-mining/${myInfo.phonePrefix === '86' ? 'inland' : 'abroad'}`,
     };
+
     if (type === 'RC') {
       return this.setState({ coinJumps: [transfer] });
     }
     if (type === 'DGT') {
       return this.setState({ coinJumps: [recharge, withdraw, transfer, mining] });
-
     }
     return this.setState({ coinJumps: [recharge, withdraw, mining] });
   }
@@ -68,7 +68,7 @@ class Index extends Component {
         {coinJumps.map(jump => (
           <div key={jump.label}>
             <p onClick={() => this.jumpTo(jump.path)}>
-              <img src={jump.img} alt=""/>
+              <img src={jump.img} alt="" />
             </p>
             {jump.label}
           </div>

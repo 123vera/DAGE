@@ -158,7 +158,7 @@ class OtcMining extends Component {
   render() {
     const { initInfo, count, coin, menus } = this.props.otcMining;
     const { showMenus } = this.state;
-    console.log(coin, menus);
+
     return (
       <div className={styles.otcMining}>
         <PageHeader

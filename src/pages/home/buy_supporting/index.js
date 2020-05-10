@@ -100,7 +100,7 @@ function BuySupporting() {
               }}
             >
               <span>{currCoin}</span>
-              <img src={Icons.arrowDown} alt=""/>
+              <img src={Icons.arrowDown} alt="" />
             </div>
             {showMenus && (
               <div className={styles.options}>
@@ -109,7 +109,6 @@ function BuySupporting() {
                   active={currCoin}
                   textAlign="left"
                   onHandle={menu => {
-                    console.log(menu.value);
                     setCoin(menu.value);
                     setShowMenus(false);
                   }}

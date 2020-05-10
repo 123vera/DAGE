@@ -5,7 +5,7 @@ import Header from '../../../components/common/Header';
 import { Icons } from '../../../assets';
 import { formatMessage, getLocale } from 'umi/locale';
 import OtcApi from '../../../services/api/otc';
-import dayjs from 'dayjs';
+// import dayjs from 'dayjs';
 import { downFixed } from '../../../utils/utils';
 import ListView from '../../../components/common/ListView';
 
@@ -25,7 +25,6 @@ function MiningDetail() {
     callback => {
       // OtcApi.otcDetail({ type: 'mining', page }).then(res => {
       OtcApi.otcDetail({ page, row }).then(res => {
-        console.log(res);
         if (res.status === 1) {
           setInfo(res.data);
           setList([list, res.data.list]);

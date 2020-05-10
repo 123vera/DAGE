@@ -20,7 +20,6 @@ export default {
       const { page, row, otcList } = yield select(state => state.otcMiningDetail);
       const res = yield call(OtcApi.otcDetail, { type: 'mining', page });
       if (res.status === 1) {
-        console.log(res);
         res.data.list && otcList.push(...res.data.list);
 
         yield put({

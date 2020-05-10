@@ -18,7 +18,7 @@ export default {
     *GetWithdrawRecord({ _ }, { call, select, put }) {
       const { type, page, row, list } = yield select(state => state.dgtWithdrawRecord);
       const res = yield call(DgtApi.dgtWithdrawRecord, { type, page, row });
-      console.log(res);
+
       if (res.status === 1) {
         list.push(...res.data);
         yield put({

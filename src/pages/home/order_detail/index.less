@@ -1,44 +1,46 @@
 @import '../../../styles/mixin.less';
 
-ul {
-  .clearUl;
-  padding: 0 60px;
+#orderDetail {
+  ul {
+    .clearUl;
+    padding: 0 60px;
 
-  li {
-    padding: 26px 0;
-    border-bottom: 2px solid rgba(26, 32, 46, 1);
-  }
-
-  p {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 10px 0;
-    line-height: 44px;
-    font-size: 24px;
-    color: @font-sub-color;
-
-    &.light {
-      color: @font-color;
+    li {
+      padding: 26px 0;
+      border-bottom: 2px solid rgba(26, 32, 46, 1);
     }
 
-    label {
-      width: 160px;
-    }
+    p {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 10px 0;
+      line-height: 44px;
+      font-size: 24px;
+      color: @font-sub-color;
 
-    span {
-      flex: 1;
-      .overflow(1);
-    }
+      &.light {
+        color: @font-color;
+      }
 
-    button {
-      padding: 0 20px;
-      height: 34px;
-      background: rgba(0, 120, 255, 1);
-      border-radius: 16px;
-      font-size: 20px;
-      border: none;
-      color: @font-color;
+      label {
+        width: 160px;
+      }
+
+      span {
+        flex: 1;
+        .overflow(1);
+      }
+
+      button {
+        padding: 0 20px;
+        height: 34px;
+        background: rgba(0, 120, 255, 1);
+        border-radius: 16px;
+        font-size: 20px;
+        border: none;
+        color: @font-color;
+      }
     }
   }
 }

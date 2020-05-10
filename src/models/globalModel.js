@@ -27,7 +27,6 @@ export default {
     *GetSmsCode({ payload = {} }, { call, select }) {
       const { myInfo, captcha } = yield select(state => state.globalModel);
 
-      console.log(myInfo);
       return yield call(UserApi.sendSmsCode, {
         prefix: payload.prefix || myInfo.phonePrefix,
         phone: payload.phone || myInfo.phoneNo,

@@ -37,7 +37,6 @@ class Index extends Component {
                 key={item.id}
                 className={styles.item}
                 onClick={() => {
-                  console.log(!item.linkUrl);
                   if (!item.linkUrl) {
                     router.push(`/notice/${item.id}`);
                   } else {

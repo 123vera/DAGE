@@ -30,6 +30,7 @@ export default {
         yield put({
           type: 'UpdateState',
           payload: {
+            price: res.data.ratio,
             balance: res.data.balance,
             type: type || res.data.typeList[0],
             list,

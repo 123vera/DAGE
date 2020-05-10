@@ -33,7 +33,7 @@ export default {
         value: team.split('_')[1],
         label: team.split('_')[1],
       }));
-      console.log(afterCoins);
+
       return {
         ...state,
         afterCoins,
@@ -42,7 +42,7 @@ export default {
     },
   },
   effects: {
-    * ExchangeInit(_, { call, put, select }) {
+    *ExchangeInit(_, { call, put, select }) {
       const { beforeCoin, afterCoin } = yield select(state => state.exchange);
       const res = yield call(AssetApi.exchangeInit, {
         currency1: beforeCoin,
@@ -77,7 +77,7 @@ export default {
       }
       return res;
     },
-    * SubmitExchange(_, { call, select }) {
+    *SubmitExchange(_, { call, select }) {
       const { beforeCoin, afterCoin, amount, code } = yield select(state => state.exchange);
       return yield call(AssetApi.submitExchange, {
         currency1: beforeCoin,

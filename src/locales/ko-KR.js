@@ -239,6 +239,7 @@ export default {
 
   DGT_ALIPAY_TITLE: `알리페이 결제`,
   DGT_ALIPAY_ORDERID: `주문 번호:  `,
+  DGT_ALIPAY_ORDERID_01: `주문 번호`,
   DGT_ALIPAY_DEALLINE: `주문 만료 시까지의 시간: `,
   DGT_ALIPAY_TIPS_01: `• 재충전할 때마다<span style="color: #FF3750"> 지갑 재충전 페이지에서 QR 코드를 다시 얻어야 합니다</span>`,
   DGT_ALIPAY_TIPS_02: `• 실제 결제 금액은 주문 금액과 일치해야 합니다; `,
@@ -340,6 +341,11 @@ export default {
   OTC_DETAIL_TOTAL_REVENUE: `OTC 총 채굴 수익`,
   OTC_DETAIL_TIP: `지난 3일 동안의 수익 기록이 여기에 나타납니다. 과거 기록을 확인하고 싶으면 지갑 아래 DGC와 DID 항목을 확인해 주세요`,
   HOMEPAGE_TITLE: `DAGE에 오신 것을 환영합니다`,
+
+  ORDER_DETAIL_LABEL_1: `总释放`,
+  ORDER_DETAIL_LABEL_2: `已释放`,
+  ORDER_DETAIL_LABEL_3: `释放比例`,
+  ORDER_DETAIL_VALUE: `释放中`,
 
   HOME_SECTION_01: `활성화 DID`,
   HOME_SECTION_02: `OTC 마이닝`,

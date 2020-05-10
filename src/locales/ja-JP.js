@@ -239,6 +239,7 @@ export default {
 
   DGT_ALIPAY_TITLE: `Alipayで支払い`,
   DGT_ALIPAY_ORDERID: `オーダー番号：  `,
+  DGT_ALIPAY_ORDERID_01: `オーダー番号`,
   DGT_ALIPAY_DEALLINE: `オーダーが失効するまで： `,
   DGT_ALIPAY_TIPS_01: `•  リロードするたびに、 <span style="color: #FF3750"> ウォレットのリロードページでQRコードを再取得する必要があります。</span>`,
   DGT_ALIPAY_TIPS_02: `•  実際のお支払い金額はオーダー金額と一致している必要があります； `,
@@ -338,6 +339,11 @@ export default {
   OTC_DETAIL_TITLE: `OTCマイニング詳細`,
   OTC_DETAIL_TOTAL_REVENUE: `OTCマイニング収入合計`,
   OTC_DETAIL_TIP: `過去3日間の収入合計はこちらに表示されます。過去の履歴を見たい場合は、ウォレットのDGCとDIDのセクションを確認ください`,
+
+  ORDER_DETAIL_LABEL_1: `总释放`,
+  ORDER_DETAIL_LABEL_2: `已释放`,
+  ORDER_DETAIL_LABEL_3: `释放比例`,
+  ORDER_DETAIL_VALUE: `释放中`,
 
   HOMEPAGE_TITLE: `DAGEへようこそ`,
 

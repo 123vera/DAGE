@@ -194,18 +194,6 @@ export default {
   ASSETS_UNIT_PRICE: `Unit Price`,
   ASSETS_CONVERT: `Equivalent`,
 
-  // CONVERT_FROM: `DAGE账户`,
-  // CONVERT_TO: `游戏账户`,
-  // CONVERT_COIN: `币种`,
-  // CONVERT_AMOUNT: `划转数量`,
-  // CONVERT_AMOUNT_PLACEHOLDER: `请输入划转数量`,
-  // CONVERT_AMOUNT_ALL: `｜全部`,
-
-  // CONVERT_RECORD_TITLE: `划转记录`,
-  // CONVERT_RECORD_AMOUNT: `数量`,
-  // CONVERT_RECORD_TYPE: `类型`,
-  // CONVERT_RECORD_TIME: `时间`,
-
   REFERRAL_CODE_TITLE: `Referral code`,
   REFERRAL_CODE_COPY: `Copy referral code`,
   REFERRAL_SAVE: `Long press the QR code to save the image`,
@@ -257,6 +245,7 @@ export default {
 
   DGT_ALIPAY_TITLE: `Alipay Payment`,
   DGT_ALIPAY_ORDERID: `Order Number:  `,
+  DGT_ALIPAY_ORDERID_01: `Order Number`,
   DGT_ALIPAY_DEALLINE: `Time until order expires: `,
   DGT_ALIPAY_TIPS_01: `•  Every time you reload <span style="color:#FF3750"> you must re-acquire the QR Code in the wallet reload page </span>`,
   DGT_ALIPAY_TIPS_02: `•  The actual payment amount must be consistent with the order amount; `,
@@ -356,6 +345,11 @@ export default {
   OTC_DETAIL_TITLE: `OTC Mining Revenue`,
   OTC_DETAIL_TOTAL_REVENUE: `OTC Mining Total Revenue`,
   OTC_DETAIL_TIP: `Revenue records for the past three days will be shown here. If you wish to see past records，Please check under wallet, DGC and DID section`,
+
+  ORDER_DETAIL_LABEL_1: `总释放`,
+  ORDER_DETAIL_LABEL_2: `已释放`,
+  ORDER_DETAIL_LABEL_3: `释放比例`,
+  ORDER_DETAIL_VALUE: `释放中`,
 
   HOMEPAGE_TITLE: `Welcome to DAGE`,
 

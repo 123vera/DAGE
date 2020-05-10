@@ -251,6 +251,7 @@ export default {
   DGT_ALIPAY_TITLE: `Thanh toán Alipay`,
   DGT_RECHARGE_ALIPAY: `Nạp tiền`,
   DGT_ALIPAY_ORDERID: `Mã lệnh:  `,
+  DGT_ALIPAY_ORDERID_01: `Mã lệnh`,
   DGT_ALIPAY_DEALLINE: `Thời gian trước khi lệnh hết hạn: `,
   DGT_ALIPAY_TIPS_01: `•  Mỗi lần nạp thêm <span style="color: #FF3750"> bạn phải lấy lại Mã QR trong trang nạp tiền cho Ví </span>`,
   DGT_ALIPAY_TIPS_02: `•  Số tiền thành toán thực tế sẽ phù hợp với số tiền của lệnh giao dịch; `,
@@ -351,6 +352,11 @@ export default {
   OTC_DETAIL_TITLE: `Chi tiết Khai thác OTC`,
   OTC_DETAIL_TOTAL_REVENUE: `Tổng doanh thu Khai thác OTC`,
   OTC_DETAIL_TIP: `Lịch sử doanh thu trong ba ngày qua sẽ được hiển thị ở đây. Nếu bạn muốn xem các danh sách trong quá khứ , Vui lòng kiểm tra dưới mục ví, mục DGC và DID`,
+
+  ORDER_DETAIL_LABEL_1: `总释放`,
+  ORDER_DETAIL_LABEL_2: `已释放`,
+  ORDER_DETAIL_LABEL_3: `释放比例`,
+  ORDER_DETAIL_VALUE: `释放中`,
 
   HOMEPAGE_TITLE: `Chào mừng đến với DAGE`,
 

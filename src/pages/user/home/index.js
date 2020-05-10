@@ -68,7 +68,6 @@ class Home extends Component {
         url: '/zendesk',
       },
     ];
-    console.log(myInfo.teamLevel);
 
     return (
       <div className={styles.userCenter}>

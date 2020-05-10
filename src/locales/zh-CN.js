@@ -251,6 +251,7 @@ export default {
 
   DGT_ALIPAY_TITLE: `支付宝支付`,
   DGT_ALIPAY_ORDERID: `订单号：`,
+  DGT_ALIPAY_ORDERID_01: `订单号`,
   DGT_ALIPAY_DEALLINE: `距离订单过期还有`,
   DGT_ALIPAY_TIPS_01: `•  每次充值必须在钱包充值页面<span style=" color: #FF3750">重新获取二维码</span>`,
   DGT_ALIPAY_TIPS_02: `•  实际支付金额与订单金额必须保持一致`,
@@ -350,6 +351,11 @@ export default {
   OTC_DETAIL_TITLE: `OTC挖矿详情`,
   OTC_DETAIL_TOTAL_REVENUE: `OTC挖矿总收益`,
   OTC_DETAIL_TIP: `仅显示最近三天的收益详情，若想查看过往内容，请至资金流水中查看`,
+
+  ORDER_DETAIL_LABEL_1: `总释放`,
+  ORDER_DETAIL_LABEL_2: `已释放`,
+  ORDER_DETAIL_LABEL_3: `释放比例`,
+  ORDER_DETAIL_VALUE: `释放中`,
 
   HOMEPAGE_TITLE: `欢迎使用DAGE`,
 
