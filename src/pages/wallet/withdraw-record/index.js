@@ -8,6 +8,8 @@ import dayjs from 'dayjs';
 import ListView from '../../../components/common/ListView';
 import { formatMessage } from 'umi/locale';
 import { downFixed } from '../../../utils/utils';
+import CopyToClipboard from 'react-copy-to-clipboard';
+import { Toast } from 'antd-mobile';
 
 const withdrawStatus = [
   {
@@ -60,6 +62,16 @@ class WalletFlow extends Component {
     return withdrawStatus.find(i => i.value === value) || {};
   };
 
+  getSimpleHash = value => {
+    if (!value) return value;
+    return value.slice(0, 6) + '...' + value.slice(value.length - 7, value.length - 1);
+  };
+
+  onCopy = (text) => {
+    console.log(text);
+    Toast.info(formatMessage({ id: `USER_COPIED` }));
+  };
+
   render() {
     let { list = [], hasMore = true } = this.props.withdrawRecord;
 
@@ -92,6 +104,19 @@ class WalletFlow extends Component {
                 <div className={styles.row}>
                   <label>{formatMessage({ id: `RECORD_LI_NO` })}</label>
                   <p>{item.id}</p>
+                </div>
+                <div className={styles.row}>
+                  <label>Hash</label>
+                  <p>
+                    {this.getSimpleHash(item.hash)}
+                    <CopyToClipboard
+                      key={item.id}
+                      text={item.hash}
+                      onCopy={this.onCopy}
+                    >
+                      <img src={Icons.copy} alt=""/>
+                    </CopyToClipboard>
+                  </p>
                 </div>
                 <div className={styles.row}>
                   <label>{formatMessage({ id: `RECORD_LI_STATUS` })}</label>

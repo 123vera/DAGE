@@ -18,6 +18,7 @@ export const Icons = {
   checked: require('./icons/checked.png'),
   loginOut: require('./icons/login-out.png'),
   transfer: require('./icons/transfer.png'),
+  copy: require('./icons/copy.png'),
 
   // home1: require('./icons/new-home1.jpg'),
   home2: require('./icons/home2.jpg'),
