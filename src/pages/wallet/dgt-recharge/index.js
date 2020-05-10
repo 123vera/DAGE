@@ -72,15 +72,15 @@ class Index extends Component {
           <Header
             icon={Icons.arrowLeft}
             title={formatMessage({ id: `DGT_RECHARGE_TITLE` })}
-            // rightContent={{
-            //   icon: Icons.record,
-            //   // text: formatMessage({ id: `DGT_RECORD_TITLE` }),
-            //   onHandle: () => router.push('/wallet/dgt_record'),
-            // }}
+            rightContent={{
+              icon: Icons.record,
+              // text: formatMessage({ id: `DGT_RECORD_TITLE` }),
+              onHandle: () => router.push('/wallet/dgt_record'),
+            }}
             onHandle={() => router.push('/main/home')}
           />
           <div className={`${styles.menus} ${showMenus ? styles.show : ''}`}>
-            <Coins coin="DGT" onHandle={this.changeCoin} />
+            <Coins coin="DGT" onHandle={this.changeCoin}/>
           </div>
         </div>
 

@@ -29,7 +29,7 @@ class Home extends Component {
           rightContent={{
             text: (
               <span>
-                <img src={Icons.iconInvite} alt=""/>
+                <img src={Icons.iconInvite} alt="" />
               </span>
             ),
             onHandle: () => router.push('/referral_code'),
@@ -57,6 +57,7 @@ class Home extends Component {
                 <img src={Icons.homeGame} alt="" />
                 <span>{formatMessage({ id: `HOME_GAME_CENTER` })}</span>
                 <small>{formatMessage({ id: `HOME_GAME_CENTER_DESC` })}</small>
+                <img className={styles.gameCardBg} src={Images.homeGameCard} alt=""/>
               </li>
             )}
           </ul>
@@ -119,6 +120,7 @@ class Mining extends Component {
         )}
         <ul>
           <li onClick={() => router.push('/home/order-detail')}>
+          {/*<li onClick={() => router.push('/mining-detail/otc')}>*/}
             <span>{formatMessage({ id: `HOME_OTC_MINING` })}</span>
             <span>{downFixed(reward.surplus)} USDT</span>
 
@@ -130,7 +132,7 @@ class Mining extends Component {
           </li>
         </ul>
         <div className={styles.btnBox}>
-          <button onClick={() => router.push('/home/buy-supporting')}>
+          <button onClick={() =>router.push('/home/buy-supporting')}>
             {formatMessage({ id: `BUY_TITLE` })}
           </button>
         </div>

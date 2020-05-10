@@ -207,7 +207,7 @@ class Index extends Component {
               </div>
             </div>
           </div>
-          <PrimaryButton value={formatMessage({ id: `COMMON_CONFIRM` })} onHandle={this.onNext} />
+          <PrimaryButton value={formatMessage({ id: `COMMON_CONFIRM` })} onHandle={this.onNext}/>
         </section>
 
         <section className={Number(step) === 2 ? styles.show : styles.hidden}>
@@ -245,7 +245,7 @@ class Index extends Component {
               getCaptcha={this.getCaptcha}
             />
             <div className={styles.row}>
-              <SmsCode value={code} getSmsCode={this.getSmsCode} onChange={this.onCodeChange} />
+              <SmsCode value={code} getSmsCode={this.getSmsCode} onChange={this.onCodeChange}/>
             </div>
             <div className={styles.line}>
               <small className={styles.primary}>{formatMessage({ id: `EXCHANGE_FEE` })}</small>
@@ -271,14 +271,14 @@ class Index extends Component {
                 {getLocale() === 'en-US' && downFixed(initInfo.min || '--')}
                 {/* 其他语言下 显示一样 */}
                 {getLocale() !== 'en-US' &&
-                  (downFixed(initInfo.min) || '--') + ' - ' + (downFixed(initInfo.max) || '--')}
+                (downFixed(initInfo.min) || '--') + ' - ' + (downFixed(initInfo.max) || '--')}
                 &nbsp;DGT，{formatMessage({ id: `WITHDRAW_TIPS_CONTENT_03` })}
                 {initInfo.charge !== '' ? downFixed(initInfo.charge * 100, 1) : '--'}%
               </li>
               <li>{formatMessage({ id: `WITHDRAW_TIPS_CONTENT_04` })}</li>
             </ul>
           </aside>
-          <PrimaryButton value={formatMessage({ id: `COMMON_CONFIRM` })} onHandle={this.onSubmit} />
+          <PrimaryButton value={formatMessage({ id: `COMMON_CONFIRM` })} onHandle={this.onSubmit}/>
         </section>
       </div>
     );

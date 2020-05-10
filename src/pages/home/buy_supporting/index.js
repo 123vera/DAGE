@@ -100,7 +100,7 @@ function BuySupporting() {
               }}
             >
               <span>{currCoin}</span>
-              <img src={Icons.arrowDown} alt="" />
+              <img src={Icons.arrowDown} alt=""/>
             </div>
             {showMenus && (
               <div className={styles.options}>

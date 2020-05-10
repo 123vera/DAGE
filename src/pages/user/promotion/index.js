@@ -107,7 +107,7 @@ class Index extends Component {
           <ul className={styles.explainList}>
             <li>
               <span>{formatMessage({ id: `PROMOTION_TOTAL_01` })}</span>
-              <p>{(achievement && achievement.dgt) || 0} DGT</p>
+              <p>{(achievement && achievement.usd) || 0} USDT</p>
             </li>
           </ul>
         </section>
@@ -125,27 +125,10 @@ class Index extends Component {
           </ul>
         </section>
 
-        {/* 2.0隐藏 */}
-        {/* <section style={{ display: 'none' }} className={styles.group}>
-          <h4>{formatMessage({ id: `PROMOTION_RECOMMENDATION_TEAM` })}</h4>
-
-          <ul className={styles.chartGroup}>
-            <li className={styles.item}>
-              <span>SPOOT</span>
-              <span>{formatMessage({ id: `PROMOTION_MEDAL_GRADE` })}</span>
-            </li>
-            <li className={styles.item}>
-              <span>SPOOT</span>
-              <span>{formatMessage({ id: `PROMOTION_REBATE_RATIO` })}</span>
-            </li>
-          </ul>
-        </section> */}
-
-        {/* 版本2.0临时隐藏 */}
         <section className={styles.firstRecommend}>
           <h4>
-            {formatMessage({ id: `PROMOTION_MY_GENERATION` })} （
-            {formatMessage({ id: `PROMOTION_ONLY_SHOW` })}）
+            {formatMessage({ id: `PROMOTION_MY_GENERATION` })}
+            {/*{formatMessage({ id: `PROMOTION_ONLY_SHOW` })}）*/}
           </h4>
           <ListView key={list} hasMore={hasMore} onLoadMore={this.getNotices}>
             <table>
