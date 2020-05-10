@@ -99,6 +99,8 @@ export default {
   ECOLOGICAL_CURRENCY_SUBTITLE_04: `View mining details in real time  `,
   ECOLOGICAL_CURRENCY_TITLE_05: `Combine DEP`,
   ECOLOGICAL_CURRENCY_SUBTITLE_05: `Combined DEP will enjoy higher OTC mining rewards`,
+  ECOLOGICAL_CURRENCY_TITLE_06: `Social Live`,
+  ECOLOGICAL_CURRENCY_SUBTITLE_06: `New ideas of blockchain social`,
 
   USER_TITLE: `User center`,
   USER_COPIED: `Copied`,
@@ -168,8 +170,8 @@ export default {
 
   PROMOTION_NONE: `None`,
   PROMOTION_TOTAL: `Previous day Total Network Revenue`,
-  PROMOTION_TOTAL_01: `团队总业绩`,
-  PROMOTION_PEOPLE_NUMBER: `伞下总人数`,
+  PROMOTION_TOTAL_01: `Team Performance`,
+  PROMOTION_PEOPLE_NUMBER: `Total People`,
   PROMOTION_STATUS: `User status`,
   PROMOTION_UNACTIVITY: `Inactive User`,
   PROMOTION_ACTIVITY: `Active User`,
@@ -418,10 +420,13 @@ export default {
   HOME_DIGITAL_CASH_DESC: `USDT/BTC/ETH`,
   HOME_LEGAL_TENDER: `Reload FIAT`,
   HOME_LEGAL_TENDER_DESC: `Bank Card / Domestic Alipay`,
+  HOME_GAME_CENTER: `Game Centre`,
+  HOME_GAME_CENTER_DESC: `Decentralized game center`,
   HOME_INVITE_FRIEND: `Invite Friends`,
   HOME_ADV_INVITE_FRIEND: `Invite Friends Using DAGE`,
   HOME_ADV_INVITE_FRIEND_DESC: `Enjoy More Income`,
   HOME_OTC_CN: `China Users Require Alipay’s Verification`,
+  HOME_MINING_POOL: `Game Mining Pool`,
   HOME_OTC_MINING: `Currently Mining`,
   HOME_OTC_TEAM_REVENUE: `Yesterday’s Team’s Earnings`,
 
@@ -473,4 +478,12 @@ export default {
   FIAT_WITHDRAWAL: `Withdraw`,
   FIAT_WITHDRAWAL_PLACEHOLDER_06: `Enter the amount`,
   FIAT_RATIO: `Exchange Rate：`,
+
+  BUY_TITLE: `购买配套`,
+  BUY_DETAIL_TITLE: `订单详情`,
+  BUY_STALLS: `购买档位`,
+  BUY_TOTAL_REVENUE: `总收益`,
+  BUY_CONFIRM: `确认购买`,
+  BUY_SUCCESS: `购买成功`,
+  BUY_TOTAL_REVENUE_DESC: `EST 及 RC 为立即发放，USDT 为每日释放，释放比例：`,
 };

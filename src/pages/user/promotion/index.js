@@ -3,7 +3,7 @@ import { connect } from 'dva';
 import router from 'umi/router';
 import PageHeader from '@/components/common/PageHeader';
 import ARROW_LEFT from '@/assets/dark/arrow-left.png';
-import DAGE_LOGO from '@/assets/dark/dage-logo.png';
+// import DAGE_LOGO from '@/assets/dark/dage-logo.png';
 import TIPS from '@/assets/icons/tips.png';
 import { LEVEL_LIST } from '../../../utils/constants';
 import { formatMessage } from 'umi/locale';
@@ -44,7 +44,6 @@ class Index extends Component {
       teamCount,
     } = this.props.promotion;
 
-    console.log(teamCount);
     return (
       <div id={styles.promotion}>
         <PageHeader
@@ -97,7 +96,7 @@ class Index extends Component {
         <section className={styles.explain}>
           <ul className={styles.explainList}>
             <li>
-              <span>伞下总人数</span>
+              <span>{formatMessage({ id: `PROMOTION_PEOPLE_NUMBER` })}</span>
               <p className={styles.first}>{teamCount}</p>
             </li>
           </ul>

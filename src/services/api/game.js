@@ -130,6 +130,15 @@ class GameApi {
   static getGameAddress(options) {
     return onlinePost('/game/game', options);
   }
+
+  /**
+   * 游戏矿池（正在挖矿、昨日团队收益）
+   * @required openId string
+   *
+   **/
+  static getRewardAndAurplus(options) {
+    return onlinePost('/other/index', options);
+  }
 }
 
 export default GameApi;

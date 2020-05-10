@@ -62,7 +62,8 @@ class OtcApi {
    **/
   static otcDetail(options) {
     // return onlinePost('/otc/otclist', options);
-    return onlinePost('/otc/rmbwithdrawallist', options);
+    return onlinePost('/userasset/rewardlist', options);
+    // return onlinePost('/otc/rmbwithdrawallist', options);
     // return Promise.resolve({
     //   status: 1,
     //   msg: '操作成功',

@@ -28,29 +28,36 @@ class Index extends Component {
           link: '/exchange',
         },
         {
-          img: Images.ecoGame,
-          title: formatMessage({ id: `ECOLOGICAL_CURRENCY_TITLE_02` }),
-          subTitle: formatMessage({ id: `ECOLOGICAL_CURRENCY_SUBTITLE_02` }),
-          link: '/game',
-        },
-        {
           img: Images.ecoOtcMining,
           title: formatMessage({ id: `ECOLOGICAL_CURRENCY_TITLE_03` }),
           subTitle: formatMessage({ id: `ECOLOGICAL_CURRENCY_SUBTITLE_03` }),
           link: otcLink,
         },
         {
-          img: Images.ecoOtcMiningDetail,
-          title: formatMessage({ id: `ECOLOGICAL_CURRENCY_TITLE_04` }),
-          subTitle: formatMessage({ id: `ECOLOGICAL_CURRENCY_SUBTITLE_04` }),
-          link: '/mining-detail/otc',
+          img: Images.ecoGame,
+          title: formatMessage({ id: `ECOLOGICAL_CURRENCY_TITLE_02` }),
+          subTitle: formatMessage({ id: `ECOLOGICAL_CURRENCY_SUBTITLE_02` }),
+          link: '/game',
         },
         {
           img: Images.ecoDep,
-          title: formatMessage({ id: `ECOLOGICAL_CURRENCY_TITLE_05` }),
-          subTitle: formatMessage({ id: `ECOLOGICAL_CURRENCY_SUBTITLE_05` }),
+          title: formatMessage({ id: `ECOLOGICAL_CURRENCY_TITLE_06` }),
+          subTitle: formatMessage({ id: `ECOLOGICAL_CURRENCY_SUBTITLE_06` }),
           link: '',
         },
+
+        // {
+        //   img: Images.ecoOtcMiningDetail,
+        //   title: formatMessage({ id: `ECOLOGICAL_CURRENCY_TITLE_04` }),
+        //   subTitle: formatMessage({ id: `ECOLOGICAL_CURRENCY_SUBTITLE_04` }),
+        //   link: '/mining-detail/otc',
+        // },
+        // {
+        //   img: Images.ecoDep,
+        //   title: formatMessage({ id: `ECOLOGICAL_CURRENCY_TITLE_05` }),
+        //   subTitle: formatMessage({ id: `ECOLOGICAL_CURRENCY_SUBTITLE_05` }),
+        //   link: '',
+        // },
       ];
       this.setState({ list });
     });

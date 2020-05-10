@@ -95,6 +95,8 @@ export default {
   ECOLOGICAL_CURRENCY_SUBTITLE_04: `ติดตามรายละเอียดการขุดแบบเรียลไทม์`,
   ECOLOGICAL_CURRENCY_TITLE_05: `ผสานเข้าไปใน DEP`,
   ECOLOGICAL_CURRENCY_SUBTITLE_05: `รับรางวัลการขุด OTC ที่สูงขึ้นจาก DEP`,
+  ECOLOGICAL_CURRENCY_TITLE_06: `โซเชียลสด`,
+  ECOLOGICAL_CURRENCY_SUBTITLE_06: `แนวคิดใหม่ของบล็อกเชนสังคม`,
 
   USER_TITLE: `ศูนย์ผู้ใช้`,
   USER_COPIED: `คัดลอกแล้ว`,
@@ -164,8 +166,8 @@ export default {
 
   PROMOTION_NONE: `ไม่มี`,
   PROMOTION_TOTAL: `รายได้เครือข่ายรวมของวันก่อน`,
-  PROMOTION_TOTAL_01: `团队总业绩`,
-  PROMOTION_PEOPLE_NUMBER: `伞下总人数`,
+  PROMOTION_TOTAL_01: `ประสิทธิภาพของทีม`,
+  PROMOTION_PEOPLE_NUMBER: `จำนวนคนใต้ร่มทั้งหมด`,
   PROMOTION_STATUS: `สถานะผู้ใช้`,
   PROMOTION_UNACTIVITY: `ผู้ใช้ที่ไม่ได้ใช้งาน`,
   PROMOTION_ACTIVITY: `ผู้ใช้ที่ใช้งาน`,
@@ -400,10 +402,13 @@ export default {
   HOME_DIGITAL_CASH_DESC: `USDT/BTC/ETH`,
   HOME_LEGAL_TENDER: `รีโหลด FIAT`,
   HOME_LEGAL_TENDER_DESC: `บัตรเครดิต / Alipay ภายในประเทศ`,
+  HOME_GAME_CENTER: `ศูนย์เกม`,
+  HOME_GAME_CENTER_DESC: `ศูนย์เกมกระจายอำนาจ`,
   HOME_INVITE_FRIEND: `เชิญเพื่อน`,
   HOME_ADV_INVITE_FRIEND: `เชิญเพื่อนโดยใช้ DAGE`,
   HOME_ADV_INVITE_FRIEND_DESC: `เพลิดเพลินกับรายได้ที่มากขึ้น`,
   HOME_OTC_CN: `ผู้ใช้ชาวจีนจำเป็นต้องผ่านการตรวจสอบจาก Alipay`,
+  HOME_MINING_POOL: `เกมขุดสระว่ายน้ำ`,
   HOME_OTC_MINING: `กำลังขุดเหมืองแร่`,
   HOME_OTC_TEAM_REVENUE: `รายได้ของทีมเมื่อวาน`,
 
@@ -457,4 +462,12 @@ export default {
   FIAT_WITHDRAWAL: `ถอนตัว`,
   FIAT_WITHDRAWAL_PLACEHOLDER_06: `ใส่จำนวนเงิน`,
   FIAT_RATIO: `อัตราแลกเปลี่ยน：`,
+
+  BUY_TITLE: `购买配套`,
+  BUY_DETAIL_TITLE: `订单详情`,
+  BUY_STALLS: `购买档位`,
+  BUY_TOTAL_REVENUE: `总收益`,
+  BUY_CONFIRM: `确认购买`,
+  BUY_SUCCESS: `购买成功`,
+  BUY_TOTAL_REVENUE_DESC: `EST 及 RC 为立即发放，USDT 为每日释放，释放比例：`,
 };

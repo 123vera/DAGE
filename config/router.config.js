@@ -71,7 +71,6 @@ export default [
         component: './user/switchLang',
       }, // 语言切换
 
-
       { path: '/wallet/flow', title: 'DAGE WALLET', component: './wallet/flow' }, // 资金流水
       { path: '/wallet/recharge', title: 'DAGE WALLET', component: './wallet/recharge' }, // 充币
       { path: '/wallet/dgt_recharge', title: 'DAGE WALLET', component: './wallet/dgt-recharge' }, // DGT法币充值
@@ -87,12 +86,12 @@ export default [
       // { path: '/wallet/mining-detail', title: 'DAGE WALLET', component: './wallet/mining-detail' }, // 挖矿详情
 
       { path: '/exchange', title: 'DAGE WALLET', component: './ecological/exchange' }, // 去中心化交易中心
-      { path: '/mining-detail', title: 'DAGE WALLET', component: './ecological/mining-detail' }, // 挖矿详情
-      {
-        path: '/mining-detail/otc',
-        title: 'DAGE WALLET',
-        component: './ecological/mining-detail/otc',
-      }, // OTC挖矿详情
+      { path: '/mining-detail', title: 'DAGE WALLET', component: './ecological/mining-detail' }, // 新挖矿详情
+      // {
+      //   path: '/mining-detail/otc',
+      //   title: 'DAGE WALLET',
+      //   component: './ecological/mining-detail/otc',
+      // }, // OTC挖矿详情
       {
         path: '/otc-mining/inland',
         title: 'DAGE WALLET',
@@ -103,7 +102,7 @@ export default [
         title: 'DAGE WALLET',
         component: './ecological/otc-mining/abroad',
       }, // OTC挖矿国际区
-      { path: '/compound-dep', title: 'DAGE WALLET', component: './ecological/compound-dep' }, // 合成DEP
+      // { path: '/compound-dep', title: 'DAGE WALLET', component: './ecological/compound-dep' }, // 合成DEP
 
       { path: '/assets/transfer', title: 'DAGE WALLET', component: './assets/transfer' }, // 划转
       {

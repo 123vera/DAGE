@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import styles from './index.less';
 import Header from '../../../components/common/Header';
 import { Icons } from '../../../assets';
-import { formatMessage } from 'umi/locale';
+import { formatMessage, getLocale } from 'umi/locale';
 import OtcApi from '../../../services/api/otc';
 import dayjs from 'dayjs';
 import { downFixed } from '../../../utils/utils';
@@ -73,8 +73,10 @@ function MiningDetail() {
         <p>
           <small>{formatMessage({ id: `OTC_MINING_DETAIL_SMALL_01` })}</small>
           <time>
-            {getLastTime(info.lasttime, 'H')}小时
-            {getLastTime(info.lasttime, 'm')}分
+            {getLastTime(info.lasttime || 0, 'H')}
+            {getLocale() === 'ch-CN' ? '小时' : ' h '}
+            {getLastTime(info.lasttime || 0, 'm')}
+            {getLocale() === 'ch-CN' ? '分' : ' min'}
           </time>
           <small>{formatMessage({ id: `OTC_MINING_DETAIL_SMALL_02` })}</small>
         </p>
