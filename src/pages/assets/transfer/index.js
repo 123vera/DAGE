@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import styles from './index.less';
 import PageHeader from '../../../components/common/PageHeader';
-// import Header from '../../../components/common/Header';
 import { Icons } from '../../../assets';
 import { connect } from 'dva';
 import Menus from '../../../components/common/Menus';
@@ -18,9 +17,14 @@ class Index extends Component {
 
   componentDidMount() {
     const { query } = this.props.location;
-    const { transfer = 'DToG' } = query;
-    this.props.dispatch({ type: 'transfer/UpdateState', payload: { transfer, initInfo: {} } });
-    this.props.dispatch({ type: 'transfer/TransferInit' });
+    const { transfer = 'DToG', type } = query;
+    this.props.dispatch({
+      type: 'transfer/UpdateState',
+      payload: { transfer, initInfo: {}, type },
+    });
+    setTimeout(() => {
+      this.props.dispatch({ type: 'transfer/TransferInit' });
+    }, 100);
   }
 
   changeTransfer = () => {
@@ -92,6 +96,8 @@ class Index extends Component {
   render() {
     const { transfer, type, num } = this.props.transfer;
     const { showCoins } = this.state;
+
+    console.log('type', type);
     return (
       <div id={styles.transfer}>
         <PageHeader

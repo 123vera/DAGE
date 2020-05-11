@@ -173,7 +173,7 @@ export default {
   PROMOTION_ACTIVITY: `活跃用户`,
   PROMOTION_ONLY_SHOW: `仅显示已激活账户`,
 
-  ASSETS_PAGE_TITLE: `账户资产折合`,
+  ASSETS_PAGE_TITLE: `总账户资产折合`,
   ASSETS_RECHANGE: `充币`,
   ASSETS_WITHDRAW: `提币`,
   ASSETS_TRANSFER: `划转`,

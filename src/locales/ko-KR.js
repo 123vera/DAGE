@@ -468,11 +468,11 @@ export default {
   FIAT_WITHDRAWAL_PLACEHOLDER_06: `금액을 입력하십시오`,
   FIAT_RATIO: `환율：`,
 
-  BUY_TITLE: `购买配套`,
-  BUY_DETAIL_TITLE: `订单详情`,
-  BUY_STALLS: `购买档位`,
-  BUY_TOTAL_REVENUE: `总收益`,
-  BUY_CONFIRM: `确认购买`,
-  BUY_SUCCESS: `购买成功`,
-  BUY_TOTAL_REVENUE_DESC: `EST 及 RC 为立即发放，USDT 为每日释放，释放比例：`,
+  BUY_TITLE: `구매 패키지`,
+  BUY_DETAIL_TITLE: `주문 정보`,
+  BUY_STALLS: `매점 구매`,
+  BUY_TOTAL_REVENUE: `총 수익`,
+  BUY_CONFIRM: `구매 확인`,
+  BUY_SUCCESS: `구매 성공`,
+  BUY_TOTAL_REVENUE_DESC: `EST 및 RC가 즉시 릴리스되고 USDT가 매일 릴리스됩니다.`,
 };

@@ -34,7 +34,7 @@ class Index extends Component {
       img: ICON_TRANSFER,
       value: 'transfer',
       label: formatMessage({ id: `ASSETS_TRANSFER` }),
-      path: '/assets/transfer',
+      path: `/assets/transfer?type=${type}`,
     };
     const mining = {
       img: ICON_PART,

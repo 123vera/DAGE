@@ -1,6 +1,6 @@
 import styles from './index.less';
 import Header from '../../../components/common/Header';
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Icons } from '../../../assets';
 import { HomeApi } from '../../../services/api';
 import ListView from '../../../components/common/ListView';
@@ -13,25 +13,25 @@ function OrderDetail() {
   const [hasMore, setHasMore] = useState(true);
   const [list, setList] = useState([]);
 
-  const getOrderDetail = useCallback(
-    callback => {
-      HomeApi.orderDetail({ page, row }).then(res => {
-        if (res.status === 1) {
-          list.push(...res.data);
-          setList(list);
+  const getOrderDetail = () => {
+    HomeApi.orderDetail({ page, row }).then(res => {
+      if (res.status === 1) {
+        list.push(...res.data);
+        setList(list);
+        if (res.data.length > 0) {
           setPage(page + 1);
-          setHasMore(row === res.data.length);
         }
-        callback && callback();
-      });
-    },
-    [page, list],
-  );
+        setHasMore(row === res.data.length);
+      }
+    });
+  };
 
   useEffect(() => {
     getOrderDetail();
-  }, [getOrderDetail]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
+  console.log(list);
   return (
     <div id={styles.orderDetail}>
       <Header title={formatMessage({ id: `BUY_DETAIL_TITLE` })} icon={Icons.arrowLeft} />

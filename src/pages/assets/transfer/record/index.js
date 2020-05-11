@@ -7,6 +7,7 @@ import dayjs from 'dayjs';
 import ListView from '../../../../components/common/ListView';
 import { connect } from 'dva';
 import { downFixed } from '../../../../utils/utils';
+import { formatMessage } from 'umi-plugin-locale';
 
 @connect(({ transferRecord }) => ({ transferRecord }))
 class Index extends Component {
@@ -34,28 +35,23 @@ class Index extends Component {
 
     return (
       <div>
-        <Header
-          icon={Icons.arrowLeft}
-          title={'划转记录'}
-        />
+        <Header icon={Icons.arrowLeft} title={formatMessage({ id: `TRANSFER_RECORD_TITLE` })} />
         <ListView hasMore={hasMore} onLoadMore={this.getList}>
           <ul>
             {list.map((item, key) => (
               <li key={key}>
-                <div className={styles.title}>
-                  {item.type.toLocaleUpperCase()}
-                </div>
+                <div className={styles.title}>{item.type.toLocaleUpperCase()}</div>
                 <div className={styles.row}>
                   <div className={styles.column}>
-                    <label>数量</label>
+                    <label>{formatMessage({ id: `TRANSFER_AMOUNT` })}</label>
                     <span>{downFixed(item.num)}</span>
                   </div>
                   <div className={`${styles.column} ${styles.center}`}>
-                    <label>类型</label>
+                    <label>{formatMessage({ id: `TRANSFER_TYPE` })}</label>
                     <span>{item.remark}</span>
                   </div>
                   <div className={styles.column}>
-                    <label>时间</label>
+                    <label>{formatMessage({ id: `TRANSFER_TIME` })}</label>
                     <span>{dayjs(item.addTime * 1000).format('MM-DD HH:mm')}</span>
                   </div>
                 </div>

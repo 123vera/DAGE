@@ -468,4 +468,12 @@ export default {
   FIAT_WITHDRAWAL: `引き出す`,
   FIAT_WITHDRAWAL_PLACEHOLDER_06: `金額を入力してください`,
   FIAT_RATIO: `為替レート：`,
+
+  BUY_TITLE: `パッケージを購入する`,
+  BUY_DETAIL_TITLE: `注文詳細`,
+  BUY_STALLS: `売店を購入`,
+  BUY_TOTAL_REVENUE: `総収入`,
+  BUY_CONFIRM: `購入を確認します`,
+  BUY_SUCCESS: `購入しました`,
+  BUY_TOTAL_REVENUE_DESC: `ESTとRCはすぐにリリースされ、USDTは毎日リリースされます、リリースされた例：`,
 };

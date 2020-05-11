@@ -64,7 +64,7 @@ class WalletFlow extends Component {
           </table>
         </section>
 
-        <section>
+        <section className={styles.details}>
           <span>{formatMessage({ id: `OTC_MINING_DETAIL_NAME` })}</span>
           <ListView hasMore={hasMore} onLoadMore={this.getFlow}>
             <ul>

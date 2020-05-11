@@ -113,7 +113,7 @@ class Home extends Component {
           <img className={styles.status} src={STATUS_BG} alt="" />
           <p className={styles.statusText}>
             <span style={{ opacity: 0.5 }}>
-              {myInfo && myInfo.teamLevel === 0 ? `VIP ${myInfo.teamLevel}` : '--'}
+              {myInfo && myInfo.teamLevel === 0 ? `VIP 0` : `VIP ${myInfo.teamLevel}`}
             </span>
 
             {/* {myInfo && myInfo.activate === 1 ? (

@@ -473,11 +473,11 @@ export default {
   FIAT_WITHDRAWAL_PLACEHOLDER_06: `Enter the amount`,
   FIAT_RATIO: `Exchange Rate：`,
 
-  BUY_TITLE: `购买配套`,
-  BUY_DETAIL_TITLE: `订单详情`,
-  BUY_STALLS: `购买档位`,
-  BUY_TOTAL_REVENUE: `总收益`,
-  BUY_CONFIRM: `确认购买`,
-  BUY_SUCCESS: `购买成功`,
-  BUY_TOTAL_REVENUE_DESC: `EST 及 RC 为立即发放，USDT 为每日释放，释放比例：`,
+  BUY_TITLE: `Purchase Package`,
+  BUY_DETAIL_TITLE: `Order Details`,
+  BUY_STALLS: `Purchase Stalls`,
+  BUY_TOTAL_REVENUE: `Total Revenue`,
+  BUY_CONFIRM: `Confirm Purchase`,
+  BUY_SUCCESS: `Purchase Successful`,
+  BUY_TOTAL_REVENUE_DESC: `EST and RC will be immediately released, USDT will be released daily  ，Released examples:`,
 };

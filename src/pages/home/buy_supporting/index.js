@@ -18,7 +18,7 @@ function BuySupporting() {
   const [coinInfo, setCoinInfo] = useState({});
 
   useEffect(() => {
-    getSupportingInfo();
+    getSupportingInfo(coin);
   }, [coin]);
 
   const getSupportingInfo = coin => {
@@ -27,6 +27,7 @@ function BuySupporting() {
         return Toast.info(res.msg);
       }
       const { buyotc, type } = res.data;
+
       setCoinInfo(type);
       setCoins(buyotc.CURRENCY);
       const gears = Object.keys(buyotc)
@@ -109,6 +110,7 @@ function BuySupporting() {
                   active={currCoin}
                   textAlign="left"
                   onHandle={menu => {
+                    console.log(menu.value);
                     setCoin(menu.value);
                     setShowMenus(false);
                   }}
@@ -121,8 +123,8 @@ function BuySupporting() {
           <aside>
             {getLocale() === 'en-US'
               ? `${coinInfo.currency}${formatMessage({ id: `EXCHANGE_CAN_USE` })} `
-              : `${formatMessage({ id: `EXCHANGE_CAN_USE` })} ${coinInfo.currency}}`}
-            }：{`${downFixed(coinInfo.balance)}`}
+              : `${formatMessage({ id: `EXCHANGE_CAN_USE` })} ${coinInfo.currency}`}
+            ：{`${downFixed(coinInfo.balance)}`}
           </aside>
         </div>
         <div className={styles.row}>
@@ -134,7 +136,7 @@ function BuySupporting() {
         <div className={styles.row}>
           <span>{formatMessage({ id: `OTC_CONSUMPTION` })}</span>
           <span>
-            {coinInfo.ratio ? gear.NUM / coinInfo.ratio : '--'} {coinInfo.currency}
+            {coinInfo.ratio ? downFixed(gear.NUM / coinInfo.ratio) : '--'} {coinInfo.currency}
           </span>
         </div>
       </section>

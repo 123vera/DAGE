@@ -1,7 +1,6 @@
 import { onlinePost } from '../utils';
 
 class HomeApi {
-
   /**
    * 游戏矿池
    * @required openId 用户openid
