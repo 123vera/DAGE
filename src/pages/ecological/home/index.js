@@ -17,9 +17,10 @@ class Index extends Component {
     const { dispatch } = this.props;
     dispatch({ type: 'globalModel/GetMyInfo' }).then(() => {
       const { myInfo } = this.props.globalModel;
-      const otcLink = myInfo.phonePrefix.includes('86')
-        ? '/otc-mining/inland'
-        : '/otc-mining/abroad';
+      const otcLink =
+        myInfo.phonePrefix && myInfo.phonePrefix.includes('86')
+          ? '/otc-mining/inland'
+          : '/otc-mining/abroad';
       const list = [
         {
           img: Images.ecoCurrency,

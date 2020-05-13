@@ -6,6 +6,7 @@ import { HomeApi } from '../../../services/api';
 import ListView from '../../../components/common/ListView';
 import dayjs from 'dayjs';
 import { formatMessage } from 'umi-plugin-locale';
+import { downFixed } from '../../../utils/utils';
 
 function OrderDetail() {
   const [page, setPage] = useState(1);
@@ -58,7 +59,7 @@ function OrderDetail() {
                 </p>
                 <p>
                   <label>{formatMessage({ id: `ORDER_DETAIL_LABEL_3` })}</label>
-                  <span>{order.ratio}</span>
+                  <span>{downFixed(order.ratio, 2)}%</span>
                   <button>
                     {order.status === 1
                       ? formatMessage({ id: `ORDER_DETAIL_VALUE` })

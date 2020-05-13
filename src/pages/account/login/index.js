@@ -22,6 +22,7 @@ class Login extends Component {
   };
 
   componentDidMount() {
+    console.log(this.props)
     Cookies.remove('ACCOUNT_TOKEN');
     Cookies.remove('USER_ID');
     Cookies.remove('OPENID');

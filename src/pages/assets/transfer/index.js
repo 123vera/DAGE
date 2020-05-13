@@ -18,13 +18,15 @@ class Index extends Component {
   componentDidMount() {
     const { query } = this.props.location;
     const { transfer = 'DToG', type } = query;
+
     this.props.dispatch({
       type: 'transfer/UpdateState',
       payload: { transfer, initInfo: {}, type },
     });
+
     setTimeout(() => {
       this.props.dispatch({ type: 'transfer/TransferInit' });
-    }, 100);
+    }, 200);
   }
 
   changeTransfer = () => {
@@ -97,7 +99,6 @@ class Index extends Component {
     const { transfer, type, num } = this.props.transfer;
     const { showCoins } = this.state;
 
-    console.log('type', type);
     return (
       <div id={styles.transfer}>
         <PageHeader

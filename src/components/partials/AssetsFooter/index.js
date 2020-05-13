@@ -49,6 +49,11 @@ class Index extends Component {
     if (type === 'DGT') {
       return this.setState({ coinJumps: [recharge, withdraw, transfer, mining] });
     }
+
+    if (type === 'EST') {
+      return this.setState({ coinJumps: [] });
+    }
+
     return this.setState({ coinJumps: [recharge, withdraw, mining] });
   }
 

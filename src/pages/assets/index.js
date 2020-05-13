@@ -13,7 +13,6 @@ class Assets extends Component {
 
   componentDidMount() {
     window.scrollTo(0, 0);
-    // this.props.dispatch({ type: 'assetsHome/GetUserAssets' });
     this.props.dispatch({ type: 'assetsHome/GetAssets' });
   }
 
@@ -37,7 +36,7 @@ class Assets extends Component {
     const { userAssets, gameAssets } = this.props.assetsHome;
     const transferUrl = `/assets/transfer?transfer=${activityLi === 2 ? 'GToD' : 'DToG'}`;
     const { list = [], total = '' } = activityLi === 1 ? userAssets : gameAssets;
-    const allTotal = userAssets.total + gameAssets.total;
+    const allTotal = Number(userAssets.total + gameAssets.total);
 
     return (
       <div id={styles.assetsHome}>

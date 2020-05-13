@@ -15,14 +15,17 @@ export default {
   },
   effects: {
     *TransferInit(_, { call, put, select }) {
-      const { transfer } = yield select(state => state.transfer);
+      const { transfer, type: Itype } = yield select(state => state.transfer);
       const res = yield call(GameApi.transferInit);
       if (res.status === 1) {
+        const typeI = Itype
+          ? Itype
+          : (transfer === 'DToG' ? res.data.DAGECURRENCY : res.data.GAMECURRENCY)[0];
         yield put({
           type: 'UpdateState',
           payload: {
             initInfo: res && res.data,
-            type: (transfer === 'DToG' ? res.data.DAGECURRENCY : res.data.GAMECURRENCY)[0],
+            type: typeI,
           },
         });
       }

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import router from 'umi/router';
 import { Icons } from '../../../assets';
-
 import styles from './index.less';
 
 const HeaderItem = function(props) {

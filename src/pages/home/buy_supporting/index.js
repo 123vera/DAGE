@@ -31,10 +31,11 @@ function BuySupporting() {
       setCoinInfo(type);
       setCoins(buyotc.CURRENCY);
       const gears = Object.keys(buyotc)
-        .slice(1)
+        .slice(2)
         .map(level => {
           return { ...buyotc[level], LEVEL: level };
         });
+
       setGears(gears);
       setGear(gears[0]);
     });
@@ -53,7 +54,7 @@ function BuySupporting() {
   };
 
   const currCoin = coin || coins[0];
-
+  console.log(gears);
   return (
     <div className={styles.buySupporting} onClick={() => setShowMenus(false)}>
       <Header
