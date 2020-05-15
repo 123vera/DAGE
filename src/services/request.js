@@ -58,7 +58,9 @@ Request.interceptors.response.use(
     // 处理未登录
     if (data && data.status === -101) {
       // Toast.fail('请先登录', 2);
-      Toast.fail('请先登录', 2, () => router.push('/login'));
+      setTimeout(() => {
+        Toast.fail(data.msg, 2, () => router.push('/login'));
+      }, 1);
       return Promise.resolve(data);
     }
 
@@ -75,7 +77,6 @@ Request.interceptors.response.use(
     return data;
   },
   err => {
-    // console.log(err);
     return Promise.resolve(err);
   },
 );

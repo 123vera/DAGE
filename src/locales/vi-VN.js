@@ -149,6 +149,7 @@ export default {
   PROMOTION_MY_GENERATION: `Người giới thiệu Thế hệ 1 của tôi`,
   PROMOTION_USER: `Người dùng`,
   PROMOTION_TIME: `Thời gian quảng bá`,
+  PROMOTION_PERFORMANCE: `Tổng hiệu suất`,
 
   PROMOTION_LEVEL: `Thưởng liên kết`,
   PROMOTION_LEVEL_01: `Cơ bản`,

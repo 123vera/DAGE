@@ -1,63 +1,68 @@
 @import '../../../../styles/mixin.less';
 
-ul {
-  .clearUl;
-  padding: 12px 0 60px 60px;
+#transferRecord {
+  ul {
+    .clearUl;
+    box-sizing: border-box;
+    padding: 0 60px;
+    // padding: 0 0 60px 60px;
 
-  li {
-    line-height: 44px;
-    border-bottom: 2px solid rgba(26, 32, 46, 1);;
+    li {
+      line-height: 44px;
+      border-bottom: 2px solid rgba(26, 32, 46, 1);
 
-    .title {
-      margin-top: 40px;
-      font-size: 32px;
-    }
+      .title {
+        margin-top: 40px;
+        font-size: 32px;
+      }
 
-    .row {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      margin-top: 36px;
-      margin-bottom: 18px;
-
-      .column {
-        box-sizing: border-box;
+      .row {
         display: flex;
-        flex-direction: column;
-        text-align: left;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 36px;
+        margin-bottom: 18px;
 
-        &:first-child {
-          padding-right: 20px;
-          width: 18%;
-        }
+        .column {
+          box-sizing: border-box;
+          display: flex;
+          flex-direction: column;
+          text-align: left;
 
-        &:last-child {
-          padding: 0 24px 0 20px;
-          width: 30%;
-          text-align: right;
-        }
+          &:first-child {
+            padding-right: 20px;
+            width: 18%;
+            margin-right: 20px;
+          }
 
-        label {
-          margin-bottom: 6px;
-          font-size: 22px;
-          color: @font-sub-color;
-          line-height: 32px;
-        }
+          &:last-child {
+            padding: 0 0 0 20px;
+            width: 30%;
+            text-align: right;
+          }
 
-        &.center {
-          width: 52%;
+          label {
+            margin-bottom: 6px;
+            font-size: 22px;
+            color: @font-sub-color;
+            line-height: 32px;
+          }
+
+          &.center {
+            width: 52%;
+
+            span {
+              width: 100%;
+              display: block;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+            }
+          }
 
           span {
-            width: 100%;
-            display: block;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
+            font-size: 28px;
           }
-        }
-
-        span {
-          font-size: 28px;
         }
       }
     }

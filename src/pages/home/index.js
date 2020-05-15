@@ -20,7 +20,7 @@ class Home extends Component {
   render() {
     const { myInfo } = this.props.globalModel;
     const { notice } = this.props.wallet;
-    const isChinese = myInfo.phonePrefix === '86';
+    const isChinese = myInfo && myInfo.phonePrefix === '86';
 
     return (
       <div className={styles.home} onClick={() => this.setState({ showMenus: false })}>
@@ -57,7 +57,7 @@ class Home extends Component {
                 <img src={Icons.homeGame} alt="" />
                 <span>{formatMessage({ id: `HOME_GAME_CENTER` })}</span>
                 <small>{formatMessage({ id: `HOME_GAME_CENTER_DESC` })}</small>
-                <img className={styles.gameCardBg} src={Images.homeGameCard} alt=""/>
+                <img className={styles.gameCardBg} src={Images.homeGameCard} alt="" />
               </li>
             )}
           </ul>
@@ -102,7 +102,7 @@ class Mining extends Component {
   render() {
     const { myInfo } = this.props.globalModel;
     const { certification, reward } = this.props.wallet;
-    const isChinese = myInfo.phonePrefix === '86';
+    const isChinese = myInfo && myInfo.phonePrefix === '86';
 
     return (
       <div className={styles.mining}>
@@ -120,19 +120,17 @@ class Mining extends Component {
         )}
         <ul>
           <li onClick={() => router.push('/home/order-detail')}>
-          {/*<li onClick={() => router.push('/mining-detail/otc')}>*/}
+            {/*<li onClick={() => router.push('/mining-detail/otc')}>*/}
             <span>{formatMessage({ id: `HOME_OTC_MINING` })}</span>
             <span>{downFixed(reward.surplus)} USDT</span>
-
           </li>
           <li onClick={() => router.push('/promotion')}>
             <span>{formatMessage({ id: `HOME_OTC_TEAM_REVENUE` })}</span>
             <span>{downFixed(reward.yestodayTeamreward)} USDT</span>
-
           </li>
         </ul>
         <div className={styles.btnBox}>
-          <button onClick={() =>router.push('/home/buy-supporting')}>
+          <button onClick={() => router.push('/home/buy-supporting')}>
             {formatMessage({ id: `BUY_TITLE` })}
           </button>
         </div>

@@ -67,7 +67,8 @@ class Assets extends Component {
             </li>
           </ul>
           <div className={`${styles.bgDark} ${styles.totalAmount}`}>
-            {formatMessage({ id: `ASSETS_PAGE_TITLE` })}（USD）<span>{downFixed(total)}</span>
+            {formatMessage({ id: `ASSETS_PAGE_TITLE` }).slice(1)}（USD）
+            <span>{downFixed(total)}</span>
           </div>
         </section>
 

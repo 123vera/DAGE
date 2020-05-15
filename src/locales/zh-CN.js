@@ -149,6 +149,7 @@ export default {
   PROMOTION_MY_GENERATION: `我的一代推荐人员`,
   PROMOTION_USER: `用户`,
   PROMOTION_TIME: `推广时间`,
+  PROMOTION_PERFORMANCE: `总业绩`,
 
   PROMOTION_LEVEL: `勋章等级`,
   PROMOTION_LEVEL_01: `初级`,

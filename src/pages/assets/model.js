@@ -21,13 +21,10 @@ export default {
       if (gameRes.status === 1) {
         const { list } = gameRes.data;
         const total = list.reduce((acc, cur) => {
-          if (cur.amount === 0) {
-            return 0;
-          } else {
-            return acc + Number(cur.price) / Number(cur.amount);
-          }
+          return acc + Number(cur.price) * Number(cur.amount);
         }, 0);
         const gameAssets = { list, total };
+
         yield put({ type: 'UpdateState', payload: { gameAssets } });
       }
       const userRes = yield call(UserApi.getUserAssets);
@@ -35,15 +32,15 @@ export default {
         const total =
           userRes.data &&
           userRes.data.list.reduce((acc, cur) => {
-            if (Number(cur.amount) === 0) {
-              return acc + 0;
-            } else {
-              return acc + Number(cur.price) / Number(cur.amount);
-            }
+            // if (Number(cur.amount) === 0) {
+            //   return acc + 0;
+            // } else {
+            // console.log(Number(cur.amount) === 0 ? 0 : Number(cur.price) / Number(cur.amount));
+            return acc + Number(cur.price) * Number(cur.amount);
+            // }
           }, 0);
 
         const userAssets = { list: userRes.data.list, total };
-
         yield put({ type: 'UpdateState', payload: { userAssets } });
       }
     },

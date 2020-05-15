@@ -77,10 +77,10 @@ class Index extends Component {
               // text: formatMessage({ id: `DGT_RECORD_TITLE` }),
               onHandle: () => router.push('/wallet/dgt_record'),
             }}
-            onHandle={() => router.push('/main/home')}
+            // onHandle={() => router.push('/main/home')}
           />
           <div className={`${styles.menus} ${showMenus ? styles.show : ''}`}>
-            <Coins coin="DGT" onHandle={this.changeCoin}/>
+            <Coins coin="DGT" onHandle={this.changeCoin} />
           </div>
         </div>
 

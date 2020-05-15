@@ -34,7 +34,7 @@ class Index extends Component {
     const { list, hasMore } = this.props.transferRecord;
 
     return (
-      <div>
+      <div id={styles.transferRecord}>
         <Header icon={Icons.arrowLeft} title={formatMessage({ id: `TRANSFER_RECORD_TITLE` })} />
         <ListView hasMore={hasMore} onLoadMore={this.getList}>
           <ul>

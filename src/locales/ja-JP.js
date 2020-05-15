@@ -149,6 +149,7 @@ export default {
   PROMOTION_MY_GENERATION: `My初代リファラー`,
   PROMOTION_USER: `ユーザー`,
   PROMOTION_TIME: `プロモーション期間`,
+  PROMOTION_PERFORMANCE: `総合性能`,
 
   PROMOTION_LEVEL: `リファラルリワード`,
   PROMOTION_LEVEL_01: `プライマリー`,

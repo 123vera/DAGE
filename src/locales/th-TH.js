@@ -149,6 +149,7 @@ export default {
   PROMOTION_MY_GENERATION: `ผู้อ้างอิงรุ่นแรกของคุณ`,
   PROMOTION_USER: `ผู้ใช้`,
   PROMOTION_TIME: `ระยะเวลาโปรโมชั่น`,
+  PROMOTION_PERFORMANCE: `ประสิทธิภาพโดยรวม`,
 
   PROMOTION_LEVEL: `เหรียญ`,
   PROMOTION_LEVEL_01: `หลัก`,

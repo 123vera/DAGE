@@ -149,6 +149,7 @@ export default {
   PROMOTION_MY_GENERATION: `내 첫 생성 추천인`,
   PROMOTION_USER: `사용자`,
   PROMOTION_TIME: `프로모션 기간`,
+  PROMOTION_PERFORMANCE: `총 성능`,
 
   PROMOTION_LEVEL: `추천에 따른 보상`,
   PROMOTION_LEVEL_01: `기본`,

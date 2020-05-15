@@ -11,6 +11,7 @@ import styles from './index.less';
 import dayjs from 'dayjs';
 import ListView from '../../../components/common/ListView';
 import { getLocale } from 'umi-plugin-locale';
+import { downFixed } from '../../../utils/utils';
 
 @connect(({ promotion }) => ({ promotion }))
 class Index extends Component {
@@ -84,6 +85,8 @@ class Index extends Component {
             {formatMessage({ id: `PROMOTION_RECOMMENDATION` })}
             <img src={TIPS} alt="TIPS" onClick={this.hrefToTip} />
           </h4>
+
+          {/* 一代推荐人数 */}
           <ul className={styles.explainList}>
             <li>
               <span>{formatMessage({ id: `PROMOTION_GENERATION` })}</span>
@@ -135,14 +138,15 @@ class Index extends Component {
               <thead>
                 <tr>
                   <td>{formatMessage({ id: `PROMOTION_USER` })}</td>
-                  <td>{formatMessage({ id: `PROMOTION_TIME` })}</td>
+                  <td>{formatMessage({ id: `PROMOTION_PERFORMANCE` })}</td>
                 </tr>
               </thead>
               <tbody>
                 {list.map(item => (
-                  <tr key={item.regTime}>
+                  <tr key={item.achievementDgc}>
                     <td>{item.userName}</td>
-                    <td>{dayjs(item.regTime * 1000).format('YYYY-MM-DD HH:mm')}</td>
+                    <td>{downFixed(item.achievementDgc)}</td>
+                    {/* <td>{dayjs(item.regTime * 1000).format('YYYY-MM-DD HH:mm')}</td> */}
                   </tr>
                 ))}
               </tbody>

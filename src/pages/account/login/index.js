@@ -22,7 +22,6 @@ class Login extends Component {
   };
 
   componentDidMount() {
-    console.log(this.props)
     Cookies.remove('ACCOUNT_TOKEN');
     Cookies.remove('USER_ID');
     Cookies.remove('OPENID');
@@ -106,7 +105,7 @@ class Login extends Component {
     return (
       <div id={styles.userLogin}>
         <div className={styles.headerWrapper}>
-          <img src={Icons.arrowLeft} onClick={() => router.goBack()} alt="" />
+          <img src={Icons.arrowLeft} onClick={() => router.push('/')} alt="" />
           <div className={styles.langWrapper}>
             <SelectLang />
           </div>

@@ -58,7 +58,8 @@ class WalletFlow extends Component {
               <tr>
                 <td>{(balance && downFixed(balance)) || 0}</td>
                 <td>{(price && downFixed(price, 4)) || '--'}</td>
-                <td>{(balance && price && downFixed(balance * price)) || '--'}</td>
+                <td>{downFixed(Number(balance) * Number(price)) || '--'}</td>
+                {/* <td>{(Number(balance) && price && downFixed(Number(balance) * price)) || '--'}</td> */}
               </tr>
             </tbody>
           </table>

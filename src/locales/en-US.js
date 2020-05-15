@@ -153,6 +153,7 @@ export default {
   PROMOTION_MY_GENERATION: `My 1st generation referee`,
   PROMOTION_USER: `User`,
   PROMOTION_TIME: `Promote time`,
+  PROMOTION_PERFORMANCE: `Total performance`,
 
   PROMOTION_LEVEL: `Referral Reward`,
   PROMOTION_LEVEL_01: `Primary`,

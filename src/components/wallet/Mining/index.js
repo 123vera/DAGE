@@ -53,7 +53,7 @@ class Mining extends Component {
     const { showMenus } = this.state;
     const isMoreCurrency = currency.value === 'dgt+did';
     const isActivate = myInfo.activate === 1;
-    const isChinese = myInfo.phonePrefix === '86';
+    const isChinese = myInfo && myInfo.phonePrefix === '86';
 
     return (
       <div className={styles.mining}>
