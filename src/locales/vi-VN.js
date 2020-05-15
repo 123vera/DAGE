@@ -483,6 +483,7 @@ export default {
   FIAT_WITHDRAWAL: `Rút tiền`,
   FIAT_WITHDRAWAL_PLACEHOLDER_06: `Nhập số tiền`,
   FIAT_RATIO: `Tỷ giá hối đoái：`,
+  FIAT_TIXIAN: `Đăng ký rút tiền`,
 
   BUY_TITLE: `购买配套`,
   BUY_DETAIL_TITLE: `订单详情`,

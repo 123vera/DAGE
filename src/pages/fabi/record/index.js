@@ -8,11 +8,11 @@ import styles from './index.less';
 import { downFixed } from '../../../utils/utils';
 import ListView from '../../../components/common/ListView';
 
-@connect(({ dgtRecord }) => ({ dgtRecord }))
+@connect(({ fabiRecord }) => ({ fabiRecord }))
 class Index extends Component {
   componentDidMount() {
     this.props.dispatch({
-      type: 'dgtRecord/UpdateState',
+      type: 'fabiRecord/UpdateState',
       payload: {
         page: 1,
         row: 10,
@@ -24,15 +24,15 @@ class Index extends Component {
   }
 
   getRecord = callback => {
-    this.props.dispatch({ type: 'dgtRecord/RmbRechargeRecord' }).then(res => {
+    this.props.dispatch({ type: 'fabiRecord/RmbRechargeRecord' }).then(res => {
       callback && callback();
     });
   };
 
   render() {
-    const { list, hasMore = true } = this.props.dgtRecord;
+    const { list, hasMore = true } = this.props.fabiRecord;
     return (
-      <div id={styles.dgtRecord}>
+      <div id={styles.fabiRecord}>
         <PageHeader
           title={formatMessage({ id: `DGT_RECORD_TITLE` })}
           leftContent={{ icon: ARROW_LEFT }}

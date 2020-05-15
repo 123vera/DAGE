@@ -139,6 +139,41 @@ class GameApi {
   static getRewardAndAurplus(options) {
     return onlinePost('/other/index', options);
   }
+
+  /**
+   * 获取游戏DGT法币提现初始化信息
+   *
+   * @required openId string
+   **/
+  static getDgtWithdrawInitInfo(options) {
+    return onlinePost('/game/withdrawalini', options);
+  }
+
+  /**
+   * 游戏DGT法币提现银行卡信息
+   *
+   * @required openId string
+   * @required bankName string 银行名称
+   * @required bankBranch string 支行名称
+   * @required bankNo string  银行卡号
+   * @required name string 姓名
+   * @required num string 数量
+   * @required code string 手机验证码
+   **/
+  static dgtWithdraw(options) {
+    return onlinePost('/game/withdrawal', options);
+  }
+
+  /**
+   * 游戏dgt法币提现记录
+   *
+   * @required openId string
+   * @required page string 页码
+   * @required row string 条数
+   **/
+  static dgtWithdrawRecord(options) {
+    return onlinePost('/game/withdrawallist', options);
+  }
 }
 
 export default GameApi;

@@ -1,7 +1,7 @@
 import AssetApi from '../../../services/api/asset';
 
 export default {
-  namespace: 'dgtRecharge',
+  namespace: 'fabiRecharge',
   state: {
     amount: '',
     amountOptions: [],
@@ -31,8 +31,8 @@ export default {
         });
       }
     },
-    *RmbRecharge({ payload }, { call, select }) {
-      const { amount } = yield select(state => state.dgtRecharge);
+    *RmbRecharge(_, { call, select }) {
+      const { amount } = yield select(state => state.fabiRecharge);
       return yield call(AssetApi.rmbRecharge, { num: amount });
     },
   },

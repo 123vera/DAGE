@@ -469,6 +469,7 @@ export default {
   FIAT_WITHDRAWAL: `引き出す`,
   FIAT_WITHDRAWAL_PLACEHOLDER_06: `金額を入力してください`,
   FIAT_RATIO: `為替レート：`,
+  FIAT_TIXIAN: `引き出しを申し込む`,
 
   BUY_TITLE: `パッケージを購入する`,
   BUY_DETAIL_TITLE: `注文詳細`,

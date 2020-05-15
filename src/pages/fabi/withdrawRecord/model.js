@@ -1,4 +1,4 @@
-import { GameApi } from '../../../services/api';
+import { FabiApi } from '../../../services/api';
 
 export default {
   namespace: 'dgtWithdrawRecord',
@@ -17,7 +17,7 @@ export default {
   effects: {
     *GetWithdrawRecord({ _ }, { call, select, put }) {
       const { type, page, row, list } = yield select(state => state.dgtWithdrawRecord);
-      const res = yield call(GameApi.dgtWithdrawRecord, { type, page, row });
+      const res = yield call(FabiApi.dgtWithdrawRecord, { type, page, row });
 
       if (res.status === 1) {
         list.push(...res.data);

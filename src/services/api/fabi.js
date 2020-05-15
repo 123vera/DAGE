@@ -11,7 +11,7 @@ class DgtApi {
   }
 
   /**
-   * 资金划转初始化
+   * 法币提现银行卡信息
    *
    * @required openId string
    * @required bankName string 银行名称

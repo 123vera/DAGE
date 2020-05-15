@@ -73,10 +73,8 @@ export default [
 
       { path: '/wallet/flow', title: 'DAGE WALLET', component: './wallet/flow' }, // 资金流水
       { path: '/wallet/recharge', title: 'DAGE WALLET', component: './wallet/recharge' }, // 充币
-      { path: '/wallet/dgt_recharge', title: 'DAGE WALLET', component: './wallet/dgt-recharge' }, // DGT法币充值
-      { path: '/wallet/dgt_pay', title: 'DAGE WALLET', component: './wallet/dgt-pay' }, // DGT法币充值 - 支付二维码
-      { path: '/wallet/dgt_record', title: 'DAGE WALLET', component: './wallet/dgt-record' }, // DGT法币充值 - 充值记录
       { path: '/wallet/withdraw', title: 'DAGE WALLET', component: './wallet/withdraw' }, // 提币
+
       {
         path: '/wallet/withdraw-record',
         title: 'DAGE WALLET',
@@ -114,8 +112,19 @@ export default [
       { path: '/game', title: 'DAGE WALLET', component: './game/index' }, // 游戏中心
       { path: '/game_list', title: 'DAGE WALLET', component: './game/list' }, // 游戏列表
 
-      { path: '/dgt/withdraw/:step', title: 'DAGE WALLET', component: './dgt/withdraw' }, // dgt法币提现
-      { path: '/dgt/record', title: 'DAGE WALLET', component: './dgt/withdrawRecord' }, // dgt法币提现
+      // 法币系列
+      { path: '/fabi/withdraw/:step', title: 'DAGE WALLET', component: './fabi/withdraw' }, // 法币提现
+      { path: '/fabi/record', title: 'DAGE WALLET', component: './fabi/withdrawRecord' }, // 法币提现记录
+      { path: '/fabi/recharge', title: 'DAGE WALLET', component: './fabi/recharge' }, // 法币充值
+      { path: '/fabi/pay', title: 'DAGE WALLET', component: './fabi/pay' }, // 法币充值 - 收款二维码
+      { path: '/fabi/record', title: 'DAGE WALLET', component: './fabi/record' }, // 法币充值 - 充值记录
+
+      // 游戏dgt系列
+      { path: '/dgt/withdraw/:step', title: 'DAGE WALLET', component: './dgt/withdraw' }, // DGT法币提现
+      { path: '/dgt/record', title: 'DAGE WALLET', component: './dgt/withdrawRecord' }, // DGT法币提现记录
+      // { path: '/wallet/dgt_recharge', title: 'DAGE WALLET', component: './wallet/dgt-recharge' }, // DGT法币充值 （4.17版本去掉，改成法币充值下的2个页面）
+      // { path: '/wallet/dgt_pay', title: 'DAGE WALLET', component: './wallet/dgt-pay' }, // DGT法币充值 - 支付二维码 （4.17版本去掉，改成法币充值下的2个页面）
+      // { path: '/wallet/dgt_record', title: 'DAGE WALLET', component: './wallet/dgt-record' }, // DGT法币充值 - 充值记录 （4.17版本去掉，改成法币充值下的2个页面）
 
       { component: './404' },
     ],

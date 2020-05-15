@@ -469,6 +469,7 @@ export default {
   FIAT_WITHDRAWAL: `ถอนตัว`,
   FIAT_WITHDRAWAL_PLACEHOLDER_06: `ใส่จำนวนเงิน`,
   FIAT_RATIO: `อัตราแลกเปลี่ยน：`,
+  FIAT_TIXIAN: `สมัครถอนเงิน`,
 
   BUY_TITLE: `购买配套`,
   BUY_DETAIL_TITLE: `订单详情`,

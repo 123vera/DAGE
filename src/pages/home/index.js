@@ -47,7 +47,7 @@ class Home extends Component {
               <small>USDT/BTC/ETH</small>
             </li>
             {isChinese ? (
-              <li onClick={() => router.push('/wallet/dgt_recharge')}>
+              <li onClick={() => router.push('/fabi/recharge')}>
                 <img src={Icons.homeDgt} alt="" />
                 <span>{formatMessage({ id: `HOME_LEGAL_TENDER` })}</span>
                 <small>{formatMessage({ id: `HOME_LEGAL_TENDER_DESC` })}</small>

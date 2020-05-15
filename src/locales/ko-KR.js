@@ -468,6 +468,7 @@ export default {
   FIAT_WITHDRAWAL: `인출`,
   FIAT_WITHDRAWAL_PLACEHOLDER_06: `금액을 입력하십시오`,
   FIAT_RATIO: `환율：`,
+  FIAT_TIXIAN: `출금 신청`,
 
   BUY_TITLE: `구매 패키지`,
   BUY_DETAIL_TITLE: `주문 정보`,

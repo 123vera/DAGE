@@ -8,14 +8,14 @@ import styles from './index.less';
 import Coins from '../../../components/wallet/Coins';
 import { Toast } from 'antd-mobile';
 
-@connect(({ dgtRecharge }) => ({ dgtRecharge }))
+@connect(({ fabiRecharge }) => ({ fabiRecharge }))
 class Index extends Component {
   state = {
     showMenus: false,
   };
 
   componentDidMount() {
-    this.props.dispatch({ type: 'dgtRecharge/GetRmbIni' });
+    this.props.dispatch({ type: 'fabiRecharge/GetRmbIni' });
   }
 
   changeCoin = coin => {
@@ -30,13 +30,13 @@ class Index extends Component {
       return;
     }
     this.props.dispatch({
-      type: 'dgtRecharge/UpdateState',
+      type: 'fabiRecharge/UpdateState',
       payload: { amount },
     });
   };
 
   submit = () => {
-    const { minAmount, maxAmount, amount } = this.props.dgtRecharge;
+    const { minAmount, maxAmount, amount } = this.props.fabiRecharge;
     if (!amount) {
       return Toast.info(formatMessage({ id: `COMMON_PLACEHOLDER_RECHARGE_AMOUNT` }));
     }
@@ -47,7 +47,7 @@ class Index extends Component {
       return Toast.info(`${formatMessage({ id: `TOAST_MAXIMUM_RECHARGE` })}${maxAmount}`);
     }
 
-    this.props.dispatch({ type: 'dgtRecharge/RmbRecharge' }).then(res => {
+    this.props.dispatch({ type: 'fabiRecharge/RmbRecharge' }).then(res => {
       if (res.status !== 1) {
         res.msg && Toast.info(res.msg);
         return;
@@ -62,12 +62,12 @@ class Index extends Component {
 
   render() {
     const { showMenus } = this.state;
-    const { amountOptions, amount, minAmount, maxAmount } = this.props.dgtRecharge;
+    const { amountOptions, amount, minAmount, maxAmount } = this.props.fabiRecharge;
     // const { ratio } = this.props.dgtRecharge;
     // const realAmount = Number(amount) * Number(ratio);
 
     return (
-      <div id={styles.dgtRecharge}>
+      <div id={styles.fabiRecharge}>
         <div className={styles.header}>
           <Header
             icon={Icons.arrowLeft}

@@ -22,13 +22,13 @@ class Index extends Component {
       img: ICON_RECHARGE,
       value: 'recharge',
       label: formatMessage({ id: `ASSETS_RECHANGE` }),
-      path: type === 'CNY' ? `/wallet/dgt_recharge` : `/wallet/recharge?type=${type}`,
+      path: type === 'CNY' ? `/fabi/recharge` : `/wallet/recharge?type=${type}`,
     };
     const withdraw = {
       img: ICON_WITHDRAW,
       value: 'withdraw',
       label: formatMessage({ id: `ASSETS_WITHDRAW` }),
-      path: type === 'CNY' ? `/dgt/withdraw/1` : `/wallet/withdraw?type=${type}`,
+      path: type === 'CNY' ? `/fabi/withdraw/1` : `/wallet/withdraw?type=${type}`,
     };
     const transfer = {
       img: ICON_TRANSFER,

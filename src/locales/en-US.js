@@ -473,6 +473,7 @@ export default {
   FIAT_WITHDRAWAL: `Withdraw`,
   FIAT_WITHDRAWAL_PLACEHOLDER_06: `Enter the amount`,
   FIAT_RATIO: `Exchange Rate：`,
+  FIAT_TIXIAN: `Apply for withdrawal`,
 
   BUY_TITLE: `Purchase Package`,
   BUY_DETAIL_TITLE: `Order Details`,

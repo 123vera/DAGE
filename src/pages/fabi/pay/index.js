@@ -18,7 +18,6 @@ class QrCodeBox extends Component {
 
   render() {
     const { value } = this.props;
-    // const { url } = this.state;
     return (
       <div className={styles.qrCodeBox}>
         {/* <QRCode className={styles.qrCode} size={250} value={value || ''} /> */}
@@ -61,7 +60,7 @@ class Index extends Component {
     const { payImg, endTime, orderNo, num } = this.state;
 
     return (
-      <div id={styles.dgtPay}>
+      <div id={styles.fabiPay}>
         <PageHeader
           title={formatMessage({ id: `DGT_ALIPAY_TITLE` })}
           leftContent={{ icon: ARROW_LEFT }}

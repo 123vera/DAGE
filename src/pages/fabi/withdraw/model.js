@@ -1,7 +1,7 @@
-import { GameApi } from '../../../services/api';
+import { FabiApi } from '../../../services/api';
 
 export default {
-  namespace: 'dgtWithdraw',
+  namespace: 'fabiWithdraw',
   state: {
     balance: '',
     bankName: '',
@@ -20,7 +20,7 @@ export default {
   },
   effects: {
     *GetInitInfo(_, { call, put }) {
-      const res = yield call(GameApi.getDgtWithdrawInitInfo);
+      const res = yield call(FabiApi.getDgtWithdrawInitInfo);
       if (res.status === 1) {
         yield put({
           type: 'UpdateState',
@@ -32,9 +32,9 @@ export default {
 
     *Withdraw(_, { call, select }) {
       const { bankName, bankBranch, bankNo, name, num, code } = yield select(
-        state => state.dgtWithdraw,
+        state => state.fabiWithdraw,
       );
-      return yield call(GameApi.dgtWithdraw, { bankName, bankBranch, bankNo, name, num, code });
+      return yield call(FabiApi.dgtWithdraw, { bankName, bankBranch, bankNo, name, num, code });
     },
   },
 };

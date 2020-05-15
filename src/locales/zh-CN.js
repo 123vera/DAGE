@@ -477,6 +477,7 @@ export default {
   FIAT_WITHDRAWAL: `提现`,
   FIAT_WITHDRAWAL_PLACEHOLDER_06: `输入金额`,
   FIAT_RATIO: `汇率：`,
+  FIAT_TIXIAN: `申请提现`,
 
   BUY_TITLE: `购买配套`,
   BUY_DETAIL_TITLE: `订单详情`,

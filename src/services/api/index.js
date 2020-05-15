@@ -4,6 +4,6 @@ import AssetApi from './asset';
 import OtherApi from './other';
 import GameApi from './game';
 import OtcApi from './otc';
-import DgtApi from './dgt';
+import FabiApi from './fabi';
 
-export { HomeApi, UserApi, AssetApi, OtherApi, OtcApi, GameApi, DgtApi };
+export { HomeApi, UserApi, AssetApi, OtherApi, OtcApi, GameApi, FabiApi };

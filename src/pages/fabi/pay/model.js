@@ -1,5 +1,5 @@
 export default {
-  namespace: 'dgtPay',
+  namespace: 'fabiPay',
   state: {},
   reducers: {
     UpdateState(state, { payload }) {
