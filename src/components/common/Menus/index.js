@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 // menus 示例
 // const menus = [
 //   {
-//     value: '/wallet/recharge',
+//     value: '/home/recharge',
 //     label: '充币',
 //     icon: Icons.menuRecharge,
 //     width: '34px',

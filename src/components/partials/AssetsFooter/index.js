@@ -22,7 +22,7 @@ class Index extends Component {
       img: ICON_RECHARGE,
       value: 'recharge',
       label: formatMessage({ id: `ASSETS_RECHANGE` }),
-      path: type === 'CNY' ? `/fabi/recharge` : `/wallet/recharge?type=${type}`,
+      path: type === 'CNY' ? `/fabi/recharge` : `/home/recharge?type=${type}`,
     };
     const withdraw = {
       img: ICON_WITHDRAW,

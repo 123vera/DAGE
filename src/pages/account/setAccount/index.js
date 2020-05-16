@@ -82,7 +82,7 @@ class Index extends Component {
         payload: { userList: res.data.userList },
       });
       Toast.info(formatMessage({ id: `TOAST_SET_ACCOUNT_SUCCESS` }), 1.6, () => {
-        router.push('/select_account');
+        router.push('/account/select-account');
       });
     });
   };

@@ -93,7 +93,7 @@ class Login extends Component {
       });
       Cookies.set('ACCOUNT_TOKEN', accountToken);
       this.setState({ errMsg: { type: '', value: '' } }, () => {
-        router.push('/select_account');
+        router.push('/account/select-account');
       });
     });
   };
@@ -149,10 +149,10 @@ class Login extends Component {
               </label>
 
               <div className={styles.tipsInput}>
-                <span onClick={() => router.push(`/register`)}>
+                <span onClick={() => router.push(`/account/register`)}>
                   {formatMessage({ id: `REGISTER_TITLE_01` })}
                 </span>
-                <span onClick={() => router.push(`/find_password/verify`)}>
+                <span onClick={() => router.push(`/account/find-password/verify`)}>
                   {formatMessage({ id: `LOGIN_FORGET_PASSWORD` })}
                 </span>
               </div>

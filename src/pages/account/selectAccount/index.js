@@ -18,7 +18,7 @@ class Index extends Component {
       })
       .then(res => {
         if (res.status === -1) {
-          return Toast.info(res.msg, 2, () => router.push('/login'));
+          return Toast.info(res.msg, 2, () => router.push('/account/login'));
         }
         if (res.status !== 1) Toast.info(res.msg);
       });
@@ -32,7 +32,7 @@ class Index extends Component {
   };
 
   addAccount = () => {
-    router.push('/set_account');
+    router.push('//account/set-account');
   };
 
   toNext = () => {
@@ -68,7 +68,7 @@ class Index extends Component {
             ))}
 
             {userList.length < 10 && (
-              <section className={styles.setNew} onClick={() => router.push('/set_account')}>
+              <section className={styles.setNew} onClick={() => router.push('//account/set-account')}>
                 {formatMessage({ id: `SELECT_SET_ACCOUNT` })}
                 <img src={Icons.add} onClick={this.addAccount} alt="ADD_IMG" />
               </section>

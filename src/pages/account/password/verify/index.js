@@ -25,7 +25,7 @@ class Home extends Component {
 
   componentDidMount() {
     const { location } = this.props;
-    const type = location.pathname.includes('find_password') ? 'find_password' : 'reset_password';
+    const type = location.pathname.includes('find-password') ? 'find-password' : 'reset-password';
     this.props.dispatch({ type: 'password/ClearInput' });
     this.props.dispatch({
       type: 'password/UpdateState',
@@ -40,7 +40,7 @@ class Home extends Component {
 
   onOpenPrefix = e => {
     const { type } = this.props.password;
-    if (type !== 'find_password') return;
+    if (type !== 'find-password') return;
     e.preventDefault();
     this.setState({ showPrefix: true });
   };
@@ -133,7 +133,7 @@ class Home extends Component {
         return;
       }
       Cookies.set('ACCOUNT_TOKEN', res.data.accountToken);
-      router.push(type === 'find_password' ? '/find_password/edit' : '/reset_password/edit');
+      router.push(type === 'find-password' ? '/account/find-password/edit' : '/account/reset-password/edit');
     });
   };
 
@@ -149,7 +149,7 @@ class Home extends Component {
         <section>
           <p>
             {formatMessage({
-              id: type === 'find_password' ? `LOGIN_FIND_PASSWORD` : 'LOGIN_RESET_PASSWORD',
+              id: type === 'find-password' ? `LOGIN_FIND_PASSWORD` : 'LOGIN_RESET_PASSWORD',
             })}
           </p>
           <div className={styles.mainWrapper}>
@@ -162,14 +162,14 @@ class Home extends Component {
                   }`}
                 >
                   <span onClick={this.onOpenPrefix}>
-                    {type !== 'find_password' ? `+${globalModel.myInfo.phonePrefix}` : initPrefix}
+                    {type !== 'find-password' ? `+${globalModel.myInfo.phonePrefix}` : initPrefix}
                     <img src={Icons.arrowDown} alt="" />
                     &nbsp;|
                   </span>
                   <input
                     type="text"
                     autoComplete="off"
-                    value={type !== 'find_password' ? globalModel.myInfo.phoneNo : phone}
+                    value={type !== 'find-password' ? globalModel.myInfo.phoneNo : phone}
                     placeholder={formatMessage({ id: `COMMON_PLACEHOLDER_PHONE` })}
                     onChange={e => this.onInputChange(e.target.value, 'phone')}
                   />

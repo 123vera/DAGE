@@ -20,7 +20,7 @@ const config = {
         },
         hd: true,
         title: {
-          defaultTitle: 'DAGE',
+          defaultTitle: 'DAGE WALLET',
         },
         locale: {
           default: 'zh-CN',

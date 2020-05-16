@@ -64,7 +64,7 @@ class Index extends Component {
       }
       Toast.info(formatMessage({ id: `TOAST_SET_PASSWORD_SUCCESS` }), TOAST_DURATION, () => {
         this.props.dispatch({ type: 'password/ClearInput' });
-        router.push(type === 'find_password' ? '/login' : '/main/user');
+        router.push(type === 'find-password' ? '/account/login' : '/main/user');
       });
     });
   };

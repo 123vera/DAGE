@@ -56,7 +56,7 @@ class Index extends Component {
                 {formatMessage({ id: `PROMOTION_IMMEDIATE` })}
               </span>
             ),
-            onHandle: () => router.push('/referral_code'),
+            onHandle: () => router.push('/home/referral-code'),
           }}
         />
 

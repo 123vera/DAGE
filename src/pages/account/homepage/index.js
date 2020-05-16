@@ -15,11 +15,11 @@ class Index extends Component {
         <h2>{formatMessage({ id: `HOMEPAGE_TITLE` })}</h2>
 
         <div className={styles.btnGroup}>
-          <button onClick={() => router.push('/login')} className={`${styles.btn} ${styles.login}`}>
+          <button onClick={() => router.push('/account/login')} className={`${styles.btn} ${styles.login}`}>
             {formatMessage({ id: `LOGIN` })}
           </button>
           <button
-            onClick={() => router.push('/register')}
+            onClick={() => router.push('/account/register')}
             className={`${styles.btn} ${styles.reg}`}
           >
             {formatMessage({ id: `REGISTER_TITLE_01` })}

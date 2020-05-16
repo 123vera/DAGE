@@ -32,16 +32,16 @@ class Home extends Component {
                 <img src={Icons.iconInvite} alt="" />
               </span>
             ),
-            onHandle: () => router.push('/referral_code'),
+            onHandle: () => router.push('/home/referral-code'),
           }}
           leftContent={{
             icon: Icons.list,
-            onHandle: () => router.push('/select_account'),
+            onHandle: () => router.push('/home/switch-account'),
           }}
         />
         <section className={styles.cards}>
           <ul className={!isChinese ? styles.foreigner : ''}>
-            <li onClick={() => router.push('/wallet/recharge')}>
+            <li onClick={() => router.push('/home/recharge')}>
               <img src={Icons.homeCurrency} alt="" />
               <span>{formatMessage({ id: `HOME_DIGITAL_CASH` })}</span>
               <small>USDT/BTC/ETH</small>

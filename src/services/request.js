@@ -59,7 +59,7 @@ Request.interceptors.response.use(
     if (data && data.status === -101) {
       // Toast.fail('请先登录', 2);
       setTimeout(() => {
-        Toast.fail(data.msg, 2, () => router.push('/login'));
+        Toast.fail(data.msg, 2, () => router.push('/account/login'));
       }, 1);
       return Promise.resolve(data);
     }

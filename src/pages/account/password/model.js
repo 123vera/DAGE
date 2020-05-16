@@ -10,7 +10,7 @@ export default {
     passwordConfirm: '',
     captcha: '',
     captchaSrc: '',
-    type: 'find_password',
+    type: 'find-password',
   },
   reducers: {
     UpdateState(state, { payload }) {

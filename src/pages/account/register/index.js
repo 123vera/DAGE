@@ -160,7 +160,7 @@ class Register extends Component {
       }
 
       Toast.info(formatMessage({ id: `TOAST_REGISTER_SUCCESS` }), TOAST_DURATION, () => {
-        router.push('/login');
+        router.push('/account/login');
         this.setState({ errMsg: { type: '', value: '' } });
       });
     });

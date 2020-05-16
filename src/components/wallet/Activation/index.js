@@ -44,7 +44,7 @@ class Activation extends Component {
         {!isActivate ? (
           <div className={styles.content}>
             <p>
-              <Link to="/wallet/recharge?type=USDT">
+              <Link to="/home/recharge?type=USDT">
                 {formatMessage({ id: `HOME_SECTION_CONTENT_01` })}
               </Link>
               {formatMessage({ id: `HOME_SECTION_CONTENT_02` })}
@@ -68,7 +68,7 @@ class Activation extends Component {
               <Link to="/wallet/reward-detail">
                 {formatMessage({ id: `HOME_SECTION_CONTENT_003` })}
               </Link>
-              <Link to="/referral_code">{formatMessage({ id: `HOME_SECTION_CONTENT_004` })}</Link>
+              <Link to="/home/referral-code">{formatMessage({ id: `HOME_SECTION_CONTENT_004` })}</Link>
             </div>
           </div>
         )}

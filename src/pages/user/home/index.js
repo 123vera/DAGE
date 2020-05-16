@@ -50,7 +50,7 @@ class Home extends Component {
       {
         icon: Icons.userReset,
         text: formatMessage({ id: `USER_SECTION_03` }),
-        url: `/reset_password/verify?phone=${myInfo.phoneNo}&prefix=${myInfo.phonePrefix}`,
+        url: `/account/reset-password/verify?phone=${myInfo.phoneNo}&prefix=${myInfo.phonePrefix}`,
       },
       {
         icon: Icons.userNotice,
@@ -82,7 +82,7 @@ class Home extends Component {
                   style: { fontSize: '0.34rem' },
                   onPress: () => {
                     // 退出登录
-                    router.push('/login');
+                    router.push('/account/login');
                     removeCookie('ACCOUNT_TOKEN');
                     removeCookie('OPENID');
                   },

@@ -45,7 +45,7 @@ class Assets extends Component {
             {formatMessage({ id: `ASSETS_PAGE_TITLE` })}（USD）<span>{downFixed(allTotal)}</span>
           </label>
           <ul>
-            <li onClick={() => router.push('/wallet/recharge')}>
+            <li onClick={() => router.push('/home/recharge')}>
               {formatMessage({ id: `ASSETS_RECHANGE` })}
             </li>
             <li onClick={() => router.push('/wallet/withdraw?type=USDT')}>

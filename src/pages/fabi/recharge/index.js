@@ -21,7 +21,7 @@ class Index extends Component {
   changeCoin = coin => {
     this.setState({ showMenus: false });
     if (coin === 'DGT') return;
-    router.push('/wallet/recharge?type=' + coin);
+    router.push('/home/recharge?type=' + coin);
   };
 
   changeAmount = amount => {

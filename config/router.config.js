@@ -1,29 +1,51 @@
 export default [
+  // 入口页
   {
     path: '/',
-    redirect: './homepage',
+    redirect: './account/homepage',
     component: './account/homepage',
-    title: 'DAGE WALLET',
-  }, // 入口页
+  },
 
   // 四大入口
   {
     path: '/main',
     component: '../layouts/MainLayout',
     routes: [
-      { path: '/main/home', title: 'DAGE WALLET', component: './home' }, // 首页
-      { path: '/main/user', title: 'DAGE WALLET', component: './user/home' }, // 个人中心
-      { path: '/main/ecological', title: 'DAGE WALLET', component: './ecological/home' }, //生态
-      { path: '/main/assets', title: 'DAGE WALLET', component: './assets' }, // 资产
+      { path: '/main/home', component: './home' }, // 首页
+      { path: '/main/user', component: './user/home' }, // 个人中心
+      { path: '/main/ecological', component: './ecological/home' }, //生态
+      { path: '/main/assets', component: './assets' }, // 资产
     ],
   },
 
+  // 用户账号相关
+  {
+    path: '/account',
+    component: '../layouts/BasicLayout',
+    routes: [
+      { path: '/account/homepage', component: './account/homepage' }, // 入口页
+      { path: '/account/login', component: './account/login' }, // 登录
+      { path: '/account/register', component: './account/register' }, // 注册
+      { path: '/account/select-account', component: './account/selectAccount' }, // 选择登录账号
+      { path: '/account/set-account', component: './account/setAccount' }, // 创建新账号
+
+      { path: '/account/reset-password/verify', component: './account/password/verify' }, // 重置密码
+      { path: '/account/reset-password/edit', component: './account/password/edit' }, // 设置新密码
+      { path: '/account/find-password/verify', component: './account/password/verify' }, // 找回密码
+      { path: '/account/find-password/edit', component: './account/password/edit' }, // 设置新密码
+    ],
+  },
+
+  // 首页相关
   {
     path: '/home',
     component: '../layouts/BasicLayout',
     routes: [
-      { path: '/home/order-detail', title: 'DAGE WALLET', component: './home/order_detail' }, // 订单详情
-      { path: '/home/buy-supporting', title: 'DAGE WALLET', component: './home/buy_supporting' }, // 购买配套
+      { path: '/home/switch-account', component: './account/selectAccount' }, // 切换登录账号
+      { path: '/home/referral-code', component: './home/referral_code' }, //邀请码
+      { path: '/home/recharge', component: './home/recharge' }, // 充币
+      { path: '/home/order-detail', component: './home/order_detail' }, // 订单详情
+      { path: '/home/buy-supporting', component: './home/buy_supporting' }, // 购买配套
     ],
   },
 
@@ -36,27 +58,7 @@ export default [
       { path: '/alipay/pending', title: 'DAGE WALLET', component: './user/alipay/pending' }, // 审核中
       { path: '/alipay/reject', title: 'DAGE WALLET', component: './user/alipay/reject' }, // 审核拒绝
 
-      { path: '/homepage', title: 'DAGE WALLET', component: './account/homepage' }, // 入口页
-      { path: '/login', title: 'DAGE WALLET', component: './account/login' }, // 登录
-      { path: '/register', title: 'DAGE WALLET', component: './account/register' }, // 注册
-      { path: '/select_account', title: 'DAGE WALLET', component: './account/selectAccount' }, // 选择登录账号
-      { path: '/set_account', title: 'DAGE WALLET', component: './account/setAccount' }, // 创建新账号
 
-      {
-        path: '/reset_password/verify',
-        title: 'DAGE WALLET',
-        component: './account/password/verify',
-      }, // 重置密码
-      { path: '/reset_password/edit', title: 'DAGE WALLET', component: './account/password/edit' }, // 设置新密码
-
-      {
-        path: '/find_password/verify',
-        title: 'DAGE WALLET',
-        component: './account/password/verify',
-      }, // 找回密码
-      { path: '/find_password/edit', title: 'DAGE WALLET', component: './account/password/edit' }, // 设置新密码
-
-      { path: '/referral_code', title: 'DAGE WALLET', component: './user/referralCode' }, //邀请码
       { path: '/notices', title: 'DAGE WALLET', component: './user/notices' }, // 公告列表
       { path: '/notice/:id', title: 'DAGE WALLET', component: './user/notice' }, // 公告详情
       { path: '/promotion', title: 'DAGE WALLET', component: './user/promotion' }, // 我的推广/等级
@@ -72,7 +74,6 @@ export default [
       }, // 语言切换
 
       { path: '/wallet/flow', title: 'DAGE WALLET', component: './wallet/flow' }, // 资金流水
-      { path: '/wallet/recharge', title: 'DAGE WALLET', component: './wallet/recharge' }, // 充币
       { path: '/wallet/withdraw', title: 'DAGE WALLET', component: './wallet/withdraw' }, // 提币
 
       {
