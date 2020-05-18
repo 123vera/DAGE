@@ -32,7 +32,7 @@ class Index extends Component {
   };
 
   addAccount = () => {
-    router.push('//account/set-account');
+    router.push('/account/set-account');
   };
 
   toNext = () => {
@@ -68,7 +68,10 @@ class Index extends Component {
             ))}
 
             {userList.length < 10 && (
-              <section className={styles.setNew} onClick={() => router.push('//account/set-account')}>
+              <section
+                className={styles.setNew}
+                onClick={() => router.push('/account/set-account')}
+              >
                 {formatMessage({ id: `SELECT_SET_ACCOUNT` })}
                 <img src={Icons.add} onClick={this.addAccount} alt="ADD_IMG" />
               </section>

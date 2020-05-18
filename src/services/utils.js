@@ -36,7 +36,7 @@ export function onlineGet(path, params = {}) {
 export function optionsToHump(options) {
   const result = {};
   Object.keys(options).forEach(key => {
-    const newKey = key.replace(/_(\w)/g, (all, letter) => letter.toUpperCase());
+    const newKey = key.replace(/_(\w)/g, (all, letter) => letter && letter.toUpperCase());
     result[newKey] = options[key];
   });
   return result;
@@ -61,7 +61,7 @@ export function getHumpData(data) {
   if (data instanceof Object) {
     const result = {};
     Object.keys(data).forEach(key => {
-      const newKey = key.replace(/_(\w)/g, (all, letter) => letter.toUpperCase());
+      const newKey = key.replace(/_(\w)/g, (all, letter) => letter && letter.toUpperCase());
       result[newKey] = getHumpData(data[key]);
     });
     return result;
