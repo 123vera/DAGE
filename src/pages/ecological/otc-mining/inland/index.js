@@ -11,6 +11,7 @@ import { router } from 'umi';
 import CoinSwitch from '../../../../components/wallet/CoinSwitch';
 
 const CheckboxItem = Checkbox.CheckboxItem;
+
 @connect(({ otcMining, globalModel }) => ({ otcMining, globalModel }))
 class OtcMining extends Component {
   state = {
@@ -19,7 +20,11 @@ class OtcMining extends Component {
   };
 
   componentDidMount() {
-    this.init();
+    this.otcInit().then(res => {
+      if (res.status === 1) {
+        this.coinInit().then();
+      }
+    });
   }
 
   componentWillUnmount() {
@@ -29,20 +34,12 @@ class OtcMining extends Component {
     });
   }
 
-  init = () => {
-    this.otcInit();
-
-    setTimeout(() => {
-      this.coinIni();
-    }, 400);
-  };
-
-  otcInit = () => {
+  otcInit = async () => {
     const {
       otcMining: { coin },
     } = this.props;
 
-    this.props.dispatch({
+    return this.props.dispatch({
       type: 'otcMining/OtcInit',
       payload: {
         type: coin || '',
@@ -50,7 +47,7 @@ class OtcMining extends Component {
     });
   };
 
-  coinIni = async () => {
+  coinInit = async () => {
     const {
       dispatch,
       otcMining: { initInfo },
@@ -58,7 +55,6 @@ class OtcMining extends Component {
 
     const coins = initInfo.typeList || [];
     const coin = initInfo.type;
-    // const coin = type || coins[0];
     const menus = coins.map(coin => ({
       label: coin,
       value: coin,
@@ -67,6 +63,16 @@ class OtcMining extends Component {
       type: 'otcMining/UpdateState',
       payload: { coin, menus },
     });
+  };
+
+  changeCoin = async menu => {
+    const { dispatch } = this.props;
+    await dispatch({
+      type: 'otcMining/UpdateState',
+      payload: { coin: menu.value },
+    });
+    this.otcInit().then();
+    this.setState({ showMenus: false });
   };
 
   onCountChange = value => {
@@ -95,7 +101,7 @@ class OtcMining extends Component {
       return Toast.info(
         `${formatMessage({ id: `OTC_SALE_CONDITIONS_03` })}${initInfo.amountMin}-${
           initInfo.amountMax
-        }${formatMessage({ id: `OTC_SALE_CONDITIONS_02` })}`,
+          }${formatMessage({ id: `OTC_SALE_CONDITIONS_02` })}`,
       );
     }
 
@@ -144,17 +150,6 @@ class OtcMining extends Component {
     // );
   };
 
-  changeCoin = menu => {
-    const { dispatch } = this.props;
-
-    dispatch({
-      type: 'otcMining/UpdateState',
-      payload: { coin: menu.value },
-    });
-    this.otcInit();
-    this.setState({ showMenus: false });
-  };
-
   render() {
     const { initInfo, count, coin, menus } = this.props.otcMining;
     const { showMenus } = this.state;
@@ -184,7 +179,7 @@ class OtcMining extends Component {
             autoComplete="off"
             placeholder={`${formatMessage({ id: `OTC_AMOUNT_PLACEHOLDER_01` })}${
               initInfo.amountMin
-            }USD-${initInfo.amountMax}USD${formatMessage({ id: `OTC_SALE_CONDITIONS_02` })}`}
+              }USD-${initInfo.amountMax}USD${formatMessage({ id: `OTC_SALE_CONDITIONS_02` })}`}
             value={count}
             onChange={e => this.onCountChange(e.target.value)}
           />
@@ -205,8 +200,8 @@ class OtcMining extends Component {
             <span>
               {getLocale() === 'en-US'
                 ? `${coin}${formatMessage({ id: `EXCHANGE_CAN_USE` })} ：${downFixed(
-                    initInfo.balance,
-                  ) || '--'}`
+                  initInfo.balance,
+                ) || '--'}`
                 : formatMessage({ id: `EXCHANGE_CAN_USE` })}
               {coin}：{downFixed(initInfo.balance) || '--'}
               {/* {formatMessage({ id: `EXCHANGE_CAN_USE` })}： {downFixed(initInfo.didnum) || '--'} */}
@@ -221,7 +216,7 @@ class OtcMining extends Component {
           <label className={styles.label}>
             {formatMessage({ id: `OTC_CONSUMPTION` })}
             <span>
-              {downFixed(initInfo.balance * initInfo.ratio, 4) || '--'} {coin}
+              {downFixed(count * initInfo.ratio, 4) || '--'} {coin}
             </span>
           </label>
 

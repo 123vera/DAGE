@@ -18,7 +18,11 @@ class OtcMining extends Component {
   };
 
   componentDidMount() {
-    this.init();
+    this.otcInit().then(res => {
+      if (res.status === 1) {
+        this.coinInit().then();
+      }
+    });
   }
 
   componentWillUnmount() {
@@ -28,20 +32,12 @@ class OtcMining extends Component {
     });
   }
 
-  init = () => {
-    this.otcInit();
-
-    setTimeout(() => {
-      this.coinIni();
-    }, 400);
-  };
-
-  otcInit = () => {
+  otcInit = async () => {
     const {
       otcMining: { coin },
     } = this.props;
 
-    this.props.dispatch({
+    return this.props.dispatch({
       type: 'otcMining/OtcInit',
       payload: {
         type: coin || '',
@@ -49,7 +45,7 @@ class OtcMining extends Component {
     });
   };
 
-  coinIni = async () => {
+  coinInit = async () => {
     const {
       dispatch,
       otcMining: { initInfo },
@@ -57,7 +53,6 @@ class OtcMining extends Component {
 
     const coins = initInfo.typeList || [];
     const coin = initInfo.type;
-    // const coin = type || coins[0];
     const menus = coins.map(coin => ({
       label: coin,
       value: coin,
@@ -67,6 +62,17 @@ class OtcMining extends Component {
       payload: { coin, menus },
     });
   };
+
+  changeCoin = async menu => {
+    const { dispatch } = this.props;
+    await dispatch({
+      type: 'otcMining/UpdateState',
+      payload: { coin: menu.value },
+    });
+    this.otcInit().then();
+    this.setState({ showMenus: false });
+  };
+
 
   onCountChange = value => {
     if (value && !REG.NUMBER.test(value)) {
@@ -109,17 +115,6 @@ class OtcMining extends Component {
         window.location.reload(),
       );
     });
-  };
-
-  changeCoin = menu => {
-    const { dispatch } = this.props;
-
-    dispatch({
-      type: 'otcMining/UpdateState',
-      payload: { coin: menu.value },
-    });
-
-    this.setState({ showMenus: false });
   };
 
   render() {
@@ -189,7 +184,7 @@ class OtcMining extends Component {
           <label className={styles.label}>
             {formatMessage({ id: `OTC_CONSUMPTION` })}
             <span>
-              {downFixed(initInfo.balance * initInfo.ratio, 4) || '--'} {coin}
+              {downFixed(count * initInfo.ratio, 4) || '--'} {coin}
             </span>
           </label>
 

@@ -23,6 +23,7 @@ export default {
       if (res.status === 1) {
         yield put({ type: 'UpdateState', payload: { initInfo: res && res.data } });
       }
+      return res;
     },
     *OtcSubmit(_, { call, select }) {
       const { count, coin } = yield select(state => state.otcMining);
