@@ -30,9 +30,9 @@ export default {
         });
       }
     },
-    *Transfer(_, { call, select }) {
-      const { transfer, num, type } = yield select(state => state.transfer);
-      return yield call(GameApi.transfer, { transfer, num, type });
+    *Transfer({ payload }, { call }) {
+      const res = yield call(GameApi.transfer, payload);
+      return res;
     },
   },
 };

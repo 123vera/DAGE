@@ -21,7 +21,7 @@ class Index extends Component {
 
     this.props.dispatch({
       type: 'transfer/UpdateState',
-      payload: { transfer, initInfo: {}, type },
+      payload: { transfer, initInfo: {}, type, num: '' },
     });
 
     setTimeout(() => {
@@ -77,22 +77,23 @@ class Index extends Component {
   };
 
   submit = () => {
-    const { num } = this.props.transfer;
+    const { num, transfer, type } = this.props.transfer;
     if (!num) return Toast.info(formatMessage({ id: `TRANSFER_PLACEHOLDER_QUANTITY` }));
-
-    this.props.dispatch({ type: 'transfer/Transfer' }).then(res => {
-      if (res.status === 1) {
-        res.msg && Toast.info(res.msg);
-        Toast.info(formatMessage({ id: `TRANSFER_SUCCESSFUL` }), () => {
-          router.push('/assets/transfer/record');
-        });
-      } else {
-        this.props.dispatch({
-          type: 'transfer/UpdateState',
-          payload: { num: '' },
-        });
-      }
-    });
+    this.props
+      .dispatch({ type: 'transfer/Transfer', payload: { transfer, num, type } })
+      .then(res => {
+        if (res && res.status === 1) {
+          Toast.info(formatMessage({ id: `TRANSFER_SUCCESSFUL` }), 1, () => {
+            router.push('/assets/transfer/record');
+          });
+        } else {
+          res.msg && Toast.info(res.msg);
+          this.props.dispatch({
+            type: 'transfer/UpdateState',
+            payload: { num: '' },
+          });
+        }
+      });
   };
 
   render() {
