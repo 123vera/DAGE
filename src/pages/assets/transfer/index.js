@@ -83,13 +83,13 @@ class Index extends Component {
     this.props.dispatch({ type: 'transfer/Transfer' }).then(res => {
       if (res.status === 1) {
         res.msg && Toast.info(res.msg);
+        Toast.info(formatMessage({ id: `TRANSFER_SUCCESSFUL` }), () => {
+          router.push('/assets/transfer/record');
+        });
       } else {
         this.props.dispatch({
           type: 'transfer/UpdateState',
           payload: { num: '' },
-        });
-        Toast.info(formatMessage({ id: `TRANSFER_SUCCESSFUL` }), () => {
-          router.push('/assets/transfer/record');
         });
       }
     });

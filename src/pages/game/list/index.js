@@ -74,7 +74,7 @@ class Index extends Component {
 
     return (
       <div id={styles.gameList}>
-        <PageHeader title={type} leftContent={{ icon: Icons.arrowLeft }} />
+        <PageHeader fixed title={type} leftContent={{ icon: Icons.arrowLeft }} />
         <ListView hasMore={hasMore} onLoadMore={this.getList}>
           <ul className={styles.contentWrapper}>
             {list.map((i, key) => (

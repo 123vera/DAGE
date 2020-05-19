@@ -46,14 +46,12 @@ function MiningDetail() {
     const now = +new Date();
     const time = Number(seconds) - now / 1000;
     if (time <= 0) return '00';
-    console.log(time % (60 * 60));
+
     const hour = Math.floor(time / (60 * 60));
     const minute = Math.floor(time % (60 * 60));
     if (type === 'H') return addZero(hour);
     if (type === 'm') return addZero(minute);
   };
-
-  console.log(info);
 
   return (
     <div className={styles.miningDetail}>

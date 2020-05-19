@@ -67,8 +67,7 @@ class WalletFlow extends Component {
     return value.slice(0, 6) + '...' + value.slice(value.length - 7, value.length - 1);
   };
 
-  onCopy = (text) => {
-    console.log(text);
+  onCopy = text => {
     Toast.info(formatMessage({ id: `USER_COPIED` }));
   };
 
@@ -109,12 +108,8 @@ class WalletFlow extends Component {
                   <label>Hash</label>
                   <p>
                     {this.getSimpleHash(item.hash)}
-                    <CopyToClipboard
-                      key={item.id}
-                      text={item.hash}
-                      onCopy={this.onCopy}
-                    >
-                      <img src={Icons.copy} alt=""/>
+                    <CopyToClipboard key={item.id} text={item.hash} onCopy={this.onCopy}>
+                      <img src={Icons.copy} alt="" />
                     </CopyToClipboard>
                   </p>
                 </div>

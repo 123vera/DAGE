@@ -8,7 +8,7 @@ import TIPS from '@/assets/icons/tips.png';
 import { LEVEL_LIST } from '../../../utils/constants';
 import { formatMessage } from 'umi/locale';
 import styles from './index.less';
-import dayjs from 'dayjs';
+// import dayjs from 'dayjs';
 import ListView from '../../../components/common/ListView';
 import { getLocale } from 'umi-plugin-locale';
 import { downFixed } from '../../../utils/utils';
@@ -142,8 +142,8 @@ class Index extends Component {
                 </tr>
               </thead>
               <tbody>
-                {list.map(item => (
-                  <tr key={item.achievementDgc}>
+                {list.map((item, key) => (
+                  <tr key={key.toString()}>
                     <td>{item.userName}</td>
                     <td>{downFixed(item.achievementDgc)}</td>
                     {/* <td>{dayjs(item.regTime * 1000).format('YYYY-MM-DD HH:mm')}</td> */}

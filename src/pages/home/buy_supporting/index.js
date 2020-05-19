@@ -54,7 +54,7 @@ function BuySupporting() {
   };
 
   const currCoin = coin || coins[0];
-  console.log(gears);
+
   return (
     <div className={styles.buySupporting} onClick={() => setShowMenus(false)}>
       <Header
@@ -111,7 +111,7 @@ function BuySupporting() {
                   active={currCoin}
                   textAlign="left"
                   onHandle={menu => {
-                    console.log(menu.value);
+                    // console.log(menu.value);
                     setCoin(menu.value);
                     setShowMenus(false);
                   }}

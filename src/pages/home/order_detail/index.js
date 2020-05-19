@@ -32,7 +32,6 @@ function OrderDetail() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  console.log(list);
   return (
     <div id={styles.orderDetail}>
       <Header title={formatMessage({ id: `BUY_DETAIL_TITLE` })} icon={Icons.arrowLeft} />
@@ -60,7 +59,7 @@ function OrderDetail() {
                 <p>
                   <label>{formatMessage({ id: `ORDER_DETAIL_LABEL_3` })}</label>
                   <span>{downFixed(order.ratio, 2)}%</span>
-                  <button>
+                  <button className={order.status === 1 ? styles.waiting : styles.success}>
                     {order.status === 1
                       ? formatMessage({ id: `ORDER_DETAIL_VALUE` })
                       : formatMessage({ id: `ORDER_DETAIL_LABEL_2` })}
