@@ -55,6 +55,8 @@ function BuySupporting() {
 
   const currCoin = coin || coins[0];
   console.log(gear.NUM, coinInfo.ratio);
+  console.log(gear.NUM * (coinInfo.ratio * 100000000) / 100000000);
+  console.log(gear.NUM * (coinInfo.ratio));
   // console.log(downFixed(gear.NUM / coinInfo.ratio, 8));
   return (
     <div className={styles.buySupporting} onClick={() => setShowMenus(false)}>
@@ -103,7 +105,7 @@ function BuySupporting() {
               }}
             >
               <span>{currCoin}</span>
-              <img src={Icons.arrowDown} alt="" />
+              <img src={Icons.arrowDown} alt=""/>
             </div>
             {showMenus && (
               <div className={styles.options}>
@@ -138,7 +140,7 @@ function BuySupporting() {
         <div className={styles.row}>
           <span>{formatMessage({ id: `OTC_CONSUMPTION` })}</span>
           <span>
-            {coinInfo.ratio ? downFixed(gear.NUM * coinInfo.ratio, 8) : '--'} {coinInfo.currency}
+            {coinInfo.ratio ? downFixed(gear.NUM * (coinInfo.ratio * 10000000) / 10000000, 8) : '--'} {coinInfo.currency}
           </span>
         </div>
       </section>

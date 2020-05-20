@@ -15,17 +15,19 @@ export default {
   },
   effects: {
     *TransferInit(_, { call, put, select }) {
-      const { transfer, type: Itype } = yield select(state => state.transfer);
+      const { transfer, type } = yield select(state => state.transfer);
       const res = yield call(GameApi.transferInit);
       if (res.status === 1) {
-        const typeI = Itype
-          ? Itype
-          : (transfer === 'DToG' ? res.data.DAGECURRENCY : res.data.GAMECURRENCY)[0];
+        // 获取当前币种类型列表
+        const typeList = transfer === 'DToG' ? res.data.DAGECURRENCY : res.data.GAMECURRENCY
+        // const typeI = Itype
+        //   ? Itype
+        //   : (transfer === 'DToG' ? res.data.DAGECURRENCY : res.data.GAMECURRENCY)[0];
         yield put({
           type: 'UpdateState',
           payload: {
             initInfo: res && res.data,
-            type: typeI,
+            type: typeList.includes(type) ? type: typeList[0],
           },
         });
       }

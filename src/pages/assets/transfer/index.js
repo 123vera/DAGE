@@ -30,11 +30,16 @@ class Index extends Component {
   }
 
   changeTransfer = () => {
-    const { transfer } = this.props.transfer;
+    // 判断切换划转方式后当前币种是否可划转
+    const { type, transfer, initInfo } = this.props.transfer;
+    const newTransfer =  transfer === 'DToG' ? 'GToD' : 'DToG';
+    const typeList = newTransfer === 'DToG' ? initInfo.DAGECURRENCY : initInfo.GAMECURRENCY;
+
     this.props.dispatch({
       type: 'transfer/UpdateState',
       payload: {
-        transfer: transfer === 'DToG' ? 'GToD' : 'DToG',
+        transfer: newTransfer,
+        type: typeList.includes(type) ? type : typeList[0],
       },
     });
   };
@@ -121,7 +126,7 @@ class Index extends Component {
                       ? formatMessage({ id: `TRANSFER_DAGE_ACCOUNT` })
                       : formatMessage({ id: `TRANSFER_GAME_ACCOUNT` })}
                   </span>
-                  <img src={Icons.arrowRight} alt="" />
+                  <img src={Icons.arrowRight} alt=""/>
                 </div>
               </li>
               <li>
@@ -132,12 +137,12 @@ class Index extends Component {
                       ? formatMessage({ id: `TRANSFER_DAGE_ACCOUNT` })
                       : formatMessage({ id: `TRANSFER_GAME_ACCOUNT` })}
                   </span>
-                  <img src={Icons.arrowRight} alt="" />
+                  <img src={Icons.arrowRight} alt=""/>
                 </div>
               </li>
             </ul>
             <div className={styles.transferIcon} onClick={this.changeTransfer}>
-              <img src={Icons.transfer} alt="" />
+              <img src={Icons.transfer} alt=""/>
             </div>
           </div>
         </section>
@@ -154,7 +159,7 @@ class Index extends Component {
                 onClick={() => this.setState({ showCoins: !showCoins })}
               />
               <div className={styles.operate}>
-                <img src={Icons.arrowRight} alt="" />
+                <img src={Icons.arrowRight} alt=""/>
               </div>
               <div className={styles.coins} style={{ display: showCoins ? 'block' : 'none' }}>
                 <Menus
