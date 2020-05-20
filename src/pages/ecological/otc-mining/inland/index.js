@@ -86,14 +86,14 @@ class OtcMining extends Component {
   };
 
   onSubmit = () => {
-    const { myInfo } = this.props.globalModel;
+    // const { myInfo } = this.props.globalModel;
     const { count, initInfo } = this.props.otcMining;
 
     if (!count) {
       return Toast.info(formatMessage({ id: `OTC_PLACEHOLDER` }));
     }
 
-    if (Number(count) > Number(myInfo.dgt)) {
+    if (Number(count * initInfo.ratio) > Number(initInfo.balance)) {
       return Toast.info(formatMessage({ id: `TOAST_ERR_BALANCE_NOT_ENOUGH` }));
     }
 
@@ -101,7 +101,7 @@ class OtcMining extends Component {
       return Toast.info(
         `${formatMessage({ id: `OTC_SALE_CONDITIONS_03` })}${initInfo.amountMin}-${
           initInfo.amountMax
-          }${formatMessage({ id: `OTC_SALE_CONDITIONS_02` })}`,
+        }${formatMessage({ id: `OTC_SALE_CONDITIONS_02` })}`,
       );
     }
 
@@ -179,7 +179,7 @@ class OtcMining extends Component {
             autoComplete="off"
             placeholder={`${formatMessage({ id: `OTC_AMOUNT_PLACEHOLDER_01` })}${
               initInfo.amountMin
-              }USD-${initInfo.amountMax}USD${formatMessage({ id: `OTC_SALE_CONDITIONS_02` })}`}
+            }USD-${initInfo.amountMax}USD${formatMessage({ id: `OTC_SALE_CONDITIONS_02` })}`}
             value={count}
             onChange={e => this.onCountChange(e.target.value)}
           />
@@ -200,8 +200,8 @@ class OtcMining extends Component {
             <span>
               {getLocale() === 'en-US'
                 ? `${coin}${formatMessage({ id: `EXCHANGE_CAN_USE` })} ：${downFixed(
-                  initInfo.balance,
-                ) || '--'}`
+                    initInfo.balance,
+                  ) || '--'}`
                 : formatMessage({ id: `EXCHANGE_CAN_USE` })}
               {coin}：{downFixed(initInfo.balance) || '--'}
               {/* {formatMessage({ id: `EXCHANGE_CAN_USE` })}： {downFixed(initInfo.didnum) || '--'} */}
