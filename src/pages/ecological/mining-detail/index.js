@@ -5,7 +5,7 @@ import Header from '../../../components/common/Header';
 import { Icons } from '../../../assets';
 import { formatMessage, getLocale } from 'umi/locale';
 import OtcApi from '../../../services/api/otc';
-// import dayjs from 'dayjs';
+import dayjs from 'dayjs';
 import { downFixed } from '../../../utils/utils';
 import ListView from '../../../components/common/ListView';
 
@@ -24,10 +24,10 @@ function MiningDetail() {
   const getMining = useCallback(
     callback => {
       // OtcApi.otcDetail({ type: 'mining', page }).then(res => {
-      OtcApi.otcDetail({ page, row }).then(res => {
+      OtcApi.otcDetails({ page, row }).then(res => {
         if (res.status === 1) {
           setInfo(res.data);
-          setList([list, res.data.list]);
+          setList([...list, ...res.data.list]);
           // setList([...list, ...res.data.list]);
           setPage(page + 1);
           setHasMore(row === res.data && res.data.list.length);
@@ -52,7 +52,7 @@ function MiningDetail() {
     if (type === 'H') return addZero(hour);
     if (type === 'm') return addZero(minute);
   };
-
+  console.log(list);
   return (
     <div className={styles.miningDetail}>
       <Header icon={Icons.arrowLeft} title={formatMessage({ id: `MINING_DETAIL_TITLE` })} />
@@ -81,7 +81,7 @@ function MiningDetail() {
       <section>
         <p>{formatMessage({ id: `OTC_MINING_DETAIL_NAME` })}</p>
         <ListView hasMore={hasMore} onLoadMore={getMining}>
-          {/* <ul>
+          <ul>
             {list.map((otc, key) => (
               <li key={key.toString()}>
                 <div className={styles.label}>
@@ -97,7 +97,7 @@ function MiningDetail() {
                 </div>
               </li>
             ))}
-          </ul> */}
+          </ul>
         </ListView>
       </section>
     </div>

@@ -55,7 +55,18 @@ class OtcApi {
   }
 
   /**
-   * OTC 挖矿详情（收益详情、明细 接口）
+   * otc挖矿详情（otc挖矿内页点击）
+   *
+   * @required openId 用户openid
+   * @required page 页码
+   * @required row string 每页条数
+   **/
+  static otcDetails(options) {
+    return onlinePost('/otc/otcdetails', options);
+  }
+
+  /**
+   * OTC 挖矿详情（收益详情、明细 接口）(旧版，部分仍在用，otc挖矿详情有新的接口)
    * @required openId 用户openid
    * @required page 页码
    * @required type 推荐奖励：activate 、挖矿奖励：mining
