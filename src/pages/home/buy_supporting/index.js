@@ -54,7 +54,8 @@ function BuySupporting() {
   };
 
   const currCoin = coin || coins[0];
-
+  console.log(gear.NUM, coinInfo.ratio);
+  // console.log(downFixed(gear.NUM / coinInfo.ratio, 8));
   return (
     <div className={styles.buySupporting} onClick={() => setShowMenus(false)}>
       <Header
@@ -131,13 +132,13 @@ function BuySupporting() {
         <div className={styles.row}>
           <span>{formatMessage({ id: `OTC_RATE` })}</span>
           <span>
-            {coinInfo.ratio} {coinInfo.currency}/USDT
+            {downFixed(coinInfo.ratio, 8)} {coinInfo.currency}/USDT
           </span>
         </div>
         <div className={styles.row}>
           <span>{formatMessage({ id: `OTC_CONSUMPTION` })}</span>
           <span>
-            {coinInfo.ratio ? downFixed(gear.NUM / coinInfo.ratio) : '--'} {coinInfo.currency}
+            {coinInfo.ratio ? downFixed(gear.NUM * coinInfo.ratio, 8) : '--'} {coinInfo.currency}
           </span>
         </div>
       </section>

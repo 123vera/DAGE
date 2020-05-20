@@ -54,7 +54,7 @@ class Index extends Component {
       }
       const { payimg: payImg, endtime: endTime, orderno: orderNo, num } = res.data;
       router.push({
-        pathname: '/wallet/dgt_pay',
+        pathname: '/fabi/pay',
         state: { payImg, endTime, orderNo, num },
       });
     });

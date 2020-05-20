@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styles from './index.less';
 import { connect } from 'dva';
 import { router } from 'umi';
-import { formatMessage } from 'umi/locale';
+import { formatMessage, getLocale } from 'umi/locale';
 import { downFixed } from '../../utils/utils';
 
 @connect(({ assetsHome, globalModel }) => ({ assetsHome, globalModel }))
@@ -67,7 +67,10 @@ class Assets extends Component {
             </li>
           </ul>
           <div className={`${styles.bgDark} ${styles.totalAmount}`}>
-            {formatMessage({ id: `ASSETS_PAGE_TITLE` }).slice(1)}（USD）
+            {getLocale() === 'zh-CN'
+              ? formatMessage({ id: `ASSETS_PAGE_TITLE` }).slice(1)
+              : formatMessage({ id: `ASSETS_PAGE_TITLE` })}
+            （USD）
             <span>{downFixed(total)}</span>
           </div>
         </section>
