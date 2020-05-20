@@ -52,7 +52,7 @@ function MiningDetail() {
     if (type === 'H') return addZero(hour);
     if (type === 'm') return addZero(minute);
   };
-  console.log(list);
+
   return (
     <div className={styles.miningDetail}>
       <Header icon={Icons.arrowLeft} title={formatMessage({ id: `MINING_DETAIL_TITLE` })} />
@@ -92,7 +92,7 @@ function MiningDetail() {
                 </div>
                 <div className={styles.value}>
                   <span className={otc.num && Number(otc.num) < 0 ? styles.negative : ''}>
-                    {downFixed(otc.num)} {otc.type && otc.type.toUpperCase()}
+                    {downFixed(otc.num, 8)} {otc.type && otc.type.toUpperCase()}
                   </span>
                 </div>
               </li>
