@@ -58,7 +58,6 @@ export default [
       { path: '/alipay/pending', title: 'DAGE WALLET', component: './user/alipay/pending' }, // 审核中
       { path: '/alipay/reject', title: 'DAGE WALLET', component: './user/alipay/reject' }, // 审核拒绝
 
-
       { path: '/notices', title: 'DAGE WALLET', component: './user/notices' }, // 公告列表
       { path: '/notice/:id', title: 'DAGE WALLET', component: './user/notice' }, // 公告详情
       { path: '/promotion', title: 'DAGE WALLET', component: './user/promotion' }, // 我的推广/等级
@@ -115,10 +114,10 @@ export default [
 
       // 法币系列
       { path: '/fabi/withdraw/:step', title: 'DAGE WALLET', component: './fabi/withdraw' }, // 法币提现
-      { path: '/fabi/record', title: 'DAGE WALLET', component: './fabi/withdrawRecord' }, // 法币提现记录
+      { path: '/fabi/withdrawRecord', title: 'DAGE WALLET', component: './fabi/withdrawRecord' }, // 法币提现记录
       { path: '/fabi/recharge', title: 'DAGE WALLET', component: './fabi/recharge' }, // 法币充值
       { path: '/fabi/pay', title: 'DAGE WALLET', component: './fabi/pay' }, // 法币充值 - 收款二维码
-      { path: '/fabi/record', title: 'DAGE WALLET', component: './fabi/record' }, // 法币充值 - 充值记录
+      { path: '/fabi/rechargeRecord', title: 'DAGE WALLET', component: './fabi/Record' }, // 法币充值 - 充值记录
 
       // 游戏dgt系列
       { path: '/dgt/withdraw/:step', title: 'DAGE WALLET', component: './dgt/withdraw' }, // DGT法币提现

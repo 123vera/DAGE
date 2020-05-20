@@ -145,7 +145,7 @@ class Index extends Component {
           title={formatMessage({ id: `FIAT_WITHDRAWAL_TITLE` }).slice(3)}
           rightContent={{
             icon: Icons.record,
-            onHandle: () => router.push('/fabi/record'),
+            onHandle: () => router.push('/fabi/withdrawRecord'),
           }}
         />
 

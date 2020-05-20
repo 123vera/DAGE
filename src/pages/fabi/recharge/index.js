@@ -75,7 +75,7 @@ class Index extends Component {
             rightContent={{
               icon: Icons.record,
               // text: formatMessage({ id: `DGT_RECORD_TITLE` }),
-              onHandle: () => router.push('/wallet/dgt_record'),
+              onHandle: () => router.push('/fabi/rechargeRecord'),
             }}
             // onHandle={() => router.push('/main/home')}
           />
