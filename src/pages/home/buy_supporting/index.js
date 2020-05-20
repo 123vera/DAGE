@@ -111,7 +111,6 @@ function BuySupporting() {
                   active={currCoin}
                   textAlign="left"
                   onHandle={menu => {
-                    // console.log(menu.value);
                     setCoin(menu.value);
                     setShowMenus(false);
                   }}
