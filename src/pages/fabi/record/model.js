@@ -3,7 +3,7 @@ import AssetApi from '../../../services/api/asset';
 export default {
   namespace: 'fabiRecord',
   state: {
-    type: 'DGT',
+    type: '',
     page: 1,
     row: 10,
     list: [],
@@ -17,7 +17,7 @@ export default {
   effects: {
     *RmbRechargeRecord(_, { call, select, put }) {
       const { type, page, row, list } = yield select(state => state.fabiRecord);
-      const res = yield call(AssetApi.rmbRechargeRecord, { type, page, row });
+      const res = yield call(AssetApi.rmbRechargeRecord, {  page, row });
       if (res.status === 1) {
         list.push(...res.data);
         yield put({

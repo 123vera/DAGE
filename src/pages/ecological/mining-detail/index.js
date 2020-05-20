@@ -19,7 +19,7 @@ function MiningDetail() {
   useEffect(() => {
     // console.log(+new Date() / 1000 + 1000);
     getMining();
-  }, [getMining]);
+  }, []);
 
   const getMining = useCallback(
     callback => {
@@ -43,19 +43,19 @@ function MiningDetail() {
   };
 
   const getLastTime = (seconds, type) => {
-    const now = +new Date();
-    const time = Number(seconds) - now / 1000;
-    if (time <= 0) return '00';
+    const time = Number(seconds);
+    console.log(time % (60 * 60));
 
     const hour = Math.floor(time / (60 * 60));
-    const minute = Math.floor(time % (60 * 60));
+    const minute = Math.floor(time / 60 % 60);
     if (type === 'H') return addZero(hour);
     if (type === 'm') return addZero(minute);
   };
   console.log(list);
+  console.log(info.lasttime);
   return (
     <div className={styles.miningDetail}>
-      <Header icon={Icons.arrowLeft} title={formatMessage({ id: `MINING_DETAIL_TITLE` })} />
+      <Header icon={Icons.arrowLeft} title={formatMessage({ id: `MINING_DETAIL_TITLE` })}/>
       <section>
         <p>{formatMessage({ id: `OTC_MINING_DETAIL_SUBTITLE` })}</p>
         <div className={styles.summary}>
