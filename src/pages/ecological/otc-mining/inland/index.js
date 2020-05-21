@@ -210,13 +210,13 @@ class OtcMining extends Component {
           <label className={styles.label}>
             {formatMessage({ id: `OTC_RATE` })}
             <span>
-              {downFixed(initInfo.ratio, 4) || '--'} {coin}/USD
+              {downFixed(initInfo.ratio, 8) || '--'} {coin}/USD
             </span>
           </label>
           <label className={styles.label}>
             {formatMessage({ id: `OTC_CONSUMPTION` })}
             <span>
-              {downFixed(count * initInfo.ratio, 4) || '--'} {coin}
+              {downFixed(count * initInfo.ratio, 8) || '--'} {coin}
             </span>
           </label>
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styles from './index.less';
 import { connect } from 'dva';
-import { router } from 'umi';
+// import { router } from 'umi';
 import dayjs from 'dayjs';
 import { formatMessage } from 'umi-plugin-locale';
 import { downFixed } from '../../../utils/utils';
@@ -36,25 +36,25 @@ class WalletFlow extends Component {
 
     return (
       <div className={styles.walletFlow}>
-        <PageHeader leftContent={{ icon: Icons.arrowLeft }}/>
+        <PageHeader leftContent={{ icon: Icons.arrowLeft }} />
 
         <section className={styles.contentTop}>
           <p> {type.toUpperCase()}</p>
           <table>
             <thead>
-            <tr>
-              <th>{formatMessage({ id: `EXCHANGE_CAN_USE` })}</th>
-              <th>{formatMessage({ id: `ASSETS_UNIT_PRICE` })}（USD)</th>
-              <th>{formatMessage({ id: `ASSETS_CONVERT` })}（USD)</th>
-            </tr>
+              <tr>
+                <th>{formatMessage({ id: `EXCHANGE_CAN_USE` })}</th>
+                <th>{formatMessage({ id: `ASSETS_UNIT_PRICE` })}（USD)</th>
+                <th>{formatMessage({ id: `ASSETS_CONVERT` })}（USD)</th>
+              </tr>
             </thead>
             <tbody>
-            <tr>
-              <td>{(balance && downFixed(balance)) || 0}</td>
-              <td>{(price && downFixed(price, 4)) || '--'}</td>
-              <td>{downFixed(Number(balance) * Number(price)) || '--'}</td>
-              {/* <td>{(Number(balance) && price && downFixed(Number(balance) * price)) || '--'}</td> */}
-            </tr>
+              <tr>
+                <td>{(balance && downFixed(balance, type === 'BTC' ? 8 : 2)) || 0}</td>
+                <td>{(price && downFixed(price, 4)) || '--'}</td>
+                <td>{downFixed(Number(balance) * Number(price)) || '--'}</td>
+                {/* <td>{(Number(balance) && price && downFixed(Number(balance) * price)) || '--'}</td> */}
+              </tr>
             </tbody>
           </table>
         </section>
@@ -72,9 +72,9 @@ class WalletFlow extends Component {
                   <div
                     className={`${styles.value} ${
                       item.amount.includes('-') ? styles.decrease : ''
-                      }`}
+                    }`}
                   >
-                    {downFixed(item.amount)}
+                    {downFixed(item.amount, type === 'BTC' ? 8 : 2)}
                   </div>
                 </li>
               ))}
@@ -82,7 +82,7 @@ class WalletFlow extends Component {
           </ListView>
         </section>
 
-        <AssetsFooter key={type} type={type}/>
+        <AssetsFooter key={type} type={type} />
       </div>
     );
   }
