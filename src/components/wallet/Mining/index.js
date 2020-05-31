@@ -194,13 +194,13 @@ function Certification({ status }) {
       return <span>{formatMessage({ id: `HOME_SECTION_MAIN_07` })}</span>;
     case -1:
       return (
-        <span onClick={() => router.push('/alipay')}>
+        <span onClick={() => router.push('/user/alipay')}>
           {formatMessage({ id: `HOME_SECTION_MAIN_05` })}
         </span>
       );
     case -2:
       return (
-        <span onClick={() => router.push('/alipay')}>
+        <span onClick={() => router.push('/user/alipay')}>
           {formatMessage({ id: `HOME_SECTION_MAIN_06` })}
         </span>
       );

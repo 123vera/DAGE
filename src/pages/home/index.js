@@ -47,7 +47,7 @@ class Home extends Component {
               <small>USDT/BTC/ETH</small>
             </li>
             {isChinese ? (
-              <li onClick={() => router.push('/fabi/recharge')}>
+              <li onClick={() => router.push('/home/cny/recharge')}>
                 <img src={Icons.homeDgt} alt="" />
                 <span>{formatMessage({ id: `HOME_LEGAL_TENDER` })}</span>
                 <small>{formatMessage({ id: `HOME_LEGAL_TENDER_DESC` })}</small>
@@ -147,13 +147,13 @@ function Certification({ status }) {
       return <span>{formatMessage({ id: `HOME_SECTION_MAIN_07` })}</span>;
     case -1:
       return (
-        <span onClick={() => router.push('/alipay')}>
+        <span onClick={() => router.push('/user/alipay')}>
           {formatMessage({ id: `HOME_SECTION_MAIN_05` })}
         </span>
       );
     case -2:
       return (
-        <span onClick={() => router.push('/alipay')}>
+        <span onClick={() => router.push('/user/alipay')}>
           {formatMessage({ id: `HOME_SECTION_MAIN_06` })}
         </span>
       );

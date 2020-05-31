@@ -44,14 +44,14 @@ class SmsCode extends Component {
   };
 
   render() {
-    const { value } = this.props;
+    const { value, label } = this.props;
     const { count } = this.state;
     const isCountDown = count > 0 && count < COUNT_DOWN;
     const btnLabel = isCountDown ? `${count} s` : formatMessage({ id: `REGISTER_GET_CODE` });
 
     return (
       <div className={styles.smsCode}>
-        <label>{formatMessage({ id: `EXCHANGE_LABEL_PHONE` })}</label>
+        <label>{label || formatMessage({ id: `EXCHANGE_LABEL_PHONE` })}</label>
         <div className={styles.inputBox}>
           <input
             type="text"

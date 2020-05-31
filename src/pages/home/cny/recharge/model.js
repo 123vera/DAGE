@@ -1,7 +1,7 @@
-import AssetApi from '../../../services/api/asset';
+import AssetApi from '../../../../services/api/asset';
 
 export default {
-  namespace: 'fabiRecharge',
+  namespace: 'cnyRecharge',
   state: {
     amount: '',
     amountOptions: [],

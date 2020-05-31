@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'dva';
-import PageHeader from '@/components/common/PageHeader';
+import PageHeader from '../../components/common/PageHeader';
 import styles from './index.less';
 import { router } from 'umi';
-import { Icons, Images } from '../../../assets';
+import { Icons, Images } from '../../assets';
 import { formatMessage } from 'umi/locale';
 import { Toast } from 'antd-mobile';
 
-@connect(({ ecological, globalModel }) => ({ ecological, globalModel }))
+@connect(({ ecology, globalModel }) => ({ ecology, globalModel }))
 class Index extends Component {
   state = {
     list: [],
@@ -30,7 +30,8 @@ class Index extends Component {
         },
         {
           img: Images.ecoOtcMining,
-          title: formatMessage({ id: `ECOLOGICAL_CURRENCY_TITLE_03` }),
+          // title: formatMessage({ id: `ECOLOGICAL_CURRENCY_TITLE_03` }),
+          title: 'gambit游戏钱包',
           subTitle: formatMessage({ id: `ECOLOGICAL_CURRENCY_SUBTITLE_03` }),
           link: otcLink,
         },
@@ -42,23 +43,16 @@ class Index extends Component {
         },
         {
           img: Images.ecoDep,
-          title: formatMessage({ id: `ECOLOGICAL_CURRENCY_TITLE_06` }),
+          title: '鸭鸭直播',
           subTitle: formatMessage({ id: `ECOLOGICAL_CURRENCY_SUBTITLE_06` }),
           link: '',
         },
-
-        // {
-        //   img: Images.ecoOtcMiningDetail,
-        //   title: formatMessage({ id: `ECOLOGICAL_CURRENCY_TITLE_04` }),
-        //   subTitle: formatMessage({ id: `ECOLOGICAL_CURRENCY_SUBTITLE_04` }),
-        //   link: '/mining-detail/otc',
-        // },
-        // {
-        //   img: Images.ecoDep,
-        //   title: formatMessage({ id: `ECOLOGICAL_CURRENCY_TITLE_05` }),
-        //   subTitle: formatMessage({ id: `ECOLOGICAL_CURRENCY_SUBTITLE_05` }),
-        //   link: '',
-        // },
+        {
+          img: Images.ecoPoker,
+          title: '德州扑克',
+          subTitle: 'DAGE德州扑克平台',
+          link: '',
+        },
       ];
       this.setState({ list });
     });
@@ -76,7 +70,7 @@ class Index extends Component {
     const { list } = this.state;
 
     return (
-      <div id={styles.ecological}>
+      <div id={styles.ecology}>
         <PageHeader title={formatMessage({ id: `ECOLOGICAL_TITLE` })} />
 
         <ul className={styles.contents}>

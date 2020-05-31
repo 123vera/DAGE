@@ -36,6 +36,22 @@ class UserApi {
   }
 
   /**
+   * 发送邮箱验证码
+   *
+   * @required imgcode number 图形验证码
+   * @required email string 邮箱账号
+   * @required type string 验证码类型，reg（注册）,exchange(币种兑换),cash(提币)
+   **/
+  static sendEmailCode(options) {
+    console.log(options);
+    // return request.post('/user/sendsmscode', { ...options, sid: SID });
+    return Promise.resolve({
+      status: 1,
+      msg: '成功',
+    });
+  }
+
+  /**
    * 注册账号
    *
    * @required prefix number 手机国家码

@@ -5,5 +5,15 @@ import OtherApi from './other';
 import GameApi from './game';
 import OtcApi from './otc';
 import FabiApi from './fabi';
+import UserCenterApi from './user_center';
 
-export { HomeApi, UserApi, AssetApi, OtherApi, OtcApi, GameApi, FabiApi };
+export {
+  HomeApi,
+  UserApi,
+  AssetApi,
+  OtherApi,
+  OtcApi,
+  GameApi,
+  FabiApi,
+  UserCenterApi,
+};

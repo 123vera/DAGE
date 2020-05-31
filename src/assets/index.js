@@ -19,6 +19,7 @@ export const Icons = {
   loginOut: require('./icons/login-out.png'),
   transfer: require('./icons/transfer.png'),
   copy: require('./icons/copy.png'),
+  bells: require('./icons/bells.png'),
 
   // home1: require('./icons/new-home1.jpg'),
   home2: require('./icons/home2.jpg'),
@@ -46,6 +47,8 @@ export const Icons = {
   userNotice: require('./icons/notices.png'),
   userSwitch: require('./icons/switch-lang.png'),
   userCustomer: require('./icons/customer.png'),
+  userChain: require('./icons/user-chain.png'),
+  userDownload: require('./icons/user-download.png'),
 };
 
 export const Images = {
@@ -66,4 +69,5 @@ export const Images = {
   ecoOtcMining: require('./imgs/eco-otc-mining.png'),
   ecoOtcMiningDetail: require('./imgs/eco-otc-mining-detail.png'),
   ecoDep: require('./imgs/eco-dep.png'),
+  ecoPoker: require('./imgs/eco-poker.png'),
 };

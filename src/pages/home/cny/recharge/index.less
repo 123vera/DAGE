@@ -1,6 +1,6 @@
-@import '../../../styles/mixin.less';
+@import '../../../../styles/mixin.less';
 
-#fabiRecharge {
+#cnyRecharge {
   color: @font-sub-color;
 
   .header {
@@ -23,6 +23,33 @@
   section {
     box-sizing: border-box;
     padding: 50px 70px;
+
+    &.steps {
+      padding: 20px 70px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .step {
+        width: 45%;
+        padding: 2px;
+        background: @font-sub-color;
+        border-radius: 10px;
+
+        span {
+          display: block;
+          padding: 20px 0;
+          border-radius: 10px;
+          background: @theme-color-bg;
+          text-align: center;
+        }
+
+        &.active {
+          background: linear-gradient(90deg, rgba(1, 118, 255, 1), rgba(124, 1, 255, 1));
+          color: #fff;
+        }
+      }
+    }
 
     &.inputContent {
       font-size: @font-size-common;

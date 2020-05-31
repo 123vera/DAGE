@@ -18,7 +18,7 @@ const tabs = [
     label: formatMessage({ id: `FOOTER_NAME_02` }),
   },
   {
-    path: '/main/ecological',
+    path: '/main/ecology',
     icon: Icons.zoology,
     iconActive: Icons.zoologyActive,
     label: formatMessage({ id: `FOOTER_NAME_03` }),

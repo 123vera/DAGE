@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'dva';
 import router from 'umi/router';
-import { removeCookie } from '../../../utils/utils';
+import { removeCookie } from '../../utils/utils';
 import { Modal, Toast } from 'antd-mobile';
 import CopyToClipboard from 'react-copy-to-clipboard';
-import PageHeader from '@/components/common/PageHeader';
+import Header from '../../components/common/Header';
 import BG_ICON from '@/assets/dark/bg-icon.png';
 import STATUS_BG from '@/assets/icons/status-bg.png';
 import ICON_SWITCH from '@/assets/icons/switch-lang.png';
 import MY_LEVEL from '@/assets/icons/spread.png';
 import HOME_BG from '@/assets/imgs/home-bg.png';
-import DAGE_LOGO from '@/assets/dark/dage-logo.png';
+import DAGE_LOGO from '../../assets/dark/dage-logo.png';
 import styles from './index.less';
 import { formatMessage } from 'umi/locale';
-import { Icons } from '../../../assets';
+import { Icons } from '../../assets';
 
 @connect(({ globalModel, userCenter }) => ({ globalModel, userCenter }))
 class Home extends Component {
@@ -29,19 +29,30 @@ class Home extends Component {
     router.push(url);
   };
 
+  logout = () => {
+    Modal.alert(formatMessage({ id: `USER_LOGOUT` }), '', [
+      {
+        text: formatMessage({ id: `COMMON_CONFIRM` }),
+        style: { fontSize: '0.34rem' },
+        onPress: () => {
+          router.push('/account/login');
+          removeCookie('ACCOUNT_TOKEN');
+          removeCookie('OPENID');
+        },
+      },
+      { text: formatMessage({ id: `COMMON_CANCEL` }), style: { fontSize: '0.34rem' } },
+    ]);
+  };
+
   render() {
     const { myInfo } = this.props.globalModel;
+    // TODO 判断该用户是否绑定邮箱
     const listContent = [
       {
-        icon: Icons.userQrcode,
-        text: formatMessage({ id: `USER_SECTION_01` }),
-        url: '/alipay',
+        icon: Icons.userChain,
+        text: myInfo.bindEmail ? '更换绑定邮箱' : '绑定邮箱',
+        url: `/user/bind-email?bind=${myInfo.bindEmail ? 1 : 0}`,
       },
-      // {
-      //   icon: Icons.userSpread,
-      //   text: formatMessage({ id: `USER_SECTION_02` }),
-      //   url: '/promotion',
-      // },
       {
         icon: MY_LEVEL,
         text: formatMessage({ id: `PROMOTION_TITLE_02` }),
@@ -58,6 +69,11 @@ class Home extends Component {
         url: '/notices',
       },
       {
+        icon: Icons.userDownload,
+        text: ' 下载中心',
+        url: '/user/download',
+      },
+      {
         icon: ICON_SWITCH,
         text: formatMessage({ id: `USER_SECTION_05` }),
         url: '/switch_lang',
@@ -69,35 +85,34 @@ class Home extends Component {
       },
     ];
 
+    if (myInfo.phonePrefix === '86') {
+      listContent.unshift({
+        icon: Icons.userQrcode,
+        text: formatMessage({ id: `USER_SECTION_01` }),
+        url: '/user/alipay',
+      });
+    }
+
     return (
       <div className={styles.userCenter}>
-        <PageHeader
+        <Header
           title={formatMessage({ id: `USER_TITLE` })}
+          leftContent={{
+            icon: Icons.bells,
+            iconWidth: 64,
+            onHandle: () => router.push('/user/message'),
+          }}
           rightContent={{
             icon: Icons.loginOut,
-            onHandle: () => {
-              Modal.alert(formatMessage({ id: `USER_LOGOUT` }), '', [
-                {
-                  text: formatMessage({ id: `COMMON_CONFIRM` }),
-                  style: { fontSize: '0.34rem' },
-                  onPress: () => {
-                    // 退出登录
-                    router.push('/account/login');
-                    removeCookie('ACCOUNT_TOKEN');
-                    removeCookie('OPENID');
-                  },
-                },
-                { text: formatMessage({ id: `COMMON_CANCEL` }), style: { fontSize: '0.34rem' } },
-              ]);
-            },
+            onHandle: this.logout,
           }}
         />
 
         <div className={styles.banner}>
-          <img className={styles.bg} src={HOME_BG} alt="" />
-          <img className={styles.bg1} src={DAGE_LOGO} alt="" />
+          <img className={styles.bg} src={HOME_BG} alt=""/>
+          <img className={styles.bg1} src={DAGE_LOGO} alt=""/>
           <div className={styles.center}>
-            <img className={styles.icon} src={BG_ICON} alt="" />
+            <img className={styles.icon} src={BG_ICON} alt=""/>
             <p>DID：{(myInfo && myInfo.userName) || '--'}</p>
             <CopyToClipboard
               key={new Date().toString()}
@@ -110,38 +125,21 @@ class Home extends Component {
               </span>
             </CopyToClipboard>
           </div>
-          <img className={styles.status} src={STATUS_BG} alt="" />
+          <img className={styles.status} src={STATUS_BG} alt=""/>
           <p className={styles.statusText}>
             <span style={{ opacity: 0.5 }}>
               {myInfo && myInfo.teamLevel === 0 ? `VIP 0` : `VIP ${myInfo.teamLevel}`}
             </span>
-
-            {/* {myInfo && myInfo.activate === 1 ? (
-              <span style={{ opacity: 0.5 }}>VIP{formatMessage({ id: `USER_ACTIVITY` })}</span>
-            ) : (
-              formatMessage({ id: `USER_UNACTIVITY` })
-            )} */}
           </p>
         </div>
         <ul className={styles.list}>
-          {myInfo.phonePrefix === '86' &&
-            listContent.map((item, key) => (
-              <li key={key} onClick={() => this.toSwitchLang(item.url)}>
-                <img className={styles.icon} src={item.icon} alt="" />
-                <span>{item.text}</span>
-                <img className={styles.right} src={Icons.arrowRight} alt="" />
-              </li>
-            ))}
-
-          {/* 国外用户个人中心不显示上传支付宝信息 */}
-          {myInfo.phonePrefix !== '86' &&
-            listContent.splice(1).map((item, key) => (
-              <li key={key} onClick={() => this.toSwitchLang(item.url)}>
-                <img className={styles.icon} src={item.icon} alt="" />
-                <span>{item.text}</span>
-                <img className={styles.right} src={Icons.arrowRight} alt="" />
-              </li>
-            ))}
+          {listContent.map((item, key) => (
+            <li key={key} onClick={() => this.toSwitchLang(item.url)}>
+              <img className={styles.icon} src={item.icon} alt=""/>
+              <span>{item.text}</span>
+              <img className={styles.right} src={Icons.arrowRight} alt=""/>
+            </li>
+          ))}
         </ul>
       </div>
     );

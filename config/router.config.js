@@ -12,8 +12,8 @@ export default [
     component: '../layouts/MainLayout',
     routes: [
       { path: '/main/home', component: './home' }, // 首页
-      { path: '/main/user', component: './user/home' }, // 个人中心
-      { path: '/main/ecological', component: './ecological/home' }, //生态
+      { path: '/main/user', component: './user' }, // 个人中心
+      { path: '/main/ecology', component: './ecology' }, // 生态
       { path: '/main/assets', component: './assets' }, // 资产
     ],
   },
@@ -25,6 +25,7 @@ export default [
     routes: [
       { path: '/account/homepage', component: './account/homepage' }, // 入口页
       { path: '/account/login', component: './account/login' }, // 登录
+      { path: '/account/email-login', component: './account/email_login' }, // 邮箱登录
       { path: '/account/register', component: './account/register' }, // 注册
       { path: '/account/select-account', component: './account/selectAccount' }, // 选择登录账号
       { path: '/account/set-account', component: './account/setAccount' }, // 创建新账号
@@ -46,6 +47,26 @@ export default [
       { path: '/home/recharge', component: './home/recharge' }, // 充币
       { path: '/home/order-detail', component: './home/order_detail' }, // 订单详情
       { path: '/home/buy-supporting', component: './home/buy_supporting' }, // 购买配套
+
+      { path: '/home/cny/recharge', component: './home/cny/recharge' }, // 法币充值
+      { path: '/home/cny/alipay', component: './home/cny/alipay' }, // 支付宝支付 - 收款二维码
+      { path: '/home/cny/bank-pay', component: './home/cny/bank_pay' }, // 银行卡支付
+    ],
+  },
+
+  // 个人中心
+  {
+    path: '/user',
+    component: '../layouts/BasicLayout',
+    routes: [
+      { path: '/user/message', component: './user/message' }, // 系统消息
+      { path: '/user/alipay', component: './user/alipay' }, // 上传支付宝信息
+      { path: '/user/alipay/pass', component: './user/alipay/pass' }, // 审核通过
+      { path: '/user/alipay/pending', component: './user/alipay/pending' }, // 审核中
+      { path: '/user/alipay/reject', component: './user/alipay/reject' }, // 审核拒绝
+
+      { path: '/user/bind-email', component: './user/bind_email' }, // 绑定邮箱
+      { path: '/user/download', component: './user/download' }, // 下载中心
     ],
   },
 
@@ -53,10 +74,6 @@ export default [
     path: '/',
     component: '../layouts/BasicLayout',
     routes: [
-      { path: '/alipay', title: 'DAGE WALLET', component: './user/alipay' }, // 上传支付宝信息
-      { path: '/alipay/pass', title: 'DAGE WALLET', component: './user/alipay/pass' }, // 审核通过
-      { path: '/alipay/pending', title: 'DAGE WALLET', component: './user/alipay/pending' }, // 审核中
-      { path: '/alipay/reject', title: 'DAGE WALLET', component: './user/alipay/reject' }, // 审核拒绝
 
       { path: '/notices', title: 'DAGE WALLET', component: './user/notices' }, // 公告列表
       { path: '/notice/:id', title: 'DAGE WALLET', component: './user/notice' }, // 公告详情
@@ -83,24 +100,24 @@ export default [
       { path: '/wallet/reward-detail', title: 'DAGE WALLET', component: './wallet/reward-detail' }, // 推广收益详情
       // { path: '/wallet/mining-detail', title: 'DAGE WALLET', component: './wallet/mining-detail' }, // 挖矿详情
 
-      { path: '/exchange', title: 'DAGE WALLET', component: './ecological/exchange' }, // 去中心化交易中心
-      { path: '/mining-detail', title: 'DAGE WALLET', component: './ecological/mining-detail' }, // 新挖矿详情
+      { path: '/exchange', title: 'DAGE WALLET', component: './ecology/exchange' }, // 去中心化交易中心
+      { path: '/mining-detail', title: 'DAGE WALLET', component: './ecology/mining-detail' }, // 新挖矿详情
       // {
       //   path: '/mining-detail/otc',
       //   title: 'DAGE WALLET',
-      //   component: './ecological/mining-detail/otc',
+      //   component: './ecology/mining-detail/otc',
       // }, // OTC挖矿详情
       {
         path: '/otc-mining/inland',
         title: 'DAGE WALLET',
-        component: './ecological/otc-mining/inland',
+        component: './ecology/otc-mining/inland',
       }, // OTC挖矿中国区
       {
         path: '/otc-mining/abroad',
         title: 'DAGE WALLET',
-        component: './ecological/otc-mining/abroad',
+        component: './ecology/otc-mining/abroad',
       }, // OTC挖矿国际区
-      // { path: '/compound-dep', title: 'DAGE WALLET', component: './ecological/compound-dep' }, // 合成DEP
+      // { path: '/compound-dep', title: 'DAGE WALLET', component: './ecology/compound-dep' }, // 合成DEP
 
       { path: '/assets/transfer', title: 'DAGE WALLET', component: './assets/transfer' }, // 划转
       {
@@ -115,8 +132,6 @@ export default [
       // 法币系列
       { path: '/fabi/withdraw/:step', title: 'DAGE WALLET', component: './fabi/withdraw' }, // 法币提现
       { path: '/fabi/withdrawRecord', title: 'DAGE WALLET', component: './fabi/withdrawRecord' }, // 法币提现记录
-      { path: '/fabi/recharge', title: 'DAGE WALLET', component: './fabi/recharge' }, // 法币充值
-      { path: '/fabi/pay', title: 'DAGE WALLET', component: './fabi/pay' }, // 法币充值 - 收款二维码
       { path: '/fabi/rechargeRecord', title: 'DAGE WALLET', component: './fabi/Record' }, // 法币充值 - 充值记录
 
       // 游戏dgt系列

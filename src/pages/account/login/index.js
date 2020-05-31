@@ -149,17 +149,15 @@ class Login extends Component {
               </label>
 
               <div className={styles.tipsInput}>
-                <span onClick={() => router.push(`/account/register`)}>
-                  {formatMessage({ id: `REGISTER_TITLE_01` })}
+                <span onClick={() => router.push(`/account/email-login`)}>
+                  {/*{formatMessage({ id: `REGISTER_TITLE_01` })}*/}
+                  邮箱登录
                 </span>
                 <span onClick={() => router.push(`/account/find-password/verify`)}>
                   {formatMessage({ id: `LOGIN_FORGET_PASSWORD` })}
                 </span>
               </div>
-
               <SubmitBtn value={formatMessage({ id: `LOGIN` })} onClick={this.toNext} />
-
-              {/*<img className={styles.nextStep} src={Images.nextStep} onClick={this.toNext} alt="" />*/}
             </div>
           </section>
         </div>

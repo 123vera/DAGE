@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-// import QRCode from 'qrcode.react';
 import { formatMessage } from 'umi/locale';
-import ARROW_LEFT from '@/assets/dark/arrow-left.png';
-import PageHeader from '../../../components/common/PageHeader';
+import PageHeader from '../../../../components/common/PageHeader';
 import styles from './index.less';
+import { Icons } from '../../../../assets';
 
 class QrCodeBox extends Component {
   state = {
@@ -21,8 +20,8 @@ class QrCodeBox extends Component {
     return (
       <div className={styles.qrCodeBox}>
         {/* <QRCode className={styles.qrCode} size={250} value={value || ''} /> */}
-        <br />
-        <img src={value} alt="" />
+        <br/>
+        <img src={value} alt=""/>
         {/* <img src={url} alt="" /> */}
       </div>
     );
@@ -60,10 +59,10 @@ class Index extends Component {
     const { payImg, endTime, orderNo, num } = this.state;
 
     return (
-      <div id={styles.fabiPay}>
+      <div className={styles.cnyAlipay}>
         <PageHeader
           title={formatMessage({ id: `DGT_ALIPAY_TITLE` })}
-          leftContent={{ icon: ARROW_LEFT }}
+          leftContent={{ icon: Icons.arrowLeft }}
         />
         <p className={styles.title}>{`${formatMessage({
           id: `DGT_ALIPAY_ORDERID`,
@@ -71,13 +70,13 @@ class Index extends Component {
 
         <section className={styles.top}>
           <p>￥{num}</p>
-          <QrCodeBox key={payImg} value={payImg} />
+          <QrCodeBox key={payImg} value={payImg}/>
           <small>
             {formatMessage({ id: `DGT_ALIPAY_DEALLINE` })}
             <span>{this.getDisplayTime(endTime)}</span>
           </small>
           <ul>
-            <li dangerouslySetInnerHTML={{ __html: formatMessage({ id: `DGT_ALIPAY_TIPS_01` }) }} />
+            <li dangerouslySetInnerHTML={{ __html: formatMessage({ id: `DGT_ALIPAY_TIPS_01` }) }}/>
             <li>{formatMessage({ id: `DGT_ALIPAY_TIPS_02` })}</li>
             <li>{formatMessage({ id: `DGT_ALIPAY_TIPS_03` })}</li>
           </ul>

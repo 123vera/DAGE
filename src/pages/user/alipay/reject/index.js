@@ -28,7 +28,7 @@ class Reject extends Component {
             </small>
           </p>
           <div className={styles.submit}>
-            <button onClick={() => router.push('/alipay?upload=1')}>
+            <button onClick={() => router.push('/user/alipay?upload=1')}>
               {formatMessage({ id: `PAY_REUPLOAD` })}
             </button>
           </div>

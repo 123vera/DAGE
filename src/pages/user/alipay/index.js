@@ -17,9 +17,9 @@ class Alipay extends Component {
       if (res.status === 1) {
         const { status } = res.data;
         // 0为待审核，1为审核通过，-1被驳回，-2未上传
-        if (status === 0) router.push('/alipay/pending'); // 待审核
-        if (status === 1) router.push('/alipay/pass'); // 审核通过
-        if (status === -1) router.push('/alipay/reject'); // 被驳回
+        if (status === 0) router.push('/user/alipay/pending'); // 待审核
+        if (status === 1) router.push('/user/alipay/pass'); // 审核通过
+        if (status === -1) router.push('/user/alipay/reject'); // 被驳回
       }
     });
   }
@@ -82,7 +82,7 @@ class Alipay extends Component {
           res.msg && Toast.info(res.msg);
           return;
         }
-        router.push('/alipay/pending');
+        router.push('/user/alipay/pending');
       });
   };
 

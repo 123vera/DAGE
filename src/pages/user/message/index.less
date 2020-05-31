@@ -1,0 +1,44 @@
+@import '../../../styles/mixin.less';
+
+.message {
+  ul {
+    margin: 0;
+    padding: 30px 60px;
+
+    li {
+      margin-bottom: 40px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .box {
+    box-sizing: border-box;
+    padding: 4px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, rgba(21, 101, 255, 1), rgba(112, 14, 255, 1));
+  }
+
+  .content {
+    background: @theme-color-bg;
+    padding: 0 30px;
+    line-height: 44px;
+
+    .top {
+      padding: 50px 0 40px;
+      border-bottom: 2px solid rgba(46, 53, 70, 1);
+    }
+
+    .bottom {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      height: 66px;
+      font-size: 22px;
+      color: @font-sub-color;
+    }
+  }
+}
