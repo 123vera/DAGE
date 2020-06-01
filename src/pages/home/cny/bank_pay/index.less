@@ -1,3 +1,97 @@
-.bankPay {
+@import '../../../../styles/mixin.less';
 
+.bankPay {
+  line-height: 44px;
+
+  .orderNum {
+    padding: 0 60px 30px;
+  }
+
+  .box {
+    margin: 20px 60px;
+    padding: 30px 20px;
+    border-radius: 10px;
+    background: #1a212e;
+
+    h3 {
+      padding: 10px 0 30px;
+    }
+
+    .row {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 30px 0;
+
+      label {
+        margin-right: 15px;
+      }
+
+      p {
+        position: relative;
+        flex: 1;
+        .overflow(1);
+
+        .copy {
+          box-sizing: border-box;
+          position: absolute;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          margin: auto;
+          padding: 2px;
+          width: 60px;
+          height: 44px;
+
+          background: linear-gradient(90deg, rgba(1, 118, 255, 1), rgba(124, 1, 255, 1));
+          color: #fff;
+          font-size: 20px;
+          border-radius: 4px;
+
+          span {
+            display: block;
+            width: 100%;
+            height: 100%;
+
+            background: #1a212e;
+
+            i {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              background: linear-gradient(90deg, rgba(1, 118, 255, 1), rgba(124, 1, 255, 1));
+              -webkit-background-clip: text;
+              color: transparent;
+              font-style: normal;
+            }
+          }
+        }
+      }
+    }
+
+    ul {
+      margin-top: 30px;
+      .clearUl;
+
+      li {
+        position: relative;
+        padding: 10px 0 10px 30px;
+        font-size: 24px;
+        color: #565f71;
+        line-height: 34px;
+
+        &::before {
+          content: '';
+          position: absolute;
+          left: 0;
+          top: 22px;
+          bottom: 0;
+          width: 8px;
+          height: 8px;
+          background: #565f71;
+          border-radius: 4px;
+        }
+      }
+    }
+  }
 }

@@ -18,35 +18,35 @@ function BankPay() {
         <label>收款账户</label>
         <p>
           6662 2379 8367 8372 8823
-          <button>复制</button>
+          <div className={styles.copy}><span><i>复制</i></span></div>
         </p>
       </div>
       <div className={styles.row}>
         <label>收款银行</label>
         <p>
           中国农业银行
-          <button>复制</button>
+          <div className={styles.copy}><span><i>复制</i></span></div>
         </p>
       </div>
       <div className={styles.row}>
         <label>账户姓名</label>
         <p>
           张山
-          <button>复制</button>
+          <div className={styles.copy}><span><i>复制</i></span></div>
         </p>
       </div>
       <div className={styles.row}>
         <label>附言信息</label>
         <p>
           给XXX转账
-          <button>复制</button>
+          <div className={styles.copy}><span><i>复制</i></span></div>
         </p>
       </div>
       <div className={styles.row}>
         <label>充值金额</label>
         <p>
           2999
-          <button>复制</button>
+          <div className={styles.copy}><span><i>复制</i></span></div>
         </p>
       </div>
       <ul>
@@ -59,7 +59,14 @@ function BankPay() {
       </ul>
     </div>
     <div className={styles.box}>
-
+      <ul>
+        <li>
+          登录网银，按照订单进行转账；
+        </li>
+        <li>
+          核对金额，金额匹配自动转账。
+        </li>
+      </ul>
     </div>
   </div>;
 }
