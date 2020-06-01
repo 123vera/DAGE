@@ -32,7 +32,7 @@ export default {
       }
     },
     *RmbRecharge(_, { call, select }) {
-      const { amount } = yield select(state => state.fabiRecharge);
+      const { amount } = yield select(state => state.cnyRecharge);
       return yield call(AssetApi.rmbRecharge, { num: amount });
     },
   },
