@@ -57,7 +57,7 @@ class Home extends Component {
                 <img src={Icons.homeGame} alt="" />
                 <span>{formatMessage({ id: `HOME_GAME_CENTER` })}</span>
                 <small>{formatMessage({ id: `HOME_GAME_CENTER_DESC` })}</small>
-                <img className={styles.gameCardBg} src={Images.homeGameCard} alt="" />
+                {/* <img className={styles.gameCardBg} src={Images.homeGameCard} alt="" /> */}
               </li>
             )}
           </ul>
@@ -100,9 +100,10 @@ class Mining extends Component {
   }
 
   render() {
-    const { myInfo } = this.props.globalModel;
-    const { certification, reward } = this.props.wallet;
-    const isChinese = myInfo && myInfo.phonePrefix === '86';
+    // const { myInfo } = this.props.globalModel;
+    const { reward } = this.props.wallet;
+    // const { certification } = this.props.wallet;
+    // const isChinese = myInfo && myInfo.phonePrefix === '86';
 
     return (
       <div className={styles.mining}>
@@ -110,14 +111,17 @@ class Mining extends Component {
           <img src={Icons.oIcon} alt="" />
           {formatMessage({ id: `HOME_MINING_POOL` })}
         </h3>
-        {!isChinese && (
+
+        {/* 以下 支付宝认证提示 中国区用户才有 已去掉*/}
+        {/* {isChinese && (
           <p className={styles.alipay}>
             <span className={styles.left}>{formatMessage({ id: `HOME_SECTION_MAIN_01` })}</span>
             <span className={styles.certification}>
               <Certification status={certification} />
             </span>
           </p>
-        )}
+        )} */}
+
         <ul>
           <li onClick={() => router.push('/home/order-detail')}>
             {/*<li onClick={() => router.push('/mining-detail/otc')}>*/}

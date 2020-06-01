@@ -446,7 +446,7 @@ export default {
   OTC_BESURE_01: `我已经打开挖矿插件，没有插件？`,
   OTC_BESURE_02: `立即下载`,
   OTC_TIPS_01: `确认挖矿23小时后，挖矿中的资产将原路返还至DAGE钱包账户，清注意查收`,
-  OTC_TIPS_INLAND_01: `23小时内未挖矿完成的资产，将以当天货币交易所OTC交易的汇率返还`,
+  OTC_TIPS_INLAND_01: `23小时内未挖矿完成的资产，将以当天货币交易所OTC交易的汇率返还本金`,
   OTC_TIPS_INLAND_02: `至DAGE钱包账户`,
 
   OTC_MINING_DETAIL_TITLE: `挖矿详情`,

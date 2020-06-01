@@ -423,7 +423,7 @@ export default {
   HOME_OTC_CN: `China Users Require Alipay’s Verification`,
   HOME_MINING_POOL: `Game Mining Pool`,
   HOME_OTC_MINING: `Currently Mining`,
-  HOME_OTC_TEAM_REVENUE: `Yesterday’s Team’s Earnings`,
+  HOME_OTC_TEAM_REVENUE: `Yesterday Team's Earning`,
 
   PROMOTION_MEDAL_LEVEL: `Medal`,
   REDEEM_NOW_TITLE: `Exchange`,
@@ -440,7 +440,7 @@ export default {
   OTC_BESURE_02: `Download now`,
   OTC_TIPS_01: ` After mining has been confirmed for 23 hours, the assets found during mining will be returned to DAGE wallet account, please check and receive the assets with care`,
   // OTC_TIPS_INLAND_01: `Assets that have not been mined within 23 hours, will be returned to the DAGE wallet account at the exchange rate of the currency exchange OTC on the day in the form of USDT.`,
-  OTC_TIPS_INLAND_01: `Assets that have not been mined within 23 hours, will be returned to the DAGE wallet account at the exchange rate of the currency exchange OTC on the day in the form of `,
+  OTC_TIPS_INLAND_01: `Assets that have not been mined within 23 hours, will be returned to the DAGE wallet account at the exchange rate of the currency exchange OTC on the day in the form of principal`,
   OTC_TIPS_INLAND_02: ` .`,
 
   OTC_MINING_DETAIL_TITLE: `Mining Details`,

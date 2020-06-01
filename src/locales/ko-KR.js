@@ -435,7 +435,7 @@ export default {
   OTC_BESURE_02: `지금 다운로드하기`,
   OTC_TIPS_01: `채굴이 23시간 동안 확인된 이후에 채굴이 이뤄지는 동안 발견되는 자산은 DAGE 지갑 계정으로 되돌려지게 됩니다. 확인하고 주의를 기울여서 자산을 수령해 주세요. `,
   // OTC_TIPS_INLAND_01: `23小时内未挖矿完成的资产，将以当天货币交易所OTC交易的汇率返还USDT至DAGE钱包账户`,
-  OTC_TIPS_INLAND_01: `23시간 내에 채굴되지 않는 자산은 환율에 따라 `,
+  OTC_TIPS_INLAND_01: `23시간 내에 채굴되지 않는 자산은 환율에 따라 주요한`,
   OTC_TIPS_INLAND_02: `로 DAGE 지갑 계정에 반환됩니다.`,
 
   OTC_MINING_DETAIL_TITLE: `채굴 세부 정보`,

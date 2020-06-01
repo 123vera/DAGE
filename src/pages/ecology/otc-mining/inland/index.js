@@ -76,9 +76,9 @@ class OtcMining extends Component {
   };
 
   onCountChange = value => {
-    if (value && !REG.NUMBER.test(value)) {
-      return;
-    }
+    if (value && !REG.NUMBER.test(value)) return;
+    if (value.length > 40) return;
+
     this.props.dispatch({
       type: 'otcMining/UpdateState',
       payload: { count: value },
@@ -243,7 +243,7 @@ class OtcMining extends Component {
           <p>
             <small>
               {formatMessage({ id: `OTC_TIPS_INLAND_01` })}
-              {'本金'}
+              {/* {'本金'} */}
               {formatMessage({ id: `OTC_TIPS_INLAND_02` })}
             </small>
           </p>

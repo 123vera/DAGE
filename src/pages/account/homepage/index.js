@@ -5,7 +5,14 @@ import { router } from 'umi';
 import { formatMessage } from 'umi-plugin-locale';
 
 class Index extends Component {
+  state = {
+    showMsg: false,
+  };
+
   render() {
+    var ua = navigator.userAgent.toLowerCase();
+    var isWeixin = ua.indexOf('micromessenger') !== -1;
+
     return (
       <div id={styles.homepageBg}>
         <div className={styles.langWrapper}>
@@ -15,11 +22,26 @@ class Index extends Component {
         <h2>{formatMessage({ id: `HOMEPAGE_TITLE` })}</h2>
 
         <div className={styles.btnGroup}>
-          <button onClick={() => router.push('/account/login')} className={`${styles.btn} ${styles.login}`}>
+          <button
+            onClick={() => {
+              if (isWeixin) {
+                this.setState({ showMsg: true });
+              } else {
+                router.push('/account/login');
+              }
+            }}
+            className={`${styles.btn} ${styles.login}`}
+          >
             {formatMessage({ id: `LOGIN` })}
           </button>
           <button
-            onClick={() => router.push('/account/register')}
+            onClick={() => {
+              if (isWeixin) {
+                this.setState({ showMsg: true });
+              } else {
+                router.push('/account/register');
+              }
+            }}
             className={`${styles.btn} ${styles.reg}`}
           >
             {formatMessage({ id: `REGISTER_TITLE_01` })}
