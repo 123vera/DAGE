@@ -90,7 +90,9 @@ class Assets extends Component {
                   </thead>
                   <tbody>
                     <tr>
-                      <td>{downFixed(item.amount)}</td>
+                      <td>
+                        {downFixed(item.amount, item.type.toLocaleUpperCase() === 'BTC' ? 8 : 2)}
+                      </td>
                       <td>{downFixed(item.price, 4)}</td>
                       <td>{downFixed(item.amount * item.price)}</td>
                     </tr>

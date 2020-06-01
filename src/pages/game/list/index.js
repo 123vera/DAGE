@@ -34,7 +34,7 @@ class Index extends Component {
     return new Promise(resolve => {
       this.props.dispatch({
         type: `game/GetGameAddress`,
-        payload: { id },
+        payload: { gameid: id },
       });
       resolve();
     });

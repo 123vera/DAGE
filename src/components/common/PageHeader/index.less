@@ -21,8 +21,12 @@
   h3 {
     position: absolute;
     left: 50%;
+    white-space: nowrap;
     transform: translateX(-50%);
+    max-width: 50%;
     height: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
     line-height: 100px;
     font-size: @font-size-common;
   }

@@ -251,7 +251,7 @@ class Index extends Component {
                   className={styles.item}
                   onClick={e => this.onShowMenus(e, 'showBeforeMenus', !showBeforeMenus)}
                 >
-                  <label>从</label>
+                  <label>{formatMessage({ id: `TRANSFER_FROM` })}</label>
                   <span>{beforeCoin}</span>
                   <img src={Icons.arrowRight} alt="" />
                 </div>
@@ -273,7 +273,7 @@ class Index extends Component {
                   className={styles.item}
                   onClick={e => this.onShowMenus(e, 'showAfterMenus', !showAfterMenus)}
                 >
-                  <label>到</label>
+                  <label>{formatMessage({ id: `TRANSFER_TO` })}</label>
                   <span>{afterCoin}</span>
                   <img src={Icons.arrowRight} alt="" />
                 </div>

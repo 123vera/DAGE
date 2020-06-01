@@ -451,7 +451,7 @@ export default {
 
   // OTC_TIPS_INLAND_01: `Tài sản chưa được khai thác trong vòng 23 giờ, Sẽ được trả lại vào tài khoản ví DAGE theo tỷ giá hối đoái OTC trong ngày dưới dạng USDT.`,
   // OTC_TIPS_INLAND_01: `23小时内未挖矿完成的资产，将以当天货币交易所OTC交易的汇率返还 USDT至DAGE钱包账户`,
-  OTC_TIPS_INLAND_01: `Tài sản chưa được khai thác trong vòng 23 giờ, Sẽ được trả lại vào tài khoản ví DAGE theo tỷ giá hối đoái OTC trong ngày dưới dạng `,
+  OTC_TIPS_INLAND_01: `Tài sản chưa được khai thác trong vòng 23 giờ, Sẽ được trả lại vào tài khoản ví DAGE theo tỷ giá hối đoái OTC trong ngày dưới dạng hiệu trưởng`,
   OTC_TIPS_INLAND_02: ` `,
 
   OTC_MINING_DETAIL_TITLE: `Chi tiết khai thác`,
@@ -485,11 +485,11 @@ export default {
   FIAT_RATIO: `Tỷ giá hối đoái：`,
   FIAT_TIXIAN: `Đăng ký rút tiền`,
 
-  BUY_TITLE: `购买配套`,
-  BUY_DETAIL_TITLE: `订单详情`,
-  BUY_STALLS: `购买档位`,
-  BUY_TOTAL_REVENUE: `总收益`,
-  BUY_CONFIRM: `确认购买`,
-  BUY_SUCCESS: `购买成功`,
-  BUY_TOTAL_REVENUE_DESC: `EST 及 RC 为立即发放，USDT 为每日释放，释放比例：`,
+  BUY_TITLE: `Gói mua hàng`,
+  BUY_DETAIL_TITLE: `Chi tiết đặt hàng`,
+  BUY_STALLS: `Quầy hàng mua hàng`,
+  BUY_TOTAL_REVENUE: `Tổng doanh thu`,
+  BUY_CONFIRM: `Xác nhận mua hàng`,
+  BUY_SUCCESS: `Mua thành công`,
+  BUY_TOTAL_REVENUE_DESC: `EST và RC sẽ được phát hành ngay lập tức, USDT sẽ được phát hành hàng ngày Các ví dụ đã phát hành:`,
 };
