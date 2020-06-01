@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'dva';
 import styles from './index.less';
+import WechatMsg from '../../components/common/WechatMsg';
 import { getLocale } from 'umi-plugin-locale';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
@@ -9,6 +10,7 @@ class Index extends Component {
   state = {
     script: undefined,
     timer: undefined,
+    showMsg: false,
   };
 
   componentDidMount() {
@@ -17,6 +19,8 @@ class Index extends Component {
       globalModel: { lang },
     } = this.props;
     const { script } = this.state;
+    var ua = navigator.userAgent.toLowerCase();
+    var isWeixin = ua.indexOf('micromessenger') !== -1;
 
     dispatch({
       type: 'globalModel/Setlang',
@@ -27,6 +31,11 @@ class Index extends Component {
 
     if (!script) {
       this.createZendes();
+    }
+
+    // 微信环境中 提示打开浏览器
+    if (isWeixin) {
+      this.setState({ showMsg: true });
     }
   }
 
@@ -63,6 +72,7 @@ class Index extends Component {
 
   render() {
     const { children } = this.props;
+    const { showMsg } = this.state;
     return (
       <div className={styles.basicLayout}>
         <ReactCSSTransitionGroup
@@ -78,6 +88,7 @@ class Index extends Component {
             {children}
           </div>
         </ReactCSSTransitionGroup>
+        {showMsg && <WechatMsg />}
       </div>
     );
   }
