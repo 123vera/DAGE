@@ -73,7 +73,8 @@ export default {
           },
         });
 
-        url && (window.location.href = url);
+        url && window.open(url);
+        // url && (window.location.href = url);
       } else {
         res.msg && Toast.info(res.msg);
       }

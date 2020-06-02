@@ -61,7 +61,7 @@ class Index extends Component {
               const {
                 game: { gameUrl },
               } = this.props;
-              gameUrl && (window.location.href = gameUrl);
+              gameUrl && window.open(gameUrl);
             }, 100);
           },
         },
