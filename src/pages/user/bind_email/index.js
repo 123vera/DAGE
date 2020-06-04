@@ -6,28 +6,42 @@ import SmsCode from '../../../components/partials/SmsCode';
 import { formatMessage } from 'umi-plugin-locale';
 import UserApi from '../../../services/api/user';
 import { Toast } from 'antd-mobile';
+import router from 'umi/router';
 
 function BindEmail(props) {
+  const [isBind, setIsBind] = useState(true);
   const [email, setEmail] = useState('');
   const [captchaSrc, setCaptchaSrc] = useState('');
   const [captcha, setCaptcha] = useState('');
   const [code, setCode] = useState('');
+  const [updateCode, setUpdateCode] = useState('');
+
+  // 判断当前页面是"绑定邮箱页面"还是"更换绑定邮箱页面"
+  const checkBindStatus = () => {
+    const { pathname, query } = props.location;
+    const isBind = pathname === '/user/bind-email';
+    setIsBind(isBind);
+    if (isBind) {
+      setUpdateCode(query.udpateCode);
+      return;
+    }
+    setEmail(query.email);
+  };
 
   const getCaptcha = async () => {
     const captchaSrc = await UserApi.getCaptcha(+new Date());
     setCaptchaSrc(captchaSrc);
   };
 
-  const getSmsCode = async () => {
+  const getEmailCode = async () => {
     if (!captcha) {
       Toast.info(formatMessage({ id: `COMMON_PLACEHOLDER_CAPTCHA` }));
       return;
     }
-    // TODO 发送邮箱验证码接口还没有
     return UserApi.sendEmailCode({
       email,
       imgcode: captcha,
-      type: 'reg',
+      type: isBind ? 'bind' : 'updatebing',
     }).then(res => {
       if (res.status === 1) {
         Toast.info(formatMessage({ id: `TOAST_GET_CODE_SUCCESS` }));
@@ -39,19 +53,42 @@ function BindEmail(props) {
   };
 
   const submit = () => {
+    // TODO 接口没有调通
     if (!email) return Toast.info('请输入邮箱');
     if (!code) return Toast.info(formatMessage({ id: `COMMON_PLACEHOLDER_CODE` }));
+    if (!isBind) {
+      UserApi.getEmailUpdateCode({ email, code }).then(res => {
+        console.log(res);
+        if (res.status !== 1) {
+          return Toast.info(res.msg);
+        }
+        const { updatecode: updateCode } = res.data;
+        Toast.info('更换绑定成功，正在跳转绑定邮箱页面', 2, () => {
+          router.push(`/user/bind-email?updateCode=${updateCode}`);
+        });
+      });
+      return;
+    }
 
-    // TODO 提交绑定邮箱
+    UserApi.bindEmail({ email, code, updatecode: updateCode }).then(res => {
+      console.log(res);
+      if (res.status !== 1) {
+        return Toast.info(res.msg);
+      }
+      Toast.info('绑定成功', 2, () => {
+        router.push(`/main/user`);
+      });
+    });
   };
 
   useEffect(() => {
+    console.log('333333333');
+    checkBindStatus();
     getCaptcha().then();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const { bind } = props.location.query;
-  const title = bind === '1' ? '更换绑定邮箱' : '绑定邮箱';
+  const title = isBind ? '绑定邮箱' : '更换绑定邮箱';
 
   return <div className={styles.bindEmail}>
     <Header
@@ -82,7 +119,7 @@ function BindEmail(props) {
           <SmsCode
             label={'邮箱验证码'}
             value={code}
-            getSmsCode={getSmsCode}
+            getSmsCode={getEmailCode}
             onChange={(e) => setCode(e.target.value)}
           />
         </div>
@@ -96,10 +133,8 @@ function BindEmail(props) {
 
 export default BindEmail;
 
-
 function Captcha(props = {}) {
   const { captchaSrc, value, onChange, getCaptcha } = props;
-
   return (
     <div className={styles.captchaBox}>
       <label>{formatMessage({ id: `REGISTER_GET_CAPTCHA` })}</label>
@@ -121,4 +156,3 @@ function Captcha(props = {}) {
     </div>
   );
 }
-

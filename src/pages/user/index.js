@@ -14,12 +14,23 @@ import DAGE_LOGO from '../../assets/dark/dage-logo.png';
 import styles from './index.less';
 import { formatMessage } from 'umi/locale';
 import { Icons } from '../../assets';
+import UserApi from '../../services/api/user';
 
-@connect(({ globalModel, userCenter }) => ({ globalModel, userCenter }))
+@connect(({ globalModel }) => ({ globalModel }))
 class Home extends Component {
   state = {
     isEnabled: false,
+    hasBindEmail: false,
+    email: '',
   };
+
+  componentDidMount() {
+    UserApi.bingEmailInit().then(res => {
+      if (res.status === 1) {
+        this.setState({ email: res.email });
+      }
+    });
+  }
 
   onCopyLink = (text, result) => {
     Toast.info(formatMessage({ id: `USER_COPIED` }));
@@ -45,13 +56,14 @@ class Home extends Component {
   };
 
   render() {
+    const { email } = this.state;
     const { myInfo } = this.props.globalModel;
-    // TODO 判断该用户是否绑定邮箱
+    const hasBindEmail = !!email;
     const listContent = [
       {
         icon: Icons.userChain,
-        text: myInfo.bindEmail ? '更换绑定邮箱' : '绑定邮箱',
-        url: `/user/bind-email?bind=${myInfo.bindEmail ? 1 : 0}`,
+        text: hasBindEmail ? '更换绑定邮箱' : '绑定邮箱',
+        url: `/user/${hasBindEmail ? 'update' : 'bind'}-email?email=${email || ''}`,
       },
       {
         icon: MY_LEVEL,

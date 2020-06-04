@@ -43,11 +43,11 @@ function Message() {
             <div className={styles.box}>
               <div className={styles.content}>
                 <div className={styles.top}>
-                  {i.title}
+                  {i.content}
                 </div>
                 <div className={styles.bottom}>
                   <span>{dayjs(i.addTime * 1000).format('YYYY.MM.DD HH:mm')}</span>
-                  <span>DAGE</span>
+                  <span>{i.manage}</span>
                 </div>
               </div>
             </div>

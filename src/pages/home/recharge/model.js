@@ -1,4 +1,4 @@
-import { UserApi } from '../../../services/api';
+import UserCenterApi from '../../../services/api/user_center';
 
 export default {
   namespace: 'recharge',
@@ -14,7 +14,7 @@ export default {
   },
   effects: {
     *GetMyWallet({ payload }, { call, put }) {
-      const res = yield call(UserApi.getMyWallet, payload);
+      const res = yield call(UserCenterApi.getMyWallet, payload);
       if (res.status === 1) {
         yield put({ type: 'UpdateState', payload: { wallet: res.data && res.data.wallet } });
       }

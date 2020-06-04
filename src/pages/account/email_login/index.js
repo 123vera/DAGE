@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, Component } from 'react';
 import { Icons } from '../../../assets';
 import styles from './index.less';
 import { formatMessage } from 'umi-plugin-locale';
@@ -6,6 +6,23 @@ import { Toast } from 'antd-mobile';
 import { router } from 'umi';
 import SelectLang from '../../../components/common/SelectLang';
 import { REG } from '../../../utils/constants';
+import UserApi from '../../../services/api/user';
+
+class Index extends Component {
+  login = () => {
+
+  };
+
+  render() {
+    return (
+      <div>
+        <EmailLogin login={this.login}/>
+      </div>
+    );
+  }
+}
+
+export default Index;
 
 function EmailLogin() {
   const [email, setEmail] = useState('');
@@ -28,6 +45,8 @@ function EmailLogin() {
     if (password && !REG.PASSWORD.test(password)) {
       return Toast.info(formatMessage({ id: `LOGIN_ERR_PASSWORD` }));
     }
+
+    UserApi.emailLogin({ email, password }).then(res => console.log(res));
 
     // TODO 邮箱登录
   };
@@ -80,4 +99,3 @@ function EmailLogin() {
   </div>;
 }
 
-export default EmailLogin;

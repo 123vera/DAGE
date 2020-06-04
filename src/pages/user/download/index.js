@@ -11,8 +11,7 @@ function Download() {
   const [hasMore, setHasMore] = useState(true);
   const [list, setList] = useState([]);
 
-  const getMessages = (callback) => {
-    // TODO 接口未接
+  const getDownloadList = (callback) => {
     UserCenterApi.getDownloadList({ page, row }).then(res => {
       callback && callback();
       if (res.status === 1) {
@@ -27,7 +26,7 @@ function Download() {
   };
 
   useEffect(() => {
-    getMessages();
+    getDownloadList();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -36,12 +35,12 @@ function Download() {
       icon={Icons.arrowLeft}
       title="下载中心"
     />
-    <ListView hasMore={hasMore} onLoadMore={getMessages}>
+    <ListView hasMore={hasMore} onLoadMore={getDownloadList}>
       <ul>
         {list.length > 0 && list.map(i =>
           <li key={i.id}>
             <p>{i.title}</p>
-            <button>下载</button>
+            <a href={i.downloadUrl}><button>下载</button></a>
           </li>,
         )}
       </ul>

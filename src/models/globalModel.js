@@ -1,6 +1,4 @@
-import UserApi from '../services/api/user';
-import AssetApi from '../services/api/asset';
-import OtherApi from '../services/api/other';
+import { UserApi, AssetApi, OtherApi, UserCenterApi } from '../services/api';
 import { setCookie } from '../utils/utils';
 
 export default {
@@ -19,12 +17,12 @@ export default {
     },
   },
   effects: {
-    *GetCaptcha({ _ }, { call, put }) {
+    * GetCaptcha({ _ }, { call, put }) {
       const captchaSrc = yield call(UserApi.getCaptcha, +new Date());
       yield put({ type: 'UpdateState', payload: { captchaSrc } });
     },
 
-    *GetSmsCode({ payload = {} }, { call, select }) {
+    * GetSmsCode({ payload = {} }, { call, select }) {
       const { myInfo, captcha } = yield select(state => state.globalModel);
 
       return yield call(UserApi.sendSmsCode, {
@@ -35,8 +33,8 @@ export default {
       });
     },
 
-    *GetMyInfo({ payload }, { call, put }) {
-      const res = yield call(UserApi.getMyInfo, payload);
+    * GetMyInfo({ payload }, { call, put }) {
+      const res = yield call(UserCenterApi.getMyInfo, payload);
       if (res && res.status !== 1) return;
       yield put({
         type: 'UpdateState',
@@ -44,7 +42,7 @@ export default {
       });
     },
 
-    *GetCurrencyList({ payload }, { call, put }) {
+    * GetCurrencyList({ payload }, { call, put }) {
       const res = yield call(AssetApi.getCurrencyList, payload);
       if (res && res.status !== 1) return;
       yield put({
@@ -54,13 +52,13 @@ export default {
       return res.data.currency;
     },
 
-    *Setlang({ payload }, { call }) {
+    * Setlang({ payload }, { call }) {
       const res = yield call(OtherApi.setlang, payload);
       setCookie('lang', payload.lang);
       if (res && res.status !== 1) return;
     },
 
-    *ExchangeInit(_, { call, put }) {
+    * ExchangeInit(_, { call, put }) {
       const res = yield call(AssetApi.exchangeInit);
       if (res.status === 1) {
         yield put({

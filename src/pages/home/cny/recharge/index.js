@@ -61,7 +61,18 @@ class Index extends Component {
 
     // TODO 确认支付宝充值还是银行卡充值
     if (this.state.step === 1) {
-      return router.push('/home/cny/bank-pay');
+      this.props.dispatch({
+        type: 'cnyRecharge/RmbRecharge',
+        payload: { payType: 'bank' },
+      }).then(res => {
+        if (res.status !== 1) {
+          res.msg && Toast.info(res.msg);
+          return;
+        }
+        console.log(res);
+        // return router.push('/home/cny/bank-pay');
+      });
+      return;
     }
     this.props.dispatch({ type: 'cnyRecharge/RmbRecharge' }).then(res => {
       if (res.status !== 1) {
