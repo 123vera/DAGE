@@ -105,6 +105,7 @@ function BindEmail(props) {
               type="text"
               placeholder={'请输入邮箱'}
               value={email}
+              readOnly={!isBind}
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
@@ -120,7 +121,7 @@ function BindEmail(props) {
             label={'邮箱验证码'}
             value={code}
             getSmsCode={getEmailCode}
-            onChange={(e) => setCode(e.target.value)}
+            onChange={(value) => setCode(value)}
           />
         </div>
         <div className={styles.btnBox}>

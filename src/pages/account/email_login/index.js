@@ -7,10 +7,19 @@ import { router } from 'umi';
 import SelectLang from '../../../components/common/SelectLang';
 import { REG } from '../../../utils/constants';
 import UserApi from '../../../services/api/user';
+import Cookies from 'js-cookie';
+import { connect } from 'dva';
 
+@connect(({ login }) => ({ login }))
 class Index extends Component {
-  login = () => {
-
+  login = (data) => {
+    const { accountToken, userList } = data;
+    this.props.dispatch({
+      type: 'login/UpdateState',
+      payload: { accountToken, userList },
+    });
+    Cookies.set('ACCOUNT_TOKEN', accountToken);
+    router.push('/account/select-account');
   };
 
   render() {
@@ -24,7 +33,7 @@ class Index extends Component {
 
 export default Index;
 
-function EmailLogin() {
+function EmailLogin(props) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -46,9 +55,12 @@ function EmailLogin() {
       return Toast.info(formatMessage({ id: `LOGIN_ERR_PASSWORD` }));
     }
 
-    UserApi.emailLogin({ email, password }).then(res => console.log(res));
-
-    // TODO 邮箱登录
+    UserApi.emailLogin({ email, password }).then(res => {
+      if (res.status !== 1) {
+        return Toast.fail(res.msg);
+      }
+      props.login(res.data);
+    });
   };
 
   return <div className={styles.emailLogin}>

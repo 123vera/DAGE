@@ -27,7 +27,7 @@ class Home extends Component {
   componentDidMount() {
     UserApi.bingEmailInit().then(res => {
       if (res.status === 1) {
-        this.setState({ email: res.email });
+        this.setState({ email: res.data.email });
       }
     });
   }

@@ -19,7 +19,7 @@ class Index extends Component {
       label: '银行卡充值',
       value: 1,
     }],
-    step: 0,
+    step: 0, // 0：支付宝 1：银行卡
   };
 
   componentDidMount() {
@@ -70,7 +70,10 @@ class Index extends Component {
           return;
         }
         console.log(res);
-        // return router.push('/home/cny/bank-pay');
+        router.push({
+          pathname: '/home/cny/bank-pay',
+          state: res.data,
+        });
       });
       return;
     }
