@@ -6,18 +6,12 @@ import CopyToClipboard from 'react-copy-to-clipboard';
 import { Toast } from 'antd-mobile';
 import { formatMessage } from 'umi/locale';
 
-
-
 function BankPay(props) {
-
   const onCopy = text => {
     Toast.info(formatMessage({ id: `USER_COPIED` }));
   };
 
-
-
   const { state: data } = props.location;
-  console.log(data);
   const bankInfo = data.payimg || {}
 
   return <div className={styles.bankPay}>
