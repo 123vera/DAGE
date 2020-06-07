@@ -41,7 +41,7 @@ function BindEmail(props) {
     return UserApi.sendEmailCode({
       email,
       imgcode: captcha,
-      type: isBind ? 'bind' : 'updatebing',
+      type: isBind ? 'bind' : 'updatebind',
     }).then(res => {
       if (res.status === 1) {
         Toast.info(formatMessage({ id: `TOAST_GET_CODE_SUCCESS` }));
@@ -53,7 +53,6 @@ function BindEmail(props) {
   };
 
   const submit = () => {
-    // TODO 接口没有调通
     if (!email) return Toast.info('请输入邮箱');
     if (!code) return Toast.info(formatMessage({ id: `COMMON_PLACEHOLDER_CODE` }));
     if (!isBind) {
@@ -62,7 +61,7 @@ function BindEmail(props) {
         if (res.status !== 1) {
           return Toast.info(res.msg);
         }
-        const { updatecode: updateCode } = res.data;
+        const { udpatecode: updateCode } = res.data;
         Toast.info('更换绑定成功，正在跳转绑定邮箱页面', 2, () => {
           router.push(`/user/bind-email?updateCode=${updateCode}`);
         });
