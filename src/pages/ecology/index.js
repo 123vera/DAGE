@@ -30,9 +30,8 @@ class Index extends Component {
         },
         {
           img: Images.ecoOtcMining,
-          // title: formatMessage({ id: `ECOLOGICAL_CURRENCY_TITLE_03` }),
-          title: 'gambit游戏钱包',
-          subTitle: formatMessage({ id: `ECOLOGICAL_CURRENCY_SUBTITLE_03` }),
+          title: formatMessage({ id: `ECOLOGICAL_CURRENCY_TITLE_07` }),
+          subTitle: formatMessage({ id: `ECOLOGICAL_CURRENCY_SUBTITLE_07` }),
           link: otcLink,
         },
         {
@@ -43,14 +42,14 @@ class Index extends Component {
         },
         {
           img: Images.ecoDep,
-          title: '鸭鸭直播',
-          subTitle: formatMessage({ id: `ECOLOGICAL_CURRENCY_SUBTITLE_06` }),
+          title: formatMessage({ id: `ECOLOGICAL_CURRENCY_TITLE_08` }),
+          subTitle: formatMessage({ id: `ECOLOGICAL_CURRENCY_SUBTITLE_08` }),
           link: '',
         },
         {
           img: Images.ecoPoker,
-          title: '德州扑克',
-          subTitle: 'DAGE德州扑克平台',
+          title: formatMessage({ id: `ECOLOGICAL_CURRENCY_TITLE_09` }),
+          subTitle: formatMessage({ id: `ECOLOGICAL_CURRENCY_SUBTITLE_09` }),
           link: '',
         },
       ];

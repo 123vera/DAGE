@@ -12,7 +12,7 @@ import { connect } from 'dva';
 
 @connect(({ login }) => ({ login }))
 class Index extends Component {
-  login = (data) => {
+  login = data => {
     const { accountToken, userList } = data;
     this.props.dispatch({
       type: 'login/UpdateState',
@@ -25,7 +25,7 @@ class Index extends Component {
   render() {
     return (
       <div>
-        <EmailLogin login={this.login}/>
+        <EmailLogin login={this.login} />
       </div>
     );
   }
@@ -44,9 +44,9 @@ function EmailLogin(props) {
   };
 
   const submit = () => {
-    if (!email) return Toast.info('请输入邮箱');
+    if (!email) return Toast.info(formatMessage({ id: `EMAIL_LOGIN_TOAST_01` }));
     if (!REG.EMAIL.test(email)) {
-      return Toast.info('邮箱账号不正确');
+      return Toast.info(formatMessage({ id: `EMAIL_LOGIN_TOAST_02` }));
     }
     if (!password) {
       return Toast.info(formatMessage({ id: `COMMON_PLACEHOLDER_PASSWORD` }));
@@ -63,51 +63,52 @@ function EmailLogin(props) {
     });
   };
 
-  return <div className={styles.emailLogin}>
-    <div className={styles.headerWrapper}>
-      <img src={Icons.arrowLeft} onClick={() => router.push('/')} alt=""/>
-      <div className={styles.langWrapper}>
-        <SelectLang/>
-      </div>
-    </div>
-    <h1>{'邮箱登录'}</h1>
-    <div className={styles.content}>
-      <div className={styles.form}>
-        <div className={styles.row}>
-          <label>邮箱</label>
-          <div className={styles.inputBox}>
-            <input
-              type="text"
-              placeholder={'请输入邮箱'}
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
-        </div>
-        <div className={styles.row}>
-          <label>密码</label>
-          <div className={styles.inputBox}>
-            <input
-              type="text"
-              placeholder={'请输入密码'}
-              value={password}
-              onChange={changePassword}
-            />
-          </div>
-        </div>
-        <aside>
-          <span onClick={() => router.push(`/account/login`)}>
-            手机号登录
-          </span>
-          <span onClick={() => router.push(`/account/find-password/verify`)}>
-            {formatMessage({ id: `LOGIN_FORGET_PASSWORD` })}
-          </span>
-        </aside>
-        <div className={styles.btnBox}>
-          <button onClick={submit}>登录</button>
+  return (
+    <div className={styles.emailLogin}>
+      <div className={styles.headerWrapper}>
+        <img src={Icons.arrowLeft} onClick={() => router.push('/')} alt="" />
+        <div className={styles.langWrapper}>
+          <SelectLang />
         </div>
       </div>
+      <h1>{formatMessage({ id: `EMAIL_LOGIN_TITLE` })}</h1>
+      <div className={styles.content}>
+        <div className={styles.form}>
+          <div className={styles.row}>
+            <label>{formatMessage({ id: `EMAIL_LOGIN_NAME` })}</label>
+            <div className={styles.inputBox}>
+              <input
+                type="text"
+                placeholder={formatMessage({ id: `EMAIL_LOGIN_TOAST_01` })}
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+              />
+            </div>
+          </div>
+          <div className={styles.row}>
+            <label>{formatMessage({ id: `COMMON_LABEL_PASSWORD` })}</label>
+            <div className={styles.inputBox}>
+              <input
+                type="text"
+                placeholder={formatMessage({ id: `COMMON_PLACEHOLDER_PASSWORD` })}
+                value={password}
+                onChange={changePassword}
+              />
+            </div>
+          </div>
+          <aside>
+            <span onClick={() => router.push(`/account/login`)}>
+              {formatMessage({ id: `PHONE_LOGIN_TITLE` })}
+            </span>
+            <span onClick={() => router.push(`/account/find-password/verify`)}>
+              {formatMessage({ id: `LOGIN_FORGET_PASSWORD` })}
+            </span>
+          </aside>
+          <div className={styles.btnBox}>
+            <button onClick={submit}>{formatMessage({ id: `LOGIN` })}</button>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>;
+  );
 }
-

@@ -12,13 +12,16 @@ import { Toast } from 'antd-mobile';
 class Index extends Component {
   state = {
     showMenus: false,
-    steps: [{
-      label: '支付宝充值',
-      value: 0,
-    }, {
-      label: '银行卡充值',
-      value: 1,
-    }],
+    steps: [
+      {
+        label: formatMessage({ id: 'RECHARGE_BY_ALIPAY' }),
+        value: 0,
+      },
+      {
+        label: formatMessage({ id: 'RECHARGE_BY_CARD' }),
+        value: 1,
+      },
+    ],
     step: 0, // 0：支付宝 1：银行卡
   };
 
@@ -61,20 +64,22 @@ class Index extends Component {
 
     // TODO 确认支付宝充值还是银行卡充值
     if (this.state.step === 1) {
-      this.props.dispatch({
-        type: 'cnyRecharge/RmbRecharge',
-        payload: { payType: 'bank' },
-      }).then(res => {
-        if (res.status !== 1) {
-          res.msg && Toast.info(res.msg);
-          return;
-        }
-        console.log(res);
-        router.push({
-          pathname: '/home/cny/bank-pay',
-          state: res.data,
+      this.props
+        .dispatch({
+          type: 'cnyRecharge/RmbRecharge',
+          payload: { payType: 'bank' },
+        })
+        .then(res => {
+          if (res.status !== 1) {
+            res.msg && Toast.info(res.msg);
+            return;
+          }
+          console.log(res);
+          router.push({
+            pathname: '/home/cny/bank-pay',
+            state: res.data,
+          });
         });
-      });
       return;
     }
     this.props.dispatch({ type: 'cnyRecharge/RmbRecharge' }).then(res => {
@@ -109,25 +114,29 @@ class Index extends Component {
             }}
           />
           <div className={`${styles.menus} ${showMenus ? styles.show : ''}`}>
-            <Coins coin="DGT" onHandle={this.changeCoin}/>
+            <Coins coin="DGT" onHandle={this.changeCoin} />
           </div>
         </div>
         <section className={styles.steps}>
-          {steps.map(i =>
+          {steps.map(i => (
             <div
               key={i.value}
               className={`${styles.step} ${step === i.value ? styles.active : ''}`}
               onClick={() => this.changeStep(i.value)}
             >
               <span>{i.label}</span>
-            </div>,
-          )}
+            </div>
+          ))}
         </section>
 
         <section className={styles.inputContent}>
           <label>
             {/*<span>{formatMessage({ id: `DGT_RECHARGE_LABEL` })}</span>*/}
-            <span>{step === 0 ? '支付宝支付' : '银行卡支付'}</span>
+            <span>
+              {step === 0
+                ? formatMessage({ id: 'PAY_BY_ALIPAY' })
+                : formatMessage({ id: `PAY_BY_CARD` })}
+            </span>
             <input
               value={amount}
               type="text"

@@ -53,16 +53,16 @@ function BindEmail(props) {
   };
 
   const submit = () => {
-    if (!email) return Toast.info('请输入邮箱');
+    if (!email) return Toast.info(formatMessage({ id: `EMAIL_LOGIN_TOAST_01` }));
     if (!code) return Toast.info(formatMessage({ id: `COMMON_PLACEHOLDER_CODE` }));
     if (!isBind) {
       UserApi.getEmailUpdateCode({ email, code }).then(res => {
-        console.log(res);
+        // console.log(res);
         if (res.status !== 1) {
           return Toast.info(res.msg);
         }
         const { udpatecode: updateCode } = res.data;
-        Toast.info('更换绑定成功，正在跳转绑定邮箱页面', 2, () => {
+        Toast.info(formatMessage({ id: `BIND_EMAIL_TOAST_01` }), 2, () => {
           router.push(`/user/bind-email?updateCode=${updateCode}`);
         });
       });
@@ -70,65 +70,66 @@ function BindEmail(props) {
     }
 
     UserApi.bindEmail({ email, code, updatecode: updateCode }).then(res => {
-      console.log(res);
+      // console.log(res);
       if (res.status !== 1) {
         return Toast.info(res.msg);
       }
-      Toast.info('绑定成功', 2, () => {
+      Toast.info(formatMessage({ id: `BIND_EMAIL_TOAST_02` }), 2, () => {
         router.push(`/main/user`);
       });
     });
   };
 
   useEffect(() => {
-    console.log('333333333');
+    // console.log('333333333');
     checkBindStatus();
     getCaptcha().then();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const title = isBind ? '绑定邮箱' : '更换绑定邮箱';
+  const title = isBind
+    ? formatMessage({ id: `BIND_EMAIL_TITLE_01` })
+    : formatMessage({ id: `BIND_EMAIL_TITLE_02` });
 
-  return <div className={styles.bindEmail}>
-    <Header
-      icon={Icons.arrowLeft}
-      title={title}
-    />
-    <h1>{title}</h1>
-    <div className={styles.content}>
-      <div className={styles.form}>
-        <div className={styles.row}>
-          <label>邮箱</label>
-          <div className={styles.inputBox}>
-            <input
-              type="text"
-              placeholder={'请输入邮箱'}
-              value={email}
-              readOnly={!isBind}
-              onChange={(e) => setEmail(e.target.value)}
+  return (
+    <div className={styles.bindEmail}>
+      <Header icon={Icons.arrowLeft} title={title} />
+      <h1>{title}</h1>
+      <div className={styles.content}>
+        <div className={styles.form}>
+          <div className={styles.row}>
+            <label>{formatMessage({ id: `EMAIL_LOGIN_NAME` })}</label>
+            <div className={styles.inputBox}>
+              <input
+                type="text"
+                placeholder={formatMessage({ id: `EMAIL_LOGIN_TOAST_01` })}
+                value={email}
+                readOnly={!isBind}
+                onChange={e => setEmail(e.target.value)}
+              />
+            </div>
+          </div>
+          <Captcha
+            captchaSrc={captchaSrc}
+            getCaptcha={getCaptcha}
+            value={captcha}
+            onChange={e => setCaptcha(e.target.value)}
+          />
+          <div className={styles.smsCodeBox}>
+            <SmsCode
+              label={formatMessage({ id: `BIND_EMAIL_LABEL_01` })}
+              value={code}
+              getSmsCode={getEmailCode}
+              onChange={value => setCode(value)}
             />
           </div>
-        </div>
-        <Captcha
-          captchaSrc={captchaSrc}
-          getCaptcha={getCaptcha}
-          value={captcha}
-          onChange={(e) => setCaptcha(e.target.value)}
-        />
-        <div className={styles.smsCodeBox}>
-          <SmsCode
-            label={'邮箱验证码'}
-            value={code}
-            getSmsCode={getEmailCode}
-            onChange={(value) => setCode(value)}
-          />
-        </div>
-        <div className={styles.btnBox}>
-          <button onClick={submit}>绑定</button>
+          <div className={styles.btnBox}>
+            <button onClick={submit}>{formatMessage({ id: `BIND_EMAIL_SUBMIT` })}</button>
+          </div>
         </div>
       </div>
     </div>
-  </div>;
+  );
 }
 
 export default BindEmail;

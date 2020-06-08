@@ -512,4 +512,21 @@ export default {
   BANK_PAY_TIPS_02: `0点以后充值，如未正确填写充值信息导致无法自动到账，将于次日早上8点后处理`,
   BANK_PAY_TIPS_03: `登录网银，按照订单进行转账；`,
   BANK_PAY_TIPS_04: `核对金额，金额匹配自动转账。`,
+
+  BIND_EMAIL_TITLE_01: '绑定邮箱',
+  BIND_EMAIL_TITLE_02: '更换绑定邮箱',
+  BIND_EMAIL_TOAST_01: `更换绑定成功，正在跳转绑定邮箱页面`,
+  BIND_EMAIL_TOAST_02: `绑定成功`,
+  BIND_EMAIL_LABEL_01: `邮箱验证码`,
+  BIND_EMAIL_SUBMIT: `绑定`,
+
+  RECHARGE_BY_CARD: `银行卡充值`,
+  RECHARGE_BY_ALIPAY: `支付宝充值`,
+  PAY_BY_CARD: `银行卡支付`,
+  PAY_BY_ALIPAY: `支付宝支付`,
+
+  DOWNLOAD_CENTER: '下载中心',
+  DOWNLOAD_NAME: '下载',
+
+  MESSAGE_TITLE: '系统消息',
 };

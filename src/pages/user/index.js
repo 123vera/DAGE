@@ -62,7 +62,9 @@ class Home extends Component {
     const listContent = [
       {
         icon: Icons.userChain,
-        text: hasBindEmail ? '更换绑定邮箱' : '绑定邮箱',
+        text: hasBindEmail
+          ? formatMessage({ id: `BIND_EMAIL_TITLE_02` })
+          : formatMessage({ id: `BIND_EMAIL_TITLE_01` }),
         url: `/user/${hasBindEmail ? 'update' : 'bind'}-email?email=${email || ''}`,
       },
       {
@@ -82,7 +84,7 @@ class Home extends Component {
       },
       {
         icon: Icons.userDownload,
-        text: ' 下载中心',
+        text: formatMessage({ id: 'DOWNLOAD_CENTER' }),
         url: '/user/download',
       },
       {
@@ -121,10 +123,10 @@ class Home extends Component {
         />
 
         <div className={styles.banner}>
-          <img className={styles.bg} src={HOME_BG} alt=""/>
-          <img className={styles.bg1} src={DAGE_LOGO} alt=""/>
+          <img className={styles.bg} src={HOME_BG} alt="" />
+          <img className={styles.bg1} src={DAGE_LOGO} alt="" />
           <div className={styles.center}>
-            <img className={styles.icon} src={BG_ICON} alt=""/>
+            <img className={styles.icon} src={BG_ICON} alt="" />
             <p>DID：{(myInfo && myInfo.userName) || '--'}</p>
             <CopyToClipboard
               key={new Date().toString()}
@@ -137,7 +139,7 @@ class Home extends Component {
               </span>
             </CopyToClipboard>
           </div>
-          <img className={styles.status} src={STATUS_BG} alt=""/>
+          <img className={styles.status} src={STATUS_BG} alt="" />
           <p className={styles.statusText}>
             <span style={{ opacity: 0.5 }}>
               {myInfo && myInfo.teamLevel === 0 ? `VIP 0` : `VIP ${myInfo.teamLevel}`}
@@ -147,9 +149,9 @@ class Home extends Component {
         <ul className={styles.list}>
           {listContent.map((item, key) => (
             <li key={key} onClick={() => this.toSwitchLang(item.url)}>
-              <img className={styles.icon} src={item.icon} alt=""/>
+              <img className={styles.icon} src={item.icon} alt="" />
               <span>{item.text}</span>
-              <img className={styles.right} src={Icons.arrowRight} alt=""/>
+              <img className={styles.right} src={Icons.arrowRight} alt="" />
             </li>
           ))}
         </ul>
