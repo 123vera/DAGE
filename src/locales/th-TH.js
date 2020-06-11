@@ -97,12 +97,12 @@ export default {
   ECOLOGICAL_CURRENCY_SUBTITLE_05: `รับรางวัลการขุด OTC ที่สูงขึ้นจาก DEP`,
   ECOLOGICAL_CURRENCY_TITLE_06: `โซเชียลสด`,
   ECOLOGICAL_CURRENCY_SUBTITLE_06: `แนวคิดใหม่ของบล็อกเชนสังคม`,
-  ECOLOGICAL_CURRENCY_TITLE_07: `gambit游戏钱包`,
-  ECOLOGICAL_CURRENCY_SUBTITLE_07: `简单快捷，一键出金`,
-  ECOLOGICAL_CURRENCY_TITLE_08: `鸭鸭直播`,
-  ECOLOGICAL_CURRENCY_SUBTITLE_08: `区块链社交新主张`,
-  ECOLOGICAL_CURRENCY_TITLE_09: `德州扑克`,
-  ECOLOGICAL_CURRENCY_SUBTITLE_09: `DAGE德州扑克平台`,
+  ECOLOGICAL_CURRENCY_TITLE_07: `gambitกระเป๋าเกม`,
+  ECOLOGICAL_CURRENCY_SUBTITLE_07: `ถอนได้ง่ายและรวดเร็วเพียงคลิกเดียว`,
+  ECOLOGICAL_CURRENCY_TITLE_08: `เป็ดสด`,
+  ECOLOGICAL_CURRENCY_SUBTITLE_08: `แนวคิดใหม่ของบล็อกเชนสังคม`,
+  ECOLOGICAL_CURRENCY_TITLE_09: `Texas Hold'em`,
+  ECOLOGICAL_CURRENCY_SUBTITLE_09: `DAGE Texas Hold'em Poker Platform`,
 
   USER_TITLE: `ศูนย์ผู้ใช้`,
   USER_COPIED: `คัดลอกแล้ว`,
@@ -347,10 +347,10 @@ export default {
   OTC_DETAIL_TOTAL_REVENUE: `รายได้จากการขุด OTC โดยรวม`,
   OTC_DETAIL_TIP: `แสดงเฉพาะรายละเอียดรายได้ที่ได้รับในช่วงสามวันที่ผ่านมา โปรดไปที่งบกระแสเงินสดของคุณเพื่อดูประวัติการบันทึก`,
 
-  ORDER_DETAIL_LABEL_1: `总释放`,
-  ORDER_DETAIL_LABEL_2: `已释放`,
-  ORDER_DETAIL_LABEL_3: `释放比例`,
-  ORDER_DETAIL_VALUE: `释放中`,
+  ORDER_DETAIL_LABEL_1: `การเปิดตัวทั้งหมด`,
+  ORDER_DETAIL_LABEL_2: `การเผยแพร่`,
+  ORDER_DETAIL_LABEL_3: `ปล่อยอัตราส่วน`,
+  ORDER_DETAIL_VALUE: `การปล่อย`,
 
   HOMEPAGE_TITLE: `ยินดีต้อนรับสู่ DAGE`,
 

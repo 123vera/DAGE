@@ -97,12 +97,12 @@ export default {
   ECOLOGICAL_CURRENCY_SUBTITLE_05: `Nhận mức thưởng khai thác OTC cao hơn từ DEP`,
   ECOLOGICAL_CURRENCY_TITLE_06: `Mạng xã hội`,
   ECOLOGICAL_CURRENCY_SUBTITLE_06: `Ý tưởng mới về blockchain xã hội`,
-  ECOLOGICAL_CURRENCY_TITLE_07: `gambit游戏钱包`,
-  ECOLOGICAL_CURRENCY_SUBTITLE_07: `简单快捷，一键出金`,
-  ECOLOGICAL_CURRENCY_TITLE_08: `鸭鸭直播`,
-  ECOLOGICAL_CURRENCY_SUBTITLE_08: `区块链社交新主张`,
-  ECOLOGICAL_CURRENCY_TITLE_09: `德州扑克`,
-  ECOLOGICAL_CURRENCY_SUBTITLE_09: `DAGE德州扑克平台`,
+  ECOLOGICAL_CURRENCY_TITLE_07: `ví trò chơi gambit`,
+  ECOLOGICAL_CURRENCY_SUBTITLE_07: `Đơn giản và nhanh chóng, rút ​​tiền bằng một cú nhấp chuột`,
+  ECOLOGICAL_CURRENCY_TITLE_08: `Vịt sống`,
+  ECOLOGICAL_CURRENCY_SUBTITLE_08: `Ý tưởng mới về blockchain xã hội`,
+  ECOLOGICAL_CURRENCY_TITLE_09: `Texas Hold'em`,
+  ECOLOGICAL_CURRENCY_SUBTITLE_09: `Nền tảng Poker của DAGE Texas Hold'em`,
 
   USER_TITLE: `Trung tâm Người dùng`,
   USER_COPIED: `Đã sao chép`,
@@ -360,10 +360,10 @@ export default {
   OTC_DETAIL_TOTAL_REVENUE: `Tổng doanh thu Khai thác OTC`,
   OTC_DETAIL_TIP: `Lịch sử doanh thu trong ba ngày qua sẽ được hiển thị ở đây. Nếu bạn muốn xem các danh sách trong quá khứ , Vui lòng kiểm tra dưới mục ví, mục DGC và DID`,
 
-  ORDER_DETAIL_LABEL_1: `总释放`,
-  ORDER_DETAIL_LABEL_2: `已释放`,
-  ORDER_DETAIL_LABEL_3: `释放比例`,
-  ORDER_DETAIL_VALUE: `释放中`,
+  ORDER_DETAIL_LABEL_1: `Tổng số phát hành`,
+  ORDER_DETAIL_LABEL_2: `Phát hành`,
+  ORDER_DETAIL_LABEL_3: `Tỷ lệ phát hành`,
+  ORDER_DETAIL_VALUE: `Phát hành`,
 
   HOMEPAGE_TITLE: `Chào mừng đến với DAGE`,
 

@@ -97,12 +97,12 @@ export default {
   ECOLOGICAL_CURRENCY_SUBTITLE_05: `DEPから高額のOTCマイニングリワードをゲットします`,
   ECOLOGICAL_CURRENCY_TITLE_06: `ソーシャルライブ`,
   ECOLOGICAL_CURRENCY_SUBTITLE_06: `ブロックチェーンソーシャルの新しいアイデア`,
-  ECOLOGICAL_CURRENCY_TITLE_07: `gambit游戏钱包`,
-  ECOLOGICAL_CURRENCY_SUBTITLE_07: `简单快捷，一键出金`,
-  ECOLOGICAL_CURRENCY_TITLE_08: `鸭鸭直播`,
-  ECOLOGICAL_CURRENCY_SUBTITLE_08: `区块链社交新主张`,
-  ECOLOGICAL_CURRENCY_TITLE_09: `德州扑克`,
-  ECOLOGICAL_CURRENCY_SUBTITLE_09: `DAGE德州扑克平台`,
+  ECOLOGICAL_CURRENCY_TITLE_07: `gambit ゲームウォレット`,
+  ECOLOGICAL_CURRENCY_SUBTITLE_07: `シンプルで高速なワンクリック引き出し`,
+  ECOLOGICAL_CURRENCY_TITLE_08: `ダックライブ`,
+  ECOLOGICAL_CURRENCY_SUBTITLE_08: `ブロックチェーンソーシャルの新しいアイデア`,
+  ECOLOGICAL_CURRENCY_TITLE_09: `テキサスホールデム`,
+  ECOLOGICAL_CURRENCY_SUBTITLE_09: `DAGEテキサスホールデムポーカープラットフォーム`,
 
   USER_TITLE: `ユーザーセンター`,
   USER_COPIED: `コピーしました`,
@@ -347,10 +347,10 @@ export default {
   OTC_DETAIL_TOTAL_REVENUE: `OTCマイニング収入合計`,
   OTC_DETAIL_TIP: `過去3日間の収入合計はこちらに表示されます。過去の履歴を見たい場合は、ウォレットのDGCとDIDのセクションを確認ください`,
 
-  ORDER_DETAIL_LABEL_1: `总释放`,
-  ORDER_DETAIL_LABEL_2: `已释放`,
-  ORDER_DETAIL_LABEL_3: `释放比例`,
-  ORDER_DETAIL_VALUE: `释放中`,
+  ORDER_DETAIL_LABEL_1: `総放出`,
+  ORDER_DETAIL_LABEL_2: `リリース済み`,
+  ORDER_DETAIL_LABEL_3: `リリース率`,
+  ORDER_DETAIL_VALUE: `解放する`,
 
   HOMEPAGE_TITLE: `DAGEへようこそ`,
 
