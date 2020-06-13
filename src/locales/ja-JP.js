@@ -97,6 +97,12 @@ export default {
   ECOLOGICAL_CURRENCY_SUBTITLE_05: `DEPから高額のOTCマイニングリワードをゲットします`,
   ECOLOGICAL_CURRENCY_TITLE_06: `ソーシャルライブ`,
   ECOLOGICAL_CURRENCY_SUBTITLE_06: `ブロックチェーンソーシャルの新しいアイデア`,
+  ECOLOGICAL_CURRENCY_TITLE_07: `gambit ゲームウォレット`,
+  ECOLOGICAL_CURRENCY_SUBTITLE_07: `シンプルで高速なワンクリック引き出し`,
+  ECOLOGICAL_CURRENCY_TITLE_08: `ダックライブ`,
+  ECOLOGICAL_CURRENCY_SUBTITLE_08: `ブロックチェーンソーシャルの新しいアイデア`,
+  ECOLOGICAL_CURRENCY_TITLE_09: `テキサスホールデム`,
+  ECOLOGICAL_CURRENCY_SUBTITLE_09: `DAGEテキサスホールデムポーカープラットフォーム`,
 
   USER_TITLE: `ユーザーセンター`,
   USER_COPIED: `コピーしました`,
@@ -341,10 +347,10 @@ export default {
   OTC_DETAIL_TOTAL_REVENUE: `OTCマイニング収入合計`,
   OTC_DETAIL_TIP: `過去3日間の収入合計はこちらに表示されます。過去の履歴を見たい場合は、ウォレットのDGCとDIDのセクションを確認ください`,
 
-  ORDER_DETAIL_LABEL_1: `总释放`,
-  ORDER_DETAIL_LABEL_2: `已释放`,
-  ORDER_DETAIL_LABEL_3: `释放比例`,
-  ORDER_DETAIL_VALUE: `释放中`,
+  ORDER_DETAIL_LABEL_1: `総放出`,
+  ORDER_DETAIL_LABEL_2: `リリース済み`,
+  ORDER_DETAIL_LABEL_3: `リリース率`,
+  ORDER_DETAIL_VALUE: `解放する`,
 
   HOMEPAGE_TITLE: `DAGEへようこそ`,
 
@@ -478,4 +484,41 @@ export default {
   BUY_CONFIRM: `購入を確認します`,
   BUY_SUCCESS: `購入しました`,
   BUY_TOTAL_REVENUE_DESC: `ESTとRCはすぐにリリースされ、USDTは毎日リリースされます、リリースされた例：`,
+
+  EMAIL_LOGIN_TOAST_01: `请输入邮箱`,
+  EMAIL_LOGIN_TOAST_02: `邮箱账号不正确`,
+  EMAIL_LOGIN_TITLE: `邮箱登录`,
+  PHONE_LOGIN_TITLE: `手机号登录`,
+  EMAIL_LOGIN_NAME: `邮箱`,
+
+  BANK_PAY_TITLE: `银行卡支付`,
+  BANK_PAY_ORDERID: `订单号：`,
+  BANK_PAY_TIPS: `请在15分钟内按照以下订单完成转账`,
+  BANK_PAYMENT_ACCOUNT: `收款账户`,
+  BANK_PAYMENT_N: `收款银行`,
+  BANK_PAYMENT_NAME: `账户姓名`,
+  BANK_PAYMENT_MSG: `附言信息`,
+  BANK_PAY_COPY: `复制`,
+  BANK_PAY_AMOUNT: `充值金额`,
+  BANK_PAY_TIPS_01: `为了快速到账，请按照上述金额汇款`,
+  BANK_PAY_TIPS_02: `0点以后充值，如未正确填写充值信息导致无法自动到账，将于次日早上8点后处理`,
+  BANK_PAY_TIPS_03: `登录网银，按照订单进行转账；`,
+  BANK_PAY_TIPS_04: `核对金额，金额匹配自动转账。`,
+
+  BIND_EMAIL_TITLE_01: '绑定邮箱',
+  BIND_EMAIL_TITLE_02: '更换绑定邮箱',
+  BIND_EMAIL_TOAST_01: `更换绑定成功，正在跳转绑定邮箱页面`,
+  BIND_EMAIL_TOAST_02: `绑定成功`,
+  BIND_EMAIL_LABEL_01: `邮箱验证码`,
+  BIND_EMAIL_SUBMIT: `绑定`,
+
+  RECHARGE_BY_CARD: `银行卡充值`,
+  RECHARGE_BY_ALIPAY: `支付宝充值`,
+  PAY_BY_CARD: `银行卡支付`,
+  PAY_BY_ALIPAY: `支付宝支付`,
+
+  DOWNLOAD_CENTER: '下载中心',
+  DOWNLOAD_NAME: '下载',
+
+  MESSAGE_TITLE: '系统消息',
 };

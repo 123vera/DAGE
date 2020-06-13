@@ -97,6 +97,12 @@ export default {
   ECOLOGICAL_CURRENCY_SUBTITLE_05: `รับรางวัลการขุด OTC ที่สูงขึ้นจาก DEP`,
   ECOLOGICAL_CURRENCY_TITLE_06: `โซเชียลสด`,
   ECOLOGICAL_CURRENCY_SUBTITLE_06: `แนวคิดใหม่ของบล็อกเชนสังคม`,
+  ECOLOGICAL_CURRENCY_TITLE_07: `gambitกระเป๋าเกม`,
+  ECOLOGICAL_CURRENCY_SUBTITLE_07: `ถอนได้ง่ายและรวดเร็วเพียงคลิกเดียว`,
+  ECOLOGICAL_CURRENCY_TITLE_08: `เป็ดสด`,
+  ECOLOGICAL_CURRENCY_SUBTITLE_08: `แนวคิดใหม่ของบล็อกเชนสังคม`,
+  ECOLOGICAL_CURRENCY_TITLE_09: `Texas Hold'em`,
+  ECOLOGICAL_CURRENCY_SUBTITLE_09: `DAGE Texas Hold'em Poker Platform`,
 
   USER_TITLE: `ศูนย์ผู้ใช้`,
   USER_COPIED: `คัดลอกแล้ว`,
@@ -341,10 +347,10 @@ export default {
   OTC_DETAIL_TOTAL_REVENUE: `รายได้จากการขุด OTC โดยรวม`,
   OTC_DETAIL_TIP: `แสดงเฉพาะรายละเอียดรายได้ที่ได้รับในช่วงสามวันที่ผ่านมา โปรดไปที่งบกระแสเงินสดของคุณเพื่อดูประวัติการบันทึก`,
 
-  ORDER_DETAIL_LABEL_1: `总释放`,
-  ORDER_DETAIL_LABEL_2: `已释放`,
-  ORDER_DETAIL_LABEL_3: `释放比例`,
-  ORDER_DETAIL_VALUE: `释放中`,
+  ORDER_DETAIL_LABEL_1: `การเปิดตัวทั้งหมด`,
+  ORDER_DETAIL_LABEL_2: `การเผยแพร่`,
+  ORDER_DETAIL_LABEL_3: `ปล่อยอัตราส่วน`,
+  ORDER_DETAIL_VALUE: `การปล่อย`,
 
   HOMEPAGE_TITLE: `ยินดีต้อนรับสู่ DAGE`,
 
@@ -478,4 +484,41 @@ export default {
   BUY_CONFIRM: `ยืนยันการสั่งซื้อ`,
   BUY_SUCCESS: `ซื้อสำเร็จ`,
   BUY_TOTAL_REVENUE_DESC: `EST และ RC จะเปิดตัวทันที USDT จะออกทุกวัน examples ตัวอย่างที่ออก:`,
+
+  EMAIL_LOGIN_TOAST_01: `请输入邮箱`,
+  EMAIL_LOGIN_TOAST_02: `邮箱账号不正确`,
+  EMAIL_LOGIN_TITLE: `邮箱登录`,
+  PHONE_LOGIN_TITLE: `手机号登录`,
+  EMAIL_LOGIN_NAME: `邮箱`,
+
+  BANK_PAY_TITLE: `银行卡支付`,
+  BANK_PAY_ORDERID: `订单号：`,
+  BANK_PAY_TIPS: `请在15分钟内按照以下订单完成转账`,
+  BANK_PAYMENT_ACCOUNT: `收款账户`,
+  BANK_PAYMENT_N: `收款银行`,
+  BANK_PAYMENT_NAME: `账户姓名`,
+  BANK_PAYMENT_MSG: `附言信息`,
+  BANK_PAY_COPY: `复制`,
+  BANK_PAY_AMOUNT: `充值金额`,
+  BANK_PAY_TIPS_01: `为了快速到账，请按照上述金额汇款`,
+  BANK_PAY_TIPS_02: `0点以后充值，如未正确填写充值信息导致无法自动到账，将于次日早上8点后处理`,
+  BANK_PAY_TIPS_03: `登录网银，按照订单进行转账；`,
+  BANK_PAY_TIPS_04: `核对金额，金额匹配自动转账。`,
+
+  BIND_EMAIL_TITLE_01: '绑定邮箱',
+  BIND_EMAIL_TITLE_02: '更换绑定邮箱',
+  BIND_EMAIL_TOAST_01: `更换绑定成功，正在跳转绑定邮箱页面`,
+  BIND_EMAIL_TOAST_02: `绑定成功`,
+  BIND_EMAIL_LABEL_01: `邮箱验证码`,
+  BIND_EMAIL_SUBMIT: `绑定`,
+
+  RECHARGE_BY_CARD: `银行卡充值`,
+  RECHARGE_BY_ALIPAY: `支付宝充值`,
+  PAY_BY_CARD: `银行卡支付`,
+  PAY_BY_ALIPAY: `支付宝支付`,
+
+  DOWNLOAD_CENTER: '下载中心',
+  DOWNLOAD_NAME: '下载',
+
+  MESSAGE_TITLE: '系统消息',
 };

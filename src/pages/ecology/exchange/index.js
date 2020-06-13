@@ -74,7 +74,7 @@ class Index extends Component {
   //     });
   //   });
   //
-  //   //  数组内对象去重
+  //  数组内对象去重
   //   let hash = {};
   //   let newBeforeCoins = beforeCoins.reduceRight((item, next) => {
   //     // eslint-disable-next-line no-unused-expressions

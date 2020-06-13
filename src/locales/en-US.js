@@ -101,6 +101,12 @@ export default {
   ECOLOGICAL_CURRENCY_SUBTITLE_05: `Combined DEP will enjoy higher OTC mining rewards`,
   ECOLOGICAL_CURRENCY_TITLE_06: `Social Live`,
   ECOLOGICAL_CURRENCY_SUBTITLE_06: `New ideas of blockchain social`,
+  ECOLOGICAL_CURRENCY_TITLE_07: `gambit game wallet`,
+  ECOLOGICAL_CURRENCY_SUBTITLE_07: `Simple and fast, one-click withdrawal`,
+  ECOLOGICAL_CURRENCY_TITLE_08: `Duck live`,
+  ECOLOGICAL_CURRENCY_SUBTITLE_08: `New ideas of blockchain social`,
+  ECOLOGICAL_CURRENCY_TITLE_09: `Texas Hold'em`,
+  ECOLOGICAL_CURRENCY_SUBTITLE_09: `DAGE Texas Hold'em Poker Platform`,
 
   USER_TITLE: `User center`,
   USER_COPIED: `Copied`,
@@ -347,10 +353,10 @@ export default {
   OTC_DETAIL_TOTAL_REVENUE: `OTC Mining Total Revenue`,
   OTC_DETAIL_TIP: `Revenue records for the past three days will be shown here. If you wish to see past records，Please check under wallet, DGC and DID section`,
 
-  ORDER_DETAIL_LABEL_1: `总释放`,
-  ORDER_DETAIL_LABEL_2: `已释放`,
-  ORDER_DETAIL_LABEL_3: `释放比例`,
-  ORDER_DETAIL_VALUE: `释放中`,
+  ORDER_DETAIL_LABEL_1: `Total release`,
+  ORDER_DETAIL_LABEL_2: `Released`,
+  ORDER_DETAIL_LABEL_3: `Release ratio`,
+  ORDER_DETAIL_VALUE: `Releasing`,
 
   HOMEPAGE_TITLE: `Welcome to DAGE`,
 
@@ -482,4 +488,41 @@ export default {
   BUY_CONFIRM: `Confirm Purchase`,
   BUY_SUCCESS: `Purchase Successful`,
   BUY_TOTAL_REVENUE_DESC: `EST and RC will be immediately released, USDT will be released daily  ，Released examples:`,
+
+  EMAIL_LOGIN_TOAST_01: `Please enter email`,
+  EMAIL_LOGIN_TOAST_02: `Incorrect email address`,
+  EMAIL_LOGIN_TITLE: `Login by email `,
+  PHONE_LOGIN_TITLE: `Login by mobile number `,
+  EMAIL_LOGIN_NAME: `Email Address`,
+
+  BANK_PAY_TITLE: `Pay with bank card`,
+  BANK_PAY_ORDERID: `Order number：`,
+  BANK_PAY_TIPS: `Please complete the transfer according to the following order within 15 minutes`,
+  BANK_PAYMENT_ACCOUNT: `Deposit account`,
+  BANK_PAYMENT_N: `Deposit bank`,
+  BANK_PAYMENT_NAME: `Account holder name`,
+  BANK_PAYMENT_MSG: `Remark`,
+  BANK_PAY_COPY: `Copy`,
+  BANK_PAY_AMOUNT: `Top up amount`,
+  BANK_PAY_TIPS_01: `In order to get to the account quickly, please remit according to the above amount`,
+  BANK_PAY_TIPS_02: `When top up after 0 o'clock, if the amount cannot arrive automatically due to incorrect top up information, it will be processed after 8 o'clock in the morning.`,
+  BANK_PAY_TIPS_03: `Log in to online banking and transfer funds according to the order`,
+  BANK_PAY_TIPS_04: `Check the amount, the amount matches the automatic transfer`,
+
+  BIND_EMAIL_TITLE_01: 'Link with email',
+  BIND_EMAIL_TITLE_02: 'Change linked email',
+  BIND_EMAIL_TOAST_01: `Linked email is changed successfully, redirecting to the linked email page`,
+  BIND_EMAIL_TOAST_02: `Linked successfully`,
+  BIND_EMAIL_LABEL_01: `Email verification code`,
+  BIND_EMAIL_SUBMIT: `Linked`,
+
+  RECHARGE_BY_CARD: `Top up with bank card`,
+  RECHARGE_BY_ALIPAY: `Top up with Alipay`,
+  PAY_BY_CARD: `Pay with bank card`,
+  PAY_BY_ALIPAY: `Pay with Alipay`,
+
+  DOWNLOAD_CENTER: 'Download center',
+  DOWNLOAD_NAME: 'Download',
+
+  MESSAGE_TITLE: 'System information',
 };
