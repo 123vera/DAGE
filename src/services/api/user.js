@@ -40,15 +40,15 @@ class UserApi {
    *
    * @required imgcode number 图形验证码
    * @required email string 邮箱账号
-   * @required type string 验证码类型，reg（注册）,exchange(币种兑换),cash(提币)
+   * @required type string 验证码类型，updatebing：更换绑定邮箱 bing：绑定邮箱
    **/
-  static sendEmailCode(options) {
+  static sendEmailCode(options = {}) {
     console.log(options);
-    // return request.post('/user/sendsmscode', { ...options, sid: SID });
-    return Promise.resolve({
-      status: 1,
-      msg: '成功',
-    });
+    return onlinePost('/useremail/sendemailcode', options);
+    // return Promise.resolve({
+    //   status: 1,
+    //   msg: '成功',
+    // });
   }
 
   /**
@@ -65,7 +65,7 @@ class UserApi {
   }
 
   /**
-   * 登录账号
+   * 手机登录账号
    *
    * @required prefix number 手机号国际码
    * @required phone number 手机号
@@ -73,6 +73,43 @@ class UserApi {
    **/
   static login(options) {
     return request.post('/user/login', options);
+  }
+
+  /**
+   * 邮箱登录账号
+   *
+   * @required logintype string 登录类型 'email'
+   * @required email string 手机号
+   * @required password string 密码
+   **/
+  static emailLogin(options) {
+    return request.post('/user/login', { logintype: 'email', ...options });
+  }
+
+  /**
+   * 绑定邮箱初始化
+   **/
+  static bingEmailInit() {
+    return onlinePost('/useremail/bingemailini', {});
+  }
+
+  /**
+   * 更换绑定邮箱
+   * @required email string 原绑定邮箱
+   * @required code string 邮箱验证码
+   **/
+  static getEmailUpdateCode(options) {
+    return onlinePost('/useremail/updatebing', options);
+  }
+
+  /**
+   * 绑定邮箱
+   * @required email string 原绑定邮箱
+   * @required code string 邮箱验证码
+   * updatecode string 绑定邮箱校验码
+   **/
+  static bindEmail(options) {
+    return onlinePost('/useremail/bingemail', options);
   }
 
   /**
@@ -140,42 +177,6 @@ class UserApi {
    **/
   static getUserList(options) {
     return onlinePost('/user/getuserlist', options);
-  }
-
-  /**
-   * 获取个人详细信息
-   *
-   * @required openId string
-   **/
-  static getMyInfo(options) {
-    return onlinePost('/user/myinfo', options);
-  }
-
-  /**
-   * 获取我的钱包地址
-   *
-   * @required openId string
-   * @required type string 钱包类型，默认usdt
-   **/
-  static getMyWallet(options) {
-    return onlinePost('/userasset/mywallet', options);
-  }
-
-  /**
-   * 我的推广 （我的等级）
-   * @required openId 用户openid
-   * @required page 页码
-   **/
-  static getRecommendList(options) {
-    return onlinePost('/user/recommendlist', options);
-  }
-
-  /**
-   * 用户资产列表
-   * @required openId 用户openid
-   **/
-  static getUserAssets(params) {
-    return onlinePost('/userasset/assets', { params });
   }
 }
 

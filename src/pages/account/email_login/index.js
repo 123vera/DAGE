@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, Component } from 'react';
 import { Icons } from '../../../assets';
 import styles from './index.less';
 import { formatMessage } from 'umi-plugin-locale';
@@ -6,8 +6,34 @@ import { Toast } from 'antd-mobile';
 import { router } from 'umi';
 import SelectLang from '../../../components/common/SelectLang';
 import { REG } from '../../../utils/constants';
+import UserApi from '../../../services/api/user';
+import Cookies from 'js-cookie';
+import { connect } from 'dva';
 
-function EmailLogin() {
+@connect(({ login }) => ({ login }))
+class Index extends Component {
+  login = data => {
+    const { accountToken, userList } = data;
+    this.props.dispatch({
+      type: 'login/UpdateState',
+      payload: { accountToken, userList },
+    });
+    Cookies.set('ACCOUNT_TOKEN', accountToken);
+    router.push('/account/select-account');
+  };
+
+  render() {
+    return (
+      <div>
+        <EmailLogin login={this.login} />
+      </div>
+    );
+  }
+}
+
+export default Index;
+
+function EmailLogin(props) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -29,7 +55,12 @@ function EmailLogin() {
       return Toast.info(formatMessage({ id: `LOGIN_ERR_PASSWORD` }));
     }
 
-    // TODO 邮箱登录
+    UserApi.emailLogin({ email, password }).then(res => {
+      if (res.status !== 1) {
+        return Toast.fail(res.msg);
+      }
+      props.login(res.data);
+    });
   };
 
   return (
@@ -81,5 +112,3 @@ function EmailLogin() {
     </div>
   );
 }
-
-export default EmailLogin;

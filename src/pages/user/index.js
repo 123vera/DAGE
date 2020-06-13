@@ -14,12 +14,23 @@ import DAGE_LOGO from '../../assets/dark/dage-logo.png';
 import styles from './index.less';
 import { formatMessage } from 'umi/locale';
 import { Icons } from '../../assets';
+import UserApi from '../../services/api/user';
 
-@connect(({ globalModel, userCenter }) => ({ globalModel, userCenter }))
+@connect(({ globalModel }) => ({ globalModel }))
 class Home extends Component {
   state = {
     isEnabled: false,
+    hasBindEmail: false,
+    email: '',
   };
+
+  componentDidMount() {
+    UserApi.bingEmailInit().then(res => {
+      if (res.status === 1) {
+        this.setState({ email: res.data.email });
+      }
+    });
+  }
 
   onCopyLink = (text, result) => {
     Toast.info(formatMessage({ id: `USER_COPIED` }));
@@ -45,13 +56,16 @@ class Home extends Component {
   };
 
   render() {
+    const { email } = this.state;
     const { myInfo } = this.props.globalModel;
-    // TODO 判断该用户是否绑定邮箱
+    const hasBindEmail = !!email;
     const listContent = [
       {
         icon: Icons.userChain,
-        text: myInfo.bindEmail ? '更换绑定邮箱' : '绑定邮箱',
-        url: `/user/bind-email?bind=${myInfo.bindEmail ? 1 : 0}`,
+        text: hasBindEmail
+          ? formatMessage({ id: `BIND_EMAIL_TITLE_02` })
+          : formatMessage({ id: `BIND_EMAIL_TITLE_01` }),
+        url: `/user/${hasBindEmail ? 'update' : 'bind'}-email?email=${email || ''}`,
       },
       {
         icon: MY_LEVEL,
@@ -70,7 +84,7 @@ class Home extends Component {
       },
       {
         icon: Icons.userDownload,
-        text: ' 下载中心',
+        text: formatMessage({ id: 'DOWNLOAD_CENTER' }),
         url: '/user/download',
       },
       {
@@ -109,10 +123,10 @@ class Home extends Component {
         />
 
         <div className={styles.banner}>
-          <img className={styles.bg} src={HOME_BG} alt=""/>
-          <img className={styles.bg1} src={DAGE_LOGO} alt=""/>
+          <img className={styles.bg} src={HOME_BG} alt="" />
+          <img className={styles.bg1} src={DAGE_LOGO} alt="" />
           <div className={styles.center}>
-            <img className={styles.icon} src={BG_ICON} alt=""/>
+            <img className={styles.icon} src={BG_ICON} alt="" />
             <p>DID：{(myInfo && myInfo.userName) || '--'}</p>
             <CopyToClipboard
               key={new Date().toString()}
@@ -125,7 +139,7 @@ class Home extends Component {
               </span>
             </CopyToClipboard>
           </div>
-          <img className={styles.status} src={STATUS_BG} alt=""/>
+          <img className={styles.status} src={STATUS_BG} alt="" />
           <p className={styles.statusText}>
             <span style={{ opacity: 0.5 }}>
               {myInfo && myInfo.teamLevel === 0 ? `VIP 0` : `VIP ${myInfo.teamLevel}`}
@@ -135,9 +149,9 @@ class Home extends Component {
         <ul className={styles.list}>
           {listContent.map((item, key) => (
             <li key={key} onClick={() => this.toSwitchLang(item.url)}>
-              <img className={styles.icon} src={item.icon} alt=""/>
+              <img className={styles.icon} src={item.icon} alt="" />
               <span>{item.text}</span>
-              <img className={styles.right} src={Icons.arrowRight} alt=""/>
+              <img className={styles.right} src={Icons.arrowRight} alt="" />
             </li>
           ))}
         </ul>

@@ -1,4 +1,4 @@
-import UserApi from '../../../services/api/user';
+import UserCenterApi from '../../../services/api/user_center';
 
 export default {
   namespace: 'promotion',
@@ -22,7 +22,7 @@ export default {
   effects: {
     *GetRecommendList(_, { call, select, put }) {
       const { page, list } = yield select(state => state.promotion);
-      const res = yield call(UserApi.getRecommendList, { page });
+      const res = yield call(UserCenterApi.getRecommendList, { page });
       if (res && res.status === 1) {
         const {
           mystatus,

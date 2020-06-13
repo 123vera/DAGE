@@ -54,6 +54,34 @@ class HomeApi {
     //   data,
     // });
   }
+
+  /**
+   * 人民币充值初始化
+   * @required type string 币种(可不传)
+   * @required openId string 用户openid
+   **/
+  static getRmbIni(options) {
+    return onlinePost('/otc/rmbdepositini', options);
+  }
+
+  /**
+   * 人民币充值（支付宝｜银行卡）
+   * @required num string 人民币数量
+   * @required openId string 用户openid
+   * @required paytype string 支付类型 bank：银行卡 不传默认支付宝
+   **/
+  static rmbRecharge(options) {
+    return onlinePost('/otc/rmbdeposit', options);
+  }
+
+  /**
+   * 人民币充值记录
+   * @required num string 人民币数量
+   * @required openId string 用户openid
+   **/
+  static rmbRechargeRecord(options) {
+    return onlinePost('/otc/rmbdepositlist', options);
+  }
 }
 
 export default HomeApi;

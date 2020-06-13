@@ -66,6 +66,7 @@ export default [
       { path: '/user/alipay/reject', component: './user/alipay/reject' }, // 审核拒绝
 
       { path: '/user/bind-email', component: './user/bind_email' }, // 绑定邮箱
+      { path: '/user/update-email', component: './user/bind_email' }, // 更换绑定邮箱
       { path: '/user/download', component: './user/download' }, // 下载中心
     ],
   },

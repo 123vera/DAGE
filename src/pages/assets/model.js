@@ -1,4 +1,4 @@
-import { UserApi, GameApi } from '../../services/api';
+import { UserCenterApi, GameApi } from '../../services/api';
 
 export default {
   namespace: 'assetsHome',
@@ -27,7 +27,7 @@ export default {
 
         yield put({ type: 'UpdateState', payload: { gameAssets } });
       }
-      const userRes = yield call(UserApi.getUserAssets);
+      const userRes = yield call(UserCenterApi.getUserAssets);
       if (userRes.status === 1) {
         const total =
           userRes.data &&

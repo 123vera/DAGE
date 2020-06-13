@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { formatMessage } from 'umi/locale';
+import { formatMessage, getLocale } from 'umi/locale';
 import PageHeader from '../../../../components/common/PageHeader';
 import styles from './index.less';
 import { Icons } from '../../../../assets';
@@ -20,8 +20,8 @@ class QrCodeBox extends Component {
     return (
       <div className={styles.qrCodeBox}>
         {/* <QRCode className={styles.qrCode} size={250} value={value || ''} /> */}
-        <br/>
-        <img src={value} alt=""/>
+        <br />
+        <img src={value} alt="" />
         {/* <img src={url} alt="" /> */}
       </div>
     );
@@ -52,7 +52,9 @@ class Index extends Component {
   getDisplayTime = time => {
     const minute = Math.floor(time / 60);
     const second = time % 60;
-    return `${this.addZero(minute)}分${this.addZero(second)}秒`;
+    return `${this.addZero(minute)}${getLocale() === 'ch-CN' ? '分' : ' min'}${this.addZero(
+      second,
+    )}${getLocale() === 'ch-CN' ? '秒' : ' second'}`;
   };
 
   render() {
@@ -70,13 +72,13 @@ class Index extends Component {
 
         <section className={styles.top}>
           <p>￥{num}</p>
-          <QrCodeBox key={payImg} value={payImg}/>
+          <QrCodeBox key={payImg} value={payImg} />
           <small>
             {formatMessage({ id: `DGT_ALIPAY_DEALLINE` })}
             <span>{this.getDisplayTime(endTime)}</span>
           </small>
           <ul>
-            <li dangerouslySetInnerHTML={{ __html: formatMessage({ id: `DGT_ALIPAY_TIPS_01` }) }}/>
+            <li dangerouslySetInnerHTML={{ __html: formatMessage({ id: `DGT_ALIPAY_TIPS_01` }) }} />
             <li>{formatMessage({ id: `DGT_ALIPAY_TIPS_02` })}</li>
             <li>{formatMessage({ id: `DGT_ALIPAY_TIPS_03` })}</li>
           </ul>

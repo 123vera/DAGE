@@ -1,4 +1,4 @@
-import AssetApi from '../../../../services/api/asset';
+import { HomeApi } from '../../../../services/api';
 
 export default {
   namespace: 'cnyRecharge',
@@ -14,8 +14,8 @@ export default {
     },
   },
   effects: {
-    *GetRmbIni({ payload }, { call, put }) {
-      const res = yield call(AssetApi.getRmbIni, payload);
+    * GetRmbIni({ payload }, { call, put }) {
+      const res = yield call(HomeApi.getRmbIni, payload);
       if (res.status === 1) {
         const { recommendnum, ratio, MIN, MAX } = res.data;
         const amountOptions = (recommendnum && recommendnum.split(',')) || [];
@@ -31,9 +31,9 @@ export default {
         });
       }
     },
-    *RmbRecharge(_, { call, select }) {
+    * RmbRecharge({ payload = {} }, { call, select }) {
       const { amount } = yield select(state => state.cnyRecharge);
-      return yield call(AssetApi.rmbRecharge, { num: amount });
+      return yield call(HomeApi.rmbRecharge, { num: amount, paytype: payload.payType || '' });
     },
   },
 };

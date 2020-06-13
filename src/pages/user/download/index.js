@@ -4,6 +4,7 @@ import { Icons } from '../../../assets';
 import styles from './index.less';
 import { UserCenterApi } from '../../../services/api';
 import ListView from '../../../components/common/ListView';
+import { formatMessage } from 'umi-plugin-locale';
 
 function Download() {
   const row = 10;
@@ -11,8 +12,7 @@ function Download() {
   const [hasMore, setHasMore] = useState(true);
   const [list, setList] = useState([]);
 
-  const getMessages = (callback) => {
-    // TODO 接口未接
+  const getDownloadList = callback => {
     UserCenterApi.getDownloadList({ page, row }).then(res => {
       callback && callback();
       if (res.status === 1) {
@@ -27,26 +27,28 @@ function Download() {
   };
 
   useEffect(() => {
-    getMessages();
+    getDownloadList();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return <div className={styles.download}>
-    <Header
-      icon={Icons.arrowLeft}
-      title="下载中心"
-    />
-    <ListView hasMore={hasMore} onLoadMore={getMessages}>
-      <ul>
-        {list.length > 0 && list.map(i =>
-          <li key={i.id}>
-            <p>{i.title}</p>
-            <button>下载</button>
-          </li>,
-        )}
-      </ul>
-    </ListView>
-  </div>;
+  return (
+    <div className={styles.download}>
+      <Header icon={Icons.arrowLeft} title={formatMessage({ id: 'DOWNLOAD_CENTER' })} />
+      <ListView hasMore={hasMore} onLoadMore={getDownloadList}>
+        <ul>
+          {list.length > 0 &&
+            list.map(i => (
+              <li key={i.id}>
+                <p>{i.title}</p>
+                <a href={i.downloadUrl}>
+                  <button>{formatMessage({ id: `DOWNLOAD_NAME` })}</button>
+                </a>
+              </li>
+            ))}
+        </ul>
+      </ListView>
+    </div>
+  );
 }
 
 export default Download;

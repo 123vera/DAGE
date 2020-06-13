@@ -138,39 +138,6 @@ class AssetApi {
     //   data: { list, pageCount: 30 },
     // }), 500));
   }
-
-  /**
-   * 人民币充值初始化
-   *
-   * @required type string 币种(可不传)
-   * @required openId string 用户openid
-   *
-   **/
-  static getRmbIni(options) {
-    return onlinePost('/otc/rmbdepositini', options);
-  }
-
-  /**
-   * 人民币充值
-   *
-   * @required num string 人民币数量
-   * @required openId string 用户openid
-   *
-   **/
-  static rmbRecharge(options) {
-    return onlinePost('/otc/rmbdeposit', options);
-  }
-
-  /**
-   * 人民币充值
-   *
-   * @required num string 人民币数量
-   * @required openId string 用户openid
-   *
-   **/
-  static rmbRechargeRecord(options) {
-    return onlinePost('/otc/rmbdepositlist', options);
-  }
 }
 
 export default AssetApi;

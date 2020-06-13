@@ -12,6 +12,9 @@
     padding: 30px 20px;
     border-radius: 10px;
     background: #1a212e;
+  }
+
+  .bankInfo {
 
     h3 {
       padding: 10px 0 30px;
@@ -27,7 +30,7 @@
         margin-right: 15px;
       }
 
-      p {
+      .line {
         position: relative;
         flex: 1;
         .overflow(1);
@@ -91,6 +94,30 @@
           background: #565f71;
           border-radius: 4px;
         }
+      }
+    }
+  }
+
+  aside {
+    color: @theme-color-blue;
+
+    li {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 10px 0;
+
+      span {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 30px;
+        height: 30px;
+        margin-right: 20px;
+        font-size: 20px;
+        border-radius: 50%;
+        background: @theme-color-blue;
+        color: #fff;
       }
     }
   }

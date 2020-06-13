@@ -1,4 +1,4 @@
-import AssetApi from '../../../services/api/asset';
+import {HomeApi} from '../../../services/api';
 
 export default {
   namespace: 'fabiRecord',
@@ -16,8 +16,8 @@ export default {
   },
   effects: {
     *RmbRechargeRecord(_, { call, select, put }) {
-      const { type, page, row, list } = yield select(state => state.fabiRecord);
-      const res = yield call(AssetApi.rmbRechargeRecord, {  page, row });
+      const { page, row, list } = yield select(state => state.fabiRecord);
+      const res = yield call(HomeApi.rmbRechargeRecord, {  page, row });
       if (res.status === 1) {
         list.push(...res.data);
         yield put({
