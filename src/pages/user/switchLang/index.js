@@ -38,7 +38,9 @@ class Index extends Component {
         <ul className={styles.list}>
           {LANG.map((item, key) => (
             <li key={key} onClick={() => this.toSetLang(item, key)}>
-              <span>{formatMessage({ id: `LANG_${item.toUpperCase().replace('-', '_')}` })}</span>
+              <span>
+                {item && formatMessage({ id: `LANG_${item.toUpperCase().replace('-', '_')}` })}
+              </span>
               <img src={activeKey === key ? CHECKED : UNCHECKED} alt="" />
             </li>
           ))}
